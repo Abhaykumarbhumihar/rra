@@ -15,7 +15,7 @@ class CommonBackground {
    return Row(
       children: <Widget>[
         Padding(
-          padding:  EdgeInsets.only(left: context.screenWidth*0.03,top: 10),
+          padding:  EdgeInsets.only(top: 10),
           child: AssetImageWidget(),
         )
       ],

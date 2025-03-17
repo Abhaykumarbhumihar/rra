@@ -16,6 +16,7 @@ class CustomTextInputMobile extends StatefulWidget {
   final suffixIcon;
   final prefixIcon;
   final isDOllar;
+  final isShowTitle;
   final TextInputAction;
   final keyBoardType;
   final onFieldSubmitted;
@@ -47,6 +48,7 @@ class CustomTextInputMobile extends StatefulWidget {
     this.focusNode,
     this.inputFormatters,
     this.isDOllar = false,
+    this.isShowTitle = false,
     this.isServerError = false,
     this.isFocus = false,
     this.readOnly,
@@ -91,21 +93,21 @@ class _CustomTextInputMobileState extends State<CustomTextInputMobile> {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        // Padding(
-        //   padding: EdgeInsets.only(left: width * 0.015, bottom: 4.0),
-        //   child: Text(
-        //     widget.title,
-        //     style: TextStyle(
-        //       color: Colors.black,
-        //       fontFamily: AppFont.interBold,
-        //       fontSize: width * 0.040,
-        //     ),
-        //   ),
-        // ),
+        widget.isShowTitle?Padding(
+          padding: EdgeInsets.only(left: width * 0.015, bottom: 4.0),
+          child: Text(
+            widget.title,
+            style: TextStyle(
+              color: AppColor.appWhiteColor,
+              fontFamily: AppFont.interRegular,
+              fontSize: width * 0.032,
+            ),
+          ),
+        ):SizedBox.shrink(),
         Container(
           // width: double.infinity,
           //duration: const Duration(seconds: 3),
-
+height: context.screenHeight*0.0625,
           decoration: BoxDecoration(
             // color:
             //     widget.errorMessage != null && widget.errorMessage!.isNotEmpty
@@ -168,8 +170,8 @@ class _CustomTextInputMobileState extends State<CustomTextInputMobile> {
               counter: SizedBox(),
               contentPadding: EdgeInsets.only(
                 left: width * 0.06,
-                top: width * 0.03,
-                bottom: width * 0.04,
+                top: width * 0.02,
+                bottom: width * 0.02,
                 right: width * 0.04,
               ),
               suffixIcon: widget.isSuffix == true
@@ -194,9 +196,9 @@ class _CustomTextInputMobileState extends State<CustomTextInputMobile> {
               fillColor: AppColor.appWhiteColor.withOpacity(0.01),
               hintText: widget.hint ?? widget.title,
               hintStyle: TextStyle(
-                color: AppColor.appWhiteColor,
-                fontFamily: AppFont.interMediumItalic,
-                fontSize: width * 0.034,
+                color: AppColor.appWhiteColor.withOpacity(0.7),
+                fontSize: width * 0.032,
+                fontFamily: AppFont.interRegular,
               ),
 
               focusedErrorBorder: OutlineInputBorder(),
@@ -205,24 +207,25 @@ class _CustomTextInputMobileState extends State<CustomTextInputMobile> {
                     ? BorderRadius.circular(width * 0.4)
                     : BorderRadius.circular(12.0),
                 borderSide: BorderSide(
-                  width: 1.0,
+                  width: 1.5,
                   color: widget.errorMessage != null &&
                           widget.errorMessage!.isNotEmpty
-                      ? Colors.white
-                      : AppColor.appWhiteColor,
+                      ?AppColor.appWhiteColor.withOpacity(0.2)
+                      : AppColor.appWhiteColor.withOpacity(0.2),
                 ),
               ),
               enabledBorder: OutlineInputBorder(
                 borderRadius: widget.minLine == 1 && widget.maxLines == 1
                     ? BorderRadius.circular(width * 0.4)
                     : BorderRadius.circular(12.0),
-                borderSide: BorderSide(width: 0, color: Colors.white),
+                borderSide: BorderSide(width: 1.2, color:AppColor.appWhiteColor.withOpacity(0.2),),
               ),
             ),
             style: TextStyle(
-              color: Colors.white,
-              fontSize: width * 0.039,
-              fontFamily: 'Poppins Regular',
+
+              color: AppColor.appWhiteColor.withOpacity(0.7),
+              fontSize: width * 0.032,
+                fontFamily: AppFont.interRegular,
             ),
           ),
         ),

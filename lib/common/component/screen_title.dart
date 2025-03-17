@@ -12,9 +12,9 @@ class ScreenTitle extends StatelessWidget {
       // textScaleFactor:  MediaQuery.of(context).textScaleFactor,
       title, textAlign: TextAlign.center,
       style: TextStyle(
-        color: AppColor.appBlack,
-        fontFamily: AppFont.interBold,
-        fontSize: width * 0.050,
+        color: AppColor.appWhiteColor,
+        fontFamily: AppFont.interMedium,
+        fontSize: width * 0.064,
       ),
     );
   }

@@ -55,12 +55,13 @@ class LoginScreen extends StatelessWidget {
                           child: Column(
                             children: [
                               const ScreenTitle(
-                                title: "Welcome back",
+                                title: "Sign In",
                               ),
+                              SizedBox(height: height * 0.01),
                               const ScreenSubTitle(
-                                subtitle: "Login into your account",
+                                subtitle: "Hi! Welcome back, you’ve been missed",
                               ),
-                              SizedBox(height: height * 0.06),
+                              SizedBox(height: height * 0.065),
                               CustomTextInputMobile(
                                   controller: emailController,
                                   title: "Email",
@@ -68,10 +69,11 @@ class LoginScreen extends StatelessWidget {
                                   isSuffix: false,
                                   isPrefix: true,
                                   hint: 'Enter your email',
-                                  prefixIcon: const Icon(
-                                    CupertinoIcons.envelope_fill,
-                                    size: 24,
-                                    color: AppColor.appgreycolor,
+                                  prefixIcon:  Image.asset(
+                                    'assets/images/email.png',
+                                    width: 12,
+                                    height: 12,
+                                    color: AppColor.appWhiteColor,
                                   ),
                                   focusNode: emailFocusNode,
                                   isServerError: state.isLoginApiError,
@@ -89,19 +91,20 @@ class LoginScreen extends StatelessWidget {
                                         .add(LoginEmailChanged(value));
                                   }),
                               const SizedBox(
-                                height: 16,
+                                height: 12,
                               ),
                               CustomTextInputMobile(
                                 isPrefix: false,
                                 controller: passwordController,
                                 title: "Password",
                                 isPass: true,
-                                isSuffix: true,
+                                isSuffix: false,
                                 hint: 'Enter your password',
-                                prefixIcon: const Icon(
-                                  CupertinoIcons.envelope_fill,
-                                  size: 24,
-                                  color: AppColor.appgreycolor,
+                                prefixIcon:  Image.asset(
+                                  'assets/images/lock.png',
+                                  width: 12,
+                                  height: 12,
+                                  color: AppColor.appWhiteColor,
                                 ),
                                 focusNode: passwordFocusNode,
                                 isServerError: state.isLoginApiError,
@@ -135,7 +138,7 @@ class LoginScreen extends StatelessWidget {
 
                               // Login Button
                               CustomButton(
-                                text: "Login",
+                                text: "Sign In",
                                 onPressed: () async {
                                   Navigator.pushNamed(
                                       context, AppRoutes.CREATEACCOUNT);
@@ -143,7 +146,7 @@ class LoginScreen extends StatelessWidget {
                               ),
 
                               SizedBox(
-                                height: context.screenHeight * 0.05,
+                                height: context.screenHeight * 0.04,
                               ),
                               SignupSigninRichtext(
                                 nonActionText: 'Don’t have an account?',

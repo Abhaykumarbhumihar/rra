@@ -12,9 +12,27 @@ class ScreenSubTitle extends StatelessWidget {
       subtitle,
       textAlign: TextAlign.center,
       style: TextStyle(
-        color:AppColor.appgreycolor,
-        fontFamily: AppFont.interBlack,
-        fontSize: width * 0.036,
+        color:AppColor.appWhiteColor.withOpacity(0.5),
+        fontFamily: AppFont.interRegular,
+        fontSize: width * 0.032,
+      ),
+    );
+  }
+}
+class ScreenSubTitleAppColor extends StatelessWidget {
+  final String subtitle;
+  const ScreenSubTitleAppColor({super.key,required this.subtitle});
+
+  @override
+  Widget build(BuildContext context) {
+    var width = context.screenWidth;
+    return Text(
+      subtitle,
+      textAlign: TextAlign.center,
+      style: TextStyle(
+        color:AppColor.appButtonColor,
+        fontFamily: AppFont.interRegular,
+        fontSize: width * 0.032,
       ),
     );
   }

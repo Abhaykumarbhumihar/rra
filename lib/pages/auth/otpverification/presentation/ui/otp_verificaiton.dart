@@ -19,6 +19,7 @@ import '../../../../../common/local/SharedPrefs.dart';
 import '../../../../../common/routes/routes.dart';
 import '../../../../../common/values/utils.dart';
 import '../../../createaccount/data/enitiy/create_user_model.dart';
+import '../../../login/presentation/ui/component/forgot_text.dart';
 import '../bloc/otpverification_bloc.dart';
 import '../bloc/otpverification_state.dart';
 
@@ -146,19 +147,26 @@ class OtpVerificaiton extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.start,
                       crossAxisAlignment: CrossAxisAlignment.stretch,
                       children: [
-                        CommonBackground.BackButtonImage(context),
+                        Padding(  padding: const EdgeInsets.symmetric(
+                        horizontal: Checkbox.width),
+                        child: CommonBackground.BackButtonImage(context),),
+
                         SizedBox(
                           height: height * 0.038,
                         ),
                         const ScreenTitle(
-                          title: "OTP Verification",
+                          title: "Verify Code",
                         ),
                         SizedBox(
                           height: 6.0,
                         ),
                         ScreenSubTitle(
                           subtitle:
-                              "Enter the 4 digit OTP sent on your email\naddress ${arguments?['email']}",
+                              "Please enter the code we just sent to email",
+                        ),
+                        ScreenSubTitleAppColor(
+                          subtitle:
+                          " example@email.com",/*${arguments?['email']}*/
                         ),
                         SizedBox(
                           height: height * 0.05,
@@ -189,18 +197,19 @@ class OtpVerificaiton extends StatelessWidget {
                             obscuringCharacter: "*",
                             pinTheme: PinTheme(
                               shape: PinCodeFieldShape.box,
-                              borderRadius: BorderRadius.circular(25),
-                              fieldHeight: context.screenHeight * 0.06,
-                              fieldWidth: context.screenWidth * 0.12,
-                              inactiveFillColor: Colors.white,
+                              borderRadius: BorderRadius.circular(15,),
+                              borderWidth: 1.5,
+                              fieldHeight: context.screenHeight * 0.05,
+                              fieldWidth: context.screenWidth * 0.15,
+                              inactiveFillColor:AppColor.appWhiteColor.withOpacity(0.013),
                               // Empty field
-                              activeFillColor: Colors.transparent,
+                              activeFillColor: AppColor.appWhiteColor.withOpacity(0.013),
                               // Filled field
-                              selectedFillColor: Colors.white,
+                              selectedFillColor: AppColor.appWhiteColor.withOpacity(0.013),
                               // Currently selected field
-                              activeColor: Colors.transparent,
-                              inactiveColor: Colors.transparent,
-                              selectedColor: Colors.transparent,
+                              activeColor: AppColor.appWhiteColor.withOpacity(0.013),
+                              inactiveColor:AppColor.appWhiteColor.withOpacity(0.013),
+                              selectedColor: AppColor.appWhiteColor.withOpacity(0.013),
                             ),
 
                             hintCharacter: '*',
@@ -231,12 +240,26 @@ class OtpVerificaiton extends StatelessWidget {
                             },
                           ),
                         ),
-                        SizedBox(height: height * 0.04),
+                        SizedBox(
+                          height: height * 0.02,
+                        ),                    Text(
+                      "Didn’t receive OTP?",
+                      textAlign: TextAlign.center,
+                      style: TextStyle(
+                        color:AppColor.appWhiteColor,
+                        fontFamily: AppFont.interRegular,
+                        fontSize: width * 0.036,
+                      ),
+                    ),
+                        ResendOtp(),
+                        SizedBox(
+                          height: height * 0.05,
+                        ),
                         Padding(
                           padding: const EdgeInsets.symmetric(
                               horizontal: Checkbox.width),
                           child: CustomButton(
-                            text: "Verify & Continue",
+                            text: "Verify",
                             onPressed: () async {
                               Navigator.pushNamed(
                                   context, AppRoutes.RESETPASSWORD);
@@ -253,47 +276,7 @@ class OtpVerificaiton extends StatelessWidget {
                           ),
                         ),
                         SizedBox(height: height * 0.03),
-                        Center(
-                          child: Padding(
-                            padding: const EdgeInsets.only(left: 12.0),
-                            child: RichText(
-                              textAlign: TextAlign.center,
-                              textScaleFactor:
-                                  MediaQuery.of(context).textScaleFactor,
-                              text: TextSpan(
-                                text: 'Didn’t receive code?',
-                                style: TextStyle(
-                                    color: AppColor.appgreycolor,
-                                    fontSize: context.screenWidth * 0.038,
-                                    fontFamily: AppFont.interBold,
-                                    decorationColor: Colors.black),
-                                children: <TextSpan>[
-                                  TextSpan(
-                                    text: " " + 'Resend OTP',
-                                    style: TextStyle(
-                                        color: AppColor.appBlack,
-                                        fontSize: context.screenWidth * 0.040,
-                                        fontFamily: AppFont.interBold),
-                                    recognizer: TapGestureRecognizer()
-                                      ..onTap = () {
-                                        otpController.clear();
 
-                                        BlocProvider.of<OtpverificationBloc>(
-                                                context)
-                                            .add(
-                                          OtpChange(''),
-                                        );
-
-                                        context.read<OtpverificationBloc>().add(
-                                            ResendOtpSubmit(
-                                                "${arguments?['email']}"));
-                                      },
-                                  ),
-                                ],
-                              ),
-                            ),
-                          ),
-                        )
                       ],
                     ),
                   ),
@@ -306,91 +289,5 @@ class OtpVerificaiton extends StatelessWidget {
     );
   }
 
-  Future<Map<String, dynamic>?> fetchUserLocation(BuildContext context) async {
-    print("Fetching user's location...");
-    bool serviceEnabled = await Geolocator.isLocationServiceEnabled();
 
-    if (!serviceEnabled) {
-      print('Location services are disabled.');
-      Geolocator.openLocationSettings();
-      return null;
-    }
-
-    LocationPermission permission = await Geolocator.checkPermission();
-    if (permission == LocationPermission.denied) {
-      permission = await Geolocator.requestPermission();
-      if (permission == LocationPermission.denied) {
-        print('Location permissions are denied.');
-        CameraFileUtility.showPermissionDeniedDialog(context, "Location");
-        return null;
-      }
-    }
-
-    if (permission == LocationPermission.deniedForever) {
-      print('Location permissions are permanently denied.');
-      CameraFileUtility.showPermissionDeniedDialog(context, "Location");
-      return null;
-    }
-
-    try {
-      Position? position = await Geolocator.getLastKnownPosition();
-
-      if (position == null) {
-        position = await Geolocator.getCurrentPosition(
-            desiredAccuracy: LocationAccuracy.bestForNavigation);
-      }
-
-      // Fetch address with timeout
-      String? address = await getAddressFromLatLng(
-          context, position.latitude, position.longitude);
-
-      if (address != null) {
-        return {
-          'lat': position.latitude,
-          'lng': position.longitude,
-          'address': address,
-        };
-      } else {
-        print("Address not found, returning coordinates only");
-        return {
-          'lat': position.latitude,
-          'lng': position.longitude,
-          'address': 'Coordinates: ${position.latitude}, ${position.longitude}',
-        };
-      }
-    } catch (e) {
-      print('Error fetching location: $e');
-      return null;
-    }
-  }
-
-  Future<String?> getAddressFromLatLng(
-      BuildContext context, double lat, double lng) async {
-    print("Fetching address for coordinates: $lat, $lng");
-
-    String _host = 'https://maps.google.com/maps/api/geocode/json';
-    final url =
-        '$_host?key=AIzaSyAbcVfeiTr0sdz1M8eCYzNeUKqyU4XDMIc&language=en&latlng=$lat,$lng';
-
-    if (lat != null && lng != null) {
-      try {
-        var response = await http.get(Uri.parse(url));
-        if (response.statusCode == 200) {
-          Map data = jsonDecode(response.body);
-          String formattedAddress = data["results"][0]["formatted_address"];
-          print("Formatted address: $formattedAddress");
-          return formattedAddress;
-        } else {
-          print("Failed to fetch address. Status code: ${response.statusCode}");
-          return null;
-        }
-      } catch (e) {
-        print("Error fetching address: $e");
-        return null;
-      }
-    } else {
-      print("Invalid coordinates for address fetch");
-      return null;
-    }
-  }
 }

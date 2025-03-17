@@ -21,16 +21,17 @@ class SignupSigninRichtext extends StatelessWidget {
 
           style: TextStyle(
               color: AppColor.appWhiteColor,
-              fontSize: context.screenWidth * 0.038,
-              fontFamily: AppFont.interBold,
+              fontSize: context.screenWidth * 0.032,
+              fontFamily: AppFont.interRegular,
               decorationColor: Colors.black),
           children: <TextSpan>[
             TextSpan(
               text: " " + actionText,
               style: TextStyle(
-                  color: AppColor.appcolor,
-                  fontSize: context.screenWidth * 0.040,
-                  fontFamily: AppFont.interBold),
+                  color: AppColor.appButtonColor,
+                  fontSize: context.screenWidth * 0.032,
+                  fontFamily: AppFont.interRegular,
+                  decorationColor: Colors.black),
               recognizer: TapGestureRecognizer()..onTap = actionClick,
             ),
           ],

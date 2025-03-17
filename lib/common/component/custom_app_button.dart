@@ -38,10 +38,9 @@ class CustomButton extends StatelessWidget {
             text,
             textAlign: TextAlign.center,
             style: TextStyle(
-              fontSize: Platform.isAndroid? width * 0.048:width * 0.042,
+              fontSize: Platform.isAndroid? width *0.0426:width *0.0426,
               color: Colors.white,
-              fontFamily: AppFont.interBold,
-              fontWeight: FontWeight.bold,
+              fontFamily: AppFont.interMedium,
             ),
           ),
         ),

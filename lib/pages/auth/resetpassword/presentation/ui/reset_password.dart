@@ -64,6 +64,7 @@ class ResetPassword extends StatelessWidget {
                               horizontal: Checkbox.width),
                           child: Column(
                             children: [
+                              CommonBackground.BackButtonImage(context),
                               SizedBox(
                                 height: height * 0.038,
                               ),
@@ -72,15 +73,16 @@ class ResetPassword extends StatelessWidget {
                                 crossAxisAlignment: WrapCrossAlignment.center,
                                 children: <Widget>[
                                   const ScreenTitle(
-                                    title: "Reset  ",
-                                  ),
-                                  const ScreenTitle(
-                                    title: " password?",
+                                    title: "New Password",
                                   ),
                                 ],
                               ),
-                              const ScreenSubTitle(
-                                subtitle: "Enter your new password below",
+                              Padding(
+                                padding:  EdgeInsets.only(left: context.screenWidth*0.1,
+                                 right:context.screenWidth*0.1,top: 4 ),
+                                child: const ScreenSubTitle(
+                                  subtitle: "Your new password must be different from previously used password.",
+                                ),
                               ),
                               SizedBox(
                                 height: height * 0.04,
@@ -88,10 +90,16 @@ class ResetPassword extends StatelessWidget {
                               CustomTextInputMobile(
                                 isPrefix: false,
                                 controller: passwordController,
-                                title: "New password",
+                                title: "New Password",
                                 isPass: true,
                                 isSuffix: true,
-                                hint: 'Enter new password',
+                                prefixIcon:  Image.asset(
+                                  'assets/images/lock.png',
+                                  width: 12,
+                                  height: 12,
+                                  color: AppColor.appWhiteColor,
+                                ),
+                                hint: 'New Password',
                                 focusNode: passwordFocusNode,
                                 onChanged: (value) {
                                   context
@@ -106,15 +114,21 @@ class ResetPassword extends StatelessWidget {
                                     : null,
                               ),
                               SizedBox(
-                                height: 16,
+                                height: 12,
                               ),
                               CustomTextInputMobile(
                                 isPrefix: false,
+                                prefixIcon:  Image.asset(
+                                  'assets/images/lock.png',
+                                  width: 12,
+                                  height: 12,
+                                  color: AppColor.appWhiteColor,
+                                ),
                                 controller: confirmPasswordController,
-                                title: "Confirm password*",
+                                title: "Confirm New Password",
                                 isPass: true,
                                 isSuffix: true,
-                                hint: 'Confirm password*',
+                                hint: 'Confirm New Password',
                                 focusNode: confirmPasswordFocusNode,
                                 onChanged: (value) {
                                   context

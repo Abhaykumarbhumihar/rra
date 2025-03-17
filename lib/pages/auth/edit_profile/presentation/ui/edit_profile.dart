@@ -1,19 +1,12 @@
 import 'package:flutter/cupertino.dart';
 import 'package:rra/common/values/values_exports.dart';
 import 'package:rra/common/routes/exports.dart';
-
-
-
-
 import '../../../../../common/component/auth_text_field.dart';
-
 import '../../../../../common/component/common_background.dart';
 import '../../../../../common/component/custom_app_button.dart';
 import '../../../../../common/image/camera_file_utility.dart';
 import '../../../../../common/image/camera_gallery_dialog.dart';
 import '../../../../../common/local/SharedPrefs.dart';
-
-
 import '../bloc/editprofile_bloc.dart';
 import '../bloc/editprofile_state.dart';
 import 'component/edit_profile_appbar.dart';
@@ -96,18 +89,18 @@ class EditProfile extends StatelessWidget {
                         Padding(
                           padding: EdgeInsets.only(
                               left: context.screenWidth * 0.039,
-                              top: context.screenHeight * 0.03,
                               right: context.screenWidth * 0.050),
                           child: Column(
                             children: <Widget>[
 
                               CustomTextInputMobile(
                                 controller: firstNameController,
-                                title: "First name*",
+                                title: "Name",
+                                isShowTitle: true,
                                 isPass: false,
                                 isSuffix: false,
                                 isPrefix: false,
-                                hint: 'Enter your first name',
+                                hint: 'Enter your name',
                                 keyBoardType: TextInputType.name,
                                 focusNode: firstNameFocusNode,
                                 errorMessage: state.errorMessage ==
@@ -120,65 +113,14 @@ class EditProfile extends StatelessWidget {
                                 },
                               ),
                               const SizedBox(
-                                height: 16,
-                              ),
-                              CustomTextInputMobile(
-                                controller: lastNameController,
-                                title: "Last name*",
-                                isPass: false,
-                                isSuffix: false,
-                                isPrefix: false,
-                                hint: 'Enter your last name',
-                                keyBoardType: TextInputType.name,
-                                focusNode: lastnameFocusNode,
-                                errorMessage: state.errorMessage ==
-                                    'Please enter your last name'
-                                    ? state.errorMessage
-                                    : null,
-                                onChanged: (value) {
-                                  context
-                                      .read<EditprofileBloc>()
-                                      .add(EditProfileLastNameChangeEvent(value));
-                                },
-                              ),
-                              const SizedBox(
-                                height: 16,
-                              ),
-                              CustomTextInputMobile(
-                                controller: emailController,
-                                title: "Email",
-                                isPass: false,
-                                isSuffix: false,
-                                isPrefix: true,
-                                readOnly: true,
-                                keyBoardType: TextInputType.emailAddress,
-                                hint: 'Enter your email',
-                                prefixIcon: const Icon(
-                                  CupertinoIcons.envelope_fill,
-                                  size: 24,
-                                  color: AppColor.appgreycolor,
-                                ),
-                                focusNode: emailFocusNode,
-                                errorMessage: state.errorMessage ==
-                                    "Please enter your email" ||
-                                    state.errorMessage ==
-                                        "Please enter a valid email address"
-                                    ? state.errorMessage
-                                    : null,
-                                onChanged: (value) {
-                                  context
-                                      .read<EditprofileBloc>()
-                                      .add(EditProfileEmailChangeEvent(value));
-                                },
-                              ),
-                              const SizedBox(
-                                height: 16,
+                                height: 12,
                               ),
                               CustomTextInputMobile(
                                 controller: phoneNoController,
                                 title: "Phone number",
                                 isPass: false,
                                 isSuffix: false,
+                                isShowTitle: true,
                                 isPrefix: false,
                                 hint: 'Enter your phone number',
                                 keyBoardType: TextInputType.phone,
@@ -186,8 +128,8 @@ class EditProfile extends StatelessWidget {
                                 maxLength: 13,
                                 errorMessage:
 
-                                    state.errorMessage ==
-                                        "Phone number must be between 8 and 13 digits"
+                                state.errorMessage ==
+                                    "Phone number must be between 8 and 13 digits"
                                     ? state.errorMessage
                                     : null,
                                 onChanged: (value) {
@@ -196,11 +138,39 @@ class EditProfile extends StatelessWidget {
                                       .add(EditProfilePhoneNoChangeEvent(value));
                                 },
                               ),
+
+                              const SizedBox(
+                                height: 12,
+                              ),
+                              CustomTextInputMobile(
+                                controller: lastNameController,
+                                title: "Gender",
+                                isPass: false,
+                                isSuffix: false,
+                                isPrefix: false,
+                                isShowTitle: true,
+                                hint: 'select your gender',
+                                keyBoardType: TextInputType.name,
+                                focusNode: lastnameFocusNode,
+                                errorMessage: state.errorMessage ==
+                                    'Please enter your last name'
+                                    ? state.errorMessage
+                                    : null,
+                                onTap: (){
+
+                                },
+                                onChanged: (value) {
+                                  context
+                                      .read<EditprofileBloc>()
+                                      .add(EditProfileLastNameChangeEvent(value));
+                                },
+                              ),
+
                               const SizedBox(
                                 height: 16,
                               ),
                               CustomButton(
-                                text: "Save",
+                                text: "Complete Profile",
                                 onPressed: () {
                                   context
                                       .read<EditprofileBloc>()

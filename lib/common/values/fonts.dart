@@ -12,6 +12,7 @@ class AppFont {
   static String get interMedium => 'Inter-Medium';
 
   static String get interMediumItalic => "Inter-MediumItalic";
+  static String get interRegular => "Inter-Regular";
   static String get interSemiBold => "Inter-SemiBold";
   static String get interSemiBoldItalic => "Inter-SemiBoldItalic";
   static String get interThinBETA => "Inter-Thin-BETA";

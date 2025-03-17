@@ -129,14 +129,18 @@ print("${userdata?.data.firstName}"+"  "+"${userdata?.data.lastName}");
                                   crossAxisAlignment: WrapCrossAlignment.center,
                                   children: <Widget>[
                                     const ScreenTitle(
-                                      title: "Register for  ",
+                                      title: "Create Account",
                                     ),
 
 
                                   ],
                                 ),
-                                const ScreenSubTitle(
-                                  subtitle: "Create new account in underrated ",
+                                SizedBox(height: height * 0.01),
+                                Padding(
+                                  padding: const EdgeInsets.only(left: 8.0,right: 8.0),
+                                  child: const ScreenSubTitle(
+                                    subtitle: "Fill your information below or register with your social account",
+                                  ),
                                 ),
                                 SizedBox(height: height * 0.038),
                                 CustomTextInputMobile(
@@ -146,6 +150,12 @@ print("${userdata?.data.firstName}"+"  "+"${userdata?.data.lastName}");
                                   isSuffix: false,
                                   isPrefix: false,
                                   hint: 'First name',
+                                  prefixIcon:  Image.asset(
+                                    'assets/images/profile.png',
+                                    width: 12,
+                                    height: 12,
+                                    color: AppColor.appWhiteColor,
+                                  ),
                                   keyBoardType: TextInputType.name,
                                   focusNode: firstNameFocusNode,
                                   onChanged: (value) {
@@ -159,7 +169,7 @@ print("${userdata?.data.firstName}"+"  "+"${userdata?.data.lastName}");
                                       ? state.errorMessage
                                       : null,
                                 ),
-                                SizedBox(height: 16,),
+                                SizedBox(height: 12,),
                                 CustomTextInputMobile(
                                   controller: emailController,
                                   title: "Email",
@@ -168,10 +178,11 @@ print("${userdata?.data.firstName}"+"  "+"${userdata?.data.lastName}");
                                   isPrefix: true,
                                   keyBoardType: TextInputType.emailAddress,
                                   hint: 'Enter your email',
-                                  prefixIcon: const Icon(
-                                    CupertinoIcons.envelope_fill,
-                                    size: 24,
-                                    color: AppColor.appgreycolor,
+                                  prefixIcon:  Image.asset(
+                                    'assets/images/email.png',
+                                    width: 12,
+                                    height: 12,
+                                    color: AppColor.appWhiteColor,
                                   ),
                                   focusNode: emailFocusNode,
                                   onChanged: (value) {
@@ -187,13 +198,19 @@ print("${userdata?.data.firstName}"+"  "+"${userdata?.data.lastName}");
                                       ? state.errorMessage
                                       : null,
                                 ),
-                                SizedBox(height: 16,),
+                                SizedBox(height: 12,),
                                 CustomTextInputMobile(
                                   isPrefix: false,
                                   controller: passwordController,
                                   title: "Password",
                                   isPass: true,
-                                  isSuffix: true,
+                                  isSuffix: false,
+                                  prefixIcon:  Image.asset(
+                                    'assets/images/lock.png',
+                                    width: 12,
+                                    height: 12,
+                                    color: AppColor.appWhiteColor,
+                                  ),
                                   hint: 'Enter your password',
                                   focusNode: passwordFocusNode,
                                   onChanged: (value) {
@@ -212,7 +229,7 @@ print("${userdata?.data.firstName}"+"  "+"${userdata?.data.lastName}");
                                 SizedBox(height: height * 0.03),
                                 // Create Account Button
                                 CustomButton(
-                                  text: "Create account",
+                                  text: "Sign Up",
                                   onPressed: () async {
                                     // Emit CreateAccountSubmitted event
                                     print("code is running here");

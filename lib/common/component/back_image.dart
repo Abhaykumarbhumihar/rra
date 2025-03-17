@@ -10,8 +10,8 @@ class AssetImageWidget extends StatelessWidget {
       child: Center(
         child: Image.asset(
           "assets/images/back_icon.png",
-          width: 35,
-          height: 35,
+          width: 32,
+          height: 32,
           color: Colors.white,
         ),
       ),
