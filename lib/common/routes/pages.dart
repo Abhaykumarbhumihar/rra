@@ -25,6 +25,16 @@ class AppPages {
           route: AppRoutes.OTPVERIFICATION,
           page: OtpVerificaiton(),
           bloc: BlocProvider(create: (_) => OtpverificationBloc())),
+
+      PageEntitiy(
+          route: AppRoutes.RESETPASSWORD,
+          page: ResetPassword(),
+          bloc: BlocProvider(create: (_) => ResetpasswordBloc())),
+
+      PageEntitiy(
+          route: AppRoutes.EDITPROFILE,
+          page: EditProfile(),
+          bloc: BlocProvider(create: (_) => EditprofileBloc())),
     ];
   }
 

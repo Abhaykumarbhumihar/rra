@@ -238,15 +238,17 @@ class OtpVerificaiton extends StatelessWidget {
                           child: CustomButton(
                             text: "Verify & Continue",
                             onPressed: () async {
-                              if ((await Connectivity().isConnected)) {
-                                context
-                                    .read<OtpverificationBloc>()
-                                    .add(OtpSubmit("${arguments?['email']}"));
-                              } else {
-                                context.showCustomSnackbar(
-                                    'No internet connection. Please check your connection \nand try again.',
-                                    backgroundColor: AppColor.appcolor);
-                              }
+                              Navigator.pushNamed(
+                                  context, AppRoutes.RESETPASSWORD);
+                              // if ((await Connectivity().isConnected)) {
+                              //   context
+                              //       .read<OtpverificationBloc>()
+                              //       .add(OtpSubmit("${arguments?['email']}"));
+                              // } else {
+                              //   context.showCustomSnackbar(
+                              //       'No internet connection. Please check your connection \nand try again.',
+                              //       backgroundColor: AppColor.appcolor);
+                              // }
                             },
                           ),
                         ),
