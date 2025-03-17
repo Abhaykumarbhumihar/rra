@@ -102,9 +102,9 @@ class _CustomTextInputMobileState extends State<CustomTextInputMobile> {
         //     ),
         //   ),
         // ),
-        AnimatedContainer(
+        Container(
           // width: double.infinity,
-          duration: const Duration(seconds: 3),
+          //duration: const Duration(seconds: 3),
 
           decoration: BoxDecoration(
             // color:
@@ -121,7 +121,7 @@ class _CustomTextInputMobileState extends State<CustomTextInputMobile> {
                       color: widget.errorMessage != null &&
                               widget.errorMessage!.isNotEmpty
                           ? Colors.red.withOpacity(1.0)
-                          : AppColor.focustexfield.withOpacity(0.5),
+                          : AppColor.appWhiteColor.withOpacity(0.01),
                       // Default shadow color
                       spreadRadius: 0,
                       blurRadius: 3.0,
@@ -132,7 +132,7 @@ class _CustomTextInputMobileState extends State<CustomTextInputMobile> {
                         widget.errorMessage!.isNotEmpty)
                     ? [
                         BoxShadow(
-                          color: Colors.red.withOpacity(1.0),
+                          color: Colors.white.withOpacity(1.0),
                           // Red shadow if there's an error
                           spreadRadius: 0,
                           blurRadius: 2.0,
@@ -191,7 +191,7 @@ class _CustomTextInputMobileState extends State<CustomTextInputMobile> {
                       child: widget.prefixIcon)
                   : null,
               filled: true,
-              fillColor: Colors.transparent,
+              fillColor: AppColor.appWhiteColor.withOpacity(0.01),
               hintText: widget.hint ?? widget.title,
               hintStyle: TextStyle(
                 color: AppColor.appWhiteColor,
@@ -205,11 +205,11 @@ class _CustomTextInputMobileState extends State<CustomTextInputMobile> {
                     ? BorderRadius.circular(width * 0.4)
                     : BorderRadius.circular(12.0),
                 borderSide: BorderSide(
-                  width: 1.5,
+                  width: 1.0,
                   color: widget.errorMessage != null &&
                           widget.errorMessage!.isNotEmpty
-                      ? Colors.red.withOpacity(1.0)
-                      : AppColor.focustexfield.withOpacity(0.4),
+                      ? Colors.white
+                      : AppColor.appWhiteColor,
                 ),
               ),
               enabledBorder: OutlineInputBorder(
@@ -220,7 +220,7 @@ class _CustomTextInputMobileState extends State<CustomTextInputMobile> {
               ),
             ),
             style: TextStyle(
-              color: Colors.black,
+              color: Colors.white,
               fontSize: width * 0.039,
               fontFamily: 'Poppins Regular',
             ),

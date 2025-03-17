@@ -11,7 +11,7 @@ class ForgotPasswordText extends StatelessWidget {
         ),
         decoration: BoxDecoration(
             border: Border(bottom: BorderSide(
-              color: AppColor.appcolor,
+              color: AppColor.appButtonColor,
               width: 0.5, // Underline thickness
             ))
         ),
@@ -19,8 +19,8 @@ class ForgotPasswordText extends StatelessWidget {
           'Forgot password',
           style: TextStyle(
             fontSize: context.screenWidth * 0.040,
-            fontFamily: AppFont.interBold,
-            color: AppColor.appcolor,),
+            fontFamily: AppFont.interMedium,
+            color: AppColor.appButtonColor,),
         ),
       ),
     );
