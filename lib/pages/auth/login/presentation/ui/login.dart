@@ -98,6 +98,11 @@ class LoginScreen extends StatelessWidget {
                                 isPass: true,
                                 isSuffix: true,
                                 hint: 'Enter your password',
+                                prefixIcon: const Icon(
+                                  CupertinoIcons.envelope_fill,
+                                  size: 24,
+                                  color: AppColor.appgreycolor,
+                                ),
                                 focusNode: passwordFocusNode,
                                 isServerError: state.isLoginApiError,
                                 errorMessage: state.isLoginApiError
