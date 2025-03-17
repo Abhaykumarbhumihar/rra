@@ -9,9 +9,22 @@ class AppPages {
       PageEntitiy(
         route: AppRoutes.SPLASH,
         page: const SplashPage(),
-
+        bloc: BlocProvider(create: (_) => SplashBloc()..add(StartTimerEvent())),
       ),
+      PageEntitiy(
+          route: AppRoutes.LOGIN,
+          page: LoginScreen(),
+          bloc: BlocProvider(create: (_) => LoginBloc())),
 
+      PageEntitiy(
+          route: AppRoutes.CREATEACCOUNT,
+          page: CreateAccount(),
+          bloc: BlocProvider(create: (_) => CreateAccountBloc())),
+
+      PageEntitiy(
+          route: AppRoutes.OTPVERIFICATION,
+          page: OtpVerificaiton(),
+          bloc: BlocProvider(create: (_) => OtpverificationBloc())),
     ];
   }
 
@@ -44,7 +57,7 @@ class AppPages {
       }
     }
     // Default to LOGIN route if the route is invalid
-    return MaterialPageRoute(builder: (_) => SplashPage());
+    return MaterialPageRoute(builder: (_) => LoginScreen());
   }
 }
 

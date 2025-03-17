@@ -12,7 +12,7 @@ class AppColor {
   static const Color dottedBorderColor=Color(0xFF269B77);
   static const Color searchBorderColor=Color(0xFFA8CBC0);
   static const Color greyHome=Color(0xFF838383);
-
+  static const Color focustexfield = Color(0xFF056981);
   static const Color userNameColor=Color(0xFF0B4DA1);
   static const Color greyHomeColor=Color(0xFF343434);
   static const Color ll=Color(0xFF00895F);

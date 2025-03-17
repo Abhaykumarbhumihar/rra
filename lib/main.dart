@@ -4,13 +4,14 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'common/routes/exports.dart';
 import 'common/routes/pages.dart';
 import 'common/routes/routes.dart';
+import 'common/service_locator/setivelocator.dart';
 
 
 final GlobalKey<NavigatorState> navigatorKey = GlobalKey<NavigatorState>();
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-
+  serviceLocator();
   runApp(const MyApp());
 }
 
