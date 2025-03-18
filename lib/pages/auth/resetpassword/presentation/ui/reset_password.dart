@@ -26,7 +26,7 @@ class ResetPassword extends StatelessWidget {
         ModalRoute.of(context)?.settings.arguments as Map<String, dynamic>?;
 
     return Scaffold(
-      //  backgroundColor: AppColor.appBackGround,
+      backgroundColor: AppColor.gradientMidColor,
       body: BlocListener<ResetpasswordBloc, ResetPasswordState>(
         listener: (context, state) {
           if (state.isSuccess && state.resetPasswordModel.message != '') {
@@ -80,7 +80,7 @@ class ResetPassword extends StatelessWidget {
                               Padding(
                                 padding:  EdgeInsets.only(left: context.screenWidth*0.1,
                                  right:context.screenWidth*0.1,top: 4 ),
-                                child: const ScreenSubTitle(
+                                child:  ScreenSubTitle(
                                   subtitle: "Your new password must be different from previously used password.",
                                 ),
                               ),

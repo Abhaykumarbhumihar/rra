@@ -10,6 +10,10 @@ static const WELCOMEPAGE="/welcom_page";
   static const RESETPASSWORD="/reset_password";
   static const ADDPROFILEPHOTO="/add_profile_photo";
 
+  // CoachPrograms
+  static const COACHPROGRAMS="/coach_programs";
+  static const BOOKTRAINING="/book_training";
+
   //home
   static  const APPLICATION="/application";
   static const HOMEPAGE="/home_page";

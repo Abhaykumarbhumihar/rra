@@ -9,9 +9,9 @@ import '../../../teams/presentation/ui/teams.dart';
 
 Widget buildPage(int index) {
   List<Widget> _widget = [
-    const Teams(),
-    const Teams(),
-    const Teams(),
+     Teams(),
+     Teams(),
+     Teams(),
   ];
 
   return _widget[index];

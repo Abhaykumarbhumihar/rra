@@ -17,6 +17,9 @@ import '../../pages/auth/otpverification/domain/usecase/verify_otp_usecase.dart'
 import '../../pages/auth/resetpassword/data/respoimpl/reset_password_impl.dart';
 import '../../pages/auth/resetpassword/domain/repositery/reset_password_repositery.dart';
 import '../../pages/auth/resetpassword/domain/usecase/reset_password_usecase.dart';
+
+
+
 import '../../pages/parents/application/data/repoimpl/application_repositery_impl.dart';
 import '../../pages/parents/application/domain/repositery/application_repositery.dart';
 import '../../pages/parents/application/domain/usecase/application_usecase.dart';
@@ -65,4 +68,8 @@ void serviceLocator() {
           () => ApplicationRepositeryImpl());
   getIt.registerLazySingleton<ApplicationUseCase>(
           () => ApplicationUseCase(getIt<ApplicationRepositery>()));
+
+  /*coaching programs */
+
+
 }

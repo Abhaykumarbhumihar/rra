@@ -31,7 +31,7 @@ class EditProfile extends StatelessWidget {
     var width = MediaQuery.of(context).size.width;
     var height = MediaQuery.of(context).size.height;
     return Scaffold(
-     // backgroundColor: AppColor.appBackGround,
+      backgroundColor: AppColor.gradientMidColor,
       resizeToAvoidBottomInset: true,
 
       body: BlocListener<EditprofileBloc, EditprofileState>(

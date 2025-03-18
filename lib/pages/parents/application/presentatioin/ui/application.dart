@@ -17,8 +17,6 @@ class ApplicationPage extends StatelessWidget {
         if (state.errorMessage == "Authentication error" ||
             state.errorMessage ==
                 "Your account is deactivated contact support") {
-
-
           //  context.read<MyprofileBloc>().add(LogoutEvent());
 
           Navigator.pushNamedAndRemoveUntil(
@@ -27,9 +25,6 @@ class ApplicationPage extends StatelessWidget {
             (Route<dynamic> route) => false,
           );
         }
-
-
-
       },
       child: BlocBuilder<AppBloc, AppState>(
         builder: (context, state) {
@@ -39,12 +34,11 @@ class ApplicationPage extends StatelessWidget {
             width: context.screenWidth,
             height: context.screenHeight,
             child: Padding(
-              padding:
-                  EdgeInsets.only(top:  0.0),
+              padding: EdgeInsets.only(top: 0.0),
               child: Container(
                 color: AppColor.appButtonColor,
                 child: Scaffold(
-                  //backgroundColor: AppColor.appButtonColor,
+                  backgroundColor: AppColor.gradientMidColor,
                   body: WillPopScope(
                       onWillPop: () async {
                         if (state.index != 0) {
@@ -62,8 +56,7 @@ class ApplicationPage extends StatelessWidget {
                                 .add(HandleBackPressEvent(now));
                             ScaffoldMessenger.of(context).showSnackBar(
                               const SnackBar(
-                                  content:
-                                      Text('Press back again to exit')),
+                                  content: Text('Press back again to exit')),
                             );
                             return false;
                           }
@@ -82,7 +75,8 @@ class ApplicationPage extends StatelessWidget {
                         color: AppColor.appButtonColor, // Background color
                       ),
                       child: BottomNavigationBar(
-                        backgroundColor: Colors.transparent, // Make it transparent to respect the Container's color
+                        backgroundColor: Colors.transparent,
+                        // Make it transparent to respect the Container's color
                         currentIndex: state.index,
                         showSelectedLabels: true,
                         showUnselectedLabels: true,
@@ -103,11 +97,11 @@ class ApplicationPage extends StatelessWidget {
                         onTap: (value) async {
                           context.read<AppBloc>().add(TriggerAppEvent(value));
                         },
-                        items: <BottomNavigationBarItem>[].bottomTabs(width, height),
+                        items: <BottomNavigationBarItem>[]
+                            .bottomTabs(width, height),
                       ),
                     ),
                   ),
-
                 ),
               ),
             ),
@@ -116,6 +110,4 @@ class ApplicationPage extends StatelessWidget {
       ),
     );
   }
-
-
 }

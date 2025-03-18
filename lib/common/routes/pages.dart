@@ -1,5 +1,9 @@
 import 'package:rra/common/routes/routes.dart';
 
+
+import '../../pages/parents/coaching_detail/presentation/ui/coaching_detail.dart';
+import '../../pages/parents/coachprograms/presentation/bloc/coach_programs_bloc.dart';
+import '../../pages/parents/coachprograms/presentation/ui/coach_programs.dart';
 import 'exports.dart';
 
 
@@ -40,6 +44,15 @@ class AppPages {
         route: AppRoutes.APPLICATION,
         page: const ApplicationPage(),
         bloc: BlocProvider(create: (_) => AppBloc()),
+      ),
+      PageEntitiy(
+        route: AppRoutes.COACHPROGRAMS,
+        page:  CoachingDetailScreen(),
+      ),
+      PageEntitiy(
+        route: AppRoutes.BOOKTRAINING,
+        page:  CoachProgramsScreen(),
+        bloc: BlocProvider(create: (_) => CoachProgramsBloc()),
       ),
     ];
   }

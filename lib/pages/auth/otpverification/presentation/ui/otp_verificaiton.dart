@@ -38,6 +38,7 @@ class OtpVerificaiton extends StatelessWidget {
     bool? isFromCreateAccount = arguments?['isFromCreateAccount'];
 
     return Scaffold(
+      backgroundColor: AppColor.gradientMidColor,
       body: BlocListener<OtpverificationBloc, OtpState>(
         listener: (context, state) async {
           print(state);

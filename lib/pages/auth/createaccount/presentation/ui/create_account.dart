@@ -57,7 +57,7 @@ class CreateAccount extends StatelessWidget {
     var height = MediaQuery.of(context).size.height;
 
     return Scaffold(
-      //backgroundColor: AppColor.appBackGround,
+      backgroundColor: AppColor.gradientMidColor,
       body: BlocListener<CreateAccountBloc, CreateAccountState>(
         listener: (context, state) async {
           if (state.errorMessage != '' && state.isServerError) {
@@ -138,7 +138,7 @@ print("${userdata?.data.firstName}"+"  "+"${userdata?.data.lastName}");
                                 SizedBox(height: height * 0.01),
                                 Padding(
                                   padding: const EdgeInsets.only(left: 8.0,right: 8.0),
-                                  child: const ScreenSubTitle(
+                                  child:  ScreenSubTitle(
                                     subtitle: "Fill your information below or register with your social account",
                                   ),
                                 ),

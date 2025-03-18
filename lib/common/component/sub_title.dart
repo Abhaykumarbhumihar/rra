@@ -3,7 +3,9 @@ import 'package:rra/common/values/values_exports.dart';
 
 class ScreenSubTitle extends StatelessWidget {
   final String subtitle;
-  const ScreenSubTitle({super.key,required this.subtitle});
+  double? textSize;
+  ScreenSubTitle({super.key,required this.subtitle, this.textSize});
+
 
   @override
   Widget build(BuildContext context) {

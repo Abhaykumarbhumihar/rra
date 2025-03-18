@@ -4,6 +4,7 @@ class AppColor {
   static const Color appButtonColor = Color(0xFFE50796);
   static const Color appWhiteColor=Color(0xFFFFFFFF);
   static const Color inputhintcolor = Color(0xFF565656);
+  static const Color itemColor = Color(0xFFE50796);
   static const Color appgreycolor = Color(0xFF6C7B8B);
   static const Color appcolor = Color(0xFF056B7F);
   static const Color greycolor1 = Color(0xFF636564);
@@ -28,4 +29,10 @@ class AppColor {
   static const Color popUpTitleColor=Color(0xFF26333B);
   static const Color appRed=Color(0xFFDF5757);
   static const Color popUpMenuColor = Color(0xFFFFEFEF);
+
+
+  static const Color gradientTopColor = Color(0xFF7F0764);
+  static const Color gradientMidColor = Color(0xFF3A1A4C);
+  static const Color gradientBottomColor = Color(0xFF332058);
+
 }

@@ -29,7 +29,7 @@ class LoginScreen extends StatelessWidget {
     var height = context.screenHeight;
 
     return Scaffold(
-      backgroundColor: AppColor.writeInputMessageBack,
+      backgroundColor: AppColor.gradientMidColor,
       body: BlocListener<LoginBloc, LoginState>(
         listener: (context, state) async {},
         child: BlocBuilder<LoginBloc, LoginState>(
@@ -58,7 +58,7 @@ class LoginScreen extends StatelessWidget {
                                 title: "Sign In",
                               ),
                               SizedBox(height: height * 0.01),
-                              const ScreenSubTitle(
+                               ScreenSubTitle(
                                 subtitle: "Hi! Welcome back, you’ve been missed",
                               ),
                               SizedBox(height: height * 0.065),
@@ -133,18 +133,15 @@ class LoginScreen extends StatelessWidget {
                                       child: ForgotPasswordText()),
                                 ],
                               ),
-
                               SizedBox(height: height * 0.04),
-
                               // Login Button
                               CustomButton(
                                 text: "Sign In",
                                 onPressed: () async {
                                   Navigator.pushNamed(
-                                      context, AppRoutes.CREATEACCOUNT);
+                                      context, AppRoutes.APPLICATION);
                                 },
                               ),
-
                               SizedBox(
                                 height: context.screenHeight * 0.04,
                               ),
@@ -156,7 +153,6 @@ class LoginScreen extends StatelessWidget {
                                       context, AppRoutes.CREATEACCOUNT);
                                 },
                               ),
-
                               SizedBox(
                                 height: context.screenHeight * 0.03,
                               ),
