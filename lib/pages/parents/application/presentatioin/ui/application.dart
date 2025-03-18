@@ -71,53 +71,43 @@ class ApplicationPage extends StatelessWidget {
                         }
                       },
                       child: buildPage(state.index)),
-                  bottomNavigationBar: Container(
-                    width: width,
-                    decoration: BoxDecoration(
-                        borderRadius: const BorderRadius.only(
-                            topLeft: Radius.circular(18.0),
-                            topRight: Radius.circular(18.0)),
+                  bottomNavigationBar: ClipRRect(
+                    borderRadius: const BorderRadius.only(
+                      topLeft: Radius.circular(10.0),
+                      topRight: Radius.circular(10.0),
+                    ),
+                    child: Container(
+                      width: width,
+                      decoration: const BoxDecoration(
+                        color: AppColor.appButtonColor, // Background color
+                      ),
+                      child: BottomNavigationBar(
+                        backgroundColor: Colors.transparent, // Make it transparent to respect the Container's color
+                        currentIndex: state.index,
+                        showSelectedLabels: true,
+                        showUnselectedLabels: true,
+                        selectedItemColor: AppColor.appWhiteColor,
+                        unselectedItemColor: AppColor.appWhiteColor,
+                        elevation: 0,
+                        selectedLabelStyle: TextStyle(
+                          color: AppColor.appWhiteColor,
+                          fontFamily: AppFont.interMedium,
+                          fontSize: context.screenWidth * 0.030,
                         ),
-                    child: BottomNavigationBar(
-
-                      backgroundColor:AppColor.appButtonColor ,
-                      //backgroundColor: AppColor.appBackGround,
-                      currentIndex: state.index,
-                      showSelectedLabels: true,
-                      showUnselectedLabels: true,
-                      selectedItemColor: AppColor.appBlack,
-                      unselectedItemColor: AppColor.greyHome,
-                      elevation: 0,
-                      selectedLabelStyle: TextStyle(
-                        color: AppColor.userNameColor,
-                        fontFamily: AppFont.interMedium,
-                        fontSize: context.screenWidth * 0.030,
+                        unselectedLabelStyle: TextStyle(
+                          color: AppColor.appWhiteColor,
+                          fontFamily: AppFont.interMedium,
+                          fontSize: context.screenWidth * 0.030,
+                        ),
+                        type: BottomNavigationBarType.fixed,
+                        onTap: (value) async {
+                          context.read<AppBloc>().add(TriggerAppEvent(value));
+                        },
+                        items: <BottomNavigationBarItem>[].bottomTabs(width, height),
                       ),
-                      unselectedLabelStyle: TextStyle(
-                        color: AppColor.userNameColor,
-                        fontFamily: AppFont.interMedium,
-                        fontSize: context.screenWidth * 0.030,
-                      ),
-                      type: BottomNavigationBarType.fixed,
-                      onTap: (value) async {
-                        context.read<AppBloc>().add(TriggerAppEvent(value));
-                        if (value == 0) {
-
-                        }
-                        if (value == 2) {
-
-
-                        }
-                        if (value == 1) {
-
-                        }
-
-
-                      },
-                      items: <BottomNavigationBarItem>[]
-                          .bottomTabs(width, height),
                     ),
                   ),
+
                 ),
               ),
             ),
