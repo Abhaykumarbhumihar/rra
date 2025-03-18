@@ -1,5 +1,5 @@
 import 'package:rra/common/routes/routes.dart';
-import 'package:rra/pages/parents/calendart_page.dart';
+import 'package:rra/pages/parents/calendar/presentation/ui/calendart_page.dart';
 
 
 import '../../pages/parents/coaching_detail/presentation/ui/coaching_detail.dart';
