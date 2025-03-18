@@ -10,6 +10,8 @@ static const WELCOMEPAGE="/welcom_page";
   static const RESETPASSWORD="/reset_password";
   static const ADDPROFILEPHOTO="/add_profile_photo";
 
+  //calendar
+  static const CALENDAR="/calendar_booking";
   // CoachPrograms
   static const COACHPROGRAMS="/coach_programs";
   static const BOOKTRAINING="/book_training";

@@ -55,6 +55,7 @@ dependencies:
   intl:
   geolocator:
   auto_height_grid_view:
+  table_calendar:
 
 
 
