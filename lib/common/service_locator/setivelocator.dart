@@ -17,6 +17,9 @@ import '../../pages/auth/otpverification/domain/usecase/verify_otp_usecase.dart'
 import '../../pages/auth/resetpassword/data/respoimpl/reset_password_impl.dart';
 import '../../pages/auth/resetpassword/domain/repositery/reset_password_repositery.dart';
 import '../../pages/auth/resetpassword/domain/usecase/reset_password_usecase.dart';
+import '../../pages/parents/application/data/repoimpl/application_repositery_impl.dart';
+import '../../pages/parents/application/domain/repositery/application_repositery.dart';
+import '../../pages/parents/application/domain/usecase/application_usecase.dart';
 import '../network/api_services.dart';
 import '../network/app_constant.dart';
 
@@ -56,4 +59,10 @@ void serviceLocator() {
           () => EditProfileRepoImpl());
   getIt.registerLazySingleton<EditProfileUsecase>(
           () => EditProfileUsecase(getIt<EditProfileRepositery>()));
+
+  /*application */
+  getIt.registerLazySingleton<ApplicationRepositery>(
+          () => ApplicationRepositeryImpl());
+  getIt.registerLazySingleton<ApplicationUseCase>(
+          () => ApplicationUseCase(getIt<ApplicationRepositery>()));
 }

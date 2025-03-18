@@ -7,6 +7,7 @@ import '../../../../../common/component/custom_app_button.dart';
 import '../../../../../common/image/camera_file_utility.dart';
 import '../../../../../common/image/camera_gallery_dialog.dart';
 import '../../../../../common/local/SharedPrefs.dart';
+import '../../../../../common/routes/routes.dart';
 import '../bloc/editprofile_bloc.dart';
 import '../bloc/editprofile_state.dart';
 import 'component/edit_profile_appbar.dart';
@@ -172,9 +173,11 @@ class EditProfile extends StatelessWidget {
                               CustomButton(
                                 text: "Complete Profile",
                                 onPressed: () {
-                                  context
-                                      .read<EditprofileBloc>()
-                                      .add(EditProfileSubmitted());
+                                  Navigator.pushNamed(
+                                      context, AppRoutes.APPLICATION);
+                                  // context
+                                  //     .read<EditprofileBloc>()
+                                  //     .add(EditProfileSubmitted());
                                   print("code is running here");
                                 },
                               ),

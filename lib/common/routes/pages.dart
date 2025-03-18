@@ -35,6 +35,12 @@ class AppPages {
           route: AppRoutes.EDITPROFILE,
           page: EditProfile(),
           bloc: BlocProvider(create: (_) => EditprofileBloc())),
+
+      PageEntitiy(
+        route: AppRoutes.APPLICATION,
+        page: const ApplicationPage(),
+        bloc: BlocProvider(create: (_) => AppBloc()),
+      ),
     ];
   }
 
