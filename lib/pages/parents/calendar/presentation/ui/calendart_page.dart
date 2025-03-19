@@ -1,11 +1,13 @@
 import 'package:intl/intl.dart';
 import 'package:rra/common/values/values_exports.dart';
+import 'package:rra/pages/parents/calendar/presentation/ui/component/recurring_dialog.dart';
 
 import '../../../../../common/component/common_app_bar.dart';
 import '../../../../../common/component/common_background.dart';
 import '../../../../../common/component/custom_app_button.dart';
 import '../../../../../common/component/screen_title.dart';
 import '../../../../../common/component/sub_title.dart';
+import '../../../../../common/routes/routes.dart';
 import 'component/availablity.dart';
 import 'component/booking_component.dart';
 import 'component/calendar_view.dart';
@@ -95,6 +97,16 @@ class CalendarPage extends StatelessWidget {
     );
   }
 
+  void selectStateCountyLoactionDialog(BuildContext context) async {
+    showDialog(
+      context: context,
+      barrierDismissible: false,
+      builder: (BuildContext context) {
+        return RecurringDialog();
+      },
+    );
+  }
+
   void _showCustomBottomSheet(BuildContext context) {
     showModalBottomSheet(
       context: context,
@@ -105,6 +117,12 @@ class CalendarPage extends StatelessWidget {
       builder: (context) {
         return CustomBottomSheet(
           onOptionSelected: (selectedOption) {
+            if(selectedOption=="Select and continue"){
+              Navigator.pushNamed(
+                  context, AppRoutes.ADDDETAILS);
+            }if(selectedOption=="Select and make recurring"){
+              selectStateCountyLoactionDialog(context);
+            }
             print("User selected: $selectedOption");
           },
         );
