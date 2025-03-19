@@ -1,5 +1,6 @@
 import 'package:rra/common/routes/routes.dart';
 import 'package:rra/pages/parents/calendar/presentation/ui/calendart_page.dart';
+import 'package:rra/pages/parents/holiday_camp/presentation/ui/holiday_campp.dart';
 
 
 import '../../pages/parents/add_detail/presentation/ui/add_detail.dart';
@@ -63,6 +64,10 @@ class AppPages {
       PageEntitiy(
         route: AppRoutes.ADDDETAILS,
         page:  AddDetail(),
+      ),
+      PageEntitiy(
+        route: AppRoutes.HOLIDAYCAMP,
+        page:  HolidayCampp(),
       ),
     ];
   }

@@ -42,16 +42,15 @@ class Teams extends StatelessWidget {
                   child: Row(
                     children: <Widget>[
                       CustomSessionCard(
-                        sessionCount: "06",
-                        sessionLabel: "Sessions Booked",
-                        buttonText1: "View Session",
+                        sessionCount: "16",
+                        sessionLabel: "Facility Booked",
+                        buttonText1: "View Facility",
                         buttonText2: "Book Facility",
                         onButtonClick1: () {
                           print("View Session clicked");
                         },
                         onButtonClick2: () {
-                          Navigator.pushNamed(
-                              context, AppRoutes.BOOKTRAINING);
+
                           print("Book Facility clicked");
                         },
                       ),
@@ -59,14 +58,16 @@ class Teams extends StatelessWidget {
                         width: 20.0,
                       ),
                       CustomSessionCard(
-                        sessionCount: "06",
-                        sessionLabel: "Sessions Booked",
-                        buttonText1: "View Session",
-                        buttonText2: "Book Facility",
+                        sessionCount: "16",
+                        sessionLabel: "Camp Booked",
+                        buttonText1: "View Camp",
+                        buttonText2: "Book Camp",
                         onButtonClick1: () {
                           print("View Session clicked");
                         },
                         onButtonClick2: () {
+                          Navigator.pushNamed(
+                              context, AppRoutes.HOLIDAYCAMP);
                           print("Book Facility clicked");
                         },
                       ),

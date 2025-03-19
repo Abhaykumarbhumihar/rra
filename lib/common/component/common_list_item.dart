@@ -4,7 +4,6 @@ import 'package:rra/common/values/screenUtils.dart';
 
 import '../values/fonts.dart';
 
-
 class CommonListItem extends StatelessWidget {
   final String strImage;
   final String coachingProgram;
@@ -28,13 +27,15 @@ class CommonListItem extends StatelessWidget {
             fit: BoxFit.cover, // Background image
           ),
         ),
-       // padding: EdgeInsets.all(8.0), // Padding inside the container
+        padding: EdgeInsets.only(top: 8.0, bottom: 2.0),
+        // Padding inside the container
         child: Stack(
           children: [
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: Row(
-                crossAxisAlignment: CrossAxisAlignment.start, // Aligns text to top
+                crossAxisAlignment: CrossAxisAlignment.start,
+                // Aligns text to top
                 children: [
                   // Left Side - Image
                   ClipRRect(
@@ -57,50 +58,47 @@ class CommonListItem extends StatelessWidget {
                         coachingProgram,
                         style: TextStyle(
                           color: Colors.white,
-                          fontSize: context.screenWidth*0.0373,
+                          fontSize: context.screenWidth * 0.0373,
                           fontFamily: AppFont.interRegular,
                         ),
                       ),
                     ),
                   ),
-
-
                 ],
               ),
             ),
-        Positioned(
-          bottom: 1,
-          right: 4.0,
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-
-              ElevatedButton(
-
-                onPressed: onPressed,
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: Colors.pinkAccent, // Button color
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(20), // Rounded Button
+            Positioned(
+              bottom: 1,
+              right: 4.0,
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  ElevatedButton(
+                    onPressed: onPressed,
+                    style: ElevatedButton.styleFrom(
+                        backgroundColor: Colors.pinkAccent, // Button color
+                        shape: RoundedRectangleBorder(
+                          borderRadius:
+                              BorderRadius.circular(20), // Rounded Button
+                        ),
+                        minimumSize: Size(4, 30)
+                        //  padding: EdgeInsets.symmetric(horizontal: 12, vertical: 12),
+                        ),
+                    child: Text(
+                      'View',
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontSize: context.screenWidth * 0.032,
+                        fontFamily: AppFont.interMedium,
+                      ),
+                    ),
                   ),
-                    minimumSize: Size(4, 30)
-                //  padding: EdgeInsets.symmetric(horizontal: 12, vertical: 12),
-                ),
-                child: Text(
-                  'View',
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontSize: context.screenWidth*0.032,
-                    fontFamily: AppFont.interMedium,
-                  ),
-                ),
+                ],
               ),
-            ],
-          ),)
+            )
           ],
         ),
       ),
     );
   }
 }
-

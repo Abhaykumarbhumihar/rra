@@ -27,8 +27,8 @@ class SplashPage extends StatelessWidget {
                 child: Image(
                   image:
                   AssetImage("assets/images/splach_icon.png"),
-                  width: context.screenWidth * 0.3,
-                  height: context.screenHeight * 0.3,
+                  width: context.screenWidth * 0.25,
+                  height: context.screenHeight * 0.25,
                 ),
               )
           );

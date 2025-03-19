@@ -1,5 +1,7 @@
 import 'package:rra/common/values/values_exports.dart';
 
+import '../../../../../../common/routes/routes.dart';
+
 class BookSessions extends StatelessWidget {
   const BookSessions({super.key});
 
@@ -77,23 +79,29 @@ class BookSessions extends StatelessWidget {
                     ),
                   ),
                   SizedBox(height: 8.0),
-                  Container(
-                    decoration: BoxDecoration(
-                      image: DecorationImage(
-                        image: AssetImage(
-                            "assets/images/rounded_pink.png"),
-                        fit: BoxFit.fill,
+                  InkWell(
+                    onTap: (){
+                      Navigator.pushNamed(
+                          context, AppRoutes.BOOKTRAINING);
+                    },
+                    child: Container(
+                      decoration: BoxDecoration(
+                        image: DecorationImage(
+                          image: AssetImage(
+                              "assets/images/rounded_pink.png"),
+                          fit: BoxFit.fill,
+                        ),
                       ),
-                    ),
-                    child: Padding(
-                      padding: const EdgeInsets.symmetric(
-                          horizontal: 10.0, vertical: 6.0),
-                      child: Text(
-                        "Book Session",
-                        style: TextStyle(
-                          fontSize: context.screenWidth * 0.032,
-                          color: AppColor.appWhiteColor,
-                          fontFamily: AppFont.interMedium,
+                      child: Padding(
+                        padding: const EdgeInsets.symmetric(
+                            horizontal: 10.0, vertical: 6.0),
+                        child: Text(
+                          "Book Session",
+                          style: TextStyle(
+                            fontSize: context.screenWidth * 0.032,
+                            color: AppColor.appWhiteColor,
+                            fontFamily: AppFont.interMedium,
+                          ),
                         ),
                       ),
                     ),

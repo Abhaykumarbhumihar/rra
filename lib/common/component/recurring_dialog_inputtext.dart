@@ -108,7 +108,7 @@ class _RecurringDialogState extends State<RecurringDialogInputText> {
         Container(
           // width: double.infinity,
           //duration: const Duration(seconds: 3),
-height: context.screenHeight*0.0625,
+          height: context.screenHeight*0.0625,
           decoration: BoxDecoration(
             // color:
             //     widget.errorMessage != null && widget.errorMessage!.isNotEmpty
