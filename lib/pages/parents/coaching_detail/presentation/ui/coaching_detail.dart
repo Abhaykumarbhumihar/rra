@@ -1,3 +1,4 @@
+import 'package:rra/common/component/app_text_style.dart';
 import 'package:rra/common/component/common_background.dart';
 import 'package:rra/common/component/screen_title.dart';
 import 'package:rra/common/values/values_exports.dart';
@@ -8,8 +9,6 @@ import '../../../../../common/component/custom_app_button.dart';
 import '../../../../../common/component/sub_title.dart';
 import '../../../../../common/routes/routes.dart';
 
-
-
 class CoachingDetailScreen extends StatelessWidget {
   CoachingDetailScreen({super.key});
 
@@ -18,89 +17,106 @@ class CoachingDetailScreen extends StatelessWidget {
     var width = context.screenWidth;
     var height = context.screenHeight;
 
-    return Scaffold(
-      backgroundColor: AppColor.writeInputMessageBack,
-      appBar: CommonAppBar(
-        title: "Coaching Detail",
-      ),
-      bottomNavigationBar:   CustomButton(
-        text: "Book Training",
-        onPressed: () async {
-          Navigator.pushNamed(
-              context, AppRoutes.BOOKTRAINING);
-        },
-      ),
-      body: Container(
-        width: width,
-        height: height,
-        padding: EdgeInsets.zero,
-        decoration: CommonBackground.decoration,
-        child:  SingleChildScrollView(
-          padding: EdgeInsets.all(16),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              ClipRRect(
-                borderRadius: BorderRadius.circular(15),
-                child: Image.asset(
-                  'assets/images/coaching_image.png', // Replace with your actual image
-                  width: double.infinity,
-                  height: height*0.3,
-                  fit: BoxFit.cover,
+    return Container(
+      decoration: CommonBackground.decoration,
+      child: Scaffold(
+        backgroundColor: Colors.transparent,
+        appBar: CommonAppBar(
+          title: "Coaching Programs",
+        ),
+        bottomNavigationBar: Padding(
+          padding: const EdgeInsets.only(
+              left: 18.0, right: 18.0, top: 8.0, bottom: 14.0),
+          child: CustomButton(
+            text: "Book Training",
+            onPressed: () async {
+              Navigator.pushNamed(context, AppRoutes.CALENDAR);
+            },
+          ),
+        ),
+        body: Container(
+          width: width,
+          height: height,
+          padding: EdgeInsets.zero,
+          decoration: CommonBackground.decoration,
+          child: SingleChildScrollView(
+            padding: EdgeInsets.all(14),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                ClipRRect(
+                  borderRadius: BorderRadius.circular(15),
+                  child: Image.asset(
+                    'assets/images/coaching_image.png',
+                    // Replace with your actual image
+                    width: double.infinity,
+                    height: height * 0.3,
+                    fit: BoxFit.cover,
+                  ),
                 ),
-              ),
-              SizedBox(height: height*0.05),
-
-              ScreenTitle(
-                title: "Group Coaching U9 Advanced (Hardball)",
-              ),
-
-              SizedBox(height: height*0.02),
-
-              ScreenSubTitle(
-                subtitle: "The sevens stadium",
-                textSize: 0.04,
-              ),
-              SizedBox(height: height*0.02),
-
-              Container(
-                padding: EdgeInsets.all(12),
-                decoration: BoxDecoration(
-                  color: AppColor.gradientMidColor,
-                  borderRadius: BorderRadius.circular(12),
+                SizedBox(height: height * 0.02),
+                Text(
+                  "Group Coaching U9 Advanced (Hardball)",
+                  textAlign: TextAlign.start,
+                  style: AppTextStyle.commentReplyTextButtonStyle(
+                      context.screenWidth),
                 ),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    ScreenSubTitle(
-                      subtitle: "Timings:",
-                      textSize: 0.04,
-
+                SizedBox(height: height * 0.02),
+                Text(
+                  "The sevens stadium",
+                  textAlign: TextAlign.start,
+                  style: AppTextStyle.medium(context.screenWidth * 0.048),
+                ),
+                SizedBox(height: height * 0.02),
+                Container(
+                  width: context.screenWidth,
+                  padding: EdgeInsets.all(12),
+                  decoration: BoxDecoration(
+                    image: DecorationImage(
+                      image: AssetImage(
+                          "assets/images/graphic_coaching_background.png"),
+                      fit: BoxFit.cover, // Background image
                     ),
-                    SizedBox(height: 4),
-                    ScreenSubTitle(
-subtitle:                       "Thursday: 17:30 PM - 09:00 PM\nSaturday: 08:00 AM - 09:00 PM",
-                    ),
-                  ],
+                    //color: AppColor.gradientMidColor,
+                    borderRadius: BorderRadius.circular(8),
+                  ),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        "Timings:",
+                        style: AppTextStyle.bold(context.screenWidth * 0.0373),
+                      ),
+                      SizedBox(height: 4),
+                      Text(
+                        "Thursday: 17:30 PM - 09:00 PM\nSaturday: 08:00 AM - 09:00 PM",
+                        style:
+                            AppTextStyle.regular(context.screenWidth * 0.032),
+                      ),
+                    ],
+                  ),
                 ),
-              ),
-              SizedBox(height: 16),
-              ScreenSubTitle(
-subtitle:                  "Our U9 Advanced development program aims to develop foundation skills through small-sided games and practices.\n\n"
-                    "The programs are hardball focused and whilst enjoyment is at the heart of each session, it will introduce the players to all the basic cricket skills which underpin the game at a higher level.\n\n"
-                    "The sessions will introduce many life values and behavior that we also believe are fundamental to their cricketing and personal development.\n",
-               ),
-              SizedBox(height: 8),
-              ScreenTitle(
-title:                  "DEVELOPMENT THEMES U6-U10's",
-               ),
-              SizedBox(height: 4),
-              ScreenSubTitle(
-                subtitle: "Focus is on hardball skill development within game situations. Enjoyment, challenge, and parent education are key aspects.",
-                 ),
-              SizedBox(height: 24),
-
-            ],
+                SizedBox(height: 16),
+                Text(
+                  "Our U9 Advanced development program aims to develop foundation skills through small-sided games and practices.\n\n"
+                  "The programs are hardball focused and whilst enjoyment is at the heart of each session, it will introduce the players to all the basic cricket skills which underpin the game at a higher level.\n\n"
+                  "The sessions will introduce many life values and behavior that we also believe are fundamental to their cricketing and personal development.\n",
+                  textAlign: TextAlign.start,
+                  style: AppTextStyle.coachingProgramDetail(
+                      context.screenWidth * 0.0373),
+                ),
+                Text("DEVELOPMENT THEMES U6-U10's",
+                    textAlign: TextAlign.start,
+                    style: AppTextStyle.medium(context.screenWidth * 0.0373)),
+                SizedBox(height: 8),
+                Text(
+                    "Focus is on hardball skill development within game situations. Enjoyment, challenge, and parent education are key aspects.",
+                    textAlign: TextAlign.start,
+                    style: AppTextStyle.coachingProgramDetail(
+                        context.screenWidth * 0.0373)),
+                SizedBox(height: 24),
+              ],
+            ),
           ),
         ),
       ),

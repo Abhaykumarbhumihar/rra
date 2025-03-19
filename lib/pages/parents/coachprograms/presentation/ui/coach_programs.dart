@@ -5,17 +5,10 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../../../common/component/auth_text_field.dart';
 import '../../../../../common/component/common_app_bar.dart';
 import '../../../../../common/component/common_list_item.dart';
-import '../../../../../common/component/custom_app_button.dart';
-import '../../../../../common/component/screen_title.dart';
-import '../../../../../common/component/signup_signin_richtext.dart';
-import '../../../../../common/component/sub_title.dart';
 import '../../../../../common/routes/routes.dart';
 import '../bloc/coach_programs_bloc.dart';
 import '../bloc/coach_programs_state.dart';
-/*import '../bloc/login_bloc.dart';
-import '../bloc/login_state.dart';
-import 'component/continue_with_text.dart';
-import 'component/forgot_text.dart';*/
+
 
 class CoachProgramsScreen extends StatelessWidget {
   CoachProgramsScreen({super.key});
@@ -48,13 +41,16 @@ class CoachProgramsScreen extends StatelessWidget {
                 child: ListView.builder(
 
                   padding:
-                      const EdgeInsets.symmetric(horizontal: 16.0, vertical: 10),
+                      const EdgeInsets.symmetric(horizontal: 0.0, vertical: 0),
                   itemCount: coachingPrograms.length,
                   shrinkWrap: true,
 
                   itemBuilder: (context, index) {
                     return CommonListItem(coachingProgram: coachingPrograms[index],
                       onPressed: (){
+    Navigator.pushNamed(
+    context, AppRoutes.COACHPROGRAMS);
+
                       },
                 strImage: 'assets/images/coaching_image.png',
                     );

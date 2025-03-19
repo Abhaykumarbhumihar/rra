@@ -45,6 +45,7 @@ class CustomSessionCard extends StatelessWidget {
                   sessionCount,
                   style: TextStyle(
                     fontSize: context.screenWidth * 0.128,
+                    height: 1.0,
                     color: AppColor.appWhiteColor,
                     fontFamily: AppFont.interSemiBold,
                   ),
@@ -76,7 +77,7 @@ class CustomSessionCard extends StatelessWidget {
                     child: Padding(
                       padding: EdgeInsets.symmetric(
                         horizontal: context.screenWidth * 0.07,
-                        vertical: 8.0,
+                        vertical: 6.0,
                       ),
                       child: Text(
                         buttonText1,
@@ -96,14 +97,14 @@ class CustomSessionCard extends StatelessWidget {
                   child: Container(
                     decoration: BoxDecoration(
                       image: DecorationImage(
-                        image: AssetImage("assets/images/trans_button.png"),
+                        image: AssetImage("assets/images/rounded_pink.png"),
                         fit: BoxFit.fill,
                       ),
                     ),
                     child: Padding(
                       padding: EdgeInsets.symmetric(
                         horizontal: context.screenWidth * 0.073,
-                        vertical: 8.0,
+                        vertical: 6.0,
                       ),
                       child: Text(
                         buttonText2,

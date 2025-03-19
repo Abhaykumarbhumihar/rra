@@ -20,6 +20,8 @@ class ScreenTitle extends StatelessWidget {
   }
 }
 
+
+
 class ScreenTitleForCalendar extends StatelessWidget {
   final String title;
   final double? fontSize; // Optional font size parameter

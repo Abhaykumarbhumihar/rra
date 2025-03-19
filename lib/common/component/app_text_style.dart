@@ -13,29 +13,52 @@ class AppTextStyle {
     );
   }
 
-  static TextStyle commentCommentReplyTextStyle(double width) {
+  static TextStyle coachPrgrammingTitle(double width) {
     return TextStyle(
       color: AppColor.appBlack,
-      fontFamily: AppFont.interMedium,
+      fontFamily: AppFont.interSemiBold,
       fontSize: width * 0.038,
     );
   }
 
   static TextStyle commentReplyTextButtonStyle(double width) {
     return TextStyle(
-      color: AppColor.replyBtncolor,
+      color: AppColor.appWhiteColor,
       fontFamily: AppFont.interBold,
-      fontSize: width * 0.035,
+      fontSize: width * 0.0613,
     );
   }
 
-  static TextStyle commentSeeAllReplyTextButtonStyle(double width) {
+  static TextStyle medium(double fontsize) {
     return TextStyle(
-        color: AppColor.dottedBorderColor,
-        fontFamily: AppFont.interBold,
-        fontSize: width * 0.038);
+      color: AppColor.appWhiteColor,
+      fontFamily: AppFont.interMedium,
+      fontSize: fontsize,
+    );
+  }
+  static TextStyle bold(double fontsize) {
+    return TextStyle(
+      color: AppColor.appWhiteColor,
+      fontFamily: AppFont.interBold,
+      fontSize: fontsize,
+    );
   }
 
+  static TextStyle regular(double fontsize) {
+    return TextStyle(
+      color: AppColor.appWhiteColor,
+      fontFamily: AppFont.interRegular,
+      fontSize: fontsize,
+    );
+  }
+
+  static TextStyle coachingProgramDetail(double fontsize) {
+    return TextStyle(
+      color: AppColor.appWhiteColor.withOpacity(0.7),
+      fontFamily: AppFont.interRegular,
+      fontSize: fontsize,
+    );
+  }
 /*-------------------------------------------------------------------*/
 
 /*----------------list item common text color----------------*/

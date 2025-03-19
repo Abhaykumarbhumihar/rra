@@ -5,12 +5,15 @@ import '../../../../../common/component/circler.dart';
 import '../../../../../common/component/common_background.dart';
 import '../../../../../common/component/custom_session_card.dart';
 import '../../../../../common/routes/routes.dart';
+import 'component/book_sessions.dart';
+import 'component/custom_header.dart';
+import 'component/dashbard_grid.dart';
 
 class Teams extends StatelessWidget {
   Teams({super.key});
 
-  final List<String> coachingPrograms =
-      List.filled(6, "RRA 1:1 Coaching Session (2024)");
+
+
   @override
   Widget build(BuildContext context) {
     var width = MediaQuery.of(context).size.width;
@@ -26,105 +29,10 @@ class Teams extends StatelessWidget {
           child: SingleChildScrollView(
             child: Column(
               children: <Widget>[
-                Padding(
-                  padding: EdgeInsets.symmetric(
-                      horizontal: context.screenWidth * 0.05),
-                  child: Container(
-                    width: context.screenWidth,
-                    // height: context.screenHeight*0.22,
-                    padding: EdgeInsets.symmetric(
-                        horizontal: context.screenWidth * 0.03,
-                        vertical: context.screenHeight * 0.015),
-                    alignment: Alignment.center,
-                    decoration: BoxDecoration(
-                      image: DecorationImage(
-                        image: AssetImage("assets/images/rectangle_one.png"),
-                        fit: BoxFit.fill,
-                      ),
-                    ),
-                    child: Center(
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        children: <Widget>[
-                          // Left side (Number & text)
-                          Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Text(
-                                "06",
-                                style: TextStyle(
-                                  fontSize: context.screenWidth * 0.128,
-                                  color: AppColor.appWhiteColor,
-                                  fontFamily: AppFont.interSemiBold,
-                                ),
-                              ),
-                              Text(
-                                "Sessions Booked",
-                                style: TextStyle(
-                                  fontSize: context.screenWidth * 0.0373,
-                                  color: AppColor.appWhiteColor,
-                                  fontFamily: AppFont.interSemiBold,
-                                ),
-                              ),
-                              SizedBox(
-                                height: 5.0,
-                              )
-                            ],
-                          ),
-                          Column(
-                            crossAxisAlignment: CrossAxisAlignment.end,
-                            children: <Widget>[
-                              Container(
-                                decoration: BoxDecoration(
-                                  image: DecorationImage(
-                                    image: AssetImage(
-                                        "assets/images/trans_button.png"),
-                                    fit: BoxFit.fill,
-                                  ),
-                                ),
-                                child: Padding(
-                                  padding: const EdgeInsets.symmetric(
-                                      horizontal: 10.0, vertical: 8.0),
-                                  child: Text(
-                                    "View Session",
-                                    style: TextStyle(
-                                      fontSize: context.screenWidth * 0.032,
-                                      color: AppColor.appWhiteColor,
-                                      fontFamily: AppFont.interMedium,
-                                    ),
-                                  ),
-                                ),
-                              ),
-                              SizedBox(height: 8.0),
-                              Container(
-                                decoration: BoxDecoration(
-                                  image: DecorationImage(
-                                    image: AssetImage(
-                                        "assets/images/trans_button.png"),
-                                    fit: BoxFit.fill,
-                                  ),
-                                ),
-                                child: Padding(
-                                  padding: const EdgeInsets.symmetric(
-                                      horizontal: 10.0, vertical: 8.0),
-                                  child: Text(
-                                    "View Session",
-                                    style: TextStyle(
-                                      fontSize: context.screenWidth * 0.032,
-                                      color: AppColor.appWhiteColor,
-                                      fontFamily: AppFont.interMedium,
-                                    ),
-                                  ),
-                                ),
-                              )
-                            ],
-                          )
-                        ],
-                      ),
-                    ),
-                  ),
-                ),
+
+                CustomHeader(),
+                BookSessions(),
+
                 SizedBox(
                   height: 12,
                 ),
@@ -165,54 +73,8 @@ class Teams extends StatelessWidget {
                     ],
                   ),
                 ),
-                AutoHeightGridView(
-                  padding: EdgeInsets.symmetric(
-                      horizontal: context.screenWidth * 0.045),
-                  shrinkWrap: true,
-                  physics: BouncingScrollPhysics(),
-                  crossAxisCount: 2,
-                  mainAxisSpacing: 12.0,
-                  crossAxisSpacing: 12.0,
-                  itemCount: coachingPrograms.length,
-                  // itemCount: state.mySavedFindModel.data.getResponse.length,
-                  // Total number of items
-                  builder: (context, index) {
-                    return GestureDetector(
-                      onTap: () async {},
-                      child: Container(
-                        padding: EdgeInsets.only(
-                            top: context.screenHeight * 0.028,
-                            bottom: context.screenHeight * 0.028),
-                        decoration: BoxDecoration(
-                          image: DecorationImage(
-                            image: AssetImage(
-                                "assets/images/rectangle_top_border.png"),
-                            fit: BoxFit.fill,
-                          ),
-                        ),
-                        child: Padding(
-                          padding:
-                              const EdgeInsets.only(top: 12.0, bottom: 12.0),
-                          child: Column(
-                            children: [
-                              Circle(
-                                imagePath: "assets/images/score_card.png",
-                              ),
-                              Text(
-                                "League Booking",
-                                style: TextStyle(
-                                  fontSize: context.screenWidth * 0.0373,
-                                  color: AppColor.appWhiteColor,
-                                  fontFamily: AppFont.interSemiBold,
-                                ),
-                              ),
-                            ],
-                          ),
-                        ),
-                      ),
-                    );
-                  },
-                ),
+                SizedBox(height: 15,),
+                DashboardGrid(),
                 SizedBox(
                   height: 20,
                 )
