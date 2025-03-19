@@ -4,6 +4,7 @@ import 'package:rra/common/values/values_exports.dart';
 
 import '../../../../../../common/component/common_app_bar.dart';
 import '../../../../../../common/component/custom_app_button.dart';
+import '../../../../../../common/routes/routes.dart';
 
 class FacilityDetailPage extends StatelessWidget {
   FacilityDetailPage({super.key});
@@ -27,7 +28,8 @@ class FacilityDetailPage extends StatelessWidget {
             text: "Book Now",
             onPressed: () async {
 
-
+              Navigator.pushNamed(
+                  context, AppRoutes.FACILITADDTOCARTPAGE);
             },
           ),
         ),

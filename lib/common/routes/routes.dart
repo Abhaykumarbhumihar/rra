@@ -21,6 +21,7 @@ static const WELCOMEPAGE="/welcom_page";
   //facility
   static const FACILITYLIST="/facility_list";
   static const FACILITYDETAIL="/facility_detial";
+  static const FACILITADDTOCARTPAGE="/facility_add_to_cart";
 
   //home
   static  const APPLICATION="/application";

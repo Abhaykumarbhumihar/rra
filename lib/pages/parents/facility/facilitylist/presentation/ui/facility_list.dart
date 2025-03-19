@@ -17,7 +17,6 @@ class FacilityList extends StatelessWidget {
     return Container(
       decoration: CommonBackground.decoration,
       child: Scaffold(
-
         backgroundColor: Colors.transparent,
         appBar: CommonAppBar(
           title: "Facility Booking",
