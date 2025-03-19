@@ -9,6 +9,7 @@ import 'package:rra/pages/parents/holiday_camp/presentation/ui/holiday_campp.dar
 
 
 
+import '../../pages/parents/holiday_camp/holiday_detail/presentation/ui/holiday_detail_page.dart';
 import '../../pages/parents/session/add_detail/presentation/ui/add_detail.dart';
 import '../../pages/parents/session/calendar/presentation/ui/calendart_page.dart';
 import '../../pages/parents/session/coaching_detail/presentation/ui/coaching_detail.dart';
@@ -91,6 +92,10 @@ class AppPages {
       PageEntitiy(
         route: AppRoutes.ADDVIEWDOCUMENT,
         page:  AddViewDocumenPage(),
+      ),
+      PageEntitiy(
+        route: AppRoutes.HOLIDAYCAMPDETAIL,
+        page:  HolidayDetailPage(),
       ),
     ];
   }

@@ -43,7 +43,7 @@ class HolidayCampp extends StatelessWidget {
               return CommonListItem(coachingProgram: coachingPrograms[index],
                 onPressed: (){
                   Navigator.pushNamed(
-                      context, AppRoutes.COACHPROGRAMS);
+                      context, AppRoutes.HOLIDAYCAMPDETAIL);
 
                 },
                 strImage: 'assets/images/coaching_image.png',
