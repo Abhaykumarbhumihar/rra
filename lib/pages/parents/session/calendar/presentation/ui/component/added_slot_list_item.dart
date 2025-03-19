@@ -2,14 +2,14 @@
 import 'package:rra/common/component/sub_title.dart';
 import 'package:rra/common/routes/exports.dart';
 
-class CoachingSessionItem extends StatelessWidget {
+class AddedSlotListItem extends StatelessWidget {
   final String imageUrl;
   final String title;
   final String dateTime;
   final String price;
   final VoidCallback onClose;
 
-  const CoachingSessionItem({
+  const AddedSlotListItem({
     required this.imageUrl,
     required this.title,
     required this.dateTime,

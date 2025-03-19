@@ -10,7 +10,6 @@ import '../../../../../../common/component/screen_title.dart';
 
 import '../../../../../../common/routes/routes.dart';
 import 'component/availablity.dart';
-import 'component/booking_component.dart';
 import 'component/calendar_view.dart';
 import 'component/custom_bottomsheet.dart';
 import 'component/recurring_dialog.dart';

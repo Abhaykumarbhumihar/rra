@@ -3,12 +3,12 @@ import 'dart:io';
 import 'package:another_flushbar/flushbar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:progress_tracker/progress_tracker.dart';
 import 'package:rra/common/component/screen_title.dart';
 import 'package:rra/common/component/sub_title.dart';
-import '../../../../../../../common/component/custom_app_button.dart';
-import '../../../../../../../common/component/ui_spacer.dart';
-import '../../../../../../../common/values/app_color.dart';
-import '../../../../../../../main.dart';
+import '../../../../../../common/component/ui_spacer.dart';
+import '../../../../../../common/values/app_color.dart';
+import '../../../../../../main.dart';
 
 var context = navigatorKey.currentContext!;
 var globalSize = MediaQuery.of(navigatorKey.currentContext!).size;
@@ -96,10 +96,10 @@ class CustomFilledButton extends StatelessWidget {
 
 
 
-paymentBottomSheet(
+chooseImageDialog(
     {BuildContext? context,
-      VoidCallback? checkOutAction,
-      VoidCallback? couponApplyAction}) =>
+      /*VoidCallback? onTapGallery,
+      VoidCallback? onTapCamera*/}) =>
     showModalBottomSheet<void>(
       context: context!,
       shape: const RoundedRectangleBorder(
@@ -115,6 +115,20 @@ paymentBottomSheet(
             shrinkWrap: true,
             children: [
               UiSpacer.verticalSpace(space: 0.02),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  ScreenTitle(
+                    title: "Choose Image From",
+                  )
+                ],),
+
+              /* CustomFilledButton(
+
+                isFilled: true,
+                text: "Apply",
+              ),*/
+
               TextField(
                 decoration: InputDecoration(
                   hintText: 'Promo Code',
@@ -125,8 +139,8 @@ paymentBottomSheet(
                   filled: true,
                   fillColor: Colors.grey[200],
                   suffixIcon:CustomFilledButton(
-                    onPressed:couponApplyAction??(){
-                      print("bottom sheet coupon code is clicked");
+                    onPressed: (){
+
                     },
                     isFilled: true,
                     text: "Apply",
@@ -139,8 +153,8 @@ paymentBottomSheet(
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  TextFieldTitle ( title:  "Total"),
-                  TextFieldTitle(title:"\$1200")
+                  ScreenTitle( title:  "Total"),
+                  ScreenTitle(title:"\$1200")
                 ],
               ),
               UiSpacer.verticalSpace(space: 0.02),
@@ -148,8 +162,8 @@ paymentBottomSheet(
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  TextFieldTitle( title:  "Discount"),
-                  TextFieldTitle(title:"\$200")
+                  ScreenTitle( title:  "Total"),
+                  ScreenTitle(title:"\$1200")
 
                 ],
               ),
@@ -159,8 +173,8 @@ paymentBottomSheet(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
 
-                  TextFieldTitle( title:  "Coupon Discount"),
-                  TextFieldTitle(title:"\$100")
+                  ScreenTitle( title:  "Coupon Discount"),
+                  ScreenTitle(title:"\$1200")
                 ],
               ),
               UiSpacer.verticalSpace(space: 0.02),
@@ -172,19 +186,20 @@ paymentBottomSheet(
                 children: [
 
 
-                  TextFieldTitle( title:"Total Amount",fontWeight: FontWeight.bold, ),
-                  TextFieldTitle(title: "\$800" ,fontWeight: FontWeight.bold)
+                  ScreenTitle( title:"Total Amount" ),
+                  ScreenSubTitle(subtitle: "\$800",)
                 ],
               ),
-              UiSpacer.verticalSpace(space: 0.02),
 
-                 CustomButton(
-                text: "bottom sheet Proceed To Checkout",
-                onPressed:checkOutAction??(){
-
+              /*   CustomButton(
+                text: "Proceed To Checkout",
+                onPressed: () async {
+                  Navigator.pop(context);
                 },
-              ),
-            ]
-          ));
+              ),*/
+
+            ],
+          ),
+        );
       },
     );
