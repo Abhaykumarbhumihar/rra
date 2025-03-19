@@ -139,7 +139,7 @@ class LoginScreen extends StatelessWidget {
                                 text: "Sign In",
                                 onPressed: () async {
                                   Navigator.pushNamed(
-                                      context, AppRoutes.APPLICATION);
+                                      context, AppRoutes.ADDDETAILS);
                                 },
                               ),
                               SizedBox(

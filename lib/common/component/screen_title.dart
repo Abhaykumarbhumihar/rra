@@ -101,6 +101,27 @@ class AvailablitTime extends StatelessWidget {
   }
 }
 
+class TextFieldTitle extends StatelessWidget {
+  final String title;
+  FontWeight? fontWeight;
+  TextFieldTitle({super.key, required this.title, this.fontWeight});
+
+  @override
+  Widget build(BuildContext context) {
+    var width = context.screenWidth;
+    return Text(
+      // textScaleFactor:  MediaQuery.of(context).textScaleFactor,
+        title, textAlign: TextAlign.center,
+        style:  TextStyle(
+          color: AppColor.appWhiteColor,
+          fontFamily: AppFont.interRegular,
+          fontWeight: fontWeight?? FontWeight.normal,
+          fontSize: width * 0.032,
+        )
+    );
+  }
+}
+
 class TimeAdded extends StatelessWidget {
   final String title;
   final double? fontSize; // Optional font size parameter

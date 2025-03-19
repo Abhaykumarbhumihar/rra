@@ -12,6 +12,7 @@ static const WELCOMEPAGE="/welcom_page";
 
   //calendar
   static const CALENDAR="/calendar_booking";
+  static const ADDDETAILS="/booking_add_detail";
   // CoachPrograms
   static const COACHPROGRAMS="/coach_programs";
   static const BOOKTRAINING="/book_training";

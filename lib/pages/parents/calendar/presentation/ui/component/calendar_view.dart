@@ -28,10 +28,19 @@ class CalendarView extends StatelessWidget {
           padding: const EdgeInsets.only( right: 6.0),
           child: Center(
             child: Container(
+                decoration: BoxDecoration(
+                  image: DecorationImage(
+                    image: AssetImage(
+                        "assets/images/calendar_background.png"),
+                    fit: BoxFit.cover, // Background image
+                  ),
+                  //color: AppColor.gradientMidColor,
+                  borderRadius: BorderRadius.circular(8),
+                ),
               padding: EdgeInsets.zero,
              //   color: Colors.redAccent,
                 width: width,
-                height: height * 0.5,
+                height: height * 0.40,
                 child: TableCalendar(
                   focusedDay: focusedDate,
                   firstDay: DateTime(2022),
@@ -230,19 +239,7 @@ class CalendarView extends StatelessWidget {
           ),
         ),
 
-        Padding(padding:EdgeInsets.only(left: context.screenWidth*0.02,
-            right: context.screenWidth*0.05,
-            top: 10.0) ,
-          child: Container(
-            padding: EdgeInsets.zero,
-            width: context.screenWidth,
-          height: 1.5,
-            decoration: BoxDecoration(
-              //color: Colors.green,
-              image: DecorationImage(image: AssetImage("assets/images/line.png"))
-            ),
-          ),
-        ),
+
 
       ],
     );

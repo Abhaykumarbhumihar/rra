@@ -10,8 +10,8 @@ class Circle extends StatelessWidget {
   Widget build(BuildContext context) {
     return Center(
       child: Container(
-        width: context.screenWidth * 0.15,
-        height: context.screenWidth * 0.15,
+        width: context.screenWidth * 0.170,
+        height: context.screenWidth * 0.13,
         decoration: BoxDecoration(
           color: AppColor.appButtonColor,
           shape: BoxShape.circle,
@@ -21,8 +21,8 @@ class Circle extends StatelessWidget {
         child: Center(
           child: Image.asset(
             imagePath,
-            width: 32,
-            height: 32,
+            width: 28,
+            height: 28,
             color: Colors.white,
           ),
         ),

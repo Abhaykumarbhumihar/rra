@@ -44,7 +44,7 @@ class DashboardGrid extends StatelessWidget {
         crossAxisCount: 2, // 2 items per row
         mainAxisSpacing: 12.0,
         crossAxisSpacing: 12.0,
-        childAspectRatio: 1.0, // Adjust aspect ratio as needed
+        childAspectRatio: 1.1, // Adjust aspect ratio as needed
       ),
       itemCount: items.length, // Use items list length
       itemBuilder: (context, index) {
@@ -55,10 +55,9 @@ class DashboardGrid extends StatelessWidget {
             print("${item['title']} clicked");
           },
           child: Container(
-            width: 200,
             padding: EdgeInsets.only(
-                top: context.screenHeight * 0.028,
-                bottom: context.screenHeight * 0.028),
+                top: context.screenHeight * 0.038,
+                bottom: context.screenHeight * 0.038),
             decoration: BoxDecoration(
               color: Colors.transparent,
               image: DecorationImage(

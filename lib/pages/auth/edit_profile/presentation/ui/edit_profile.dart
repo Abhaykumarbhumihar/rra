@@ -175,9 +175,7 @@ class EditProfile extends StatelessWidget {
                                 onPressed: () {
                                   Navigator.pushNamed(
                                       context, AppRoutes.APPLICATION);
-                                  // context
-                                  //     .read<EditprofileBloc>()
-                                  //     .add(EditProfileSubmitted());
+
                                   print("code is running here");
                                 },
                               ),

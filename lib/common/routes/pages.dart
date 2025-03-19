@@ -2,6 +2,7 @@ import 'package:rra/common/routes/routes.dart';
 import 'package:rra/pages/parents/calendar/presentation/ui/calendart_page.dart';
 
 
+import '../../pages/parents/add_detail/presentation/ui/add_detail.dart';
 import '../../pages/parents/coaching_detail/presentation/ui/coaching_detail.dart';
 import '../../pages/parents/coachprograms/presentation/bloc/coach_programs_bloc.dart';
 import '../../pages/parents/coachprograms/presentation/ui/coach_programs.dart';
@@ -58,6 +59,10 @@ class AppPages {
       PageEntitiy(
         route: AppRoutes.CALENDAR,
         page:  CalendarPage(),
+      ),
+      PageEntitiy(
+        route: AppRoutes.ADDDETAILS,
+        page:  AddDetail(),
       ),
     ];
   }
