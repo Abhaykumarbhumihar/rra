@@ -13,6 +13,23 @@ class AppTextStyle {
     );
   }
 
+  static TextStyle  amenities(double width) {
+    return TextStyle(
+      color: AppColor.appWhiteColor,
+      fontFamily: AppFont.interMedium,
+      fontSize: width * 0.0426,
+    );
+  }
+
+  static TextStyle  facilityDetailSubtet(double width,Color color) {
+    return TextStyle(
+      color: color,
+      fontFamily: AppFont.interRegular,
+      fontSize: width * 0.0373,
+    );
+  }
+
+
   static TextStyle coachPrgrammingTitle(double width) {
     return TextStyle(
       color: AppColor.appBlack,

@@ -8,6 +8,7 @@ class AppColor {
   static const Color appgreycolor = Color(0xFF6C7B8B);
   static const Color appcolor = Color(0xFF056B7F);
   static const Color greycolor1 = Color(0xFF636564);
+  static const Color greycolor11 = Color(0xFF242424);
   static const Color appBlack=Color(0xFF000000);
   static const Color otpBagColor=Color(0xFFE7F8F3);
   static const Color dottedBorderColor=Color(0xFF269B77);
