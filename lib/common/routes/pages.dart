@@ -15,6 +15,7 @@ import '../../pages/parents/session/calendar/presentation/ui/calendart_page.dart
 import '../../pages/parents/session/coaching_detail/presentation/ui/coaching_detail.dart';
 import '../../pages/parents/session/coachprograms/presentation/bloc/coach_programs_bloc.dart';
 import '../../pages/parents/session/coachprograms/presentation/ui/coach_programs.dart';
+import '../../pages/parents/session/order_summary/order_summary.dart';
 import 'exports.dart';
 
 
@@ -96,6 +97,11 @@ class AppPages {
       PageEntitiy(
         route: AppRoutes.HOLIDAYCAMPDETAIL,
         page:  HolidayDetailPage(),
+      ),
+
+      PageEntitiy(
+        route: AppRoutes.BOOKSUMMARY,
+        page:  OrderSummary(),
       ),
     ];
   }

@@ -16,6 +16,7 @@ static const WELCOMEPAGE="/welcom_page";
 
   static const COACHPROGRAMS="/coach_programs";
   static const BOOKTRAINING="/book_training";
+  static const BOOKSUMMARY="/book_summary";
  //camp
   static const HOLIDAYCAMP="/holiday_camp";
   static const HOLIDAYCAMPDETAIL="/holiday_camp_detail";

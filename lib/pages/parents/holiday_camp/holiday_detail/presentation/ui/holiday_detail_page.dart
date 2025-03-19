@@ -53,17 +53,12 @@ class HolidayDetailPage extends StatelessWidget {
                 ),
                 SizedBox(height: height * 0.02),
                 Text(
-                  "Group Coaching U9 Advanced (Hardball)",
+                  "U9 Christmas Camp",
                   textAlign: TextAlign.start,
-                  style: AppTextStyle.commentReplyTextButtonStyle(
+                  style: AppTextStyle.camDetailTitle(
                       context.screenWidth),
                 ),
-                SizedBox(height: height * 0.02),
-                Text(
-                  "The sevens stadium",
-                  textAlign: TextAlign.start,
-                  style: AppTextStyle.medium(context.screenWidth * 0.048),
-                ),
+
                 SizedBox(height: height * 0.02),
                 Container(
                   width: context.screenWidth,
@@ -75,21 +70,77 @@ class HolidayDetailPage extends StatelessWidget {
                       fit: BoxFit.cover, // Background image
                     ),
                     //color: AppColor.gradientMidColor,
-                    borderRadius: BorderRadius.circular(8),
+                    borderRadius: BorderRadius.circular(6),
                   ),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        "Timings:",
+                        "Location : The Emirates Sevens",
                         style: AppTextStyle.bold(context.screenWidth * 0.0373),
                       ),
                       SizedBox(height: 4),
-                      Text(
-                        "Thursday: 17:30 PM - 09:00 PM\nSaturday: 08:00 AM - 09:00 PM",
-                        style:
-                        AppTextStyle.regular(context.screenWidth * 0.032),
+                      Divider(height: 1.2,
+                      color: AppColor.appWhiteColor.withOpacity(0.3),
                       ),
+                      SizedBox(height: 4),
+                      Row(
+                        children: [
+                          Text(
+                            "Dates :",
+                            style:
+                            AppTextStyle.medium(context.screenWidth * 0.0373),
+                          ),
+                          Text(
+                            " Dec 16, 2024 - Dec 19,2024",
+                            style:
+                            AppTextStyle.regular(context.screenWidth * 0.0373),
+                          ),
+                        ],
+                      ),
+                      Row(
+                        children: [
+                          Text(
+                            "Session :",
+                            style:
+                            AppTextStyle.medium(context.screenWidth * 0.0373),
+                          ),
+                          Text(
+                            "8:00 AM - 12:00 PM",
+                            style:
+                            AppTextStyle.regular(context.screenWidth * 0.0373),
+                          ),
+                        ],
+                      ),
+                      Row(
+                        children: [
+                          Text(
+                            "Age Groups :",
+                            style:
+                            AppTextStyle.medium(context.screenWidth * 0.0373),
+                          ),
+                          Text(
+                            "Under 9, Under 7",
+                            style:
+                            AppTextStyle.regular(context.screenWidth * 0.0373),
+                          ),
+                        ],
+                      ),
+                      Row(
+                        children: [
+                          Text(
+                            "Per Day :",
+                            style:
+                            AppTextStyle.medium(context.screenWidth * 0.0373),
+                          ),
+                          Text(
+                            " 160.00 AED  :(4 days) : 600.00 AED",
+                            style:
+                            AppTextStyle.regular(context.screenWidth * 0.0373),
+                          ),
+                        ],
+                      ),
+
                     ],
                   ),
                 ),

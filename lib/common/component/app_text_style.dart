@@ -46,6 +46,15 @@ class AppTextStyle {
     );
   }
 
+  static TextStyle camDetailTitle(double width) {
+    return TextStyle(
+      color: AppColor.appWhiteColor,
+      fontFamily: AppFont.interSemiBold,
+      fontSize: width * 0.0613,
+    );
+  }
+
+
   static TextStyle medium(double fontsize) {
     return TextStyle(
       color: AppColor.appWhiteColor,
@@ -68,6 +77,8 @@ class AppTextStyle {
       fontSize: fontsize,
     );
   }
+
+
 
   static TextStyle coachingProgramDetail(double fontsize) {
     return TextStyle(

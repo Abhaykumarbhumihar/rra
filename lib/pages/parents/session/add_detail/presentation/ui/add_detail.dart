@@ -4,6 +4,7 @@ import '../../../../../../common/component/common_app_bar.dart';
 import '../../../../../../common/component/common_background.dart';
 import '../../../../../../common/component/custom_app_button.dart';
 import '../../../../../../common/component/screen_title.dart';
+import '../../../../../../common/routes/routes.dart';
 
 
 
@@ -225,7 +226,8 @@ class AddDetail extends StatelessWidget {
                           CustomButton(
                             text: "Continue",
                             onPressed: () {
-
+                              Navigator.pushNamed(
+                                  context, AppRoutes.BOOKSUMMARY);
                               print("code is running here");
                             },
                           ),
