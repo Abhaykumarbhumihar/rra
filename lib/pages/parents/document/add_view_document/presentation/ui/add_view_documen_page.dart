@@ -35,7 +35,6 @@ class AddViewDocumenPage extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 CustomToggleSwitch()
-
               ],
             ),
           ),

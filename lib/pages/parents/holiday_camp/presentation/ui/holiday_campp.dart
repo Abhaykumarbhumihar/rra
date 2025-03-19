@@ -4,8 +4,8 @@ import '../../../../../common/component/auth_text_field.dart';
 import '../../../../../common/component/common_app_bar.dart';
 import '../../../../../common/component/common_list_item.dart';
 import '../../../../../common/routes/routes.dart';
-import '../../../coachprograms/presentation/bloc/coach_programs_bloc.dart';
-import '../../../coachprograms/presentation/bloc/coach_programs_state.dart';
+
+
 
 
 class HolidayCampp extends StatelessWidget {
