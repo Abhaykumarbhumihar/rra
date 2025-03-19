@@ -1,5 +1,6 @@
 import 'package:rra/common/routes/routes.dart';
 import 'package:rra/pages/parents/calendar/presentation/ui/calendart_page.dart';
+import 'package:rra/pages/parents/document/add_view_document/presentation/ui/add_view_documen_page.dart';
 import 'package:rra/pages/parents/facility/facility_add_to_cart/presentaion/ui/facility_add_to_cart_page.dart';
 import 'package:rra/pages/parents/facility/facility_detail/presentation/ui/facility_detail_page.dart';
 import 'package:rra/pages/parents/facility/facilitylist/presentation/ui/facility_list.dart';
@@ -83,6 +84,10 @@ class AppPages {
       PageEntitiy(
         route: AppRoutes.FACILITADDTOCARTPAGE,
         page:  FacilityAddToCartPage(),
+      ),
+      PageEntitiy(
+        route: AppRoutes.ADDVIEWDOCUMENT,
+        page:  AddViewDocumenPage(),
       ),
     ];
   }

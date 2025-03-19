@@ -10,21 +10,28 @@ static const WELCOMEPAGE="/welcom_page";
   static const RESETPASSWORD="/reset_password";
   static const ADDPROFILEPHOTO="/add_profile_photo";
 
-  //calendar
-  static const CALENDAR="/calendar_booking";
-  static const ADDDETAILS="/booking_add_detail";
-  // Parents
+
+  // Parents-------------------------------------------------------------
+  static  const APPLICATION="/application";
+
   static const COACHPROGRAMS="/coach_programs";
   static const BOOKTRAINING="/book_training";
   static const HOLIDAYCAMP="/holiday_camp";
+
+  //calendar
+  static const CALENDAR="/calendar_booking";
+  static const ADDDETAILS="/booking_add_detail";
 
   //facility
   static const FACILITYLIST="/facility_list";
   static const FACILITYDETAIL="/facility_detial";
   static const FACILITADDTOCARTPAGE="/facility_add_to_cart";
 
+  //document
+  static const ADDVIEWDOCUMENT="/add_view_document";
+
   //home
-  static  const APPLICATION="/application";
+
   static const HOMEPAGE="/home_page";
   static const SELECTSERICES="/select_services_for_add_underrated";
   static const ADDUNDERRATETITLE="/add_underrated_title";

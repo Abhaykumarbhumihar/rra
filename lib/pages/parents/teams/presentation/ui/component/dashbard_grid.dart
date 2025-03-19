@@ -2,6 +2,7 @@ import 'package:auto_height_grid_view/auto_height_grid_view.dart';
 import 'package:rra/common/values/values_exports.dart';
 
 import '../../../../../../common/component/circler.dart';
+import '../../../../../../common/routes/routes.dart';
 
 class DashboardGrid extends StatelessWidget {
   DashboardGrid({super.key});
@@ -52,6 +53,10 @@ class DashboardGrid extends StatelessWidget {
 
         return GestureDetector(
           onTap: () {
+            if(item['title']=="Upload Documents"){
+              Navigator.pushNamed(
+                  context, AppRoutes.ADDVIEWDOCUMENT);
+            }
             print("${item['title']} clicked");
           },
           child: Container(
