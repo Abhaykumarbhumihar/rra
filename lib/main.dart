@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_stripe/flutter_stripe.dart';
 
 import 'common/routes/exports.dart';
 import 'common/routes/pages.dart';
@@ -11,6 +12,10 @@ final GlobalKey<NavigatorState> navigatorKey = GlobalKey<NavigatorState>();
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+
+  // set the publishable key for Stripe - this is mandatory
+  Stripe.publishableKey = "stripePublishableKey";
+
   serviceLocator();
   runApp(const MyApp());
 }
