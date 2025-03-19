@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:rra/common/values/values_exports.dart';
 
 class CustomTextInputMobile extends StatefulWidget {
@@ -278,6 +279,36 @@ height: context.screenHeight*0.0625,
       return Icon(
         Icons.email_outlined,
         color: Colors.blueAccent,
+        size: width * 0.04,
+      );
+    }else if (widget.title == "Sports") {
+      return Icon(
+        FontAwesomeIcons.chevronDown,
+        color: Colors.white.withOpacity(0.5),
+        size: width * 0.04,
+      );
+    }else if (widget.title == "Choose Date") {
+      return Icon(
+        FontAwesomeIcons.calendar,
+        color: Colors.white.withOpacity(0.5),
+        size: width * 0.04,
+      );
+    }else if (widget.title == "Select Time") {
+      return Icon(
+        FontAwesomeIcons.clock,
+        color: Colors.white.withOpacity(0.5),
+        size: width * 0.04,
+      );
+    } else if (widget.title == "Duration") {
+      return Icon(
+        FontAwesomeIcons.chevronDown,
+        color: Colors.white.withOpacity(0.5),
+        size: width * 0.04,
+      );
+    } else if (widget.title == "Court") {
+      return Icon(
+        FontAwesomeIcons.chevronDown,
+        color: Colors.white.withOpacity(0.5),
         size: width * 0.04,
       );
     } else if (widget.title.contains("Phone")) {

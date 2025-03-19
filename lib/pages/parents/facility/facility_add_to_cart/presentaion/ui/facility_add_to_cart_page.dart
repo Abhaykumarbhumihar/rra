@@ -1,6 +1,7 @@
 import 'package:rra/common/values/values_exports.dart';
 import 'package:rra/common/routes/exports.dart';
 
+import '../../../../../../common/component/app_text_style.dart';
 import '../../../../../../common/component/auth_text_field.dart';
 import '../../../../../../common/component/common_background.dart';
 import '../../../../../../common/component/custom_app_button.dart';
@@ -51,16 +52,23 @@ class FacilityAddToCartPage extends StatelessWidget {
                   ),
 
                   Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
                     children: <Widget>[
-
+                      Text(
+                        "Zabeel Sports District",
+                        textAlign: TextAlign.start,
+                        style: AppTextStyle.bold(
+                            context.screenWidth*0.048),
+                      ),
+                      SizedBox(height: height * 0.01),
                       CustomTextInputMobile(
                         controller: sportsController,
                         title: "Sports",
                         isShowTitle: true,
                         isPass: false,
-                        isSuffix: false,
+                        isSuffix: true,
                         isPrefix: false,
-                        hint: 'Enter your name',
+                        hint: 'Cricket',
                         keyBoardType: TextInputType.name,
                         //focusNode: firstNameFocusNode,
                         errorMessage:"",
@@ -76,10 +84,10 @@ class FacilityAddToCartPage extends StatelessWidget {
                         controller: dateController,
                         title: "Choose Date",
                         isPass: false,
-                        isSuffix: false,
+                        isSuffix: true,
                         isShowTitle: true,
                         isPrefix: false,
-                        hint: 'Enter your phone number',
+                        hint: 'Select Date',
                         keyBoardType: TextInputType.phone,
                        // focusNode: phoneNoFocusNode,
                         maxLength: 13,
@@ -98,10 +106,10 @@ class FacilityAddToCartPage extends StatelessWidget {
                         controller: timeController,
                         title: "Select Time",
                         isPass: false,
-                        isSuffix: false,
+                        isSuffix: true,
                         isPrefix: false,
                         isShowTitle: true,
-                        hint: 'select your gender',
+                        hint: 'Cricket',
                         keyBoardType: TextInputType.name,
                         //focusNode: lastnameFocusNode,
                         errorMessage: "",
@@ -121,10 +129,10 @@ class FacilityAddToCartPage extends StatelessWidget {
                         controller: durationController,
                         title: "Duration",
                         isPass: false,
-                        isSuffix: false,
+                        isSuffix: true,
                         isPrefix: false,
                         isShowTitle: true,
-                        hint: 'select your gender',
+                        hint: 'Select Duration',
                         keyBoardType: TextInputType.name,
                         //focusNode: lastnameFocusNode,
                         errorMessage: "",
@@ -142,12 +150,12 @@ class FacilityAddToCartPage extends StatelessWidget {
                       ),
                       CustomTextInputMobile(
                         controller: courtController,
-                        title: "Duration",
+                        title: "Court",
                         isPass: false,
-                        isSuffix: false,
+                        isSuffix: true,
                         isPrefix: false,
                         isShowTitle: true,
-                        hint: 'select your gender',
+                        hint: 'Select Court',
                         keyBoardType: TextInputType.name,
                         //focusNode: lastnameFocusNode,
                         errorMessage: "",
@@ -165,7 +173,7 @@ class FacilityAddToCartPage extends StatelessWidget {
                         height: 32,
                       ),
                       CustomButton(
-                        text: "Complete Profile",
+                        text: "Add to cart",
                         onPressed: () {
 
                           showCartBottomSheet(context);

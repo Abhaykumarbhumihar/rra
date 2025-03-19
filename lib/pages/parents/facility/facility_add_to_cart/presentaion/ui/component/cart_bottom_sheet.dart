@@ -1,5 +1,7 @@
 import 'package:rra/common/values/values_exports.dart';
 import 'package:rra/common/routes/exports.dart';
+
+import '../../../../../../../common/component/custom_app_button.dart';
 class CartBottomSheet extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -14,37 +16,31 @@ class CartBottomSheet extends StatelessWidget {
         children: [
           Text(
             "Cart",
-            style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+            style: TextStyle(
+              fontFamily: AppFont.interMedium,
+              color: AppColor.appBlack,
+              fontSize: context.screenWidth *0.048,),
           ),
-          Divider(),
-          _cartItemRow("Sports", "Cricket"),
-          _cartItemRow("Date", "06, December 2024"),
-          _cartItemRow("Time", "10:00 PM to 11:00 PM"),
-          _cartItemRow("Court", "Mini Ground Pitch 1"),
-          SizedBox(height: 20),
-          SizedBox(
-            width: double.infinity,
-            child: ElevatedButton(
-              style: ElevatedButton.styleFrom(
-                backgroundColor: Colors.pink,
-                padding: EdgeInsets.symmetric(vertical: 15),
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(30),
-                ),
-              ),
-              onPressed: () {},
-              child: Text(
-                "Proceed To Checkout",
-                style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
-              ),
-            ),
+          Divider(color: AppColor.appBlack.withOpacity(0.1),),
+          _cartItemRow("Sports", "Cricket",context),
+          _cartItemRow("Date", "06, December 2024",context),
+          _cartItemRow("Time", "10:00 PM to 11:00 PM",context),
+          _cartItemRow("Court", "Mini Ground Pitch 1",context),
+          SizedBox(height: 30),
+          CustomButton(
+            text: "Proceed To Checkout",
+            onPressed: () {
+
+
+              print("code is running here");
+            },
           ),
         ],
       ),
     );
   }
 
-  Widget _cartItemRow(String label, String value) {
+  Widget _cartItemRow(String label, String value,BuildContext context) {
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 5),
       child: Row(
@@ -52,11 +48,16 @@ class CartBottomSheet extends StatelessWidget {
         children: [
           Text(
             label,
-            style: TextStyle(fontSize: 14, color: Colors.black54),
+            style: TextStyle(
+              fontFamily: AppFont.interRegular,
+              fontSize: context.screenWidth *0.0373,
+              color: AppColor.greycolor11,),
           ),
           Text(
             value,
-            style: TextStyle(fontSize: 14, fontWeight: FontWeight.bold),
+            style: TextStyle(fontSize: context.screenWidth *0.0373,
+              color: AppColor.greycolor11,
+              fontFamily: AppFont.interRegular,),
           ),
         ],
       ),

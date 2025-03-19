@@ -5,6 +5,7 @@ import 'package:rra/common/values/values_exports.dart';
 import '../../../../../../common/component/common_app_bar.dart';
 import '../../../../../../common/component/custom_app_button.dart';
 import '../../../../../../common/routes/routes.dart';
+import 'component/aminities.dart';
 
 class FacilityDetailPage extends StatelessWidget {
   FacilityDetailPage({super.key});
@@ -27,7 +28,6 @@ class FacilityDetailPage extends StatelessWidget {
           child: CustomButton(
             text: "Book Now",
             onPressed: () async {
-
               Navigator.pushNamed(
                   context, AppRoutes.FACILITADDTOCARTPAGE);
             },
@@ -43,10 +43,17 @@ class FacilityDetailPage extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
+                Text(
+                  "Zabeel Sports District",
+                  textAlign: TextAlign.start,
+                  style: AppTextStyle.bold(
+                      context.screenWidth*0.048),
+                ),
+                SizedBox(height: height * 0.005),
                 ClipRRect(
                   borderRadius: BorderRadius.circular(15),
                   child: Image.asset(
-                    'assets/images/coaching_image.png',
+                    'assets/images/cricket.png',
                     // Replace with your actual image
                     width: double.infinity,
                     height: height * 0.3,
@@ -55,21 +62,56 @@ class FacilityDetailPage extends StatelessWidget {
                 ),
                 SizedBox(height: height * 0.02),
                 Text(
-                  "Group Coaching U9 Advanced (Hardball)",
+                  "Amenities",
                   textAlign: TextAlign.start,
-                  style: AppTextStyle.commentReplyTextButtonStyle(
+                  style: AppTextStyle.amenities(
                       context.screenWidth),
+                ),
+                SizedBox(height: height * 0.012),
+                Divider(
+                  height: 1.5, color: AppColor.appWhiteColor.withOpacity(0.1),),
+                SizedBox(height: height * 0.02),
+                AminitiesLis(),
+                SizedBox(height: height * 0.015),
+                Text(
+                  "About venue",
+                  textAlign: TextAlign.start,
+                  style: AppTextStyle.amenities(
+                      context.screenWidth),
+                ),
+                SizedBox(height: height * 0.005),
+                Text(
+                  "All Stars Ajman Academy branch located behind Saudi German hospital in Ajman",
+                  textAlign: TextAlign.start,
+                  style: AppTextStyle.facilityDetailSubtet(
+                      context.screenWidth,AppColor.appWhiteColor.withOpacity(0.7)),
                 ),
                 SizedBox(height: height * 0.02),
                 Text(
-                  "The sevens stadium",
+                  "Related To All Stars Academy Ajman",
                   textAlign: TextAlign.start,
-                  style: AppTextStyle.medium(context.screenWidth * 0.048),
+                  style: AppTextStyle.amenities(
+                      context.screenWidth),
+                ),
+                SizedBox(height: height * 0.005),
+                Text(
+                  "Sports Clubs in Ajman, Basketball Courts in Ajman, Cricket Grounds in Ajman, Volleyball Courts in Ajman, Football Grounds in Ajman, Basketball Courts in Ajman, Cricket Grounds in Ajman, Volleyball Courts in Ajman, Football Grounds in Ajman, Sports Clubs in Ajman",
+                  textAlign: TextAlign.start,
+                  style: AppTextStyle.facilityDetailSubtet(
+                      context.screenWidth,AppColor.appWhiteColor.withOpacity(0.7)),
                 ),
                 SizedBox(height: height * 0.02),
+
+                Text(
+                  "Timing",
+                  textAlign: TextAlign.start,
+                  style: AppTextStyle.amenities(
+                      context.screenWidth),
+                ),
+                SizedBox(height: height * 0.005),
                 Container(
                   width: context.screenWidth,
-                  padding: EdgeInsets.all(12),
+                  padding: EdgeInsets.all(8.0),
                   decoration: BoxDecoration(
                     image: DecorationImage(
                       image: AssetImage(
@@ -77,42 +119,52 @@ class FacilityDetailPage extends StatelessWidget {
                       fit: BoxFit.cover, // Background image
                     ),
                     //color: AppColor.gradientMidColor,
-                    borderRadius: BorderRadius.circular(8),
+                    borderRadius: BorderRadius.circular(5),
                   ),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        "Timings:",
-                        style: AppTextStyle.bold(context.screenWidth * 0.0373),
-                      ),
-                      SizedBox(height: 4),
-                      Text(
-                        "Thursday: 17:30 PM - 09:00 PM\nSaturday: 08:00 AM - 09:00 PM",
+                        "Mon - Thur 4PM - 12AM | Fri 4PM - 12AM | Sat - Sun 4PM - 12AM",
                         style:
                         AppTextStyle.regular(context.screenWidth * 0.032),
                       ),
                     ],
                   ),
                 ),
-                SizedBox(height: 16),
+                SizedBox(height: height * 0.02),
+
                 Text(
-                  "Our U9 Advanced development program aims to develop foundation skills through small-sided games and practices.\n\n"
-                      "The programs are hardball focused and whilst enjoyment is at the heart of each session, it will introduce the players to all the basic cricket skills which underpin the game at a higher level.\n\n"
-                      "The sessions will introduce many life values and behavior that we also believe are fundamental to their cricketing and personal development.\n",
+                  "Location",
                   textAlign: TextAlign.start,
-                  style: AppTextStyle.coachingProgramDetail(
-                      context.screenWidth * 0.0373),
+                  style: AppTextStyle.amenities(
+                      context.screenWidth),
                 ),
-                Text("DEVELOPMENT THEMES U6-U10's",
-                    textAlign: TextAlign.start,
-                    style: AppTextStyle.medium(context.screenWidth * 0.0373)),
-                SizedBox(height: 8),
-                Text(
-                    "Focus is on hardball skill development within game situations. Enjoyment, challenge, and parent education are key aspects.",
-                    textAlign: TextAlign.start,
-                    style: AppTextStyle.coachingProgramDetail(
-                        context.screenWidth * 0.0373)),
+                SizedBox(height: height * 0.005),
+                Container(
+                  width: context.screenWidth,
+                  padding: EdgeInsets.all(8.0),
+                  decoration: BoxDecoration(
+                    image: DecorationImage(
+                      image: AssetImage(
+                          "assets/images/graphic_coaching_background.png"),
+                      fit: BoxFit.cover, // Background image
+                    ),
+                    //color: AppColor.gradientMidColor,
+                    borderRadius: BorderRadius.circular(5),
+                  ),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        "Gate #2 Ajman - Ajman Academy - Sheikh Ammer Bin Humaid St. - Al Tallah 2",
+                        style:
+                        AppTextStyle.regular(context.screenWidth * 0.032),
+                      ),
+                    ],
+                  ),
+                ),
+
                 SizedBox(height: 24),
               ],
             ),

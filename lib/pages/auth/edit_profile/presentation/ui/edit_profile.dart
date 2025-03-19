@@ -96,7 +96,7 @@ class EditProfile extends StatelessWidget {
 
                               CustomTextInputMobile(
                                 controller: firstNameController,
-                                title: "Name",
+                                  title: "Name",
                                 isShowTitle: true,
                                 isPass: false,
                                 isSuffix: false,
