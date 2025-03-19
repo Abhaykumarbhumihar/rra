@@ -1,5 +1,7 @@
 import 'package:rra/common/routes/routes.dart';
 import 'package:rra/pages/parents/calendar/presentation/ui/calendart_page.dart';
+import 'package:rra/pages/parents/facility/facility_detail/presentation/ui/facility_detail_page.dart';
+import 'package:rra/pages/parents/facility/facilitylist/presentation/ui/facility_list.dart';
 import 'package:rra/pages/parents/holiday_camp/presentation/ui/holiday_campp.dart';
 
 
@@ -68,6 +70,14 @@ class AppPages {
       PageEntitiy(
         route: AppRoutes.HOLIDAYCAMP,
         page:  HolidayCampp(),
+      ),
+      PageEntitiy(
+        route: AppRoutes.FACILITYLIST,
+        page:  FacilityList(),
+      ),
+      PageEntitiy(
+        route: AppRoutes.FACILITYDETAIL,
+        page:  FacilityDetailPage(),
       ),
     ];
   }

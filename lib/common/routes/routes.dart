@@ -18,6 +18,10 @@ static const WELCOMEPAGE="/welcom_page";
   static const BOOKTRAINING="/book_training";
   static const HOLIDAYCAMP="/holiday_camp";
 
+  //facility
+  static const FACILITYLIST="/facility_list";
+  static const FACILITYDETAIL="/facility_detial";
+
   //home
   static  const APPLICATION="/application";
   static const HOMEPAGE="/home_page";

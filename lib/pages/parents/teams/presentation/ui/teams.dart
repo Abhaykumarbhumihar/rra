@@ -50,7 +50,8 @@ class Teams extends StatelessWidget {
                           print("View Session clicked");
                         },
                         onButtonClick2: () {
-
+                          Navigator.pushNamed(
+                              context, AppRoutes.FACILITYLIST);
                           print("Book Facility clicked");
                         },
                       ),
