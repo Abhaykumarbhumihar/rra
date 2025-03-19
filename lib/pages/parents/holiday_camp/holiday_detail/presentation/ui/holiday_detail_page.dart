@@ -19,7 +19,7 @@ class HolidayDetailPage extends StatelessWidget {
       child: Scaffold(
         backgroundColor: Colors.transparent,
         appBar: CommonAppBar(
-          title: "Coaching Programs",
+          title: "Camp Detail",
         ),
         bottomNavigationBar: Padding(
           padding: const EdgeInsets.only(
