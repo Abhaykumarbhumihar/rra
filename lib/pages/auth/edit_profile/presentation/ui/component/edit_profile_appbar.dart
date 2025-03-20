@@ -60,7 +60,8 @@ class EditProfileAppbar extends StatelessWidget {
                 ),
                 child: ScreenSubTitle(
                   subtitle:
-                      "Don’t worry,  only you can see your personal data. No one else will be able to see it.",
+                      "Don’t worry,  "
+                          "only you can see your personal data. No one else will be able to see it.",
                 ),
               ),
               SizedBox(
