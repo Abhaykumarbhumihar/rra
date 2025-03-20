@@ -4,6 +4,7 @@ import 'package:rra/common/values/values_exports.dart';
 import 'package:toggle_switch/toggle_switch.dart';
 
 import '../../../../../../common/component/common_app_bar.dart';
+import '../../../../../../common/component/custom_app_button.dart';
 import '../bloc/add_document_bloc.dart';
 import '../bloc/add_document_state.dart';
 import 'component/add_document_component.dart';
@@ -38,8 +39,10 @@ class AddViewDocumenPage extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     CustomHeader(
-                      title: "Coaching Programs",
-                      onBackPress: () {},
+                      title: "Add Documents",
+                      onBackPress: () {
+                        Navigator.pop(context);
+                      },
                     ),
                     SizedBox(
                       height: 24,
@@ -60,7 +63,18 @@ class AddViewDocumenPage extends StatelessWidget {
                   child: context.watch<AddDocumentBloc>().state.selectedTab == 1
                       ? DocumentItem()
                       : AddDocumentComponent(),
-                )
+                ),
+                    SizedBox(height: context.screenHeight*0.05,),
+                    Padding(
+                      padding:  EdgeInsets.symmetric(horizontal: context.screenWidth*0.05),
+                      child: CustomButton(
+                        text: "Continue",
+                        onPressed: () async {
+
+
+                        },
+                      ),
+                    ),
                   ],
                 ),
               ),
