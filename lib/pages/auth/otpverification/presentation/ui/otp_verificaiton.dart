@@ -1,4 +1,5 @@
 import 'package:pin_code_fields/pin_code_fields.dart';
+import 'package:rra/common/network/connectivity_extension.dart';
 import 'package:rra/common/values/values_exports.dart';
 import '../../../../../common/component/common_background.dart';
 import '../../../../../common/component/custom_app_button.dart';
@@ -8,6 +9,7 @@ import '../../../../../common/routes/routes.dart';
 import '../../../../../common/values/utils.dart';
 import '../../../login/presentation/ui/component/forgot_text.dart';
 import '../bloc/otpverification_bloc.dart';
+import '../bloc/otpverification_event.dart';
 import '../bloc/otpverification_state.dart';
 
 class OtpVerificaiton extends StatelessWidget {
@@ -29,10 +31,20 @@ class OtpVerificaiton extends StatelessWidget {
       body: BlocListener<OtpverificationBloc, OtpState>(
         listener: (context, state) async {
           print(state);
-          if (state.isSuccess && state.otpresponse.message != "") {
+          if(state.errorMessage!=""){
+            context.showCustomSnackbar(state.errorMessage!,
+                backgroundColor: AppColor.appcolor);
+          }
+        //  if (state.isSuccess && state.otpresponse.message != "") {
+          if (state.isSuccess) {
             context.showCustomSnackbar(state.otpresponse.message,
                 backgroundColor: AppColor.appcolor);
             if (isFromCreateAccount!) {
+              Navigator.pushNamedAndRemoveUntil(
+                context,
+                AppRoutes.EDITPROFILE,
+                    (Route<dynamic> route) => false,
+              );
               // BlocProvider.of<HomeBloc>(context).add(GetCategoryListEvent(true));
               // BlocProvider.of<BestFindBloc>(context).add(GetBestFindEvent("1",true));
               // BlocProvider.of<NotificationBloc>(context)
@@ -154,7 +166,7 @@ class OtpVerificaiton extends StatelessWidget {
                         ),
                         ScreenSubTitleAppColor(
                           subtitle:
-                          " example@email.com",/*${arguments?['email']}*/
+                          " ${arguments?['email']}",/*${arguments?['email']}*/
                         ),
                         SizedBox(
                           height: height * 0.05,
@@ -187,7 +199,7 @@ class OtpVerificaiton extends StatelessWidget {
                               shape: PinCodeFieldShape.box,
                               borderRadius: BorderRadius.circular(15,),
                               borderWidth: 1.5,
-                              fieldHeight: context.screenHeight * 0.05,
+                              fieldHeight: context.screenHeight * 0.055,
                               fieldWidth: context.screenWidth * 0.15,
                               inactiveFillColor:AppColor.appWhiteColor.withOpacity(0.013),
                               // Empty field
@@ -195,9 +207,9 @@ class OtpVerificaiton extends StatelessWidget {
                               // Filled field
                               selectedFillColor: AppColor.appWhiteColor.withOpacity(0.013),
                               // Currently selected field
-                              activeColor: AppColor.appWhiteColor.withOpacity(0.013),
-                              inactiveColor:AppColor.appWhiteColor.withOpacity(0.013),
-                              selectedColor: AppColor.appWhiteColor.withOpacity(0.013),
+                              activeColor: AppColor.appWhiteColor.withOpacity(0.1),
+                              inactiveColor:AppColor.appWhiteColor.withOpacity(0.1),
+                              selectedColor: AppColor.appWhiteColor.withOpacity(0.1),
                             ),
 
                             hintCharacter: '*',
@@ -223,7 +235,7 @@ class OtpVerificaiton extends StatelessWidget {
                                 fontSize: context.screenWidth * 0.049),
                             onChanged: (value) {
                               BlocProvider.of<OtpverificationBloc>(context).add(
-                                OtpChange(value),
+                                OtpverificationEvent.otpChange(value),
                               );
                             },
                           ),
@@ -249,17 +261,17 @@ class OtpVerificaiton extends StatelessWidget {
                           child: CustomButton(
                             text: "Verify",
                             onPressed: () async {
-                              Navigator.pushNamed(
-                                  context, AppRoutes.RESETPASSWORD);
-                              // if ((await Connectivity().isConnected)) {
-                              //   context
-                              //       .read<OtpverificationBloc>()
-                              //       .add(OtpSubmit("${arguments?['email']}"));
-                              // } else {
-                              //   context.showCustomSnackbar(
-                              //       'No internet connection. Please check your connection \nand try again.',
-                              //       backgroundColor: AppColor.appcolor);
-                              // }
+                              //Navigator.pushNamed(
+                              //    context, AppRoutes.RESETPASSWORD);
+                              if ((await Connectivity().isConnected)) {
+                                context
+                                    .read<OtpverificationBloc>()
+                                    .add(OtpSubmit("${arguments?['email']}"));
+                              } else {
+                                context.showCustomSnackbar(
+                                    'No internet connection. Please check your connection \nand try again.',
+                                    backgroundColor: AppColor.appcolor);
+                              }
                             },
                           ),
                         ),

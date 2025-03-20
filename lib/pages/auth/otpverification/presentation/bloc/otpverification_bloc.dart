@@ -3,9 +3,10 @@ import 'package:equatable/equatable.dart';
 import '../../../../../common/service_locator/setivelocator.dart';
 import '../../data/entity/otp_verification_model.dart';
 import '../../domain/usecase/verify_otp_usecase.dart';
+import 'otpverification_event.dart';
 import 'otpverification_state.dart';
 
-part 'otpverification_event.dart';
+
 
 class OtpverificationBloc extends Bloc<OtpverificationEvent, OtpState> {
  final VerifyOtpUseCase _verifyOtpUseCase=getIt<VerifyOtpUseCase>();
@@ -30,30 +31,38 @@ class OtpverificationBloc extends Bloc<OtpverificationEvent, OtpState> {
     print(state.otpNumber.toString());
     if (state.otpNumber.toString().trim().length == 4) {
       emit(state.copyWith(
-          isLoading: true, isSuccess: false, isError: false, errorMessage: ''));
-      Map<String, String> userRegistrationMap = {
-        "otp": state.otpNumber,
-        "email": event.email.toString().toLowerCase().trim()
-      };
-      final response =
-          await _verifyOtpUseCase.verifyOtpExecute(userRegistrationMap);
-      response.fold((failure) {
-        emit(state.copyWith(
-          isLoading: false,
-          isSuccess: false,
-          successMessage: "",
+          isSuccess: true,
+          //successMessage: verifyotpResponse.message ?? "N/A",
           isError: true,
-          errorMessage: failure.message,
-        ));
-      }, (verifyotpResponse) {
-        emit(state.copyWith(
-            isSuccess: true,
-            successMessage: verifyotpResponse.message ?? "N/A",
-            isError: true,
-            errorMessage: '',
-            isLoading: false,
-            otpresponse: verifyotpResponse));
-      });
+          errorMessage: '',
+          isLoading: false,
+        //  otpresponse: verifyotpResponse
+      ));
+      // emit(state.copyWith(
+      //     isLoading: true, isSuccess: false, isError: false, errorMessage: ''));
+      // Map<String, String> userRegistrationMap = {
+      //   "otp": state.otpNumber,
+      //   "email": event.email.toString().toLowerCase().trim()
+      // };
+      // final response =
+      //     await _verifyOtpUseCase.verifyOtpExecute(userRegistrationMap);
+      // response.fold((failure) {
+      //   emit(state.copyWith(
+      //     isLoading: false,
+      //     isSuccess: false,
+      //     successMessage: "",
+      //     isError: true,
+      //     errorMessage: failure.message,
+      //   ));
+      // }, (verifyotpResponse) {
+      //   emit(state.copyWith(
+      //       isSuccess: true,
+      //       successMessage: verifyotpResponse.message ?? "N/A",
+      //       isError: true,
+      //       errorMessage: '',
+      //       isLoading: false,
+      //       otpresponse: verifyotpResponse));
+      // });
     } else {
 
       emit(state.copyWith(

@@ -260,15 +260,15 @@ mixin _$UserData {
   @JsonKey(name: 'email')
   String get email => throw _privateConstructorUsedError;
   @JsonKey(name: 'primary_number')
-  String? get primaryNumber => throw _privateConstructorUsedError;
+  dynamic get primaryNumber => throw _privateConstructorUsedError;
   @JsonKey(name: 'secondary_number')
-  String? get secondaryNumber => throw _privateConstructorUsedError;
+  dynamic get secondaryNumber => throw _privateConstructorUsedError;
   @JsonKey(name: 'dob')
-  String? get dob => throw _privateConstructorUsedError;
+  dynamic get dob => throw _privateConstructorUsedError;
   @JsonKey(name: 'gender')
   String get gender => throw _privateConstructorUsedError;
   @JsonKey(name: 'is_otp_verified')
-  bool? get isOtpVerified => throw _privateConstructorUsedError;
+  dynamic get isOtpVerified => throw _privateConstructorUsedError;
   @JsonKey(name: 'role')
   String get role => throw _privateConstructorUsedError;
 
@@ -291,11 +291,11 @@ abstract class $UserDataCopyWith<$Res> {
       {@JsonKey(name: 'id') int id,
       @JsonKey(name: 'name') String name,
       @JsonKey(name: 'email') String email,
-      @JsonKey(name: 'primary_number') String? primaryNumber,
-      @JsonKey(name: 'secondary_number') String? secondaryNumber,
-      @JsonKey(name: 'dob') String? dob,
+      @JsonKey(name: 'primary_number') dynamic primaryNumber,
+      @JsonKey(name: 'secondary_number') dynamic secondaryNumber,
+      @JsonKey(name: 'dob') dynamic dob,
       @JsonKey(name: 'gender') String gender,
-      @JsonKey(name: 'is_otp_verified') bool? isOtpVerified,
+      @JsonKey(name: 'is_otp_verified') dynamic isOtpVerified,
       @JsonKey(name: 'role') String role});
 }
 
@@ -340,15 +340,15 @@ class _$UserDataCopyWithImpl<$Res, $Val extends UserData>
       primaryNumber: freezed == primaryNumber
           ? _value.primaryNumber
           : primaryNumber // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as dynamic,
       secondaryNumber: freezed == secondaryNumber
           ? _value.secondaryNumber
           : secondaryNumber // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as dynamic,
       dob: freezed == dob
           ? _value.dob
           : dob // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as dynamic,
       gender: null == gender
           ? _value.gender
           : gender // ignore: cast_nullable_to_non_nullable
@@ -356,7 +356,7 @@ class _$UserDataCopyWithImpl<$Res, $Val extends UserData>
       isOtpVerified: freezed == isOtpVerified
           ? _value.isOtpVerified
           : isOtpVerified // ignore: cast_nullable_to_non_nullable
-              as bool?,
+              as dynamic,
       role: null == role
           ? _value.role
           : role // ignore: cast_nullable_to_non_nullable
@@ -377,11 +377,11 @@ abstract class _$$UserDataImplCopyWith<$Res>
       {@JsonKey(name: 'id') int id,
       @JsonKey(name: 'name') String name,
       @JsonKey(name: 'email') String email,
-      @JsonKey(name: 'primary_number') String? primaryNumber,
-      @JsonKey(name: 'secondary_number') String? secondaryNumber,
-      @JsonKey(name: 'dob') String? dob,
+      @JsonKey(name: 'primary_number') dynamic primaryNumber,
+      @JsonKey(name: 'secondary_number') dynamic secondaryNumber,
+      @JsonKey(name: 'dob') dynamic dob,
       @JsonKey(name: 'gender') String gender,
-      @JsonKey(name: 'is_otp_verified') bool? isOtpVerified,
+      @JsonKey(name: 'is_otp_verified') dynamic isOtpVerified,
       @JsonKey(name: 'role') String role});
 }
 
@@ -421,26 +421,18 @@ class __$$UserDataImplCopyWithImpl<$Res>
           ? _value.email
           : email // ignore: cast_nullable_to_non_nullable
               as String,
-      primaryNumber: freezed == primaryNumber
-          ? _value.primaryNumber
-          : primaryNumber // ignore: cast_nullable_to_non_nullable
-              as String?,
+      primaryNumber:
+          freezed == primaryNumber ? _value.primaryNumber! : primaryNumber,
       secondaryNumber: freezed == secondaryNumber
-          ? _value.secondaryNumber
-          : secondaryNumber // ignore: cast_nullable_to_non_nullable
-              as String?,
-      dob: freezed == dob
-          ? _value.dob
-          : dob // ignore: cast_nullable_to_non_nullable
-              as String?,
+          ? _value.secondaryNumber!
+          : secondaryNumber,
+      dob: freezed == dob ? _value.dob! : dob,
       gender: null == gender
           ? _value.gender
           : gender // ignore: cast_nullable_to_non_nullable
               as String,
-      isOtpVerified: freezed == isOtpVerified
-          ? _value.isOtpVerified
-          : isOtpVerified // ignore: cast_nullable_to_non_nullable
-              as bool?,
+      isOtpVerified:
+          freezed == isOtpVerified ? _value.isOtpVerified! : isOtpVerified,
       role: null == role
           ? _value.role
           : role // ignore: cast_nullable_to_non_nullable
@@ -456,11 +448,11 @@ class _$UserDataImpl implements _UserData {
       {@JsonKey(name: 'id') this.id = 0,
       @JsonKey(name: 'name') this.name = '',
       @JsonKey(name: 'email') this.email = '',
-      @JsonKey(name: 'primary_number') this.primaryNumber,
-      @JsonKey(name: 'secondary_number') this.secondaryNumber,
-      @JsonKey(name: 'dob') this.dob,
+      @JsonKey(name: 'primary_number') this.primaryNumber = '',
+      @JsonKey(name: 'secondary_number') this.secondaryNumber = '',
+      @JsonKey(name: 'dob') this.dob = '',
       @JsonKey(name: 'gender') this.gender = 'Unknown',
-      @JsonKey(name: 'is_otp_verified') this.isOtpVerified,
+      @JsonKey(name: 'is_otp_verified') this.isOtpVerified = false,
       @JsonKey(name: 'role') this.role = 'parent'});
 
   factory _$UserDataImpl.fromJson(Map<String, dynamic> json) =>
@@ -477,19 +469,19 @@ class _$UserDataImpl implements _UserData {
   final String email;
   @override
   @JsonKey(name: 'primary_number')
-  final String? primaryNumber;
+  final dynamic primaryNumber;
   @override
   @JsonKey(name: 'secondary_number')
-  final String? secondaryNumber;
+  final dynamic secondaryNumber;
   @override
   @JsonKey(name: 'dob')
-  final String? dob;
+  final dynamic dob;
   @override
   @JsonKey(name: 'gender')
   final String gender;
   @override
   @JsonKey(name: 'is_otp_verified')
-  final bool? isOtpVerified;
+  final dynamic isOtpVerified;
   @override
   @JsonKey(name: 'role')
   final String role;
@@ -507,21 +499,30 @@ class _$UserDataImpl implements _UserData {
             (identical(other.id, id) || other.id == id) &&
             (identical(other.name, name) || other.name == name) &&
             (identical(other.email, email) || other.email == email) &&
-            (identical(other.primaryNumber, primaryNumber) ||
-                other.primaryNumber == primaryNumber) &&
-            (identical(other.secondaryNumber, secondaryNumber) ||
-                other.secondaryNumber == secondaryNumber) &&
-            (identical(other.dob, dob) || other.dob == dob) &&
+            const DeepCollectionEquality()
+                .equals(other.primaryNumber, primaryNumber) &&
+            const DeepCollectionEquality()
+                .equals(other.secondaryNumber, secondaryNumber) &&
+            const DeepCollectionEquality().equals(other.dob, dob) &&
             (identical(other.gender, gender) || other.gender == gender) &&
-            (identical(other.isOtpVerified, isOtpVerified) ||
-                other.isOtpVerified == isOtpVerified) &&
+            const DeepCollectionEquality()
+                .equals(other.isOtpVerified, isOtpVerified) &&
             (identical(other.role, role) || other.role == role));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  int get hashCode => Object.hash(runtimeType, id, name, email, primaryNumber,
-      secondaryNumber, dob, gender, isOtpVerified, role);
+  int get hashCode => Object.hash(
+      runtimeType,
+      id,
+      name,
+      email,
+      const DeepCollectionEquality().hash(primaryNumber),
+      const DeepCollectionEquality().hash(secondaryNumber),
+      const DeepCollectionEquality().hash(dob),
+      gender,
+      const DeepCollectionEquality().hash(isOtpVerified),
+      role);
 
   /// Create a copy of UserData
   /// with the given fields replaced by the non-null parameter values.
@@ -544,11 +545,11 @@ abstract class _UserData implements UserData {
       {@JsonKey(name: 'id') final int id,
       @JsonKey(name: 'name') final String name,
       @JsonKey(name: 'email') final String email,
-      @JsonKey(name: 'primary_number') final String? primaryNumber,
-      @JsonKey(name: 'secondary_number') final String? secondaryNumber,
-      @JsonKey(name: 'dob') final String? dob,
+      @JsonKey(name: 'primary_number') final dynamic primaryNumber,
+      @JsonKey(name: 'secondary_number') final dynamic secondaryNumber,
+      @JsonKey(name: 'dob') final dynamic dob,
       @JsonKey(name: 'gender') final String gender,
-      @JsonKey(name: 'is_otp_verified') final bool? isOtpVerified,
+      @JsonKey(name: 'is_otp_verified') final dynamic isOtpVerified,
       @JsonKey(name: 'role') final String role}) = _$UserDataImpl;
 
   factory _UserData.fromJson(Map<String, dynamic> json) =
@@ -565,19 +566,19 @@ abstract class _UserData implements UserData {
   String get email;
   @override
   @JsonKey(name: 'primary_number')
-  String? get primaryNumber;
+  dynamic get primaryNumber;
   @override
   @JsonKey(name: 'secondary_number')
-  String? get secondaryNumber;
+  dynamic get secondaryNumber;
   @override
   @JsonKey(name: 'dob')
-  String? get dob;
+  dynamic get dob;
   @override
   @JsonKey(name: 'gender')
   String get gender;
   @override
   @JsonKey(name: 'is_otp_verified')
-  bool? get isOtpVerified;
+  dynamic get isOtpVerified;
   @override
   @JsonKey(name: 'role')
   String get role;

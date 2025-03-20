@@ -10,8 +10,6 @@ import 'package:rra/common/values/values_exports.dart';
 
 import 'package:connectivity_plus/connectivity_plus.dart';
 
-
-
 import '../../../../../common/component/auth_text_field.dart';
 import '../../../../../common/component/common_background.dart';
 import '../../../../../common/component/custom_app_button.dart';
@@ -22,7 +20,6 @@ import '../../../../../common/image/camera_file_utility.dart';
 import '../../../../../common/local/SharedPrefs.dart';
 import '../../../../../common/routes/routes.dart';
 
-
 import '../../data/enitiy/create_user_model.dart';
 import '../bloc/create_account_bloc.dart';
 import 'dart:math' as math;
@@ -30,6 +27,7 @@ import 'package:http/http.dart' as http;
 
 import '../bloc/create_account_event.dart';
 import '../bloc/create_account_state.dart';
+
 class CreateAccount extends StatelessWidget {
   CreateAccount({super.key});
 
@@ -61,47 +59,63 @@ class CreateAccount extends StatelessWidget {
       backgroundColor: AppColor.gradientMidColor,
       body: BlocListener<CreateAccountBloc, CreateAccountState>(
         listener: (context, state) async {
-          if (state.errorMessage != '' && state.isServerError) {
+          if (state.errorMessage != '') {
             context.showCustomSnackbar(state.errorMessage,
                 backgroundColor: AppColor.appcolor);
             BlocProvider.of<CreateAccountBloc>(context).add(MakeInitial());
-          } else if (state.userdata.message != '' && state.isSuccess) {
-
-            print(state.userdata.message);
-
-            context.showCustomSnackbar(state.userdata.message,
-                backgroundColor: AppColor.appcolor);
-            await SharedPrefs.setModel("user_model", state.userdata);
-            //await SharedPrefs.setString("csrftoken", state.userdata.data.csrfTokenn);
-            //await SharedPrefs.setString(
-            //    "access_token", state.userdata.data.token);
-            try{
-             // Utils.subscribeTopic(state.userdata?.data?.id);
-            }catch(e){
-              print("Topic subscribeTopic $e");
-            }
-            if (state.isSuccess) {
-              Map<String, dynamic> arguments = {
-                "email": state.email,
-                "isFromCreateAccount": true,
-              };
-              var userdata = await SharedPrefs.getModel<UserPojo>("user_model", (json) => UserPojo.fromJson(json));
+          }
+          if (state.isSuccess == true) {
+            Map<String, dynamic> arguments = {
+              "email": state.email,
+              "isFromCreateAccount": true,
+            };
+            //var userdata = await SharedPrefs.getModel<UserPojo>(
+            //    "user_model", (json) => UserPojo.fromJson(json));
 
             print("Printing in Create account UIIIII====");
 
-
-
-
-
-
-              Navigator.pushNamed(context, AppRoutes.OTPVERIFICATION,
-                  arguments: arguments);
-
-
-
-            }
-            BlocProvider.of<CreateAccountBloc>(context).add(MakeInitial());
+            Navigator.pushNamed(context, AppRoutes.OTPVERIFICATION,
+                arguments: arguments);
           }
+          BlocProvider.of<CreateAccountBloc>(context)
+              .add(CreateAccountEvent.makeInitial());
+          // else if (state.userdata.message != '' && state.isSuccess) {
+          //
+          //   print(state.userdata.message);
+          //
+          //   context.showCustomSnackbar(state.userdata.message,
+          //       backgroundColor: AppColor.appcolor);
+          //   await SharedPrefs.setModel("user_model", state.userdata);
+          //   //await SharedPrefs.setString("csrftoken", state.userdata.data.csrfTokenn);
+          //   //await SharedPrefs.setString(
+          //   //    "access_token", state.userdata.data.token);
+          //   try{
+          //    // Utils.subscribeTopic(state.userdata?.data?.id);
+          //   }catch(e){
+          //     print("Topic subscribeTopic $e");
+          //   }
+          //   if (state.isSuccess) {
+          //     Map<String, dynamic> arguments = {
+          //       "email": state.email,
+          //       "isFromCreateAccount": true,
+          //     };
+          //     var userdata = await SharedPrefs.getModel<UserPojo>("user_model", (json) => UserPojo.fromJson(json));
+          //
+          //   print("Printing in Create account UIIIII====");
+          //
+          //
+          //
+          //
+          //
+          //
+          //     Navigator.pushNamed(context, AppRoutes.OTPVERIFICATION,
+          //         arguments: arguments);
+          //
+          //
+          //
+          //   }
+          //   BlocProvider.of<CreateAccountBloc>(context).add(MakeInitial());
+          // }
         },
         child: BlocBuilder<CreateAccountBloc, CreateAccountState>(
           builder: (context, state) {
@@ -117,7 +131,6 @@ class CreateAccount extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.start,
                       crossAxisAlignment: CrossAxisAlignment.stretch,
                       children: [
-
                         SizedBox(height: height * 0.12),
                         Padding(
                           padding: const EdgeInsets.symmetric(horizontal: 16.0),
@@ -132,15 +145,15 @@ class CreateAccount extends StatelessWidget {
                                     const ScreenTitle(
                                       title: "Create Account",
                                     ),
-
-
                                   ],
                                 ),
                                 SizedBox(height: height * 0.01),
                                 Padding(
-                                  padding: const EdgeInsets.only(left: 8.0,right: 8.0),
-                                  child:  ScreenSubTitle(
-                                    subtitle: "Fill your information below or register with your social account",
+                                  padding: const EdgeInsets.only(
+                                      left: 8.0, right: 8.0),
+                                  child: ScreenSubTitle(
+                                    subtitle:
+                                        "Fill your information below or register with your social account",
                                   ),
                                 ),
                                 SizedBox(height: height * 0.038),
@@ -150,8 +163,8 @@ class CreateAccount extends StatelessWidget {
                                   isPass: false,
                                   isSuffix: false,
                                   isPrefix: false,
-                                  hint: 'First name',
-                                  prefixIcon:  Image.asset(
+                                  hint: 'Enter name',
+                                  prefixIcon: Image.asset(
                                     'assets/images/profile.png',
                                     width: 12,
                                     height: 12,
@@ -166,11 +179,13 @@ class CreateAccount extends StatelessWidget {
                                         .add(FirstNameChanged(value));
                                   },
                                   errorMessage: state.errorMessage ==
-                                      "Please enter your first name"
+                                          "Please enter your first name"
                                       ? state.errorMessage
                                       : null,
                                 ),
-                                SizedBox(height: 12,),
+                                SizedBox(
+                                  height: 12,
+                                ),
                                 CustomTextInputMobile(
                                   controller: emailController,
                                   title: "Email",
@@ -179,7 +194,7 @@ class CreateAccount extends StatelessWidget {
                                   isPrefix: true,
                                   keyBoardType: TextInputType.emailAddress,
                                   hint: 'Enter your email',
-                                  prefixIcon:  Image.asset(
+                                  prefixIcon: Image.asset(
                                     'assets/images/email.png',
                                     width: 12,
                                     height: 12,
@@ -199,14 +214,16 @@ class CreateAccount extends StatelessWidget {
                                       ? state.errorMessage
                                       : null,
                                 ),
-                                SizedBox(height: 12,),
+                                SizedBox(
+                                  height: 12,
+                                ),
                                 CustomTextInputMobile(
                                   isPrefix: false,
                                   controller: passwordController,
                                   title: "Password",
                                   isPass: true,
                                   isSuffix: false,
-                                  prefixIcon:  Image.asset(
+                                  prefixIcon: Image.asset(
                                     'assets/images/lock.png',
                                     width: 12,
                                     height: 12,
@@ -234,8 +251,17 @@ class CreateAccount extends StatelessWidget {
                                   onPressed: () async {
                                     // Emit CreateAccountSubmitted event
                                     print("code is running here");
-                                    Navigator.pushNamed(
-                                        context, AppRoutes.OTPVERIFICATION);
+                                    if ((await Connectivity().isConnected)) {
+                                      context
+                                          .read<CreateAccountBloc>()
+                                          .add(CreateAccountSubmitted());
+                                    } else {
+                                      context.showCustomSnackbar(
+                                          'No internet connection. Please check your connection \nand try again.',
+                                          backgroundColor: AppColor.appcolor);
+                                    }
+                                    // Navigator.pushNamed(
+                                    //     context, AppRoutes.OTPVERIFICATION);
                                     // if ((await Connectivity().isConnected)) {
                                     //   context
                                     //       .read<CreateAccountBloc>()
@@ -243,9 +269,6 @@ class CreateAccount extends StatelessWidget {
                                     // }else{
                                     //   context.showCustomSnackbar('No internet connection. Please check your connection \nand try again.',
                                     //       backgroundColor: AppColor.appcolor);
-
-
-
                                   },
                                 ),
                                 SizedBox(height: context.screenHeight * 0.03),
@@ -265,8 +288,6 @@ class CreateAccount extends StatelessWidget {
                       ],
                     ),
                   ),
-
-
                 ],
               ),
             );
@@ -305,11 +326,4 @@ class CreateAccount extends StatelessWidget {
       return null;
     }
   }
-
-
-
-
-
-
-
 }

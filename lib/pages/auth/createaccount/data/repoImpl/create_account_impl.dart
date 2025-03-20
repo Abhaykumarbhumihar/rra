@@ -25,8 +25,14 @@ class CreateAccountImpl implements CreateAccountRepositery {
           await _apiServices.post(AppConstant.createAccount, userData);
       if (response.statusCode == 200) {
         final Map<String, dynamic> responseData = jsonDecode(response.body);
-        final UserPojo user = UserPojo.fromJson(responseData);
-        return Right(user);
+        if(responseData['success']){
+          final UserPojo user = UserPojo.fromJson(responseData);
+          return Right(user);
+        }else{
+          return Left(Failure(responseData['success']));
+        }
+
+
       } else {
         final errorMessage = _extractErrorMessage(response.body);
         return Left(Failure(errorMessage));

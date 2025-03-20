@@ -21,11 +21,11 @@ class UserData with _$UserData {
     @JsonKey(name: 'id') @Default(0) int id,
     @JsonKey(name: 'name') @Default('') String name,
     @JsonKey(name: 'email') @Default('') String email,
-    @JsonKey(name: 'primary_number') String? primaryNumber,
-    @JsonKey(name: 'secondary_number') String? secondaryNumber,
-    @JsonKey(name: 'dob') String? dob,
+    @JsonKey(name: 'primary_number') @Default('') primaryNumber,
+    @JsonKey(name: 'secondary_number') @Default('') secondaryNumber,
+    @JsonKey(name: 'dob') @Default('') dob,
     @JsonKey(name: 'gender') @Default('Unknown') String gender,
-    @JsonKey(name: 'is_otp_verified') bool? isOtpVerified,
+    @JsonKey(name: 'is_otp_verified') @Default(false) isOtpVerified,
     @JsonKey(name: 'role') @Default('parent') String role,
   }) = _UserData;
 

@@ -282,6 +282,12 @@ height:widget.minLine == 1 && widget.maxLines == 1? context.screenHeight*0.0625:
         color: Colors.white.withOpacity(0.5),
         size: width * 0.04,
       );
+    }else if (widget.title == "Gender") {
+      return Icon(
+        FontAwesomeIcons.chevronDown,
+        color: Colors.white.withOpacity(0.5),
+        size: width * 0.04,
+      );
     }else if (widget.title == "Select Coach") {
       return Icon(
         FontAwesomeIcons.chevronDown,

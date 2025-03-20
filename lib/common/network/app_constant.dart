@@ -1,10 +1,10 @@
 class AppConstant {
-  static String get baseUrl => "https://underratedapi.solidappmaker.in/api/v1/";
+  static String get baseUrl => "https://stage.rajasthanroyalsacademy.com/api/v1/";
   static String get fileBaseUrl => "https://d2uw9w4ui4fg02.cloudfront.net/";
 
 
   static String get bearer =>"Bearer ";
-  static String get createAccount =>"user/auth/register";
+  static String get createAccount =>"register";
   static String get verifyOtp =>"user/auth/verify_otp";
   static String get forgotPassword =>"user/auth/forgot_password";
   static String get resetPassword =>"user/auth/reset_password";

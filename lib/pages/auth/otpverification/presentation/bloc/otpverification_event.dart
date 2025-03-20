@@ -1,33 +1,10 @@
-part of 'otpverification_bloc.dart';
+import 'package:freezed_annotation/freezed_annotation.dart';
 
-sealed class OtpverificationEvent extends Equatable {
-  @override
-  List<Object?> get props => [];
-}
+part 'otpverification_event.freezed.dart';
 
-
-class OtpChange extends OtpverificationEvent {
-  final String otpNumber;
-
-  OtpChange(this.otpNumber);
-
-  @override
-  List<Object?> get props => [otpNumber];
-}
-
-
-class OtpSubmit extends OtpverificationEvent {
-String email;
-  OtpSubmit(this.email);
-
-  @override
-  List<Object?> get props => [email];
-}
-
-class ResendOtpSubmit extends OtpverificationEvent {
-  String email;
-  ResendOtpSubmit(this.email);
-
-  @override
-  List<Object?> get props => [email];
+@freezed
+class OtpverificationEvent with _$OtpverificationEvent {
+  const factory OtpverificationEvent.otpChange(String otpNumber) = OtpChange;
+  const factory OtpverificationEvent.otpSubmit(String email) = OtpSubmit;
+  const factory OtpverificationEvent.resendOtpSubmit(String email) = ResendOtpSubmit;
 }

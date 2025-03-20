@@ -29,11 +29,11 @@ _$UserDataImpl _$$UserDataImplFromJson(Map<String, dynamic> json) =>
       id: (json['id'] as num?)?.toInt() ?? 0,
       name: json['name'] as String? ?? '',
       email: json['email'] as String? ?? '',
-      primaryNumber: json['primary_number'] as String?,
-      secondaryNumber: json['secondary_number'] as String?,
-      dob: json['dob'] as String?,
+      primaryNumber: json['primary_number'] ?? '',
+      secondaryNumber: json['secondary_number'] ?? '',
+      dob: json['dob'] ?? '',
       gender: json['gender'] as String? ?? 'Unknown',
-      isOtpVerified: json['is_otp_verified'] as bool?,
+      isOtpVerified: json['is_otp_verified'] ?? false,
       role: json['role'] as String? ?? 'parent',
     );
 

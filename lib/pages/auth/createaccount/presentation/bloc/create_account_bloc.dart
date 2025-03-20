@@ -81,9 +81,6 @@ class CreateAccountBloc extends Bloc<CreateAccountEvent, CreateAccountState> {
       return;
     }
 
-
-
-
     if (state.email.toString().trim().isEmpty) {
       emit(state.copyWith(
           isSuccess: false,
@@ -91,17 +88,11 @@ class CreateAccountBloc extends Bloc<CreateAccountEvent, CreateAccountState> {
       return;
     }
 
-
-
-
     if (state.password.toString().trim().isEmpty) {
       emit(state.copyWith(
           errorMessage: 'Please enter your password', isServerError: false));
       return;
     }
-
-
-
 
     // Validate email format
     if (!RegExp(r'^[^@]+@[^@]+\.[^@]+')
@@ -124,20 +115,20 @@ class CreateAccountBloc extends Bloc<CreateAccountEvent, CreateAccountState> {
     }
 
 
-
+    // {
+    //     "name": "John1",
+    //     "academy_id": 1,
+    //     "email": "hjh@yopmail.com",
+    //     "password": "password123"
+    // }
 
     try {
-
-
       Map<String, String> userRegistrationMap = {
 
-        'first_name': state.firstName ?? "",
-        'last_name': state.lastName,
+        'name': state.firstName ?? "",
+        'academy_id': "1",
         'email': state.email.toString().toLowerCase().trim(),
         'password': state.password,
-        'os_type': Platform.isAndroid ? "android" : "ios",
-        'phone_number': state.phoneNo ?? "",
-        'country_code': "+91",
       };
       emit(state.copyWith(
           isLoading: true,
@@ -149,6 +140,8 @@ class CreateAccountBloc extends Bloc<CreateAccountEvent, CreateAccountState> {
           await _createAccountUseCase.createAccount(userRegistrationMap);
 
       response.fold((failure) {
+        print("CODE IS RUNNING HERE HERE-------");
+
         emit(state.copyWith(
             errorMessage: failure.message,
             isSuccess: false,
@@ -156,12 +149,22 @@ class CreateAccountBloc extends Bloc<CreateAccountEvent, CreateAccountState> {
             isLoading: false,
             isServerError: true));
       }, (useResult) {
-        emit(state.copyWith(
-            errorMessage: '',
-            isSuccess: true,
-            isLoading: false,
-            isServerError: false,
-            userdata: useResult));
+        if(useResult.success){
+          emit(state.copyWith(
+              errorMessage: '',
+              isSuccess: true,
+              isLoading: false,
+              isServerError: false,
+              userdata: useResult));
+        }else{
+          emit(state.copyWith(
+              errorMessage: useResult.message,
+              isSuccess: false,
+              userdata: UserPojo(),
+              isLoading: false,
+              isServerError: true));
+        }
+
       });
     } catch (e) {
       emit(state.copyWith(
