@@ -98,7 +98,7 @@ class __$$AddDocumentStateImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$AddDocumentStateImpl implements _AddDocumentState {
-  const _$AddDocumentStateImpl({this.selectedTab = 1});
+  const _$AddDocumentStateImpl({this.selectedTab = 0});
 
   @override
   @JsonKey()

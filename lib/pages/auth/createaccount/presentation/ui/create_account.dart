@@ -28,6 +28,7 @@ import '../bloc/create_account_bloc.dart';
 import 'dart:math' as math;
 import 'package:http/http.dart' as http;
 
+import '../bloc/create_account_event.dart';
 import '../bloc/create_account_state.dart';
 class CreateAccount extends StatelessWidget {
   CreateAccount({super.key});
@@ -63,7 +64,7 @@ class CreateAccount extends StatelessWidget {
           if (state.errorMessage != '' && state.isServerError) {
             context.showCustomSnackbar(state.errorMessage,
                 backgroundColor: AppColor.appcolor);
-            BlocProvider.of<CreateAccountBloc>(context).add(MakeInital());
+            BlocProvider.of<CreateAccountBloc>(context).add(MakeInitial());
           } else if (state.userdata.message != '' && state.isSuccess) {
 
             print(state.userdata.message);
@@ -99,7 +100,7 @@ class CreateAccount extends StatelessWidget {
 
 
             }
-            BlocProvider.of<CreateAccountBloc>(context).add(MakeInital());
+            BlocProvider.of<CreateAccountBloc>(context).add(MakeInitial());
           }
         },
         child: BlocBuilder<CreateAccountBloc, CreateAccountState>(

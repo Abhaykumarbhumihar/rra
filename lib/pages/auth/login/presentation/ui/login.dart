@@ -9,6 +9,7 @@ import '../../../../../common/component/signup_signin_richtext.dart';
 import '../../../../../common/component/sub_title.dart';
 import '../../../../../common/routes/routes.dart';
 import '../bloc/login_bloc.dart';
+import '../bloc/login_event.dart';
 import '../bloc/login_state.dart';
 import 'component/continue_with_text.dart';
 import 'component/forgot_text.dart';
@@ -31,7 +32,19 @@ class LoginScreen extends StatelessWidget {
     return Scaffold(
       backgroundColor: AppColor.gradientMidColor,
       body: BlocListener<LoginBloc, LoginState>(
-        listener: (context, state) async {},
+        listener: (context, state) async {
+          if(state.error!=""){
+            context.showCustomSnackbar(state.error!,
+                backgroundColor: AppColor.appcolor);
+          }
+          if(state.success==true){
+            Navigator.pushNamedAndRemoveUntil(
+              context,
+              AppRoutes.APPLICATION,
+                  (Route<dynamic> route) => false,
+            );
+          }
+        },
         child: BlocBuilder<LoginBloc, LoginState>(
           builder: (context, state) {
             return Container(
@@ -58,8 +71,9 @@ class LoginScreen extends StatelessWidget {
                                 title: "Sign In",
                               ),
                               SizedBox(height: height * 0.01),
-                               ScreenSubTitle(
-                                subtitle: "Hi! Welcome back, you’ve been missed",
+                              ScreenSubTitle(
+                                subtitle:
+                                    "Hi! Welcome back, you’ve been missed",
                               ),
                               SizedBox(height: height * 0.065),
                               CustomTextInputMobile(
@@ -69,7 +83,7 @@ class LoginScreen extends StatelessWidget {
                                   isSuffix: false,
                                   isPrefix: true,
                                   hint: 'Enter your email',
-                                  prefixIcon:  Image.asset(
+                                  prefixIcon: Image.asset(
                                     'assets/images/email.png',
                                     width: 12,
                                     height: 12,
@@ -88,7 +102,7 @@ class LoginScreen extends StatelessWidget {
                                   onChanged: (value) {
                                     context
                                         .read<LoginBloc>()
-                                        .add(LoginEmailChanged(value));
+                                        .add(LoginEvent.emailChanged(value));
                                   }),
                               const SizedBox(
                                 height: 12,
@@ -100,7 +114,7 @@ class LoginScreen extends StatelessWidget {
                                 isPass: true,
                                 isSuffix: false,
                                 hint: 'Enter your password',
-                                prefixIcon:  Image.asset(
+                                prefixIcon: Image.asset(
                                   'assets/images/lock.png',
                                   width: 12,
                                   height: 12,
@@ -108,18 +122,19 @@ class LoginScreen extends StatelessWidget {
                                 ),
                                 focusNode: passwordFocusNode,
                                 isServerError: state.isLoginApiError,
-                                errorMessage: state.isLoginApiError
-                                    ? state.error
-                                    : (state.error ==
-                                                "Please enter your password" ||
-                                            state.error ==
-                                                'Password must be at least 6 characters long and include at least one uppercase letter, one lowercase letter, one number, and one special character.'
-                                        ? state.error
-                                        : ''),
+                                 errorMessage: state.isLoginApiError
+                                     ? state.error
+                                     : (state.error ==
+                                                 "Please enter your password" ||
+                                             state.error ==
+                                                 'Password must be at least 6 characters long and include at least one uppercase letter, one lowercase letter, one number, and one special character.'
+                                         ? state.error
+                                         : ''
+                                 ),
                                 onChanged: (value) {
                                   context
                                       .read<LoginBloc>()
-                                      .add(LoginPasswordChanged(value));
+                                      .add(LoginEvent.passwordChanged(value));
                                 },
                               ),
                               Row(
@@ -138,8 +153,16 @@ class LoginScreen extends StatelessWidget {
                               CustomButton(
                                 text: "Sign In",
                                 onPressed: () async {
-                                  Navigator.pushNamed(
-                                      context, AppRoutes.APPLICATION);
+                                  context.read<LoginBloc>().add(
+                                      LoginButtonPressed(
+                                          email:
+                                          emailController.text.toString(),
+                                          password: passwordController.text
+                                              .toString(),
+                                          deviceID: ""));
+
+
+
                                 },
                               ),
                               SizedBox(

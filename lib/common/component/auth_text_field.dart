@@ -118,31 +118,8 @@ height:widget.minLine == 1 && widget.maxLines == 1? context.screenHeight*0.0625:
             borderRadius: widget.minLine == 1 && widget.maxLines == 1
                 ? BorderRadius.circular(width * 0.4)
                 : BorderRadius.circular(12.0),
-            boxShadow: _focusNode.hasFocus
-                ? [
-                    BoxShadow(
-                      color: widget.errorMessage != null &&
-                              widget.errorMessage!.isNotEmpty
-                          ? Colors.red.withOpacity(1.0)
-                          : AppColor.appWhiteColor.withOpacity(0.01),
-                      // Default shadow color
-                      spreadRadius: 0,
-                      blurRadius: 3.0,
-                      offset: Offset(0, 1),
-                    ),
-                  ]
-                : (widget.errorMessage != null &&
-                        widget.errorMessage!.isNotEmpty)
-                    ? [
-                        BoxShadow(
-                          color: Colors.white.withOpacity(1.0),
-                          // Red shadow if there's an error
-                          spreadRadius: 0,
-                          blurRadius: 2.0,
-                          // offset: Offset(1, 1),
-                        ),
-                      ]
-                    : [],
+
+
           ),
           child: TextFormField(
             scrollPadding: widget.scrollPadding,

@@ -7,26 +7,22 @@ import '../../../../../common/service_locator/setivelocator.dart';
 
 import '../../data/enitiy/create_user_model.dart';
 import '../../domain/usecase/create_account_usecase.dart';
+import 'create_account_event.dart';
 import 'create_account_state.dart';
-
-part 'create_account_event.dart';
 
 class CreateAccountBloc extends Bloc<CreateAccountEvent, CreateAccountState> {
   final CreateAccountUseCase _createAccountUseCase =
       getIt<CreateAccountUseCase>();
   CreateAccountBloc() : super(CreateAccountState.initial()) {
     on<FirstNameChanged>(_onFirstNameChanged);
-    on<LastNameChanged>(_onLastNameChanged);
     on<EmailChanged>(_onEmailChanged);
-    on<PhoneNoChanged>(_onPhoneNoChanged);
     on<PasswordChanged>(_onPasswordChanged);
-    on<ConfirmPasswordChanged>(_onConfirmPasswordChanged);
     on<CreateAccountSubmitted>(_onCreateAccountSubmitted);
-    on<MakeInital>(_onMakeInitial);
+    on<MakeInitial>(_onMakeInitial);
   }
 
   Future<void> _onMakeInitial(
-      MakeInital event, Emitter<CreateAccountState> emit) async {
+      MakeInitial event, Emitter<CreateAccountState> emit) async {
     emit(state.copyWith(
         errorMessage: '',
         isSuccess: false,
@@ -42,15 +38,6 @@ class CreateAccountBloc extends Bloc<CreateAccountEvent, CreateAccountState> {
         isServerError: false));
   }
 
-  Future<void> _onLastNameChanged(
-      LastNameChanged event, Emitter<CreateAccountState> emit) async {
-    emit(state.copyWith(
-        lastName: event.lastName.trim(),
-        errorMessage: '',
-        isSuccess: false,
-        isServerError: false
-        ));
-  }
 
   Future<void> _onEmailChanged(
       EmailChanged event, Emitter<CreateAccountState> emit) async {
@@ -61,15 +48,7 @@ class CreateAccountBloc extends Bloc<CreateAccountEvent, CreateAccountState> {
         ));
   }
 
-  Future<void> _onPhoneNoChanged(
-      PhoneNoChanged event, Emitter<CreateAccountState> emit) async {
-    emit(state.copyWith(
-        phoneNo: event.phoneNo,
-        errorMessage: '',
-        isServerError: false,
-       isSuccess: false,
-    ));
-  }
+
 
   Future<void> _onPasswordChanged(
       PasswordChanged event, Emitter<CreateAccountState> emit) async {
@@ -81,14 +60,7 @@ class CreateAccountBloc extends Bloc<CreateAccountEvent, CreateAccountState> {
      ));
   }
 
-  Future<void> _onConfirmPasswordChanged(
-      ConfirmPasswordChanged event, Emitter<CreateAccountState> emit) async {
-    emit(state.copyWith(
-        confirmPassword: event.confirmPassword,
-        errorMessage: '',
-        isSuccess: false,
-        isServerError: false));
-  }
+
 
   Future<void> _onCreateAccountSubmitted(
       CreateAccountSubmitted event, Emitter<CreateAccountState> emit) async {
@@ -109,14 +81,8 @@ class CreateAccountBloc extends Bloc<CreateAccountEvent, CreateAccountState> {
       return;
     }
 
-    if (state.lastName.toString().trim().isEmpty) {
-      emit(state.copyWith(
-          errorMessage: 'Please enter your last name',
-          isSuccess: false,
-          isServerError: false
-          ));
-      return;
-    }
+
+
 
     if (state.email.toString().trim().isEmpty) {
       emit(state.copyWith(
@@ -125,18 +91,8 @@ class CreateAccountBloc extends Bloc<CreateAccountEvent, CreateAccountState> {
       return;
     }
 
-    // if (state.phoneNo.toString().trim().isEmpty) {
-    //   emit(state.copyWith(errorMessage: 'Please enter your phone number'));
-    //   return; // Exit the function if phone number is empty
-    // }
-    if (state.phoneNo != null && state.phoneNo!.trim().isNotEmpty) {
-      String trimmedPhoneNo = state.phoneNo!.trim();
-      if (trimmedPhoneNo.length < 8 || trimmedPhoneNo.length > 13) {
-        emit(state.copyWith(
-            errorMessage: 'Phone number must be between 8 and 13 digits'));
-        return;
-      }
-    }
+
+
 
     if (state.password.toString().trim().isEmpty) {
       emit(state.copyWith(
@@ -144,12 +100,8 @@ class CreateAccountBloc extends Bloc<CreateAccountEvent, CreateAccountState> {
       return;
     }
 
-    if (state.confirmPassword.toString().trim().isEmpty) {
-      emit(state.copyWith(
-          errorMessage: 'Please enter your confirm password',
-          isServerError: false));
-      return;
-    }
+
+
 
     // Validate email format
     if (!RegExp(r'^[^@]+@[^@]+\.[^@]+')
@@ -171,12 +123,8 @@ class CreateAccountBloc extends Bloc<CreateAccountEvent, CreateAccountState> {
       return;
     }
 
-    // Check if password and confirm password match
-    if (state.password != state.confirmPassword) {
-      emit(state.copyWith(
-          errorMessage: 'Passwords do not match', isServerError: false));
-      return;
-    }
+
+
 
     try {
 
