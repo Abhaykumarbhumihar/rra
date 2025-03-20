@@ -1,24 +1,11 @@
-import 'dart:convert';
-
-import 'package:connectivity_plus/connectivity_plus.dart';
-import 'package:flutter/gestures.dart';
-import 'package:geolocator/geolocator.dart';
 import 'package:pin_code_fields/pin_code_fields.dart';
-import 'package:http/http.dart' as http;
-import 'package:rra/common/network/connectivity_extension.dart';
 import 'package:rra/common/values/values_exports.dart';
-
-import '../../../../../common/component/back_image.dart';
 import '../../../../../common/component/common_background.dart';
 import '../../../../../common/component/custom_app_button.dart';
 import '../../../../../common/component/screen_title.dart';
 import '../../../../../common/component/sub_title.dart';
-import '../../../../../common/image/camera_file_utility.dart';
-import '../../../../../common/local/SharedPrefs.dart';
-
 import '../../../../../common/routes/routes.dart';
 import '../../../../../common/values/utils.dart';
-import '../../../createaccount/data/enitiy/create_user_model.dart';
 import '../../../login/presentation/ui/component/forgot_text.dart';
 import '../bloc/otpverification_bloc.dart';
 import '../bloc/otpverification_state.dart';

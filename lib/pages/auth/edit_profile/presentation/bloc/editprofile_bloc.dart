@@ -43,10 +43,9 @@ print("checkin here data from loadUserData");
 print(userdata);
 print("========\n\n");
       emit(state.copyWith(
-          firstName: userdata?.data.firstName ?? '',
-          lastName: userdata?.data.lastName ?? '',
+          firstName: userdata?.data.name ?? '',
           email: userdata?.data.email ?? '',
-          phoneNo: userdata?.data.phoneNumber ?? '',
+          phoneNo: "" ?? '',
           userdata: userdata!));
     } catch (error) {
       emit(state.copyWith(

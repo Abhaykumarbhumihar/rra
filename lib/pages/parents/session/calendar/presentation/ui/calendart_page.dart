@@ -27,71 +27,69 @@ class CalendarPage extends StatelessWidget {
     var width = MediaQuery.of(context).size.width;
     var height = MediaQuery.of(context).size.height;
 
-    return Container(
-      decoration: CommonBackground.decoration,
-      child: Scaffold(
-        backgroundColor: Colors.transparent,
-        appBar: CommonAppBar(
-          title: "Coaching Programs",
-        ),
-        body: Container(
-          width: width,
-          height: height,
-          padding: EdgeInsets.zero,
-          decoration: CommonBackground.decoration,
-          child: SafeArea(
-            child: SingleChildScrollView(
-              child: Column(
-                children: <Widget>[
-                  Padding(padding:EdgeInsets.only(left: context.screenHeight*0.02) ,
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: <Widget>[
-                       Padding(
-                         padding: const EdgeInsets.only(left: 18.0,right: 18.0,top: 12.0),
-                         child: Image.asset("assets/images/tracker_one.png"),
-                       ),
-                        SizedBox(height: context.screenHeight*0.013,),
-                        Padding(
-                          padding: const EdgeInsets.only(left: 3.0,right: 6.0,bottom:6.0),
-                          child: ScreenTitleForCalendar(
-                            title: "Group Coaching U9 Advanced (Hardball)",
-                          ),
-                        ),
+    return Scaffold(
+      backgroundColor: Colors.transparent,
 
 
-                        Padding(padding:EdgeInsets.only(left: context.screenWidth*0.02,
-                            right: context.screenWidth*0.05,
-                            top: 2.0) ,
-                          child: Container(
-                            padding: EdgeInsets.zero,
-                            width: context.screenWidth,
-                            height: 1.5,
-                            decoration: BoxDecoration(
-                             // color: Colors.green,
-                                image: DecorationImage(image: AssetImage("assets/images/line.png"))
-                            ),
-                          ),
+      body: Container(
+        width: width,
+        height: height,
+        padding: EdgeInsets.zero,
+        decoration: CommonBackground.decoration,
+        child: SingleChildScrollView(
+          child: Column(
+            children: <Widget>[
+              CustomHeader( title: "Coaching Programs",onBackPress: (){
+                Navigator.pop(context);
+              },),
+
+              Padding(padding:EdgeInsets.only(left: context.screenHeight*0.02) ,
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: <Widget>[
+                   Padding(
+                     padding: const EdgeInsets.only(left: 18.0,right: 18.0,top: 12.0),
+                     child: Image.asset("assets/images/tracker_one.png"),
+                   ),
+                    SizedBox(height: context.screenHeight*0.013,),
+                    Padding(
+                      padding: const EdgeInsets.only(left: 3.0,right: 6.0,bottom:6.0),
+                      child: ScreenTitleForCalendar(
+                        title: "Group Coaching U9 Advanced (Hardball)",
+                      ),
+                    ),
+
+
+                    Padding(padding:EdgeInsets.only(left: context.screenWidth*0.02,
+                        right: context.screenWidth*0.05,
+                        top: 2.0) ,
+                      child: Container(
+                        padding: EdgeInsets.zero,
+                        width: context.screenWidth,
+                        height: 1.5,
+                        decoration: BoxDecoration(
+                         // color: Colors.green,
+                            image: DecorationImage(image: AssetImage("assets/images/line.png"))
                         ),
-                        SizedBox(height: 10.0,),
-                        Padding(
-                          padding: const EdgeInsets.only(right: 8.0,left: 3.0),
-                          child: CalendarView(),
-                        ),
-                        Availablity(),
-                        TimeAddedView(),
-                        CustomButton(
-                          text: "Continue",
-                          onPressed: () async {
-                            _showCustomBottomSheet(context);
-                          },
-                        ),
-                        SizedBox(height: 20,),
-                      ],
-                    ),)
-                ],
-              ),
-            ),
+                      ),
+                    ),
+                    SizedBox(height: 10.0,),
+                    Padding(
+                      padding: const EdgeInsets.only(right: 8.0,left: 3.0),
+                      child: CalendarView(),
+                    ),
+                    Availablity(),
+                    TimeAddedView(),
+                    CustomButton(
+                      text: "Continue",
+                      onPressed: () async {
+                        _showCustomBottomSheet(context);
+                      },
+                    ),
+                    SizedBox(height: 20,),
+                  ],
+                ),)
+            ],
           ),
         ),
       ),

@@ -26,9 +26,8 @@ class CoachProgramsScreen extends StatelessWidget {
       child: Scaffold(
 
          backgroundColor: Colors.transparent,
-        appBar: CommonAppBar(
-          title: "Coaching Programs",
-        ),
+
+
         body: BlocListener<CoachProgramsBloc, CoachProgramsState>(
           listener: (context, state) async {},
           child: BlocBuilder<CoachProgramsBloc, CoachProgramsState>(
@@ -39,23 +38,31 @@ class CoachProgramsScreen extends StatelessWidget {
                 padding: EdgeInsets.zero,
                 decoration: CommonBackground.decoration,
 
-                child: ListView.builder(
+                child: Column(
+                  children: [
+                    CustomHeader( title: "Coaching Programs",onBackPress: (){},),
+                    SizedBox(height: 10,),
+                    Flexible(
+                      child: ListView.builder(
 
-                  padding:
-                      const EdgeInsets.symmetric(horizontal: 0.0, vertical: 0),
-                  itemCount: coachingPrograms.length,
-                  shrinkWrap: true,
+                        padding:
+                            const EdgeInsets.symmetric(horizontal: 4.0, vertical: 0),
+                        itemCount: coachingPrograms.length,
+                        shrinkWrap: true,
 
-                  itemBuilder: (context, index) {
-                    return CommonListItem(coachingProgram: coachingPrograms[index],
-                      onPressed: (){
-    Navigator.pushNamed(
-    context, AppRoutes.COACHPROGRAMS);
+                        itemBuilder: (context, index) {
+                          return CommonListItem(coachingProgram: coachingPrograms[index],
+                            onPressed: (){
+                          Navigator.pushNamed(
+                          context, AppRoutes.COACHPROGRAMS);
 
-                      },
-                strImage: 'assets/images/coaching_image.png',
-                    );
-                  },
+                            },
+                      strImage: 'assets/images/coaching_image.png',
+                          );
+                        },
+                      ),
+                    ),
+                  ],
                 ),
               );
             },

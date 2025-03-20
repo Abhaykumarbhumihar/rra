@@ -20,10 +20,11 @@ OtpVerificationModel _$OtpVerificationModelFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$OtpVerificationModel {
-  @JsonKey(name: 'status')
-  bool get status => throw _privateConstructorUsedError;
-  @JsonKey(name: "message")
+  int get code => throw _privateConstructorUsedError;
+  bool get success => throw _privateConstructorUsedError;
   String get message => throw _privateConstructorUsedError;
+  @JsonKey(name: 'data')
+  UserData get data => throw _privateConstructorUsedError;
 
   /// Serializes this OtpVerificationModel to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -42,8 +43,12 @@ abstract class $OtpVerificationModelCopyWith<$Res> {
       _$OtpVerificationModelCopyWithImpl<$Res, OtpVerificationModel>;
   @useResult
   $Res call(
-      {@JsonKey(name: 'status') bool status,
-      @JsonKey(name: "message") String message});
+      {int code,
+      bool success,
+      String message,
+      @JsonKey(name: 'data') UserData data});
+
+  $UserDataCopyWith<$Res> get data;
 }
 
 /// @nodoc
@@ -62,19 +67,39 @@ class _$OtpVerificationModelCopyWithImpl<$Res,
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? status = null,
+    Object? code = null,
+    Object? success = null,
     Object? message = null,
+    Object? data = null,
   }) {
     return _then(_value.copyWith(
-      status: null == status
-          ? _value.status
-          : status // ignore: cast_nullable_to_non_nullable
+      code: null == code
+          ? _value.code
+          : code // ignore: cast_nullable_to_non_nullable
+              as int,
+      success: null == success
+          ? _value.success
+          : success // ignore: cast_nullable_to_non_nullable
               as bool,
       message: null == message
           ? _value.message
           : message // ignore: cast_nullable_to_non_nullable
               as String,
+      data: null == data
+          ? _value.data
+          : data // ignore: cast_nullable_to_non_nullable
+              as UserData,
     ) as $Val);
+  }
+
+  /// Create a copy of OtpVerificationModel
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $UserDataCopyWith<$Res> get data {
+    return $UserDataCopyWith<$Res>(_value.data, (value) {
+      return _then(_value.copyWith(data: value) as $Val);
+    });
   }
 }
 
@@ -87,8 +112,13 @@ abstract class _$$OtpVerificationModelImplCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {@JsonKey(name: 'status') bool status,
-      @JsonKey(name: "message") String message});
+      {int code,
+      bool success,
+      String message,
+      @JsonKey(name: 'data') UserData data});
+
+  @override
+  $UserDataCopyWith<$Res> get data;
 }
 
 /// @nodoc
@@ -104,18 +134,28 @@ class __$$OtpVerificationModelImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? status = null,
+    Object? code = null,
+    Object? success = null,
     Object? message = null,
+    Object? data = null,
   }) {
     return _then(_$OtpVerificationModelImpl(
-      status: null == status
-          ? _value.status
-          : status // ignore: cast_nullable_to_non_nullable
+      code: null == code
+          ? _value.code
+          : code // ignore: cast_nullable_to_non_nullable
+              as int,
+      success: null == success
+          ? _value.success
+          : success // ignore: cast_nullable_to_non_nullable
               as bool,
       message: null == message
           ? _value.message
           : message // ignore: cast_nullable_to_non_nullable
               as String,
+      data: null == data
+          ? _value.data
+          : data // ignore: cast_nullable_to_non_nullable
+              as UserData,
     ));
   }
 }
@@ -124,22 +164,30 @@ class __$$OtpVerificationModelImplCopyWithImpl<$Res>
 @JsonSerializable()
 class _$OtpVerificationModelImpl implements _OtpVerificationModel {
   const _$OtpVerificationModelImpl(
-      {@JsonKey(name: 'status') this.status = false,
-      @JsonKey(name: "message") this.message = ""});
+      {this.code = 200,
+      this.success = true,
+      this.message = 'OTP verified successfully.',
+      @JsonKey(name: 'data') this.data = const UserData()});
 
   factory _$OtpVerificationModelImpl.fromJson(Map<String, dynamic> json) =>
       _$$OtpVerificationModelImplFromJson(json);
 
   @override
-  @JsonKey(name: 'status')
-  final bool status;
+  @JsonKey()
+  final int code;
   @override
-  @JsonKey(name: "message")
+  @JsonKey()
+  final bool success;
+  @override
+  @JsonKey()
   final String message;
+  @override
+  @JsonKey(name: 'data')
+  final UserData data;
 
   @override
   String toString() {
-    return 'OtpVerificationModel(status: $status, message: $message)';
+    return 'OtpVerificationModel(code: $code, success: $success, message: $message, data: $data)';
   }
 
   @override
@@ -147,13 +195,15 @@ class _$OtpVerificationModelImpl implements _OtpVerificationModel {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$OtpVerificationModelImpl &&
-            (identical(other.status, status) || other.status == status) &&
-            (identical(other.message, message) || other.message == message));
+            (identical(other.code, code) || other.code == code) &&
+            (identical(other.success, success) || other.success == success) &&
+            (identical(other.message, message) || other.message == message) &&
+            (identical(other.data, data) || other.data == data));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  int get hashCode => Object.hash(runtimeType, status, message);
+  int get hashCode => Object.hash(runtimeType, code, success, message, data);
 
   /// Create a copy of OtpVerificationModel
   /// with the given fields replaced by the non-null parameter values.
@@ -175,19 +225,23 @@ class _$OtpVerificationModelImpl implements _OtpVerificationModel {
 
 abstract class _OtpVerificationModel implements OtpVerificationModel {
   const factory _OtpVerificationModel(
-          {@JsonKey(name: 'status') final bool status,
-          @JsonKey(name: "message") final String message}) =
-      _$OtpVerificationModelImpl;
+      {final int code,
+      final bool success,
+      final String message,
+      @JsonKey(name: 'data') final UserData data}) = _$OtpVerificationModelImpl;
 
   factory _OtpVerificationModel.fromJson(Map<String, dynamic> json) =
       _$OtpVerificationModelImpl.fromJson;
 
   @override
-  @JsonKey(name: 'status')
-  bool get status;
+  int get code;
   @override
-  @JsonKey(name: "message")
+  bool get success;
+  @override
   String get message;
+  @override
+  @JsonKey(name: 'data')
+  UserData get data;
 
   /// Create a copy of OtpVerificationModel
   /// with the given fields replaced by the non-null parameter values.
@@ -195,4 +249,347 @@ abstract class _OtpVerificationModel implements OtpVerificationModel {
   @JsonKey(includeFromJson: false, includeToJson: false)
   _$$OtpVerificationModelImplCopyWith<_$OtpVerificationModelImpl>
       get copyWith => throw _privateConstructorUsedError;
+}
+
+UserData _$UserDataFromJson(Map<String, dynamic> json) {
+  return _UserData.fromJson(json);
+}
+
+/// @nodoc
+mixin _$UserData {
+  @JsonKey(name: 'id')
+  int get id => throw _privateConstructorUsedError;
+  @JsonKey(name: 'name')
+  String get name => throw _privateConstructorUsedError;
+  @JsonKey(name: 'email')
+  String get email => throw _privateConstructorUsedError;
+  @JsonKey(name: 'primary_number')
+  String? get primaryNumber => throw _privateConstructorUsedError;
+  @JsonKey(name: 'secondary_number')
+  String? get secondaryNumber => throw _privateConstructorUsedError;
+  @JsonKey(name: 'dob')
+  String? get dob => throw _privateConstructorUsedError;
+  @JsonKey(name: 'gender')
+  String get gender => throw _privateConstructorUsedError;
+  @JsonKey(name: 'is_otp_verified')
+  bool get isOtpVerified => throw _privateConstructorUsedError;
+  @JsonKey(name: 'role')
+  String get role => throw _privateConstructorUsedError;
+
+  /// Serializes this UserData to a JSON map.
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+
+  /// Create a copy of UserData
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  $UserDataCopyWith<UserData> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $UserDataCopyWith<$Res> {
+  factory $UserDataCopyWith(UserData value, $Res Function(UserData) then) =
+      _$UserDataCopyWithImpl<$Res, UserData>;
+  @useResult
+  $Res call(
+      {@JsonKey(name: 'id') int id,
+      @JsonKey(name: 'name') String name,
+      @JsonKey(name: 'email') String email,
+      @JsonKey(name: 'primary_number') String? primaryNumber,
+      @JsonKey(name: 'secondary_number') String? secondaryNumber,
+      @JsonKey(name: 'dob') String? dob,
+      @JsonKey(name: 'gender') String gender,
+      @JsonKey(name: 'is_otp_verified') bool isOtpVerified,
+      @JsonKey(name: 'role') String role});
+}
+
+/// @nodoc
+class _$UserDataCopyWithImpl<$Res, $Val extends UserData>
+    implements $UserDataCopyWith<$Res> {
+  _$UserDataCopyWithImpl(this._value, this._then);
+
+  // ignore: unused_field
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
+
+  /// Create a copy of UserData
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? id = null,
+    Object? name = null,
+    Object? email = null,
+    Object? primaryNumber = freezed,
+    Object? secondaryNumber = freezed,
+    Object? dob = freezed,
+    Object? gender = null,
+    Object? isOtpVerified = null,
+    Object? role = null,
+  }) {
+    return _then(_value.copyWith(
+      id: null == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as int,
+      name: null == name
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
+              as String,
+      email: null == email
+          ? _value.email
+          : email // ignore: cast_nullable_to_non_nullable
+              as String,
+      primaryNumber: freezed == primaryNumber
+          ? _value.primaryNumber
+          : primaryNumber // ignore: cast_nullable_to_non_nullable
+              as String?,
+      secondaryNumber: freezed == secondaryNumber
+          ? _value.secondaryNumber
+          : secondaryNumber // ignore: cast_nullable_to_non_nullable
+              as String?,
+      dob: freezed == dob
+          ? _value.dob
+          : dob // ignore: cast_nullable_to_non_nullable
+              as String?,
+      gender: null == gender
+          ? _value.gender
+          : gender // ignore: cast_nullable_to_non_nullable
+              as String,
+      isOtpVerified: null == isOtpVerified
+          ? _value.isOtpVerified
+          : isOtpVerified // ignore: cast_nullable_to_non_nullable
+              as bool,
+      role: null == role
+          ? _value.role
+          : role // ignore: cast_nullable_to_non_nullable
+              as String,
+    ) as $Val);
+  }
+}
+
+/// @nodoc
+abstract class _$$UserDataImplCopyWith<$Res>
+    implements $UserDataCopyWith<$Res> {
+  factory _$$UserDataImplCopyWith(
+          _$UserDataImpl value, $Res Function(_$UserDataImpl) then) =
+      __$$UserDataImplCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call(
+      {@JsonKey(name: 'id') int id,
+      @JsonKey(name: 'name') String name,
+      @JsonKey(name: 'email') String email,
+      @JsonKey(name: 'primary_number') String? primaryNumber,
+      @JsonKey(name: 'secondary_number') String? secondaryNumber,
+      @JsonKey(name: 'dob') String? dob,
+      @JsonKey(name: 'gender') String gender,
+      @JsonKey(name: 'is_otp_verified') bool isOtpVerified,
+      @JsonKey(name: 'role') String role});
+}
+
+/// @nodoc
+class __$$UserDataImplCopyWithImpl<$Res>
+    extends _$UserDataCopyWithImpl<$Res, _$UserDataImpl>
+    implements _$$UserDataImplCopyWith<$Res> {
+  __$$UserDataImplCopyWithImpl(
+      _$UserDataImpl _value, $Res Function(_$UserDataImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of UserData
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? id = null,
+    Object? name = null,
+    Object? email = null,
+    Object? primaryNumber = freezed,
+    Object? secondaryNumber = freezed,
+    Object? dob = freezed,
+    Object? gender = null,
+    Object? isOtpVerified = null,
+    Object? role = null,
+  }) {
+    return _then(_$UserDataImpl(
+      id: null == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as int,
+      name: null == name
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
+              as String,
+      email: null == email
+          ? _value.email
+          : email // ignore: cast_nullable_to_non_nullable
+              as String,
+      primaryNumber: freezed == primaryNumber
+          ? _value.primaryNumber
+          : primaryNumber // ignore: cast_nullable_to_non_nullable
+              as String?,
+      secondaryNumber: freezed == secondaryNumber
+          ? _value.secondaryNumber
+          : secondaryNumber // ignore: cast_nullable_to_non_nullable
+              as String?,
+      dob: freezed == dob
+          ? _value.dob
+          : dob // ignore: cast_nullable_to_non_nullable
+              as String?,
+      gender: null == gender
+          ? _value.gender
+          : gender // ignore: cast_nullable_to_non_nullable
+              as String,
+      isOtpVerified: null == isOtpVerified
+          ? _value.isOtpVerified
+          : isOtpVerified // ignore: cast_nullable_to_non_nullable
+              as bool,
+      role: null == role
+          ? _value.role
+          : role // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+@JsonSerializable()
+class _$UserDataImpl implements _UserData {
+  const _$UserDataImpl(
+      {@JsonKey(name: 'id') this.id = 0,
+      @JsonKey(name: 'name') this.name = '',
+      @JsonKey(name: 'email') this.email = '',
+      @JsonKey(name: 'primary_number') this.primaryNumber,
+      @JsonKey(name: 'secondary_number') this.secondaryNumber,
+      @JsonKey(name: 'dob') this.dob,
+      @JsonKey(name: 'gender') this.gender = 'Unknown',
+      @JsonKey(name: 'is_otp_verified') this.isOtpVerified = false,
+      @JsonKey(name: 'role') this.role = 'parent'});
+
+  factory _$UserDataImpl.fromJson(Map<String, dynamic> json) =>
+      _$$UserDataImplFromJson(json);
+
+  @override
+  @JsonKey(name: 'id')
+  final int id;
+  @override
+  @JsonKey(name: 'name')
+  final String name;
+  @override
+  @JsonKey(name: 'email')
+  final String email;
+  @override
+  @JsonKey(name: 'primary_number')
+  final String? primaryNumber;
+  @override
+  @JsonKey(name: 'secondary_number')
+  final String? secondaryNumber;
+  @override
+  @JsonKey(name: 'dob')
+  final String? dob;
+  @override
+  @JsonKey(name: 'gender')
+  final String gender;
+  @override
+  @JsonKey(name: 'is_otp_verified')
+  final bool isOtpVerified;
+  @override
+  @JsonKey(name: 'role')
+  final String role;
+
+  @override
+  String toString() {
+    return 'UserData(id: $id, name: $name, email: $email, primaryNumber: $primaryNumber, secondaryNumber: $secondaryNumber, dob: $dob, gender: $gender, isOtpVerified: $isOtpVerified, role: $role)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$UserDataImpl &&
+            (identical(other.id, id) || other.id == id) &&
+            (identical(other.name, name) || other.name == name) &&
+            (identical(other.email, email) || other.email == email) &&
+            (identical(other.primaryNumber, primaryNumber) ||
+                other.primaryNumber == primaryNumber) &&
+            (identical(other.secondaryNumber, secondaryNumber) ||
+                other.secondaryNumber == secondaryNumber) &&
+            (identical(other.dob, dob) || other.dob == dob) &&
+            (identical(other.gender, gender) || other.gender == gender) &&
+            (identical(other.isOtpVerified, isOtpVerified) ||
+                other.isOtpVerified == isOtpVerified) &&
+            (identical(other.role, role) || other.role == role));
+  }
+
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  int get hashCode => Object.hash(runtimeType, id, name, email, primaryNumber,
+      secondaryNumber, dob, gender, isOtpVerified, role);
+
+  /// Create a copy of UserData
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$UserDataImplCopyWith<_$UserDataImpl> get copyWith =>
+      __$$UserDataImplCopyWithImpl<_$UserDataImpl>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$UserDataImplToJson(
+      this,
+    );
+  }
+}
+
+abstract class _UserData implements UserData {
+  const factory _UserData(
+      {@JsonKey(name: 'id') final int id,
+      @JsonKey(name: 'name') final String name,
+      @JsonKey(name: 'email') final String email,
+      @JsonKey(name: 'primary_number') final String? primaryNumber,
+      @JsonKey(name: 'secondary_number') final String? secondaryNumber,
+      @JsonKey(name: 'dob') final String? dob,
+      @JsonKey(name: 'gender') final String gender,
+      @JsonKey(name: 'is_otp_verified') final bool isOtpVerified,
+      @JsonKey(name: 'role') final String role}) = _$UserDataImpl;
+
+  factory _UserData.fromJson(Map<String, dynamic> json) =
+      _$UserDataImpl.fromJson;
+
+  @override
+  @JsonKey(name: 'id')
+  int get id;
+  @override
+  @JsonKey(name: 'name')
+  String get name;
+  @override
+  @JsonKey(name: 'email')
+  String get email;
+  @override
+  @JsonKey(name: 'primary_number')
+  String? get primaryNumber;
+  @override
+  @JsonKey(name: 'secondary_number')
+  String? get secondaryNumber;
+  @override
+  @JsonKey(name: 'dob')
+  String? get dob;
+  @override
+  @JsonKey(name: 'gender')
+  String get gender;
+  @override
+  @JsonKey(name: 'is_otp_verified')
+  bool get isOtpVerified;
+  @override
+  @JsonKey(name: 'role')
+  String get role;
+
+  /// Create a copy of UserData
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$UserDataImplCopyWith<_$UserDataImpl> get copyWith =>
+      throw _privateConstructorUsedError;
 }

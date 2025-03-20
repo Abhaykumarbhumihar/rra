@@ -24,18 +24,18 @@ mixin _$CoachProgramsState {
   bool get isError => throw _privateConstructorUsedError;
   bool get isLoginApiError => throw _privateConstructorUsedError;
 
-  /// Create a copy of LoginState
+  /// Create a copy of CoachProgramsState
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
-  $LoginStateCopyWith<CoachProgramsState> get copyWith =>
+  $CoachProgramsStateCopyWith<CoachProgramsState> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $LoginStateCopyWith<$Res> {
-  factory $LoginStateCopyWith(
-      CoachProgramsState value, $Res Function(CoachProgramsState) then) =
-      _$LoginStateCopyWithImpl<$Res, CoachProgramsState>;
+abstract class $CoachProgramsStateCopyWith<$Res> {
+  factory $CoachProgramsStateCopyWith(
+          CoachProgramsState value, $Res Function(CoachProgramsState) then) =
+      _$CoachProgramsStateCopyWithImpl<$Res, CoachProgramsState>;
   @useResult
   $Res call(
       {String email,
@@ -48,16 +48,16 @@ abstract class $LoginStateCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$LoginStateCopyWithImpl<$Res, $Val extends CoachProgramsState>
-    implements $LoginStateCopyWith<$Res> {
-  _$LoginStateCopyWithImpl(this._value, this._then);
+class _$CoachProgramsStateCopyWithImpl<$Res, $Val extends CoachProgramsState>
+    implements $CoachProgramsStateCopyWith<$Res> {
+  _$CoachProgramsStateCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
 
-  /// Create a copy of LoginState
+  /// Create a copy of CoachProgramsState
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
@@ -104,11 +104,11 @@ class _$LoginStateCopyWithImpl<$Res, $Val extends CoachProgramsState>
 }
 
 /// @nodoc
-abstract class _$$LoginStateImplCopyWith<$Res>
-    implements $LoginStateCopyWith<$Res> {
-  factory _$$LoginStateImplCopyWith(
-      _$CoachProgramsStateImpl value, $Res Function(_$CoachProgramsStateImpl) then) =
-      __$$LoginStateImplCopyWithImpl<$Res>;
+abstract class _$$CoachProgramsStateImplCopyWith<$Res>
+    implements $CoachProgramsStateCopyWith<$Res> {
+  factory _$$CoachProgramsStateImplCopyWith(_$CoachProgramsStateImpl value,
+          $Res Function(_$CoachProgramsStateImpl) then) =
+      __$$CoachProgramsStateImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -122,14 +122,14 @@ abstract class _$$LoginStateImplCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$LoginStateImplCopyWithImpl<$Res>
-    extends _$LoginStateCopyWithImpl<$Res, _$CoachProgramsStateImpl>
-    implements _$$LoginStateImplCopyWith<$Res> {
-  __$$LoginStateImplCopyWithImpl(
-      _$CoachProgramsStateImpl _value, $Res Function(_$CoachProgramsStateImpl) _then)
+class __$$CoachProgramsStateImplCopyWithImpl<$Res>
+    extends _$CoachProgramsStateCopyWithImpl<$Res, _$CoachProgramsStateImpl>
+    implements _$$CoachProgramsStateImplCopyWith<$Res> {
+  __$$CoachProgramsStateImplCopyWithImpl(_$CoachProgramsStateImpl _value,
+      $Res Function(_$CoachProgramsStateImpl) _then)
       : super(_value, _then);
 
-  /// Create a copy of LoginState
+  /// Create a copy of CoachProgramsState
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
@@ -209,7 +209,7 @@ class _$CoachProgramsStateImpl implements _CoachProgramsState {
 
   @override
   String toString() {
-    return 'LoginState(email: $email, password: $password, isLoading: $isLoading, error: $error, success: $success, isError: $isError, isLoginApiError: $isLoginApiError)';
+    return 'CoachProgramsState(email: $email, password: $password, isLoading: $isLoading, error: $error, success: $success, isError: $isError, isLoginApiError: $isLoginApiError)';
   }
 
   @override
@@ -240,13 +240,14 @@ class _$CoachProgramsStateImpl implements _CoachProgramsState {
       isError,
       isLoginApiError);
 
-  /// Create a copy of LoginState
+  /// Create a copy of CoachProgramsState
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
-  _$$LoginStateImplCopyWith<_$CoachProgramsStateImpl> get copyWith =>
-      __$$LoginStateImplCopyWithImpl<_$CoachProgramsStateImpl>(this, _$identity);
+  _$$CoachProgramsStateImplCopyWith<_$CoachProgramsStateImpl> get copyWith =>
+      __$$CoachProgramsStateImplCopyWithImpl<_$CoachProgramsStateImpl>(
+          this, _$identity);
 }
 
 abstract class _CoachProgramsState implements CoachProgramsState {
@@ -274,10 +275,10 @@ abstract class _CoachProgramsState implements CoachProgramsState {
   @override
   bool get isLoginApiError;
 
-  /// Create a copy of LoginState
+  /// Create a copy of CoachProgramsState
   /// with the given fields replaced by the non-null parameter values.
   @override
   @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$LoginStateImplCopyWith<_$CoachProgramsStateImpl> get copyWith =>
+  _$$CoachProgramsStateImplCopyWith<_$CoachProgramsStateImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

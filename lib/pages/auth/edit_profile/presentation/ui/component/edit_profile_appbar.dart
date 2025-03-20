@@ -82,7 +82,7 @@ class EditProfileAppbar extends StatelessWidget {
                               0.15, // Adjust size as needed
                           backgroundImage: NetworkImage(
                               AppConstant.fileBaseUrl +
-                                  state.userdata.data.profilePic),
+                                 ""),
                         ),
                   Positioned(
                     bottom: context.screenHeight * 0.03,

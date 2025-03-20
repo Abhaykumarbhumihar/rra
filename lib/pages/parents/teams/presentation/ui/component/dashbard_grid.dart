@@ -38,13 +38,13 @@ class DashboardGrid extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GridView.builder(
-      padding: EdgeInsets.symmetric(horizontal: context.screenWidth * 0.045),
+      padding: EdgeInsets.symmetric(horizontal: context.screenWidth * 0.048),
       shrinkWrap: true,
       physics: BouncingScrollPhysics(),
       gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
         crossAxisCount: 2, // 2 items per row
         mainAxisSpacing: 12.0,
-        crossAxisSpacing: 12.0,
+        crossAxisSpacing: 20.0,
         childAspectRatio: 1.1, // Adjust aspect ratio as needed
       ),
       itemCount: items.length, // Use items list length

@@ -4,7 +4,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:geolocator/geolocator.dart';
+
 import 'package:rra/common/network/connectivity_extension.dart';
 import 'package:rra/common/values/values_exports.dart';
 
@@ -71,9 +71,9 @@ class CreateAccount extends StatelessWidget {
             context.showCustomSnackbar(state.userdata.message,
                 backgroundColor: AppColor.appcolor);
             await SharedPrefs.setModel("user_model", state.userdata);
-            await SharedPrefs.setString("csrftoken", state.userdata.data.csrfTokenn);
-            await SharedPrefs.setString(
-                "access_token", state.userdata.data.token);
+            //await SharedPrefs.setString("csrftoken", state.userdata.data.csrfTokenn);
+            //await SharedPrefs.setString(
+            //    "access_token", state.userdata.data.token);
             try{
              // Utils.subscribeTopic(state.userdata?.data?.id);
             }catch(e){
@@ -89,7 +89,7 @@ class CreateAccount extends StatelessWidget {
             print("Printing in Create account UIIIII====");
 
 
-print("${userdata?.data.firstName}"+"  "+"${userdata?.data.lastName}");
+
 
 
 
@@ -305,121 +305,9 @@ print("${userdata?.data.firstName}"+"  "+"${userdata?.data.lastName}");
     }
   }
 
-  Future<Map<String, dynamic>?> fetchUserLocationn(BuildContext context) async {
-    print("Fetching user's location...");
-    bool serviceEnabled;
-    LocationPermission permission;
 
-    // Check if location services are enabled
-    serviceEnabled = await Geolocator.isLocationServiceEnabled();
-    if (!serviceEnabled) {
-      print('Location services are disabled.');
-      // Optionally, prompt the user to enable location services
-      return null;
-    }
 
-    // Check location permissions
-    permission = await Geolocator.checkPermission();
-    if (permission == LocationPermission.denied) {
-      permission = await Geolocator.requestPermission();
-      if (permission == LocationPermission.denied) {
-        print('Location permissions are denied.');
-        CameraFileUtility.showPermissionDeniedDialog(context, "Location");
-        return null;
-      }
-    }
 
-    if (permission == LocationPermission.deniedForever) {
-      print(
-          'Location permissions are permanently denied. You cannot request permissions.');
-      CameraFileUtility.showPermissionDeniedDialog(context, "Location");
-      return null;
-    }
-
-    // Fetch the location
-    try {
-      Position position = await Geolocator.getCurrentPosition(
-          desiredAccuracy: LocationAccuracy.high);
-
-      print("User's location: ${position.latitude}, ${position.longitude}");
-
-      // Fetch the formatted address
-      String? address = await getAddressFromLatLng(
-          context, position.latitude, position.longitude);
-
-      if (address != null) {
-        return {
-          'lat': position.latitude,
-          'lng': position.longitude,
-          'address': address,
-        };
-      } else {
-        print("Failed to fetch the address");
-        return null;
-      }
-    } catch (e) {
-      print('Error fetching location: $e');
-      return null;
-    }
-  }
-
-  Future<Map<String, dynamic>?> fetchUserLocation(BuildContext context) async {
-    print("Fetching user's location...");
-    bool serviceEnabled = await Geolocator.isLocationServiceEnabled();
-
-    if (!serviceEnabled) {
-      print('Location services are disabled.');
-      Geolocator.openLocationSettings();
-      return null;
-    }
-
-    LocationPermission permission = await Geolocator.checkPermission();
-    if (permission == LocationPermission.denied) {
-      permission = await Geolocator.requestPermission();
-      if (permission == LocationPermission.denied) {
-        print('Location permissions are denied.');
-        CameraFileUtility.showPermissionDeniedDialog(context, "Location");
-        return null;
-      }
-    }
-
-    if (permission == LocationPermission.deniedForever) {
-      print('Location permissions are permanently denied.');
-      CameraFileUtility.showPermissionDeniedDialog(context, "Location");
-      return null;
-    }
-
-    try {
-      Position? position = await Geolocator.getLastKnownPosition();
-
-      if (position == null) {
-        position = await Geolocator.getCurrentPosition(
-            desiredAccuracy: LocationAccuracy.bestForNavigation);
-      }
-
-      // Fetch address with timeout
-      String? address = await getAddressFromLatLng(
-          context, position.latitude, position.longitude);
-
-      if (address != null) {
-        return {
-          'lat': position.latitude,
-          'lng': position.longitude,
-          'address': address,
-        };
-      } else {
-        print("Address not found, returning coordinates only");
-        return {
-          'lat': position.latitude,
-          'lng': position.longitude,
-          'address': 'Coordinates: ${position.latitude}, ${position.longitude}',
-        };
-      }
-    } catch (e) {
-      print('Error fetching location: $e');
-      return null;
-    }
-  }
 
 
 

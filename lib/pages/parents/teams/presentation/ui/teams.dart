@@ -29,16 +29,18 @@ class Teams extends StatelessWidget {
           child: SingleChildScrollView(
             child: Column(
               children: <Widget>[
-
                 CustomHeader(),
-                BookSessions(),
+                Padding(
+                  padding: const EdgeInsets.only(right: 2.0),
+                  child: BookSessions(),
+                ),
 
                 SizedBox(
                   height: 12,
                 ),
                 Padding(
-                  padding: EdgeInsets.symmetric(
-                      horizontal: context.screenWidth * 0.05),
+                  padding: EdgeInsets.only(
+                      left: context.screenWidth * 0.054,),
                   child: Row(
                     children: <Widget>[
                       CustomSessionCard(
@@ -76,7 +78,10 @@ class Teams extends StatelessWidget {
                   ),
                 ),
                 SizedBox(height: 15,),
-                DashboardGrid(),
+                Padding(
+                  padding: const EdgeInsets.only(right: 2.0),
+                  child: DashboardGrid(),
+                ),
                 SizedBox(
                   height: 20,
                 )

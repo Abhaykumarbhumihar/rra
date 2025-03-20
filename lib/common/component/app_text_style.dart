@@ -62,6 +62,13 @@ class AppTextStyle {
       fontSize: fontsize,
     );
   }
+  static TextStyle semiBold(double fontsize) {
+    return TextStyle(
+      color: AppColor.appWhiteColor,
+      fontFamily: AppFont.interSemiBold,
+      fontSize: fontsize,
+    );
+  }
   static TextStyle bold(double fontsize) {
     return TextStyle(
       color: AppColor.appWhiteColor,

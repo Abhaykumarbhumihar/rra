@@ -56,88 +56,88 @@ class OrderSummary extends StatelessWidget {
       decoration: CommonBackground.decoration,
       child: Scaffold(
         backgroundColor: Colors.transparent,
-        appBar: CommonAppBar(
-          title: "Add Details",
-        ),
         body: Container(
           width: width,
           height: height,
           padding: EdgeInsets.zero,
           decoration: CommonBackground.decoration,
-          child: SafeArea(
-              child: SingleChildScrollView(
-                child: Column(
-                  children: <Widget>[
-                    Padding(
-                      padding: EdgeInsets.only(left: context.screenHeight * 0.02,
-                          right: context.screenHeight * 0.02),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: <Widget>[
-                          Padding(
-                            padding: const EdgeInsets.only(
-                                left: 18.0, right: 18.0, top: 12.0),
-                            child: Image.asset("assets/images/tracer_three.png"),
-                          ),
-                          SizedBox(
-                            height: context.screenHeight * 0.013,
-                          ),
-                          Padding(
-                            padding: const EdgeInsets.only(
-                                left: 3.0, right: 6.0, bottom: 6.0),
-                            child: ScreenTitleForCalendar(
-                              title: "Group Coaching U9 Advanced (Hardball)",
-                            ),
-                          ),
-
- SizedBox(height: context.screenHeight*0.6,
- child:  ListView.builder(
-
-   padding:
-   const EdgeInsets.symmetric(horizontal: 0.0, vertical: 0),
-   itemCount: sessionsLst.length,
-   shrinkWrap: true,
-
-   itemBuilder: (context, index) {
-     final session = sessionsLst[index];
-
-     return AddedSlotListItem(title:session['title'],
-       imageUrl: 'assets/images/coaching_image.png',
-       dateTime: session['title'],
-       onClose: (){
-       sessionsLst.removeAt(index);
-       },
-price: session['price'],
-     );
-   },
- ),
- ),
-
-
-                          SizedBox(height: 15,),
-                          CustomButton(
-                            text: "Submit",
-                            onPressed: () {
-                              paymentBottomSheet(context:context,
-                             checkOutAction: (){
-                               print("orderSumary checkout is clicked");
-                              },
-                                  couponApplyAction: (){
-                                    print("orderSumary coupon code is clicked");
-
-                                  }
-
-                             );
-                              print("code is running here");
-                            },
-                          ),
-                          SizedBox(height: 10,),
-                        ],
+          child: SingleChildScrollView(
+            child: Column(
+              children: <Widget>[
+                CustomHeader( title: "Add Details",onBackPress: (){
+                  Navigator.pop(context);
+                },),
+                SizedBox(height: 10,),
+                Padding(
+                  padding: EdgeInsets.only(left: context.screenHeight * 0.02,
+                      right: context.screenHeight * 0.02),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: <Widget>[
+                      Padding(
+                        padding: const EdgeInsets.only(
+                            left: 18.0, right: 18.0, top: 12.0),
+                        child: Image.asset("assets/images/tracer_three.png"),
                       ),
-                    )
-                  ],
-                ),
-              )),
+                      SizedBox(
+                        height: context.screenHeight * 0.013,
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.only(
+                            left: 3.0, right: 6.0, bottom: 6.0),
+                        child: ScreenTitleForCalendar(
+                          title: "Group Coaching U9 Advanced (Hardball)",
+                        ),
+                      ),
+
+           SizedBox(height: context.screenHeight*0.6,
+           child:  ListView.builder(
+
+             padding:
+             const EdgeInsets.symmetric(horizontal: 0.0, vertical: 0),
+             itemCount: sessionsLst.length,
+             shrinkWrap: true,
+
+             itemBuilder: (context, index) {
+               final session = sessionsLst[index];
+
+               return AddedSlotListItem(title:session['title'],
+                 imageUrl: 'assets/images/coaching_image.png',
+                 dateTime: session['title'],
+                 onClose: (){
+                 sessionsLst.removeAt(index);
+                 },
+          price: session['price'],
+               );
+             },
+           ),
+           ),
+
+
+                      SizedBox(height: 15,),
+                      CustomButton(
+                        text: "Submit",
+                        onPressed: () {
+                          paymentBottomSheet(context:context,
+                         checkOutAction: (){
+                           print("orderSumary checkout is clicked");
+                          },
+                              couponApplyAction: (){
+                                print("orderSumary coupon code is clicked");
+
+                              }
+
+                         );
+                          print("code is running here");
+                        },
+                      ),
+                      SizedBox(height: 10,),
+                    ],
+                  ),
+                )
+              ],
+            ),
+          ),
         ),
       ),
     );

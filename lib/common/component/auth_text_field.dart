@@ -108,7 +108,7 @@ class _CustomTextInputMobileState extends State<CustomTextInputMobile> {
         Container(
           // width: double.infinity,
           //duration: const Duration(seconds: 3),
-height: context.screenHeight*0.0625,
+height:widget.minLine == 1 && widget.maxLines == 1? context.screenHeight*0.0625: context.screenHeight*0.2,
           decoration: BoxDecoration(
             // color:
             //     widget.errorMessage != null && widget.errorMessage!.isNotEmpty
@@ -300,6 +300,12 @@ height: context.screenHeight*0.0625,
         size: width * 0.04,
       );
     } else if (widget.title == "Duration") {
+      return Icon(
+        FontAwesomeIcons.chevronDown,
+        color: Colors.white.withOpacity(0.5),
+        size: width * 0.04,
+      );
+    }else if (widget.title == "Select Coach") {
       return Icon(
         FontAwesomeIcons.chevronDown,
         color: Colors.white.withOpacity(0.5),

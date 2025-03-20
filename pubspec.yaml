@@ -46,20 +46,17 @@ dependencies:
   shared_preferences:
   freezed_annotation: ^2.4.4
   json_annotation: ^4.9.0
-  carousel_slider: ^5.0.0
   http: ^1.2.2
   either_dart: ^1.0.0
   get_it:
   http_parser:
   connectivity_plus:
   intl:
-  geolocator:
   auto_height_grid_view:
   table_calendar:
 
   another_flushbar: ^1.12.30
-  progress_tracker: ^0.0.16
-  flutter_stripe: ^11.4.0
+  flutter_stripe:
   toggle_switch:
 
 dev_dependencies:

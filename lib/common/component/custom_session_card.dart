@@ -28,7 +28,7 @@ class CustomSessionCard extends StatelessWidget {
       ),
       child: Padding(
         padding: EdgeInsets.symmetric(
-          horizontal: context.screenWidth * 0.03,
+          horizontal: context.screenWidth * 0.038,
           vertical: context.screenHeight * 0.02,
         ),
         child: Column(
