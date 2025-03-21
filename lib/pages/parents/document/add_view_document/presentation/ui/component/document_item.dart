@@ -1,6 +1,7 @@
-import 'package:rra/common/component/app_text_style.dart';
-import 'package:rra/common/component/common_background.dart';
+
 import 'package:rra/common/values/values_exports.dart';
+
+import 'package:rra/common/component/component_export.dart';
 class DocumentItem extends StatelessWidget {
   const DocumentItem({super.key});
 
@@ -12,93 +13,33 @@ class DocumentItem extends StatelessWidget {
         right: context.screenWidth * 0.052,
       ),
       child: Center(
-        child: Container(
-          padding: EdgeInsets.only(left: 20,top: 16,bottom: 16,right: 24),
-          decoration: BoxDecoration(
-              image: DecorationImage(image: AssetImage("assets/images/pink_transpaent_background.png"),
-                  fit: BoxFit.fill)
-          ),
+        child: BackgroundContainer(
           child:  Column(
             mainAxisSize: MainAxisSize.min,
-            mainAxisAlignment: MainAxisAlignment.start, // Align children to the start
+            mainAxisAlignment: MainAxisAlignment.start,
             children: <Widget>[
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Row(
-                    children: [
-                      Text(
-                        "Dates :",
-                        style:
-                        AppTextStyle.semiBold(context.screenWidth * 0.0373),
-                      ),
-                      Text(
-                        " 08-03-2025",
-                        style:
-                        AppTextStyle.regular(context.screenWidth * 0.0373),
-                      ),
-                    ],
-                  ),
-                  Image.asset("assets/images/edit_icon.png",width: 14,height: 14,)
-                ],
+              InfoRowWithIcon(
+                label: "Dates",
+                value: " 08-03-2025",
+                iconPath: "assets/images/edit_icon.png",
               ),
-              Row(
-                children: [
-                  Text(
-                    "Title :",
-                    style:
-                    AppTextStyle.semiBold(context.screenWidth * 0.0373),
-                  ),
-                  Text(
-                    " new traninig stuff",
-                    style:
-                    AppTextStyle.regular(context.screenWidth * 0.0373),
-                  ),
-                ],
+              InfoRow(
+                label: "Title",
+                value: " new traninig stuff",
               ),
-              Row(
-                children: [
-                  Text(
-                    "Coach :",
-                    style:
-                    AppTextStyle.semiBold(context.screenWidth * 0.0373),
-                  ),
-                  Text(
-                    " Bhavin Savaliya",
-                    style:
-                    AppTextStyle.regular(context.screenWidth * 0.0373),
-                  ),
-                ],
+              InfoRow(
+                label: "Coach :",
+                value:  " Bhavin Savaliya",
               ),
-              Row(
-                children: [
-                  Text(
-                    "Comments :",
-                    style:
-                    AppTextStyle.semiBold(context.screenWidth * 0.0373),
-                  ),
-                  Text(
-                    " Lorem Ipsum is simply ",
-                    style:
-                    AppTextStyle.regular(context.screenWidth * 0.0373),
-                  ),
-                ],
+              InfoRow(
+                label: "Comments :",
+                value:   " Lorem Ipsum is simply ",
               ),
-              Row(
-                children: [
-                  Text(
-                    "Document :",
-                    style:
-                    AppTextStyle.semiBold(context.screenWidth * 0.0373),
-                  ),
-                  SizedBox(width: 3,),
-                  Image.asset("assets/images/file.png",width: 14,height: 14,color: Colors.white,)
-                  ,
-                ],
-              ),
-
-
-
+              InfoRowWithOnlyIcon(
+                label: "Document",
+                iconPath: "assets/images/file.png",
+                iconColor: Colors.white,
+              )
             ],
           ),
         ),

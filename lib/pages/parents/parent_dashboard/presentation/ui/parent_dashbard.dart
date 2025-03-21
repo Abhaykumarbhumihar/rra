@@ -5,7 +5,7 @@ import '../../../../../common/routes/routes.dart';
 import '../../../teams/presentation/ui/component/book_sessions.dart';
 import 'package:rra/pages/parents/teams/presentation/ui/component/custom_header.dart';
 import 'package:rra/pages/parents/teams/presentation/ui/component/custom_header.dart';
-import 'package:rra/pages/parents/teams/presentation/ui/component/dashbard_grid.dart';
+import 'package:rra/pages/parents/teams/presentation/ui/component/paren_dashbard_grid.dart';
 class ParentDashbard extends StatelessWidget {
   const ParentDashbard({super.key});
 

@@ -9,7 +9,7 @@ import '../../../../../common/routes/routes.dart';
 import '../../../parent_dashboard/presentation/ui/parent_dashbard.dart';
 import 'component/book_sessions.dart';
 import 'component/custom_header.dart';
-import 'component/dashbard_grid.dart';
+import 'component/paren_dashbard_grid.dart';
 
 class Teams extends StatelessWidget {
   Teams({super.key});
