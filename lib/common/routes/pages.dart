@@ -146,26 +146,47 @@ class AppPages {
     return blocProvider;
   }
 
-  static MaterialPageRoute GenerateRoutesSetting(RouteSettings settings) {
-    print("code is coming here ${settings.name}");
+  static PageRoute GenerateRoutesSetting(RouteSettings settings) {
+    print("Navigating to ${settings.name}");
+
     if (settings.name == '/') {
-      print(
-          "App is trying to route to root (/) - check initial route settings.");
+      print("App is trying to route to root (/) - check initial route settings.");
     }
 
-    if (settings.name != null) {
-      var result = routes().where((element) => element.route == settings.name);
-      if (result.isNotEmpty) {
-        return MaterialPageRoute(
-          builder: (_) => result.first.page,
-          settings: settings,
-        );
-      } else {
-        print("In valid route name ${settings.name}");
-      }
+    var result = routes().where((element) => element.route == settings.name);
+    if (result.isNotEmpty) {
+      return PageRouteBuilder(
+        settings: settings,
+        transitionDuration: const Duration(milliseconds: 500),
+        pageBuilder: (context, animation, secondaryAnimation) => result.first.page,
+        transitionsBuilder: (context, animation, secondaryAnimation, child) {
+          const begin = Offset(1.0, 0.0);
+          const end = Offset.zero;
+          const curve = Curves.easeInOut;
+
+          var tween = Tween(begin: begin, end: end).chain(
+            CurveTween(curve: curve),
+          );
+
+          return SlideTransition(
+            position: animation.drive(tween),
+            child: child,
+          );
+        },
+      );
+    } else {
+      print("Invalid route name: ${settings.name}");
     }
-    // Default to LOGIN route if the route is invalid
-    return MaterialPageRoute(builder: (_) => LoginScreen());
+
+    return PageRouteBuilder(
+      pageBuilder: (context, animation, secondaryAnimation) => LoginScreen(),
+      transitionsBuilder: (context, animation, secondaryAnimation, child) {
+        return FadeTransition(
+          opacity: animation,
+          child: child,
+        );
+      },
+    );
   }
 }
 

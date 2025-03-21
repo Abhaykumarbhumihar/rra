@@ -1,6 +1,7 @@
 import 'package:rra/common/values/values_exports.dart';
 import 'package:rra/pages/coach/coach_dashboard/presentation/ui/coach_dashboard.dart';
 import 'package:rra/common/component/component_export.dart';
+import 'package:rra/pages/parents/parent_dashboard/presentation/ui/parent_dashbard.dart';
 class Teams extends StatelessWidget {
   Teams({super.key});
 
@@ -19,7 +20,7 @@ class Teams extends StatelessWidget {
         decoration: CommonBackground.decoration,
         child: SafeArea(
           child: SingleChildScrollView(
-            child: CoachDashboard(),
+            child: ParentDashbard(),
           ),
         ),
       ),
