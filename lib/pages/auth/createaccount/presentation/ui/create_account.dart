@@ -251,17 +251,17 @@ class CreateAccount extends StatelessWidget {
                                   onPressed: () async {
                                     // Emit CreateAccountSubmitted event
                                     print("code is running here");
-                                    if ((await Connectivity().isConnected)) {
-                                      context
-                                          .read<CreateAccountBloc>()
-                                          .add(CreateAccountSubmitted());
-                                    } else {
-                                      context.showCustomSnackbar(
-                                          'No internet connection. Please check your connection \nand try again.',
-                                          backgroundColor: AppColor.appcolor);
-                                    }
-                                    // Navigator.pushNamed(
-                                    //     context, AppRoutes.OTPVERIFICATION);
+                                    // if ((await Connectivity().isConnected)) {
+                                    //   context
+                                    //       .read<CreateAccountBloc>()
+                                    //       .add(CreateAccountSubmitted());
+                                    // } else {
+                                    //   context.showCustomSnackbar(
+                                    //       'No internet connection. Please check your connection \nand try again.',
+                                    //       backgroundColor: AppColor.appcolor);
+                                    // }
+                                    Navigator.pushNamed(
+                                        context, AppRoutes.OTPVERIFICATION);
                                     // if ((await Connectivity().isConnected)) {
                                     //   context
                                     //       .read<CreateAccountBloc>()

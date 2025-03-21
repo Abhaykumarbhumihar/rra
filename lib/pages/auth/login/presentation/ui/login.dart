@@ -153,14 +153,18 @@ class LoginScreen extends StatelessWidget {
                               CustomButton(
                                 text: "Sign In",
                                 onPressed: () async {
-                                  context.read<LoginBloc>().add(
-                                      LoginButtonPressed(
-                                          email:
-                                          emailController.text.toString(),
-                                          password: passwordController.text
-                                              .toString(),
-                                          deviceID: ""));
-
+                                  // context.read<LoginBloc>().add(
+                                  //     LoginButtonPressed(
+                                  //         email:
+                                  //         emailController.text.toString(),
+                                  //         password: passwordController.text
+                                  //             .toString(),
+                                  //         deviceID: ""));
+                                  Navigator.pushNamedAndRemoveUntil(
+                                    context,
+                                    AppRoutes.APPLICATION,
+                                        (Route<dynamic> route) => false,
+                                  );
 
 
                                 },

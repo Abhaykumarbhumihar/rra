@@ -32,7 +32,10 @@ class FacilityDetailPage extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                CustomHeader(title: "Facility Booking",onBackPress: (){},),
+                CustomHeader(title: "Facility Booking",
+                  onBackPress: (){
+                    Navigator.pop(context);
+                  },),
 
                Padding(
                  padding: const EdgeInsets.all(18.0),

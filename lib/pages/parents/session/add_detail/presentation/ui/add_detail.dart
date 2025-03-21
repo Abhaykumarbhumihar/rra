@@ -37,7 +37,10 @@ class AddDetail extends StatelessWidget {
         child: SingleChildScrollView(
           child: Column(
             children: <Widget>[
-              CustomHeader( title: "Add Details",onBackPress: (){},),
+              CustomHeader( title: "Add Details",
+                onBackPress: (){
+                  Navigator.pop(context);
+                },),
               Padding(
                 padding: EdgeInsets.only(left: context.screenHeight * 0.02,
                     right: context.screenHeight * 0.02),
@@ -221,8 +224,8 @@ class AddDetail extends StatelessWidget {
                     CustomButton(
                       text: "Continue",
                       onPressed: () {
-                        Navigator.pushNamed(
-                            context, AppRoutes.BOOKSUMMARY);
+                        // Navigator.pushNamed(
+                        //     context, AppRoutes.BOOKSUMMARY);
                         print("code is running here");
                       },
                     ),

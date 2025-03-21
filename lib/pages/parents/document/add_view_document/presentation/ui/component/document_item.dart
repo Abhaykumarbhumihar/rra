@@ -23,14 +23,34 @@ class DocumentItem extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.start, // Align children to the start
             children: <Widget>[
               Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Row(
+                    children: [
+                      Text(
+                        "Dates :",
+                        style:
+                        AppTextStyle.semiBold(context.screenWidth * 0.0373),
+                      ),
+                      Text(
+                        " 08-03-2025",
+                        style:
+                        AppTextStyle.regular(context.screenWidth * 0.0373),
+                      ),
+                    ],
+                  ),
+                  Image.asset("assets/images/edit_icon.png",width: 14,height: 14,)
+                ],
+              ),
+              Row(
                 children: [
                   Text(
-                    "Dates :",
+                    "Title :",
                     style:
                     AppTextStyle.semiBold(context.screenWidth * 0.0373),
                   ),
                   Text(
-                    " Dec 16, 2024 - Dec 19,2024",
+                    " new traninig stuff",
                     style:
                     AppTextStyle.regular(context.screenWidth * 0.0373),
                   ),
@@ -39,12 +59,12 @@ class DocumentItem extends StatelessWidget {
               Row(
                 children: [
                   Text(
-                    "Dates :",
+                    "Coach :",
                     style:
                     AppTextStyle.semiBold(context.screenWidth * 0.0373),
                   ),
                   Text(
-                    " Dec 16, 2024 - Dec 19,2024",
+                    " Bhavin Savaliya",
                     style:
                     AppTextStyle.regular(context.screenWidth * 0.0373),
                   ),
@@ -53,12 +73,12 @@ class DocumentItem extends StatelessWidget {
               Row(
                 children: [
                   Text(
-                    "Dates :",
+                    "Comments :",
                     style:
                     AppTextStyle.semiBold(context.screenWidth * 0.0373),
                   ),
                   Text(
-                    " Dec 16, 2024 - Dec 19,2024",
+                    " Lorem Ipsum is simply ",
                     style:
                     AppTextStyle.regular(context.screenWidth * 0.0373),
                   ),
@@ -67,29 +87,13 @@ class DocumentItem extends StatelessWidget {
               Row(
                 children: [
                   Text(
-                    "Dates :",
+                    "Document :",
                     style:
                     AppTextStyle.semiBold(context.screenWidth * 0.0373),
                   ),
-                  Text(
-                    " Dec 16, 2024 - Dec 19,2024",
-                    style:
-                    AppTextStyle.regular(context.screenWidth * 0.0373),
-                  ),
-                ],
-              ),
-              Row(
-                children: [
-                  Text(
-                    "Dates :",
-                    style:
-                    AppTextStyle.semiBold(context.screenWidth * 0.0373),
-                  ),
-                  Text(
-                    " Dec 16, 2024 - Dec 19,2024",
-                    style:
-                    AppTextStyle.regular(context.screenWidth * 0.0373),
-                  ),
+                  SizedBox(width: 3,),
+                  Image.asset("assets/images/file.png",width: 14,height: 14,color: Colors.white,)
+                  ,
                 ],
               ),
 

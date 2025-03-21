@@ -34,7 +34,10 @@ class CoachingDetailScreen extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                CustomHeader( title: "Coaching Programs",onBackPress: (){},),
+                CustomHeader( title: "Coaching Programs",
+                  onBackPress: (){
+                    Navigator.pop(context);
+                  },),
                 SizedBox(height: 4,),
                Padding(padding: EdgeInsets.all(14),
                child: Column(

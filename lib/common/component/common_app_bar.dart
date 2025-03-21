@@ -34,7 +34,7 @@ class CustomHeader extends StatelessWidget {
           ),
           SizedBox(width: MediaQuery.of(context).size.width * 0.051), // Spacing
           Padding(
-            padding: EdgeInsets.only(top: MediaQuery.of(context).size.height * 0.048),
+            padding: EdgeInsets.only(top: MediaQuery.of(context).size.height * 0.052),
             child: Text(
               title,
               style: TextStyle(

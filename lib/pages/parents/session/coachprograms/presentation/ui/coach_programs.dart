@@ -40,7 +40,10 @@ class CoachProgramsScreen extends StatelessWidget {
 
                 child: Column(
                   children: [
-                    CustomHeader( title: "Coaching Programs",onBackPress: (){},),
+                    CustomHeader( title: "Coaching Programs",
+                      onBackPress: (){
+                        Navigator.pop(context);
+                      },),
                     SizedBox(height: 10,),
                     Flexible(
                       child: ListView.builder(

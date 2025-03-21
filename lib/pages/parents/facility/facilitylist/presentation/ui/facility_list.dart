@@ -30,7 +30,10 @@ class FacilityList extends StatelessWidget {
 
           child: Column(
             children: [
-              CustomHeader(title: "Facility Booking",onBackPress: (){},),
+              CustomHeader(title: "Facility Booking",
+                onBackPress: (){
+                  Navigator.pop(context);
+                },),
               SizedBox(height: 10,),
 
              Flexible(child:  ListView.builder(
