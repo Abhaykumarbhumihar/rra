@@ -8,32 +8,35 @@ class PlayerAttendanceRecord extends StatelessWidget {
   Widget build(BuildContext context) {
     return Center(
       child: BackgroundForSmallContainer(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.start,
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: <Widget>[
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: <Widget>[
+        child: Padding(
+          padding: const EdgeInsets.only(top: 6.0,bottom: 6.0),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: <Widget>[
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: <Widget>[
 
-                InfoRow(
-                  label: "Date :",
-                  value: " 08-03-2025",
-                ),
-                CommonSmallElevatedButton(
-                  label: "Present",
-                  onPressed: (){},
-                  color: Colors.green,
-                )
-              ],
-            ),
+                  InfoRow(
+                    label: "Date :",
+                    value: " 08-03-2025",
+                  ),
+                  CommonSmallElevatedButton(
+                    label: "Present",
+                    onPressed: (){},
+                    color: Colors.green,
+                  )
+                ],
+              ),
 
 
 
 
 
-          ],
+            ],
+          ),
         ),
       ),
     );

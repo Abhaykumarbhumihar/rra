@@ -10,27 +10,27 @@ class CoachDashboardGrid extends StatelessWidget {
   final List<Map<String, String>> items = [
     {
       "title": "Manage Team",
-      "image": "assets/images/view_attendance.png",
+      "image": "assets/images/manage_team.png",
       "background": "assets/images/dashboard_bottom_border_background.png"
     },
     {
       "title": "List Collaterals",
-      "image": "assets/images/upload_doc.png",
+      "image": "assets/images/telegrm.png",
       "background": "assets/images/dashboard_bottom_border_background.png"
     },
     {
       "title": "View Reports",
-      "image": "assets/images/booking 1.png",
+      "image": "assets/images/reports.png",
       "background": "assets/images/dashbard_top_border_background.png"
     },
     {
       "title": "View Documents",
-      "image": "assets/images/my_order.png",
+      "image": "assets/images/reports.png",
       "background": "assets/images/dashbard_top_border_background.png"
     },
     {
       "title": "Mark Attendance",
-      "image": "assets/images/score_card.png",
+      "image": "assets/images/coach_attendance.png",
       "background": "assets/images/dashboard_bottom_border_background.png"
     },
   ];
@@ -53,9 +53,15 @@ class CoachDashboardGrid extends StatelessWidget {
 
         return GestureDetector(
           onTap: () {
-            if(item['title']=="Upload Documents"){
+            if(item['title']=="List Collaterals"){
               Navigator.pushNamed(
-                  context, AppRoutes.ADDVIEWDOCUMENT);
+                  context, AppRoutes.COACHMYCOLLATERALSLIST);
+            }else if(item['title']=="Manage Team"){
+              Navigator.pushNamed(
+                  context, AppRoutes.COACHMANAGETEAMLIST);
+            }else if(item['title']=="Mark Attendance"){
+              Navigator.pushNamed(
+                  context, AppRoutes.COACHPLAYERATTENDANCELIST);
             }
             print("${item['title']} clicked");
           },

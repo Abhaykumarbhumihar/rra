@@ -11,7 +11,7 @@ class BackgroundContainer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.only(left: 20, top: 16, bottom: 16, right: 24),
+      padding: const EdgeInsets.only(left: 18, top: 16, bottom: 16, right: 24),
       decoration: const BoxDecoration(
         image: DecorationImage(
           image: AssetImage("assets/images/pink_transpaent_background.png"),
@@ -35,11 +35,12 @@ class BackgroundForSmallContainer extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       padding: const EdgeInsets.only(left: 20, top: 2, bottom: 2, right: 24),
-      decoration: const BoxDecoration(
+      decoration:  BoxDecoration(
         image: DecorationImage(
-          image: AssetImage("assets/images/pink_transpaent_background.png"),
+          image: AssetImage("assets/images/small_pink_patti.png"),
           fit: BoxFit.fill,
         ),
+         borderRadius: BorderRadius.circular(6.0)
       ),
       child: child,
     );

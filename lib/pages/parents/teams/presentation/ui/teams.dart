@@ -20,7 +20,7 @@ class Teams extends StatelessWidget {
         decoration: CommonBackground.decoration,
         child: SafeArea(
           child: SingleChildScrollView(
-            child: ParentDashbard(),
+            child: CoachDashboard(),
           ),
         ),
       ),

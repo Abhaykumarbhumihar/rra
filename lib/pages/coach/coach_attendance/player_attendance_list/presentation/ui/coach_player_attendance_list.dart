@@ -40,11 +40,10 @@ class CoachPlayerAttendanceList extends StatelessWidget {
             SizedBox(
               height: 15,
             ),
+
             PlayerAttendanceList(),
             SizedBox(height: 6.0,),
-            PlayerAttendanceList(),
-            SizedBox(height: 6.0,),
-            PlayerAttendanceList()
+            //PlayerAttendanceList()
           ],
         ),
       ),

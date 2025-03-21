@@ -1,4 +1,5 @@
 import 'package:rra/common/component/component_export.dart';
+import 'package:rra/common/routes/routes.dart';
 import 'package:rra/common/values/values_exports.dart';
 
 class CollateralItem extends StatelessWidget {
@@ -20,7 +21,7 @@ class CollateralItem extends StatelessWidget {
               Text(
                 "Collateral for Coaches",
                 style: AppTextStyle.semiBold(
-                    MediaQuery.of(context).size.width * 0.0373),
+                    MediaQuery.of(context).size.width * 0.04266),
               ),
               SizedBox(
                 height: 2.0,
@@ -28,7 +29,7 @@ class CollateralItem extends StatelessWidget {
               Text(
                 "This is a testing for the testing purpose only. This is a testing description for the testing purpose only",
                 style: AppTextStyle.regular(
-                    MediaQuery.of(context).size.width * 0.0373),
+                    MediaQuery.of(context).size.width * 0.03733),
               ),
               SizedBox(
                 height: 4.0,
@@ -41,35 +42,58 @@ class CollateralItem extends StatelessWidget {
                       Text(
                         "Created At : ",
                         style: AppTextStyle.semiBold(
-                            MediaQuery.of(context).size.width * 0.0373),
+                            MediaQuery.of(context).size.width *0.032),
                       ),
                       Text(
                         "14-02-2025 11:55:19",
                         style: AppTextStyle.regular(
-                            MediaQuery.of(context).size.width * 0.0253),
+                            MediaQuery.of(context).size.width * 0.032),
                       ),
                     ],
                   ),
-                  ElevatedButton(
-                    onPressed: () {},
-                    style: ElevatedButton.styleFrom(
-                        backgroundColor: Colors.pinkAccent, // Button color
-                        shape: RoundedRectangleBorder(
-                          borderRadius:
-                              BorderRadius.circular(20), // Rounded Button
+                  SizedBox(width: 6.0,),
+                  InkWell(
+                    onTap: (){
+                      Navigator.pushNamed(
+                          context, AppRoutes.COACHCOLLATERALSDETAILS);
+                    },
+                    child: Container(
+                      padding: EdgeInsets.symmetric(horizontal: 20,vertical: 6.0),
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(20),
+                        color: AppColor.appButtonColor
+                      ),
+                      child:  Text(
+                        'View',
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontSize: context.screenWidth * 0.03,
+                          fontFamily: AppFont.interSemiBold,
                         ),
-                        minimumSize: Size(4, 30)
-                        //  padding: EdgeInsets.symmetric(horizontal: 12, vertical: 12),
-                        ),
-                    child: Text(
-                      'View',
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontSize: context.screenWidth * 0.032,
-                        fontFamily: AppFont.interMedium,
                       ),
                     ),
                   )
+                  
+                  // ElevatedButton(
+                  //   onPressed: () {},
+                  //   style: ElevatedButton.styleFrom(
+                  //       backgroundColor: Colors.pinkAccent, // Button color
+                  //       shape: RoundedRectangleBorder(
+                  //         borderRadius:
+                  //             BorderRadius.circular(20), // Rounded Button
+                  //       ),
+                  //       minimumSize: Size(60, 26)
+                  //       //  padding: EdgeInsets.symmetric(horizontal: 12, vertical: 12),
+                  //       ),
+                  //   child: Text(
+                  //     'View',
+                  //     style: TextStyle(
+                  //       color: Colors.white,
+                  //       fontSize: context.screenWidth * 0.03,
+                  //       fontFamily: AppFont.interSemiBold,
+                  //     ),
+                  //   ),
+                  // )
                 ],
               )
             ],

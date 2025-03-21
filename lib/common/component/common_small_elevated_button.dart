@@ -9,28 +9,29 @@ class CommonSmallElevatedButton extends StatelessWidget {
     Key? key,
     required this.label,
     required this.onPressed,
-    this.color = Colors.pinkAccent,
+    this.color = AppColor.appButtonColor,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return ElevatedButton(
-      onPressed: onPressed,
-      style: ElevatedButton.styleFrom(
-        backgroundColor: color, // Dynamic button color
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(20), // Rounded Button
+    return InkWell(
+      onTap: onPressed,
+      child: Container(
+        padding: EdgeInsets.symmetric(horizontal: 20,vertical: 6.0),
+        decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(20),
+            color: color
         ),
-        minimumSize: const Size(4, 28),
-      ),
-      child: Text(
-        label,
-        style: TextStyle(
-          color: Colors.white,
-          fontSize: MediaQuery.of(context).size.width * 0.032,
-          fontFamily: AppFont.interMedium,
+        child:  Text(
+          '$label',
+          style: TextStyle(
+            color: Colors.white,
+            fontSize: context.screenWidth * 0.03,
+            fontFamily: AppFont.interSemiBold,
+          ),
         ),
       ),
     );
   }
 }
+

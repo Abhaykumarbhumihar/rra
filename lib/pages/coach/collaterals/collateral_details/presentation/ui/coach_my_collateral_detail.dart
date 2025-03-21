@@ -19,21 +19,21 @@ class CoachMyCollateralDetail extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            SizedBox(height: 18,),
+            SizedBox(height: 28,),
             Text(
               "Collateral for Coaches",
               style: AppTextStyle.semiBold(
-                  MediaQuery.of(context).size.width * 0.0373),
+                  MediaQuery.of(context).size.width *0.064),
             ),
             SizedBox(height: 10,),
             Text(
-              "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged",
-              style: AppTextStyle.regular(MediaQuery.of(context).size.width * 0.0373),
+              "This is a testing description for the testing purpose only. This is a testing description for the testing purpose only.This is a testing description for the testing purpose only.  This is a testing description for the testing purpose only. This is a testing description for the testing purpose only. This is a testing description for the testing purpose only.  This is a testing description for the testing purpose only. This is a testing description for the testing purpose only. This is a testing description for the testing purpose only.",
+              style: AppTextStyle.regular(MediaQuery.of(context).size.width * 0.0426),
             ),
             SizedBox(height: 6.0,),
             Image.asset("assets/images/file.png",color: Colors.white,
-            width: 34,
-            height: 34,)
+            width: context.screenWidth*0.128,
+            height: context.screenHeight*0.06,)
 
           ],
         ),

@@ -14,14 +14,44 @@ class InfoRow extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Row(
+      crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(
-          "$label :",
+          "$label",
           style: AppTextStyle.semiBold(MediaQuery.of(context).size.width * 0.0373),
         ),
         Text(
           value,
           style: AppTextStyle.regular(MediaQuery.of(context).size.width * 0.0373),
+        ),
+      ],
+    );
+  }
+}
+class InfoRow1 extends StatelessWidget {
+  final String label;
+  final String value;
+
+  const InfoRow1({
+    Key? key,
+    required this.label,
+    required this.value,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Text(
+          "$label",
+          style: AppTextStyle.semiBold(MediaQuery.of(context).size.width * 0.0373),
+        ),
+        Expanded(
+          child: Text(
+            value,
+            style: AppTextStyle.regular(MediaQuery.of(context).size.width * 0.0373),
+          ),
         ),
       ],
     );

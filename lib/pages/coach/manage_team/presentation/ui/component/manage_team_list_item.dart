@@ -15,17 +15,17 @@ class ManageTeamListItem extends StatelessWidget {
             Text(
               "John Doe",
               style: AppTextStyle.semiBold(
-                  MediaQuery.of(context).size.width * 0.0373),
+                  MediaQuery.of(context).size.width * 0.048),
             ),
             SizedBox(
               height: 2.0,
             ),
 
-            InfoRow(
+            InfoRow1(
               label: "Age:",
               value: " 14",
             ),
-            InfoRow(
+            InfoRow1(
               label: "Session Booking :",
               value: " 05-02-2025",
             ),
