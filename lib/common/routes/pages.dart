@@ -2,6 +2,8 @@ import 'package:rra/common/routes/routes.dart';
 import 'package:rra/pages/parents/facility/facility_add_to_cart/presentaion/ui/facility_add_to_cart_page.dart';
 import 'package:rra/pages/parents/facility/facility_detail/presentation/ui/facility_detail_page.dart';
 import 'package:rra/pages/parents/facility/facilitylist/presentation/ui/facility_list.dart';
+import '../../pages/coach/coach_attendance/player_attendance_list/presentation/ui/coach_player_attendance_list.dart';
+import '../../pages/coach/coach_attendance/single_player_attendance_page/presentation/ui/coach_single_player_detail_page.dart';
 import '../../pages/coach/collaterals/collateral_details/presentation/ui/coach_my_collateral_detail.dart';
 import '../../pages/coach/collaterals/collaterals_list/presentation/ui/my_collateral_list.dart';
 import '../../pages/coach/manage_team/presentation/ui/manage_team_list.dart';
@@ -121,6 +123,15 @@ class AppPages {
       PageEntitiy(
         route: AppRoutes.COACHMANAGETEAMLIST,
         page:  ManageTeamList(),
+      ),
+
+      PageEntitiy(
+        route: AppRoutes.COACHPLAYERATTENDANCELIST,
+        page:  CoachPlayerAttendanceList(),
+      ),
+      PageEntitiy(
+        route: AppRoutes.COACHSINGLEPLAYERATTENDANCE,
+        page:  CoachSinglePlayerDetailPage(),
       ),
     ];
   }

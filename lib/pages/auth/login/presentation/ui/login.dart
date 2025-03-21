@@ -162,7 +162,7 @@ class LoginScreen extends StatelessWidget {
                                   //         deviceID: ""));
                                   Navigator.pushNamedAndRemoveUntil(
                                     context,
-                                   AppRoutes.COACHMANAGETEAMLIST,
+                                   AppRoutes.COACHSINGLEPLAYERATTENDANCE,
                                         (Route<dynamic> route) => false,
                                   );
 

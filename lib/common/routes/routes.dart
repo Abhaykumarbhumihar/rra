@@ -39,6 +39,8 @@ static const WELCOMEPAGE="/welcom_page";
   static const COACHMYCOLLATERALSLIST="/coach_my_collateralslist";
   static const COACHCOLLATERALSDETAILS="/coach_collateralslist_details";
   static const COACHMANAGETEAMLIST="/coach_manage_team_list";
+  static const COACHPLAYERATTENDANCELIST="/coach_player_attendance_list";
+  static const COACHSINGLEPLAYERATTENDANCE="/coach_single_player_attendance";
 
 
   //home

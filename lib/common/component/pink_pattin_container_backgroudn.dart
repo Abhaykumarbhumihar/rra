@@ -22,3 +22,26 @@ class BackgroundContainer extends StatelessWidget {
     );
   }
 }
+
+class BackgroundForSmallContainer extends StatelessWidget {
+  final Widget child;
+
+  const BackgroundForSmallContainer({
+    Key? key,
+    required this.child,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      padding: const EdgeInsets.only(left: 20, top: 2, bottom: 2, right: 24),
+      decoration: const BoxDecoration(
+        image: DecorationImage(
+          image: AssetImage("assets/images/pink_transpaent_background.png"),
+          fit: BoxFit.fill,
+        ),
+      ),
+      child: child,
+    );
+  }
+}
