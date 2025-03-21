@@ -1,7 +1,7 @@
 
 import 'package:rra/common/values/values_exports.dart';
 
-class CustomHeader extends StatelessWidget {
+class CustomHeaderWithOutTitle extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(

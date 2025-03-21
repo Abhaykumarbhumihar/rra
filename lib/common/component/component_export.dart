@@ -18,3 +18,4 @@ export 'screen_title.dart';
 export 'signup_signin_richtext.dart';
 export 'sub_title.dart';
 export 'ui_spacer.dart';
+export 'common_page_format.dart';

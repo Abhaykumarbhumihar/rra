@@ -33,6 +33,14 @@ static const WELCOMEPAGE="/welcom_page";
   //document
   static const ADDVIEWDOCUMENT="/add_view_document";
 
+
+  //coach
+  static const COACHVIEWSESSION="/coach_view_session";
+  static const COACHMYCOLLATERALSLIST="/coach_my_collateralslist";
+  static const COACHCOLLATERALSDETAILS="/coach_collateralslist_details";
+  static const COACHMANAGETEAMLIST="/coach_manage_team_list";
+
+
   //home
 
   static const HOMEPAGE="/home_page";

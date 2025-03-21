@@ -13,7 +13,7 @@ class ParentDashbard extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: <Widget>[
-        CustomHeader(),
+        CustomHeaderWithOutTitle(),
         Padding(
           padding: const EdgeInsets.only(right: 2.0),
           child: BookSessions(),

@@ -2,12 +2,10 @@ import 'package:rra/common/routes/routes.dart';
 import 'package:rra/pages/parents/facility/facility_add_to_cart/presentaion/ui/facility_add_to_cart_page.dart';
 import 'package:rra/pages/parents/facility/facility_detail/presentation/ui/facility_detail_page.dart';
 import 'package:rra/pages/parents/facility/facilitylist/presentation/ui/facility_list.dart';
-
-
-
-
-
-
+import '../../pages/coach/collaterals/collateral_details/presentation/ui/coach_my_collateral_detail.dart';
+import '../../pages/coach/collaterals/collaterals_list/presentation/ui/my_collateral_list.dart';
+import '../../pages/coach/manage_team/presentation/ui/manage_team_list.dart';
+import '../../pages/coach/view_session/presentation/ui/view_sessioin.dart';
 import '../../pages/parents/holiday_camp/holiday_detail/presentation/ui/holiday_detail_page.dart';
 import '../../pages/parents/holiday_camp/holiday_list/presentation/ui/holiday_campp.dart';
 import '../../pages/parents/session/add_detail/presentation/ui/add_detail.dart';
@@ -103,6 +101,26 @@ class AppPages {
       PageEntitiy(
         route: AppRoutes.BOOKSUMMARY,
         page:  OrderSummary(),
+      ),
+
+
+      //coach
+
+      PageEntitiy(
+        route: AppRoutes.COACHVIEWSESSION,
+        page:  CoachViewSessioin(),
+      ),
+      PageEntitiy(
+        route: AppRoutes.COACHMYCOLLATERALSLIST,
+        page:  MyCollateralList(),
+      ),
+      PageEntitiy(
+        route: AppRoutes.COACHCOLLATERALSDETAILS,
+        page:  CoachMyCollateralDetail(),
+      ),
+      PageEntitiy(
+        route: AppRoutes.COACHMANAGETEAMLIST,
+        page:  ManageTeamList(),
       ),
     ];
   }
