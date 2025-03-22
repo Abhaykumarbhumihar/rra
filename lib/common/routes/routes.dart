@@ -41,6 +41,9 @@ static const WELCOMEPAGE="/welcom_page";
   static const COACHMANAGETEAMLIST="/coach_manage_team_list";
   static const COACHPLAYERATTENDANCELIST="/coach_player_attendance_list";
   static const COACHSINGLEPLAYERATTENDANCE="/coach_single_player_attendance";
+  static const COACHPLAYERREPOORTLISTPAGE="/coach_player_reprt_list_page";
+  static const COACHPLAYERREPOORTDETAILPAGE="/coach_player_reprt_detail_page";
+  static const COACHPLAYERREPOORTGRAPHPAGE="/coach_player_reprt_grah_page";
 
 
   //home

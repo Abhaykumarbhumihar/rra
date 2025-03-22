@@ -62,6 +62,12 @@ class CoachDashboardGrid extends StatelessWidget {
             }else if(item['title']=="Mark Attendance"){
               Navigator.pushNamed(
                   context, AppRoutes.COACHPLAYERATTENDANCELIST);
+            }else if(item['title']=="View Reports"){
+              Navigator.pushNamed(
+                  context, AppRoutes.COACHPLAYERREPOORTLISTPAGE);
+            }else if(item['title']=="View Documents"){
+              Navigator.pushNamed(
+                  context, AppRoutes.ADDVIEWDOCUMENT);
             }
             print("${item['title']} clicked");
           },

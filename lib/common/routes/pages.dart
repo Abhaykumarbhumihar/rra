@@ -4,6 +4,9 @@ import 'package:rra/pages/parents/facility/facility_detail/presentation/ui/facil
 import 'package:rra/pages/parents/facility/facilitylist/presentation/ui/facility_list.dart';
 import '../../pages/coach/coach_attendance/player_attendance_list/presentation/ui/coach_player_attendance_list.dart';
 import '../../pages/coach/coach_attendance/single_player_attendance_page/presentation/ui/coach_single_player_detail_page.dart';
+import '../../pages/coach/coach_player_report/coach_player_report_detail/presentation/ui/coach_player_report_detail_page.dart';
+import '../../pages/coach/coach_player_report/coach_player_report_list/presentation/ui/coach_player_reort_list_page.dart';
+import '../../pages/coach/coach_player_report/coach_player_reprt_graph/presentation/ui/coach_player_report_graph_page.dart';
 import '../../pages/coach/collaterals/collateral_details/presentation/ui/coach_my_collateral_detail.dart';
 import '../../pages/coach/collaterals/collaterals_list/presentation/ui/my_collateral_list.dart';
 import '../../pages/coach/manage_team/presentation/ui/manage_team_list.dart';
@@ -132,6 +135,21 @@ class AppPages {
       PageEntitiy(
         route: AppRoutes.COACHSINGLEPLAYERATTENDANCE,
         page:  CoachSinglePlayerDetailPage(),
+      ),
+
+      PageEntitiy(
+        route: AppRoutes.COACHPLAYERREPOORTLISTPAGE,
+        page:  CoachPlayerReortListAge(),
+      ),
+
+      PageEntitiy(
+        route: AppRoutes.COACHPLAYERREPOORTDETAILPAGE,
+        page:  CoachPlayerReportDetailPage(),
+      ),
+
+      PageEntitiy(
+        route: AppRoutes.COACHPLAYERREPOORTGRAPHPAGE,
+        page:  CoachPlayerReportGraphPage(),
       ),
     ];
   }

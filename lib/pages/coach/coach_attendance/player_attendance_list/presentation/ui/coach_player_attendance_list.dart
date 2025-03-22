@@ -1,6 +1,7 @@
 import 'package:rra/common/values/values_exports.dart';
 import 'package:rra/common/component/component_export.dart';
 
+import 'component/player_attendance_filter_sheet.dart';
 import 'component/player_attendance_list.dart';
 
 class CoachPlayerAttendanceList extends StatelessWidget {
@@ -31,9 +32,22 @@ class CoachPlayerAttendanceList extends StatelessWidget {
                   style: AppTextStyle.semiBold(
                       MediaQuery.of(context).size.width * 0.0373),
                 ),
-                Icon(
-                  Icons.short_text,
-                  color: Colors.white,
+                InkWell(
+                  onTap: (){
+                    showModalBottomSheet(
+                      context: context,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
+                      ),
+                      backgroundColor: Colors.white,
+                      isScrollControlled: true,
+                      builder: (context) => PlayerAttendanceFilterSheet(),
+                    );
+                  },
+                  child: Icon(
+                    Icons.short_text,
+                    color: Colors.white,
+                  ),
                 ),
               ],
             ),

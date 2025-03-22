@@ -25,22 +25,24 @@ class BackgroundContainer extends StatelessWidget {
 
 class BackgroundForSmallContainer extends StatelessWidget {
   final Widget child;
+  final EdgeInsets? padding;
 
   const BackgroundForSmallContainer({
     Key? key,
     required this.child,
+    this.padding=const EdgeInsets.only(left: 20, top: 2, bottom: 2, right: 10.0),
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.only(left: 20, top: 2, bottom: 2, right: 24),
-      decoration:  BoxDecoration(
-        image: DecorationImage(
+      padding: padding,
+      decoration: BoxDecoration(
+        image: const DecorationImage(
           image: AssetImage("assets/images/small_pink_patti.png"),
           fit: BoxFit.fill,
         ),
-         borderRadius: BorderRadius.circular(6.0)
+        borderRadius: BorderRadius.circular(6.0),
       ),
       child: child,
     );

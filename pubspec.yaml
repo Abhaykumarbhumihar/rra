@@ -58,6 +58,7 @@ dependencies:
   another_flushbar: ^1.12.30
   flutter_stripe:
   toggle_switch:
+  percent_indicator:
 
 dev_dependencies:
   flutter_test:

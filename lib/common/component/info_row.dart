@@ -57,3 +57,59 @@ class InfoRow1 extends StatelessWidget {
     );
   }
 }
+
+class InfoRowMediumRegular extends StatelessWidget {
+  final String label;
+  final String value;
+
+  const InfoRowMediumRegular({
+    Key? key,
+    required this.label,
+    required this.value,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Text(
+          "$label",
+          style: AppTextStyle.medium(MediaQuery.of(context).size.width * 0.0373),
+        ),
+        Text(
+          value,
+          style: AppTextStyle.regular(MediaQuery.of(context).size.width * 0.0373),
+        ),
+      ],
+    );
+  }
+}
+
+class InfoRowBoldRegular extends StatelessWidget {
+  final String label;
+  final String value;
+
+  const InfoRowBoldRegular({
+    Key? key,
+    required this.label,
+    required this.value,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Text(
+          "$label",
+          style: AppTextStyle.medium(MediaQuery.of(context).size.width * 0.04266),
+        ),
+        Text(
+          value,
+          style: AppTextStyle.regular(MediaQuery.of(context).size.width * 0.04266),
+        ),
+      ],
+    );
+  }
+}

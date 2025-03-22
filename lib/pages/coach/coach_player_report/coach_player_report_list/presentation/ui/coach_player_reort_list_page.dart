@@ -1,16 +1,16 @@
 import 'package:rra/common/values/values_exports.dart';
 import 'package:rra/common/component/component_export.dart';
 
-import '../../../../../common/component/common_dropdown_bottomsheet.dart';
-import 'component/manage_team_list_item.dart';
+import 'component/coach_player_report_list_item.dart';
+import 'component/player_record_filter_sheet.dart';
 
-class ManageTeamList extends StatelessWidget {
-  const ManageTeamList({super.key});
+class CoachPlayerReortListAge extends StatelessWidget {
+  const CoachPlayerReortListAge({super.key});
 
   @override
   Widget build(BuildContext context) {
     return CommonPageFormat(
-      title: "Manage Team",
+      title: "Player Reports",
       onBackPress: () {
         Navigator.pop(context);
       },
@@ -41,7 +41,7 @@ class ManageTeamList extends StatelessWidget {
                       ),
                       backgroundColor: Colors.white,
                       isScrollControlled: true,
-                      builder: (context) => ManageReportsBottomSheet(),
+                      builder: (context) => PlayerRecordFilterSheet(),
                     );
                   },
                   child: Icon(
@@ -54,15 +54,7 @@ class ManageTeamList extends StatelessWidget {
             SizedBox(
               height: 10,
             ),
-            ManageTeamListItem(),
-            SizedBox(
-              height: 6,
-            ),
-            ManageTeamListItem(),
-            SizedBox(
-              height: 6,
-            ),
-            ManageTeamListItem(),
+            CoachPlayerReportListItem()
           ],
         ),
       ),
