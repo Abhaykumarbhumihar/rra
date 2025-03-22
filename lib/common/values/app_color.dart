@@ -13,9 +13,10 @@ class AppColor {
   static const Color appgreen=Color(0xFF008000);
   static const Color dottedBorderColor=Color(0xFF269B77);
   static const Color appredColor=Color(0xFFFF0000);
-  static const Color greyHome=Color(0xFF838383);
+  static const Color greyHome=Color(0xFF797979);
   static const Color focustexfield = Color(0xFF056981);
   static const Color userNameColor=Color(0xFF0B4DA1);
+  static const Color priceFiledColor=Color(0xFF242424);
   static const Color greyHomeColor=Color(0xFF343434);
   static const Color ll=Color(0xFF00895F);
   static const Color activeSwitchColor=Color(0xFF34C759);

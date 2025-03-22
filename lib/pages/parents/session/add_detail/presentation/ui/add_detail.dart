@@ -224,8 +224,8 @@ class AddDetail extends StatelessWidget {
                     CustomButton(
                       text: "Continue",
                       onPressed: () {
-                        // Navigator.pushNamed(
-                        //     context, AppRoutes.BOOKSUMMARY);
+                        Navigator.pushNamed(
+                            context, AppRoutes.ORDERSUMMARY);
                         print("code is running here");
                       },
                     ),

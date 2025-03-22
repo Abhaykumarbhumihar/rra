@@ -5,13 +5,14 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:rra/common/component/screen_title.dart';
 import 'package:rra/common/component/sub_title.dart';
+import 'package:rra/common/values/screenUtils.dart';
 import '../../../../../../common/component/ui_spacer.dart';
 import '../../../../../../common/values/app_color.dart';
 import '../../../../../../main.dart';
+import '../values/fonts.dart';
 
 var context = navigatorKey.currentContext!;
 var globalSize = MediaQuery.of(navigatorKey.currentContext!).size;
-
 
 class CustomDropdown extends StatelessWidget {
   final String value;
@@ -48,57 +49,53 @@ class CustomFilledButton extends StatelessWidget {
   final String text;
   final VoidCallback onPressed;
   final bool isFilled;
-  const CustomFilledButton({super.key,
+
+  const CustomFilledButton({
+    super.key,
     required this.text,
     required this.onPressed,
     required this.isFilled,
-
   });
 
   @override
   Widget build(BuildContext context) {
-
-    var height = 50.5 /* context.size?.height */;
-
-
-
-    return InkWell(
-      /* onTap: onPressed,*/
-      child: Container(
-        width: globalSize.width*0.3,
-        height: height ,
-        padding: EdgeInsets.symmetric(vertical:  height*0.018),
-        decoration:  BoxDecoration(
-            image: isFilled? const DecorationImage(
-              image: AssetImage('assets/images/button_background.png'),
-              fit: BoxFit.cover,
-            ) : null,
-            borderRadius: BorderRadius.circular(height * 0.6),
-            border: Border.all(color: AppColor.appcolor, width: 2,)
-        )  ,
-        child: Material(
-          color: Colors.transparent,
-          child: ScreenTitle(title:
-          text,
-
+    return Padding(
+      padding: const EdgeInsets.all(2.0),
+      child: InkWell(
+          /* onTap: onPressed,*/
+          child: Container(
+        width: globalSize.width * 0.3,
+        decoration: BoxDecoration(
+            image: isFilled
+                ? const DecorationImage(
+                    image: AssetImage('assets/images/button_background.png'),
+                    fit: BoxFit.cover,
+                  )
+                : null,
+            borderRadius: BorderRadius.circular(18),
+            ),
+        child: Center(
+          child: Text(
+            // textScaleFactor:  MediaQuery.of(context).textScaleFactor,
+            "Apply", textAlign: TextAlign.center,
+            style: TextStyle(
+              color: AppColor.appWhiteColor,
+              fontFamily: AppFont.interMedium,
+              fontSize: context.screenWidth * 0.034,
+            ),
           ),
         ),
-      ),
+      )),
     );
+
   }
 }
 
-
-
-
-
-
-
-
-chooseImageDialog(
-    {BuildContext? context,
-      /*VoidCallback? onTapGallery,
-      VoidCallback? onTapCamera*/}) =>
+chooseImageDialog({
+  BuildContext? context,
+  /*VoidCallback? onTapGallery,
+      VoidCallback? onTapCamera*/
+}) =>
     showModalBottomSheet<void>(
       context: context!,
       shape: const RoundedRectangleBorder(
@@ -120,7 +117,8 @@ chooseImageDialog(
                   ScreenTitle(
                     title: "Choose Image From",
                   )
-                ],),
+                ],
+              ),
 
               /* CustomFilledButton(
 
@@ -137,56 +135,47 @@ chooseImageDialog(
                   ),
                   filled: true,
                   fillColor: Colors.grey[200],
-                  suffixIcon:CustomFilledButton(
-                    onPressed: (){
-
-                    },
+                  suffixIcon: CustomFilledButton(
+                    onPressed: () {},
                     isFilled: true,
                     text: "Apply",
                   ),
                 ),
               ),
-
-
               UiSpacer.verticalSpace(space: 0.03),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  ScreenTitle( title:  "Total"),
-                  ScreenTitle(title:"\$1200")
+                  ScreenTitle(title: "Total"),
+                  ScreenTitle(title: "\$1200")
                 ],
               ),
               UiSpacer.verticalSpace(space: 0.02),
-
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  ScreenTitle( title:  "Total"),
-                  ScreenTitle(title:"\$1200")
-
+                  ScreenTitle(title: "Total"),
+                  ScreenTitle(title: "\$1200")
                 ],
               ),
               UiSpacer.verticalSpace(space: 0.02),
-
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-
-                  ScreenTitle( title:  "Coupon Discount"),
-                  ScreenTitle(title:"\$1200")
+                  ScreenTitle(title: "Coupon Discount"),
+                  ScreenTitle(title: "\$1200")
                 ],
               ),
               UiSpacer.verticalSpace(space: 0.02),
               Divider(),
               UiSpacer.verticalSpace(space: 0.02),
-
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-
-
-                  ScreenTitle( title:"Total Amount" ),
-                  ScreenSubTitle(subtitle: "\$800",)
+                  ScreenTitle(title: "Total Amount"),
+                  ScreenSubTitle(
+                    subtitle: "\$800",
+                  )
                 ],
               ),
 
@@ -196,7 +185,6 @@ chooseImageDialog(
                   Navigator.pop(context);
                 },
               ),*/
-
             ],
           ),
         );

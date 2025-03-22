@@ -6,8 +6,7 @@ import '../../../../../../common/component/custom_app_button.dart';
 import '../../../../../../common/component/screen_title.dart';
 import '../calendar/presentation/ui/component/added_slot_list_item.dart';
 import '../calendar/presentation/ui/component/booking_component.dart';
-
-
+import 'component/payment_bottom_sheet.dart';
 
 class OrderSummary extends StatelessWidget {
   OrderSummary({super.key});
@@ -17,7 +16,6 @@ class OrderSummary extends StatelessWidget {
   final TextEditingController lastNameController = TextEditingController();
   final TextEditingController phoneNoController = TextEditingController();
 
-
   final List<Map<String, dynamic>> sessionsLst = [
     {
       'title': 'RRA 1:1 Coaching Session (2024)',
@@ -25,7 +23,7 @@ class OrderSummary extends StatelessWidget {
       'price': '\$1200',
     },
     {
-       'title': 'RRA 1:2 Coaching Session (2024)',
+      'title': 'RRA 1:2 Coaching Session (2024)',
       'date': 'Nov 27th, 2024 at 12:30 GMT',
       'price': '\$900',
     },
@@ -43,18 +41,13 @@ class OrderSummary extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var width = MediaQuery
-        .of(context)
-        .size
-        .width;
-    var height = MediaQuery
-        .of(context)
-        .size
-        .height;
+    var width = MediaQuery.of(context).size.width;
+    var height = MediaQuery.of(context).size.height;
 
     return Container(
       decoration: CommonBackground.decoration,
       child: Scaffold(
+        resizeToAvoidBottomInset: true,
         backgroundColor: Colors.transparent,
         body: Container(
           width: width,
@@ -64,12 +57,18 @@ class OrderSummary extends StatelessWidget {
           child: SingleChildScrollView(
             child: Column(
               children: <Widget>[
-                CustomHeader( title: "Add Details",onBackPress: (){
-                  Navigator.pop(context);
-                },),
-                SizedBox(height: 10,),
+                CustomHeader(
+                  title: "Add Details",
+                  onBackPress: () {
+                    Navigator.pop(context);
+                  },
+                ),
+                SizedBox(
+                  height: 10,
+                ),
                 Padding(
-                  padding: EdgeInsets.only(left: context.screenHeight * 0.02,
+                  padding: EdgeInsets.only(
+                      left: context.screenHeight * 0.02,
                       right: context.screenHeight * 0.02),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
@@ -77,7 +76,7 @@ class OrderSummary extends StatelessWidget {
                       Padding(
                         padding: const EdgeInsets.only(
                             left: 18.0, right: 18.0, top: 12.0),
-                        child: Image.asset("assets/images/tracer_three.png"),
+                        child: Image.asset("assets/images/tracker_three.png"),
                       ),
                       SizedBox(
                         height: context.screenHeight * 0.013,
@@ -89,49 +88,46 @@ class OrderSummary extends StatelessWidget {
                           title: "Group Coaching U9 Advanced (Hardball)",
                         ),
                       ),
+                      SizedBox(
+                        height: context.screenHeight * 0.6,
+                        child: ListView.builder(
+                          padding: const EdgeInsets.symmetric(
+                              horizontal: 0.0, vertical: 0),
+                          itemCount: sessionsLst.length,
+                          shrinkWrap: true,
+                          itemBuilder: (context, index) {
+                            final session = sessionsLst[index];
 
-           SizedBox(height: context.screenHeight*0.6,
-           child:  ListView.builder(
-
-             padding:
-             const EdgeInsets.symmetric(horizontal: 0.0, vertical: 0),
-             itemCount: sessionsLst.length,
-             shrinkWrap: true,
-
-             itemBuilder: (context, index) {
-               final session = sessionsLst[index];
-
-               return AddedSlotListItem(title:session['title'],
-                 imageUrl: 'assets/images/coaching_image.png',
-                 dateTime: session['title'],
-                 onClose: (){
-                 sessionsLst.removeAt(index);
-                 },
-          price: session['price'],
-               );
-             },
-           ),
-           ),
-
-
-                      SizedBox(height: 15,),
+                            return AddedSlotListItem(
+                              title: session['title'],
+                              imageUrl: 'assets/images/coaching_image.png',
+                              dateTime: session['title'],
+                              onClose: () {
+                                sessionsLst.removeAt(index);
+                              },
+                              price: session['price'],
+                            );
+                          },
+                        ),
+                      ),
+                      SizedBox(
+                        height: 15,
+                      ),
                       CustomButton(
                         text: "Submit",
+
                         onPressed: () {
-                          paymentBottomSheet(context:context,
-                         checkOutAction: (){
-                           print("orderSumary checkout is clicked");
-                          },
-                              couponApplyAction: (){
-                                print("orderSumary coupon code is clicked");
-
-                              }
-
-                         );
+                          showPaymentBottomSheet(context, checkOutAction: () {
+                            // Handle checkout logic
+                          }, couponApplyAction: () {
+                            // Handle coupon apply logic
+                          });
                           print("code is running here");
                         },
                       ),
-                      SizedBox(height: 10,),
+                      SizedBox(
+                        height: 20,
+                      ),
                     ],
                   ),
                 )
@@ -143,8 +139,22 @@ class OrderSummary extends StatelessWidget {
     );
   }
 
-  Widget _buildRadioOption(String text, int value, int? groupValue,
-      Function(int?) onChanged) {
+  void showPaymentBottomSheet(BuildContext context, {required VoidCallback checkOutAction, VoidCallback? couponApplyAction}) {
+    showModalBottomSheet(
+      context: context,
+      shape: const RoundedRectangleBorder(
+        borderRadius: BorderRadius.vertical(top: Radius.circular(40)),
+      ),
+      clipBehavior: Clip.antiAliasWithSaveLayer,
+      builder: (context) => PaymentBottomSheet(
+        checkOutAction: checkOutAction,
+        couponApplyAction: couponApplyAction,
+      ),
+    );
+  }
+
+  Widget _buildRadioOption(
+      String text, int value, int? groupValue, Function(int?) onChanged) {
     return Row(
       mainAxisAlignment: MainAxisAlignment.start,
       children: [

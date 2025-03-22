@@ -107,10 +107,7 @@ class AppPages {
         page:  HolidayDetailPage(),
       ),
 
-      PageEntitiy(
-        route: AppRoutes.BOOKSUMMARY,
-        page:  OrderSummary(),
-      ),
+
 
 
       //coach
@@ -171,6 +168,10 @@ class AppPages {
       PageEntitiy(
         route: AppRoutes.PARENTORDERDETAILPAGE,
         page:  ParentOrderDetail(),
+      ),
+      PageEntitiy(
+        route: AppRoutes.ORDERSUMMARY,
+        page:  OrderSummary(),
       ),
     ];
   }

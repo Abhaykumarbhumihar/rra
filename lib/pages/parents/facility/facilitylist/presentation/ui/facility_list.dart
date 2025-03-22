@@ -1,11 +1,10 @@
 import 'dart:io';
 
 import 'package:rra/common/component/common_background.dart';
+import 'package:rra/common/routes/routes.dart';
 import 'package:rra/common/values/values_exports.dart';
-
 import '../../../../../../common/component/common_app_bar.dart';
-import '../../../../../../common/component/common_list_item.dart';
-import '../../../../../../common/routes/routes.dart';
+import 'component/facility_list_item.dart';
 class FacilityList extends StatelessWidget {
   FacilityList({super.key});
   final List<String> coachingPrograms =
@@ -38,15 +37,16 @@ class FacilityList extends StatelessWidget {
 
              Flexible(child:  ListView.builder(
                padding:
-               const EdgeInsets.symmetric(horizontal: 0.0, vertical: 0),
+               const EdgeInsets.symmetric(horizontal: 16.0, vertical: 4),
                itemCount: coachingPrograms.length,
                shrinkWrap: true,
 
                itemBuilder: (context, index) {
-                 return CommonListItem(coachingProgram: coachingPrograms[index],
-                   onPressed: ()=> Navigator.pushNamed(context, AppRoutes.FACILITYDETAIL),
-                   strImage: 'assets/images/coaching_image.png',
-                 );
+                 return InkWell(
+                   onTap: (){
+                     Navigator.pushNamed(context, AppRoutes.FACILITYDETAIL);
+                   },
+                     child: FacilityListItem());
                },
              )),
             ],
