@@ -2,16 +2,18 @@ import 'package:rra/common/values/values_exports.dart';
 
 class BackgroundContainer extends StatelessWidget {
   final Widget child;
+  final EdgeInsetsGeometry padding; // Dynamic padding
 
   const BackgroundContainer({
     Key? key,
     required this.child,
+    this.padding = const EdgeInsets.only(left: 18, top: 16, bottom: 16, right: 24), // Default padding
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.only(left: 18, top: 16, bottom: 16, right: 24),
+      padding: padding, // Use dynamic padding
       decoration: const BoxDecoration(
         image: DecorationImage(
           image: AssetImage("assets/images/pink_transpaent_background.png"),

@@ -13,6 +13,10 @@ import '../../pages/coach/manage_team/presentation/ui/manage_team_list.dart';
 import '../../pages/coach/view_session/presentation/ui/view_sessioin.dart';
 import '../../pages/parents/holiday_camp/holiday_detail/presentation/ui/holiday_detail_page.dart';
 import '../../pages/parents/holiday_camp/holiday_list/presentation/ui/holiday_campp.dart';
+import '../../pages/parents/parent_order/parent_order_detail/presentation/ui/parent_order_detail.dart';
+import '../../pages/parents/parent_order/parent_order_list/presentation/ui/parent_order_list_page.dart';
+import '../../pages/parents/parent_score_view/parent_player_score_list/presentation/ui/parent_player_score_list_page.dart';
+import '../../pages/parents/parent_view_attendance/presentation/ui/parent_attendance_list_age.dart';
 import '../../pages/parents/session/add_detail/presentation/ui/add_detail.dart';
 import '../../pages/parents/session/calendar/presentation/ui/calendart_page.dart';
 import '../../pages/parents/session/coaching_detail/presentation/ui/coaching_detail.dart';
@@ -150,6 +154,23 @@ class AppPages {
       PageEntitiy(
         route: AppRoutes.COACHPLAYERREPOORTGRAPHPAGE,
         page:  CoachPlayerReportGraphPage(),
+      ),
+
+      PageEntitiy(
+        route: AppRoutes.PARENTPLAYERSCORELISTPAGE,
+        page:  ParentPlayerScoreListPage(),
+      ),
+      PageEntitiy(
+        route: AppRoutes.PARENTATTENDANCELISTPAGE,
+        page:  ParentAttendanceListAge(),
+      ),
+      PageEntitiy(
+        route: AppRoutes.PARENTORDERLISTPAGE,
+        page:  ParentOrderListPage(),
+      ),
+      PageEntitiy(
+        route: AppRoutes.PARENTORDERDETAILPAGE,
+        page:  ParentOrderDetail(),
       ),
     ];
   }

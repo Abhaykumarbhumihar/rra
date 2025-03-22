@@ -10,9 +10,9 @@ class AppColor {
   static const Color greycolor1 = Color(0xFF636564);
   static const Color greycolor11 = Color(0xFF242424);
   static const Color appBlack=Color(0xFF000000);
-  static const Color otpBagColor=Color(0xFFE7F8F3);
+  static const Color appgreen=Color(0xFF008000);
   static const Color dottedBorderColor=Color(0xFF269B77);
-  static const Color searchBorderColor=Color(0xFFA8CBC0);
+  static const Color appredColor=Color(0xFFFF0000);
   static const Color greyHome=Color(0xFF838383);
   static const Color focustexfield = Color(0xFF056981);
   static const Color userNameColor=Color(0xFF0B4DA1);

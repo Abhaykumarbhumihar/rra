@@ -56,6 +56,15 @@ class DashboardGrid extends StatelessWidget {
             if(item['title']=="Upload Documents"){
               Navigator.pushNamed(
                   context, AppRoutes.ADDVIEWDOCUMENT);
+            }else if(item['title']=="View Score"){
+              Navigator.pushNamed(
+                  context, AppRoutes.PARENTPLAYERSCORELISTPAGE);
+            }else if(item['title']=="View Attendance"){
+              Navigator.pushNamed(
+                  context, AppRoutes.PARENTATTENDANCELISTPAGE);
+            }else if(item['title']=="My Orders"){
+              Navigator.pushNamed(
+                  context, AppRoutes.PARENTORDERLISTPAGE);
             }
             print("${item['title']} clicked");
           },
