@@ -12,7 +12,7 @@ class Teams extends StatelessWidget {
     var width = MediaQuery.of(context).size.width;
     var height = MediaQuery.of(context).size.height;
     return Scaffold(
-      backgroundColor: AppColor.appButtonColor,
+
       body: Container(
         width: width,
         height: height,

@@ -27,12 +27,12 @@ class CustomHeader extends StatelessWidget {
       padding: const EdgeInsets.only(left: 14.0),
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.center,
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           GestureDetector(
             onTap: onBackPress, // Calls the function when tapped
             child: CommonBackground.BackButtonImage(context), // Back Button
           ),
-          SizedBox(width: MediaQuery.of(context).size.width * 0.051), // Spacing
           Padding(
             padding: EdgeInsets.only(top: MediaQuery.of(context).size.height * 0.052),
             child: Text(
@@ -45,6 +45,7 @@ class CustomHeader extends StatelessWidget {
               ),
             ),
           ),
+          Text("")
         ],
       ),
     );
