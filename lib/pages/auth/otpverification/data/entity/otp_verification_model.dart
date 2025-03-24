@@ -8,7 +8,8 @@ class OtpVerificationModel with _$OtpVerificationModel {
   const factory OtpVerificationModel({
     @Default(200) int code,
     @Default(true) bool success,
-    @Default('OTP verified successfully.') String message,
+    @Default('') String message,
+    @Default('') String token,
     @JsonKey(name: 'data') @Default(UserData()) UserData data,
   }) = _OtpVerificationModel;
 
@@ -22,11 +23,14 @@ class UserData with _$UserData {
     @JsonKey(name: 'name') @Default('') String name,
     @JsonKey(name: 'email') @Default('') String email,
     @JsonKey(name: 'primary_number') String? primaryNumber,
+    @JsonKey(name: 'mobile')  @Default('') String? mobile,
     @JsonKey(name: 'secondary_number') String? secondaryNumber,
     @JsonKey(name: 'dob') String? dob,
-    @JsonKey(name: 'gender') @Default('Unknown') String gender,
+    @JsonKey(name: 'gender') @Default('') String gender,
     @JsonKey(name: 'is_otp_verified') @Default(false) bool isOtpVerified,
+    @JsonKey(name: 'is_profile_completed') @Default(false) bool isProfileCompleted,
     @JsonKey(name: 'role') @Default('parent') String role,
+    @JsonKey(name: 'image') @Default('parent') String image,
   }) = _UserData;
 
   factory UserData.fromJson(Map<String, dynamic> json) => _$UserDataFromJson(json);

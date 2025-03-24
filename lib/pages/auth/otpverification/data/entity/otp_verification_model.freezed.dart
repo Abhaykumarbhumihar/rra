@@ -23,6 +23,7 @@ mixin _$OtpVerificationModel {
   int get code => throw _privateConstructorUsedError;
   bool get success => throw _privateConstructorUsedError;
   String get message => throw _privateConstructorUsedError;
+  String get token => throw _privateConstructorUsedError;
   @JsonKey(name: 'data')
   UserData get data => throw _privateConstructorUsedError;
 
@@ -46,6 +47,7 @@ abstract class $OtpVerificationModelCopyWith<$Res> {
       {int code,
       bool success,
       String message,
+      String token,
       @JsonKey(name: 'data') UserData data});
 
   $UserDataCopyWith<$Res> get data;
@@ -70,6 +72,7 @@ class _$OtpVerificationModelCopyWithImpl<$Res,
     Object? code = null,
     Object? success = null,
     Object? message = null,
+    Object? token = null,
     Object? data = null,
   }) {
     return _then(_value.copyWith(
@@ -84,6 +87,10 @@ class _$OtpVerificationModelCopyWithImpl<$Res,
       message: null == message
           ? _value.message
           : message // ignore: cast_nullable_to_non_nullable
+              as String,
+      token: null == token
+          ? _value.token
+          : token // ignore: cast_nullable_to_non_nullable
               as String,
       data: null == data
           ? _value.data
@@ -115,6 +122,7 @@ abstract class _$$OtpVerificationModelImplCopyWith<$Res>
       {int code,
       bool success,
       String message,
+      String token,
       @JsonKey(name: 'data') UserData data});
 
   @override
@@ -137,6 +145,7 @@ class __$$OtpVerificationModelImplCopyWithImpl<$Res>
     Object? code = null,
     Object? success = null,
     Object? message = null,
+    Object? token = null,
     Object? data = null,
   }) {
     return _then(_$OtpVerificationModelImpl(
@@ -152,6 +161,10 @@ class __$$OtpVerificationModelImplCopyWithImpl<$Res>
           ? _value.message
           : message // ignore: cast_nullable_to_non_nullable
               as String,
+      token: null == token
+          ? _value.token
+          : token // ignore: cast_nullable_to_non_nullable
+              as String,
       data: null == data
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
@@ -166,7 +179,8 @@ class _$OtpVerificationModelImpl implements _OtpVerificationModel {
   const _$OtpVerificationModelImpl(
       {this.code = 200,
       this.success = true,
-      this.message = 'OTP verified successfully.',
+      this.message = '',
+      this.token = '',
       @JsonKey(name: 'data') this.data = const UserData()});
 
   factory _$OtpVerificationModelImpl.fromJson(Map<String, dynamic> json) =>
@@ -182,12 +196,15 @@ class _$OtpVerificationModelImpl implements _OtpVerificationModel {
   @JsonKey()
   final String message;
   @override
+  @JsonKey()
+  final String token;
+  @override
   @JsonKey(name: 'data')
   final UserData data;
 
   @override
   String toString() {
-    return 'OtpVerificationModel(code: $code, success: $success, message: $message, data: $data)';
+    return 'OtpVerificationModel(code: $code, success: $success, message: $message, token: $token, data: $data)';
   }
 
   @override
@@ -198,12 +215,14 @@ class _$OtpVerificationModelImpl implements _OtpVerificationModel {
             (identical(other.code, code) || other.code == code) &&
             (identical(other.success, success) || other.success == success) &&
             (identical(other.message, message) || other.message == message) &&
+            (identical(other.token, token) || other.token == token) &&
             (identical(other.data, data) || other.data == data));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  int get hashCode => Object.hash(runtimeType, code, success, message, data);
+  int get hashCode =>
+      Object.hash(runtimeType, code, success, message, token, data);
 
   /// Create a copy of OtpVerificationModel
   /// with the given fields replaced by the non-null parameter values.
@@ -228,6 +247,7 @@ abstract class _OtpVerificationModel implements OtpVerificationModel {
       {final int code,
       final bool success,
       final String message,
+      final String token,
       @JsonKey(name: 'data') final UserData data}) = _$OtpVerificationModelImpl;
 
   factory _OtpVerificationModel.fromJson(Map<String, dynamic> json) =
@@ -239,6 +259,8 @@ abstract class _OtpVerificationModel implements OtpVerificationModel {
   bool get success;
   @override
   String get message;
+  @override
+  String get token;
   @override
   @JsonKey(name: 'data')
   UserData get data;
@@ -265,6 +287,8 @@ mixin _$UserData {
   String get email => throw _privateConstructorUsedError;
   @JsonKey(name: 'primary_number')
   String? get primaryNumber => throw _privateConstructorUsedError;
+  @JsonKey(name: 'mobile')
+  String? get mobile => throw _privateConstructorUsedError;
   @JsonKey(name: 'secondary_number')
   String? get secondaryNumber => throw _privateConstructorUsedError;
   @JsonKey(name: 'dob')
@@ -273,8 +297,12 @@ mixin _$UserData {
   String get gender => throw _privateConstructorUsedError;
   @JsonKey(name: 'is_otp_verified')
   bool get isOtpVerified => throw _privateConstructorUsedError;
+  @JsonKey(name: 'is_profile_completed')
+  bool get isProfileCompleted => throw _privateConstructorUsedError;
   @JsonKey(name: 'role')
   String get role => throw _privateConstructorUsedError;
+  @JsonKey(name: 'image')
+  String get image => throw _privateConstructorUsedError;
 
   /// Serializes this UserData to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -296,11 +324,14 @@ abstract class $UserDataCopyWith<$Res> {
       @JsonKey(name: 'name') String name,
       @JsonKey(name: 'email') String email,
       @JsonKey(name: 'primary_number') String? primaryNumber,
+      @JsonKey(name: 'mobile') String? mobile,
       @JsonKey(name: 'secondary_number') String? secondaryNumber,
       @JsonKey(name: 'dob') String? dob,
       @JsonKey(name: 'gender') String gender,
       @JsonKey(name: 'is_otp_verified') bool isOtpVerified,
-      @JsonKey(name: 'role') String role});
+      @JsonKey(name: 'is_profile_completed') bool isProfileCompleted,
+      @JsonKey(name: 'role') String role,
+      @JsonKey(name: 'image') String image});
 }
 
 /// @nodoc
@@ -322,11 +353,14 @@ class _$UserDataCopyWithImpl<$Res, $Val extends UserData>
     Object? name = null,
     Object? email = null,
     Object? primaryNumber = freezed,
+    Object? mobile = freezed,
     Object? secondaryNumber = freezed,
     Object? dob = freezed,
     Object? gender = null,
     Object? isOtpVerified = null,
+    Object? isProfileCompleted = null,
     Object? role = null,
+    Object? image = null,
   }) {
     return _then(_value.copyWith(
       id: null == id
@@ -345,6 +379,10 @@ class _$UserDataCopyWithImpl<$Res, $Val extends UserData>
           ? _value.primaryNumber
           : primaryNumber // ignore: cast_nullable_to_non_nullable
               as String?,
+      mobile: freezed == mobile
+          ? _value.mobile
+          : mobile // ignore: cast_nullable_to_non_nullable
+              as String?,
       secondaryNumber: freezed == secondaryNumber
           ? _value.secondaryNumber
           : secondaryNumber // ignore: cast_nullable_to_non_nullable
@@ -361,9 +399,17 @@ class _$UserDataCopyWithImpl<$Res, $Val extends UserData>
           ? _value.isOtpVerified
           : isOtpVerified // ignore: cast_nullable_to_non_nullable
               as bool,
+      isProfileCompleted: null == isProfileCompleted
+          ? _value.isProfileCompleted
+          : isProfileCompleted // ignore: cast_nullable_to_non_nullable
+              as bool,
       role: null == role
           ? _value.role
           : role // ignore: cast_nullable_to_non_nullable
+              as String,
+      image: null == image
+          ? _value.image
+          : image // ignore: cast_nullable_to_non_nullable
               as String,
     ) as $Val);
   }
@@ -382,11 +428,14 @@ abstract class _$$UserDataImplCopyWith<$Res>
       @JsonKey(name: 'name') String name,
       @JsonKey(name: 'email') String email,
       @JsonKey(name: 'primary_number') String? primaryNumber,
+      @JsonKey(name: 'mobile') String? mobile,
       @JsonKey(name: 'secondary_number') String? secondaryNumber,
       @JsonKey(name: 'dob') String? dob,
       @JsonKey(name: 'gender') String gender,
       @JsonKey(name: 'is_otp_verified') bool isOtpVerified,
-      @JsonKey(name: 'role') String role});
+      @JsonKey(name: 'is_profile_completed') bool isProfileCompleted,
+      @JsonKey(name: 'role') String role,
+      @JsonKey(name: 'image') String image});
 }
 
 /// @nodoc
@@ -406,11 +455,14 @@ class __$$UserDataImplCopyWithImpl<$Res>
     Object? name = null,
     Object? email = null,
     Object? primaryNumber = freezed,
+    Object? mobile = freezed,
     Object? secondaryNumber = freezed,
     Object? dob = freezed,
     Object? gender = null,
     Object? isOtpVerified = null,
+    Object? isProfileCompleted = null,
     Object? role = null,
+    Object? image = null,
   }) {
     return _then(_$UserDataImpl(
       id: null == id
@@ -429,6 +481,10 @@ class __$$UserDataImplCopyWithImpl<$Res>
           ? _value.primaryNumber
           : primaryNumber // ignore: cast_nullable_to_non_nullable
               as String?,
+      mobile: freezed == mobile
+          ? _value.mobile
+          : mobile // ignore: cast_nullable_to_non_nullable
+              as String?,
       secondaryNumber: freezed == secondaryNumber
           ? _value.secondaryNumber
           : secondaryNumber // ignore: cast_nullable_to_non_nullable
@@ -445,9 +501,17 @@ class __$$UserDataImplCopyWithImpl<$Res>
           ? _value.isOtpVerified
           : isOtpVerified // ignore: cast_nullable_to_non_nullable
               as bool,
+      isProfileCompleted: null == isProfileCompleted
+          ? _value.isProfileCompleted
+          : isProfileCompleted // ignore: cast_nullable_to_non_nullable
+              as bool,
       role: null == role
           ? _value.role
           : role // ignore: cast_nullable_to_non_nullable
+              as String,
+      image: null == image
+          ? _value.image
+          : image // ignore: cast_nullable_to_non_nullable
               as String,
     ));
   }
@@ -461,11 +525,14 @@ class _$UserDataImpl implements _UserData {
       @JsonKey(name: 'name') this.name = '',
       @JsonKey(name: 'email') this.email = '',
       @JsonKey(name: 'primary_number') this.primaryNumber,
+      @JsonKey(name: 'mobile') this.mobile = '',
       @JsonKey(name: 'secondary_number') this.secondaryNumber,
       @JsonKey(name: 'dob') this.dob,
-      @JsonKey(name: 'gender') this.gender = 'Unknown',
+      @JsonKey(name: 'gender') this.gender = '',
       @JsonKey(name: 'is_otp_verified') this.isOtpVerified = false,
-      @JsonKey(name: 'role') this.role = 'parent'});
+      @JsonKey(name: 'is_profile_completed') this.isProfileCompleted = false,
+      @JsonKey(name: 'role') this.role = 'parent',
+      @JsonKey(name: 'image') this.image = 'parent'});
 
   factory _$UserDataImpl.fromJson(Map<String, dynamic> json) =>
       _$$UserDataImplFromJson(json);
@@ -483,6 +550,9 @@ class _$UserDataImpl implements _UserData {
   @JsonKey(name: 'primary_number')
   final String? primaryNumber;
   @override
+  @JsonKey(name: 'mobile')
+  final String? mobile;
+  @override
   @JsonKey(name: 'secondary_number')
   final String? secondaryNumber;
   @override
@@ -495,12 +565,18 @@ class _$UserDataImpl implements _UserData {
   @JsonKey(name: 'is_otp_verified')
   final bool isOtpVerified;
   @override
+  @JsonKey(name: 'is_profile_completed')
+  final bool isProfileCompleted;
+  @override
   @JsonKey(name: 'role')
   final String role;
+  @override
+  @JsonKey(name: 'image')
+  final String image;
 
   @override
   String toString() {
-    return 'UserData(id: $id, name: $name, email: $email, primaryNumber: $primaryNumber, secondaryNumber: $secondaryNumber, dob: $dob, gender: $gender, isOtpVerified: $isOtpVerified, role: $role)';
+    return 'UserData(id: $id, name: $name, email: $email, primaryNumber: $primaryNumber, mobile: $mobile, secondaryNumber: $secondaryNumber, dob: $dob, gender: $gender, isOtpVerified: $isOtpVerified, isProfileCompleted: $isProfileCompleted, role: $role, image: $image)';
   }
 
   @override
@@ -513,19 +589,35 @@ class _$UserDataImpl implements _UserData {
             (identical(other.email, email) || other.email == email) &&
             (identical(other.primaryNumber, primaryNumber) ||
                 other.primaryNumber == primaryNumber) &&
+            (identical(other.mobile, mobile) || other.mobile == mobile) &&
             (identical(other.secondaryNumber, secondaryNumber) ||
                 other.secondaryNumber == secondaryNumber) &&
             (identical(other.dob, dob) || other.dob == dob) &&
             (identical(other.gender, gender) || other.gender == gender) &&
             (identical(other.isOtpVerified, isOtpVerified) ||
                 other.isOtpVerified == isOtpVerified) &&
-            (identical(other.role, role) || other.role == role));
+            (identical(other.isProfileCompleted, isProfileCompleted) ||
+                other.isProfileCompleted == isProfileCompleted) &&
+            (identical(other.role, role) || other.role == role) &&
+            (identical(other.image, image) || other.image == image));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  int get hashCode => Object.hash(runtimeType, id, name, email, primaryNumber,
-      secondaryNumber, dob, gender, isOtpVerified, role);
+  int get hashCode => Object.hash(
+      runtimeType,
+      id,
+      name,
+      email,
+      primaryNumber,
+      mobile,
+      secondaryNumber,
+      dob,
+      gender,
+      isOtpVerified,
+      isProfileCompleted,
+      role,
+      image);
 
   /// Create a copy of UserData
   /// with the given fields replaced by the non-null parameter values.
@@ -549,11 +641,14 @@ abstract class _UserData implements UserData {
       @JsonKey(name: 'name') final String name,
       @JsonKey(name: 'email') final String email,
       @JsonKey(name: 'primary_number') final String? primaryNumber,
+      @JsonKey(name: 'mobile') final String? mobile,
       @JsonKey(name: 'secondary_number') final String? secondaryNumber,
       @JsonKey(name: 'dob') final String? dob,
       @JsonKey(name: 'gender') final String gender,
       @JsonKey(name: 'is_otp_verified') final bool isOtpVerified,
-      @JsonKey(name: 'role') final String role}) = _$UserDataImpl;
+      @JsonKey(name: 'is_profile_completed') final bool isProfileCompleted,
+      @JsonKey(name: 'role') final String role,
+      @JsonKey(name: 'image') final String image}) = _$UserDataImpl;
 
   factory _UserData.fromJson(Map<String, dynamic> json) =
       _$UserDataImpl.fromJson;
@@ -571,6 +666,9 @@ abstract class _UserData implements UserData {
   @JsonKey(name: 'primary_number')
   String? get primaryNumber;
   @override
+  @JsonKey(name: 'mobile')
+  String? get mobile;
+  @override
   @JsonKey(name: 'secondary_number')
   String? get secondaryNumber;
   @override
@@ -583,8 +681,14 @@ abstract class _UserData implements UserData {
   @JsonKey(name: 'is_otp_verified')
   bool get isOtpVerified;
   @override
+  @JsonKey(name: 'is_profile_completed')
+  bool get isProfileCompleted;
+  @override
   @JsonKey(name: 'role')
   String get role;
+  @override
+  @JsonKey(name: 'image')
+  String get image;
 
   /// Create a copy of UserData
   /// with the given fields replaced by the non-null parameter values.

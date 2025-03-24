@@ -6,6 +6,7 @@ import 'common/routes/exports.dart';
 import 'common/routes/pages.dart';
 import 'common/routes/routes.dart';
 import 'common/service_locator/setivelocator.dart';
+import 'common/stripe/stripe_const.dart';
 
 
 final GlobalKey<NavigatorState> navigatorKey = GlobalKey<NavigatorState>();
@@ -14,9 +15,10 @@ void main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
   // set the publishable key for Stripe - this is mandatory
-  Stripe.publishableKey = "stripePublishableKey";
+
 
   serviceLocator();
+  Stripe.publishableKey = stripePublishableKey;
   runApp(const MyApp());
 }
 

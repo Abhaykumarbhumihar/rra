@@ -1,4 +1,5 @@
 import 'package:rra/common/component/common_background.dart';
+import 'package:rra/common/values/utils.dart';
 import 'package:rra/common/values/values_exports.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -8,6 +9,7 @@ import '../../../../../common/component/screen_title.dart';
 import '../../../../../common/component/signup_signin_richtext.dart';
 import '../../../../../common/component/sub_title.dart';
 import '../../../../../common/routes/routes.dart';
+import '../../../../../common/stripe/stripe_service.dart';
 import '../bloc/login_bloc.dart';
 import '../bloc/login_event.dart';
 import '../bloc/login_state.dart';
@@ -33,15 +35,15 @@ class LoginScreen extends StatelessWidget {
       backgroundColor: AppColor.gradientMidColor,
       body: BlocListener<LoginBloc, LoginState>(
         listener: (context, state) async {
-          if(state.error!=""){
+          if (state.error != "") {
             context.showCustomSnackbar(state.error!,
                 backgroundColor: AppColor.appcolor);
           }
-          if(state.success==true){
+          if (state.success == true) {
             Navigator.pushNamedAndRemoveUntil(
               context,
               AppRoutes.APPLICATION,
-                  (Route<dynamic> route) => false,
+              (Route<dynamic> route) => false,
             );
           }
         },
@@ -122,15 +124,14 @@ class LoginScreen extends StatelessWidget {
                                 ),
                                 focusNode: passwordFocusNode,
                                 isServerError: state.isLoginApiError,
-                                 errorMessage: state.isLoginApiError
-                                     ? state.error
-                                     : (state.error ==
-                                                 "Please enter your password" ||
-                                             state.error ==
-                                                 'Password must be at least 6 characters long and include at least one uppercase letter, one lowercase letter, one number, and one special character.'
-                                         ? state.error
-                                         : ''
-                                 ),
+                                errorMessage: state.isLoginApiError
+                                    ? state.error
+                                    : (state.error ==
+                                                "Please enter your password" ||
+                                            state.error ==
+                                                'Password must be at least 6 characters long and include at least one uppercase letter, one lowercase letter, one number, and one special character.'
+                                        ? state.error
+                                        : ''),
                                 onChanged: (value) {
                                   context
                                       .read<LoginBloc>()
@@ -160,13 +161,15 @@ class LoginScreen extends StatelessWidget {
                                   //         password: passwordController.text
                                   //             .toString(),
                                   //         deviceID: ""));
-                                  Navigator.pushNamedAndRemoveUntil(
-                                    context,
-                                   AppRoutes.APPLICATION,
-                                        (Route<dynamic> route) => false,
-                                  );
-
-
+                                  // Navigator.pushNamedAndRemoveUntil(
+                                  //   context,
+                                  //  AppRoutes.APPLICATION,
+                                  //       (Route<dynamic> route) => false,
+                                  // );
+                                  var data = await StripeService.instance
+                                      .makePayment();
+                                  print("IN LOGIN PAGE PAGE------------------");
+                                  Utils.LogPrint("$data");
                                 },
                               ),
                               SizedBox(
@@ -198,9 +201,11 @@ class LoginScreen extends StatelessWidget {
     );
   }
 }
+
 PageRouteBuilder customPageRoute(Widget page) {
   return PageRouteBuilder(
-    transitionDuration: const Duration(milliseconds: 500), // Adjust duration
+    transitionDuration: const Duration(milliseconds: 500),
+    // Adjust duration
     pageBuilder: (context, animation, secondaryAnimation) => page,
     transitionsBuilder: (context, animation, secondaryAnimation, child) {
       const begin = Offset(1.0, 0.0); // Slide from right
