@@ -1,6 +1,7 @@
 import 'dart:io';
 
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:rra/pages/auth/otpverification/data/entity/otp_verification_model.dart';
 
 import '../../../../auth/createaccount/data/enitiy/create_user_model.dart';
 
@@ -12,13 +13,14 @@ class EditprofileState with _$EditprofileState {
     @Default('') String firstName,
     @Default('') String lastName,
     @Default('') String email,
+    @Default('') String gender,
     @Default('') String phoneNo,
     @Default(false) bool isLoading,
     @Default(false) bool isSuccess,
     @Default('') String errorMessage,
     @Default('') String successMessage,
     File? profilePhoto,
-    @Default(UserPojo()) UserPojo userdata,
+    @Default(OtpVerificationModel()) OtpVerificationModel userdata,
     @Default(false) bool isServerError
   }) = _EditprofileState;
 

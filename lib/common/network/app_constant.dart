@@ -13,8 +13,8 @@ class AppConstant {
   static String get socialLogin =>"user/auth/social_login";
   static String get refreshToken =>"/user/auth/refresh_token";
 
-  static String get uploadProfilePic =>"user/auth/upload_file";
-  static String get updateUserProfile =>"user/auth/profile";
+
+  static String get updateUserProfile =>"update-profile";
   static String get getUnderratedAdminCategory =>"admin/user/list_category";
   static String get addUnderrated => "user/myfinds/createFinds";
   static String get addNewUnderrated => "/user/myfinds/addFinds";

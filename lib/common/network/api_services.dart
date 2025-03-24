@@ -289,10 +289,10 @@ class ApiServices {
   Future<Map<String, String>> _defaultHeaders() async {
 
 
-    var csrftoken = await SharedPrefs.getString("csrftoken");
+    //var csrftoken = await SharedPrefs.getString("csrftoken");
 
 
-    var token = await SharedPrefs.getString("access_token");
+    var token = await SharedPrefs.getString("token");
     //var token = userdata?.data?.token;
 
     Map<String, String> headers = {};
@@ -301,10 +301,10 @@ class ApiServices {
       headers['Authorization'] = AppConstant.bearer + token;
     }
 
-    if (csrftoken.isNotEmpty) {
-      headers['x-csrf-token'] = csrftoken;
-    }
-    headers['x-app-source'] = 'app_call';
+    // if (csrftoken.isNotEmpty) {
+    //   headers['x-csrf-token'] = csrftoken;
+    // }
+    // headers['x-app-source'] = 'app_call';
 
     return headers;
   }

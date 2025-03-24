@@ -59,9 +59,8 @@ class EditProfileAppbar extends StatelessWidget {
                   right: context.screenWidth * 0.1,
                 ),
                 child: ScreenSubTitle(
-                  subtitle:
-                      "Don’t worry,  "
-                          "only you can see your personal data. No one else will be able to see it.",
+                  subtitle: "Don’t worry,  "
+                      "only you can see your personal data. No one else will be able to see it.",
                 ),
               ),
               SizedBox(
@@ -80,9 +79,8 @@ class EditProfileAppbar extends StatelessWidget {
                       : CircleAvatar(
                           radius: context.screenWidth *
                               0.15, // Adjust size as needed
-                          backgroundImage: NetworkImage(
-                              AppConstant.fileBaseUrl +
-                                 ""),
+                          backgroundImage:
+                              NetworkImage(state.userdata.data.image),
                         ),
                   Positioned(
                     bottom: context.screenHeight * 0.03,

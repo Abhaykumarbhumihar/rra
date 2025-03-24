@@ -9,6 +9,7 @@ import '../../../../../common/network/app_constant.dart';
 import '../../../../../common/network/failure.dart';
 import '../../../../../common/service_locator/setivelocator.dart';
 import '../../../../auth/createaccount/data/enitiy/create_user_model.dart';
+import '../../../otpverification/data/entity/otp_verification_model.dart';
 import '../../domain/repositery/edit_profile_repositery.dart';
 
 class EditProfileRepoImpl implements EditProfileRepositery {
@@ -16,23 +17,18 @@ class EditProfileRepoImpl implements EditProfileRepositery {
   EditProfileRepoImpl();
 
   @override
-  Future<Either<Failure, UserPojo>> updateProfile(Map<String, String> userData,
-      {File? file}) async {
+  Future<Either<Failure, OtpVerificationModel>> updateProfile(Map<String, String> userData) async {
     try {
       print("code is running here");
-     // Map<String, String>? headers = {"'Content-Type'": 'multipart/form-data'};
 
-      http.Response response = await _apiServices.multiPartImage(
-          image: file,
-          url: AppConstant.updateUserProfile,
-          fileName: "profile_pic",
-          useDefaultHeaders: true,
-          fields: userData);
+
+      http.Response response =
+      await _apiServices.post(AppConstant.updateUserProfile, userData,useDefaultHeaders: true);
       print("CHECK HERE userData == ${userData}");
       print(response.body);
       if (response.statusCode == 200) {
         final Map<String, dynamic> responseData = jsonDecode(response.body);
-        final UserPojo user = UserPojo.fromJson(responseData);
+        final OtpVerificationModel user = OtpVerificationModel.fromJson(responseData);
         return Right(user);
       } else {
         final errorMessage = _extractErrorMessage(response.body);

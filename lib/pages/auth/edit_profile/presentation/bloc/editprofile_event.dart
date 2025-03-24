@@ -6,17 +6,27 @@ sealed class EditprofileEvent extends Equatable {}
 class EditProfileFirstNameChangeEvent extends EditprofileEvent {
   final String firstName;
 
-   EditProfileFirstNameChangeEvent(this.firstName);
+  EditProfileFirstNameChangeEvent(this.firstName);
 
   @override
   List<Object?> get props => [firstName];
+}
+
+// Event for gender change
+class EditProfileGenderChangeEvent extends EditprofileEvent {
+  final String gender;
+
+  EditProfileGenderChangeEvent(this.gender);
+
+  @override
+  List<Object?> get props => [gender];
 }
 
 // Event for last name change
 class EditProfileLastNameChangeEvent extends EditprofileEvent {
   final String lastName;
 
-   EditProfileLastNameChangeEvent(this.lastName);
+  EditProfileLastNameChangeEvent(this.lastName);
 
   @override
   List<Object?> get props => [lastName];
@@ -26,7 +36,7 @@ class EditProfileLastNameChangeEvent extends EditprofileEvent {
 class EditProfileEmailChangeEvent extends EditprofileEvent {
   final String email;
 
-   EditProfileEmailChangeEvent(this.email);
+  EditProfileEmailChangeEvent(this.email);
 
   @override
   List<Object?> get props => [email];
@@ -36,7 +46,7 @@ class EditProfileEmailChangeEvent extends EditprofileEvent {
 class EditProfilePhoneNoChangeEvent extends EditprofileEvent {
   final String phoneNo;
 
-   EditProfilePhoneNoChangeEvent(this.phoneNo);
+  EditProfilePhoneNoChangeEvent(this.phoneNo);
 
   @override
   List<Object?> get props => [phoneNo];
@@ -61,7 +71,6 @@ class EditProfilePicUpdateEvent extends EditprofileEvent {
   @override
   List<Object?> get props => [profilePhoto];
 }
-
 
 class LogoutEventEditprofileEvent extends EditprofileEvent {
   @override

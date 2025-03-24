@@ -19,13 +19,14 @@ mixin _$EditprofileState {
   String get firstName => throw _privateConstructorUsedError;
   String get lastName => throw _privateConstructorUsedError;
   String get email => throw _privateConstructorUsedError;
+  String get gender => throw _privateConstructorUsedError;
   String get phoneNo => throw _privateConstructorUsedError;
   bool get isLoading => throw _privateConstructorUsedError;
   bool get isSuccess => throw _privateConstructorUsedError;
   String get errorMessage => throw _privateConstructorUsedError;
   String get successMessage => throw _privateConstructorUsedError;
   File? get profilePhoto => throw _privateConstructorUsedError;
-  UserPojo get userdata => throw _privateConstructorUsedError;
+  OtpVerificationModel get userdata => throw _privateConstructorUsedError;
   bool get isServerError => throw _privateConstructorUsedError;
 
   /// Create a copy of EditprofileState
@@ -45,16 +46,17 @@ abstract class $EditprofileStateCopyWith<$Res> {
       {String firstName,
       String lastName,
       String email,
+      String gender,
       String phoneNo,
       bool isLoading,
       bool isSuccess,
       String errorMessage,
       String successMessage,
       File? profilePhoto,
-      UserPojo userdata,
+      OtpVerificationModel userdata,
       bool isServerError});
 
-  $UserPojoCopyWith<$Res> get userdata;
+  $OtpVerificationModelCopyWith<$Res> get userdata;
 }
 
 /// @nodoc
@@ -75,6 +77,7 @@ class _$EditprofileStateCopyWithImpl<$Res, $Val extends EditprofileState>
     Object? firstName = null,
     Object? lastName = null,
     Object? email = null,
+    Object? gender = null,
     Object? phoneNo = null,
     Object? isLoading = null,
     Object? isSuccess = null,
@@ -97,6 +100,10 @@ class _$EditprofileStateCopyWithImpl<$Res, $Val extends EditprofileState>
           ? _value.email
           : email // ignore: cast_nullable_to_non_nullable
               as String,
+      gender: null == gender
+          ? _value.gender
+          : gender // ignore: cast_nullable_to_non_nullable
+              as String,
       phoneNo: null == phoneNo
           ? _value.phoneNo
           : phoneNo // ignore: cast_nullable_to_non_nullable
@@ -124,7 +131,7 @@ class _$EditprofileStateCopyWithImpl<$Res, $Val extends EditprofileState>
       userdata: null == userdata
           ? _value.userdata
           : userdata // ignore: cast_nullable_to_non_nullable
-              as UserPojo,
+              as OtpVerificationModel,
       isServerError: null == isServerError
           ? _value.isServerError
           : isServerError // ignore: cast_nullable_to_non_nullable
@@ -136,8 +143,8 @@ class _$EditprofileStateCopyWithImpl<$Res, $Val extends EditprofileState>
   /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
-  $UserPojoCopyWith<$Res> get userdata {
-    return $UserPojoCopyWith<$Res>(_value.userdata, (value) {
+  $OtpVerificationModelCopyWith<$Res> get userdata {
+    return $OtpVerificationModelCopyWith<$Res>(_value.userdata, (value) {
       return _then(_value.copyWith(userdata: value) as $Val);
     });
   }
@@ -155,17 +162,18 @@ abstract class _$$EditprofileStateImplCopyWith<$Res>
       {String firstName,
       String lastName,
       String email,
+      String gender,
       String phoneNo,
       bool isLoading,
       bool isSuccess,
       String errorMessage,
       String successMessage,
       File? profilePhoto,
-      UserPojo userdata,
+      OtpVerificationModel userdata,
       bool isServerError});
 
   @override
-  $UserPojoCopyWith<$Res> get userdata;
+  $OtpVerificationModelCopyWith<$Res> get userdata;
 }
 
 /// @nodoc
@@ -184,6 +192,7 @@ class __$$EditprofileStateImplCopyWithImpl<$Res>
     Object? firstName = null,
     Object? lastName = null,
     Object? email = null,
+    Object? gender = null,
     Object? phoneNo = null,
     Object? isLoading = null,
     Object? isSuccess = null,
@@ -206,6 +215,10 @@ class __$$EditprofileStateImplCopyWithImpl<$Res>
           ? _value.email
           : email // ignore: cast_nullable_to_non_nullable
               as String,
+      gender: null == gender
+          ? _value.gender
+          : gender // ignore: cast_nullable_to_non_nullable
+              as String,
       phoneNo: null == phoneNo
           ? _value.phoneNo
           : phoneNo // ignore: cast_nullable_to_non_nullable
@@ -233,7 +246,7 @@ class __$$EditprofileStateImplCopyWithImpl<$Res>
       userdata: null == userdata
           ? _value.userdata
           : userdata // ignore: cast_nullable_to_non_nullable
-              as UserPojo,
+              as OtpVerificationModel,
       isServerError: null == isServerError
           ? _value.isServerError
           : isServerError // ignore: cast_nullable_to_non_nullable
@@ -249,13 +262,14 @@ class _$EditprofileStateImpl implements _EditprofileState {
       {this.firstName = '',
       this.lastName = '',
       this.email = '',
+      this.gender = '',
       this.phoneNo = '',
       this.isLoading = false,
       this.isSuccess = false,
       this.errorMessage = '',
       this.successMessage = '',
       this.profilePhoto,
-      this.userdata = const UserPojo(),
+      this.userdata = const OtpVerificationModel(),
       this.isServerError = false});
 
   @override
@@ -267,6 +281,9 @@ class _$EditprofileStateImpl implements _EditprofileState {
   @override
   @JsonKey()
   final String email;
+  @override
+  @JsonKey()
+  final String gender;
   @override
   @JsonKey()
   final String phoneNo;
@@ -286,14 +303,14 @@ class _$EditprofileStateImpl implements _EditprofileState {
   final File? profilePhoto;
   @override
   @JsonKey()
-  final UserPojo userdata;
+  final OtpVerificationModel userdata;
   @override
   @JsonKey()
   final bool isServerError;
 
   @override
   String toString() {
-    return 'EditprofileState(firstName: $firstName, lastName: $lastName, email: $email, phoneNo: $phoneNo, isLoading: $isLoading, isSuccess: $isSuccess, errorMessage: $errorMessage, successMessage: $successMessage, profilePhoto: $profilePhoto, userdata: $userdata, isServerError: $isServerError)';
+    return 'EditprofileState(firstName: $firstName, lastName: $lastName, email: $email, gender: $gender, phoneNo: $phoneNo, isLoading: $isLoading, isSuccess: $isSuccess, errorMessage: $errorMessage, successMessage: $successMessage, profilePhoto: $profilePhoto, userdata: $userdata, isServerError: $isServerError)';
   }
 
   @override
@@ -306,6 +323,7 @@ class _$EditprofileStateImpl implements _EditprofileState {
             (identical(other.lastName, lastName) ||
                 other.lastName == lastName) &&
             (identical(other.email, email) || other.email == email) &&
+            (identical(other.gender, gender) || other.gender == gender) &&
             (identical(other.phoneNo, phoneNo) || other.phoneNo == phoneNo) &&
             (identical(other.isLoading, isLoading) ||
                 other.isLoading == isLoading) &&
@@ -329,6 +347,7 @@ class _$EditprofileStateImpl implements _EditprofileState {
       firstName,
       lastName,
       email,
+      gender,
       phoneNo,
       isLoading,
       isSuccess,
@@ -353,13 +372,14 @@ abstract class _EditprofileState implements EditprofileState {
       {final String firstName,
       final String lastName,
       final String email,
+      final String gender,
       final String phoneNo,
       final bool isLoading,
       final bool isSuccess,
       final String errorMessage,
       final String successMessage,
       final File? profilePhoto,
-      final UserPojo userdata,
+      final OtpVerificationModel userdata,
       final bool isServerError}) = _$EditprofileStateImpl;
 
   @override
@@ -368,6 +388,8 @@ abstract class _EditprofileState implements EditprofileState {
   String get lastName;
   @override
   String get email;
+  @override
+  String get gender;
   @override
   String get phoneNo;
   @override
@@ -381,7 +403,7 @@ abstract class _EditprofileState implements EditprofileState {
   @override
   File? get profilePhoto;
   @override
-  UserPojo get userdata;
+  OtpVerificationModel get userdata;
   @override
   bool get isServerError;
 

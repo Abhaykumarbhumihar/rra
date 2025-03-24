@@ -8,8 +8,11 @@ import '../../../../../common/component/custom_app_button.dart';
 import '../../../../../common/component/screen_title.dart';
 import '../../../../../common/component/signup_signin_richtext.dart';
 import '../../../../../common/component/sub_title.dart';
+import '../../../../../common/local/SharedPrefs.dart';
 import '../../../../../common/routes/routes.dart';
 import '../../../../../common/stripe/stripe_service.dart';
+import '../../../otpverification/presentation/bloc/otpverification_bloc.dart';
+import '../../../otpverification/presentation/bloc/otpverification_event.dart';
 import '../bloc/login_bloc.dart';
 import '../bloc/login_event.dart';
 import '../bloc/login_state.dart';
@@ -40,7 +43,32 @@ class LoginScreen extends StatelessWidget {
                 backgroundColor: AppColor.appcolor);
           }
           if (state.success == true) {
-
+            await SharedPrefs.setModel("user_model", state.otpresponse);
+            await SharedPrefs.setString("token", state.otpresponse.token);
+            if (state.otpresponse.success) {
+              if (state.otpresponse.data.isOtpVerified == false) {
+                BlocProvider.of<OtpverificationBloc>(context)
+                    .add(ResendOtpSubmit((state.otpresponse.data.email)));
+                Map<String, dynamic> arguments = {
+                  "email": state.otpresponse.data.email,
+                  "isFromCreateAccount": true,
+                };
+                Navigator.pushNamed(context, AppRoutes.OTPVERIFICATION,
+                    arguments: arguments);
+              } else if (state.otpresponse.data.isProfileCompleted == false) {
+                Navigator.pushNamedAndRemoveUntil(
+                  context,
+                  AppRoutes.EDITPROFILE,
+                      (Route<dynamic> route) => false,
+                );
+              } else {
+                Navigator.pushNamedAndRemoveUntil(
+                  context,
+                  AppRoutes.EDITPROFILE,
+                  (Route<dynamic> route) => false,
+                );
+              }
+            }
             // Navigator.pushNamedAndRemoveUntil(
             //   context,
             //   AppRoutes.APPLICATION,
@@ -159,7 +187,7 @@ class LoginScreen extends StatelessWidget {
                                   context.read<LoginBloc>().add(
                                       LoginButtonPressed(
                                           email:
-                                          emailController.text.toString(),
+                                              emailController.text.toString(),
                                           password: passwordController.text
                                               .toString(),
                                           deviceID: ""));

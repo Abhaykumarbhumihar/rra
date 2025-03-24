@@ -1,5 +1,6 @@
+import 'dart:convert';
 import 'dart:io';
-
+import 'dart:io' as io;
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
 
@@ -7,7 +8,7 @@ import '../../../../../common/local/SharedPrefs.dart';
 import '../../../../../common/service_locator/setivelocator.dart';
 import '../../../../auth/createaccount/data/enitiy/create_user_model.dart';
 
-
+import '../../../otpverification/data/entity/otp_verification_model.dart';
 import '../../domain/usecase/edit_profile_usecase.dart';
 import 'editprofile_state.dart';
 
@@ -19,6 +20,7 @@ class EditprofileBloc extends Bloc<EditprofileEvent, EditprofileState> {
   EditprofileBloc() : super(EditprofileState.initial()) {
     loadUserData();
     on<EditProfileFirstNameChangeEvent>(_onFirstNameChanged);
+    on<EditProfileGenderChangeEvent>(_onGenderChanged);
     on<EditProfileLastNameChangeEvent>(_onLastNameChanged);
     on<EditProfileEmailChangeEvent>(_onEmailChanged);
     on<EditProfilePhoneNoChangeEvent>(_onPhoneNoChanged);
@@ -28,33 +30,42 @@ class EditprofileBloc extends Bloc<EditprofileEvent, EditprofileState> {
     on<ResetEditProfileState>(_onResetState);
   }
 
- void _onResetState(ResetEditProfileState event, Emitter<EditprofileState> emit) {
-   emit(EditprofileState.initial()); // Reset the state to its initial value
- }
+  void _onResetState(
+      ResetEditProfileState event, Emitter<EditprofileState> emit) {
+    emit(EditprofileState.initial()); // Reset the state to its initial value
+  }
 
- Future<void> _onLogout(LogoutEventEditprofileEvent event, Emitter<EditprofileState> emit)async {
-   emit(EditprofileState.initial());  // Reset state to initial state
- }
+  Future<void> _onLogout(
+      LogoutEventEditprofileEvent event, Emitter<EditprofileState> emit) async {
+    emit(EditprofileState.initial()); // Reset state to initial state
+  }
+
   Future<void> loadUserData() async {
     try {
-      var userdata = await SharedPrefs.getModel<UserPojo>(
-          "user_model", (json) => UserPojo.fromJson(json));
-print("checkin here data from loadUserData");
-print(userdata);
-print("========\n\n");
+      var userdata = await SharedPrefs.getModel<OtpVerificationModel>(
+          "user_model", (json) => OtpVerificationModel.fromJson(json));
+      print("checkin here data from loadUserData");
+      print(userdata);
+      print("========\n\n");
       emit(state.copyWith(
           firstName: userdata?.data.name ?? '',
           email: userdata?.data.email ?? '',
           phoneNo: "" ?? '',
+          gender: (userdata?.data.gender == null ||
+                  userdata?.data.gender == '' ||
+                  userdata?.data.gender == 'Unknown')
+              ? ''
+              : userdata!.data.gender,
           userdata: userdata!));
     } catch (error) {
       emit(state.copyWith(
         isServerError: false,
-        firstName:  '',
+        firstName: '',
         lastName: '',
         email: '',
-        phoneNo:'',
-       // userdata:UserPojo() ,
+        gender: '',
+        phoneNo: '',
+        // userdata:UserPojo() ,
         errorMessage: "",
       ));
     }
@@ -62,13 +73,25 @@ print("========\n\n");
 
   void _handleChangeProfilePic(
       EditProfilePicUpdateEvent event, Emitter<EditprofileState> emit) {
-    emit(state.copyWith(profilePhoto: event.profilePhoto, isLoading: false,isSuccess:false));
+    emit(state.copyWith(
+        profilePhoto: event.profilePhoto, isLoading: false, isSuccess: false));
   }
 
   Future<void> _onFirstNameChanged(EditProfileFirstNameChangeEvent event,
       Emitter<EditprofileState> emit) async {
     emit(state.copyWith(
       firstName: event.firstName.trim(),
+      errorMessage: '',
+      successMessage: '',
+      isLoading: false,
+      isSuccess: false,
+    ));
+  }
+
+  Future<void> _onGenderChanged(EditProfileGenderChangeEvent event,
+      Emitter<EditprofileState> emit) async {
+    emit(state.copyWith(
+      gender: event.gender.trim(),
       errorMessage: '',
       successMessage: '',
       isLoading: false,
@@ -111,7 +134,7 @@ print("========\n\n");
 
   Future<void> _onEditProfileSubmit(
       EditProfileSubmitted event, Emitter<EditprofileState> emit) async {
-    var dd =await SharedPrefs.getString("csrftoken");
+    var dd = await SharedPrefs.getString("csrftoken");
     print("printing csrftoken is ${dd}");
 
     emit(state.copyWith(errorMessage: '', isSuccess: false));
@@ -121,15 +144,6 @@ print("========\n\n");
       return;
     }
 
-    if (state.lastName.toString().trim().isEmpty) {
-      emit(state.copyWith(errorMessage: 'Please enter your last name'));
-      return;
-    }
-
-    if (state.email.toString().trim().isEmpty) {
-      emit(state.copyWith(errorMessage: 'Please enter your email'));
-      return;
-    }
 
     if (state.phoneNo != null && state.phoneNo!.trim().isNotEmpty) {
       String trimmedPhoneNo = state.phoneNo!.trim();
@@ -140,21 +154,21 @@ print("========\n\n");
       }
     }
 
-    // Validate email format
-    if (!RegExp(r'^[^@]+@[^@]+\.[^@]+')
-        .hasMatch(state.email.toString().trim())) {
-      emit(state.copyWith(errorMessage: 'Please enter a valid email address'));
-      return;
-    }
+
 
     try {
       print("rudddddnning here");
+      String? base64Image;
+
+      if(state.profilePhoto!=null){
+        base64Image = await convertFileToBase64(state.profilePhoto!);
+      }
 
       Map<String, String> userData = {
-        'first_name': state.firstName ?? "",
-        'last_name': state.lastName,
+        'name': state.firstName ?? "",
+         'gender':state.gender??"",
         'phone_number': state.phoneNo ?? "",
-        'country_code': "+91",
+        if (base64Image != null) "image": base64Image,
       };
       emit(state.copyWith(
         errorMessage: '',
@@ -163,8 +177,7 @@ print("========\n\n");
         isServerError: false,
       ));
 
-      final response = await _editProfileUsecase.uploadProfilePic(userData,
-          file: state.profilePhoto);
+      final response = await _editProfileUsecase.uploadProfilePic(userData);
       response.fold((failure) {
         emit(state.copyWith(
           errorMessage: failure.message,
@@ -180,12 +193,10 @@ print("========\n\n");
             isServerError: false,
             userdata: userData));
         // Update SharedPreferences
-       await SharedPrefs.setModel("user_model", userData.toJson());
+        await SharedPrefs.setModel("user_model", userData.toJson());
         // Load updated user data into AppBloc
 
         // Ensure AppBloc is emitting the new user data state
-
-
       });
     } catch (e) {
       print("ruddnning eee ee e  here");
@@ -194,5 +205,10 @@ print("========\n\n");
           isLoading: false,
           errorMessage: 'Failed to create account. Please try again.'));
     }
+  }
+  Future<String> convertFileToBase64(File file) async {
+    List<int> fileBytes = await file.readAsBytes();
+    String base64String = base64Encode(fileBytes);
+    return base64String;
   }
 }

@@ -11,15 +11,15 @@ import '../../../../../common/routes/routes.dart';
 import '../bloc/editprofile_bloc.dart';
 import '../bloc/editprofile_state.dart';
 import 'component/edit_profile_appbar.dart';
+import 'component/gender_selection_bottomsheet.dart';
 
 class EditProfile extends StatelessWidget {
   EditProfile({super.key});
 
   final TextEditingController emailController = TextEditingController();
   final TextEditingController firstNameController = TextEditingController();
-  final TextEditingController lastNameController = TextEditingController();
+  final TextEditingController genderController = TextEditingController();
   final TextEditingController phoneNoController = TextEditingController();
-
 
   final FocusNode emailFocusNode = FocusNode();
   final FocusNode firstNameFocusNode = FocusNode();
@@ -33,7 +33,6 @@ class EditProfile extends StatelessWidget {
     return Scaffold(
       backgroundColor: AppColor.gradientMidColor,
       resizeToAvoidBottomInset: true,
-
       body: BlocListener<EditprofileBloc, EditprofileState>(
         listener: (context, state) async {
           if (state.isSuccess) {
@@ -41,9 +40,9 @@ class EditProfile extends StatelessWidget {
                 backgroundColor: AppColor.appcolor);
 
             await SharedPrefs.setModel("user_model", state.userdata);
-           //await _appBloc.loadUserData();
-           // _appBloc.add(UserDataUpdate());
-           // await BlocProvider.of<MyprofileBloc>(context).loadUserData();
+            //await _appBloc.loadUserData();
+            // _appBloc.add(UserDataUpdate());
+            // await BlocProvider.of<MyprofileBloc>(context).loadUserData();
             Navigator.pop(context);
           } else if (state.isServerError && state.errorMessage != '') {
             context.showCustomSnackbar(state.errorMessage,
@@ -57,7 +56,7 @@ class EditProfile extends StatelessWidget {
               firstNameController.text = state.firstName;
             }
             if (state.lastName.isNotEmpty) {
-              lastNameController.text = state.lastName;
+              genderController.text = state.gender;
             }
             if (state.email.isNotEmpty) {
               emailController.text = state.email;
@@ -75,7 +74,6 @@ class EditProfile extends StatelessWidget {
                   SingleChildScrollView(
                     child: Column(
                       children: <Widget>[
-
                         EditProfileAppbar(
                           onBackPressed: () {
                             Navigator.pop(context);
@@ -93,10 +91,9 @@ class EditProfile extends StatelessWidget {
                               right: context.screenWidth * 0.050),
                           child: Column(
                             children: <Widget>[
-
                               CustomTextInputMobile(
                                 controller: firstNameController,
-                                  title: "Name",
+                                title: "Name",
                                 isShowTitle: true,
                                 isPass: false,
                                 isSuffix: false,
@@ -105,7 +102,7 @@ class EditProfile extends StatelessWidget {
                                 keyBoardType: TextInputType.name,
                                 focusNode: firstNameFocusNode,
                                 errorMessage: state.errorMessage ==
-                                    "Please enter your first name"
+                                        "Please enter your first name"
                                     ? state.errorMessage
                                     : null,
                                 onChanged: (value) {
@@ -127,24 +124,20 @@ class EditProfile extends StatelessWidget {
                                 keyBoardType: TextInputType.phone,
                                 focusNode: phoneNoFocusNode,
                                 maxLength: 13,
-                                errorMessage:
-
-                                state.errorMessage ==
-                                    "Phone number must be between 8 and 13 digits"
+                                errorMessage: state.errorMessage ==
+                                        "Phone number must be between 8 and 13 digits"
                                     ? state.errorMessage
                                     : null,
                                 onChanged: (value) {
-                                  context
-                                      .read<EditprofileBloc>()
-                                      .add(EditProfilePhoneNoChangeEvent(value));
+                                  context.read<EditprofileBloc>().add(
+                                      EditProfilePhoneNoChangeEvent(value));
                                 },
                               ),
-
                               const SizedBox(
                                 height: 12,
                               ),
                               CustomTextInputMobile(
-                                controller: lastNameController,
+                                controller: genderController,
                                 title: "Gender",
                                 isPass: false,
                                 isSuffix: true,
@@ -155,28 +148,40 @@ class EditProfile extends StatelessWidget {
                                 keyBoardType: TextInputType.name,
                                 focusNode: lastnameFocusNode,
                                 errorMessage: state.errorMessage ==
-                                    'Please enter your last name'
+                                        'Please enter your last name'
                                     ? state.errorMessage
                                     : null,
-                                onTap: (){
-
+                                onTap: () {
+                                  showModalBottomSheet(
+                                    context: context,
+                                    builder: (BuildContext context) {
+                                      return GenderSelectionBottomSheet(
+                                        onGenderSelected: (selectedGender) {
+                                          genderController.text =
+                                              selectedGender;
+                                          context.read<EditprofileBloc>().add(
+                                              EditProfileGenderChangeEvent(
+                                                  selectedGender));
+                                        },
+                                      );
+                                    },
+                                  );
                                 },
                                 onChanged: (value) {
-                                  context
-                                      .read<EditprofileBloc>()
-                                      .add(EditProfileLastNameChangeEvent(value));
+                                  context.read<EditprofileBloc>().add(
+                                      EditProfileLastNameChangeEvent(value));
                                 },
                               ),
-
                               const SizedBox(
                                 height: 16,
                               ),
                               CustomButton(
                                 text: "Complete Profile",
                                 onPressed: () {
-                                  Navigator.pushNamed(
-                                      context, AppRoutes.APPLICATION);
-
+                                  // Navigator.pushNamed(
+                                  //     context, AppRoutes.APPLICATION);
+                                  context.read<EditprofileBloc>().add(
+                                      EditProfileSubmitted());
                                   print("code is running here");
                                 },
                               ),
@@ -222,5 +227,4 @@ class EditProfile extends StatelessWidget {
       },
     );
   }
-
 }

@@ -133,7 +133,7 @@ class CreateAccountBloc extends Bloc<CreateAccountEvent, CreateAccountState> {
       Map<String, String> userRegistrationMap = {
 
         'name': state.firstName ?? "",
-        'academy_id': "1",
+        'academy_id': "12545214",
         'email': state.email.toString().toLowerCase().trim(),
         'password': state.password,
       };

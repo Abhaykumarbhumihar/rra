@@ -22,6 +22,8 @@ mixin _$SplashState {
     required TResult Function() navigateToHome,
     required TResult Function() navigateToLogin,
     required TResult Function() navigateToDetail,
+    required TResult Function() navigateToProfileUpdate,
+    required TResult Function() navigateToOtpVerify,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -30,6 +32,8 @@ mixin _$SplashState {
     TResult? Function()? navigateToHome,
     TResult? Function()? navigateToLogin,
     TResult? Function()? navigateToDetail,
+    TResult? Function()? navigateToProfileUpdate,
+    TResult? Function()? navigateToOtpVerify,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -38,6 +42,8 @@ mixin _$SplashState {
     TResult Function()? navigateToHome,
     TResult Function()? navigateToLogin,
     TResult Function()? navigateToDetail,
+    TResult Function()? navigateToProfileUpdate,
+    TResult Function()? navigateToOtpVerify,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -47,6 +53,10 @@ mixin _$SplashState {
     required TResult Function(SplashNavigateToHome value) navigateToHome,
     required TResult Function(SplashNavigateToLogin value) navigateToLogin,
     required TResult Function(SplashNavigatToDetail value) navigateToDetail,
+    required TResult Function(SplashNavigatToProgileUpdate value)
+        navigateToProfileUpdate,
+    required TResult Function(SplashNavigatToOtpVerify value)
+        navigateToOtpVerify,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -55,6 +65,9 @@ mixin _$SplashState {
     TResult? Function(SplashNavigateToHome value)? navigateToHome,
     TResult? Function(SplashNavigateToLogin value)? navigateToLogin,
     TResult? Function(SplashNavigatToDetail value)? navigateToDetail,
+    TResult? Function(SplashNavigatToProgileUpdate value)?
+        navigateToProfileUpdate,
+    TResult? Function(SplashNavigatToOtpVerify value)? navigateToOtpVerify,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -63,6 +76,9 @@ mixin _$SplashState {
     TResult Function(SplashNavigateToHome value)? navigateToHome,
     TResult Function(SplashNavigateToLogin value)? navigateToLogin,
     TResult Function(SplashNavigatToDetail value)? navigateToDetail,
+    TResult Function(SplashNavigatToProgileUpdate value)?
+        navigateToProfileUpdate,
+    TResult Function(SplashNavigatToOtpVerify value)? navigateToOtpVerify,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -134,6 +150,8 @@ class _$SplashInitialImpl implements SplashInitial {
     required TResult Function() navigateToHome,
     required TResult Function() navigateToLogin,
     required TResult Function() navigateToDetail,
+    required TResult Function() navigateToProfileUpdate,
+    required TResult Function() navigateToOtpVerify,
   }) {
     return initial();
   }
@@ -145,6 +163,8 @@ class _$SplashInitialImpl implements SplashInitial {
     TResult? Function()? navigateToHome,
     TResult? Function()? navigateToLogin,
     TResult? Function()? navigateToDetail,
+    TResult? Function()? navigateToProfileUpdate,
+    TResult? Function()? navigateToOtpVerify,
   }) {
     return initial?.call();
   }
@@ -156,6 +176,8 @@ class _$SplashInitialImpl implements SplashInitial {
     TResult Function()? navigateToHome,
     TResult Function()? navigateToLogin,
     TResult Function()? navigateToDetail,
+    TResult Function()? navigateToProfileUpdate,
+    TResult Function()? navigateToOtpVerify,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -171,6 +193,10 @@ class _$SplashInitialImpl implements SplashInitial {
     required TResult Function(SplashNavigateToHome value) navigateToHome,
     required TResult Function(SplashNavigateToLogin value) navigateToLogin,
     required TResult Function(SplashNavigatToDetail value) navigateToDetail,
+    required TResult Function(SplashNavigatToProgileUpdate value)
+        navigateToProfileUpdate,
+    required TResult Function(SplashNavigatToOtpVerify value)
+        navigateToOtpVerify,
   }) {
     return initial(this);
   }
@@ -182,6 +208,9 @@ class _$SplashInitialImpl implements SplashInitial {
     TResult? Function(SplashNavigateToHome value)? navigateToHome,
     TResult? Function(SplashNavigateToLogin value)? navigateToLogin,
     TResult? Function(SplashNavigatToDetail value)? navigateToDetail,
+    TResult? Function(SplashNavigatToProgileUpdate value)?
+        navigateToProfileUpdate,
+    TResult? Function(SplashNavigatToOtpVerify value)? navigateToOtpVerify,
   }) {
     return initial?.call(this);
   }
@@ -193,6 +222,9 @@ class _$SplashInitialImpl implements SplashInitial {
     TResult Function(SplashNavigateToHome value)? navigateToHome,
     TResult Function(SplashNavigateToLogin value)? navigateToLogin,
     TResult Function(SplashNavigatToDetail value)? navigateToDetail,
+    TResult Function(SplashNavigatToProgileUpdate value)?
+        navigateToProfileUpdate,
+    TResult Function(SplashNavigatToOtpVerify value)? navigateToOtpVerify,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -252,6 +284,8 @@ class _$SplashNavigateToHomeImpl implements SplashNavigateToHome {
     required TResult Function() navigateToHome,
     required TResult Function() navigateToLogin,
     required TResult Function() navigateToDetail,
+    required TResult Function() navigateToProfileUpdate,
+    required TResult Function() navigateToOtpVerify,
   }) {
     return navigateToHome();
   }
@@ -263,6 +297,8 @@ class _$SplashNavigateToHomeImpl implements SplashNavigateToHome {
     TResult? Function()? navigateToHome,
     TResult? Function()? navigateToLogin,
     TResult? Function()? navigateToDetail,
+    TResult? Function()? navigateToProfileUpdate,
+    TResult? Function()? navigateToOtpVerify,
   }) {
     return navigateToHome?.call();
   }
@@ -274,6 +310,8 @@ class _$SplashNavigateToHomeImpl implements SplashNavigateToHome {
     TResult Function()? navigateToHome,
     TResult Function()? navigateToLogin,
     TResult Function()? navigateToDetail,
+    TResult Function()? navigateToProfileUpdate,
+    TResult Function()? navigateToOtpVerify,
     required TResult orElse(),
   }) {
     if (navigateToHome != null) {
@@ -289,6 +327,10 @@ class _$SplashNavigateToHomeImpl implements SplashNavigateToHome {
     required TResult Function(SplashNavigateToHome value) navigateToHome,
     required TResult Function(SplashNavigateToLogin value) navigateToLogin,
     required TResult Function(SplashNavigatToDetail value) navigateToDetail,
+    required TResult Function(SplashNavigatToProgileUpdate value)
+        navigateToProfileUpdate,
+    required TResult Function(SplashNavigatToOtpVerify value)
+        navigateToOtpVerify,
   }) {
     return navigateToHome(this);
   }
@@ -300,6 +342,9 @@ class _$SplashNavigateToHomeImpl implements SplashNavigateToHome {
     TResult? Function(SplashNavigateToHome value)? navigateToHome,
     TResult? Function(SplashNavigateToLogin value)? navigateToLogin,
     TResult? Function(SplashNavigatToDetail value)? navigateToDetail,
+    TResult? Function(SplashNavigatToProgileUpdate value)?
+        navigateToProfileUpdate,
+    TResult? Function(SplashNavigatToOtpVerify value)? navigateToOtpVerify,
   }) {
     return navigateToHome?.call(this);
   }
@@ -311,6 +356,9 @@ class _$SplashNavigateToHomeImpl implements SplashNavigateToHome {
     TResult Function(SplashNavigateToHome value)? navigateToHome,
     TResult Function(SplashNavigateToLogin value)? navigateToLogin,
     TResult Function(SplashNavigatToDetail value)? navigateToDetail,
+    TResult Function(SplashNavigatToProgileUpdate value)?
+        navigateToProfileUpdate,
+    TResult Function(SplashNavigatToOtpVerify value)? navigateToOtpVerify,
     required TResult orElse(),
   }) {
     if (navigateToHome != null) {
@@ -371,6 +419,8 @@ class _$SplashNavigateToLoginImpl implements SplashNavigateToLogin {
     required TResult Function() navigateToHome,
     required TResult Function() navigateToLogin,
     required TResult Function() navigateToDetail,
+    required TResult Function() navigateToProfileUpdate,
+    required TResult Function() navigateToOtpVerify,
   }) {
     return navigateToLogin();
   }
@@ -382,6 +432,8 @@ class _$SplashNavigateToLoginImpl implements SplashNavigateToLogin {
     TResult? Function()? navigateToHome,
     TResult? Function()? navigateToLogin,
     TResult? Function()? navigateToDetail,
+    TResult? Function()? navigateToProfileUpdate,
+    TResult? Function()? navigateToOtpVerify,
   }) {
     return navigateToLogin?.call();
   }
@@ -393,6 +445,8 @@ class _$SplashNavigateToLoginImpl implements SplashNavigateToLogin {
     TResult Function()? navigateToHome,
     TResult Function()? navigateToLogin,
     TResult Function()? navigateToDetail,
+    TResult Function()? navigateToProfileUpdate,
+    TResult Function()? navigateToOtpVerify,
     required TResult orElse(),
   }) {
     if (navigateToLogin != null) {
@@ -408,6 +462,10 @@ class _$SplashNavigateToLoginImpl implements SplashNavigateToLogin {
     required TResult Function(SplashNavigateToHome value) navigateToHome,
     required TResult Function(SplashNavigateToLogin value) navigateToLogin,
     required TResult Function(SplashNavigatToDetail value) navigateToDetail,
+    required TResult Function(SplashNavigatToProgileUpdate value)
+        navigateToProfileUpdate,
+    required TResult Function(SplashNavigatToOtpVerify value)
+        navigateToOtpVerify,
   }) {
     return navigateToLogin(this);
   }
@@ -419,6 +477,9 @@ class _$SplashNavigateToLoginImpl implements SplashNavigateToLogin {
     TResult? Function(SplashNavigateToHome value)? navigateToHome,
     TResult? Function(SplashNavigateToLogin value)? navigateToLogin,
     TResult? Function(SplashNavigatToDetail value)? navigateToDetail,
+    TResult? Function(SplashNavigatToProgileUpdate value)?
+        navigateToProfileUpdate,
+    TResult? Function(SplashNavigatToOtpVerify value)? navigateToOtpVerify,
   }) {
     return navigateToLogin?.call(this);
   }
@@ -430,6 +491,9 @@ class _$SplashNavigateToLoginImpl implements SplashNavigateToLogin {
     TResult Function(SplashNavigateToHome value)? navigateToHome,
     TResult Function(SplashNavigateToLogin value)? navigateToLogin,
     TResult Function(SplashNavigatToDetail value)? navigateToDetail,
+    TResult Function(SplashNavigatToProgileUpdate value)?
+        navigateToProfileUpdate,
+    TResult Function(SplashNavigatToOtpVerify value)? navigateToOtpVerify,
     required TResult orElse(),
   }) {
     if (navigateToLogin != null) {
@@ -490,6 +554,8 @@ class _$SplashNavigatToDetailImpl implements SplashNavigatToDetail {
     required TResult Function() navigateToHome,
     required TResult Function() navigateToLogin,
     required TResult Function() navigateToDetail,
+    required TResult Function() navigateToProfileUpdate,
+    required TResult Function() navigateToOtpVerify,
   }) {
     return navigateToDetail();
   }
@@ -501,6 +567,8 @@ class _$SplashNavigatToDetailImpl implements SplashNavigatToDetail {
     TResult? Function()? navigateToHome,
     TResult? Function()? navigateToLogin,
     TResult? Function()? navigateToDetail,
+    TResult? Function()? navigateToProfileUpdate,
+    TResult? Function()? navigateToOtpVerify,
   }) {
     return navigateToDetail?.call();
   }
@@ -512,6 +580,8 @@ class _$SplashNavigatToDetailImpl implements SplashNavigatToDetail {
     TResult Function()? navigateToHome,
     TResult Function()? navigateToLogin,
     TResult Function()? navigateToDetail,
+    TResult Function()? navigateToProfileUpdate,
+    TResult Function()? navigateToOtpVerify,
     required TResult orElse(),
   }) {
     if (navigateToDetail != null) {
@@ -527,6 +597,10 @@ class _$SplashNavigatToDetailImpl implements SplashNavigatToDetail {
     required TResult Function(SplashNavigateToHome value) navigateToHome,
     required TResult Function(SplashNavigateToLogin value) navigateToLogin,
     required TResult Function(SplashNavigatToDetail value) navigateToDetail,
+    required TResult Function(SplashNavigatToProgileUpdate value)
+        navigateToProfileUpdate,
+    required TResult Function(SplashNavigatToOtpVerify value)
+        navigateToOtpVerify,
   }) {
     return navigateToDetail(this);
   }
@@ -538,6 +612,9 @@ class _$SplashNavigatToDetailImpl implements SplashNavigatToDetail {
     TResult? Function(SplashNavigateToHome value)? navigateToHome,
     TResult? Function(SplashNavigateToLogin value)? navigateToLogin,
     TResult? Function(SplashNavigatToDetail value)? navigateToDetail,
+    TResult? Function(SplashNavigatToProgileUpdate value)?
+        navigateToProfileUpdate,
+    TResult? Function(SplashNavigatToOtpVerify value)? navigateToOtpVerify,
   }) {
     return navigateToDetail?.call(this);
   }
@@ -549,6 +626,9 @@ class _$SplashNavigatToDetailImpl implements SplashNavigatToDetail {
     TResult Function(SplashNavigateToHome value)? navigateToHome,
     TResult Function(SplashNavigateToLogin value)? navigateToLogin,
     TResult Function(SplashNavigatToDetail value)? navigateToDetail,
+    TResult Function(SplashNavigatToProgileUpdate value)?
+        navigateToProfileUpdate,
+    TResult Function(SplashNavigatToOtpVerify value)? navigateToOtpVerify,
     required TResult orElse(),
   }) {
     if (navigateToDetail != null) {
@@ -560,4 +640,278 @@ class _$SplashNavigatToDetailImpl implements SplashNavigatToDetail {
 
 abstract class SplashNavigatToDetail implements SplashState {
   const factory SplashNavigatToDetail() = _$SplashNavigatToDetailImpl;
+}
+
+/// @nodoc
+abstract class _$$SplashNavigatToProgileUpdateImplCopyWith<$Res> {
+  factory _$$SplashNavigatToProgileUpdateImplCopyWith(
+          _$SplashNavigatToProgileUpdateImpl value,
+          $Res Function(_$SplashNavigatToProgileUpdateImpl) then) =
+      __$$SplashNavigatToProgileUpdateImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$SplashNavigatToProgileUpdateImplCopyWithImpl<$Res>
+    extends _$SplashStateCopyWithImpl<$Res, _$SplashNavigatToProgileUpdateImpl>
+    implements _$$SplashNavigatToProgileUpdateImplCopyWith<$Res> {
+  __$$SplashNavigatToProgileUpdateImplCopyWithImpl(
+      _$SplashNavigatToProgileUpdateImpl _value,
+      $Res Function(_$SplashNavigatToProgileUpdateImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of SplashState
+  /// with the given fields replaced by the non-null parameter values.
+}
+
+/// @nodoc
+
+class _$SplashNavigatToProgileUpdateImpl
+    implements SplashNavigatToProgileUpdate {
+  const _$SplashNavigatToProgileUpdateImpl();
+
+  @override
+  String toString() {
+    return 'SplashState.navigateToProfileUpdate()';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$SplashNavigatToProgileUpdateImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() navigateToHome,
+    required TResult Function() navigateToLogin,
+    required TResult Function() navigateToDetail,
+    required TResult Function() navigateToProfileUpdate,
+    required TResult Function() navigateToOtpVerify,
+  }) {
+    return navigateToProfileUpdate();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? navigateToHome,
+    TResult? Function()? navigateToLogin,
+    TResult? Function()? navigateToDetail,
+    TResult? Function()? navigateToProfileUpdate,
+    TResult? Function()? navigateToOtpVerify,
+  }) {
+    return navigateToProfileUpdate?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? navigateToHome,
+    TResult Function()? navigateToLogin,
+    TResult Function()? navigateToDetail,
+    TResult Function()? navigateToProfileUpdate,
+    TResult Function()? navigateToOtpVerify,
+    required TResult orElse(),
+  }) {
+    if (navigateToProfileUpdate != null) {
+      return navigateToProfileUpdate();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(SplashInitial value) initial,
+    required TResult Function(SplashNavigateToHome value) navigateToHome,
+    required TResult Function(SplashNavigateToLogin value) navigateToLogin,
+    required TResult Function(SplashNavigatToDetail value) navigateToDetail,
+    required TResult Function(SplashNavigatToProgileUpdate value)
+        navigateToProfileUpdate,
+    required TResult Function(SplashNavigatToOtpVerify value)
+        navigateToOtpVerify,
+  }) {
+    return navigateToProfileUpdate(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(SplashInitial value)? initial,
+    TResult? Function(SplashNavigateToHome value)? navigateToHome,
+    TResult? Function(SplashNavigateToLogin value)? navigateToLogin,
+    TResult? Function(SplashNavigatToDetail value)? navigateToDetail,
+    TResult? Function(SplashNavigatToProgileUpdate value)?
+        navigateToProfileUpdate,
+    TResult? Function(SplashNavigatToOtpVerify value)? navigateToOtpVerify,
+  }) {
+    return navigateToProfileUpdate?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(SplashInitial value)? initial,
+    TResult Function(SplashNavigateToHome value)? navigateToHome,
+    TResult Function(SplashNavigateToLogin value)? navigateToLogin,
+    TResult Function(SplashNavigatToDetail value)? navigateToDetail,
+    TResult Function(SplashNavigatToProgileUpdate value)?
+        navigateToProfileUpdate,
+    TResult Function(SplashNavigatToOtpVerify value)? navigateToOtpVerify,
+    required TResult orElse(),
+  }) {
+    if (navigateToProfileUpdate != null) {
+      return navigateToProfileUpdate(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class SplashNavigatToProgileUpdate implements SplashState {
+  const factory SplashNavigatToProgileUpdate() =
+      _$SplashNavigatToProgileUpdateImpl;
+}
+
+/// @nodoc
+abstract class _$$SplashNavigatToOtpVerifyImplCopyWith<$Res> {
+  factory _$$SplashNavigatToOtpVerifyImplCopyWith(
+          _$SplashNavigatToOtpVerifyImpl value,
+          $Res Function(_$SplashNavigatToOtpVerifyImpl) then) =
+      __$$SplashNavigatToOtpVerifyImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$SplashNavigatToOtpVerifyImplCopyWithImpl<$Res>
+    extends _$SplashStateCopyWithImpl<$Res, _$SplashNavigatToOtpVerifyImpl>
+    implements _$$SplashNavigatToOtpVerifyImplCopyWith<$Res> {
+  __$$SplashNavigatToOtpVerifyImplCopyWithImpl(
+      _$SplashNavigatToOtpVerifyImpl _value,
+      $Res Function(_$SplashNavigatToOtpVerifyImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of SplashState
+  /// with the given fields replaced by the non-null parameter values.
+}
+
+/// @nodoc
+
+class _$SplashNavigatToOtpVerifyImpl implements SplashNavigatToOtpVerify {
+  const _$SplashNavigatToOtpVerifyImpl();
+
+  @override
+  String toString() {
+    return 'SplashState.navigateToOtpVerify()';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$SplashNavigatToOtpVerifyImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() navigateToHome,
+    required TResult Function() navigateToLogin,
+    required TResult Function() navigateToDetail,
+    required TResult Function() navigateToProfileUpdate,
+    required TResult Function() navigateToOtpVerify,
+  }) {
+    return navigateToOtpVerify();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? navigateToHome,
+    TResult? Function()? navigateToLogin,
+    TResult? Function()? navigateToDetail,
+    TResult? Function()? navigateToProfileUpdate,
+    TResult? Function()? navigateToOtpVerify,
+  }) {
+    return navigateToOtpVerify?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? navigateToHome,
+    TResult Function()? navigateToLogin,
+    TResult Function()? navigateToDetail,
+    TResult Function()? navigateToProfileUpdate,
+    TResult Function()? navigateToOtpVerify,
+    required TResult orElse(),
+  }) {
+    if (navigateToOtpVerify != null) {
+      return navigateToOtpVerify();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(SplashInitial value) initial,
+    required TResult Function(SplashNavigateToHome value) navigateToHome,
+    required TResult Function(SplashNavigateToLogin value) navigateToLogin,
+    required TResult Function(SplashNavigatToDetail value) navigateToDetail,
+    required TResult Function(SplashNavigatToProgileUpdate value)
+        navigateToProfileUpdate,
+    required TResult Function(SplashNavigatToOtpVerify value)
+        navigateToOtpVerify,
+  }) {
+    return navigateToOtpVerify(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(SplashInitial value)? initial,
+    TResult? Function(SplashNavigateToHome value)? navigateToHome,
+    TResult? Function(SplashNavigateToLogin value)? navigateToLogin,
+    TResult? Function(SplashNavigatToDetail value)? navigateToDetail,
+    TResult? Function(SplashNavigatToProgileUpdate value)?
+        navigateToProfileUpdate,
+    TResult? Function(SplashNavigatToOtpVerify value)? navigateToOtpVerify,
+  }) {
+    return navigateToOtpVerify?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(SplashInitial value)? initial,
+    TResult Function(SplashNavigateToHome value)? navigateToHome,
+    TResult Function(SplashNavigateToLogin value)? navigateToLogin,
+    TResult Function(SplashNavigatToDetail value)? navigateToDetail,
+    TResult Function(SplashNavigatToProgileUpdate value)?
+        navigateToProfileUpdate,
+    TResult Function(SplashNavigatToOtpVerify value)? navigateToOtpVerify,
+    required TResult orElse(),
+  }) {
+    if (navigateToOtpVerify != null) {
+      return navigateToOtpVerify(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class SplashNavigatToOtpVerify implements SplashState {
+  const factory SplashNavigatToOtpVerify() = _$SplashNavigatToOtpVerifyImpl;
 }
