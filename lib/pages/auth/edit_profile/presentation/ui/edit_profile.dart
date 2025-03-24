@@ -1,4 +1,5 @@
 import 'package:flutter/cupertino.dart';
+import 'package:rra/common/values/utils.dart';
 import 'package:rra/common/values/values_exports.dart';
 import 'package:rra/common/routes/exports.dart';
 import '../../../../../common/component/auth_text_field.dart';
@@ -8,6 +9,7 @@ import '../../../../../common/image/camera_file_utility.dart';
 import '../../../../../common/image/camera_gallery_dialog.dart';
 import '../../../../../common/local/SharedPrefs.dart';
 import '../../../../../common/routes/routes.dart';
+import '../../../otpverification/data/entity/otp_verification_model.dart';
 import '../bloc/editprofile_bloc.dart';
 import '../bloc/editprofile_state.dart';
 import 'component/edit_profile_appbar.dart';
@@ -38,12 +40,17 @@ class EditProfile extends StatelessWidget {
           if (state.isSuccess) {
             context.showCustomSnackbar(state.userdata.message,
                 backgroundColor: AppColor.appcolor);
-
+            print("CHECKING HERE USER DATA==\n\n");
+Utils.LogPrint(state.userdata);
             await SharedPrefs.setModel("user_model", state.userdata);
+            await SharedPrefs.setModel("user_model", state.userdata);
+            var userdata = await SharedPrefs.getModel<OtpVerificationModel>("user_model", (json) => OtpVerificationModel.fromJson(json));
+           print(userdata?.data?.mobile!);
+           print(userdata?.data?.isProfileCompleted!);
             //await _appBloc.loadUserData();
             // _appBloc.add(UserDataUpdate());
             // await BlocProvider.of<MyprofileBloc>(context).loadUserData();
-            Navigator.pop(context);
+        //    Navigator.pop(context);
           } else if (state.isServerError && state.errorMessage != '') {
             context.showCustomSnackbar(state.errorMessage,
                 backgroundColor: AppColor.appcolor);

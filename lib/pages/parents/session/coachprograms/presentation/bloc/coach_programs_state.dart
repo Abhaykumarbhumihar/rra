@@ -59,6 +59,8 @@
 // }
 import 'package:freezed_annotation/freezed_annotation.dart';
 
+import '../../data/entity/parent_coaching_program_list.dart';
+
 
 
 part 'coach_programs_state.freezed.dart'; // Generated part file
@@ -66,20 +68,20 @@ part 'coach_programs_state.freezed.dart'; // Generated part file
 @freezed
 class CoachProgramsState with _$CoachProgramsState {
   const factory CoachProgramsState({
-    @Default('') String email,
-    @Default('') String password,
+
+
     @Default(false) bool isLoading,
     String? error,
     dynamic success,
     @Default(false) bool isError,
     @Default(false) bool isLoginApiError,
-
+     @Default(CoachingProgramResponse()) CoachingProgramResponse coachProgramList
   }) = _CoachProgramsState;
 
   // Initial state factory method
   factory CoachProgramsState.initial() => const CoachProgramsState(
-    email: '',
-    password: '',
+
+    coachProgramList:CoachingProgramResponse(),
     isLoading: false,
     error: null,
     success: null,

@@ -3,6 +3,7 @@ import 'dart:io';
 import 'dart:io' as io;
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
+import 'package:rra/common/values/utils.dart';
 
 import '../../../../../common/local/SharedPrefs.dart';
 import '../../../../../common/service_locator/setivelocator.dart';
@@ -134,7 +135,9 @@ class EditprofileBloc extends Bloc<EditprofileEvent, EditprofileState> {
 
   Future<void> _onEditProfileSubmit(
       EditProfileSubmitted event, Emitter<EditprofileState> emit) async {
-    var dd = await SharedPrefs.getString("csrftoken");
+    print(state);
+    var dd = await SharedPrefs.getString("token");
+    Utils.LogPrint(dd);
     print("printing csrftoken is ${dd}");
 
     emit(state.copyWith(errorMessage: '', isSuccess: false));
@@ -162,13 +165,18 @@ class EditprofileBloc extends Bloc<EditprofileEvent, EditprofileState> {
 
       if(state.profilePhoto!=null){
         base64Image = await convertFileToBase64(state.profilePhoto!);
+        print("CHECK HERE base64\n\n");
+
+
+        print("\n\n");
+
       }
 
       Map<String, String> userData = {
         'name': state.firstName ?? "",
          'gender':state.gender??"",
-        'phone_number': state.phoneNo ?? "",
-        if (base64Image != null) "image": base64Image,
+        'mobile': state.phoneNo ?? "",
+        if (base64Image != null) "image": "data:image/png;base64,"+base64Image,
       };
       emit(state.copyWith(
         errorMessage: '',
@@ -193,7 +201,7 @@ class EditprofileBloc extends Bloc<EditprofileEvent, EditprofileState> {
             isServerError: false,
             userdata: userData));
         // Update SharedPreferences
-        await SharedPrefs.setModel("user_model", userData.toJson());
+        await SharedPrefs.setModel("user_model", userData);
         // Load updated user data into AppBloc
 
         // Ensure AppBloc is emitting the new user data state

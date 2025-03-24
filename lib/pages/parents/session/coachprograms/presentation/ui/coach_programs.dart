@@ -9,12 +9,13 @@ import '../../../../../../common/component/common_list_item.dart';
 import '../../../../../../common/routes/routes.dart';
 import '../bloc/coach_programs_bloc.dart';
 import '../bloc/coach_programs_state.dart';
+import 'component/coaching_program_item.dart';
 
 
 class CoachProgramsScreen extends StatelessWidget {
   CoachProgramsScreen({super.key});
-  final List<String> coachingPrograms =
-      List.filled(6, "RRA 1:1 Coaching Session (2024)");
+
+
 
   @override
   Widget build(BuildContext context) {
@@ -28,10 +29,11 @@ class CoachProgramsScreen extends StatelessWidget {
          backgroundColor: Colors.transparent,
 
 
-        body: BlocListener<CoachProgramsBloc, CoachProgramsState>(
+        body: BlocListener<CoachingProgramsBloc, CoachProgramsState>(
           listener: (context, state) async {},
-          child: BlocBuilder<CoachProgramsBloc, CoachProgramsState>(
+          child: BlocBuilder<CoachingProgramsBloc, CoachProgramsState>(
             builder: (context, state) {
+              print(state.coachProgramList.data.length);
               return Container(
                 width: width,
                 height: height,
@@ -45,22 +47,23 @@ class CoachProgramsScreen extends StatelessWidget {
                         Navigator.pop(context);
                       },),
                     SizedBox(height: 10,),
-                    Flexible(
+                    Expanded(
                       child: ListView.builder(
 
                         padding:
                             const EdgeInsets.symmetric(horizontal: 4.0, vertical: 0),
-                        itemCount: coachingPrograms.length,
+                        itemCount: state.coachProgramList.data.length,
                         shrinkWrap: true,
 
                         itemBuilder: (context, index) {
-                          return CommonListItem(coachingProgram: coachingPrograms[index],
+                          return CoachingProgramItem(
+                            coachingProgramResponse:  state.coachProgramList.data[index],
                             onPressed: (){
                           Navigator.pushNamed(
                           context, AppRoutes.COACHPROGRAMS);
 
                             },
-                      strImage: 'assets/images/coaching_image.png',
+
                           );
                         },
                       ),

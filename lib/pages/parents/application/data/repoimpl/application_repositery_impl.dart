@@ -95,7 +95,7 @@ class ApplicationRepositeryImpl implements ApplicationRepositery {
       Map<String, String> reportData) async {
     try {
       http.Response response = await _apiServices.post(
-          AppConstant.geReportComentReply, reportData,
+          AppConstant.getCityList, reportData,
           useDefaultHeaders: true);
       print("report reportCommentreply ====${response.body}");
       if (response.statusCode == 200) {

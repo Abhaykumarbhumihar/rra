@@ -61,11 +61,11 @@ class LoginScreen extends StatelessWidget {
                   AppRoutes.EDITPROFILE,
                       (Route<dynamic> route) => false,
                 );
-              } else {
+              } else{
                 Navigator.pushNamedAndRemoveUntil(
                   context,
-                  AppRoutes.EDITPROFILE,
-                  (Route<dynamic> route) => false,
+                  AppRoutes.APPLICATION,
+                      (Route<dynamic> route) => false,
                 );
               }
             }

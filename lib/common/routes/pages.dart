@@ -71,7 +71,7 @@ class AppPages {
       PageEntitiy(
         route: AppRoutes.BOOKTRAINING,
         page:  CoachProgramsScreen(),
-        bloc: BlocProvider(create: (_) => CoachProgramsBloc()),
+        bloc: BlocProvider(create: (_) => CoachingProgramsBloc()),
       ),
       PageEntitiy(
         route: AppRoutes.CALENDAR,

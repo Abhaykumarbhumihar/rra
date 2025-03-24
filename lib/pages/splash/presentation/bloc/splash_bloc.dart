@@ -20,7 +20,7 @@ class SplashBloc extends Bloc<SplashEvent, SplashState> {
     // Check if the user is logged in
     var userdata = await SharedPrefs.getModel<OtpVerificationModel>("user_model", (json) => OtpVerificationModel.fromJson(json));
     var token = await SharedPrefs.getString("token");
-
+print(userdata);
     if (token != null && token.trim().isNotEmpty) {
       print("User is logged in, navigating to Home Page.");
       if(userdata?.data.isProfileCompleted==false){

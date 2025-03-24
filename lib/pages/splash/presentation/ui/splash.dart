@@ -6,6 +6,7 @@ import '../../../../common/routes/routes.dart';
 import '../../../auth/otpverification/data/entity/otp_verification_model.dart';
 import '../../../auth/otpverification/presentation/bloc/otpverification_bloc.dart';
 import '../../../auth/otpverification/presentation/bloc/otpverification_event.dart';
+import '../../../parents/session/coachprograms/presentation/bloc/coach_programs_bloc.dart';
 import '../bloc/splash_bloc.dart';
 import '../bloc/splash_state.dart';
 
@@ -40,6 +41,15 @@ class SplashPage extends StatelessWidget {
               context,
               AppRoutes.EDITPROFILE,
               (Route<dynamic> route) => false,
+            );
+          }
+
+          if (state is SplashNavigateToHome) {
+            BlocProvider.of<CoachingProgramsBloc>(context).add(AllCoachProgramsListEvent());
+            Navigator.pushNamedAndRemoveUntil(
+              context,
+              AppRoutes.APPLICATION,
+                  (Route<dynamic> route) => false,
             );
           }
         },

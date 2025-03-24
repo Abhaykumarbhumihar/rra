@@ -16,13 +16,13 @@ final _privateConstructorUsedError = UnsupportedError(
 
 /// @nodoc
 mixin _$CoachProgramsState {
-  String get email => throw _privateConstructorUsedError;
-  String get password => throw _privateConstructorUsedError;
   bool get isLoading => throw _privateConstructorUsedError;
   String? get error => throw _privateConstructorUsedError;
   dynamic get success => throw _privateConstructorUsedError;
   bool get isError => throw _privateConstructorUsedError;
   bool get isLoginApiError => throw _privateConstructorUsedError;
+  CoachingProgramResponse get coachProgramList =>
+      throw _privateConstructorUsedError;
 
   /// Create a copy of CoachProgramsState
   /// with the given fields replaced by the non-null parameter values.
@@ -38,13 +38,14 @@ abstract class $CoachProgramsStateCopyWith<$Res> {
       _$CoachProgramsStateCopyWithImpl<$Res, CoachProgramsState>;
   @useResult
   $Res call(
-      {String email,
-      String password,
-      bool isLoading,
+      {bool isLoading,
       String? error,
       dynamic success,
       bool isError,
-      bool isLoginApiError});
+      bool isLoginApiError,
+      CoachingProgramResponse coachProgramList});
+
+  $CoachingProgramResponseCopyWith<$Res> get coachProgramList;
 }
 
 /// @nodoc
@@ -62,23 +63,14 @@ class _$CoachProgramsStateCopyWithImpl<$Res, $Val extends CoachProgramsState>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? email = null,
-    Object? password = null,
     Object? isLoading = null,
     Object? error = freezed,
     Object? success = freezed,
     Object? isError = null,
     Object? isLoginApiError = null,
+    Object? coachProgramList = null,
   }) {
     return _then(_value.copyWith(
-      email: null == email
-          ? _value.email
-          : email // ignore: cast_nullable_to_non_nullable
-              as String,
-      password: null == password
-          ? _value.password
-          : password // ignore: cast_nullable_to_non_nullable
-              as String,
       isLoading: null == isLoading
           ? _value.isLoading
           : isLoading // ignore: cast_nullable_to_non_nullable
@@ -99,7 +91,22 @@ class _$CoachProgramsStateCopyWithImpl<$Res, $Val extends CoachProgramsState>
           ? _value.isLoginApiError
           : isLoginApiError // ignore: cast_nullable_to_non_nullable
               as bool,
+      coachProgramList: null == coachProgramList
+          ? _value.coachProgramList
+          : coachProgramList // ignore: cast_nullable_to_non_nullable
+              as CoachingProgramResponse,
     ) as $Val);
+  }
+
+  /// Create a copy of CoachProgramsState
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $CoachingProgramResponseCopyWith<$Res> get coachProgramList {
+    return $CoachingProgramResponseCopyWith<$Res>(_value.coachProgramList,
+        (value) {
+      return _then(_value.copyWith(coachProgramList: value) as $Val);
+    });
   }
 }
 
@@ -112,13 +119,15 @@ abstract class _$$CoachProgramsStateImplCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {String email,
-      String password,
-      bool isLoading,
+      {bool isLoading,
       String? error,
       dynamic success,
       bool isError,
-      bool isLoginApiError});
+      bool isLoginApiError,
+      CoachingProgramResponse coachProgramList});
+
+  @override
+  $CoachingProgramResponseCopyWith<$Res> get coachProgramList;
 }
 
 /// @nodoc
@@ -134,23 +143,14 @@ class __$$CoachProgramsStateImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? email = null,
-    Object? password = null,
     Object? isLoading = null,
     Object? error = freezed,
     Object? success = freezed,
     Object? isError = null,
     Object? isLoginApiError = null,
+    Object? coachProgramList = null,
   }) {
     return _then(_$CoachProgramsStateImpl(
-      email: null == email
-          ? _value.email
-          : email // ignore: cast_nullable_to_non_nullable
-              as String,
-      password: null == password
-          ? _value.password
-          : password // ignore: cast_nullable_to_non_nullable
-              as String,
       isLoading: null == isLoading
           ? _value.isLoading
           : isLoading // ignore: cast_nullable_to_non_nullable
@@ -171,6 +171,10 @@ class __$$CoachProgramsStateImplCopyWithImpl<$Res>
           ? _value.isLoginApiError
           : isLoginApiError // ignore: cast_nullable_to_non_nullable
               as bool,
+      coachProgramList: null == coachProgramList
+          ? _value.coachProgramList
+          : coachProgramList // ignore: cast_nullable_to_non_nullable
+              as CoachingProgramResponse,
     ));
   }
 }
@@ -179,20 +183,13 @@ class __$$CoachProgramsStateImplCopyWithImpl<$Res>
 
 class _$CoachProgramsStateImpl implements _CoachProgramsState {
   const _$CoachProgramsStateImpl(
-      {this.email = '',
-      this.password = '',
-      this.isLoading = false,
+      {this.isLoading = false,
       this.error,
       this.success,
       this.isError = false,
-      this.isLoginApiError = false});
+      this.isLoginApiError = false,
+      this.coachProgramList = const CoachingProgramResponse()});
 
-  @override
-  @JsonKey()
-  final String email;
-  @override
-  @JsonKey()
-  final String password;
   @override
   @JsonKey()
   final bool isLoading;
@@ -206,10 +203,13 @@ class _$CoachProgramsStateImpl implements _CoachProgramsState {
   @override
   @JsonKey()
   final bool isLoginApiError;
+  @override
+  @JsonKey()
+  final CoachingProgramResponse coachProgramList;
 
   @override
   String toString() {
-    return 'CoachProgramsState(email: $email, password: $password, isLoading: $isLoading, error: $error, success: $success, isError: $isError, isLoginApiError: $isLoginApiError)';
+    return 'CoachProgramsState(isLoading: $isLoading, error: $error, success: $success, isError: $isError, isLoginApiError: $isLoginApiError, coachProgramList: $coachProgramList)';
   }
 
   @override
@@ -217,28 +217,26 @@ class _$CoachProgramsStateImpl implements _CoachProgramsState {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$CoachProgramsStateImpl &&
-            (identical(other.email, email) || other.email == email) &&
-            (identical(other.password, password) ||
-                other.password == password) &&
             (identical(other.isLoading, isLoading) ||
                 other.isLoading == isLoading) &&
             (identical(other.error, error) || other.error == error) &&
             const DeepCollectionEquality().equals(other.success, success) &&
             (identical(other.isError, isError) || other.isError == isError) &&
             (identical(other.isLoginApiError, isLoginApiError) ||
-                other.isLoginApiError == isLoginApiError));
+                other.isLoginApiError == isLoginApiError) &&
+            (identical(other.coachProgramList, coachProgramList) ||
+                other.coachProgramList == coachProgramList));
   }
 
   @override
   int get hashCode => Object.hash(
       runtimeType,
-      email,
-      password,
       isLoading,
       error,
       const DeepCollectionEquality().hash(success),
       isError,
-      isLoginApiError);
+      isLoginApiError,
+      coachProgramList);
 
   /// Create a copy of CoachProgramsState
   /// with the given fields replaced by the non-null parameter values.
@@ -252,18 +250,14 @@ class _$CoachProgramsStateImpl implements _CoachProgramsState {
 
 abstract class _CoachProgramsState implements CoachProgramsState {
   const factory _CoachProgramsState(
-      {final String email,
-      final String password,
-      final bool isLoading,
-      final String? error,
-      final dynamic success,
-      final bool isError,
-      final bool isLoginApiError}) = _$CoachProgramsStateImpl;
+          {final bool isLoading,
+          final String? error,
+          final dynamic success,
+          final bool isError,
+          final bool isLoginApiError,
+          final CoachingProgramResponse coachProgramList}) =
+      _$CoachProgramsStateImpl;
 
-  @override
-  String get email;
-  @override
-  String get password;
   @override
   bool get isLoading;
   @override
@@ -274,6 +268,8 @@ abstract class _CoachProgramsState implements CoachProgramsState {
   bool get isError;
   @override
   bool get isLoginApiError;
+  @override
+  CoachingProgramResponse get coachProgramList;
 
   /// Create a copy of CoachProgramsState
   /// with the given fields replaced by the non-null parameter values.
