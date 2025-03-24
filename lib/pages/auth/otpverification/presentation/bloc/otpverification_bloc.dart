@@ -9,10 +9,11 @@ import 'otpverification_state.dart';
 
 
 class OtpverificationBloc extends Bloc<OtpverificationEvent, OtpState> {
- final VerifyOtpUseCase _verifyOtpUseCase=getIt<VerifyOtpUseCase>();
+  final VerifyOtpUseCase _verifyOtpUseCase=getIt<VerifyOtpUseCase>();
   OtpverificationBloc() : super(OtpState.initial()) {
     on<OtpChange>(_handleOtpChange);
     on<OtpSubmit>(_handleOtpSubmit);
+    on<OtpResponseUpdated>(updateOtpResponse);
     on<ResendOtpSubmit>(_resendOtpSubmit);
   }
 
@@ -24,45 +25,39 @@ class OtpverificationBloc extends Bloc<OtpverificationEvent, OtpState> {
         isSuccess: false,
         isResendOtpSuccess: false,
         errorMessage: '',
+        otpresponse: OtpVerificationModel(),
         successMessage: ''));
   }
 
   void _handleOtpSubmit(OtpSubmit event, Emitter<OtpState> emit) async {
     print(state.otpNumber.toString());
     if (state.otpNumber.toString().trim().length == 4) {
+
       emit(state.copyWith(
-          isSuccess: true,
-          //successMessage: verifyotpResponse.message ?? "N/A",
-          isError: true,
-          errorMessage: '',
+          isLoading: true, isSuccess: false, isError: false, errorMessage: ''));
+      Map<String, String> userRegistrationMap = {
+        "otp": state.otpNumber,
+        "email": event.email.toString().toLowerCase().trim()
+      };
+      final response =
+      await _verifyOtpUseCase.verifyOtpExecute(userRegistrationMap);
+      response.fold((failure) {
+        emit(state.copyWith(
           isLoading: false,
-        //  otpresponse: verifyotpResponse
-      ));
-      // emit(state.copyWith(
-      //     isLoading: true, isSuccess: false, isError: false, errorMessage: ''));
-      // Map<String, String> userRegistrationMap = {
-      //   "otp": state.otpNumber,
-      //   "email": event.email.toString().toLowerCase().trim()
-      // };
-      // final response =
-      //     await _verifyOtpUseCase.verifyOtpExecute(userRegistrationMap);
-      // response.fold((failure) {
-      //   emit(state.copyWith(
-      //     isLoading: false,
-      //     isSuccess: false,
-      //     successMessage: "",
-      //     isError: true,
-      //     errorMessage: failure.message,
-      //   ));
-      // }, (verifyotpResponse) {
-      //   emit(state.copyWith(
-      //       isSuccess: true,
-      //       successMessage: verifyotpResponse.message ?? "N/A",
-      //       isError: true,
-      //       errorMessage: '',
-      //       isLoading: false,
-      //       otpresponse: verifyotpResponse));
-      // });
+          isSuccess: false,
+          successMessage: "",
+          isError: true,
+          errorMessage: failure.message,
+        ));
+      }, (verifyotpResponse) {
+        emit(state.copyWith(
+            isSuccess: true,
+            successMessage: verifyotpResponse.message ?? "N/A",
+            isError: true,
+            errorMessage: '',
+            isLoading: false,
+            otpresponse: verifyotpResponse));
+      });
     } else {
 
       emit(state.copyWith(
@@ -75,7 +70,16 @@ class OtpverificationBloc extends Bloc<OtpverificationEvent, OtpState> {
           isLoading: false));
     }
   }
-
+  void updateOtpResponse(OtpResponseUpdated event, Emitter<OtpState> emit) {
+    emit(state.copyWith(
+        isSuccess: false,
+        isLoading: false,
+        successMessage: '',
+        isResendOtpSuccess: false,
+        errorMessage: '',
+        isError: false,
+        otpresponse: event.otpResponse));
+  }
   void _resendOtpSubmit(ResendOtpSubmit event, Emitter<OtpState> emit) async {
     emit(state.copyWith(
         isLoading: true,
@@ -98,13 +102,14 @@ class OtpverificationBloc extends Bloc<OtpverificationEvent, OtpState> {
       ));
     }, (verifyotpResponse) {
       emit(state.copyWith(
-          isSuccess: false,
           isResendOtpSuccess: true,
           successMessage: verifyotpResponse.message ?? "N/A",
           isError: true,
           errorMessage: '',
+          isSuccess: false,
           isLoading: false,
-          otpresponse: verifyotpResponse));
+          otpresponse: OtpVerificationModel()));
     });
   }
 }
+

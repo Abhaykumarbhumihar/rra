@@ -59,6 +59,8 @@
 // }
 import 'package:freezed_annotation/freezed_annotation.dart';
 
+import '../../../otpverification/data/entity/otp_verification_model.dart';
+
 
 
 part 'login_state.freezed.dart'; // Generated part file
@@ -73,7 +75,7 @@ class LoginState with _$LoginState {
     dynamic success,
     @Default(false) bool isError,
     @Default(false) bool isLoginApiError,
-
+    @Default(OtpVerificationModel()) OtpVerificationModel otpresponse,
   }) = _LoginState;
 
   // Initial state factory method

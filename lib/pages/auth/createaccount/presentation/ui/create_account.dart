@@ -64,58 +64,19 @@ class CreateAccount extends StatelessWidget {
                 backgroundColor: AppColor.appcolor);
             BlocProvider.of<CreateAccountBloc>(context).add(MakeInitial());
           }
-          if (state.isSuccess == true) {
+          if (state.isSuccess == true && state.isSuccess!='' ) {
+            context.showCustomSnackbar(state.successMessage,
+                backgroundColor: AppColor.appcolor);
             Map<String, dynamic> arguments = {
               "email": state.email,
               "isFromCreateAccount": true,
             };
-            //var userdata = await SharedPrefs.getModel<UserPojo>(
-            //    "user_model", (json) => UserPojo.fromJson(json));
-
-            print("Printing in Create account UIIIII====");
 
             Navigator.pushNamed(context, AppRoutes.OTPVERIFICATION,
                 arguments: arguments);
           }
           BlocProvider.of<CreateAccountBloc>(context)
               .add(CreateAccountEvent.makeInitial());
-          // else if (state.userdata.message != '' && state.isSuccess) {
-          //
-          //   print(state.userdata.message);
-          //
-          //   context.showCustomSnackbar(state.userdata.message,
-          //       backgroundColor: AppColor.appcolor);
-          //   await SharedPrefs.setModel("user_model", state.userdata);
-          //   //await SharedPrefs.setString("csrftoken", state.userdata.data.csrfTokenn);
-          //   //await SharedPrefs.setString(
-          //   //    "access_token", state.userdata.data.token);
-          //   try{
-          //    // Utils.subscribeTopic(state.userdata?.data?.id);
-          //   }catch(e){
-          //     print("Topic subscribeTopic $e");
-          //   }
-          //   if (state.isSuccess) {
-          //     Map<String, dynamic> arguments = {
-          //       "email": state.email,
-          //       "isFromCreateAccount": true,
-          //     };
-          //     var userdata = await SharedPrefs.getModel<UserPojo>("user_model", (json) => UserPojo.fromJson(json));
-          //
-          //   print("Printing in Create account UIIIII====");
-          //
-          //
-          //
-          //
-          //
-          //
-          //     Navigator.pushNamed(context, AppRoutes.OTPVERIFICATION,
-          //         arguments: arguments);
-          //
-          //
-          //
-          //   }
-          //   BlocProvider.of<CreateAccountBloc>(context).add(MakeInitial());
-          // }
         },
         child: BlocBuilder<CreateAccountBloc, CreateAccountState>(
           builder: (context, state) {
@@ -251,25 +212,20 @@ class CreateAccount extends StatelessWidget {
                                   onPressed: () async {
                                     // Emit CreateAccountSubmitted event
                                     print("code is running here");
-                                    // if ((await Connectivity().isConnected)) {
-                                    //   context
-                                    //       .read<CreateAccountBloc>()
-                                    //       .add(CreateAccountSubmitted());
-                                    // } else {
-                                    //   context.showCustomSnackbar(
-                                    //       'No internet connection. Please check your connection \nand try again.',
-                                    //       backgroundColor: AppColor.appcolor);
-                                    // }
-                                    Navigator.pushNamed(
-                                        context, AppRoutes.OTPVERIFICATION);
-                                    // if ((await Connectivity().isConnected)) {
-                                    //   context
-                                    //       .read<CreateAccountBloc>()
-                                    //       .add(CreateAccountSubmitted());
-                                    // }else{
-                                    //   context.showCustomSnackbar('No internet connection. Please check your connection \nand try again.',
-                                    //       backgroundColor: AppColor.appcolor);
-                                  },
+
+                                    // Navigator.pushNamed(
+                                    //     context, AppRoutes.OTPVERIFICATION);
+                                    if ((await Connectivity().isConnected)) {
+                                      context
+                                          .read<CreateAccountBloc>()
+                                          .add(CreateAccountSubmitted());
+                                    } else {
+                                      context.showCustomSnackbar(
+                                          'No internet connection. Please check your connection \nand try again.',
+                                          backgroundColor: AppColor.appcolor);
+                                    }
+
+                                  }
                                 ),
                                 SizedBox(height: context.screenHeight * 0.03),
                                 SignupSigninRichtext(
@@ -297,33 +253,5 @@ class CreateAccount extends StatelessWidget {
     );
   }
 
-  Future<String?> getAddressFromLatLng(
-      BuildContext context, double lat, double lng) async {
-    print("Fetching address for coordinates: $lat, $lng");
 
-    String _host = 'https://maps.google.com/maps/api/geocode/json';
-    final url =
-        '$_host?key=AIzaSyAbcVfeiTr0sdz1M8eCYzNeUKqyU4XDMIc&language=en&latlng=$lat,$lng';
-
-    if (lat != null && lng != null) {
-      try {
-        var response = await http.get(Uri.parse(url));
-        if (response.statusCode == 200) {
-          Map data = jsonDecode(response.body);
-          String formattedAddress = data["results"][0]["formatted_address"];
-          print("Formatted address: $formattedAddress");
-          return formattedAddress;
-        } else {
-          print("Failed to fetch address. Status code: ${response.statusCode}");
-          return null;
-        }
-      } catch (e) {
-        print("Error fetching address: $e");
-        return null;
-      }
-    } else {
-      print("Invalid coordinates for address fetch");
-      return null;
-    }
-  }
 }

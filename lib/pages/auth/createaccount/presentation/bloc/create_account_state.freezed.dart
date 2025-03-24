@@ -26,6 +26,7 @@ mixin _$CreateAccountState {
   bool get isSuccess => throw _privateConstructorUsedError;
   String get errorMessage => throw _privateConstructorUsedError;
   bool get isServerError => throw _privateConstructorUsedError;
+  String get successMessage => throw _privateConstructorUsedError;
   UserPojo get userdata => throw _privateConstructorUsedError;
 
   /// Create a copy of CreateAccountState
@@ -52,6 +53,7 @@ abstract class $CreateAccountStateCopyWith<$Res> {
       bool isSuccess,
       String errorMessage,
       bool isServerError,
+      String successMessage,
       UserPojo userdata});
 
   $UserPojoCopyWith<$Res> get userdata;
@@ -82,6 +84,7 @@ class _$CreateAccountStateCopyWithImpl<$Res, $Val extends CreateAccountState>
     Object? isSuccess = null,
     Object? errorMessage = null,
     Object? isServerError = null,
+    Object? successMessage = null,
     Object? userdata = null,
   }) {
     return _then(_value.copyWith(
@@ -125,6 +128,10 @@ class _$CreateAccountStateCopyWithImpl<$Res, $Val extends CreateAccountState>
           ? _value.isServerError
           : isServerError // ignore: cast_nullable_to_non_nullable
               as bool,
+      successMessage: null == successMessage
+          ? _value.successMessage
+          : successMessage // ignore: cast_nullable_to_non_nullable
+              as String,
       userdata: null == userdata
           ? _value.userdata
           : userdata // ignore: cast_nullable_to_non_nullable
@@ -162,6 +169,7 @@ abstract class _$$CreateAccountStateImplCopyWith<$Res>
       bool isSuccess,
       String errorMessage,
       bool isServerError,
+      String successMessage,
       UserPojo userdata});
 
   @override
@@ -191,6 +199,7 @@ class __$$CreateAccountStateImplCopyWithImpl<$Res>
     Object? isSuccess = null,
     Object? errorMessage = null,
     Object? isServerError = null,
+    Object? successMessage = null,
     Object? userdata = null,
   }) {
     return _then(_$CreateAccountStateImpl(
@@ -234,6 +243,10 @@ class __$$CreateAccountStateImplCopyWithImpl<$Res>
           ? _value.isServerError
           : isServerError // ignore: cast_nullable_to_non_nullable
               as bool,
+      successMessage: null == successMessage
+          ? _value.successMessage
+          : successMessage // ignore: cast_nullable_to_non_nullable
+              as String,
       userdata: null == userdata
           ? _value.userdata
           : userdata // ignore: cast_nullable_to_non_nullable
@@ -256,6 +269,7 @@ class _$CreateAccountStateImpl implements _CreateAccountState {
       this.isSuccess = false,
       this.errorMessage = '',
       this.isServerError = false,
+      this.successMessage = '',
       this.userdata = const UserPojo()});
 
   @override
@@ -290,11 +304,14 @@ class _$CreateAccountStateImpl implements _CreateAccountState {
   final bool isServerError;
   @override
   @JsonKey()
+  final String successMessage;
+  @override
+  @JsonKey()
   final UserPojo userdata;
 
   @override
   String toString() {
-    return 'CreateAccountState(firstName: $firstName, lastName: $lastName, email: $email, phoneNo: $phoneNo, password: $password, confirmPassword: $confirmPassword, isLoading: $isLoading, isSuccess: $isSuccess, errorMessage: $errorMessage, isServerError: $isServerError, userdata: $userdata)';
+    return 'CreateAccountState(firstName: $firstName, lastName: $lastName, email: $email, phoneNo: $phoneNo, password: $password, confirmPassword: $confirmPassword, isLoading: $isLoading, isSuccess: $isSuccess, errorMessage: $errorMessage, isServerError: $isServerError, successMessage: $successMessage, userdata: $userdata)';
   }
 
   @override
@@ -320,6 +337,8 @@ class _$CreateAccountStateImpl implements _CreateAccountState {
                 other.errorMessage == errorMessage) &&
             (identical(other.isServerError, isServerError) ||
                 other.isServerError == isServerError) &&
+            (identical(other.successMessage, successMessage) ||
+                other.successMessage == successMessage) &&
             (identical(other.userdata, userdata) ||
                 other.userdata == userdata));
   }
@@ -337,6 +356,7 @@ class _$CreateAccountStateImpl implements _CreateAccountState {
       isSuccess,
       errorMessage,
       isServerError,
+      successMessage,
       userdata);
 
   /// Create a copy of CreateAccountState
@@ -361,6 +381,7 @@ abstract class _CreateAccountState implements CreateAccountState {
       final bool isSuccess,
       final String errorMessage,
       final bool isServerError,
+      final String successMessage,
       final UserPojo userdata}) = _$CreateAccountStateImpl;
 
   @override
@@ -383,6 +404,8 @@ abstract class _CreateAccountState implements CreateAccountState {
   String get errorMessage;
   @override
   bool get isServerError;
+  @override
+  String get successMessage;
   @override
   UserPojo get userdata;
 

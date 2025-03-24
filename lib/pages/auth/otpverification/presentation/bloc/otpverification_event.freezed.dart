@@ -21,6 +21,8 @@ mixin _$OtpverificationEvent {
     required TResult Function(String otpNumber) otpChange,
     required TResult Function(String email) otpSubmit,
     required TResult Function(String email) resendOtpSubmit,
+    required TResult Function(OtpVerificationModel otpResponse)
+        otpResponseUpdated,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -28,6 +30,7 @@ mixin _$OtpverificationEvent {
     TResult? Function(String otpNumber)? otpChange,
     TResult? Function(String email)? otpSubmit,
     TResult? Function(String email)? resendOtpSubmit,
+    TResult? Function(OtpVerificationModel otpResponse)? otpResponseUpdated,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -35,6 +38,7 @@ mixin _$OtpverificationEvent {
     TResult Function(String otpNumber)? otpChange,
     TResult Function(String email)? otpSubmit,
     TResult Function(String email)? resendOtpSubmit,
+    TResult Function(OtpVerificationModel otpResponse)? otpResponseUpdated,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -43,6 +47,7 @@ mixin _$OtpverificationEvent {
     required TResult Function(OtpChange value) otpChange,
     required TResult Function(OtpSubmit value) otpSubmit,
     required TResult Function(ResendOtpSubmit value) resendOtpSubmit,
+    required TResult Function(OtpResponseUpdated value) otpResponseUpdated,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -50,6 +55,7 @@ mixin _$OtpverificationEvent {
     TResult? Function(OtpChange value)? otpChange,
     TResult? Function(OtpSubmit value)? otpSubmit,
     TResult? Function(ResendOtpSubmit value)? resendOtpSubmit,
+    TResult? Function(OtpResponseUpdated value)? otpResponseUpdated,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -57,6 +63,7 @@ mixin _$OtpverificationEvent {
     TResult Function(OtpChange value)? otpChange,
     TResult Function(OtpSubmit value)? otpSubmit,
     TResult Function(ResendOtpSubmit value)? resendOtpSubmit,
+    TResult Function(OtpResponseUpdated value)? otpResponseUpdated,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -156,6 +163,8 @@ class _$OtpChangeImpl implements OtpChange {
     required TResult Function(String otpNumber) otpChange,
     required TResult Function(String email) otpSubmit,
     required TResult Function(String email) resendOtpSubmit,
+    required TResult Function(OtpVerificationModel otpResponse)
+        otpResponseUpdated,
   }) {
     return otpChange(otpNumber);
   }
@@ -166,6 +175,7 @@ class _$OtpChangeImpl implements OtpChange {
     TResult? Function(String otpNumber)? otpChange,
     TResult? Function(String email)? otpSubmit,
     TResult? Function(String email)? resendOtpSubmit,
+    TResult? Function(OtpVerificationModel otpResponse)? otpResponseUpdated,
   }) {
     return otpChange?.call(otpNumber);
   }
@@ -176,6 +186,7 @@ class _$OtpChangeImpl implements OtpChange {
     TResult Function(String otpNumber)? otpChange,
     TResult Function(String email)? otpSubmit,
     TResult Function(String email)? resendOtpSubmit,
+    TResult Function(OtpVerificationModel otpResponse)? otpResponseUpdated,
     required TResult orElse(),
   }) {
     if (otpChange != null) {
@@ -190,6 +201,7 @@ class _$OtpChangeImpl implements OtpChange {
     required TResult Function(OtpChange value) otpChange,
     required TResult Function(OtpSubmit value) otpSubmit,
     required TResult Function(ResendOtpSubmit value) resendOtpSubmit,
+    required TResult Function(OtpResponseUpdated value) otpResponseUpdated,
   }) {
     return otpChange(this);
   }
@@ -200,6 +212,7 @@ class _$OtpChangeImpl implements OtpChange {
     TResult? Function(OtpChange value)? otpChange,
     TResult? Function(OtpSubmit value)? otpSubmit,
     TResult? Function(ResendOtpSubmit value)? resendOtpSubmit,
+    TResult? Function(OtpResponseUpdated value)? otpResponseUpdated,
   }) {
     return otpChange?.call(this);
   }
@@ -210,6 +223,7 @@ class _$OtpChangeImpl implements OtpChange {
     TResult Function(OtpChange value)? otpChange,
     TResult Function(OtpSubmit value)? otpSubmit,
     TResult Function(ResendOtpSubmit value)? resendOtpSubmit,
+    TResult Function(OtpResponseUpdated value)? otpResponseUpdated,
     required TResult orElse(),
   }) {
     if (otpChange != null) {
@@ -302,6 +316,8 @@ class _$OtpSubmitImpl implements OtpSubmit {
     required TResult Function(String otpNumber) otpChange,
     required TResult Function(String email) otpSubmit,
     required TResult Function(String email) resendOtpSubmit,
+    required TResult Function(OtpVerificationModel otpResponse)
+        otpResponseUpdated,
   }) {
     return otpSubmit(email);
   }
@@ -312,6 +328,7 @@ class _$OtpSubmitImpl implements OtpSubmit {
     TResult? Function(String otpNumber)? otpChange,
     TResult? Function(String email)? otpSubmit,
     TResult? Function(String email)? resendOtpSubmit,
+    TResult? Function(OtpVerificationModel otpResponse)? otpResponseUpdated,
   }) {
     return otpSubmit?.call(email);
   }
@@ -322,6 +339,7 @@ class _$OtpSubmitImpl implements OtpSubmit {
     TResult Function(String otpNumber)? otpChange,
     TResult Function(String email)? otpSubmit,
     TResult Function(String email)? resendOtpSubmit,
+    TResult Function(OtpVerificationModel otpResponse)? otpResponseUpdated,
     required TResult orElse(),
   }) {
     if (otpSubmit != null) {
@@ -336,6 +354,7 @@ class _$OtpSubmitImpl implements OtpSubmit {
     required TResult Function(OtpChange value) otpChange,
     required TResult Function(OtpSubmit value) otpSubmit,
     required TResult Function(ResendOtpSubmit value) resendOtpSubmit,
+    required TResult Function(OtpResponseUpdated value) otpResponseUpdated,
   }) {
     return otpSubmit(this);
   }
@@ -346,6 +365,7 @@ class _$OtpSubmitImpl implements OtpSubmit {
     TResult? Function(OtpChange value)? otpChange,
     TResult? Function(OtpSubmit value)? otpSubmit,
     TResult? Function(ResendOtpSubmit value)? resendOtpSubmit,
+    TResult? Function(OtpResponseUpdated value)? otpResponseUpdated,
   }) {
     return otpSubmit?.call(this);
   }
@@ -356,6 +376,7 @@ class _$OtpSubmitImpl implements OtpSubmit {
     TResult Function(OtpChange value)? otpChange,
     TResult Function(OtpSubmit value)? otpSubmit,
     TResult Function(ResendOtpSubmit value)? resendOtpSubmit,
+    TResult Function(OtpResponseUpdated value)? otpResponseUpdated,
     required TResult orElse(),
   }) {
     if (otpSubmit != null) {
@@ -449,6 +470,8 @@ class _$ResendOtpSubmitImpl implements ResendOtpSubmit {
     required TResult Function(String otpNumber) otpChange,
     required TResult Function(String email) otpSubmit,
     required TResult Function(String email) resendOtpSubmit,
+    required TResult Function(OtpVerificationModel otpResponse)
+        otpResponseUpdated,
   }) {
     return resendOtpSubmit(email);
   }
@@ -459,6 +482,7 @@ class _$ResendOtpSubmitImpl implements ResendOtpSubmit {
     TResult? Function(String otpNumber)? otpChange,
     TResult? Function(String email)? otpSubmit,
     TResult? Function(String email)? resendOtpSubmit,
+    TResult? Function(OtpVerificationModel otpResponse)? otpResponseUpdated,
   }) {
     return resendOtpSubmit?.call(email);
   }
@@ -469,6 +493,7 @@ class _$ResendOtpSubmitImpl implements ResendOtpSubmit {
     TResult Function(String otpNumber)? otpChange,
     TResult Function(String email)? otpSubmit,
     TResult Function(String email)? resendOtpSubmit,
+    TResult Function(OtpVerificationModel otpResponse)? otpResponseUpdated,
     required TResult orElse(),
   }) {
     if (resendOtpSubmit != null) {
@@ -483,6 +508,7 @@ class _$ResendOtpSubmitImpl implements ResendOtpSubmit {
     required TResult Function(OtpChange value) otpChange,
     required TResult Function(OtpSubmit value) otpSubmit,
     required TResult Function(ResendOtpSubmit value) resendOtpSubmit,
+    required TResult Function(OtpResponseUpdated value) otpResponseUpdated,
   }) {
     return resendOtpSubmit(this);
   }
@@ -493,6 +519,7 @@ class _$ResendOtpSubmitImpl implements ResendOtpSubmit {
     TResult? Function(OtpChange value)? otpChange,
     TResult? Function(OtpSubmit value)? otpSubmit,
     TResult? Function(ResendOtpSubmit value)? resendOtpSubmit,
+    TResult? Function(OtpResponseUpdated value)? otpResponseUpdated,
   }) {
     return resendOtpSubmit?.call(this);
   }
@@ -503,6 +530,7 @@ class _$ResendOtpSubmitImpl implements ResendOtpSubmit {
     TResult Function(OtpChange value)? otpChange,
     TResult Function(OtpSubmit value)? otpSubmit,
     TResult Function(ResendOtpSubmit value)? resendOtpSubmit,
+    TResult Function(OtpResponseUpdated value)? otpResponseUpdated,
     required TResult orElse(),
   }) {
     if (resendOtpSubmit != null) {
@@ -521,5 +549,173 @@ abstract class ResendOtpSubmit implements OtpverificationEvent {
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
   _$$ResendOtpSubmitImplCopyWith<_$ResendOtpSubmitImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$OtpResponseUpdatedImplCopyWith<$Res> {
+  factory _$$OtpResponseUpdatedImplCopyWith(_$OtpResponseUpdatedImpl value,
+          $Res Function(_$OtpResponseUpdatedImpl) then) =
+      __$$OtpResponseUpdatedImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({OtpVerificationModel otpResponse});
+
+  $OtpVerificationModelCopyWith<$Res> get otpResponse;
+}
+
+/// @nodoc
+class __$$OtpResponseUpdatedImplCopyWithImpl<$Res>
+    extends _$OtpverificationEventCopyWithImpl<$Res, _$OtpResponseUpdatedImpl>
+    implements _$$OtpResponseUpdatedImplCopyWith<$Res> {
+  __$$OtpResponseUpdatedImplCopyWithImpl(_$OtpResponseUpdatedImpl _value,
+      $Res Function(_$OtpResponseUpdatedImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of OtpverificationEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? otpResponse = null,
+  }) {
+    return _then(_$OtpResponseUpdatedImpl(
+      null == otpResponse
+          ? _value.otpResponse
+          : otpResponse // ignore: cast_nullable_to_non_nullable
+              as OtpVerificationModel,
+    ));
+  }
+
+  /// Create a copy of OtpverificationEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $OtpVerificationModelCopyWith<$Res> get otpResponse {
+    return $OtpVerificationModelCopyWith<$Res>(_value.otpResponse, (value) {
+      return _then(_value.copyWith(otpResponse: value));
+    });
+  }
+}
+
+/// @nodoc
+
+class _$OtpResponseUpdatedImpl implements OtpResponseUpdated {
+  const _$OtpResponseUpdatedImpl(this.otpResponse);
+
+  @override
+  final OtpVerificationModel otpResponse;
+
+  @override
+  String toString() {
+    return 'OtpverificationEvent.otpResponseUpdated(otpResponse: $otpResponse)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$OtpResponseUpdatedImpl &&
+            (identical(other.otpResponse, otpResponse) ||
+                other.otpResponse == otpResponse));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, otpResponse);
+
+  /// Create a copy of OtpverificationEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$OtpResponseUpdatedImplCopyWith<_$OtpResponseUpdatedImpl> get copyWith =>
+      __$$OtpResponseUpdatedImplCopyWithImpl<_$OtpResponseUpdatedImpl>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(String otpNumber) otpChange,
+    required TResult Function(String email) otpSubmit,
+    required TResult Function(String email) resendOtpSubmit,
+    required TResult Function(OtpVerificationModel otpResponse)
+        otpResponseUpdated,
+  }) {
+    return otpResponseUpdated(otpResponse);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(String otpNumber)? otpChange,
+    TResult? Function(String email)? otpSubmit,
+    TResult? Function(String email)? resendOtpSubmit,
+    TResult? Function(OtpVerificationModel otpResponse)? otpResponseUpdated,
+  }) {
+    return otpResponseUpdated?.call(otpResponse);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String otpNumber)? otpChange,
+    TResult Function(String email)? otpSubmit,
+    TResult Function(String email)? resendOtpSubmit,
+    TResult Function(OtpVerificationModel otpResponse)? otpResponseUpdated,
+    required TResult orElse(),
+  }) {
+    if (otpResponseUpdated != null) {
+      return otpResponseUpdated(otpResponse);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(OtpChange value) otpChange,
+    required TResult Function(OtpSubmit value) otpSubmit,
+    required TResult Function(ResendOtpSubmit value) resendOtpSubmit,
+    required TResult Function(OtpResponseUpdated value) otpResponseUpdated,
+  }) {
+    return otpResponseUpdated(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(OtpChange value)? otpChange,
+    TResult? Function(OtpSubmit value)? otpSubmit,
+    TResult? Function(ResendOtpSubmit value)? resendOtpSubmit,
+    TResult? Function(OtpResponseUpdated value)? otpResponseUpdated,
+  }) {
+    return otpResponseUpdated?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(OtpChange value)? otpChange,
+    TResult Function(OtpSubmit value)? otpSubmit,
+    TResult Function(ResendOtpSubmit value)? resendOtpSubmit,
+    TResult Function(OtpResponseUpdated value)? otpResponseUpdated,
+    required TResult orElse(),
+  }) {
+    if (otpResponseUpdated != null) {
+      return otpResponseUpdated(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class OtpResponseUpdated implements OtpverificationEvent {
+  const factory OtpResponseUpdated(final OtpVerificationModel otpResponse) =
+      _$OtpResponseUpdatedImpl;
+
+  OtpVerificationModel get otpResponse;
+
+  /// Create a copy of OtpverificationEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$OtpResponseUpdatedImplCopyWith<_$OtpResponseUpdatedImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

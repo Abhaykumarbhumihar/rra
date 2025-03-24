@@ -5,11 +5,11 @@ class AppConstant {
 
   static String get bearer =>"Bearer ";
   static String get createAccount =>"register";
-  static String get verifyOtp =>"user/auth/verify_otp";
+  static String get verifyOtp =>"verify-otp";
   static String get forgotPassword =>"user/auth/forgot_password";
   static String get resetPassword =>"user/auth/reset_password";
-  static String get resendOtp =>"user/auth/resend_otp";
-  static String get login =>"user/auth/login";
+  static String get resendOtp =>"send-otp";
+  static String get login =>"login";
   static String get socialLogin =>"user/auth/social_login";
   static String get refreshToken =>"/user/auth/refresh_token";
 

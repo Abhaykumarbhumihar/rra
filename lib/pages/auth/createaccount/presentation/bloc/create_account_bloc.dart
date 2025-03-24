@@ -25,6 +25,7 @@ class CreateAccountBloc extends Bloc<CreateAccountEvent, CreateAccountState> {
       MakeInitial event, Emitter<CreateAccountState> emit) async {
     emit(state.copyWith(
         errorMessage: '',
+        successMessage: '',
         isSuccess: false,
         isServerError: false));
   }
@@ -34,6 +35,7 @@ class CreateAccountBloc extends Bloc<CreateAccountEvent, CreateAccountState> {
     emit(state.copyWith(
         firstName: event.firstName.trim(),
         errorMessage: '',
+        successMessage: '',
         isSuccess: false,
         isServerError: false));
   }
@@ -44,6 +46,7 @@ class CreateAccountBloc extends Bloc<CreateAccountEvent, CreateAccountState> {
     emit(state.copyWith(
         email: event.email, errorMessage: '',
         isSuccess: false,
+        successMessage: '',
         isServerError: false
         ));
   }
@@ -54,6 +57,7 @@ class CreateAccountBloc extends Bloc<CreateAccountEvent, CreateAccountState> {
       PasswordChanged event, Emitter<CreateAccountState> emit) async {
     emit(state.copyWith(
         password: event.password,
+        successMessage: '',
         errorMessage: '',
         isSuccess: false,
         isServerError: false
@@ -68,7 +72,9 @@ class CreateAccountBloc extends Bloc<CreateAccountEvent, CreateAccountState> {
 
     emit(state.copyWith(errorMessage: '',
         isSuccess: false,
-        isServerError: false
+        isServerError: false,
+      successMessage: '',
+      userdata: UserPojo(),
         ));
 
     // Check if any fields are empty
@@ -76,7 +82,8 @@ class CreateAccountBloc extends Bloc<CreateAccountEvent, CreateAccountState> {
       emit(state.copyWith(
           errorMessage: 'Please enter your first name',
           isSuccess: false,
-
+          successMessage: '',
+          userdata: UserPojo(),
           isServerError: false));
       return;
     }
@@ -84,12 +91,16 @@ class CreateAccountBloc extends Bloc<CreateAccountEvent, CreateAccountState> {
     if (state.email.toString().trim().isEmpty) {
       emit(state.copyWith(
           isSuccess: false,
+          successMessage: '',
+          userdata: UserPojo(),
           errorMessage: 'Please enter your email', isServerError: false));
       return;
     }
 
     if (state.password.toString().trim().isEmpty) {
       emit(state.copyWith(
+          successMessage: '',
+          userdata: UserPojo(),
           errorMessage: 'Please enter your password', isServerError: false));
       return;
     }
@@ -98,6 +109,7 @@ class CreateAccountBloc extends Bloc<CreateAccountEvent, CreateAccountState> {
     if (!RegExp(r'^[^@]+@[^@]+\.[^@]+')
         .hasMatch(state.email.toString().trim())) {
       emit(state.copyWith(
+          successMessage: '',
           errorMessage: 'Please enter a valid email address',
           isServerError: false));
       return;
@@ -108,6 +120,7 @@ class CreateAccountBloc extends Bloc<CreateAccountEvent, CreateAccountState> {
             r'^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{6,}$')
         .hasMatch(state.password.trim())) {
       emit(state.copyWith(
+          successMessage: '',
           errorMessage:
               'Password must be at least 6 characters long and include at least one uppercase letter, one lowercase letter, one number, and one special character.',
           isServerError: false));
@@ -115,12 +128,6 @@ class CreateAccountBloc extends Bloc<CreateAccountEvent, CreateAccountState> {
     }
 
 
-    // {
-    //     "name": "John1",
-    //     "academy_id": 1,
-    //     "email": "hjh@yopmail.com",
-    //     "password": "password123"
-    // }
 
     try {
       Map<String, String> userRegistrationMap = {
@@ -133,6 +140,7 @@ class CreateAccountBloc extends Bloc<CreateAccountEvent, CreateAccountState> {
       emit(state.copyWith(
           isLoading: true,
           errorMessage: '',
+          successMessage: '',
           isSuccess: false,
           userdata: UserPojo(),
           isServerError: false));
@@ -145,8 +153,8 @@ class CreateAccountBloc extends Bloc<CreateAccountEvent, CreateAccountState> {
         emit(state.copyWith(
             errorMessage: failure.message,
             isSuccess: false,
-            userdata: UserPojo(),
             isLoading: false,
+            successMessage: '',
             isServerError: true));
       }, (useResult) {
         if(useResult.success){
@@ -155,12 +163,12 @@ class CreateAccountBloc extends Bloc<CreateAccountEvent, CreateAccountState> {
               isSuccess: true,
               isLoading: false,
               isServerError: false,
+              successMessage: useResult.message,
               userdata: useResult));
         }else{
           emit(state.copyWith(
               errorMessage: useResult.message,
               isSuccess: false,
-              userdata: UserPojo(),
               isLoading: false,
               isServerError: true));
         }

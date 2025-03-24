@@ -23,6 +23,7 @@ mixin _$LoginState {
   dynamic get success => throw _privateConstructorUsedError;
   bool get isError => throw _privateConstructorUsedError;
   bool get isLoginApiError => throw _privateConstructorUsedError;
+  OtpVerificationModel get otpresponse => throw _privateConstructorUsedError;
 
   /// Create a copy of LoginState
   /// with the given fields replaced by the non-null parameter values.
@@ -44,7 +45,10 @@ abstract class $LoginStateCopyWith<$Res> {
       String? error,
       dynamic success,
       bool isError,
-      bool isLoginApiError});
+      bool isLoginApiError,
+      OtpVerificationModel otpresponse});
+
+  $OtpVerificationModelCopyWith<$Res> get otpresponse;
 }
 
 /// @nodoc
@@ -69,6 +73,7 @@ class _$LoginStateCopyWithImpl<$Res, $Val extends LoginState>
     Object? success = freezed,
     Object? isError = null,
     Object? isLoginApiError = null,
+    Object? otpresponse = null,
   }) {
     return _then(_value.copyWith(
       email: null == email
@@ -99,7 +104,21 @@ class _$LoginStateCopyWithImpl<$Res, $Val extends LoginState>
           ? _value.isLoginApiError
           : isLoginApiError // ignore: cast_nullable_to_non_nullable
               as bool,
+      otpresponse: null == otpresponse
+          ? _value.otpresponse
+          : otpresponse // ignore: cast_nullable_to_non_nullable
+              as OtpVerificationModel,
     ) as $Val);
+  }
+
+  /// Create a copy of LoginState
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $OtpVerificationModelCopyWith<$Res> get otpresponse {
+    return $OtpVerificationModelCopyWith<$Res>(_value.otpresponse, (value) {
+      return _then(_value.copyWith(otpresponse: value) as $Val);
+    });
   }
 }
 
@@ -118,7 +137,11 @@ abstract class _$$LoginStateImplCopyWith<$Res>
       String? error,
       dynamic success,
       bool isError,
-      bool isLoginApiError});
+      bool isLoginApiError,
+      OtpVerificationModel otpresponse});
+
+  @override
+  $OtpVerificationModelCopyWith<$Res> get otpresponse;
 }
 
 /// @nodoc
@@ -141,6 +164,7 @@ class __$$LoginStateImplCopyWithImpl<$Res>
     Object? success = freezed,
     Object? isError = null,
     Object? isLoginApiError = null,
+    Object? otpresponse = null,
   }) {
     return _then(_$LoginStateImpl(
       email: null == email
@@ -171,6 +195,10 @@ class __$$LoginStateImplCopyWithImpl<$Res>
           ? _value.isLoginApiError
           : isLoginApiError // ignore: cast_nullable_to_non_nullable
               as bool,
+      otpresponse: null == otpresponse
+          ? _value.otpresponse
+          : otpresponse // ignore: cast_nullable_to_non_nullable
+              as OtpVerificationModel,
     ));
   }
 }
@@ -185,7 +213,8 @@ class _$LoginStateImpl implements _LoginState {
       this.error,
       this.success,
       this.isError = false,
-      this.isLoginApiError = false});
+      this.isLoginApiError = false,
+      this.otpresponse = const OtpVerificationModel()});
 
   @override
   @JsonKey()
@@ -206,10 +235,13 @@ class _$LoginStateImpl implements _LoginState {
   @override
   @JsonKey()
   final bool isLoginApiError;
+  @override
+  @JsonKey()
+  final OtpVerificationModel otpresponse;
 
   @override
   String toString() {
-    return 'LoginState(email: $email, password: $password, isLoading: $isLoading, error: $error, success: $success, isError: $isError, isLoginApiError: $isLoginApiError)';
+    return 'LoginState(email: $email, password: $password, isLoading: $isLoading, error: $error, success: $success, isError: $isError, isLoginApiError: $isLoginApiError, otpresponse: $otpresponse)';
   }
 
   @override
@@ -226,7 +258,9 @@ class _$LoginStateImpl implements _LoginState {
             const DeepCollectionEquality().equals(other.success, success) &&
             (identical(other.isError, isError) || other.isError == isError) &&
             (identical(other.isLoginApiError, isLoginApiError) ||
-                other.isLoginApiError == isLoginApiError));
+                other.isLoginApiError == isLoginApiError) &&
+            (identical(other.otpresponse, otpresponse) ||
+                other.otpresponse == otpresponse));
   }
 
   @override
@@ -238,7 +272,8 @@ class _$LoginStateImpl implements _LoginState {
       error,
       const DeepCollectionEquality().hash(success),
       isError,
-      isLoginApiError);
+      isLoginApiError,
+      otpresponse);
 
   /// Create a copy of LoginState
   /// with the given fields replaced by the non-null parameter values.
@@ -257,7 +292,8 @@ abstract class _LoginState implements LoginState {
       final String? error,
       final dynamic success,
       final bool isError,
-      final bool isLoginApiError}) = _$LoginStateImpl;
+      final bool isLoginApiError,
+      final OtpVerificationModel otpresponse}) = _$LoginStateImpl;
 
   @override
   String get email;
@@ -273,6 +309,8 @@ abstract class _LoginState implements LoginState {
   bool get isError;
   @override
   bool get isLoginApiError;
+  @override
+  OtpVerificationModel get otpresponse;
 
   /// Create a copy of LoginState
   /// with the given fields replaced by the non-null parameter values.

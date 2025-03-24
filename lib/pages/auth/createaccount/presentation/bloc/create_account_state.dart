@@ -20,6 +20,7 @@ class CreateAccountState with _$CreateAccountState {
     @Default(false) bool isSuccess,
     @Default('') String errorMessage,
     @Default(false) bool isServerError,
+    @Default('') String successMessage,
     @Default(UserPojo()) UserPojo userdata,
   }) = _CreateAccountState;
 

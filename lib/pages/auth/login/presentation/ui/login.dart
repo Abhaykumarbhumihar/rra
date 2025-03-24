@@ -40,11 +40,12 @@ class LoginScreen extends StatelessWidget {
                 backgroundColor: AppColor.appcolor);
           }
           if (state.success == true) {
-            Navigator.pushNamedAndRemoveUntil(
-              context,
-              AppRoutes.APPLICATION,
-              (Route<dynamic> route) => false,
-            );
+
+            // Navigator.pushNamedAndRemoveUntil(
+            //   context,
+            //   AppRoutes.APPLICATION,
+            //   (Route<dynamic> route) => false,
+            // );
           }
         },
         child: BlocBuilder<LoginBloc, LoginState>(
@@ -85,6 +86,7 @@ class LoginScreen extends StatelessWidget {
                                   isSuffix: false,
                                   isPrefix: true,
                                   hint: 'Enter your email',
+                                  keyBoardType: TextInputType.emailAddress,
                                   prefixIcon: Image.asset(
                                     'assets/images/email.png',
                                     width: 12,
@@ -154,22 +156,22 @@ class LoginScreen extends StatelessWidget {
                               CustomButton(
                                 text: "Sign In",
                                 onPressed: () async {
-                                  // context.read<LoginBloc>().add(
-                                  //     LoginButtonPressed(
-                                  //         email:
-                                  //         emailController.text.toString(),
-                                  //         password: passwordController.text
-                                  //             .toString(),
-                                  //         deviceID: ""));
+                                  context.read<LoginBloc>().add(
+                                      LoginButtonPressed(
+                                          email:
+                                          emailController.text.toString(),
+                                          password: passwordController.text
+                                              .toString(),
+                                          deviceID: ""));
                                   // Navigator.pushNamedAndRemoveUntil(
                                   //   context,
                                   //  AppRoutes.APPLICATION,
                                   //       (Route<dynamic> route) => false,
                                   // );
-                                  var data = await StripeService.instance
-                                      .makePayment();
-                                  print("IN LOGIN PAGE PAGE------------------");
-                                  Utils.LogPrint("$data");
+                                  // var data = await StripeService.instance
+                                  //     .makePayment();
+                                  // print("IN LOGIN PAGE PAGE------------------");
+                                  // Utils.LogPrint("$data");
                                 },
                               ),
                               SizedBox(

@@ -5,9 +5,11 @@ import '../../../../../common/component/common_background.dart';
 import '../../../../../common/component/custom_app_button.dart';
 import '../../../../../common/component/screen_title.dart';
 import '../../../../../common/component/sub_title.dart';
+import '../../../../../common/local/SharedPrefs.dart';
 import '../../../../../common/routes/routes.dart';
 import '../../../../../common/values/utils.dart';
 import '../../../login/presentation/ui/component/forgot_text.dart';
+import '../../data/entity/otp_verification_model.dart';
 import '../bloc/otpverification_bloc.dart';
 import '../bloc/otpverification_event.dart';
 import '../bloc/otpverification_state.dart';
@@ -34,85 +36,28 @@ class OtpVerificaiton extends StatelessWidget {
           if(state.errorMessage!=""){
             context.showCustomSnackbar(state.errorMessage!,
                 backgroundColor: AppColor.appcolor);
+            context.read<OtpverificationBloc>().add(OtpverificationEvent.otpResponseUpdated(OtpVerificationModel()));
           }
-        //  if (state.isSuccess && state.otpresponse.message != "") {
+
+          if(state.isResendOtpSuccess){
+
+            context.showCustomSnackbar(state.successMessage,
+                backgroundColor: AppColor.appcolor);
+           context.read<OtpverificationBloc>().add(OtpverificationEvent.otpResponseUpdated(OtpVerificationModel()));
+
+          }
           if (state.isSuccess) {
             context.showCustomSnackbar(state.otpresponse.message,
                 backgroundColor: AppColor.appcolor);
             if (isFromCreateAccount!) {
+              await SharedPrefs.setModel("user_model", state.otpresponse);
+              await SharedPrefs.setString("token", state.otpresponse.token);
               Navigator.pushNamedAndRemoveUntil(
                 context,
                 AppRoutes.EDITPROFILE,
                     (Route<dynamic> route) => false,
               );
-              // BlocProvider.of<HomeBloc>(context).add(GetCategoryListEvent(true));
-              // BlocProvider.of<BestFindBloc>(context).add(GetBestFindEvent("1",true));
-              // BlocProvider.of<NotificationBloc>(context)
-              //     .add(AllNotificationEvent("1"));
-              // BlocProvider.of<MySaveFindBloc>(context)
-              //     .add(GetMySaveFindEvent("1",false));
-              // BlocProvider.of<FindOfTheDayBloc>(context)
-              //     .add(GetFindOfTheDayEvent("1",true));
-              // BlocProvider.of<FaqBloc>(context)
-              //     .add(GetFaqDataEvent());
-              // BlocProvider.of<TermConditionBloc>(context)
-              //     .add(GetTermConditionData());
-              //
-              // var userdata = await SharedPrefs.getModel<UserPojo>(
-              //     "user_model", (json) => UserPojo.fromJson(json));
-              // if (userdata?.data.selectedLocation.name == "") {
-              //   BlocProvider.of<MyprofileBloc>(
-              //       context)
-              //       .loadUserData();
-              //   BlocProvider.of<EditprofileBloc>(
-              //       context)
-              //       .loadUserData();();
-              //
-              //   Map<String, dynamic>? locationData =
-              //       await fetchUserLocation(context);
-              //   if (locationData != null) {
-              //     double latitude = locationData['lat'];
-              //     double longitude = locationData['lng'];
-              //     String address = locationData['address'];
-              //
-              //     print("Latitude: $latitude");
-              //     print("Longitude: $longitude");
-              //     print("Address: $address");
-              //     Map<String, String> locationDataForServerr = {
-              //       'selected_location': jsonEncode({
-              //         "name": "Current Location",
-              //         "State": "$address",
-              //         "City": "",
-              //         "coordinates": [longitude, latitude],
-              //       }),
-              //     };
-              //     BlocProvider.of<AppBloc>(context)
-              //         .updateLocation(locationDataForServerr);
-              //   }
-              //   BlocProvider.of<AddProfilePhotoBloc>(context).add(ClearProfileState());
-              //   BlocProvider.of<AppBloc>(context).loadUserData();
-              //
-              //   Navigator.pushNamedAndRemoveUntil(
-              //     context,
-              //     AppRoutes.ADDPROFILEPHOTO,
-              //     (Route<dynamic> route) => false,
-              //   );
-              // } else {
-              //   BlocProvider.of<AppBloc>(context).loadUserData();
-              //
-              //   BlocProvider.of<AddProfilePhotoBloc>(context).add(ClearProfileState());
-              //   BlocProvider.of<MyprofileBloc>(
-              //       context)
-              //       .loadUserData();
-              //   BlocProvider.of<EditprofileBloc>(
-              //       context)
-              //       .loadUserData();();
-              //   Navigator.pushNamedAndRemoveUntil(
-              //     context,
-              //     AppRoutes.ADDPROFILEPHOTO,
-              //     (Route<dynamic> route) => false,
-              //   );
-              // }
+
             } else {
               var email = "${arguments?['email']}";
               Map<String, dynamic> argumentsforresetpassword = {
@@ -121,17 +66,8 @@ class OtpVerificaiton extends StatelessWidget {
               Navigator.pushNamed(context, AppRoutes.RESETPASSWORD,
                   arguments: argumentsforresetpassword);
             }
-          } else if (state.isResendOtpSuccess &&
-              state.otpresponse.message != "") {
-            context.showCustomSnackbar(state.otpresponse.message,
-                backgroundColor: AppColor.appcolor);
-          } else {
-            print(state.errorMessage);
-            if (state.errorMessage != '' && state.isError) {
-              context.showCustomSnackbar(state.errorMessage,
-                  backgroundColor: AppColor.appcolor);
-            }
           }
+
         },
         child: BlocBuilder<OtpverificationBloc, OtpState>(
           builder: (context, state) {
@@ -251,7 +187,13 @@ class OtpVerificaiton extends StatelessWidget {
                         fontSize: width * 0.036,
                       ),
                     ),
-                        ResendOtp(),
+                        InkWell(
+                            onTap: (){
+                              context
+                                  .read<OtpverificationBloc>()
+                                  .add(ResendOtpSubmit("${arguments?['email']}"));
+                            },
+                            child: ResendOtp()),
                         SizedBox(
                           height: height * 0.05,
                         ),
@@ -261,17 +203,17 @@ class OtpVerificaiton extends StatelessWidget {
                           child: CustomButton(
                             text: "Verify",
                             onPressed: () async {
-                              Navigator.pushNamed(
-                                 context, AppRoutes.RESETPASSWORD);
-                              // if ((await Connectivity().isConnected)) {
-                              //   context
-                              //       .read<OtpverificationBloc>()
-                              //       .add(OtpSubmit("${arguments?['email']}"));
-                              // } else {
-                              //   context.showCustomSnackbar(
-                              //       'No internet connection. Please check your connection \nand try again.',
-                              //       backgroundColor: AppColor.appcolor);
-                              // }
+                              // Navigator.pushNamed(
+                              //    context, AppRoutes.RESETPASSWORD);
+                              if ((await Connectivity().isConnected)) {
+                                context
+                                    .read<OtpverificationBloc>()
+                                    .add(OtpSubmit("${arguments?['email']}"));
+                              } else {
+                                context.showCustomSnackbar(
+                                    'No internet connection. Please check your connection \nand try again.',
+                                    backgroundColor: AppColor.appcolor);
+                              }
                             },
                           ),
                         ),

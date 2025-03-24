@@ -8,6 +8,7 @@ import '../../../../../common/network/api_services.dart';
 import '../../../../../common/network/app_constant.dart';
 import '../../../../../common/network/failure.dart';
 import '../../../../../common/service_locator/setivelocator.dart';
+import '../../../otpverification/data/entity/otp_verification_model.dart';
 import '../../domain/repositery/login_repo.dart';
 
 class LoginImpl implements LoginRepositery {
@@ -16,7 +17,7 @@ class LoginImpl implements LoginRepositery {
 
 
   @override
-  Future<Either<Failure, dynamic>> login(Map<String, dynamic> loginData)async {
+  Future<Either<Failure, OtpVerificationModel>> login(Map<String, dynamic> loginData)async {
     try {
 
       print(loginData);
@@ -25,8 +26,13 @@ class LoginImpl implements LoginRepositery {
       print(response.body);
       if (response.statusCode == 200) {
         final Map<String, dynamic> responseData = jsonDecode(response.body);
+        if(responseData['success']){
+          final OtpVerificationModel user = OtpVerificationModel.fromJson(responseData);
+          return Right(user);
+        }else{
+          return Left(Failure(responseData['success']));
+        }
 
-        return Right(responseData);
       } else {
         final errorMessage = _extractErrorMessage(response.body);
         return Left(Failure(errorMessage));

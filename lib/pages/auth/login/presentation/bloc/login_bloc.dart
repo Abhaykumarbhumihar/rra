@@ -87,53 +87,49 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
         return;
       }
 
-      // if (!(await Connectivity().isConnected)) {
-      //   emit(state.copyWith(
-      //     error:
-      //         'No internet connection. Please check your connection \nand try again.',
-      //     isLoginApiError: true,
-      //     isError: true,
-      //   ));
-      //   return;
-      // }
+      if (!(await Connectivity().isConnected)) {
+        emit(state.copyWith(
+          error:
+              'No internet connection. Please check your connection \nand try again.',
+          isLoginApiError: true,
+          isError: true,
+        ));
+        return;
+      }
 
+
+      Map<String, dynamic> userRegistrationMap = {
+        'password': state.password ?? "",
+        'email': state.email.toString().toLowerCase().trim()
+      };
       emit(state.copyWith(
-          error: '',
+          isLoading: true,
           isError: false,
           isLoginApiError: false,
-          isLoading: false,
-          success: true));
-      // Map<String, dynamic> userRegistrationMap = {
-      //   'password': state.password ?? "",
-      //   'email': state.email.toString().toLowerCase().trim()
-      // };
-      // emit(state.copyWith(
-      //     isLoading: true,
-      //     isError: false,
-      //     isLoginApiError: false,
-      //     success: false,
-      //     error: '',
-      //     ));
-      //
-      // final response = await _loginUseCase.loginExecute(userRegistrationMap);
-      // response.fold((failure) {
-      //   emit(state.copyWith(
-      //       error: failure.message,
-      //       isError: true,
-      //       isLoginApiError: true,
-      //       isLoading: false,
-      //       success: false));
-      // }, (useResult) {
-      //   print("======check =====check =====check \n\n");
-      //   print(useResult);
-      //   print("======check =====check =====check \n\n");
-      //   emit(state.copyWith(
-      //       error: '',
-      //       isError: false,
-      //       isLoginApiError: false,
-      //       isLoading: false,
-      //       success: true));
-      // });
+          success: false,
+          error: '',
+          ));
+
+      final response = await _loginUseCase.loginExecute(userRegistrationMap);
+      response.fold((failure) {
+        emit(state.copyWith(
+            error: failure.message,
+            isError: true,
+            isLoginApiError: true,
+            isLoading: false,
+            success: false));
+      }, (useResult) {
+        print("======check =====check =====check \n\n");
+        print(useResult);
+        print("======check =====check =====check \n\n");
+        emit(state.copyWith(
+            error: '',
+            isError: false,
+            isLoginApiError: false,
+            isLoading: false,
+            otpresponse: useResult,
+            success: true));
+      });
     } catch (error) {
       // Handle the error and show error messages
       emit(state.copyWith(isLoading: false, error: error.toString()));
