@@ -78,6 +78,7 @@ class LoginState with _$LoginState {
     @Default(false) bool isLoginApiError,
     @Default(OtpVerificationModel()) OtpVerificationModel otpresponse,
     @Default(AcademyListResponse()) AcademyListResponse academicListResponse,
+    @Default("") String selectedAcademiId,
   }) = _LoginState;
 
   // Initial state factory method

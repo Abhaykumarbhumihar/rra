@@ -8,6 +8,7 @@ part 'login_event.freezed.dart';
 class LoginEvent with _$LoginEvent {
   const factory LoginEvent.emailChanged(String email) = LoginEmailChanged;
   const factory LoginEvent.passwordChanged(String password) = LoginPasswordChanged;
+  const factory LoginEvent.selectAcademicLogin(String academicId) = SelectAdademicLogin;
   const factory LoginEvent.academicList(String location) = AcademicList;
   const factory LoginEvent.loginButtonPressed({
     required String email,

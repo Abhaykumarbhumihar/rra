@@ -22,6 +22,7 @@ class CreateAccountState with _$CreateAccountState {
     @Default(false) bool isServerError,
     @Default('') String successMessage,
     @Default(UserPojo()) UserPojo userdata,
+    @Default("") String selectedAcademiId,
   }) = _CreateAccountState;
 
 

@@ -20,6 +20,7 @@ mixin _$LoginEvent {
   TResult when<TResult extends Object?>({
     required TResult Function(String email) emailChanged,
     required TResult Function(String password) passwordChanged,
+    required TResult Function(String academicId) selectAcademicLogin,
     required TResult Function(String location) academicList,
     required TResult Function(String email, String password, String deviceID)
         loginButtonPressed,
@@ -31,6 +32,7 @@ mixin _$LoginEvent {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(String email)? emailChanged,
     TResult? Function(String password)? passwordChanged,
+    TResult? Function(String academicId)? selectAcademicLogin,
     TResult? Function(String location)? academicList,
     TResult? Function(String email, String password, String deviceID)?
         loginButtonPressed,
@@ -42,6 +44,7 @@ mixin _$LoginEvent {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String email)? emailChanged,
     TResult Function(String password)? passwordChanged,
+    TResult Function(String academicId)? selectAcademicLogin,
     TResult Function(String location)? academicList,
     TResult Function(String email, String password, String deviceID)?
         loginButtonPressed,
@@ -54,6 +57,7 @@ mixin _$LoginEvent {
   TResult map<TResult extends Object?>({
     required TResult Function(LoginEmailChanged value) emailChanged,
     required TResult Function(LoginPasswordChanged value) passwordChanged,
+    required TResult Function(SelectAdademicLogin value) selectAcademicLogin,
     required TResult Function(AcademicList value) academicList,
     required TResult Function(LoginButtonPressed value) loginButtonPressed,
     required TResult Function(ForgotPasswordPressed value)
@@ -65,6 +69,7 @@ mixin _$LoginEvent {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(LoginEmailChanged value)? emailChanged,
     TResult? Function(LoginPasswordChanged value)? passwordChanged,
+    TResult? Function(SelectAdademicLogin value)? selectAcademicLogin,
     TResult? Function(AcademicList value)? academicList,
     TResult? Function(LoginButtonPressed value)? loginButtonPressed,
     TResult? Function(ForgotPasswordPressed value)? forgotPasswordPressed,
@@ -75,6 +80,7 @@ mixin _$LoginEvent {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(LoginEmailChanged value)? emailChanged,
     TResult Function(LoginPasswordChanged value)? passwordChanged,
+    TResult Function(SelectAdademicLogin value)? selectAcademicLogin,
     TResult Function(AcademicList value)? academicList,
     TResult Function(LoginButtonPressed value)? loginButtonPressed,
     TResult Function(ForgotPasswordPressed value)? forgotPasswordPressed,
@@ -176,6 +182,7 @@ class _$LoginEmailChangedImpl implements LoginEmailChanged {
   TResult when<TResult extends Object?>({
     required TResult Function(String email) emailChanged,
     required TResult Function(String password) passwordChanged,
+    required TResult Function(String academicId) selectAcademicLogin,
     required TResult Function(String location) academicList,
     required TResult Function(String email, String password, String deviceID)
         loginButtonPressed,
@@ -190,6 +197,7 @@ class _$LoginEmailChangedImpl implements LoginEmailChanged {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(String email)? emailChanged,
     TResult? Function(String password)? passwordChanged,
+    TResult? Function(String academicId)? selectAcademicLogin,
     TResult? Function(String location)? academicList,
     TResult? Function(String email, String password, String deviceID)?
         loginButtonPressed,
@@ -204,6 +212,7 @@ class _$LoginEmailChangedImpl implements LoginEmailChanged {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String email)? emailChanged,
     TResult Function(String password)? passwordChanged,
+    TResult Function(String academicId)? selectAcademicLogin,
     TResult Function(String location)? academicList,
     TResult Function(String email, String password, String deviceID)?
         loginButtonPressed,
@@ -222,6 +231,7 @@ class _$LoginEmailChangedImpl implements LoginEmailChanged {
   TResult map<TResult extends Object?>({
     required TResult Function(LoginEmailChanged value) emailChanged,
     required TResult Function(LoginPasswordChanged value) passwordChanged,
+    required TResult Function(SelectAdademicLogin value) selectAcademicLogin,
     required TResult Function(AcademicList value) academicList,
     required TResult Function(LoginButtonPressed value) loginButtonPressed,
     required TResult Function(ForgotPasswordPressed value)
@@ -236,6 +246,7 @@ class _$LoginEmailChangedImpl implements LoginEmailChanged {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(LoginEmailChanged value)? emailChanged,
     TResult? Function(LoginPasswordChanged value)? passwordChanged,
+    TResult? Function(SelectAdademicLogin value)? selectAcademicLogin,
     TResult? Function(AcademicList value)? academicList,
     TResult? Function(LoginButtonPressed value)? loginButtonPressed,
     TResult? Function(ForgotPasswordPressed value)? forgotPasswordPressed,
@@ -249,6 +260,7 @@ class _$LoginEmailChangedImpl implements LoginEmailChanged {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(LoginEmailChanged value)? emailChanged,
     TResult Function(LoginPasswordChanged value)? passwordChanged,
+    TResult Function(SelectAdademicLogin value)? selectAcademicLogin,
     TResult Function(AcademicList value)? academicList,
     TResult Function(LoginButtonPressed value)? loginButtonPressed,
     TResult Function(ForgotPasswordPressed value)? forgotPasswordPressed,
@@ -347,6 +359,7 @@ class _$LoginPasswordChangedImpl implements LoginPasswordChanged {
   TResult when<TResult extends Object?>({
     required TResult Function(String email) emailChanged,
     required TResult Function(String password) passwordChanged,
+    required TResult Function(String academicId) selectAcademicLogin,
     required TResult Function(String location) academicList,
     required TResult Function(String email, String password, String deviceID)
         loginButtonPressed,
@@ -361,6 +374,7 @@ class _$LoginPasswordChangedImpl implements LoginPasswordChanged {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(String email)? emailChanged,
     TResult? Function(String password)? passwordChanged,
+    TResult? Function(String academicId)? selectAcademicLogin,
     TResult? Function(String location)? academicList,
     TResult? Function(String email, String password, String deviceID)?
         loginButtonPressed,
@@ -375,6 +389,7 @@ class _$LoginPasswordChangedImpl implements LoginPasswordChanged {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String email)? emailChanged,
     TResult Function(String password)? passwordChanged,
+    TResult Function(String academicId)? selectAcademicLogin,
     TResult Function(String location)? academicList,
     TResult Function(String email, String password, String deviceID)?
         loginButtonPressed,
@@ -393,6 +408,7 @@ class _$LoginPasswordChangedImpl implements LoginPasswordChanged {
   TResult map<TResult extends Object?>({
     required TResult Function(LoginEmailChanged value) emailChanged,
     required TResult Function(LoginPasswordChanged value) passwordChanged,
+    required TResult Function(SelectAdademicLogin value) selectAcademicLogin,
     required TResult Function(AcademicList value) academicList,
     required TResult Function(LoginButtonPressed value) loginButtonPressed,
     required TResult Function(ForgotPasswordPressed value)
@@ -407,6 +423,7 @@ class _$LoginPasswordChangedImpl implements LoginPasswordChanged {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(LoginEmailChanged value)? emailChanged,
     TResult? Function(LoginPasswordChanged value)? passwordChanged,
+    TResult? Function(SelectAdademicLogin value)? selectAcademicLogin,
     TResult? Function(AcademicList value)? academicList,
     TResult? Function(LoginButtonPressed value)? loginButtonPressed,
     TResult? Function(ForgotPasswordPressed value)? forgotPasswordPressed,
@@ -420,6 +437,7 @@ class _$LoginPasswordChangedImpl implements LoginPasswordChanged {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(LoginEmailChanged value)? emailChanged,
     TResult Function(LoginPasswordChanged value)? passwordChanged,
+    TResult Function(SelectAdademicLogin value)? selectAcademicLogin,
     TResult Function(AcademicList value)? academicList,
     TResult Function(LoginButtonPressed value)? loginButtonPressed,
     TResult Function(ForgotPasswordPressed value)? forgotPasswordPressed,
@@ -444,6 +462,183 @@ abstract class LoginPasswordChanged implements LoginEvent {
   @JsonKey(includeFromJson: false, includeToJson: false)
   _$$LoginPasswordChangedImplCopyWith<_$LoginPasswordChangedImpl>
       get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$SelectAdademicLoginImplCopyWith<$Res> {
+  factory _$$SelectAdademicLoginImplCopyWith(_$SelectAdademicLoginImpl value,
+          $Res Function(_$SelectAdademicLoginImpl) then) =
+      __$$SelectAdademicLoginImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String academicId});
+}
+
+/// @nodoc
+class __$$SelectAdademicLoginImplCopyWithImpl<$Res>
+    extends _$LoginEventCopyWithImpl<$Res, _$SelectAdademicLoginImpl>
+    implements _$$SelectAdademicLoginImplCopyWith<$Res> {
+  __$$SelectAdademicLoginImplCopyWithImpl(_$SelectAdademicLoginImpl _value,
+      $Res Function(_$SelectAdademicLoginImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of LoginEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? academicId = null,
+  }) {
+    return _then(_$SelectAdademicLoginImpl(
+      null == academicId
+          ? _value.academicId
+          : academicId // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$SelectAdademicLoginImpl implements SelectAdademicLogin {
+  const _$SelectAdademicLoginImpl(this.academicId);
+
+  @override
+  final String academicId;
+
+  @override
+  String toString() {
+    return 'LoginEvent.selectAcademicLogin(academicId: $academicId)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$SelectAdademicLoginImpl &&
+            (identical(other.academicId, academicId) ||
+                other.academicId == academicId));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, academicId);
+
+  /// Create a copy of LoginEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$SelectAdademicLoginImplCopyWith<_$SelectAdademicLoginImpl> get copyWith =>
+      __$$SelectAdademicLoginImplCopyWithImpl<_$SelectAdademicLoginImpl>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(String email) emailChanged,
+    required TResult Function(String password) passwordChanged,
+    required TResult Function(String academicId) selectAcademicLogin,
+    required TResult Function(String location) academicList,
+    required TResult Function(String email, String password, String deviceID)
+        loginButtonPressed,
+    required TResult Function() forgotPasswordPressed,
+    required TResult Function() signUpPressed,
+  }) {
+    return selectAcademicLogin(academicId);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(String email)? emailChanged,
+    TResult? Function(String password)? passwordChanged,
+    TResult? Function(String academicId)? selectAcademicLogin,
+    TResult? Function(String location)? academicList,
+    TResult? Function(String email, String password, String deviceID)?
+        loginButtonPressed,
+    TResult? Function()? forgotPasswordPressed,
+    TResult? Function()? signUpPressed,
+  }) {
+    return selectAcademicLogin?.call(academicId);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String email)? emailChanged,
+    TResult Function(String password)? passwordChanged,
+    TResult Function(String academicId)? selectAcademicLogin,
+    TResult Function(String location)? academicList,
+    TResult Function(String email, String password, String deviceID)?
+        loginButtonPressed,
+    TResult Function()? forgotPasswordPressed,
+    TResult Function()? signUpPressed,
+    required TResult orElse(),
+  }) {
+    if (selectAcademicLogin != null) {
+      return selectAcademicLogin(academicId);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(LoginEmailChanged value) emailChanged,
+    required TResult Function(LoginPasswordChanged value) passwordChanged,
+    required TResult Function(SelectAdademicLogin value) selectAcademicLogin,
+    required TResult Function(AcademicList value) academicList,
+    required TResult Function(LoginButtonPressed value) loginButtonPressed,
+    required TResult Function(ForgotPasswordPressed value)
+        forgotPasswordPressed,
+    required TResult Function(SignUpPressed value) signUpPressed,
+  }) {
+    return selectAcademicLogin(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(LoginEmailChanged value)? emailChanged,
+    TResult? Function(LoginPasswordChanged value)? passwordChanged,
+    TResult? Function(SelectAdademicLogin value)? selectAcademicLogin,
+    TResult? Function(AcademicList value)? academicList,
+    TResult? Function(LoginButtonPressed value)? loginButtonPressed,
+    TResult? Function(ForgotPasswordPressed value)? forgotPasswordPressed,
+    TResult? Function(SignUpPressed value)? signUpPressed,
+  }) {
+    return selectAcademicLogin?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(LoginEmailChanged value)? emailChanged,
+    TResult Function(LoginPasswordChanged value)? passwordChanged,
+    TResult Function(SelectAdademicLogin value)? selectAcademicLogin,
+    TResult Function(AcademicList value)? academicList,
+    TResult Function(LoginButtonPressed value)? loginButtonPressed,
+    TResult Function(ForgotPasswordPressed value)? forgotPasswordPressed,
+    TResult Function(SignUpPressed value)? signUpPressed,
+    required TResult orElse(),
+  }) {
+    if (selectAcademicLogin != null) {
+      return selectAcademicLogin(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class SelectAdademicLogin implements LoginEvent {
+  const factory SelectAdademicLogin(final String academicId) =
+      _$SelectAdademicLoginImpl;
+
+  String get academicId;
+
+  /// Create a copy of LoginEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$SelectAdademicLoginImplCopyWith<_$SelectAdademicLoginImpl> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -517,6 +712,7 @@ class _$AcademicListImpl implements AcademicList {
   TResult when<TResult extends Object?>({
     required TResult Function(String email) emailChanged,
     required TResult Function(String password) passwordChanged,
+    required TResult Function(String academicId) selectAcademicLogin,
     required TResult Function(String location) academicList,
     required TResult Function(String email, String password, String deviceID)
         loginButtonPressed,
@@ -531,6 +727,7 @@ class _$AcademicListImpl implements AcademicList {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(String email)? emailChanged,
     TResult? Function(String password)? passwordChanged,
+    TResult? Function(String academicId)? selectAcademicLogin,
     TResult? Function(String location)? academicList,
     TResult? Function(String email, String password, String deviceID)?
         loginButtonPressed,
@@ -545,6 +742,7 @@ class _$AcademicListImpl implements AcademicList {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String email)? emailChanged,
     TResult Function(String password)? passwordChanged,
+    TResult Function(String academicId)? selectAcademicLogin,
     TResult Function(String location)? academicList,
     TResult Function(String email, String password, String deviceID)?
         loginButtonPressed,
@@ -563,6 +761,7 @@ class _$AcademicListImpl implements AcademicList {
   TResult map<TResult extends Object?>({
     required TResult Function(LoginEmailChanged value) emailChanged,
     required TResult Function(LoginPasswordChanged value) passwordChanged,
+    required TResult Function(SelectAdademicLogin value) selectAcademicLogin,
     required TResult Function(AcademicList value) academicList,
     required TResult Function(LoginButtonPressed value) loginButtonPressed,
     required TResult Function(ForgotPasswordPressed value)
@@ -577,6 +776,7 @@ class _$AcademicListImpl implements AcademicList {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(LoginEmailChanged value)? emailChanged,
     TResult? Function(LoginPasswordChanged value)? passwordChanged,
+    TResult? Function(SelectAdademicLogin value)? selectAcademicLogin,
     TResult? Function(AcademicList value)? academicList,
     TResult? Function(LoginButtonPressed value)? loginButtonPressed,
     TResult? Function(ForgotPasswordPressed value)? forgotPasswordPressed,
@@ -590,6 +790,7 @@ class _$AcademicListImpl implements AcademicList {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(LoginEmailChanged value)? emailChanged,
     TResult Function(LoginPasswordChanged value)? passwordChanged,
+    TResult Function(SelectAdademicLogin value)? selectAcademicLogin,
     TResult Function(AcademicList value)? academicList,
     TResult Function(LoginButtonPressed value)? loginButtonPressed,
     TResult Function(ForgotPasswordPressed value)? forgotPasswordPressed,
@@ -705,6 +906,7 @@ class _$LoginButtonPressedImpl implements LoginButtonPressed {
   TResult when<TResult extends Object?>({
     required TResult Function(String email) emailChanged,
     required TResult Function(String password) passwordChanged,
+    required TResult Function(String academicId) selectAcademicLogin,
     required TResult Function(String location) academicList,
     required TResult Function(String email, String password, String deviceID)
         loginButtonPressed,
@@ -719,6 +921,7 @@ class _$LoginButtonPressedImpl implements LoginButtonPressed {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(String email)? emailChanged,
     TResult? Function(String password)? passwordChanged,
+    TResult? Function(String academicId)? selectAcademicLogin,
     TResult? Function(String location)? academicList,
     TResult? Function(String email, String password, String deviceID)?
         loginButtonPressed,
@@ -733,6 +936,7 @@ class _$LoginButtonPressedImpl implements LoginButtonPressed {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String email)? emailChanged,
     TResult Function(String password)? passwordChanged,
+    TResult Function(String academicId)? selectAcademicLogin,
     TResult Function(String location)? academicList,
     TResult Function(String email, String password, String deviceID)?
         loginButtonPressed,
@@ -751,6 +955,7 @@ class _$LoginButtonPressedImpl implements LoginButtonPressed {
   TResult map<TResult extends Object?>({
     required TResult Function(LoginEmailChanged value) emailChanged,
     required TResult Function(LoginPasswordChanged value) passwordChanged,
+    required TResult Function(SelectAdademicLogin value) selectAcademicLogin,
     required TResult Function(AcademicList value) academicList,
     required TResult Function(LoginButtonPressed value) loginButtonPressed,
     required TResult Function(ForgotPasswordPressed value)
@@ -765,6 +970,7 @@ class _$LoginButtonPressedImpl implements LoginButtonPressed {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(LoginEmailChanged value)? emailChanged,
     TResult? Function(LoginPasswordChanged value)? passwordChanged,
+    TResult? Function(SelectAdademicLogin value)? selectAcademicLogin,
     TResult? Function(AcademicList value)? academicList,
     TResult? Function(LoginButtonPressed value)? loginButtonPressed,
     TResult? Function(ForgotPasswordPressed value)? forgotPasswordPressed,
@@ -778,6 +984,7 @@ class _$LoginButtonPressedImpl implements LoginButtonPressed {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(LoginEmailChanged value)? emailChanged,
     TResult Function(LoginPasswordChanged value)? passwordChanged,
+    TResult Function(SelectAdademicLogin value)? selectAcademicLogin,
     TResult Function(AcademicList value)? academicList,
     TResult Function(LoginButtonPressed value)? loginButtonPressed,
     TResult Function(ForgotPasswordPressed value)? forgotPasswordPressed,
@@ -853,6 +1060,7 @@ class _$ForgotPasswordPressedImpl implements ForgotPasswordPressed {
   TResult when<TResult extends Object?>({
     required TResult Function(String email) emailChanged,
     required TResult Function(String password) passwordChanged,
+    required TResult Function(String academicId) selectAcademicLogin,
     required TResult Function(String location) academicList,
     required TResult Function(String email, String password, String deviceID)
         loginButtonPressed,
@@ -867,6 +1075,7 @@ class _$ForgotPasswordPressedImpl implements ForgotPasswordPressed {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(String email)? emailChanged,
     TResult? Function(String password)? passwordChanged,
+    TResult? Function(String academicId)? selectAcademicLogin,
     TResult? Function(String location)? academicList,
     TResult? Function(String email, String password, String deviceID)?
         loginButtonPressed,
@@ -881,6 +1090,7 @@ class _$ForgotPasswordPressedImpl implements ForgotPasswordPressed {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String email)? emailChanged,
     TResult Function(String password)? passwordChanged,
+    TResult Function(String academicId)? selectAcademicLogin,
     TResult Function(String location)? academicList,
     TResult Function(String email, String password, String deviceID)?
         loginButtonPressed,
@@ -899,6 +1109,7 @@ class _$ForgotPasswordPressedImpl implements ForgotPasswordPressed {
   TResult map<TResult extends Object?>({
     required TResult Function(LoginEmailChanged value) emailChanged,
     required TResult Function(LoginPasswordChanged value) passwordChanged,
+    required TResult Function(SelectAdademicLogin value) selectAcademicLogin,
     required TResult Function(AcademicList value) academicList,
     required TResult Function(LoginButtonPressed value) loginButtonPressed,
     required TResult Function(ForgotPasswordPressed value)
@@ -913,6 +1124,7 @@ class _$ForgotPasswordPressedImpl implements ForgotPasswordPressed {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(LoginEmailChanged value)? emailChanged,
     TResult? Function(LoginPasswordChanged value)? passwordChanged,
+    TResult? Function(SelectAdademicLogin value)? selectAcademicLogin,
     TResult? Function(AcademicList value)? academicList,
     TResult? Function(LoginButtonPressed value)? loginButtonPressed,
     TResult? Function(ForgotPasswordPressed value)? forgotPasswordPressed,
@@ -926,6 +1138,7 @@ class _$ForgotPasswordPressedImpl implements ForgotPasswordPressed {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(LoginEmailChanged value)? emailChanged,
     TResult Function(LoginPasswordChanged value)? passwordChanged,
+    TResult Function(SelectAdademicLogin value)? selectAcademicLogin,
     TResult Function(AcademicList value)? academicList,
     TResult Function(LoginButtonPressed value)? loginButtonPressed,
     TResult Function(ForgotPasswordPressed value)? forgotPasswordPressed,
@@ -986,6 +1199,7 @@ class _$SignUpPressedImpl implements SignUpPressed {
   TResult when<TResult extends Object?>({
     required TResult Function(String email) emailChanged,
     required TResult Function(String password) passwordChanged,
+    required TResult Function(String academicId) selectAcademicLogin,
     required TResult Function(String location) academicList,
     required TResult Function(String email, String password, String deviceID)
         loginButtonPressed,
@@ -1000,6 +1214,7 @@ class _$SignUpPressedImpl implements SignUpPressed {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(String email)? emailChanged,
     TResult? Function(String password)? passwordChanged,
+    TResult? Function(String academicId)? selectAcademicLogin,
     TResult? Function(String location)? academicList,
     TResult? Function(String email, String password, String deviceID)?
         loginButtonPressed,
@@ -1014,6 +1229,7 @@ class _$SignUpPressedImpl implements SignUpPressed {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String email)? emailChanged,
     TResult Function(String password)? passwordChanged,
+    TResult Function(String academicId)? selectAcademicLogin,
     TResult Function(String location)? academicList,
     TResult Function(String email, String password, String deviceID)?
         loginButtonPressed,
@@ -1032,6 +1248,7 @@ class _$SignUpPressedImpl implements SignUpPressed {
   TResult map<TResult extends Object?>({
     required TResult Function(LoginEmailChanged value) emailChanged,
     required TResult Function(LoginPasswordChanged value) passwordChanged,
+    required TResult Function(SelectAdademicLogin value) selectAcademicLogin,
     required TResult Function(AcademicList value) academicList,
     required TResult Function(LoginButtonPressed value) loginButtonPressed,
     required TResult Function(ForgotPasswordPressed value)
@@ -1046,6 +1263,7 @@ class _$SignUpPressedImpl implements SignUpPressed {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(LoginEmailChanged value)? emailChanged,
     TResult? Function(LoginPasswordChanged value)? passwordChanged,
+    TResult? Function(SelectAdademicLogin value)? selectAcademicLogin,
     TResult? Function(AcademicList value)? academicList,
     TResult? Function(LoginButtonPressed value)? loginButtonPressed,
     TResult? Function(ForgotPasswordPressed value)? forgotPasswordPressed,
@@ -1059,6 +1277,7 @@ class _$SignUpPressedImpl implements SignUpPressed {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(LoginEmailChanged value)? emailChanged,
     TResult Function(LoginPasswordChanged value)? passwordChanged,
+    TResult Function(SelectAdademicLogin value)? selectAcademicLogin,
     TResult Function(AcademicList value)? academicList,
     TResult Function(LoginButtonPressed value)? loginButtonPressed,
     TResult Function(ForgotPasswordPressed value)? forgotPasswordPressed,

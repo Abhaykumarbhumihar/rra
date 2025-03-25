@@ -20,6 +20,7 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
     on<LoginButtonPressed>(_onLoginButtonPressed);
     on<LoginEmailChanged>(_onEmailChanged);
     on<LoginPasswordChanged>(_onPasswordChanged);
+    on<SelectAdademicLogin>(_selectAcademic);
     on<AcademicList>(_getAcademicList);
 
 
@@ -40,6 +41,17 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
       LoginPasswordChanged event, Emitter<LoginState> emit) async {
     emit(state.copyWith(
         password: event.password,
+        isError: false,
+        success: false,
+        isLoading: false,
+        isLoginApiError: false,
+        error: ''));
+  }
+
+  Future<void> _selectAcademic(
+      SelectAdademicLogin event, Emitter<LoginState> emit) async {
+    emit(state.copyWith(
+        selectedAcademiId: event.academicId,
         isError: false,
         success: false,
         isLoading: false,

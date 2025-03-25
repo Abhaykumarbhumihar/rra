@@ -190,6 +190,9 @@ class LoginScreen extends StatelessWidget {
                                       return AcademicListBottomsheet(
                                         selectAcademic: (name, id) {
                                           academicController.text = name;
+                                          context
+                                              .read<LoginBloc>()
+                                              .add(LoginEvent.academicList(id.toString()));
                                         },
                                       );
                                     },

@@ -28,6 +28,7 @@ mixin _$CreateAccountState {
   bool get isServerError => throw _privateConstructorUsedError;
   String get successMessage => throw _privateConstructorUsedError;
   UserPojo get userdata => throw _privateConstructorUsedError;
+  String get selectedAcademiId => throw _privateConstructorUsedError;
 
   /// Create a copy of CreateAccountState
   /// with the given fields replaced by the non-null parameter values.
@@ -54,7 +55,8 @@ abstract class $CreateAccountStateCopyWith<$Res> {
       String errorMessage,
       bool isServerError,
       String successMessage,
-      UserPojo userdata});
+      UserPojo userdata,
+      String selectedAcademiId});
 
   $UserPojoCopyWith<$Res> get userdata;
 }
@@ -86,6 +88,7 @@ class _$CreateAccountStateCopyWithImpl<$Res, $Val extends CreateAccountState>
     Object? isServerError = null,
     Object? successMessage = null,
     Object? userdata = null,
+    Object? selectedAcademiId = null,
   }) {
     return _then(_value.copyWith(
       firstName: null == firstName
@@ -136,6 +139,10 @@ class _$CreateAccountStateCopyWithImpl<$Res, $Val extends CreateAccountState>
           ? _value.userdata
           : userdata // ignore: cast_nullable_to_non_nullable
               as UserPojo,
+      selectedAcademiId: null == selectedAcademiId
+          ? _value.selectedAcademiId
+          : selectedAcademiId // ignore: cast_nullable_to_non_nullable
+              as String,
     ) as $Val);
   }
 
@@ -170,7 +177,8 @@ abstract class _$$CreateAccountStateImplCopyWith<$Res>
       String errorMessage,
       bool isServerError,
       String successMessage,
-      UserPojo userdata});
+      UserPojo userdata,
+      String selectedAcademiId});
 
   @override
   $UserPojoCopyWith<$Res> get userdata;
@@ -201,6 +209,7 @@ class __$$CreateAccountStateImplCopyWithImpl<$Res>
     Object? isServerError = null,
     Object? successMessage = null,
     Object? userdata = null,
+    Object? selectedAcademiId = null,
   }) {
     return _then(_$CreateAccountStateImpl(
       firstName: null == firstName
@@ -251,6 +260,10 @@ class __$$CreateAccountStateImplCopyWithImpl<$Res>
           ? _value.userdata
           : userdata // ignore: cast_nullable_to_non_nullable
               as UserPojo,
+      selectedAcademiId: null == selectedAcademiId
+          ? _value.selectedAcademiId
+          : selectedAcademiId // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
   }
 }
@@ -270,7 +283,8 @@ class _$CreateAccountStateImpl implements _CreateAccountState {
       this.errorMessage = '',
       this.isServerError = false,
       this.successMessage = '',
-      this.userdata = const UserPojo()});
+      this.userdata = const UserPojo(),
+      this.selectedAcademiId = ""});
 
   @override
   @JsonKey()
@@ -308,10 +322,13 @@ class _$CreateAccountStateImpl implements _CreateAccountState {
   @override
   @JsonKey()
   final UserPojo userdata;
+  @override
+  @JsonKey()
+  final String selectedAcademiId;
 
   @override
   String toString() {
-    return 'CreateAccountState(firstName: $firstName, lastName: $lastName, email: $email, phoneNo: $phoneNo, password: $password, confirmPassword: $confirmPassword, isLoading: $isLoading, isSuccess: $isSuccess, errorMessage: $errorMessage, isServerError: $isServerError, successMessage: $successMessage, userdata: $userdata)';
+    return 'CreateAccountState(firstName: $firstName, lastName: $lastName, email: $email, phoneNo: $phoneNo, password: $password, confirmPassword: $confirmPassword, isLoading: $isLoading, isSuccess: $isSuccess, errorMessage: $errorMessage, isServerError: $isServerError, successMessage: $successMessage, userdata: $userdata, selectedAcademiId: $selectedAcademiId)';
   }
 
   @override
@@ -340,7 +357,9 @@ class _$CreateAccountStateImpl implements _CreateAccountState {
             (identical(other.successMessage, successMessage) ||
                 other.successMessage == successMessage) &&
             (identical(other.userdata, userdata) ||
-                other.userdata == userdata));
+                other.userdata == userdata) &&
+            (identical(other.selectedAcademiId, selectedAcademiId) ||
+                other.selectedAcademiId == selectedAcademiId));
   }
 
   @override
@@ -357,7 +376,8 @@ class _$CreateAccountStateImpl implements _CreateAccountState {
       errorMessage,
       isServerError,
       successMessage,
-      userdata);
+      userdata,
+      selectedAcademiId);
 
   /// Create a copy of CreateAccountState
   /// with the given fields replaced by the non-null parameter values.
@@ -382,7 +402,8 @@ abstract class _CreateAccountState implements CreateAccountState {
       final String errorMessage,
       final bool isServerError,
       final String successMessage,
-      final UserPojo userdata}) = _$CreateAccountStateImpl;
+      final UserPojo userdata,
+      final String selectedAcademiId}) = _$CreateAccountStateImpl;
 
   @override
   String get firstName;
@@ -408,6 +429,8 @@ abstract class _CreateAccountState implements CreateAccountState {
   String get successMessage;
   @override
   UserPojo get userdata;
+  @override
+  String get selectedAcademiId;
 
   /// Create a copy of CreateAccountState
   /// with the given fields replaced by the non-null parameter values.

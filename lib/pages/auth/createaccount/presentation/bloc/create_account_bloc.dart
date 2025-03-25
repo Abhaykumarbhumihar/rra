@@ -16,6 +16,7 @@ class CreateAccountBloc extends Bloc<CreateAccountEvent, CreateAccountState> {
   CreateAccountBloc() : super(CreateAccountState.initial()) {
     on<FirstNameChanged>(_onFirstNameChanged);
     on<EmailChanged>(_onEmailChanged);
+    on<SelectAcademicCreateAccount>(_selectAcademic);
     on<PasswordChanged>(_onPasswordChanged);
     on<CreateAccountSubmitted>(_onCreateAccountSubmitted);
     on<MakeInitial>(_onMakeInitial);
@@ -49,6 +50,15 @@ class CreateAccountBloc extends Bloc<CreateAccountEvent, CreateAccountState> {
         successMessage: '',
         isServerError: false
         ));
+  }
+  Future<void> _selectAcademic(
+      SelectAcademicCreateAccount event, Emitter<CreateAccountState> emit) async {
+    emit(state.copyWith(
+        selectedAcademiId: event.academicId, errorMessage: '',
+        isSuccess: false,
+        successMessage: '',
+        isServerError: false
+    ));
   }
 
 

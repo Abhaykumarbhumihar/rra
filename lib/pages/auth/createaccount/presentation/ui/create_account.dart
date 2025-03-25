@@ -228,6 +228,9 @@ class CreateAccount extends StatelessWidget {
                                           selectAcademic: (name, id) {
                                             academicController.text =
                                                 name;
+                                            context
+                                                .read<CreateAccountBloc>()
+                                                .add(SelectAcademicCreateAccount(id.toString()));
                                           },
                                         );
                                       },
