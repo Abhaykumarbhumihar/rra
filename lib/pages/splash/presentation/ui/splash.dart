@@ -1,8 +1,10 @@
+import 'package:rra/common/routes/exports.dart';
 import 'package:rra/common/values/values_exports.dart';
 import 'package:rra/pages/splash/presentation/ui/splash_component.dart';
 
 import '../../../../common/local/SharedPrefs.dart';
 import '../../../../common/routes/routes.dart';
+import '../../../auth/login/presentation/bloc/login_event.dart';
 import '../../../auth/otpverification/data/entity/otp_verification_model.dart';
 import '../../../auth/otpverification/presentation/bloc/otpverification_bloc.dart';
 import '../../../auth/otpverification/presentation/bloc/otpverification_event.dart';
@@ -19,7 +21,9 @@ class SplashPage extends StatelessWidget {
       body: BlocConsumer<SplashBloc, SplashState>(
         listener: (context, state) async {
           if (state is SplashNavigateToLogin) {
+            BlocProvider.of<LoginBloc>(context).add(AcademicList(""));
             Navigator.pushReplacementNamed(context, AppRoutes.LOGIN);
+
           }
 
           if (state is SplashNavigatToOtpVerify) {
@@ -39,7 +43,7 @@ class SplashPage extends StatelessWidget {
           if (state is SplashNavigatToProgileUpdate) {
             Navigator.pushNamedAndRemoveUntil(
               context,
-              AppRoutes.LOCATIONPAGE,
+              AppRoutes.EDITPROFILE,
               (Route<dynamic> route) => false,
             );
           }
@@ -48,7 +52,7 @@ class SplashPage extends StatelessWidget {
             BlocProvider.of<CoachingProgramsBloc>(context).add(AllCoachProgramsListEvent());
             Navigator.pushNamedAndRemoveUntil(
               context,
-              AppRoutes.LOCATIONPAGE,
+              AppRoutes.APPLICATION,
                   (Route<dynamic> route) => false,
             );
           }

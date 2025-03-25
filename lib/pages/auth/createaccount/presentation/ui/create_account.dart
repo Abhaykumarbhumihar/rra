@@ -20,6 +20,7 @@ import '../../../../../common/image/camera_file_utility.dart';
 import '../../../../../common/local/SharedPrefs.dart';
 import '../../../../../common/routes/routes.dart';
 
+import '../../../login/presentation/ui/component/academic_list_bottomsheet.dart';
 import '../../data/enitiy/create_user_model.dart';
 import '../bloc/create_account_bloc.dart';
 import 'dart:math' as math;
@@ -41,6 +42,7 @@ class CreateAccount extends StatelessWidget {
   final TextEditingController confirmPasswordController =
       TextEditingController();
   final TextEditingController phoneNoController = TextEditingController();
+  final TextEditingController academicController = TextEditingController();
 
   // FocusNodes for each input field
   final FocusNode emailFocusNode = FocusNode();
@@ -64,7 +66,7 @@ class CreateAccount extends StatelessWidget {
                 backgroundColor: AppColor.appcolor);
             BlocProvider.of<CreateAccountBloc>(context).add(MakeInitial());
           }
-          if (state.isSuccess == true && state.isSuccess!='' ) {
+          if (state.isSuccess == true && state.isSuccess != '') {
             context.showCustomSnackbar(state.successMessage,
                 backgroundColor: AppColor.appcolor);
             Map<String, dynamic> arguments = {
@@ -205,28 +207,54 @@ class CreateAccount extends StatelessWidget {
                                       ? state.errorMessage
                                       : null,
                                 ),
+                                const SizedBox(
+                                  height: 12,
+                                ),
+                                CustomTextInputMobile(
+                                  controller: academicController,
+                                  title: 'Select academic',
+                                  isPass: false,
+                                  isSuffix: true,
+                                  isShowTitle: false,
+                                  isPrefix: false,
+                                  readOnly: true,
+                                  hint: 'Select academic',
+                                  keyBoardType: TextInputType.name,
+                                  onTap: () {
+                                    showModalBottomSheet(
+                                      context: context,
+                                      builder: (BuildContext context) {
+                                        return AcademicListBottomsheet(
+                                          selectAcademic: (name, id) {
+                                            academicController.text =
+                                                name;
+                                          },
+                                        );
+                                      },
+                                    );
+                                  },
+                                  onChanged: (value) {},
+                                ),
                                 SizedBox(height: height * 0.03),
                                 // Create Account Button
                                 CustomButton(
-                                  text: "Sign Up",
-                                  onPressed: () async {
-                                    // Emit CreateAccountSubmitted event
-                                    print("code is running here");
+                                    text: "Sign Up",
+                                    onPressed: () async {
+                                      // Emit CreateAccountSubmitted event
+                                      print("code is running here");
 
-                                    // Navigator.pushNamed(
-                                    //     context, AppRoutes.OTPVERIFICATION);
-                                    if ((await Connectivity().isConnected)) {
-                                      context
-                                          .read<CreateAccountBloc>()
-                                          .add(CreateAccountSubmitted());
-                                    } else {
-                                      context.showCustomSnackbar(
-                                          'No internet connection. Please check your connection \nand try again.',
-                                          backgroundColor: AppColor.appcolor);
-                                    }
-
-                                  }
-                                ),
+                                      // Navigator.pushNamed(
+                                      //     context, AppRoutes.OTPVERIFICATION);
+                                      if ((await Connectivity().isConnected)) {
+                                        context
+                                            .read<CreateAccountBloc>()
+                                            .add(CreateAccountSubmitted());
+                                      } else {
+                                        context.showCustomSnackbar(
+                                            'No internet connection. Please check your connection \nand try again.',
+                                            backgroundColor: AppColor.appcolor);
+                                      }
+                                    }),
                                 SizedBox(height: context.screenHeight * 0.03),
                                 SignupSigninRichtext(
                                   nonActionText: 'Already have an account?',
@@ -252,6 +280,4 @@ class CreateAccount extends StatelessWidget {
       ),
     );
   }
-
-
 }

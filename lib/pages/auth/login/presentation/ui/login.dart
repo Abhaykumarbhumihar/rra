@@ -16,12 +16,14 @@ import '../../../otpverification/presentation/bloc/otpverification_event.dart';
 import '../bloc/login_bloc.dart';
 import '../bloc/login_event.dart';
 import '../bloc/login_state.dart';
+import 'component/academic_list_bottomsheet.dart';
 import 'component/continue_with_text.dart';
 import 'component/forgot_text.dart';
 
 class LoginScreen extends StatelessWidget {
   final TextEditingController emailController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
+  final TextEditingController academicController = TextEditingController();
 
   // FocusNodes for each input field
   final FocusNode emailFocusNode = FocusNode();
@@ -59,13 +61,13 @@ class LoginScreen extends StatelessWidget {
                 Navigator.pushNamedAndRemoveUntil(
                   context,
                   AppRoutes.EDITPROFILE,
-                      (Route<dynamic> route) => false,
+                  (Route<dynamic> route) => false,
                 );
-              } else{
+              } else {
                 Navigator.pushNamedAndRemoveUntil(
                   context,
                   AppRoutes.APPLICATION,
-                      (Route<dynamic> route) => false,
+                  (Route<dynamic> route) => false,
                 );
               }
             }
@@ -167,6 +169,33 @@ class LoginScreen extends StatelessWidget {
                                       .read<LoginBloc>()
                                       .add(LoginEvent.passwordChanged(value));
                                 },
+                              ),
+                              const SizedBox(
+                                height: 12,
+                              ),
+                              CustomTextInputMobile(
+                                controller: academicController,
+                                title: 'Select academic',
+                                isPass: false,
+                                isSuffix: true,
+                                isShowTitle: false,
+                                isPrefix: false,
+                                readOnly: true,
+                                hint: 'Select academic',
+                                keyBoardType: TextInputType.name,
+                                onTap: () {
+                                  showModalBottomSheet(
+                                    context: context,
+                                    builder: (BuildContext context) {
+                                      return AcademicListBottomsheet(
+                                        selectAcademic: (name, id) {
+                                          academicController.text = name;
+                                        },
+                                      );
+                                    },
+                                  );
+                                },
+                                onChanged: (value) {},
                               ),
                               Row(
                                 mainAxisAlignment: MainAxisAlignment.end,

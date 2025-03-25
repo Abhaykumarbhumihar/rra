@@ -16,6 +16,7 @@ class AppConstant {
 
   static String get updateUserProfile =>"update-profile";
   static String get getCoachingProgramList =>"get_coachingprogram";
+  static String get getAcademicList =>"get-academies";
 
 
 

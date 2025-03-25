@@ -58,6 +58,7 @@
 //   List<Object?> get props => [email,password,isLoading,error,success,isError];
 // }
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:rra/pages/auth/login/data/entity/academic_list_model.dart';
 
 import '../../../otpverification/data/entity/otp_verification_model.dart';
 
@@ -76,6 +77,7 @@ class LoginState with _$LoginState {
     @Default(false) bool isError,
     @Default(false) bool isLoginApiError,
     @Default(OtpVerificationModel()) OtpVerificationModel otpresponse,
+    @Default(AcademyListResponse()) AcademyListResponse academicListResponse,
   }) = _LoginState;
 
   // Initial state factory method

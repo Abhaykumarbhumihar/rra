@@ -94,21 +94,25 @@ class _CustomTextInputMobileState extends State<CustomTextInputMobile> {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        widget.isShowTitle?Padding(
-          padding: EdgeInsets.only(left: width * 0.015, bottom: 4.0),
-          child: Text(
-            widget.title,
-            style: TextStyle(
-              color: AppColor.appWhiteColor,
-              fontFamily: AppFont.interRegular,
-              fontSize: width * 0.032,
-            ),
-          ),
-        ):SizedBox.shrink(),
+        widget.isShowTitle
+            ? Padding(
+                padding: EdgeInsets.only(left: width * 0.015, bottom: 4.0),
+                child: Text(
+                  widget.title,
+                  style: TextStyle(
+                    color: AppColor.appWhiteColor,
+                    fontFamily: AppFont.interRegular,
+                    fontSize: width * 0.032,
+                  ),
+                ),
+              )
+            : SizedBox.shrink(),
         Container(
           // width: double.infinity,
           //duration: const Duration(seconds: 3),
-height:widget.minLine == 1 && widget.maxLines == 1? context.screenHeight*0.0625: context.screenHeight*0.2,
+          height: widget.minLine == 1 && widget.maxLines == 1
+              ? context.screenHeight * 0.0625
+              : context.screenHeight * 0.2,
           decoration: BoxDecoration(
             // color:
             //     widget.errorMessage != null && widget.errorMessage!.isNotEmpty
@@ -118,8 +122,6 @@ height:widget.minLine == 1 && widget.maxLines == 1? context.screenHeight*0.0625:
             borderRadius: widget.minLine == 1 && widget.maxLines == 1
                 ? BorderRadius.circular(width * 0.4)
                 : BorderRadius.circular(12.0),
-
-
           ),
           child: TextFormField(
             scrollPadding: widget.scrollPadding,
@@ -188,7 +190,7 @@ height:widget.minLine == 1 && widget.maxLines == 1? context.screenHeight*0.0625:
                   width: 1.5,
                   color: widget.errorMessage != null &&
                           widget.errorMessage!.isNotEmpty
-                      ?AppColor.appWhiteColor.withOpacity(0.2)
+                      ? AppColor.appWhiteColor.withOpacity(0.2)
                       : AppColor.appWhiteColor.withOpacity(0.2),
                 ),
               ),
@@ -196,14 +198,16 @@ height:widget.minLine == 1 && widget.maxLines == 1? context.screenHeight*0.0625:
                 borderRadius: widget.minLine == 1 && widget.maxLines == 1
                     ? BorderRadius.circular(width * 0.4)
                     : BorderRadius.circular(12.0),
-                borderSide: BorderSide(width: 1.2, color:AppColor.appWhiteColor.withOpacity(0.2),),
+                borderSide: BorderSide(
+                  width: 1.2,
+                  color: AppColor.appWhiteColor.withOpacity(0.2),
+                ),
               ),
             ),
             style: TextStyle(
-
               color: AppColor.appWhiteColor.withOpacity(0.7),
               fontSize: width * 0.032,
-                fontFamily: AppFont.interRegular,
+              fontFamily: AppFont.interRegular,
             ),
           ),
         ),
@@ -258,31 +262,31 @@ height:widget.minLine == 1 && widget.maxLines == 1? context.screenHeight*0.0625:
         color: Colors.blueAccent,
         size: width * 0.04,
       );
-    }else if (widget.title == "Sports") {
+    } else if (widget.title == "Sports") {
       return Icon(
         FontAwesomeIcons.chevronDown,
         color: Colors.white.withOpacity(0.5),
         size: width * 0.04,
       );
-    }else if (widget.title == "Select Sesssion") {
+    } else if (widget.title == "Select Sesssion") {
       return Icon(
         FontAwesomeIcons.chevronDown,
         color: Colors.white.withOpacity(0.5),
         size: width * 0.04,
       );
-    }else if (widget.title == "Select Student") {
+    } else if (widget.title == "Select Student") {
       return Icon(
         FontAwesomeIcons.chevronDown,
         color: Colors.white.withOpacity(0.5),
         size: width * 0.04,
       );
-    }else if (widget.title == "Choose Date") {
+    } else if (widget.title == "Choose Date") {
       return Icon(
         FontAwesomeIcons.calendar,
         color: Colors.white.withOpacity(0.5),
         size: width * 0.04,
       );
-    }else if (widget.title == "Select Time") {
+    } else if (widget.title == "Select Time") {
       return Icon(
         FontAwesomeIcons.clock,
         color: Colors.white.withOpacity(0.5),
@@ -294,13 +298,13 @@ height:widget.minLine == 1 && widget.maxLines == 1? context.screenHeight*0.0625:
         color: Colors.white.withOpacity(0.5),
         size: width * 0.04,
       );
-    }else if (widget.title == "Gender") {
+    } else if (widget.title == "Gender") {
       return Icon(
         FontAwesomeIcons.chevronDown,
         color: Colors.white.withOpacity(0.5),
         size: width * 0.04,
       );
-    }else if (widget.title == "Select Coach") {
+    } else if (widget.title == "Select Coach") {
       return Icon(
         FontAwesomeIcons.chevronDown,
         color: Colors.white.withOpacity(0.5),
@@ -313,6 +317,12 @@ height:widget.minLine == 1 && widget.maxLines == 1? context.screenHeight*0.0625:
         size: width * 0.04,
       );
     } else if (widget.title == "Select Days") {
+      return Icon(
+        FontAwesomeIcons.chevronDown,
+        color: Colors.white.withOpacity(0.8),
+        size: width * 0.04,
+      );
+    } else if (widget.title == "Select academic") {
       return Icon(
         FontAwesomeIcons.chevronDown,
         color: Colors.white.withOpacity(0.8),
@@ -347,13 +357,6 @@ height:widget.minLine == 1 && widget.maxLines == 1? context.screenHeight*0.0625:
     }
   }
 }
-
-
-
-
-
-
-
 
 class LocationInputMobile extends StatefulWidget {
   final String title;
@@ -448,12 +451,12 @@ class _LocationInputMobileState extends State<LocationInputMobile> {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-
-
         Container(
           // width: double.infinity,
           //duration: const Duration(seconds: 3),
-          height:widget.minLine == 1 && widget.maxLines == 1? context.screenHeight*0.0895: context.screenHeight*0.2,
+          height: widget.minLine == 1 && widget.maxLines == 1
+              ? context.screenHeight * 0.0895
+              : context.screenHeight * 0.2,
           decoration: BoxDecoration(
             // color:
             //     widget.errorMessage != null && widget.errorMessage!.isNotEmpty
@@ -463,8 +466,6 @@ class _LocationInputMobileState extends State<LocationInputMobile> {
             borderRadius: widget.minLine == 1 && widget.maxLines == 1
                 ? BorderRadius.circular(width * 0.4)
                 : BorderRadius.circular(12.0),
-
-
           ),
           child: TextFormField(
             scrollPadding: widget.scrollPadding,
@@ -476,7 +477,7 @@ class _LocationInputMobileState extends State<LocationInputMobile> {
             cursorColor: AppColor.appcolor,
             cursorOpacityAnimates: false,
             autovalidateMode:
-            widget.autovalidateMode ?? AutovalidateMode.disabled,
+                widget.autovalidateMode ?? AutovalidateMode.disabled,
             maxLength: widget.maxLength,
             validator: widget.validator,
             textInputAction: widget.TextInputAction ?? TextInputAction.next,
@@ -498,7 +499,7 @@ class _LocationInputMobileState extends State<LocationInputMobile> {
                 right: width * 0.04,
               ),
               suffixIcon: InkWell(
-                onTap:widget.onPressed,
+                onTap: widget.onPressed,
                 child: Padding(
                   padding: const EdgeInsets.only(right: 12.0),
                   child: Icon(
@@ -509,9 +510,8 @@ class _LocationInputMobileState extends State<LocationInputMobile> {
                 ),
               ),
               // Add the prefixIcon logic here
-              prefixIcon:  Padding(
+              prefixIcon: Padding(
                 padding: const EdgeInsets.only(left: 12.0),
-
                 child: Icon(
                   Icons.search,
                   color: Colors.white,
@@ -535,8 +535,8 @@ class _LocationInputMobileState extends State<LocationInputMobile> {
                 borderSide: BorderSide(
                   width: 1.5,
                   color: widget.errorMessage != null &&
-                      widget.errorMessage!.isNotEmpty
-                      ?AppColor.appWhiteColor.withOpacity(0.2)
+                          widget.errorMessage!.isNotEmpty
+                      ? AppColor.appWhiteColor.withOpacity(0.2)
                       : AppColor.appWhiteColor.withOpacity(0.2),
                 ),
               ),
@@ -544,11 +544,13 @@ class _LocationInputMobileState extends State<LocationInputMobile> {
                 borderRadius: widget.minLine == 1 && widget.maxLines == 1
                     ? BorderRadius.circular(width * 0.4)
                     : BorderRadius.circular(12.0),
-                borderSide: BorderSide(width: 1.2, color:AppColor.appWhiteColor.withOpacity(0.2),),
+                borderSide: BorderSide(
+                  width: 1.2,
+                  color: AppColor.appWhiteColor.withOpacity(0.2),
+                ),
               ),
             ),
             style: TextStyle(
-
               color: AppColor.appWhiteColor.withOpacity(0.7),
               fontSize: width * 0.036,
               fontFamily: AppFont.interRegular,
@@ -561,9 +563,9 @@ class _LocationInputMobileState extends State<LocationInputMobile> {
         widget.isDOllar == false
             ? SizedBox.shrink()
             : Text(
-          '\$',
-          style: TextStyle(color: Colors.black),
-        ),
+                '\$',
+                style: TextStyle(color: Colors.black),
+              ),
       ],
     );
   }
@@ -584,31 +586,31 @@ class _LocationInputMobileState extends State<LocationInputMobile> {
         color: Colors.blueAccent,
         size: width * 0.04,
       );
-    }else if (widget.title == "Sports") {
+    } else if (widget.title == "Sports") {
       return Icon(
         FontAwesomeIcons.chevronDown,
         color: Colors.white.withOpacity(0.5),
         size: width * 0.04,
       );
-    }else if (widget.title == "Select Sesssion") {
+    } else if (widget.title == "Select Sesssion") {
       return Icon(
         FontAwesomeIcons.chevronDown,
         color: Colors.white.withOpacity(0.5),
         size: width * 0.04,
       );
-    }else if (widget.title == "Select Student") {
+    } else if (widget.title == "Select Student") {
       return Icon(
         FontAwesomeIcons.chevronDown,
         color: Colors.white.withOpacity(0.5),
         size: width * 0.04,
       );
-    }else if (widget.title == "Choose Date") {
+    } else if (widget.title == "Choose Date") {
       return Icon(
         FontAwesomeIcons.calendar,
         color: Colors.white.withOpacity(0.5),
         size: width * 0.04,
       );
-    }else if (widget.title == "Select Time") {
+    } else if (widget.title == "Select Time") {
       return Icon(
         FontAwesomeIcons.clock,
         color: Colors.white.withOpacity(0.5),
@@ -620,13 +622,19 @@ class _LocationInputMobileState extends State<LocationInputMobile> {
         color: Colors.white.withOpacity(0.5),
         size: width * 0.04,
       );
-    }else if (widget.title == "Gender") {
+    } else if (widget.title == "Gender") {
       return Icon(
         FontAwesomeIcons.chevronDown,
         color: Colors.white.withOpacity(0.5),
         size: width * 0.04,
       );
-    }else if (widget.title == "Select Coach") {
+    } else if (widget.title == "Select academic") {
+      return Icon(
+        FontAwesomeIcons.chevronDown,
+        color: Colors.white.withOpacity(0.5),
+        size: width * 0.04,
+      );
+    } else if (widget.title == "Select Coach") {
       return Icon(
         FontAwesomeIcons.chevronDown,
         color: Colors.white.withOpacity(0.5),
