@@ -4,6 +4,8 @@ import 'package:rra/pages/parents/facility/facility_detail/presentation/ui/facil
 import 'package:rra/pages/parents/facility/facilitylist/presentation/ui/facility_list.dart';
 import 'package:rra/pages/parents/location/presentation/bloc/location_bloc.dart';
 import 'package:rra/pages/parents/location/presentation/ui/location_list_page.dart';
+import '../../pages/auth/forgotpassword/presentation/bloc/forget_password_bloc.dart';
+import '../../pages/auth/forgotpassword/presentation/ui/forgot_password.dart';
 import '../../pages/coach/coach_attendance/player_attendance_list/presentation/ui/coach_player_attendance_list.dart';
 import '../../pages/coach/coach_attendance/single_player_attendance_page/presentation/ui/coach_single_player_detail_page.dart';
 import '../../pages/coach/coach_player_report/coach_player_report_detail/presentation/ui/coach_player_report_detail_page.dart';
@@ -55,7 +57,10 @@ class AppPages {
           route: AppRoutes.RESETPASSWORD,
           page: ResetPassword(),
           bloc: BlocProvider(create: (_) => ResetpasswordBloc())),
-
+      PageEntitiy(
+          route: AppRoutes.FORGOTPASSWORD,
+          page: ForgotPassword(),
+          bloc: BlocProvider(create: (_) => ForgetPasswordBloc())),
       PageEntitiy(
           route: AppRoutes.EDITPROFILE,
           page: EditProfile(),

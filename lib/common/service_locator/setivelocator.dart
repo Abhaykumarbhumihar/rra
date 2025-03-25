@@ -8,6 +8,9 @@ import '../../pages/auth/createaccount/domain/usecase/create_account_usecase.dar
 import '../../pages/auth/edit_profile/data/repoimpl/edit_profile_repo_impl.dart';
 import '../../pages/auth/edit_profile/domain/repositery/edit_profile_repositery.dart';
 import '../../pages/auth/edit_profile/domain/usecase/edit_profile_usecase.dart';
+import '../../pages/auth/forgotpassword/data/repoimpl/forgot_password_repo_impl.dart';
+import '../../pages/auth/forgotpassword/domain/repositery/forgot_password_repo.dart';
+import '../../pages/auth/forgotpassword/domain/usecase/forgot_password_usecase.dart';
 import '../../pages/auth/login/data/repoimpl/login_repo_impl.dart';
 import '../../pages/auth/login/domain/repositery/login_repo.dart';
 import '../../pages/auth/login/domain/usecase/login_usecase.dart';
@@ -50,6 +53,12 @@ void serviceLocator() {
           () => CreateAccountImpl());
   getIt.registerLazySingleton<CreateAccountUseCase>(
           () => CreateAccountUseCase(getIt<CreateAccountRepositery>()));
+
+  /*send otp*/
+  getIt.registerLazySingleton<ForgotPasswordRepositery>(
+          () => ForgotPasswordImpl());
+  getIt.registerLazySingleton<ForgotPasswordUseCase>(
+          () => ForgotPasswordUseCase(getIt<ForgotPasswordRepositery>()));
 
   /*verify otp*/
   getIt.registerLazySingleton<VerifyOtpRepositery>(
