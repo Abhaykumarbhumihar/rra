@@ -9,6 +9,7 @@ static const WELCOMEPAGE="/welcom_page";
   static const FORGOTPASSWORD="/forgot_password";
   static const RESETPASSWORD="/reset_password";
   static const ADDPROFILEPHOTO="/add_profile_photo";
+  static const LOCATIONPAGE="/location_page";
 
 
   // Parents-------------------------------------------------------------

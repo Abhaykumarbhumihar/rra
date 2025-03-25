@@ -2,6 +2,8 @@ import 'package:rra/common/routes/routes.dart';
 import 'package:rra/pages/parents/facility/facility_add_to_cart/presentaion/ui/facility_add_to_cart_page.dart';
 import 'package:rra/pages/parents/facility/facility_detail/presentation/ui/facility_detail_page.dart';
 import 'package:rra/pages/parents/facility/facilitylist/presentation/ui/facility_list.dart';
+import 'package:rra/pages/parents/location/presentation/bloc/location_bloc.dart';
+import 'package:rra/pages/parents/location/presentation/ui/location_list_page.dart';
 import '../../pages/coach/coach_attendance/player_attendance_list/presentation/ui/coach_player_attendance_list.dart';
 import '../../pages/coach/coach_attendance/single_player_attendance_page/presentation/ui/coach_single_player_detail_page.dart';
 import '../../pages/coach/coach_player_report/coach_player_report_detail/presentation/ui/coach_player_report_detail_page.dart';
@@ -101,6 +103,12 @@ class AppPages {
         route: AppRoutes.ADDVIEWDOCUMENT,
         page:  AddViewDocumenPage(),
         bloc: BlocProvider(create: (_) => AddDocumentBloc()),
+      ),
+
+      PageEntitiy(
+        route: AppRoutes.LOCATIONPAGE,
+        page:  LocationListPage(),
+        bloc: BlocProvider(create: (_) => LocationBloc()),
       ),
       PageEntitiy(
         route: AppRoutes.HOLIDAYCAMPDETAIL,

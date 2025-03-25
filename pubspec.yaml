@@ -54,11 +54,13 @@ dependencies:
   intl:
   auto_height_grid_view:
   table_calendar:
-
+  uuid:
   another_flushbar: ^1.12.30
   flutter_stripe:
   toggle_switch:
   percent_indicator:
+  geolocator: 13.0.2
+  geolocator_android: 4.6.1
 
 dev_dependencies:
   flutter_test:

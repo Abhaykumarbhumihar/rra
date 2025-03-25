@@ -23,6 +23,9 @@ import '../../pages/auth/resetpassword/domain/usecase/reset_password_usecase.dar
 import '../../pages/parents/application/data/repoimpl/application_repositery_impl.dart';
 import '../../pages/parents/application/domain/repositery/application_repositery.dart';
 import '../../pages/parents/application/domain/usecase/application_usecase.dart';
+import '../../pages/parents/location/data/repoImpl/location_repo_impl.dart';
+import '../../pages/parents/location/domain/repositery/location_repositery.dart';
+import '../../pages/parents/location/domain/usecase/location_usecase.dart';
 import '../../pages/parents/session/coachprograms/data/repoImpl/coach_programs_repo_impl.dart';
 import '../../pages/parents/session/coachprograms/domain/repositery/coach_programs_repo.dart';
 import '../../pages/parents/session/coachprograms/domain/usecase/coach_programs_usecase.dart';
@@ -77,5 +80,11 @@ void serviceLocator() {
           () => CoachProgramsRepoImpl());
   getIt.registerLazySingleton<CoachProgramsUseCase>(
           () => CoachProgramsUseCase(getIt<CoachProgramsRepo>()));
+
+  /*location */
+  getIt.registerLazySingleton<LocationRepositery>(
+          () => LocationRepositeryImpl());
+  getIt.registerLazySingleton<LocationUsecase>(
+          () => LocationUsecase(getIt<LocationRepositery>()));
 
 }

@@ -39,7 +39,7 @@ class SplashPage extends StatelessWidget {
           if (state is SplashNavigatToProgileUpdate) {
             Navigator.pushNamedAndRemoveUntil(
               context,
-              AppRoutes.EDITPROFILE,
+              AppRoutes.LOCATIONPAGE,
               (Route<dynamic> route) => false,
             );
           }
@@ -48,7 +48,7 @@ class SplashPage extends StatelessWidget {
             BlocProvider.of<CoachingProgramsBloc>(context).add(AllCoachProgramsListEvent());
             Navigator.pushNamedAndRemoveUntil(
               context,
-              AppRoutes.APPLICATION,
+              AppRoutes.LOCATIONPAGE,
                   (Route<dynamic> route) => false,
             );
           }
