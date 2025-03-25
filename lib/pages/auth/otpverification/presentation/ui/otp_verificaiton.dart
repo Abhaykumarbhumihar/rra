@@ -8,6 +8,7 @@ import '../../../../../common/component/sub_title.dart';
 import '../../../../../common/local/SharedPrefs.dart';
 import '../../../../../common/routes/routes.dart';
 import '../../../../../common/values/utils.dart';
+import '../../../../parents/session/coachprograms/presentation/bloc/coach_programs_bloc.dart';
 import '../../../login/presentation/ui/component/forgot_text.dart';
 import '../../data/entity/otp_verification_model.dart';
 import '../bloc/otpverification_bloc.dart';
@@ -52,6 +53,8 @@ class OtpVerificaiton extends StatelessWidget {
             if (isFromCreateAccount!) {
               await SharedPrefs.setModel("user_model", state.otpresponse);
               await SharedPrefs.setString("token", state.otpresponse.token);
+              BlocProvider.of<CoachingProgramsBloc>(context).add(AllCoachProgramsListEvent());
+
               Navigator.pushNamedAndRemoveUntil(
                 context,
                 AppRoutes.EDITPROFILE,

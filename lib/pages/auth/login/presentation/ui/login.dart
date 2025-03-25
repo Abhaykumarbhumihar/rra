@@ -11,6 +11,7 @@ import '../../../../../common/component/sub_title.dart';
 import '../../../../../common/local/SharedPrefs.dart';
 import '../../../../../common/routes/routes.dart';
 import '../../../../../common/stripe/stripe_service.dart';
+import '../../../../parents/session/coachprograms/presentation/bloc/coach_programs_bloc.dart';
 import '../../../otpverification/presentation/bloc/otpverification_bloc.dart';
 import '../../../otpverification/presentation/bloc/otpverification_event.dart';
 import '../bloc/login_bloc.dart';
@@ -64,6 +65,9 @@ class LoginScreen extends StatelessWidget {
                   (Route<dynamic> route) => false,
                 );
               } else {
+
+                BlocProvider.of<CoachingProgramsBloc>(context).add(AllCoachProgramsListEvent());
+
                 Navigator.pushNamedAndRemoveUntil(
                   context,
                   AppRoutes.APPLICATION,
