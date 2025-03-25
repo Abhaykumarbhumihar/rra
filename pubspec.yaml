@@ -42,6 +42,9 @@ dependencies:
   flutter_exif_rotation:
   permission_handler:
   flutter_bloc:
+  fancy_shimmer_image:
+  flutter_cache_manager:
+  cached_network_image:
   equatable:
   shared_preferences:
   freezed_annotation: ^2.4.4

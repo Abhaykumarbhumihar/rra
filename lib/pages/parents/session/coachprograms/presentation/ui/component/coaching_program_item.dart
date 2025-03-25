@@ -1,8 +1,10 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:rra/common/network/app_constant.dart';
 import 'package:rra/common/values/screenUtils.dart';
 import 'package:rra/common/values/values_exports.dart';
 
+import '../../../../../../../common/component/network_image.dart';
 import '../../../data/entity/parent_coaching_program_list.dart';
 
 
@@ -38,15 +40,23 @@ class CoachingProgramItem extends StatelessWidget {
                 // Aligns text to top
                 children: [
                   // Left Side - Image
-                  ClipRRect(
-                    borderRadius: BorderRadius.circular(10),
-                    child: Image.network(
-                      coachingProgramResponse.image,
-                      width: 60,
-                      height: 60,
-                      fit: BoxFit.cover,
-                    ),
-                  ),
+                  // ClipRRect(
+                  //   borderRadius: BorderRadius.circular(10),
+                  //   child: Image.network(
+                  //     AppConstant.fileBaseUrl+coachingProgramResponse.image,
+                  //     width: 60,
+                  //     height: 60,
+                  //     fit: BoxFit.cover,
+                  //   ),
+                  // ),
+        NetworkImageWidget(
+          imageUrl: coachingProgramResponse.image,
+          imageWidth:60,
+          placeHolder: "assets/images/football.png",
+          imageHeight: 60,
+          radiusAll:10,
+          imageFitType: BoxFit.cover,
+        ),
 
                   SizedBox(width: 8.0), // Space between Image & Text
 

@@ -148,11 +148,11 @@ class ResetPassword extends StatelessWidget {
                               CustomButton(
                                 text: "Confirm new password",
                                 onPressed: () {
-                                  Navigator.pushNamed(
-                                      context, AppRoutes.EDITPROFILE);
-                                 // context.read<ResetpasswordBloc>().add(
-                                 //     ResetPasswordSubmitted(
-                                 //         "${arguments?['email']}"));
+                                  // Navigator.pushNamed(
+                                  //     context, AppRoutes.EDITPROFILE);
+                                 context.read<ResetpasswordBloc>().add(
+                                     ResetPasswordSubmitted(
+                                         "${arguments?['email']}"));
                                   // Navigator.pushNamedAndRemoveUntil(
                                   //   context,
                                   //   AppRoutes.LOGIN,
