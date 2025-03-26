@@ -21,20 +21,9 @@ class AcademicListBottomsheet extends StatelessWidget {
 
         child: BlocBuilder<LoginBloc, LoginState>(
           builder: (context, state) {
-            return ListView.builder(
-                itemCount: state.academicListResponse.data.length,
-                shrinkWrap: true,
-                itemBuilder: (context,index){
-              return   ListTile(
-                title: Text("${state.academicListResponse.data[index].academy_name}"),
-              //  subtitle: Text("${state.academicListResponse.data[index].address}"),
-                leading: const Icon(Icons.done),
-                onTap: () {
-                  selectAcademic(state.academicListResponse.data[index].academy_name,state.academicListResponse.data[index].id.toString());
-                  Navigator.pop(context);
-                },
-              );
-            });
+            return Column(
+              children: <Widget>[],
+            );
           },
         ),
       ),

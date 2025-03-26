@@ -8,27 +8,30 @@ import '../../../../../common/network/api_services.dart';
 import '../../../../../common/network/app_constant.dart';
 import '../../../../../common/network/failure.dart';
 import '../../../../../common/service_locator/setivelocator.dart';
-import '../../../otpverification/data/entity/otp_verification_model.dart';
-import '../../domain/repositery/login_repo.dart';
 
+import '../../domain/repositery/academic_repoitery.dart';
+import '../entity/academic_list_model.dart';
 
-class LoginImpl implements LoginRepositery {
+class AcademicRepoiteryImpl implements AcademicRepoitery {
   final ApiServices _apiServices = getIt<ApiServices>();
-  LoginImpl();
+  AcademicRepoiteryImpl();
+
+
+
 
 
   @override
-  Future<Either<Failure, OtpVerificationModel>> login(Map<String, dynamic> loginData)async {
+  Future<Either<Failure, AcademyListResponse>> academicList(Map<String, dynamic> academicListData)async {
     try {
 
-      print(loginData);
+      print(academicListData);
       http.Response response =
-          await _apiServices.post(AppConstant.login, loginData);
+      await _apiServices.post(AppConstant.getAcademicList, academicListData);
       print(response.body);
       if (response.statusCode == 200) {
         final Map<String, dynamic> responseData = jsonDecode(response.body);
         if(responseData['success']){
-          final OtpVerificationModel user = OtpVerificationModel.fromJson(responseData);
+          final AcademyListResponse user = AcademyListResponse.fromJson(responseData);
           return Right(user);
         }else{
           return Left(Failure(responseData['success']));
@@ -42,7 +45,6 @@ class LoginImpl implements LoginRepositery {
       return Left(Failure("$e"));
     }
   }
-
 
   String _extractErrorMessage(String responseBody) {
     try {

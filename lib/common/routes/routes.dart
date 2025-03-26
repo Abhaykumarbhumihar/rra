@@ -11,7 +11,7 @@ static const WELCOMEPAGE="/welcom_page";
   static const ADDPROFILEPHOTO="/add_profile_photo";
   static const LOCATIONPAGE="/location_page";
 
-
+  static const ACADEMICLISTPAGE="/academic_list_page";
   // Parents-------------------------------------------------------------
   static  const APPLICATION="/application";
 

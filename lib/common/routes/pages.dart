@@ -4,6 +4,8 @@ import 'package:rra/pages/parents/facility/facility_detail/presentation/ui/facil
 import 'package:rra/pages/parents/facility/facilitylist/presentation/ui/facility_list.dart';
 import 'package:rra/pages/parents/location/presentation/bloc/location_bloc.dart';
 import 'package:rra/pages/parents/location/presentation/ui/location_list_page.dart';
+import '../../pages/academic/presentation/bloc/academic_bloc.dart';
+import '../../pages/academic/presentation/ui/academic_list_page.dart';
 import '../../pages/auth/forgotpassword/presentation/bloc/forget_password_bloc.dart';
 import '../../pages/auth/forgotpassword/presentation/ui/forgot_password.dart';
 import '../../pages/coach/coach_attendance/player_attendance_list/presentation/ui/coach_player_attendance_list.dart';
@@ -38,6 +40,13 @@ class AppPages {
         page: const SplashPage(),
         bloc: BlocProvider(create: (_) => SplashBloc()..add(StartTimerEvent())),
       ),
+
+      PageEntitiy(
+        route: AppRoutes.ACADEMICLISTPAGE,
+        page: const AcademicListPage(),
+        bloc: BlocProvider(create: (_) => AcademicBloc()),
+      ),
+
       PageEntitiy(
           route: AppRoutes.LOGIN,
           page: LoginScreen(),

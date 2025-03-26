@@ -1,4 +1,4 @@
-//part of 'login_bloc.dart';
+//part of 'academic_bloc.dart';
 
 import 'package:freezed_annotation/freezed_annotation.dart';
 

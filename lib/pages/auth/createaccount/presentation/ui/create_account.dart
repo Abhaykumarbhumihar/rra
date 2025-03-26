@@ -42,7 +42,7 @@ class CreateAccount extends StatelessWidget {
   final TextEditingController confirmPasswordController =
       TextEditingController();
   final TextEditingController phoneNoController = TextEditingController();
-  final TextEditingController academicController = TextEditingController();
+
 
   // FocusNodes for each input field
   final FocusNode emailFocusNode = FocusNode();
@@ -210,34 +210,7 @@ class CreateAccount extends StatelessWidget {
                                 const SizedBox(
                                   height: 12,
                                 ),
-                                CustomTextInputMobile(
-                                  controller: academicController,
-                                  title: 'Select academic',
-                                  isPass: false,
-                                  isSuffix: true,
-                                  isShowTitle: false,
-                                  isPrefix: false,
-                                  readOnly: true,
-                                  hint: 'Select academic',
-                                  keyBoardType: TextInputType.name,
-                                  onTap: () {
-                                    showModalBottomSheet(
-                                      context: context,
-                                      builder: (BuildContext context) {
-                                        return AcademicListBottomsheet(
-                                          selectAcademic: (name, id) {
-                                            academicController.text =
-                                                name;
-                                            context
-                                                .read<CreateAccountBloc>()
-                                                .add(SelectAcademicCreateAccount(id.toString()));
-                                          },
-                                        );
-                                      },
-                                    );
-                                  },
-                                  onChanged: (value) {},
-                                ),
+
                                 SizedBox(height: height * 0.03),
                                 // Create Account Button
                                 CustomButton(

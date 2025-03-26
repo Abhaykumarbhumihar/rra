@@ -21,7 +21,7 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
     on<LoginEmailChanged>(_onEmailChanged);
     on<LoginPasswordChanged>(_onPasswordChanged);
     on<SelectAdademicLogin>(_selectAcademic);
-    on<AcademicList>(_getAcademicList);
+
 
 
   }
@@ -150,60 +150,5 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
   }
 
 
-  Future<void> _getAcademicList(
-      AcademicList event, Emitter<LoginState> emit) async {
-    try {
-      print("CLICKING HEREE ");
-      emit(state.copyWith(
-          error: '', isError: false, isLoginApiError: false, isLoading: false));
-
-
-      if (!(await Connectivity().isConnected)) {
-        emit(state.copyWith(
-          error:
-          'No internet connection. Please check your connection \nand try again.',
-          isLoginApiError: true,
-          isError: true,
-        ));
-        return;
-      }
-
-
-      Map<String, dynamic> academicListData = {
-
-      };
-      emit(state.copyWith(
-        isLoading: true,
-        isError: false,
-        isLoginApiError: false,
-        success: false,
-        error: '',
-      ));
-
-      final response = await _loginUseCase.academicListExecute(academicListData);
-      response.fold((failure) {
-        emit(state.copyWith(
-            error: failure.message,
-            isError: true,
-            isLoginApiError: true,
-            isLoading: false,
-            success: false));
-      }, (academicList) {
-        print("======check =====check =====check \n\n");
-        print(academicList);
-        print("======check =====check =====check \n\n");
-        emit(state.copyWith(
-            error: '',
-            isError: false,
-            isLoginApiError: false,
-            isLoading: false,
-            academicListResponse: academicList,
-            success: false));
-      });
-    } catch (error) {
-      // Handle the error and show error messages
-      emit(state.copyWith(isLoading: false, error: error.toString()));
-    }
-  }
 
 }

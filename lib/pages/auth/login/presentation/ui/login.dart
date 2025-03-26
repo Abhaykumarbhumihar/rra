@@ -24,7 +24,7 @@ import 'component/forgot_text.dart';
 class LoginScreen extends StatelessWidget {
   final TextEditingController emailController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
-  final TextEditingController academicController = TextEditingController();
+
 
   // FocusNodes for each input field
   final FocusNode emailFocusNode = FocusNode();
@@ -177,33 +177,7 @@ class LoginScreen extends StatelessWidget {
                               const SizedBox(
                                 height: 12,
                               ),
-                              CustomTextInputMobile(
-                                controller: academicController,
-                                title: 'Select academic',
-                                isPass: false,
-                                isSuffix: true,
-                                isShowTitle: false,
-                                isPrefix: false,
-                                readOnly: true,
-                                hint: 'Select academic',
-                                keyBoardType: TextInputType.name,
-                                onTap: () {
-                                  showModalBottomSheet(
-                                    context: context,
-                                    builder: (BuildContext context) {
-                                      return AcademicListBottomsheet(
-                                        selectAcademic: (name, id) {
-                                          academicController.text = name;
-                                          context
-                                              .read<LoginBloc>()
-                                              .add(LoginEvent.academicList(id.toString()));
-                                        },
-                                      );
-                                    },
-                                  );
-                                },
-                                onChanged: (value) {},
-                              ),
+
                               Row(
                                 mainAxisAlignment: MainAxisAlignment.end,
                                 children: <Widget>[

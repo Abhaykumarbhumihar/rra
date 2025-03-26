@@ -2,6 +2,9 @@ import 'package:flutter/cupertino.dart';
 import 'package:get_it/get_it.dart';
 
 
+import '../../pages/academic/data/repoimpl/academic_repo_impl.dart';
+import '../../pages/academic/domain/repositery/academic_repoitery.dart';
+import '../../pages/academic/domain/usecase/academic_usecase.dart';
 import '../../pages/auth/createaccount/data/repoImpl/create_account_impl.dart';
 import '../../pages/auth/createaccount/domain/repositery/create_account_repo.dart';
 import '../../pages/auth/createaccount/domain/usecase/create_account_usecase.dart';
@@ -91,9 +94,9 @@ void serviceLocator() {
           () => CoachProgramsUseCase(getIt<CoachProgramsRepo>()));
 
   /*location */
-  getIt.registerLazySingleton<LocationRepositery>(
-          () => LocationRepositeryImpl());
-  getIt.registerLazySingleton<LocationUsecase>(
-          () => LocationUsecase(getIt<LocationRepositery>()));
+  getIt.registerLazySingleton<AcademicRepoitery>(
+          () => AcademicRepoiteryImpl());
+  getIt.registerLazySingleton<AcademicUsecase>(
+          () => AcademicUsecase(getIt<AcademicRepoitery>()));
 
 }

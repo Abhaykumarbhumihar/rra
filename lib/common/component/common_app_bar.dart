@@ -29,10 +29,10 @@ class CustomHeader extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.center,
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          GestureDetector(
+        Navigator.canPop(context)?  GestureDetector(
             onTap: onBackPress, // Calls the function when tapped
             child: CommonBackground.BackButtonImage(context), // Back Button
-          ),
+          ):Container(),
           Padding(
             padding: EdgeInsets.only(top: MediaQuery.of(context).size.height * 0.052),
             child: Text(
