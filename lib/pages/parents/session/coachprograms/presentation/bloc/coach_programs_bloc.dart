@@ -18,13 +18,23 @@ class CoachingProgramsBloc extends Bloc<CoachProgramsBlocEvent, CoachProgramsSta
  final CoachProgramsUseCase _coachProgramsUseCase = getIt<CoachProgramsUseCase>();
 
  CoachingProgramsBloc() : super(CoachProgramsState.initial()) {
-    on<AllCoachProgramsListEvent>(_coachingProgramListEvent);
+    on<GroupCoachProgramsListEvent>(_groupCoachingProgramListEvent);
+    on<PrivateCoachingProgramsList>(_privateCoachingProgramListEvent);
+    on<AllCoachProgramsSelectedTabEvent>(tabSelect);
   }
 
-  Future<void> _coachingProgramListEvent(
-      AllCoachProgramsListEvent event, Emitter<CoachProgramsState> emit) async {
+
+ Future<void> tabSelect(
+     AllCoachProgramsSelectedTabEvent event, Emitter<CoachProgramsState> emit) async {
+   emit(state.copyWith(
+selectedTab: event.tabno
+   ));
+ }
+  Future<void> _groupCoachingProgramListEvent(
+      GroupCoachProgramsListEvent event, Emitter<CoachProgramsState> emit) async {
    Map<String,dynamic> coachingProgramdata={
-     "academyid":"1"
+     "academyid":"1",
+     "type":"group"
    };
     final response = await _coachProgramsUseCase
         .getCoachProgramList(coachingProgramdata);
@@ -36,7 +46,8 @@ class CoachingProgramsBloc extends Bloc<CoachProgramsBlocEvent, CoachProgramsSta
       success: false,
       isLoginApiError: true,
       isError: true,
-      coachProgramList: CoachingProgramResponse()));
+
+      groupCoachProgramList: CoachingProgramResponse()));
     }, (coachProgramList) {
       print(
           "CHECK HERE data list========== ${coachProgramList.data.length}");
@@ -47,10 +58,42 @@ class CoachingProgramsBloc extends Bloc<CoachProgramsBlocEvent, CoachProgramsSta
           success: true,
           isLoginApiError: false,
           isError: false,
-          coachProgramList: coachProgramList));
+          groupCoachProgramList: coachProgramList));
     });
   }
 
+
+ Future<void> _privateCoachingProgramListEvent(
+     PrivateCoachingProgramsList event, Emitter<CoachProgramsState> emit) async {
+   Map<String,dynamic> coachingProgramdata={
+     "academyid":"1",
+     "type":"private"
+   };
+   final response = await _coachProgramsUseCase
+       .getCoachProgramList(coachingProgramdata);
+
+   response.fold((failure) {
+     emit(state.copyWith(
+         isLoading: false,
+         error: failure.message,
+         success: false,
+         isLoginApiError: true,
+         isError: true,
+
+         privateCoachProgramList: CoachingProgramResponse()));
+   }, (coachProgramList) {
+     print(
+         "CHECK HERE data list========== ${coachProgramList.data.length}");
+
+     emit(state.copyWith(
+         isLoading: false,
+         error: '',
+         success: true,
+         isLoginApiError: false,
+         isError: false,
+         privateCoachProgramList: coachProgramList));
+   });
+ }
 
 
 

@@ -3,6 +3,7 @@ import 'package:rra/common/values/utils.dart';
 import 'package:rra/common/values/values_exports.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:rra/pages/academic/presentation/bloc/academic_bloc.dart';
 import '../../../../../common/component/auth_text_field.dart';
 import '../../../../../common/component/custom_app_button.dart';
 import '../../../../../common/component/screen_title.dart';
@@ -66,7 +67,8 @@ class LoginScreen extends StatelessWidget {
                 );
               } else {
 
-                BlocProvider.of<CoachingProgramsBloc>(context).add(AllCoachProgramsListEvent());
+                BlocProvider.of<CoachingProgramsBloc>(context).add(GroupCoachProgramsListEvent());
+                BlocProvider.of<CoachingProgramsBloc>(context).add(PrivateCoachingProgramsList());
 
                 Navigator.pushNamedAndRemoveUntil(
                   context,
@@ -194,6 +196,7 @@ class LoginScreen extends StatelessWidget {
                               CustomButton(
                                 text: "Sign In",
                                 onPressed: () async {
+                                  print("selected academic id ${BlocProvider.of<AcademicBloc>(context).state.selectedAcademiId}");
                                   context.read<LoginBloc>().add(
                                       LoginButtonPressed(
                                           email:

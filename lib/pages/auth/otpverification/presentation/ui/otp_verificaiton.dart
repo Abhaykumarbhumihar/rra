@@ -53,7 +53,8 @@ class OtpVerificaiton extends StatelessWidget {
             if (isFromCreateAccount!) {
               await SharedPrefs.setModel("user_model", state.otpresponse);
               await SharedPrefs.setString("token", state.otpresponse.token);
-              BlocProvider.of<CoachingProgramsBloc>(context).add(AllCoachProgramsListEvent());
+              BlocProvider.of<CoachingProgramsBloc>(context).add(GroupCoachProgramsListEvent());
+              BlocProvider.of<CoachingProgramsBloc>(context).add(PrivateCoachingProgramsList());
 
               Navigator.pushNamedAndRemoveUntil(
                 context,

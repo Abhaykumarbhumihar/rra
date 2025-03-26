@@ -51,7 +51,8 @@ class SplashPage extends StatelessWidget {
           }
 
           if (state is SplashNavigateToHome) {
-            BlocProvider.of<CoachingProgramsBloc>(context).add(AllCoachProgramsListEvent());
+            BlocProvider.of<CoachingProgramsBloc>(context).add(GroupCoachProgramsListEvent());
+            BlocProvider.of<CoachingProgramsBloc>(context).add(PrivateCoachingProgramsList());
             Navigator.pushNamedAndRemoveUntil(
               context,
               AppRoutes.APPLICATION,

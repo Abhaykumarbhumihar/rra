@@ -1,5 +1,6 @@
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
+import 'package:rra/common/values/utils.dart';
 import 'package:rra/pages/auth/otpverification/data/entity/otp_verification_model.dart';
 import 'package:rra/pages/splash/presentation/bloc/splash_state.dart';
 
@@ -20,7 +21,11 @@ class SplashBloc extends Bloc<SplashEvent, SplashState> {
     // Check if the user is logged in
     var userdata = await SharedPrefs.getModel<OtpVerificationModel>("user_model", (json) => OtpVerificationModel.fromJson(json));
     var token = await SharedPrefs.getString("token");
-print(userdata);
+
+    print("token--------\n\n");
+    Utils.LogPrint(token);
+    print("\n\n");
+     print(userdata);
     if (token != null && token.trim().isNotEmpty) {
       print("User is logged in, navigating to Home Page.");
       if(userdata?.data.isProfileCompleted==false){

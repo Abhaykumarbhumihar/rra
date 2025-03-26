@@ -16,12 +16,15 @@ final _privateConstructorUsedError = UnsupportedError(
 
 /// @nodoc
 mixin _$CoachProgramsState {
+  int get selectedTab => throw _privateConstructorUsedError;
   bool get isLoading => throw _privateConstructorUsedError;
   String? get error => throw _privateConstructorUsedError;
   dynamic get success => throw _privateConstructorUsedError;
   bool get isError => throw _privateConstructorUsedError;
   bool get isLoginApiError => throw _privateConstructorUsedError;
-  CoachingProgramResponse get coachProgramList =>
+  CoachingProgramResponse get groupCoachProgramList =>
+      throw _privateConstructorUsedError;
+  CoachingProgramResponse get privateCoachProgramList =>
       throw _privateConstructorUsedError;
 
   /// Create a copy of CoachProgramsState
@@ -38,14 +41,17 @@ abstract class $CoachProgramsStateCopyWith<$Res> {
       _$CoachProgramsStateCopyWithImpl<$Res, CoachProgramsState>;
   @useResult
   $Res call(
-      {bool isLoading,
+      {int selectedTab,
+      bool isLoading,
       String? error,
       dynamic success,
       bool isError,
       bool isLoginApiError,
-      CoachingProgramResponse coachProgramList});
+      CoachingProgramResponse groupCoachProgramList,
+      CoachingProgramResponse privateCoachProgramList});
 
-  $CoachingProgramResponseCopyWith<$Res> get coachProgramList;
+  $CoachingProgramResponseCopyWith<$Res> get groupCoachProgramList;
+  $CoachingProgramResponseCopyWith<$Res> get privateCoachProgramList;
 }
 
 /// @nodoc
@@ -63,14 +69,20 @@ class _$CoachProgramsStateCopyWithImpl<$Res, $Val extends CoachProgramsState>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? selectedTab = null,
     Object? isLoading = null,
     Object? error = freezed,
     Object? success = freezed,
     Object? isError = null,
     Object? isLoginApiError = null,
-    Object? coachProgramList = null,
+    Object? groupCoachProgramList = null,
+    Object? privateCoachProgramList = null,
   }) {
     return _then(_value.copyWith(
+      selectedTab: null == selectedTab
+          ? _value.selectedTab
+          : selectedTab // ignore: cast_nullable_to_non_nullable
+              as int,
       isLoading: null == isLoading
           ? _value.isLoading
           : isLoading // ignore: cast_nullable_to_non_nullable
@@ -91,9 +103,13 @@ class _$CoachProgramsStateCopyWithImpl<$Res, $Val extends CoachProgramsState>
           ? _value.isLoginApiError
           : isLoginApiError // ignore: cast_nullable_to_non_nullable
               as bool,
-      coachProgramList: null == coachProgramList
-          ? _value.coachProgramList
-          : coachProgramList // ignore: cast_nullable_to_non_nullable
+      groupCoachProgramList: null == groupCoachProgramList
+          ? _value.groupCoachProgramList
+          : groupCoachProgramList // ignore: cast_nullable_to_non_nullable
+              as CoachingProgramResponse,
+      privateCoachProgramList: null == privateCoachProgramList
+          ? _value.privateCoachProgramList
+          : privateCoachProgramList // ignore: cast_nullable_to_non_nullable
               as CoachingProgramResponse,
     ) as $Val);
   }
@@ -102,10 +118,21 @@ class _$CoachProgramsStateCopyWithImpl<$Res, $Val extends CoachProgramsState>
   /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
-  $CoachingProgramResponseCopyWith<$Res> get coachProgramList {
-    return $CoachingProgramResponseCopyWith<$Res>(_value.coachProgramList,
+  $CoachingProgramResponseCopyWith<$Res> get groupCoachProgramList {
+    return $CoachingProgramResponseCopyWith<$Res>(_value.groupCoachProgramList,
         (value) {
-      return _then(_value.copyWith(coachProgramList: value) as $Val);
+      return _then(_value.copyWith(groupCoachProgramList: value) as $Val);
+    });
+  }
+
+  /// Create a copy of CoachProgramsState
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $CoachingProgramResponseCopyWith<$Res> get privateCoachProgramList {
+    return $CoachingProgramResponseCopyWith<$Res>(
+        _value.privateCoachProgramList, (value) {
+      return _then(_value.copyWith(privateCoachProgramList: value) as $Val);
     });
   }
 }
@@ -119,15 +146,19 @@ abstract class _$$CoachProgramsStateImplCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {bool isLoading,
+      {int selectedTab,
+      bool isLoading,
       String? error,
       dynamic success,
       bool isError,
       bool isLoginApiError,
-      CoachingProgramResponse coachProgramList});
+      CoachingProgramResponse groupCoachProgramList,
+      CoachingProgramResponse privateCoachProgramList});
 
   @override
-  $CoachingProgramResponseCopyWith<$Res> get coachProgramList;
+  $CoachingProgramResponseCopyWith<$Res> get groupCoachProgramList;
+  @override
+  $CoachingProgramResponseCopyWith<$Res> get privateCoachProgramList;
 }
 
 /// @nodoc
@@ -143,14 +174,20 @@ class __$$CoachProgramsStateImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? selectedTab = null,
     Object? isLoading = null,
     Object? error = freezed,
     Object? success = freezed,
     Object? isError = null,
     Object? isLoginApiError = null,
-    Object? coachProgramList = null,
+    Object? groupCoachProgramList = null,
+    Object? privateCoachProgramList = null,
   }) {
     return _then(_$CoachProgramsStateImpl(
+      selectedTab: null == selectedTab
+          ? _value.selectedTab
+          : selectedTab // ignore: cast_nullable_to_non_nullable
+              as int,
       isLoading: null == isLoading
           ? _value.isLoading
           : isLoading // ignore: cast_nullable_to_non_nullable
@@ -171,9 +208,13 @@ class __$$CoachProgramsStateImplCopyWithImpl<$Res>
           ? _value.isLoginApiError
           : isLoginApiError // ignore: cast_nullable_to_non_nullable
               as bool,
-      coachProgramList: null == coachProgramList
-          ? _value.coachProgramList
-          : coachProgramList // ignore: cast_nullable_to_non_nullable
+      groupCoachProgramList: null == groupCoachProgramList
+          ? _value.groupCoachProgramList
+          : groupCoachProgramList // ignore: cast_nullable_to_non_nullable
+              as CoachingProgramResponse,
+      privateCoachProgramList: null == privateCoachProgramList
+          ? _value.privateCoachProgramList
+          : privateCoachProgramList // ignore: cast_nullable_to_non_nullable
               as CoachingProgramResponse,
     ));
   }
@@ -183,13 +224,18 @@ class __$$CoachProgramsStateImplCopyWithImpl<$Res>
 
 class _$CoachProgramsStateImpl implements _CoachProgramsState {
   const _$CoachProgramsStateImpl(
-      {this.isLoading = false,
+      {this.selectedTab = 0,
+      this.isLoading = false,
       this.error,
       this.success,
       this.isError = false,
       this.isLoginApiError = false,
-      this.coachProgramList = const CoachingProgramResponse()});
+      this.groupCoachProgramList = const CoachingProgramResponse(),
+      this.privateCoachProgramList = const CoachingProgramResponse()});
 
+  @override
+  @JsonKey()
+  final int selectedTab;
   @override
   @JsonKey()
   final bool isLoading;
@@ -205,11 +251,14 @@ class _$CoachProgramsStateImpl implements _CoachProgramsState {
   final bool isLoginApiError;
   @override
   @JsonKey()
-  final CoachingProgramResponse coachProgramList;
+  final CoachingProgramResponse groupCoachProgramList;
+  @override
+  @JsonKey()
+  final CoachingProgramResponse privateCoachProgramList;
 
   @override
   String toString() {
-    return 'CoachProgramsState(isLoading: $isLoading, error: $error, success: $success, isError: $isError, isLoginApiError: $isLoginApiError, coachProgramList: $coachProgramList)';
+    return 'CoachProgramsState(selectedTab: $selectedTab, isLoading: $isLoading, error: $error, success: $success, isError: $isError, isLoginApiError: $isLoginApiError, groupCoachProgramList: $groupCoachProgramList, privateCoachProgramList: $privateCoachProgramList)';
   }
 
   @override
@@ -217,6 +266,8 @@ class _$CoachProgramsStateImpl implements _CoachProgramsState {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$CoachProgramsStateImpl &&
+            (identical(other.selectedTab, selectedTab) ||
+                other.selectedTab == selectedTab) &&
             (identical(other.isLoading, isLoading) ||
                 other.isLoading == isLoading) &&
             (identical(other.error, error) || other.error == error) &&
@@ -224,19 +275,24 @@ class _$CoachProgramsStateImpl implements _CoachProgramsState {
             (identical(other.isError, isError) || other.isError == isError) &&
             (identical(other.isLoginApiError, isLoginApiError) ||
                 other.isLoginApiError == isLoginApiError) &&
-            (identical(other.coachProgramList, coachProgramList) ||
-                other.coachProgramList == coachProgramList));
+            (identical(other.groupCoachProgramList, groupCoachProgramList) ||
+                other.groupCoachProgramList == groupCoachProgramList) &&
+            (identical(
+                    other.privateCoachProgramList, privateCoachProgramList) ||
+                other.privateCoachProgramList == privateCoachProgramList));
   }
 
   @override
   int get hashCode => Object.hash(
       runtimeType,
+      selectedTab,
       isLoading,
       error,
       const DeepCollectionEquality().hash(success),
       isError,
       isLoginApiError,
-      coachProgramList);
+      groupCoachProgramList,
+      privateCoachProgramList);
 
   /// Create a copy of CoachProgramsState
   /// with the given fields replaced by the non-null parameter values.
@@ -250,14 +306,18 @@ class _$CoachProgramsStateImpl implements _CoachProgramsState {
 
 abstract class _CoachProgramsState implements CoachProgramsState {
   const factory _CoachProgramsState(
-          {final bool isLoading,
+          {final int selectedTab,
+          final bool isLoading,
           final String? error,
           final dynamic success,
           final bool isError,
           final bool isLoginApiError,
-          final CoachingProgramResponse coachProgramList}) =
+          final CoachingProgramResponse groupCoachProgramList,
+          final CoachingProgramResponse privateCoachProgramList}) =
       _$CoachProgramsStateImpl;
 
+  @override
+  int get selectedTab;
   @override
   bool get isLoading;
   @override
@@ -269,7 +329,9 @@ abstract class _CoachProgramsState implements CoachProgramsState {
   @override
   bool get isLoginApiError;
   @override
-  CoachingProgramResponse get coachProgramList;
+  CoachingProgramResponse get groupCoachProgramList;
+  @override
+  CoachingProgramResponse get privateCoachProgramList;
 
   /// Create a copy of CoachProgramsState
   /// with the given fields replaced by the non-null parameter values.

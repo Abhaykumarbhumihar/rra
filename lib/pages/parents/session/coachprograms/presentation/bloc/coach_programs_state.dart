@@ -69,19 +69,21 @@ part 'coach_programs_state.freezed.dart'; // Generated part file
 class CoachProgramsState with _$CoachProgramsState {
   const factory CoachProgramsState({
 
-
+    @Default(0) int selectedTab,
     @Default(false) bool isLoading,
     String? error,
     dynamic success,
     @Default(false) bool isError,
     @Default(false) bool isLoginApiError,
-     @Default(CoachingProgramResponse()) CoachingProgramResponse coachProgramList
+     @Default(CoachingProgramResponse()) CoachingProgramResponse groupCoachProgramList,
+     @Default(CoachingProgramResponse()) CoachingProgramResponse privateCoachProgramList,
   }) = _CoachProgramsState;
 
   // Initial state factory method
   factory CoachProgramsState.initial() => const CoachProgramsState(
 
-    coachProgramList:CoachingProgramResponse(),
+    groupCoachProgramList:CoachingProgramResponse(),
+    privateCoachProgramList: CoachingProgramResponse(),
     isLoading: false,
     error: null,
     success: null,
