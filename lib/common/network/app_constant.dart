@@ -15,8 +15,12 @@ class AppConstant {
   static String get getCoachingProgramList =>"get_coachingprogram";
   static String get getAcademicList =>"get-academies";
 
+  static String get getSessionCalendarDate=> "booking/traning";
+
+
   static String get getStateList => "user/myfinds/state";
   static String get getCityList => "user/myfinds/city";
+
 
 
 

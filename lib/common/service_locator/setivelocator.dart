@@ -32,6 +32,9 @@ import '../../pages/parents/application/domain/usecase/application_usecase.dart'
 import '../../pages/parents/location/data/repoImpl/location_repo_impl.dart';
 import '../../pages/parents/location/domain/repositery/location_repositery.dart';
 import '../../pages/parents/location/domain/usecase/location_usecase.dart';
+import '../../pages/parents/session/calendar/data/repo_impl/session_calendar_date_repo_impl.dart';
+import '../../pages/parents/session/calendar/domain/repositery/session_calendar_dates_repositery.dart';
+import '../../pages/parents/session/calendar/domain/usecase/session_calendar_usecase.dart';
 import '../../pages/parents/session/coachprograms/data/repoImpl/coach_programs_repo_impl.dart';
 import '../../pages/parents/session/coachprograms/domain/repositery/coach_programs_repo.dart';
 import '../../pages/parents/session/coachprograms/domain/usecase/coach_programs_usecase.dart';
@@ -98,5 +101,12 @@ void serviceLocator() {
           () => AcademicRepoiteryImpl());
   getIt.registerLazySingleton<AcademicUsecase>(
           () => AcademicUsecase(getIt<AcademicRepoitery>()));
+
+
+  /*session calendar */
+  getIt.registerLazySingleton<SessionCalendarDatesRepositery>(
+          () => SessionCalendarDateRepoImpl());
+  getIt.registerLazySingleton<SessionCalendarUsecase>(
+          () => SessionCalendarUsecase(getIt<SessionCalendarDatesRepositery>()));
 
 }

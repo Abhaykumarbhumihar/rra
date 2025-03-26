@@ -1,6 +1,9 @@
 import 'package:intl/intl.dart';
 import 'package:rra/common/values/values_exports.dart';
 import 'package:table_calendar/table_calendar.dart';
+
+import '../../bloc/session_calendar_bloc.dart';
+import '../../bloc/session_calendar_state.dart';
 class CalendarView extends StatelessWidget {
    CalendarView({super.key});
   var focusedDate = DateTime.now();
@@ -22,6 +25,12 @@ class CalendarView extends StatelessWidget {
   Widget build(BuildContext context) {
     var width = MediaQuery.of(context).size.width;
     var height = MediaQuery.of(context).size.height;
+    return BlocListener<SessionCalendarBloc, SessionCalendarState>(
+  listener: (context, state) {
+    // TODO: implement listener
+  },
+  child: BlocBuilder<SessionCalendarBloc, SessionCalendarState>(
+  builder: (context, state) {
     return Stack(
       children: <Widget>[
         Padding(
@@ -243,5 +252,8 @@ class CalendarView extends StatelessWidget {
 
       ],
     );
+  },
+),
+);
   }
 }

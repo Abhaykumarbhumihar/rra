@@ -1,6 +1,8 @@
 import 'package:rra/common/values/values_exports.dart';
 
 import '../../../../../../../common/component/screen_title.dart';
+import '../../bloc/session_calendar_bloc.dart';
+import '../../bloc/session_calendar_state.dart';
 
 
 
@@ -9,6 +11,12 @@ class Availablity extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    return BlocListener<SessionCalendarBloc, SessionCalendarState>(
+  listener: (context, state) {
+    // TODO: implement listener
+  },
+  child: BlocBuilder<SessionCalendarBloc, SessionCalendarState>(
+  builder: (context, state) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[
@@ -110,5 +118,8 @@ class Availablity extends StatelessWidget {
         ),
       ],
     );
+  },
+),
+);
   }
 }

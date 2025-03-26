@@ -30,7 +30,6 @@ class CalendarPage extends StatelessWidget {
     return Scaffold(
       backgroundColor: Colors.transparent,
 
-
       body: Container(
         width: width,
         height: height,
