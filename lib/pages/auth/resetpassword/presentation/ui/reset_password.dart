@@ -2,6 +2,7 @@ import 'dart:math' as math;
 import '../../../../../common/component/auth_text_field.dart';
 import '../../../../../common/component/common_background.dart';
 import '../../../../../common/component/custom_app_button.dart';
+import '../../../../../common/component/loading_indicator.dart';
 import '../../../../../common/component/screen_title.dart';
 import '../../../../../common/component/sub_title.dart';
 import '../../../../../common/routes/routes.dart';
@@ -169,6 +170,8 @@ class ResetPassword extends StatelessWidget {
                       ],
                     ),
                   ),
+                  if (state.isLoading)
+                    const LoadingIndicator()
                 ],
               ),
             );

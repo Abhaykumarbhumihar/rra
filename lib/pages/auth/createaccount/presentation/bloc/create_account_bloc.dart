@@ -3,6 +3,7 @@ import 'dart:io';
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
+import '../../../../../common/local/SharedPrefs.dart';
 import '../../../../../common/service_locator/setivelocator.dart';
 
 import '../../data/enitiy/create_user_model.dart';
@@ -140,10 +141,10 @@ class CreateAccountBloc extends Bloc<CreateAccountEvent, CreateAccountState> {
 
 
     try {
+      var academyId = await SharedPrefs.getString("selected_academyid");
       Map<String, String> userRegistrationMap = {
-
         'name': state.firstName ?? "",
-        'academy_id': "12545214",
+        'academy_id': academyId,
         'email': state.email.toString().toLowerCase().trim(),
         'password': state.password,
       };

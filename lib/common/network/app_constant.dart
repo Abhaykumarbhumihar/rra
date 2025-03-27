@@ -6,7 +6,7 @@ class AppConstant {
   static String get bearer =>"Bearer ";
   static String get createAccount =>"register";
   static String get verifyOtp =>"verify-otp";
-  static String get resetPassword =>"change/password";
+  static String get resetPassword =>"changes/password";
   static String get resendOtp =>"send-otp";
   static String get login =>"login";
 

@@ -13,6 +13,7 @@ import 'package:connectivity_plus/connectivity_plus.dart';
 import '../../../../../common/component/auth_text_field.dart';
 import '../../../../../common/component/common_background.dart';
 import '../../../../../common/component/custom_app_button.dart';
+import '../../../../../common/component/loading_indicator.dart';
 import '../../../../../common/component/screen_title.dart';
 import '../../../../../common/component/signup_signin_richtext.dart';
 import '../../../../../common/component/sub_title.dart';
@@ -248,6 +249,8 @@ class CreateAccount extends StatelessWidget {
                       ],
                     ),
                   ),
+                  if (state.isLoading)
+                    const LoadingIndicator()
                 ],
               ),
             );

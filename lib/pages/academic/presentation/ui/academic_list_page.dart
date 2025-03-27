@@ -8,6 +8,7 @@ import 'package:rra/pages/academic/presentation/bloc/academic_state.dart';
 
 import '../../../../common/component/loading_indicator.dart';
 import '../../../../common/component/network_image.dart';
+import '../../../../common/local/SharedPrefs.dart';
 import '../../../../common/values/values_exports.dart';
 import '../bloc/academic_event.dart';
 
@@ -37,7 +38,11 @@ class AcademicListPage extends StatelessWidget {
                             left: context.screenWidth * 0.04,
                             right: context.screenWidth * 0.06),
                         child: InkWell(
-                          onTap: () {
+                          onTap: () async{
+
+                            await SharedPrefs.setString("selected_academyid",state
+                                .academicListResponse.data[index].id
+                                .toString());
                             context.read<AcademicBloc>().add(
                                 AcademicEvent.selectAcademicLogin(state
                                     .academicListResponse.data[index].id

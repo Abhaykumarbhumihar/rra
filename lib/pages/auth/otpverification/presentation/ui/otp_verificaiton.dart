@@ -3,6 +3,7 @@ import 'package:rra/common/network/connectivity_extension.dart';
 import 'package:rra/common/values/values_exports.dart';
 import '../../../../../common/component/common_background.dart';
 import '../../../../../common/component/custom_app_button.dart';
+import '../../../../../common/component/loading_indicator.dart';
 import '../../../../../common/component/screen_title.dart';
 import '../../../../../common/component/sub_title.dart';
 import '../../../../../common/local/SharedPrefs.dart';
@@ -226,6 +227,8 @@ class OtpVerificaiton extends StatelessWidget {
                       ],
                     ),
                   ),
+                  if (state.isLoading)
+                    const LoadingIndicator()
                 ],
               ),
             );

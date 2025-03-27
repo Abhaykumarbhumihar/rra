@@ -6,6 +6,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:rra/pages/academic/presentation/bloc/academic_bloc.dart';
 import '../../../../../common/component/auth_text_field.dart';
 import '../../../../../common/component/custom_app_button.dart';
+import '../../../../../common/component/loading_indicator.dart';
 import '../../../../../common/component/screen_title.dart';
 import '../../../../../common/component/signup_signin_richtext.dart';
 import '../../../../../common/component/sub_title.dart';
@@ -235,6 +236,8 @@ class LoginScreen extends StatelessWidget {
                       ],
                     ),
                   ),
+                  if (state.isLoading)
+                    const LoadingIndicator()
                 ],
               ),
             );

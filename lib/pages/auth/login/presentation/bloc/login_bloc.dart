@@ -7,6 +7,7 @@ import 'package:rra/common/network/connectivity_extension.dart';
 
 
 
+import '../../../../../common/local/SharedPrefs.dart';
 import '../../../../../common/routes/exports.dart';
 import '../../../../../common/service_locator/setivelocator.dart';
 import '../../domain/usecase/login_usecase.dart';
@@ -110,10 +111,11 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
         return;
       }
 
-
+      var academyId = await SharedPrefs.getString("selected_academyid");
       Map<String, dynamic> userRegistrationMap = {
         'password': state.password ?? "",
-        'email': state.email.toString().toLowerCase().trim()
+        'email': state.email.toString().toLowerCase().trim(),
+        'academy_id': academyId,
       };
       emit(state.copyWith(
           isLoading: true,

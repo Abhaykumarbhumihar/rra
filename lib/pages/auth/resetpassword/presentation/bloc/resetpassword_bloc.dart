@@ -67,7 +67,8 @@ class ResetpasswordBloc extends Bloc<ResetpasswordEvent, ResetPasswordState> {
     try {
       Map<String, String> resetPassword = {
         'email': event.email.toString().toLowerCase().trim() ?? "",
-        "new_password": state.newPassword
+        "password": state.newPassword,
+        "password_confirmation": state.newPassword
       };
       emit(state.copyWith(
           successMessage: '',

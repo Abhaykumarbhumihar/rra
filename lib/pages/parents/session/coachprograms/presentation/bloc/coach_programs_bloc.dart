@@ -5,6 +5,7 @@ import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:equatable/equatable.dart';
 import 'package:rra/common/network/connectivity_extension.dart';
 
+import '../../../../../../common/local/SharedPrefs.dart';
 import '../../../../../../common/service_locator/setivelocator.dart';
 import '../../data/entity/parent_coaching_program_list.dart';
 import '../../domain/usecase/coach_programs_usecase.dart';
@@ -65,8 +66,9 @@ selectedTab: event.tabno
 
  Future<void> _privateCoachingProgramListEvent(
      PrivateCoachingProgramsList event, Emitter<CoachProgramsState> emit) async {
+   var academyId = await SharedPrefs.getString("selected_academyid");
    Map<String,dynamic> coachingProgramdata={
-     "academyid":"1",
+     "academyid":academyId,
      "type":"private"
    };
    final response = await _coachProgramsUseCase

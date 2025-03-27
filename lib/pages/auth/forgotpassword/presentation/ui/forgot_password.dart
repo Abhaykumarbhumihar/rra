@@ -10,6 +10,7 @@ import 'dart:math' as math;
 
 import '../../../../../common/component/auth_text_field.dart';
 import '../../../../../common/component/custom_app_button.dart';
+import '../../../../../common/component/loading_indicator.dart';
 import '../../../../../common/component/screen_title.dart';
 import '../../../../../common/component/sub_title.dart';
 import '../bloc/forget_password_bloc.dart';
@@ -137,19 +138,8 @@ class ForgotPassword extends StatelessWidget {
                     ],
                   ),
                 ),
-                // if (state.isLoading)
-                //   Positioned.fill(
-                //     child: Container(
-                //       width: context.screenWidth,
-                //       height: context.screenHeight,
-                //       color: Colors.black54,
-                //       child: const Center(
-                //         child: CustomLoader(
-                //           message: "Please wait...",
-                //         ),
-                //       ),
-                //     ),
-                //   ),
+                if (state.isLoading)
+                  const LoadingIndicator()
               ],
             ),
           );
