@@ -100,11 +100,16 @@ class CalendarPage extends StatelessWidget {
                                 height: context.screenHeight*0.19,
                                 child: Availablity(),
                               ),
-                              TimeAddedView(),
+                              if(state.selectedTimeAdded.isNotEmpty)
+                              SizedBox(
+                                width: context.screenWidth,
+                                height: context.screenHeight*0.18,
+                                child: TimeAddedView(),
+                              ),
                               CustomButton(
                                 text: "Continue",
                                 onPressed: () async {
-                                  _showCustomBottomSheet(context);
+                               //   _showCustomBottomSheet(context);
                                 },
                               ),
                               SizedBox(
@@ -141,26 +146,5 @@ class CalendarPage extends StatelessWidget {
     );
   }
 
-  void _showCustomBottomSheet(BuildContext context) {
-    showModalBottomSheet(
-      context: context,
-      shape: const RoundedRectangleBorder(
-        borderRadius: BorderRadius.vertical(top: Radius.circular(16)),
-      ),
-      backgroundColor: Colors.white,
-      builder: (context) {
-        return CustomBottomSheet(
-          onOptionSelected: (selectedOption) {
-            if (selectedOption == "Select and continue") {
-              Navigator.pushNamed(context, AppRoutes.ADDDETAILS);
-            }
-            if (selectedOption == "Select and make recurring") {
-              selectStateCountyLoactionDialog(context);
-            }
-            print("User selected: $selectedOption");
-          },
-        );
-      },
-    );
-  }
+
 }

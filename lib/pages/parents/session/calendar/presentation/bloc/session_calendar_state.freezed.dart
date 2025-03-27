@@ -20,6 +20,7 @@ mixin _$SessionCalendarState {
   String? get error => throw _privateConstructorUsedError;
   dynamic get success => throw _privateConstructorUsedError;
   bool get isError => throw _privateConstructorUsedError;
+  DateTime? get datetime => throw _privateConstructorUsedError;
   bool get isLoginApiError => throw _privateConstructorUsedError;
   SessionCalendarModel get sessionCalendarModel =>
       throw _privateConstructorUsedError;
@@ -45,6 +46,7 @@ abstract class $SessionCalendarStateCopyWith<$Res> {
       String? error,
       dynamic success,
       bool isError,
+      DateTime? datetime,
       bool isLoginApiError,
       SessionCalendarModel sessionCalendarModel,
       AvailableDatesResponse avilableDatesResponse,
@@ -74,6 +76,7 @@ class _$SessionCalendarStateCopyWithImpl<$Res,
     Object? error = freezed,
     Object? success = freezed,
     Object? isError = null,
+    Object? datetime = freezed,
     Object? isLoginApiError = null,
     Object? sessionCalendarModel = null,
     Object? avilableDatesResponse = null,
@@ -96,6 +99,10 @@ class _$SessionCalendarStateCopyWithImpl<$Res,
           ? _value.isError
           : isError // ignore: cast_nullable_to_non_nullable
               as bool,
+      datetime: freezed == datetime
+          ? _value.datetime
+          : datetime // ignore: cast_nullable_to_non_nullable
+              as DateTime?,
       isLoginApiError: null == isLoginApiError
           ? _value.isLoginApiError
           : isLoginApiError // ignore: cast_nullable_to_non_nullable
@@ -151,6 +158,7 @@ abstract class _$$SessionCalendarStateImplCopyWith<$Res>
       String? error,
       dynamic success,
       bool isError,
+      DateTime? datetime,
       bool isLoginApiError,
       SessionCalendarModel sessionCalendarModel,
       AvailableDatesResponse avilableDatesResponse,
@@ -179,6 +187,7 @@ class __$$SessionCalendarStateImplCopyWithImpl<$Res>
     Object? error = freezed,
     Object? success = freezed,
     Object? isError = null,
+    Object? datetime = freezed,
     Object? isLoginApiError = null,
     Object? sessionCalendarModel = null,
     Object? avilableDatesResponse = null,
@@ -201,6 +210,10 @@ class __$$SessionCalendarStateImplCopyWithImpl<$Res>
           ? _value.isError
           : isError // ignore: cast_nullable_to_non_nullable
               as bool,
+      datetime: freezed == datetime
+          ? _value.datetime
+          : datetime // ignore: cast_nullable_to_non_nullable
+              as DateTime?,
       isLoginApiError: null == isLoginApiError
           ? _value.isLoginApiError
           : isLoginApiError // ignore: cast_nullable_to_non_nullable
@@ -229,6 +242,7 @@ class _$SessionCalendarStateImpl implements _SessionCalendarState {
       this.error,
       this.success,
       this.isError = false,
+      this.datetime,
       this.isLoginApiError = false,
       this.sessionCalendarModel = const SessionCalendarModel(),
       this.avilableDatesResponse = const AvailableDatesResponse(),
@@ -245,6 +259,8 @@ class _$SessionCalendarStateImpl implements _SessionCalendarState {
   @override
   @JsonKey()
   final bool isError;
+  @override
+  final DateTime? datetime;
   @override
   @JsonKey()
   final bool isLoginApiError;
@@ -266,7 +282,7 @@ class _$SessionCalendarStateImpl implements _SessionCalendarState {
 
   @override
   String toString() {
-    return 'SessionCalendarState(isLoading: $isLoading, error: $error, success: $success, isError: $isError, isLoginApiError: $isLoginApiError, sessionCalendarModel: $sessionCalendarModel, avilableDatesResponse: $avilableDatesResponse, selectedTimeAdded: $selectedTimeAdded)';
+    return 'SessionCalendarState(isLoading: $isLoading, error: $error, success: $success, isError: $isError, datetime: $datetime, isLoginApiError: $isLoginApiError, sessionCalendarModel: $sessionCalendarModel, avilableDatesResponse: $avilableDatesResponse, selectedTimeAdded: $selectedTimeAdded)';
   }
 
   @override
@@ -279,6 +295,8 @@ class _$SessionCalendarStateImpl implements _SessionCalendarState {
             (identical(other.error, error) || other.error == error) &&
             const DeepCollectionEquality().equals(other.success, success) &&
             (identical(other.isError, isError) || other.isError == isError) &&
+            (identical(other.datetime, datetime) ||
+                other.datetime == datetime) &&
             (identical(other.isLoginApiError, isLoginApiError) ||
                 other.isLoginApiError == isLoginApiError) &&
             (identical(other.sessionCalendarModel, sessionCalendarModel) ||
@@ -296,6 +314,7 @@ class _$SessionCalendarStateImpl implements _SessionCalendarState {
       error,
       const DeepCollectionEquality().hash(success),
       isError,
+      datetime,
       isLoginApiError,
       sessionCalendarModel,
       avilableDatesResponse,
@@ -318,6 +337,7 @@ abstract class _SessionCalendarState implements SessionCalendarState {
       final String? error,
       final dynamic success,
       final bool isError,
+      final DateTime? datetime,
       final bool isLoginApiError,
       final SessionCalendarModel sessionCalendarModel,
       final AvailableDatesResponse avilableDatesResponse,
@@ -331,6 +351,8 @@ abstract class _SessionCalendarState implements SessionCalendarState {
   dynamic get success;
   @override
   bool get isError;
+  @override
+  DateTime? get datetime;
   @override
   bool get isLoginApiError;
   @override

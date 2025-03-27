@@ -12,6 +12,7 @@ class SessionCalendarState with _$SessionCalendarState {
     String? error,
     dynamic success,
     @Default(false) bool isError,
+     DateTime? datetime,
     @Default(false) bool isLoginApiError,
     @Default(SessionCalendarModel()) SessionCalendarModel sessionCalendarModel,
     @Default(AvailableDatesResponse()) AvailableDatesResponse avilableDatesResponse,
@@ -29,5 +30,6 @@ class SessionCalendarState with _$SessionCalendarState {
     success: null,
     isError: false,
     isLoginApiError: false,
+    datetime: DateTime.now(),
   );
 }
