@@ -13,9 +13,12 @@ class AppConstant {
 
   static String get updateUserProfile =>"update-profile";
   static String get getCoachingProgramList =>"get_coachingprogram";
+  static String get getCoachingProgramDetail =>"get_coachingprogram/details";
   static String get getAcademicList =>"get-academies";
 
   static String get getSessionCalendarDate=> "booking/traning";
+  static String get getSessionAccordingToDate=> "get/sessions";
+
 
 
   static String get getStateList => "user/myfinds/state";

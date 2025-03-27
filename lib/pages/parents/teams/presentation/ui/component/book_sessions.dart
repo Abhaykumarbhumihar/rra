@@ -1,5 +1,7 @@
+import 'package:rra/common/values/utils.dart';
 import 'package:rra/common/values/values_exports.dart';
 
+import '../../../../../../common/local/SharedPrefs.dart';
 import '../../../../../../common/routes/routes.dart';
 
 class BookSessions extends StatelessWidget {
@@ -80,7 +82,11 @@ class BookSessions extends StatelessWidget {
                   ),
                   SizedBox(height: 8.0),
                   InkWell(
-                    onTap: (){
+                    onTap: () async {
+                      print("===============\n\n");
+                      var token = await SharedPrefs.getString("token");
+                      print("\n\n===============");
+                      Utils.LogPrint(token);
                       Navigator.pushNamed(
                           context, AppRoutes.BOOKTRAINING);
                     },

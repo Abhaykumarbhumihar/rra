@@ -20,11 +20,12 @@ class NetworkImageWidget extends StatelessWidget {
   final BoxFit imageFitType;
   final Color? color;
   final String? placeHolder;
-
+final bool fullimage;
   const NetworkImageWidget({
     Key? key,
     required this.imageUrl,
     this.radiusAll,
+    this.fullimage=false,
     this.radiusTopLeft = 0.0,
     this.radiusBottomRight = 0.0,
     this.radiusBottomLeft = 0.0,
@@ -48,7 +49,7 @@ class NetworkImageWidget extends StatelessWidget {
             )
           : BorderRadius.circular(radiusAll!),
       child: CachedNetworkImage(
-        imageUrl: "${AppConstant.fileBaseUrl}$imageUrl",
+        imageUrl:fullimage?"$imageUrl": "${AppConstant.fileBaseUrl}$imageUrl",
         height: imageHeight,
         width: imageWidth,
         fit: imageFitType,

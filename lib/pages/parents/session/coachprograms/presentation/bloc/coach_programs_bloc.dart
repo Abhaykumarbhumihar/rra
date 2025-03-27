@@ -11,47 +11,53 @@ import '../../data/entity/parent_coaching_program_list.dart';
 import '../../domain/usecase/coach_programs_usecase.dart';
 import 'coach_programs_state.dart';
 
-
-
 part 'coach_programs_event.dart';
 
-class CoachingProgramsBloc extends Bloc<CoachProgramsBlocEvent, CoachProgramsState> {
- final CoachProgramsUseCase _coachProgramsUseCase = getIt<CoachProgramsUseCase>();
+class CoachingProgramsBloc
+    extends Bloc<CoachProgramsBlocEvent, CoachProgramsState> {
+  final CoachProgramsUseCase _coachProgramsUseCase =
+      getIt<CoachProgramsUseCase>();
 
- CoachingProgramsBloc() : super(CoachProgramsState.initial()) {
+  CoachingProgramsBloc() : super(CoachProgramsState.initial()) {
     on<GroupCoachProgramsListEvent>(_groupCoachingProgramListEvent);
     on<PrivateCoachingProgramsList>(_privateCoachingProgramListEvent);
     on<AllCoachProgramsSelectedTabEvent>(tabSelect);
   }
 
+  Future<void> tabSelect(AllCoachProgramsSelectedTabEvent event,
+      Emitter<CoachProgramsState> emit) async {
+    emit(state.copyWith(selectedTab: event.tabno));
+  }
 
- Future<void> tabSelect(
-     AllCoachProgramsSelectedTabEvent event, Emitter<CoachProgramsState> emit) async {
-   emit(state.copyWith(
-selectedTab: event.tabno
-   ));
- }
-  Future<void> _groupCoachingProgramListEvent(
-      GroupCoachProgramsListEvent event, Emitter<CoachProgramsState> emit) async {
-   Map<String,dynamic> coachingProgramdata={
-     "academyid":"1",
-     "type":"group"
-   };
-    final response = await _coachProgramsUseCase
-        .getCoachProgramList(coachingProgramdata);
+  Future<void> _groupCoachingProgramListEvent(GroupCoachProgramsListEvent event,
+      Emitter<CoachProgramsState> emit) async {
+    emit(state.copyWith(
+        isLoading: true,
+        error: '',
+        success: false,
+        isLoginApiError: true,
+        isError: true,
+      ));
+
+
+    var academyId = await SharedPrefs.getString("selected_academyid");
+    Map<String, dynamic> coachingProgramdata = {
+      "academyid": "$academyId",
+      "type": "group"
+    };
+    final response =
+        await _coachProgramsUseCase.getCoachProgramList(coachingProgramdata);
 
     response.fold((failure) {
       emit(state.copyWith(
           isLoading: false,
           error: failure.message,
-      success: false,
-      isLoginApiError: true,
-      isError: true,
-
-      groupCoachProgramList: CoachingProgramResponse()));
+          success: false,
+          isLoginApiError: true,
+          isError: true,
+          groupCoachProgramList: CoachingProgramResponse()));
     }, (coachProgramList) {
-      print(
-          "CHECK HERE data list========== ${coachProgramList.data.length}");
+      print("CHECK HERE data list========== ${coachProgramList.data.length}");
 
       emit(state.copyWith(
           isLoading: false,
@@ -63,42 +69,42 @@ selectedTab: event.tabno
     });
   }
 
+  Future<void> _privateCoachingProgramListEvent(
+      PrivateCoachingProgramsList event,
+      Emitter<CoachProgramsState> emit) async {
+    emit(state.copyWith(
+      isLoading: true,
+      error: '',
+      success: false,
+      isLoginApiError: true,
+      isError: true,
+    ));
+    var academyId = await SharedPrefs.getString("selected_academyid");
+    Map<String, dynamic> coachingProgramdata = {
+      "academyid": academyId,
+      "type": "private"
+    };
+    final response =
+        await _coachProgramsUseCase.getCoachProgramList(coachingProgramdata);
 
- Future<void> _privateCoachingProgramListEvent(
-     PrivateCoachingProgramsList event, Emitter<CoachProgramsState> emit) async {
-   var academyId = await SharedPrefs.getString("selected_academyid");
-   Map<String,dynamic> coachingProgramdata={
-     "academyid":academyId,
-     "type":"private"
-   };
-   final response = await _coachProgramsUseCase
-       .getCoachProgramList(coachingProgramdata);
+    response.fold((failure) {
+      emit(state.copyWith(
+          isLoading: false,
+          error: failure.message,
+          success: false,
+          isLoginApiError: true,
+          isError: true,
+          privateCoachProgramList: CoachingProgramResponse()));
+    }, (coachProgramList) {
+      print("CHECK HERE data list========== ${coachProgramList.data.length}");
 
-   response.fold((failure) {
-     emit(state.copyWith(
-         isLoading: false,
-         error: failure.message,
-         success: false,
-         isLoginApiError: true,
-         isError: true,
-
-         privateCoachProgramList: CoachingProgramResponse()));
-   }, (coachProgramList) {
-     print(
-         "CHECK HERE data list========== ${coachProgramList.data.length}");
-
-     emit(state.copyWith(
-         isLoading: false,
-         error: '',
-         success: true,
-         isLoginApiError: false,
-         isError: false,
-         privateCoachProgramList: coachProgramList));
-   });
- }
-
-
-
-
-
+      emit(state.copyWith(
+          isLoading: false,
+          error: '',
+          success: true,
+          isLoginApiError: false,
+          isError: false,
+          privateCoachProgramList: coachProgramList));
+    });
+  }
 }

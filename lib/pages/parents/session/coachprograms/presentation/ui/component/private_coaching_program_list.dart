@@ -1,5 +1,6 @@
 import '../../../../../../../common/routes/exports.dart';
 import '../../../../../../../common/routes/routes.dart';
+import '../../../../coaching_detail/presentation/bloc/coaching_detail_bloc.dart';
 import '../../bloc/coach_programs_bloc.dart';
 import '../../bloc/coach_programs_state.dart';
 import 'coaching_program_item.dart';
@@ -27,6 +28,7 @@ class PrivateCoachingProgramList extends StatelessWidget {
                   coachingProgramResponse:
                   state.privateCoachProgramList.data[index],
                   onPressed: () {
+                    BlocProvider.of<CoachingDetailBloc>(context).add(CoachingDetail(state.privateCoachProgramList.data[index].id.toString()));
                     Navigator.pushNamed(
                         context, AppRoutes.COACHPROGRAMS,arguments: state.privateCoachProgramList.data[index]);
                   },

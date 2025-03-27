@@ -37,6 +37,8 @@ class SessionCalendarBloc
         isLoginApiError: false,
         success: false,
         error: '',
+        selectedTimeAdded: [],
+        sessionCalendarModel: SessionCalendarModel(),
       ));
 
       final response =

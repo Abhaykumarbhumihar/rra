@@ -35,6 +35,9 @@ import '../../pages/parents/location/domain/usecase/location_usecase.dart';
 import '../../pages/parents/session/calendar/data/repo_impl/session_calendar_date_repo_impl.dart';
 import '../../pages/parents/session/calendar/domain/repositery/session_calendar_dates_repositery.dart';
 import '../../pages/parents/session/calendar/domain/usecase/session_calendar_usecase.dart';
+import '../../pages/parents/session/coaching_detail/data/repo_impl/coaching_programing_detail_repo_impl.dart';
+import '../../pages/parents/session/coaching_detail/domain/repositery/coaching_detail_repositery.dart';
+import '../../pages/parents/session/coaching_detail/domain/usecase/coaching_program_detail_usecase.dart';
 import '../../pages/parents/session/coachprograms/data/repoImpl/coach_programs_repo_impl.dart';
 import '../../pages/parents/session/coachprograms/domain/repositery/coach_programs_repo.dart';
 import '../../pages/parents/session/coachprograms/domain/usecase/coach_programs_usecase.dart';
@@ -108,5 +111,10 @@ void serviceLocator() {
           () => SessionCalendarDateRepoImpl());
   getIt.registerLazySingleton<SessionCalendarUsecase>(
           () => SessionCalendarUsecase(getIt<SessionCalendarDatesRepositery>()));
+/*coaching program detail */
+  getIt.registerLazySingleton<CoachingDetailRepositery>(
+          () => CoachingProgramingDetailRepoImpl());
+  getIt.registerLazySingleton<CoachingProgramDetailUsecase>(
+          () => CoachingProgramDetailUsecase(getIt<CoachingDetailRepositery>()));
 
 }

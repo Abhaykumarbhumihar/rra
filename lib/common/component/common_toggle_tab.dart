@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../values/app_color.dart';
+
 class CustomToggleSwitch extends StatelessWidget {
   final int selectedTabIndex; // Current selected tab index
   final List<String> tabNames; // List of tab names
@@ -53,7 +55,7 @@ class CustomToggleSwitch extends StatelessWidget {
           padding: isActive ? EdgeInsets.all(1) : EdgeInsets.zero,
           // Padding only for active tab
           decoration: BoxDecoration(
-            color: isActive ? Colors.blue : Colors.transparent,
+            color: isActive ? AppColor.appButtonColor : Colors.transparent,
             borderRadius: BorderRadius.circular(25),
           ),
           child: Center(

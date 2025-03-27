@@ -1,5 +1,6 @@
 import '../../../../../../../common/routes/exports.dart';
 import '../../../../../../../common/routes/routes.dart';
+import '../../../../coaching_detail/presentation/bloc/coaching_detail_bloc.dart';
 import '../../bloc/coach_programs_bloc.dart';
 import '../../bloc/coach_programs_state.dart';
 import 'coaching_program_item.dart';
@@ -11,7 +12,7 @@ class GroupCoachingProgramList extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocListener<CoachingProgramsBloc, CoachProgramsState>(
       listener: (context, state) {
-        // TODO: implement listener
+
       },
       child: BlocBuilder<CoachingProgramsBloc, CoachProgramsState>(
         builder: (context, state) {
@@ -27,6 +28,7 @@ class GroupCoachingProgramList extends StatelessWidget {
                   coachingProgramResponse:
                   state.groupCoachProgramList.data[index],
                   onPressed: () {
+                    BlocProvider.of<CoachingDetailBloc>(context).add(CoachingDetail(state.groupCoachProgramList.data[index].id.toString()));
                     Navigator.pushNamed(
                         context, AppRoutes.COACHPROGRAMS,arguments: state.groupCoachProgramList.data[index]);
                   },

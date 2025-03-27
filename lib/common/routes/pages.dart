@@ -26,6 +26,7 @@ import '../../pages/parents/parent_view_attendance/presentation/ui/parent_attend
 import '../../pages/parents/session/add_detail/presentation/ui/add_detail.dart';
 import '../../pages/parents/session/calendar/presentation/bloc/session_calendar_bloc.dart';
 import '../../pages/parents/session/calendar/presentation/ui/calendart_page.dart';
+import '../../pages/parents/session/coaching_detail/presentation/bloc/coaching_detail_bloc.dart';
 import '../../pages/parents/session/coaching_detail/presentation/ui/coaching_detail.dart';
 import '../../pages/parents/session/coachprograms/presentation/bloc/coach_programs_bloc.dart';
 import '../../pages/parents/session/coachprograms/presentation/ui/coach_programs.dart';
@@ -81,10 +82,13 @@ class AppPages {
         page: const ApplicationPage(),
         bloc: BlocProvider(create: (_) => AppBloc()),
       ),
+
       PageEntitiy(
         route: AppRoutes.COACHPROGRAMS,
         page:  CoachingDetailScreen(),
+        bloc: BlocProvider(create: (_) => CoachingDetailBloc()),
       ),
+
       PageEntitiy(
         route: AppRoutes.BOOKTRAINING,
         page:  CoachProgramsScreen(),
