@@ -5,6 +5,7 @@ import 'package:rra/common/routes/exports.dart';
 import '../../../../../common/component/auth_text_field.dart';
 import '../../../../../common/component/common_background.dart';
 import '../../../../../common/component/custom_app_button.dart';
+import '../../../../../common/component/loading_indicator.dart';
 import '../../../../../common/image/camera_file_utility.dart';
 import '../../../../../common/image/camera_gallery_dialog.dart';
 import '../../../../../common/local/SharedPrefs.dart';
@@ -47,6 +48,11 @@ Utils.LogPrint(state.userdata);
             var userdata = await SharedPrefs.getModel<OtpVerificationModel>("user_model", (json) => OtpVerificationModel.fromJson(json));
            print(userdata?.data?.mobile!);
            print(userdata?.data?.isProfileCompleted!);
+            Navigator.pushNamedAndRemoveUntil(
+              context,
+              AppRoutes.APPLICATION,
+                  (Route<dynamic> route) => false,
+            );
             //await _appBloc.loadUserData();
             // _appBloc.add(UserDataUpdate());
             // await BlocProvider.of<MyprofileBloc>(context).loadUserData();
@@ -201,6 +207,8 @@ Utils.LogPrint(state.userdata);
                       ],
                     ),
                   ),
+                  if (state.isLoading)
+                    const LoadingIndicator()
                 ],
               ),
             );
