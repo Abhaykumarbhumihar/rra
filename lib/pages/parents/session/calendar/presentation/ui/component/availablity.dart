@@ -13,7 +13,7 @@ class Availablity extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocListener<SessionCalendarBloc, SessionCalendarState>(
   listener: (context, state) {
-    // TODO: implement listener
+
   },
   child: BlocBuilder<SessionCalendarBloc, SessionCalendarState>(
   builder: (context, state) {
@@ -29,93 +29,45 @@ class Availablity extends StatelessWidget {
           ),
         ),
         SizedBox(height: 8.0,),
-        Row(
-          children: <Widget>[
-            Container(
-              width: context.screenWidth * 0.28,
-              padding: EdgeInsets.symmetric(
-                  vertical: context.screenHeight*0.015,
-                  horizontal: context.screenWidth*0.02
-              ),
-              decoration: BoxDecoration(
-                  image: DecorationImage(image: AssetImage("assets/images/availablity.png"))
-              ),
-              child: Column(
-                mainAxisSize: MainAxisSize.min,
-                children: <Widget>[
-                  AvailablitTime( title: '10:00 AM',),
-                  SizedBox(height: 4,),
-                  Container(
-                    padding: EdgeInsets.symmetric(
-                        vertical: context.screenHeight*0.005,
-                        horizontal: context.screenWidth*0.003
-                    ),
-                    decoration: BoxDecoration(
-                        image: DecorationImage(image: AssetImage("assets/images/rounded_pink.png"))
-                    ),
-                    child:Center(child: AvailablitTime( title: '15 Slots',)) ,
-                  )
-                ],
-              ),
-            ),
-            SizedBox(width: 6.0,),
-            Container(
-              width: context.screenWidth * 0.28,
-              padding: EdgeInsets.symmetric(
-                  vertical: context.screenHeight*0.015,
-                  horizontal: context.screenWidth*0.02
-              ),
-              decoration: BoxDecoration(
-                  image: DecorationImage(image: AssetImage("assets/images/availablity.png"))
-              ),
-              child: Column(
-                mainAxisSize: MainAxisSize.min,
-                children: <Widget>[
-                  AvailablitTime( title: '10:00 AM',),
-                  SizedBox(height: 4,),
-                  Container(
-                    padding: EdgeInsets.symmetric(
-                        vertical: context.screenHeight*0.005,
-                        horizontal: context.screenWidth*0.003
-                    ),
-                    decoration: BoxDecoration(
-                        image: DecorationImage(image: AssetImage("assets/images/rounded_pink.png"))
-                    ),
-                    child:Center(child: AvailablitTime( title: '15 Slots',)) ,
-                  )
-                ],
-              ),
-            ),
-            SizedBox(width: 6.0,),
-            Container(
-              width: context.screenWidth * 0.28,
-              padding: EdgeInsets.symmetric(
-                  vertical: context.screenHeight*0.015,
-                  horizontal: context.screenWidth*0.02
-              ),
-              decoration: BoxDecoration(
-                  image: DecorationImage(image: AssetImage("assets/images/availablity.png"))
-              ),
-              child: Column(
-                mainAxisSize: MainAxisSize.min,
-                children: <Widget>[
-                  AvailablitTime( title: '10:00 AM',),
-                  SizedBox(height: 4,),
-                  Container(
-                    padding: EdgeInsets.symmetric(
-                        vertical: context.screenHeight*0.005,
-                        horizontal: context.screenWidth*0.003
-                    ),
-                    decoration: BoxDecoration(
-                        image: DecorationImage(image: AssetImage("assets/images/rounded_pink.png"))
-                    ),
-                    child:Center(child: AvailablitTime( title: '15 Slots',)) ,
-                  )
-                ],
-              ),
-            )
-          ],
-        ),
+       Expanded(child: ListView.builder(
+           shrinkWrap: true,
+           scrollDirection: Axis.horizontal,
+           itemCount: state.avilableDatesResponse.data.length,
+           itemBuilder: (context,index){
+             var data=state.avilableDatesResponse.data[index];
+             return  Row(
+               children: <Widget>[
+                 Container(
+                   width: context.screenWidth * 0.28,
+                   padding: EdgeInsets.symmetric(
+                       vertical: context.screenHeight*0.015,
+                       horizontal: context.screenWidth*0.02
+                   ),
+                   decoration: BoxDecoration(
+                       image: DecorationImage(image: AssetImage("assets/images/availablity.png"))
+                   ),
+                   child: Column(
+                     mainAxisSize: MainAxisSize.min,
+                     children: <Widget>[
+                       AvailablitTime( title: '${data.fromTime}',),
+                       SizedBox(height: 4,),
+                       Container(
+                         padding: EdgeInsets.symmetric(
+                             vertical: context.screenHeight*0.005,
+                             horizontal: context.screenWidth*0.003
+                         ),
+                         decoration: BoxDecoration(
+                             image: DecorationImage(image: AssetImage("assets/images/rounded_pink.png"))
+                         ),
+                         child:Center(child: AvailablitTime( title: '${data.slotsLeft}',)) ,
+                       )
+                     ],
+                   ),
+                 ),
+
+               ],
+             );
+           })),
       ],
     );
   },

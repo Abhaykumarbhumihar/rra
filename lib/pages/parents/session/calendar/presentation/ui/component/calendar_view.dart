@@ -3,6 +3,7 @@ import 'package:rra/common/values/values_exports.dart';
 import 'package:table_calendar/table_calendar.dart';
 
 import '../../bloc/session_calendar_bloc.dart';
+import '../../bloc/session_calendar_event.dart';
 import '../../bloc/session_calendar_state.dart';
 // class CalendarView extends StatelessWidget {
 //    CalendarView({super.key});
@@ -386,30 +387,21 @@ class CalendarView extends StatelessWidget {
                       onFormatChanged: (format) {},
                       onDaySelected: (selectedTime, focusedTime) {
                         focusedDate = selectedTime;
-                        // var mon = selectedTime.month > 9
-                        //     ? selectedTime.month.toString()
-                        //     : "0" + selectedTime.month.toString();
-                        // var datee = selectedTime.day > 9
-                        //     ? selectedTime.day.toString()
-                        //     : "0" + selectedTime.day.toString();
-                        // var date = selectedTime.year.toString() +
-                        //     "-" +
-                        //     mon +
-                        //     "-" +
-                        //     datee;
-                        // state.sessionCalendarModel.data.availableDates
-                        //    .map((dateString) => DateFormat('yyyy-MM-dd').parse(dateString))
-                        //    .toList();
-                        // var newList = state.sessionCalendarModel.data.availableDates
-                        //     .where((x) => DateFormat('yyyy-MM-dd')
-                        //     .isAtSameMomentAs(selectedTime))
-                        //     .toList();
-                        //
-                        // if (newList.isNotEmpty) {
-                        //   newList.forEach((event) {
-                        //     print('Event: ${event["holiday_type"]} - ${event["holiday_reason"]}');
-                        //   });
-                        // }
+                        print(selectedTime);
+                        String formattedDate = DateFormat('yyyy-MM-dd').format(selectedTime);
+                        print(formattedDate);
+                        // "date": "2025-03-11",
+                        // "sessiontype": "group", //group
+                        // "coaching_program_id": 21
+                        Map<String, dynamic> map = {
+                          "date":formattedDate,
+
+                          "coaching_program_id": "${state.sessionCalendarModel.data.coachingPrograms.id}",
+                          //"academy_id": academyId,
+                          "sessiontype": state.sessionCalendarModel.data.coachingPrograms.private == "1" ? "private" : "group"
+                        };
+                        BlocProvider.of<SessionCalendarBloc>(context)
+                            .add(AvilableDateEvents(map));
                       },
                       calendarBuilders: CalendarBuilders(
                         defaultBuilder: (ctx, day, focusedDay) {

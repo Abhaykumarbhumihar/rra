@@ -23,6 +23,8 @@ mixin _$SessionCalendarState {
   bool get isLoginApiError => throw _privateConstructorUsedError;
   SessionCalendarModel get sessionCalendarModel =>
       throw _privateConstructorUsedError;
+  AvailableDatesResponse get avilableDatesResponse =>
+      throw _privateConstructorUsedError;
   List<String> get selectedTimeAdded => throw _privateConstructorUsedError;
 
   /// Create a copy of SessionCalendarState
@@ -45,9 +47,11 @@ abstract class $SessionCalendarStateCopyWith<$Res> {
       bool isError,
       bool isLoginApiError,
       SessionCalendarModel sessionCalendarModel,
+      AvailableDatesResponse avilableDatesResponse,
       List<String> selectedTimeAdded});
 
   $SessionCalendarModelCopyWith<$Res> get sessionCalendarModel;
+  $AvailableDatesResponseCopyWith<$Res> get avilableDatesResponse;
 }
 
 /// @nodoc
@@ -72,6 +76,7 @@ class _$SessionCalendarStateCopyWithImpl<$Res,
     Object? isError = null,
     Object? isLoginApiError = null,
     Object? sessionCalendarModel = null,
+    Object? avilableDatesResponse = null,
     Object? selectedTimeAdded = null,
   }) {
     return _then(_value.copyWith(
@@ -99,6 +104,10 @@ class _$SessionCalendarStateCopyWithImpl<$Res,
           ? _value.sessionCalendarModel
           : sessionCalendarModel // ignore: cast_nullable_to_non_nullable
               as SessionCalendarModel,
+      avilableDatesResponse: null == avilableDatesResponse
+          ? _value.avilableDatesResponse
+          : avilableDatesResponse // ignore: cast_nullable_to_non_nullable
+              as AvailableDatesResponse,
       selectedTimeAdded: null == selectedTimeAdded
           ? _value.selectedTimeAdded
           : selectedTimeAdded // ignore: cast_nullable_to_non_nullable
@@ -114,6 +123,17 @@ class _$SessionCalendarStateCopyWithImpl<$Res,
     return $SessionCalendarModelCopyWith<$Res>(_value.sessionCalendarModel,
         (value) {
       return _then(_value.copyWith(sessionCalendarModel: value) as $Val);
+    });
+  }
+
+  /// Create a copy of SessionCalendarState
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $AvailableDatesResponseCopyWith<$Res> get avilableDatesResponse {
+    return $AvailableDatesResponseCopyWith<$Res>(_value.avilableDatesResponse,
+        (value) {
+      return _then(_value.copyWith(avilableDatesResponse: value) as $Val);
     });
   }
 }
@@ -133,10 +153,13 @@ abstract class _$$SessionCalendarStateImplCopyWith<$Res>
       bool isError,
       bool isLoginApiError,
       SessionCalendarModel sessionCalendarModel,
+      AvailableDatesResponse avilableDatesResponse,
       List<String> selectedTimeAdded});
 
   @override
   $SessionCalendarModelCopyWith<$Res> get sessionCalendarModel;
+  @override
+  $AvailableDatesResponseCopyWith<$Res> get avilableDatesResponse;
 }
 
 /// @nodoc
@@ -158,6 +181,7 @@ class __$$SessionCalendarStateImplCopyWithImpl<$Res>
     Object? isError = null,
     Object? isLoginApiError = null,
     Object? sessionCalendarModel = null,
+    Object? avilableDatesResponse = null,
     Object? selectedTimeAdded = null,
   }) {
     return _then(_$SessionCalendarStateImpl(
@@ -185,6 +209,10 @@ class __$$SessionCalendarStateImplCopyWithImpl<$Res>
           ? _value.sessionCalendarModel
           : sessionCalendarModel // ignore: cast_nullable_to_non_nullable
               as SessionCalendarModel,
+      avilableDatesResponse: null == avilableDatesResponse
+          ? _value.avilableDatesResponse
+          : avilableDatesResponse // ignore: cast_nullable_to_non_nullable
+              as AvailableDatesResponse,
       selectedTimeAdded: null == selectedTimeAdded
           ? _value._selectedTimeAdded
           : selectedTimeAdded // ignore: cast_nullable_to_non_nullable
@@ -203,6 +231,7 @@ class _$SessionCalendarStateImpl implements _SessionCalendarState {
       this.isError = false,
       this.isLoginApiError = false,
       this.sessionCalendarModel = const SessionCalendarModel(),
+      this.avilableDatesResponse = const AvailableDatesResponse(),
       final List<String> selectedTimeAdded = const []})
       : _selectedTimeAdded = selectedTimeAdded;
 
@@ -222,6 +251,9 @@ class _$SessionCalendarStateImpl implements _SessionCalendarState {
   @override
   @JsonKey()
   final SessionCalendarModel sessionCalendarModel;
+  @override
+  @JsonKey()
+  final AvailableDatesResponse avilableDatesResponse;
   final List<String> _selectedTimeAdded;
   @override
   @JsonKey()
@@ -234,7 +266,7 @@ class _$SessionCalendarStateImpl implements _SessionCalendarState {
 
   @override
   String toString() {
-    return 'SessionCalendarState(isLoading: $isLoading, error: $error, success: $success, isError: $isError, isLoginApiError: $isLoginApiError, sessionCalendarModel: $sessionCalendarModel, selectedTimeAdded: $selectedTimeAdded)';
+    return 'SessionCalendarState(isLoading: $isLoading, error: $error, success: $success, isError: $isError, isLoginApiError: $isLoginApiError, sessionCalendarModel: $sessionCalendarModel, avilableDatesResponse: $avilableDatesResponse, selectedTimeAdded: $selectedTimeAdded)';
   }
 
   @override
@@ -251,6 +283,8 @@ class _$SessionCalendarStateImpl implements _SessionCalendarState {
                 other.isLoginApiError == isLoginApiError) &&
             (identical(other.sessionCalendarModel, sessionCalendarModel) ||
                 other.sessionCalendarModel == sessionCalendarModel) &&
+            (identical(other.avilableDatesResponse, avilableDatesResponse) ||
+                other.avilableDatesResponse == avilableDatesResponse) &&
             const DeepCollectionEquality()
                 .equals(other._selectedTimeAdded, _selectedTimeAdded));
   }
@@ -264,6 +298,7 @@ class _$SessionCalendarStateImpl implements _SessionCalendarState {
       isError,
       isLoginApiError,
       sessionCalendarModel,
+      avilableDatesResponse,
       const DeepCollectionEquality().hash(_selectedTimeAdded));
 
   /// Create a copy of SessionCalendarState
@@ -285,6 +320,7 @@ abstract class _SessionCalendarState implements SessionCalendarState {
       final bool isError,
       final bool isLoginApiError,
       final SessionCalendarModel sessionCalendarModel,
+      final AvailableDatesResponse avilableDatesResponse,
       final List<String> selectedTimeAdded}) = _$SessionCalendarStateImpl;
 
   @override
@@ -299,6 +335,8 @@ abstract class _SessionCalendarState implements SessionCalendarState {
   bool get isLoginApiError;
   @override
   SessionCalendarModel get sessionCalendarModel;
+  @override
+  AvailableDatesResponse get avilableDatesResponse;
   @override
   List<String> get selectedTimeAdded;
 

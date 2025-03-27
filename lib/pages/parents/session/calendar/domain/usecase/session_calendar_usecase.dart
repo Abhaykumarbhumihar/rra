@@ -1,5 +1,6 @@
 import 'package:either_dart/either.dart';
 import '../../../../../../common/network/failure.dart';
+import '../../data/entity/avilabele_session/avilable_dates.dart';
 import '../../data/entity/session_calendar_model.dart';
 import '../repositery/session_calendar_dates_repositery.dart';
 
@@ -12,6 +13,10 @@ class SessionCalendarUsecase {
     return _sessionCalendarDatesRepositery.calendarData(calendarData);
   }
 
+  Future<Either<Failure, AvailableDatesResponse>> avilableDatesExecute(
+      Map<String, dynamic> calendarData) async {
+    return _sessionCalendarDatesRepositery.avilableDates(calendarData);
+  }
 
 
 

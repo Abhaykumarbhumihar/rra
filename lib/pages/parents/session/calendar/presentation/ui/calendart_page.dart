@@ -95,7 +95,11 @@ class CalendarPage extends StatelessWidget {
                                     const EdgeInsets.only(right: 8.0, left: 3.0),
                                 child: CalendarView(),
                               ),
-                              Availablity(),
+                              SizedBox(
+                                width: context.screenWidth,
+                                height: context.screenHeight*0.2,
+                                child: Availablity(),
+                              ),
                               TimeAddedView(),
                               CustomButton(
                                 text: "Continue",

@@ -1,5 +1,6 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
+import '../../data/entity/avilabele_session/avilable_dates.dart';
 import '../../data/entity/session_calendar_model.dart';
 
 part 'session_calendar_state.freezed.dart'; // Generated part file
@@ -13,7 +14,7 @@ class SessionCalendarState with _$SessionCalendarState {
     @Default(false) bool isError,
     @Default(false) bool isLoginApiError,
     @Default(SessionCalendarModel()) SessionCalendarModel sessionCalendarModel,
-
+    @Default(AvailableDatesResponse()) AvailableDatesResponse avilableDatesResponse,
     @Default([]) List<String> selectedTimeAdded,
 
   }) = _SessionCalendarState;

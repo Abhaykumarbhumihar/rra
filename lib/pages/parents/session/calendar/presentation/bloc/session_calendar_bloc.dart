@@ -7,6 +7,7 @@ import 'package:rra/pages/parents/session/calendar/presentation/bloc/session_cal
 import 'package:rra/pages/parents/session/calendar/presentation/bloc/session_calendar_state.dart';
 
 import '../../../../../../common/service_locator/setivelocator.dart';
+import '../../data/entity/avilabele_session/avilable_dates.dart';
 import '../../domain/usecase/session_calendar_usecase.dart';
 
 class SessionCalendarBloc
@@ -16,6 +17,7 @@ class SessionCalendarBloc
 
   SessionCalendarBloc() : super(SessionCalendarState.initial()) {
     on<CalendarDateEvents>(_getCalendarDatesList);
+    on<AvilableDateEvents>(_getAvilableDatesList);
   }
 
   Future<void> _getCalendarDatesList(
@@ -63,6 +65,57 @@ class SessionCalendarBloc
             isLoading: false,
             selectedTimeAdded: [],
             sessionCalendarModel: calendarData,
+            success: true));
+      });
+    } catch (error) {
+      // Handle the error and show error messages
+      emit(state.copyWith(isLoading: false, error: error.toString()));
+    }
+  }
+
+
+  Future<void> _getAvilableDatesList(
+      AvilableDateEvents event, Emitter<SessionCalendarState> emit) async {
+    try {
+      if (!(await Connectivity().isConnected)) {
+        emit(state.copyWith(
+          error:
+          'No internet connection. Please check your connection \nand try again.',
+          isLoginApiError: true,
+          isError: true,
+        ));
+        return;
+      }
+
+      emit(state.copyWith(
+        isLoading: true,
+        isError: false,
+        isLoginApiError: false,
+        success: false,
+        error: '',
+        avilableDatesResponse: AvailableDatesResponse()
+      ));
+
+      final response =
+      await _sessionCalendarUsecase.avilableDatesExecute(event.data);
+      response.fold((failure) {
+        emit(state.copyWith(
+            error: failure.message,
+            isError: true,
+            isLoginApiError: true,
+            isLoading: false,
+            avilableDatesResponse: AvailableDatesResponse(),
+            success: false));
+      }, (avilableDatesData) {
+        print("======check =====check =====check \n\n");
+        print(avilableDatesData);
+        print("======check =====check =====check \n\n");
+        emit(state.copyWith(
+            error: '',
+            isError: false,
+            isLoginApiError: false,
+            isLoading: false,
+            avilableDatesResponse: avilableDatesData,
             success: true));
       });
     } catch (error) {
