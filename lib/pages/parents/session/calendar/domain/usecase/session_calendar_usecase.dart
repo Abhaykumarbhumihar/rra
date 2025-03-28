@@ -2,6 +2,7 @@ import 'package:either_dart/either.dart';
 import '../../../../../../common/network/failure.dart';
 import '../../data/entity/avilabele_session/avilable_dates.dart';
 import '../../data/entity/session_calendar_model.dart';
+import '../../data/entity/time_added/time_added_model.dart';
 import '../repositery/session_calendar_dates_repositery.dart';
 
 class SessionCalendarUsecase {
@@ -18,7 +19,10 @@ class SessionCalendarUsecase {
     return _sessionCalendarDatesRepositery.avilableDates(calendarData);
   }
 
-
+  Future<Either<Failure, TimeAddedModel>> timeAddedModelExecute(
+      Map<String, dynamic> timeToAddData) async {
+    return _sessionCalendarDatesRepositery.timeAddedModel(timeToAddData);
+  }
 
 
 

@@ -21,7 +21,7 @@ class AddViewPlayerRepoImpl implements AddViewPlayerRepositery {
 
       print(addChildData);
       http.Response response =
-      await _apiServices.post(AppConstant.getAddChild, addChildData);
+      await _apiServices.post(AppConstant.getAddChild, addChildData,useDefaultHeaders: true);
       print(response.body);
       if (response.statusCode == 200) {
         final Map<String, dynamic> responseData = jsonDecode(response.body);

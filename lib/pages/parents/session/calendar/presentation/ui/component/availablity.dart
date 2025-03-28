@@ -3,6 +3,7 @@ import 'package:rra/common/values/values_exports.dart';
 
 import '../../../../../../../common/component/screen_title.dart';
 import '../../../../../../../common/routes/routes.dart';
+import '../../../../../../../common/values/utils.dart';
 import '../../bloc/session_calendar_bloc.dart';
 import '../../bloc/session_calendar_event.dart';
 import '../../bloc/session_calendar_state.dart';
@@ -54,9 +55,9 @@ class Availablity extends StatelessWidget {
                           // print(data.sessionDay);
                           // print(data.fromTime);
                           // print(state.datetime);
-                          // DateTime date = DateTime.parse(state.datetime.toString());
+                           DateTime date = DateTime.parse(state.datetime.toString());
                           //
-                          // String formattedDate = formatDate(date);
+                          String formattedDate = Utils.formatDate(date);
                           // print(formattedDate);
                           // var completeString = "${formattedDate} \nat ${data.fromTime}";
                           // _showCustomBottomSheet(context,completeString);
@@ -109,26 +110,7 @@ class Availablity extends StatelessWidget {
       ),
     );
   }
-  String formatDate(DateTime date) {
-    // Format the date to "Nov 27th, 2025"
-    final formatter = DateFormat('MMM d, yyyy');
-    String formattedDate = formatter.format(date);
 
-    // Add the suffix for the day (e.g., 'st', 'nd', 'rd', 'th')
-    int day = date.day;
-    String suffix = 'th';
-
-    if (day % 10 == 1 && day != 11) {
-      suffix = 'st';
-    } else if (day % 10 == 2 && day != 12) {
-      suffix = 'nd';
-    } else if (day % 10 == 3 && day != 13) {
-      suffix = 'rd';
-    }
-
-    // Return the formatted date with suffix for the day
-    return formattedDate.replaceFirst(RegExp(r'\d+'), '$day$suffix');
-  }
 
   void _showCustomBottomSheet(BuildContext context,String data) {
     var bloc=BlocProvider.of<SessionCalendarBloc>(context);

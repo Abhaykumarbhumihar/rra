@@ -20,12 +20,13 @@ class SessionCalendarDateRepoImpl implements SessionCalendarDatesRepositery {
 
 
   @override
-  Future<Either<Failure, SessionCalendarModel>> calendarData(Map<String, dynamic> calendarData)async {
+  Future<Either<Failure, SessionCalendarModel>> calendarData(Map<String, dynamic> calendarDataa)async {
     try {
 
-      print(calendarData);
+      print("++++++++++++++++++++++++++++++++++++++++++++++++++");
+      print(calendarDataa);
       http.Response response =
-          await _apiServices.post(AppConstant.getSessionCalendarDate, calendarData,useDefaultHeaders: true);
+          await _apiServices.post(AppConstant.getSessionCalendarDate, calendarDataa,useDefaultHeaders: true);
       print(response.body);
       if (response.statusCode == 200) {
         final Map<String, dynamic> responseData = jsonDecode(response.body);
@@ -85,7 +86,8 @@ class SessionCalendarDateRepoImpl implements SessionCalendarDatesRepositery {
   Future<Either<Failure, TimeAddedModel>> timeAddedModel(Map<String, dynamic> timeAddedData)async {
     try {
 
-      print(calendarData);
+      print("++++++++++++++timeAddedModeltimeAddedModel++++++++++++++++++++++++++++++");
+      print(timeAddedData);
       http.Response response =
           await _apiServices.post(AppConstant.getStoreSesssionTimeAdded, timeAddedData,useDefaultHeaders: true);
       print(response.body);

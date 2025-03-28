@@ -1,6 +1,7 @@
 import 'package:intl/intl.dart';
 import 'package:rra/common/component/loading_indicator.dart';
 import 'package:rra/common/values/values_exports.dart';
+import '../../../../../../common/component/app_text_style.dart';
 import '../../../../../../common/component/auth_text_field.dart';
 import '../../../../../../common/component/common_app_bar.dart';
 import '../../../../../../common/component/common_background.dart';
@@ -113,7 +114,21 @@ class AddDetail extends StatelessWidget {
                                 photoConsent: state.childPhotoUseOnSocialMedia,
                                 firstAidConsent: state.administratorFirstAidNeed),
                           if (state.selectedTab == 0)
-                            Text("Show here listview builder")
+                            Container(
+                                width: context.screenWidth,
+                                child: ListView.builder(
+                              shrinkWrap: true,
+                                itemCount: state.childLisstModel.data.length,
+                                itemBuilder: (context,index){
+                                  var data =state.childLisstModel.data[index];
+                              return Container(
+                                child: Row(
+                                  children: <Widget>[
+                                    Text("${data.childName}",style: AppTextStyle.medium(0.032),)
+                                  ],
+                                ),
+                              );
+                            }))
                         ],
                       ),
                     )

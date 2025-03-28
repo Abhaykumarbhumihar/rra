@@ -27,12 +27,13 @@ class AddViewPlayerBloc extends Bloc<AddViewPlayerEvent, AddViewPlayerState> {
     on<AddViewPlayerClubNameEvent>(clubNameChanged);
     on<AddViewPlayerTessUsMedicalConditionEvent>(medicalConditionChanged);
     on<AddViewPlayerSubmitButtonPressEvent>(submitButtonPressed);
-    on<AddViewPlayerGetChildListEvent>(_addChildEvent);
+    on<AddViewPlayerSubmitButtonPressEvent>(_addChildEvent);
+    on<AddViewPlayerGetChildListEvent>(_getChildListEvent);
 
   }
 
   Future<void> _addChildEvent(
-      AddViewPlayerGetChildListEvent event, Emitter<AddViewPlayerState> emit) async {
+      AddViewPlayerSubmitButtonPressEvent event, Emitter<AddViewPlayerState> emit) async {
     try {
       print("CLICKING HEREE ");
       emit(state.copyWith(

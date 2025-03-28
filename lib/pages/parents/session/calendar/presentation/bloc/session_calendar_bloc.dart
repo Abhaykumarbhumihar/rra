@@ -1,5 +1,8 @@
+import 'dart:convert';
+
 import 'package:bloc/bloc.dart';
 import 'package:connectivity_plus/connectivity_plus.dart';
+import 'package:intl/intl.dart';
 import 'package:meta/meta.dart';
 import 'package:rra/common/network/connectivity_extension.dart';
 import 'package:rra/pages/parents/session/calendar/data/entity/session_calendar_model.dart';
@@ -7,6 +10,7 @@ import 'package:rra/pages/parents/session/calendar/presentation/bloc/session_cal
 import 'package:rra/pages/parents/session/calendar/presentation/bloc/session_calendar_state.dart';
 
 import '../../../../../../common/service_locator/setivelocator.dart';
+import '../../../../../../common/values/utils.dart';
 import '../../data/entity/avilabele_session/avilable_dates.dart';
 import '../../domain/usecase/session_calendar_usecase.dart';
 
@@ -19,19 +23,28 @@ class SessionCalendarBloc
     on<CalendarDateEvents>(_getCalendarDatesList);
     on<AvilableDateEvents>(_getAvilableDatesList);
     on<CurrentDateEvent>(_setCurrentDate);
-    on<SetSlotForBookingEvent>(_setSelectedSlot);
+    on<SetSlotBooking>(_setSelectedSlot);
   }
 
 
   Future<void> _setSelectedSlot(
-      SetSlotForBookingEvent event, Emitter<SessionCalendarState> emit) async {
-
+      SetSlotBooking event, Emitter<SessionCalendarState> emit) async {
+    var data=[];
+    data.add(event.data);
+    DateTime parsedDate = DateTime.parse(state.datetime.toString());
     final Map<String, dynamic> requestData = {
-      "date": state.datetime,
-      "slots": [event.data],
+      "date":"${DateFormat('yyyy-MM-dd').format(parsedDate)}",
+      "slots": data,
     };
-print(requestData);
+    Map<String, dynamic> stringifiedBody = requestData.map(
+          (key, value) => MapEntry(jsonEncode(key), jsonEncode(value)),
+    );
 
+    print(stringifiedBody);
+final response=await _sessionCalendarUsecase.timeAddedModelExecute(stringifiedBody);
+    response.fold((failure){}, (timeToAdded){
+      print(timeToAdded);
+    });
     // // Check if the event.data (slot) already exists in the selectedTimeAdded list
     // final updatedSelectedTimeAdded = List<String>.from(state.selectedTimeAdded);
     //
