@@ -33,6 +33,11 @@ class DashboardGrid extends StatelessWidget {
       "image": "assets/images/score_card.png",
       "background": "assets/images/dashboard_bottom_border_background.png"
     },
+    {
+      "title": "View Player",
+      "image": "assets/images/score_card.png",
+      "background": "assets/images/dashboard_bottom_border_background.png"
+    },
   ];
 
   @override
@@ -65,6 +70,12 @@ class DashboardGrid extends StatelessWidget {
             }else if(item['title']=="My Orders"){
               Navigator.pushNamed(
                   context, AppRoutes.PARENTORDERLISTPAGE);
+            }else if(item['title']=="View Player"){
+              Map<String, dynamic> arguments = {
+                "isFromDashBoard": true,
+              };
+              Navigator.pushNamed(
+                  context, AppRoutes.ADDDETAILS,arguments: arguments);
             }
             print("${item['title']} clicked");
           },

@@ -23,6 +23,7 @@ import '../../pages/parents/parent_order/parent_order_detail/presentation/ui/par
 import '../../pages/parents/parent_order/parent_order_list/presentation/ui/parent_order_list_page.dart';
 import '../../pages/parents/parent_score_view/parent_player_score_list/presentation/ui/parent_player_score_list_page.dart';
 import '../../pages/parents/parent_view_attendance/presentation/ui/parent_attendance_list_age.dart';
+import '../../pages/parents/session/add_detail/presentation/bloc/add_view_player_bloc.dart';
 import '../../pages/parents/session/add_detail/presentation/ui/add_detail.dart';
 import '../../pages/parents/session/calendar/presentation/bloc/session_calendar_bloc.dart';
 import '../../pages/parents/session/calendar/presentation/ui/calendart_page.dart';
@@ -98,10 +99,12 @@ class AppPages {
         route: AppRoutes.CALENDAR,
         page:  CalendarPage(),
         bloc: BlocProvider(create: (_) =>SessionCalendarBloc())
+
       ),
       PageEntitiy(
         route: AppRoutes.ADDDETAILS,
         page:  AddDetail(),
+          bloc: BlocProvider(create: (_) =>AddViewPlayerBloc())
       ),
       PageEntitiy(
         route: AppRoutes.HOLIDAYCAMP,

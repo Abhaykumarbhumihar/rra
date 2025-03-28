@@ -103,7 +103,7 @@ class CalendarPage extends StatelessWidget {
                               if(state.selectedTimeAdded.isNotEmpty)
                               SizedBox(
                                 width: context.screenWidth,
-                                height: context.screenHeight*0.18,
+                                height: context.screenHeight*0.22,
                                 child: TimeAddedView(),
                               ),
                               CustomButton(

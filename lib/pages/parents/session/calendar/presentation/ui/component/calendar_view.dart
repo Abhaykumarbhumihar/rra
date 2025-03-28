@@ -93,23 +93,7 @@ class CalendarView extends StatelessWidget {
                       onFormatChanged: (format) {},
                       onDaySelected: (selectedTime, focusedTime) {
 
-                        BlocProvider.of<SessionCalendarBloc>(context)
-                            .add(CurrentDateEvent(selectedTime));
-                        print(selectedTime);
-                        String formattedDate = DateFormat('yyyy-MM-dd').format(selectedTime);
-                        print(formattedDate);
-                        // "date": "2025-03-11",
-                        // "sessiontype": "group", //group
-                        // "coaching_program_id": 21
-                        Map<String, dynamic> map = {
-                          "date":formattedDate,
 
-                          "coaching_program_id": "${state.sessionCalendarModel.data.coachingPrograms.id}",
-                          //"academy_id": academyId,
-                          "sessiontype": state.sessionCalendarModel.data.coachingPrograms.private == "1" ? "private" : "group"
-                        };
-                        BlocProvider.of<SessionCalendarBloc>(context)
-                            .add(AvilableDateEvents(map));
                       },
                       calendarBuilders: CalendarBuilders(
                         defaultBuilder: (ctx, day, focusedDay) {
@@ -121,24 +105,46 @@ class CalendarView extends StatelessWidget {
                             if (day.day == availableDate.day &&
                                 day.month == availableDate.month &&
                                 day.year == availableDate.year) {
-                              return Padding(
-                                padding: const EdgeInsets.all(4.0),
-                                child: Material(
-                                  elevation: 6.0,
-                                  borderRadius: BorderRadius.circular(24.0),
-                                  child: Container(
-                                    decoration: BoxDecoration(
-                                      color: Colors.green, // Highlight color
-                                      borderRadius: BorderRadius.all(
-                                        Radius.circular(8.0),
+                              return InkWell(
+                                onTap: (){
+                                  print(availableDate);
+                                  BlocProvider.of<SessionCalendarBloc>(context)
+                                      .add(CurrentDateEvent(availableDate));
+                                  print(availableDate);
+                                  String formattedDate = DateFormat('yyyy-MM-dd').format(availableDate);
+                                  print(formattedDate);
+                                  // "date": "2025-03-11",
+                                  // "sessiontype": "group", //group
+                                  // "coaching_program_id": 21
+                                  Map<String, dynamic> map = {
+                                    "date":formattedDate,
+
+                                    "coaching_program_id": "${state.sessionCalendarModel.data.coachingPrograms.id}",
+                                    //"academy_id": academyId,
+                                    "sessiontype": state.sessionCalendarModel.data.coachingPrograms.private == "1" ? "private" : "group"
+                                  };
+                                  BlocProvider.of<SessionCalendarBloc>(context)
+                                      .add(AvilableDateEvents(map));
+                                },
+                                child: Padding(
+                                  padding: const EdgeInsets.all(4.0),
+                                  child: Material(
+                                    elevation: 6.0,
+                                    borderRadius: BorderRadius.circular(24.0),
+                                    child: Container(
+                                      decoration: BoxDecoration(
+                                        color: Colors.green, // Highlight color
+                                        borderRadius: BorderRadius.all(
+                                          Radius.circular(8.0),
+                                        ),
                                       ),
-                                    ),
-                                    child: Center(
-                                      child: Text(
-                                        '${day.day}',
-                                        style: TextStyle(
-                                          color: Colors.white,
-                                          fontFamily: 'YourCustomFontFamily',
+                                      child: Center(
+                                        child: Text(
+                                          '${day.day}',
+                                          style: TextStyle(
+                                            color: Colors.white,
+                                            fontFamily: AppFont.interMedium,
+                                          ),
                                         ),
                                       ),
                                     ),
