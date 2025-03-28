@@ -30,6 +30,11 @@ mixin _$AddViewPlayerState {
   String get schoolName => throw _privateConstructorUsedError;
   String get clubName => throw _privateConstructorUsedError;
   String get medicalConditionTessUs => throw _privateConstructorUsedError;
+  bool get isChildSuccess => throw _privateConstructorUsedError;
+  bool get isChildError => throw _privateConstructorUsedError;
+  bool get isCHildListSucces => throw _privateConstructorUsedError;
+  bool get isCHildListError => throw _privateConstructorUsedError;
+  ChildListModel get childLisstModel => throw _privateConstructorUsedError;
 
   /// Create a copy of AddViewPlayerState
   /// with the given fields replaced by the non-null parameter values.
@@ -58,7 +63,14 @@ abstract class $AddViewPlayerStateCopyWith<$Res> {
       String age,
       String schoolName,
       String clubName,
-      String medicalConditionTessUs});
+      String medicalConditionTessUs,
+      bool isChildSuccess,
+      bool isChildError,
+      bool isCHildListSucces,
+      bool isCHildListError,
+      ChildListModel childLisstModel});
+
+  $ChildListModelCopyWith<$Res> get childLisstModel;
 }
 
 /// @nodoc
@@ -90,6 +102,11 @@ class _$AddViewPlayerStateCopyWithImpl<$Res, $Val extends AddViewPlayerState>
     Object? schoolName = null,
     Object? clubName = null,
     Object? medicalConditionTessUs = null,
+    Object? isChildSuccess = null,
+    Object? isChildError = null,
+    Object? isCHildListSucces = null,
+    Object? isCHildListError = null,
+    Object? childLisstModel = null,
   }) {
     return _then(_value.copyWith(
       selectedTab: null == selectedTab
@@ -148,7 +165,37 @@ class _$AddViewPlayerStateCopyWithImpl<$Res, $Val extends AddViewPlayerState>
           ? _value.medicalConditionTessUs
           : medicalConditionTessUs // ignore: cast_nullable_to_non_nullable
               as String,
+      isChildSuccess: null == isChildSuccess
+          ? _value.isChildSuccess
+          : isChildSuccess // ignore: cast_nullable_to_non_nullable
+              as bool,
+      isChildError: null == isChildError
+          ? _value.isChildError
+          : isChildError // ignore: cast_nullable_to_non_nullable
+              as bool,
+      isCHildListSucces: null == isCHildListSucces
+          ? _value.isCHildListSucces
+          : isCHildListSucces // ignore: cast_nullable_to_non_nullable
+              as bool,
+      isCHildListError: null == isCHildListError
+          ? _value.isCHildListError
+          : isCHildListError // ignore: cast_nullable_to_non_nullable
+              as bool,
+      childLisstModel: null == childLisstModel
+          ? _value.childLisstModel
+          : childLisstModel // ignore: cast_nullable_to_non_nullable
+              as ChildListModel,
     ) as $Val);
+  }
+
+  /// Create a copy of AddViewPlayerState
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $ChildListModelCopyWith<$Res> get childLisstModel {
+    return $ChildListModelCopyWith<$Res>(_value.childLisstModel, (value) {
+      return _then(_value.copyWith(childLisstModel: value) as $Val);
+    });
   }
 }
 
@@ -174,7 +221,15 @@ abstract class _$$AddViewPlayerStateImplCopyWith<$Res>
       String age,
       String schoolName,
       String clubName,
-      String medicalConditionTessUs});
+      String medicalConditionTessUs,
+      bool isChildSuccess,
+      bool isChildError,
+      bool isCHildListSucces,
+      bool isCHildListError,
+      ChildListModel childLisstModel});
+
+  @override
+  $ChildListModelCopyWith<$Res> get childLisstModel;
 }
 
 /// @nodoc
@@ -204,6 +259,11 @@ class __$$AddViewPlayerStateImplCopyWithImpl<$Res>
     Object? schoolName = null,
     Object? clubName = null,
     Object? medicalConditionTessUs = null,
+    Object? isChildSuccess = null,
+    Object? isChildError = null,
+    Object? isCHildListSucces = null,
+    Object? isCHildListError = null,
+    Object? childLisstModel = null,
   }) {
     return _then(_$AddViewPlayerStateImpl(
       selectedTab: null == selectedTab
@@ -262,6 +322,26 @@ class __$$AddViewPlayerStateImplCopyWithImpl<$Res>
           ? _value.medicalConditionTessUs
           : medicalConditionTessUs // ignore: cast_nullable_to_non_nullable
               as String,
+      isChildSuccess: null == isChildSuccess
+          ? _value.isChildSuccess
+          : isChildSuccess // ignore: cast_nullable_to_non_nullable
+              as bool,
+      isChildError: null == isChildError
+          ? _value.isChildError
+          : isChildError // ignore: cast_nullable_to_non_nullable
+              as bool,
+      isCHildListSucces: null == isCHildListSucces
+          ? _value.isCHildListSucces
+          : isCHildListSucces // ignore: cast_nullable_to_non_nullable
+              as bool,
+      isCHildListError: null == isCHildListError
+          ? _value.isCHildListError
+          : isCHildListError // ignore: cast_nullable_to_non_nullable
+              as bool,
+      childLisstModel: null == childLisstModel
+          ? _value.childLisstModel
+          : childLisstModel // ignore: cast_nullable_to_non_nullable
+              as ChildListModel,
     ));
   }
 }
@@ -283,7 +363,12 @@ class _$AddViewPlayerStateImpl implements _AddViewPlayerState {
       this.age = "",
       this.schoolName = "",
       this.clubName = "",
-      this.medicalConditionTessUs = ""});
+      this.medicalConditionTessUs = "",
+      this.isChildSuccess = false,
+      this.isChildError = false,
+      this.isCHildListSucces = false,
+      this.isCHildListError = false,
+      this.childLisstModel = const ChildListModel()});
 
   @override
   @JsonKey()
@@ -325,10 +410,25 @@ class _$AddViewPlayerStateImpl implements _AddViewPlayerState {
   @override
   @JsonKey()
   final String medicalConditionTessUs;
+  @override
+  @JsonKey()
+  final bool isChildSuccess;
+  @override
+  @JsonKey()
+  final bool isChildError;
+  @override
+  @JsonKey()
+  final bool isCHildListSucces;
+  @override
+  @JsonKey()
+  final bool isCHildListError;
+  @override
+  @JsonKey()
+  final ChildListModel childLisstModel;
 
   @override
   String toString() {
-    return 'AddViewPlayerState(selectedTab: $selectedTab, isLoading: $isLoading, error: $error, success: $success, isError: $isError, isLoginApiError: $isLoginApiError, childPhotoUseOnSocialMedia: $childPhotoUseOnSocialMedia, administratorFirstAidNeed: $administratorFirstAidNeed, childName: $childName, dob: $dob, age: $age, schoolName: $schoolName, clubName: $clubName, medicalConditionTessUs: $medicalConditionTessUs)';
+    return 'AddViewPlayerState(selectedTab: $selectedTab, isLoading: $isLoading, error: $error, success: $success, isError: $isError, isLoginApiError: $isLoginApiError, childPhotoUseOnSocialMedia: $childPhotoUseOnSocialMedia, administratorFirstAidNeed: $administratorFirstAidNeed, childName: $childName, dob: $dob, age: $age, schoolName: $schoolName, clubName: $clubName, medicalConditionTessUs: $medicalConditionTessUs, isChildSuccess: $isChildSuccess, isChildError: $isChildError, isCHildListSucces: $isCHildListSucces, isCHildListError: $isCHildListError, childLisstModel: $childLisstModel)';
   }
 
   @override
@@ -361,26 +461,42 @@ class _$AddViewPlayerStateImpl implements _AddViewPlayerState {
             (identical(other.clubName, clubName) ||
                 other.clubName == clubName) &&
             (identical(other.medicalConditionTessUs, medicalConditionTessUs) ||
-                other.medicalConditionTessUs == medicalConditionTessUs));
+                other.medicalConditionTessUs == medicalConditionTessUs) &&
+            (identical(other.isChildSuccess, isChildSuccess) ||
+                other.isChildSuccess == isChildSuccess) &&
+            (identical(other.isChildError, isChildError) ||
+                other.isChildError == isChildError) &&
+            (identical(other.isCHildListSucces, isCHildListSucces) ||
+                other.isCHildListSucces == isCHildListSucces) &&
+            (identical(other.isCHildListError, isCHildListError) ||
+                other.isCHildListError == isCHildListError) &&
+            (identical(other.childLisstModel, childLisstModel) ||
+                other.childLisstModel == childLisstModel));
   }
 
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      selectedTab,
-      isLoading,
-      error,
-      const DeepCollectionEquality().hash(success),
-      isError,
-      isLoginApiError,
-      childPhotoUseOnSocialMedia,
-      administratorFirstAidNeed,
-      childName,
-      dob,
-      age,
-      schoolName,
-      clubName,
-      medicalConditionTessUs);
+  int get hashCode => Object.hashAll([
+        runtimeType,
+        selectedTab,
+        isLoading,
+        error,
+        const DeepCollectionEquality().hash(success),
+        isError,
+        isLoginApiError,
+        childPhotoUseOnSocialMedia,
+        administratorFirstAidNeed,
+        childName,
+        dob,
+        age,
+        schoolName,
+        clubName,
+        medicalConditionTessUs,
+        isChildSuccess,
+        isChildError,
+        isCHildListSucces,
+        isCHildListError,
+        childLisstModel
+      ]);
 
   /// Create a copy of AddViewPlayerState
   /// with the given fields replaced by the non-null parameter values.
@@ -407,7 +523,12 @@ abstract class _AddViewPlayerState implements AddViewPlayerState {
       final String age,
       final String schoolName,
       final String clubName,
-      final String medicalConditionTessUs}) = _$AddViewPlayerStateImpl;
+      final String medicalConditionTessUs,
+      final bool isChildSuccess,
+      final bool isChildError,
+      final bool isCHildListSucces,
+      final bool isCHildListError,
+      final ChildListModel childLisstModel}) = _$AddViewPlayerStateImpl;
 
   @override
   int get selectedTab;
@@ -437,6 +558,16 @@ abstract class _AddViewPlayerState implements AddViewPlayerState {
   String get clubName;
   @override
   String get medicalConditionTessUs;
+  @override
+  bool get isChildSuccess;
+  @override
+  bool get isChildError;
+  @override
+  bool get isCHildListSucces;
+  @override
+  bool get isCHildListError;
+  @override
+  ChildListModel get childLisstModel;
 
   /// Create a copy of AddViewPlayerState
   /// with the given fields replaced by the non-null parameter values.

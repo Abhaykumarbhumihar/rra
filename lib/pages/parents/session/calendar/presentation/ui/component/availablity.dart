@@ -42,15 +42,24 @@ class Availablity extends StatelessWidget {
                       var data = state.avilableDatesResponse.data[index];
                       return InkWell(
                         onTap: () {
-                          print(data.sessionDay);
-                          print(data.fromTime);
-                          print(state.datetime);
-                          DateTime date = DateTime.parse(state.datetime.toString());
-
-                          String formattedDate = formatDate(date);
-                          print(formattedDate);
-                          var completeString = "${formattedDate} \nat ${data.fromTime}";
-                          _showCustomBottomSheet(context,completeString);
+                          Map<String,dynamic>map={
+                            "session_id": data.sessionDetailId,
+                            "time": data.time,
+                            "from_time":data.fromTime,
+                            "to_time": data.toTime,
+                            "slots_left": data.slotsLeft,
+                            "price": data.price
+                          };
+                          BlocProvider.of<SessionCalendarBloc>(context).add(SetSlotBooking(map));
+                          // print(data.sessionDay);
+                          // print(data.fromTime);
+                          // print(state.datetime);
+                          // DateTime date = DateTime.parse(state.datetime.toString());
+                          //
+                          // String formattedDate = formatDate(date);
+                          // print(formattedDate);
+                          // var completeString = "${formattedDate} \nat ${data.fromTime}";
+                          // _showCustomBottomSheet(context,completeString);
                         },
                         child: Row(
                           children: <Widget>[

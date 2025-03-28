@@ -25,23 +25,30 @@ class SessionCalendarBloc
 
   Future<void> _setSelectedSlot(
       SetSlotForBookingEvent event, Emitter<SessionCalendarState> emit) async {
-    // Check if the event.data (slot) already exists in the selectedTimeAdded list
-    final updatedSelectedTimeAdded = List<String>.from(state.selectedTimeAdded);
 
-    // If the slot is not already added, add it
-    if (!updatedSelectedTimeAdded.contains(event.data)) {
-      updatedSelectedTimeAdded.add(event.data);
-    }
+    final Map<String, dynamic> requestData = {
+      "date": state.datetime,
+      "slots": [event.data],
+    };
+print(requestData);
 
-    // Emit the updated state with the new selectedTimeAdded list
-    emit(state.copyWith(
-      isLoading: false,
-      isError: false,
-      isLoginApiError: false,
-      success: false,
-      error: '',
-      selectedTimeAdded: updatedSelectedTimeAdded,
-    ));
+    // // Check if the event.data (slot) already exists in the selectedTimeAdded list
+    // final updatedSelectedTimeAdded = List<String>.from(state.selectedTimeAdded);
+    //
+    // // If the slot is not already added, add it
+    // if (!updatedSelectedTimeAdded.contains(event.data)) {
+    //   updatedSelectedTimeAdded.add(event.data);
+    // }
+    //
+    // // Emit the updated state with the new selectedTimeAdded list
+    // emit(state.copyWith(
+    //   isLoading: false,
+    //   isError: false,
+    //   isLoginApiError: false,
+    //   success: false,
+    //   error: '',
+    //   selectedTimeAdded: updatedSelectedTimeAdded,
+    // ));
   }
 
 

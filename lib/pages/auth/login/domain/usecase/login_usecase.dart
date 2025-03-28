@@ -13,10 +13,4 @@ class LoginUseCase {
     return _loginRepositery.login(userData);
   }
 
-
-
-
-
-
-
 }

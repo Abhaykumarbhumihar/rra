@@ -32,6 +32,9 @@ import '../../pages/parents/application/domain/usecase/application_usecase.dart'
 import '../../pages/parents/location/data/repoImpl/location_repo_impl.dart';
 import '../../pages/parents/location/domain/repositery/location_repositery.dart';
 import '../../pages/parents/location/domain/usecase/location_usecase.dart';
+import '../../pages/parents/session/add_detail/data/repo_impl/add_view_player_repo_impl.dart';
+import '../../pages/parents/session/add_detail/domain/repositery/add_view_player_repositery.dart';
+import '../../pages/parents/session/add_detail/domain/usecase/add_view_player_usecase.dart';
 import '../../pages/parents/session/calendar/data/repo_impl/session_calendar_date_repo_impl.dart';
 import '../../pages/parents/session/calendar/domain/repositery/session_calendar_dates_repositery.dart';
 import '../../pages/parents/session/calendar/domain/usecase/session_calendar_usecase.dart';
@@ -116,5 +119,12 @@ void serviceLocator() {
           () => CoachingProgramingDetailRepoImpl());
   getIt.registerLazySingleton<CoachingProgramDetailUsecase>(
           () => CoachingProgramDetailUsecase(getIt<CoachingDetailRepositery>()));
+
+
+  /*coaching program detail */
+  getIt.registerLazySingleton<AddViewPlayerRepositery>(
+          () => AddViewPlayerRepoImpl());
+  getIt.registerLazySingleton<AddViewPlayerUsecase>(
+          () => AddViewPlayerUsecase(getIt<AddViewPlayerRepositery>()));
 
 }

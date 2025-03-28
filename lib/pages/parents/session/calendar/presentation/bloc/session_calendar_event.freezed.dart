@@ -23,6 +23,7 @@ mixin _$SessionCalendarEvent {
     required TResult Function(Map<String, dynamic> data) getAvilableDates,
     required TResult Function(DateTime data) setCurrentDate,
     required TResult Function(String data) setSlotFOrBooking,
+    required TResult Function(Map<String, dynamic> data) setSlotBooking,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -31,6 +32,7 @@ mixin _$SessionCalendarEvent {
     TResult? Function(Map<String, dynamic> data)? getAvilableDates,
     TResult? Function(DateTime data)? setCurrentDate,
     TResult? Function(String data)? setSlotFOrBooking,
+    TResult? Function(Map<String, dynamic> data)? setSlotBooking,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -39,6 +41,7 @@ mixin _$SessionCalendarEvent {
     TResult Function(Map<String, dynamic> data)? getAvilableDates,
     TResult Function(DateTime data)? setCurrentDate,
     TResult Function(String data)? setSlotFOrBooking,
+    TResult Function(Map<String, dynamic> data)? setSlotBooking,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -48,6 +51,7 @@ mixin _$SessionCalendarEvent {
     required TResult Function(AvilableDateEvents value) getAvilableDates,
     required TResult Function(CurrentDateEvent value) setCurrentDate,
     required TResult Function(SetSlotForBookingEvent value) setSlotFOrBooking,
+    required TResult Function(SetSlotBooking value) setSlotBooking,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -56,6 +60,7 @@ mixin _$SessionCalendarEvent {
     TResult? Function(AvilableDateEvents value)? getAvilableDates,
     TResult? Function(CurrentDateEvent value)? setCurrentDate,
     TResult? Function(SetSlotForBookingEvent value)? setSlotFOrBooking,
+    TResult? Function(SetSlotBooking value)? setSlotBooking,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -64,6 +69,7 @@ mixin _$SessionCalendarEvent {
     TResult Function(AvilableDateEvents value)? getAvilableDates,
     TResult Function(CurrentDateEvent value)? setCurrentDate,
     TResult Function(SetSlotForBookingEvent value)? setSlotFOrBooking,
+    TResult Function(SetSlotBooking value)? setSlotBooking,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -171,6 +177,7 @@ class _$CalendarDateEventsImpl implements CalendarDateEvents {
     required TResult Function(Map<String, dynamic> data) getAvilableDates,
     required TResult Function(DateTime data) setCurrentDate,
     required TResult Function(String data) setSlotFOrBooking,
+    required TResult Function(Map<String, dynamic> data) setSlotBooking,
   }) {
     return getCalenDarDateEvents(data);
   }
@@ -182,6 +189,7 @@ class _$CalendarDateEventsImpl implements CalendarDateEvents {
     TResult? Function(Map<String, dynamic> data)? getAvilableDates,
     TResult? Function(DateTime data)? setCurrentDate,
     TResult? Function(String data)? setSlotFOrBooking,
+    TResult? Function(Map<String, dynamic> data)? setSlotBooking,
   }) {
     return getCalenDarDateEvents?.call(data);
   }
@@ -193,6 +201,7 @@ class _$CalendarDateEventsImpl implements CalendarDateEvents {
     TResult Function(Map<String, dynamic> data)? getAvilableDates,
     TResult Function(DateTime data)? setCurrentDate,
     TResult Function(String data)? setSlotFOrBooking,
+    TResult Function(Map<String, dynamic> data)? setSlotBooking,
     required TResult orElse(),
   }) {
     if (getCalenDarDateEvents != null) {
@@ -208,6 +217,7 @@ class _$CalendarDateEventsImpl implements CalendarDateEvents {
     required TResult Function(AvilableDateEvents value) getAvilableDates,
     required TResult Function(CurrentDateEvent value) setCurrentDate,
     required TResult Function(SetSlotForBookingEvent value) setSlotFOrBooking,
+    required TResult Function(SetSlotBooking value) setSlotBooking,
   }) {
     return getCalenDarDateEvents(this);
   }
@@ -219,6 +229,7 @@ class _$CalendarDateEventsImpl implements CalendarDateEvents {
     TResult? Function(AvilableDateEvents value)? getAvilableDates,
     TResult? Function(CurrentDateEvent value)? setCurrentDate,
     TResult? Function(SetSlotForBookingEvent value)? setSlotFOrBooking,
+    TResult? Function(SetSlotBooking value)? setSlotBooking,
   }) {
     return getCalenDarDateEvents?.call(this);
   }
@@ -230,6 +241,7 @@ class _$CalendarDateEventsImpl implements CalendarDateEvents {
     TResult Function(AvilableDateEvents value)? getAvilableDates,
     TResult Function(CurrentDateEvent value)? setCurrentDate,
     TResult Function(SetSlotForBookingEvent value)? setSlotFOrBooking,
+    TResult Function(SetSlotBooking value)? setSlotBooking,
     required TResult orElse(),
   }) {
     if (getCalenDarDateEvents != null) {
@@ -333,6 +345,7 @@ class _$AvilableDateEventsImpl implements AvilableDateEvents {
     required TResult Function(Map<String, dynamic> data) getAvilableDates,
     required TResult Function(DateTime data) setCurrentDate,
     required TResult Function(String data) setSlotFOrBooking,
+    required TResult Function(Map<String, dynamic> data) setSlotBooking,
   }) {
     return getAvilableDates(data);
   }
@@ -344,6 +357,7 @@ class _$AvilableDateEventsImpl implements AvilableDateEvents {
     TResult? Function(Map<String, dynamic> data)? getAvilableDates,
     TResult? Function(DateTime data)? setCurrentDate,
     TResult? Function(String data)? setSlotFOrBooking,
+    TResult? Function(Map<String, dynamic> data)? setSlotBooking,
   }) {
     return getAvilableDates?.call(data);
   }
@@ -355,6 +369,7 @@ class _$AvilableDateEventsImpl implements AvilableDateEvents {
     TResult Function(Map<String, dynamic> data)? getAvilableDates,
     TResult Function(DateTime data)? setCurrentDate,
     TResult Function(String data)? setSlotFOrBooking,
+    TResult Function(Map<String, dynamic> data)? setSlotBooking,
     required TResult orElse(),
   }) {
     if (getAvilableDates != null) {
@@ -370,6 +385,7 @@ class _$AvilableDateEventsImpl implements AvilableDateEvents {
     required TResult Function(AvilableDateEvents value) getAvilableDates,
     required TResult Function(CurrentDateEvent value) setCurrentDate,
     required TResult Function(SetSlotForBookingEvent value) setSlotFOrBooking,
+    required TResult Function(SetSlotBooking value) setSlotBooking,
   }) {
     return getAvilableDates(this);
   }
@@ -381,6 +397,7 @@ class _$AvilableDateEventsImpl implements AvilableDateEvents {
     TResult? Function(AvilableDateEvents value)? getAvilableDates,
     TResult? Function(CurrentDateEvent value)? setCurrentDate,
     TResult? Function(SetSlotForBookingEvent value)? setSlotFOrBooking,
+    TResult? Function(SetSlotBooking value)? setSlotBooking,
   }) {
     return getAvilableDates?.call(this);
   }
@@ -392,6 +409,7 @@ class _$AvilableDateEventsImpl implements AvilableDateEvents {
     TResult Function(AvilableDateEvents value)? getAvilableDates,
     TResult Function(CurrentDateEvent value)? setCurrentDate,
     TResult Function(SetSlotForBookingEvent value)? setSlotFOrBooking,
+    TResult Function(SetSlotBooking value)? setSlotBooking,
     required TResult orElse(),
   }) {
     if (getAvilableDates != null) {
@@ -488,6 +506,7 @@ class _$CurrentDateEventImpl implements CurrentDateEvent {
     required TResult Function(Map<String, dynamic> data) getAvilableDates,
     required TResult Function(DateTime data) setCurrentDate,
     required TResult Function(String data) setSlotFOrBooking,
+    required TResult Function(Map<String, dynamic> data) setSlotBooking,
   }) {
     return setCurrentDate(data);
   }
@@ -499,6 +518,7 @@ class _$CurrentDateEventImpl implements CurrentDateEvent {
     TResult? Function(Map<String, dynamic> data)? getAvilableDates,
     TResult? Function(DateTime data)? setCurrentDate,
     TResult? Function(String data)? setSlotFOrBooking,
+    TResult? Function(Map<String, dynamic> data)? setSlotBooking,
   }) {
     return setCurrentDate?.call(data);
   }
@@ -510,6 +530,7 @@ class _$CurrentDateEventImpl implements CurrentDateEvent {
     TResult Function(Map<String, dynamic> data)? getAvilableDates,
     TResult Function(DateTime data)? setCurrentDate,
     TResult Function(String data)? setSlotFOrBooking,
+    TResult Function(Map<String, dynamic> data)? setSlotBooking,
     required TResult orElse(),
   }) {
     if (setCurrentDate != null) {
@@ -525,6 +546,7 @@ class _$CurrentDateEventImpl implements CurrentDateEvent {
     required TResult Function(AvilableDateEvents value) getAvilableDates,
     required TResult Function(CurrentDateEvent value) setCurrentDate,
     required TResult Function(SetSlotForBookingEvent value) setSlotFOrBooking,
+    required TResult Function(SetSlotBooking value) setSlotBooking,
   }) {
     return setCurrentDate(this);
   }
@@ -536,6 +558,7 @@ class _$CurrentDateEventImpl implements CurrentDateEvent {
     TResult? Function(AvilableDateEvents value)? getAvilableDates,
     TResult? Function(CurrentDateEvent value)? setCurrentDate,
     TResult? Function(SetSlotForBookingEvent value)? setSlotFOrBooking,
+    TResult? Function(SetSlotBooking value)? setSlotBooking,
   }) {
     return setCurrentDate?.call(this);
   }
@@ -547,6 +570,7 @@ class _$CurrentDateEventImpl implements CurrentDateEvent {
     TResult Function(AvilableDateEvents value)? getAvilableDates,
     TResult Function(CurrentDateEvent value)? setCurrentDate,
     TResult Function(SetSlotForBookingEvent value)? setSlotFOrBooking,
+    TResult Function(SetSlotBooking value)? setSlotBooking,
     required TResult orElse(),
   }) {
     if (setCurrentDate != null) {
@@ -645,6 +669,7 @@ class _$SetSlotForBookingEventImpl implements SetSlotForBookingEvent {
     required TResult Function(Map<String, dynamic> data) getAvilableDates,
     required TResult Function(DateTime data) setCurrentDate,
     required TResult Function(String data) setSlotFOrBooking,
+    required TResult Function(Map<String, dynamic> data) setSlotBooking,
   }) {
     return setSlotFOrBooking(data);
   }
@@ -656,6 +681,7 @@ class _$SetSlotForBookingEventImpl implements SetSlotForBookingEvent {
     TResult? Function(Map<String, dynamic> data)? getAvilableDates,
     TResult? Function(DateTime data)? setCurrentDate,
     TResult? Function(String data)? setSlotFOrBooking,
+    TResult? Function(Map<String, dynamic> data)? setSlotBooking,
   }) {
     return setSlotFOrBooking?.call(data);
   }
@@ -667,6 +693,7 @@ class _$SetSlotForBookingEventImpl implements SetSlotForBookingEvent {
     TResult Function(Map<String, dynamic> data)? getAvilableDates,
     TResult Function(DateTime data)? setCurrentDate,
     TResult Function(String data)? setSlotFOrBooking,
+    TResult Function(Map<String, dynamic> data)? setSlotBooking,
     required TResult orElse(),
   }) {
     if (setSlotFOrBooking != null) {
@@ -682,6 +709,7 @@ class _$SetSlotForBookingEventImpl implements SetSlotForBookingEvent {
     required TResult Function(AvilableDateEvents value) getAvilableDates,
     required TResult Function(CurrentDateEvent value) setCurrentDate,
     required TResult Function(SetSlotForBookingEvent value) setSlotFOrBooking,
+    required TResult Function(SetSlotBooking value) setSlotBooking,
   }) {
     return setSlotFOrBooking(this);
   }
@@ -693,6 +721,7 @@ class _$SetSlotForBookingEventImpl implements SetSlotForBookingEvent {
     TResult? Function(AvilableDateEvents value)? getAvilableDates,
     TResult? Function(CurrentDateEvent value)? setCurrentDate,
     TResult? Function(SetSlotForBookingEvent value)? setSlotFOrBooking,
+    TResult? Function(SetSlotBooking value)? setSlotBooking,
   }) {
     return setSlotFOrBooking?.call(this);
   }
@@ -704,6 +733,7 @@ class _$SetSlotForBookingEventImpl implements SetSlotForBookingEvent {
     TResult Function(AvilableDateEvents value)? getAvilableDates,
     TResult Function(CurrentDateEvent value)? setCurrentDate,
     TResult Function(SetSlotForBookingEvent value)? setSlotFOrBooking,
+    TResult Function(SetSlotBooking value)? setSlotBooking,
     required TResult orElse(),
   }) {
     if (setSlotFOrBooking != null) {
@@ -725,4 +755,171 @@ abstract class SetSlotForBookingEvent implements SessionCalendarEvent {
   @JsonKey(includeFromJson: false, includeToJson: false)
   _$$SetSlotForBookingEventImplCopyWith<_$SetSlotForBookingEventImpl>
       get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$SetSlotBookingImplCopyWith<$Res> {
+  factory _$$SetSlotBookingImplCopyWith(_$SetSlotBookingImpl value,
+          $Res Function(_$SetSlotBookingImpl) then) =
+      __$$SetSlotBookingImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({Map<String, dynamic> data});
+}
+
+/// @nodoc
+class __$$SetSlotBookingImplCopyWithImpl<$Res>
+    extends _$SessionCalendarEventCopyWithImpl<$Res, _$SetSlotBookingImpl>
+    implements _$$SetSlotBookingImplCopyWith<$Res> {
+  __$$SetSlotBookingImplCopyWithImpl(
+      _$SetSlotBookingImpl _value, $Res Function(_$SetSlotBookingImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of SessionCalendarEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? data = null,
+  }) {
+    return _then(_$SetSlotBookingImpl(
+      null == data
+          ? _value._data
+          : data // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$SetSlotBookingImpl implements SetSlotBooking {
+  const _$SetSlotBookingImpl(final Map<String, dynamic> data) : _data = data;
+
+  final Map<String, dynamic> _data;
+  @override
+  Map<String, dynamic> get data {
+    if (_data is EqualUnmodifiableMapView) return _data;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableMapView(_data);
+  }
+
+  @override
+  String toString() {
+    return 'SessionCalendarEvent.setSlotBooking(data: $data)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$SetSlotBookingImpl &&
+            const DeepCollectionEquality().equals(other._data, _data));
+  }
+
+  @override
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(_data));
+
+  /// Create a copy of SessionCalendarEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$SetSlotBookingImplCopyWith<_$SetSlotBookingImpl> get copyWith =>
+      __$$SetSlotBookingImplCopyWithImpl<_$SetSlotBookingImpl>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(Map<String, dynamic> data) getCalenDarDateEvents,
+    required TResult Function(Map<String, dynamic> data) getAvilableDates,
+    required TResult Function(DateTime data) setCurrentDate,
+    required TResult Function(String data) setSlotFOrBooking,
+    required TResult Function(Map<String, dynamic> data) setSlotBooking,
+  }) {
+    return setSlotBooking(data);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(Map<String, dynamic> data)? getCalenDarDateEvents,
+    TResult? Function(Map<String, dynamic> data)? getAvilableDates,
+    TResult? Function(DateTime data)? setCurrentDate,
+    TResult? Function(String data)? setSlotFOrBooking,
+    TResult? Function(Map<String, dynamic> data)? setSlotBooking,
+  }) {
+    return setSlotBooking?.call(data);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(Map<String, dynamic> data)? getCalenDarDateEvents,
+    TResult Function(Map<String, dynamic> data)? getAvilableDates,
+    TResult Function(DateTime data)? setCurrentDate,
+    TResult Function(String data)? setSlotFOrBooking,
+    TResult Function(Map<String, dynamic> data)? setSlotBooking,
+    required TResult orElse(),
+  }) {
+    if (setSlotBooking != null) {
+      return setSlotBooking(data);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(CalendarDateEvents value) getCalenDarDateEvents,
+    required TResult Function(AvilableDateEvents value) getAvilableDates,
+    required TResult Function(CurrentDateEvent value) setCurrentDate,
+    required TResult Function(SetSlotForBookingEvent value) setSlotFOrBooking,
+    required TResult Function(SetSlotBooking value) setSlotBooking,
+  }) {
+    return setSlotBooking(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(CalendarDateEvents value)? getCalenDarDateEvents,
+    TResult? Function(AvilableDateEvents value)? getAvilableDates,
+    TResult? Function(CurrentDateEvent value)? setCurrentDate,
+    TResult? Function(SetSlotForBookingEvent value)? setSlotFOrBooking,
+    TResult? Function(SetSlotBooking value)? setSlotBooking,
+  }) {
+    return setSlotBooking?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(CalendarDateEvents value)? getCalenDarDateEvents,
+    TResult Function(AvilableDateEvents value)? getAvilableDates,
+    TResult Function(CurrentDateEvent value)? setCurrentDate,
+    TResult Function(SetSlotForBookingEvent value)? setSlotFOrBooking,
+    TResult Function(SetSlotBooking value)? setSlotBooking,
+    required TResult orElse(),
+  }) {
+    if (setSlotBooking != null) {
+      return setSlotBooking(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class SetSlotBooking implements SessionCalendarEvent {
+  const factory SetSlotBooking(final Map<String, dynamic> data) =
+      _$SetSlotBookingImpl;
+
+  @override
+  Map<String, dynamic> get data;
+
+  /// Create a copy of SessionCalendarEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$SetSlotBookingImplCopyWith<_$SetSlotBookingImpl> get copyWith =>
+      throw _privateConstructorUsedError;
 }
