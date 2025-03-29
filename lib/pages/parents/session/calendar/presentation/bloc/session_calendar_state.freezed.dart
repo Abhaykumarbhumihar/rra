@@ -26,7 +26,17 @@ mixin _$SessionCalendarState {
       throw _privateConstructorUsedError;
   AvailableDatesResponse get avilableDatesResponse =>
       throw _privateConstructorUsedError;
+  TimeAddedModel get timeAddedModel => throw _privateConstructorUsedError;
+  bool get isTimeAddedError => throw _privateConstructorUsedError;
+  bool get isTimeAddedSuccess => throw _privateConstructorUsedError;
+  bool get isSelectForOtherDate => throw _privateConstructorUsedError;
+  bool get isSelectForContinue => throw _privateConstructorUsedError;
+  bool get isSelectForRecurring => throw _privateConstructorUsedError;
   List<String> get selectedTimeAdded => throw _privateConstructorUsedError;
+  String get selectBottomSheetType => throw _privateConstructorUsedError;
+  String get selectedDateDayName => throw _privateConstructorUsedError;
+  String get selectedSessionID => throw _privateConstructorUsedError;
+  String get selectedFromTime => throw _privateConstructorUsedError;
 
   /// Create a copy of SessionCalendarState
   /// with the given fields replaced by the non-null parameter values.
@@ -50,10 +60,21 @@ abstract class $SessionCalendarStateCopyWith<$Res> {
       bool isLoginApiError,
       SessionCalendarModel sessionCalendarModel,
       AvailableDatesResponse avilableDatesResponse,
-      List<String> selectedTimeAdded});
+      TimeAddedModel timeAddedModel,
+      bool isTimeAddedError,
+      bool isTimeAddedSuccess,
+      bool isSelectForOtherDate,
+      bool isSelectForContinue,
+      bool isSelectForRecurring,
+      List<String> selectedTimeAdded,
+      String selectBottomSheetType,
+      String selectedDateDayName,
+      String selectedSessionID,
+      String selectedFromTime});
 
   $SessionCalendarModelCopyWith<$Res> get sessionCalendarModel;
   $AvailableDatesResponseCopyWith<$Res> get avilableDatesResponse;
+  $TimeAddedModelCopyWith<$Res> get timeAddedModel;
 }
 
 /// @nodoc
@@ -80,7 +101,17 @@ class _$SessionCalendarStateCopyWithImpl<$Res,
     Object? isLoginApiError = null,
     Object? sessionCalendarModel = null,
     Object? avilableDatesResponse = null,
+    Object? timeAddedModel = null,
+    Object? isTimeAddedError = null,
+    Object? isTimeAddedSuccess = null,
+    Object? isSelectForOtherDate = null,
+    Object? isSelectForContinue = null,
+    Object? isSelectForRecurring = null,
     Object? selectedTimeAdded = null,
+    Object? selectBottomSheetType = null,
+    Object? selectedDateDayName = null,
+    Object? selectedSessionID = null,
+    Object? selectedFromTime = null,
   }) {
     return _then(_value.copyWith(
       isLoading: null == isLoading
@@ -115,10 +146,50 @@ class _$SessionCalendarStateCopyWithImpl<$Res,
           ? _value.avilableDatesResponse
           : avilableDatesResponse // ignore: cast_nullable_to_non_nullable
               as AvailableDatesResponse,
+      timeAddedModel: null == timeAddedModel
+          ? _value.timeAddedModel
+          : timeAddedModel // ignore: cast_nullable_to_non_nullable
+              as TimeAddedModel,
+      isTimeAddedError: null == isTimeAddedError
+          ? _value.isTimeAddedError
+          : isTimeAddedError // ignore: cast_nullable_to_non_nullable
+              as bool,
+      isTimeAddedSuccess: null == isTimeAddedSuccess
+          ? _value.isTimeAddedSuccess
+          : isTimeAddedSuccess // ignore: cast_nullable_to_non_nullable
+              as bool,
+      isSelectForOtherDate: null == isSelectForOtherDate
+          ? _value.isSelectForOtherDate
+          : isSelectForOtherDate // ignore: cast_nullable_to_non_nullable
+              as bool,
+      isSelectForContinue: null == isSelectForContinue
+          ? _value.isSelectForContinue
+          : isSelectForContinue // ignore: cast_nullable_to_non_nullable
+              as bool,
+      isSelectForRecurring: null == isSelectForRecurring
+          ? _value.isSelectForRecurring
+          : isSelectForRecurring // ignore: cast_nullable_to_non_nullable
+              as bool,
       selectedTimeAdded: null == selectedTimeAdded
           ? _value.selectedTimeAdded
           : selectedTimeAdded // ignore: cast_nullable_to_non_nullable
               as List<String>,
+      selectBottomSheetType: null == selectBottomSheetType
+          ? _value.selectBottomSheetType
+          : selectBottomSheetType // ignore: cast_nullable_to_non_nullable
+              as String,
+      selectedDateDayName: null == selectedDateDayName
+          ? _value.selectedDateDayName
+          : selectedDateDayName // ignore: cast_nullable_to_non_nullable
+              as String,
+      selectedSessionID: null == selectedSessionID
+          ? _value.selectedSessionID
+          : selectedSessionID // ignore: cast_nullable_to_non_nullable
+              as String,
+      selectedFromTime: null == selectedFromTime
+          ? _value.selectedFromTime
+          : selectedFromTime // ignore: cast_nullable_to_non_nullable
+              as String,
     ) as $Val);
   }
 
@@ -143,6 +214,16 @@ class _$SessionCalendarStateCopyWithImpl<$Res,
       return _then(_value.copyWith(avilableDatesResponse: value) as $Val);
     });
   }
+
+  /// Create a copy of SessionCalendarState
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $TimeAddedModelCopyWith<$Res> get timeAddedModel {
+    return $TimeAddedModelCopyWith<$Res>(_value.timeAddedModel, (value) {
+      return _then(_value.copyWith(timeAddedModel: value) as $Val);
+    });
+  }
 }
 
 /// @nodoc
@@ -162,12 +243,24 @@ abstract class _$$SessionCalendarStateImplCopyWith<$Res>
       bool isLoginApiError,
       SessionCalendarModel sessionCalendarModel,
       AvailableDatesResponse avilableDatesResponse,
-      List<String> selectedTimeAdded});
+      TimeAddedModel timeAddedModel,
+      bool isTimeAddedError,
+      bool isTimeAddedSuccess,
+      bool isSelectForOtherDate,
+      bool isSelectForContinue,
+      bool isSelectForRecurring,
+      List<String> selectedTimeAdded,
+      String selectBottomSheetType,
+      String selectedDateDayName,
+      String selectedSessionID,
+      String selectedFromTime});
 
   @override
   $SessionCalendarModelCopyWith<$Res> get sessionCalendarModel;
   @override
   $AvailableDatesResponseCopyWith<$Res> get avilableDatesResponse;
+  @override
+  $TimeAddedModelCopyWith<$Res> get timeAddedModel;
 }
 
 /// @nodoc
@@ -191,7 +284,17 @@ class __$$SessionCalendarStateImplCopyWithImpl<$Res>
     Object? isLoginApiError = null,
     Object? sessionCalendarModel = null,
     Object? avilableDatesResponse = null,
+    Object? timeAddedModel = null,
+    Object? isTimeAddedError = null,
+    Object? isTimeAddedSuccess = null,
+    Object? isSelectForOtherDate = null,
+    Object? isSelectForContinue = null,
+    Object? isSelectForRecurring = null,
     Object? selectedTimeAdded = null,
+    Object? selectBottomSheetType = null,
+    Object? selectedDateDayName = null,
+    Object? selectedSessionID = null,
+    Object? selectedFromTime = null,
   }) {
     return _then(_$SessionCalendarStateImpl(
       isLoading: null == isLoading
@@ -226,10 +329,50 @@ class __$$SessionCalendarStateImplCopyWithImpl<$Res>
           ? _value.avilableDatesResponse
           : avilableDatesResponse // ignore: cast_nullable_to_non_nullable
               as AvailableDatesResponse,
+      timeAddedModel: null == timeAddedModel
+          ? _value.timeAddedModel
+          : timeAddedModel // ignore: cast_nullable_to_non_nullable
+              as TimeAddedModel,
+      isTimeAddedError: null == isTimeAddedError
+          ? _value.isTimeAddedError
+          : isTimeAddedError // ignore: cast_nullable_to_non_nullable
+              as bool,
+      isTimeAddedSuccess: null == isTimeAddedSuccess
+          ? _value.isTimeAddedSuccess
+          : isTimeAddedSuccess // ignore: cast_nullable_to_non_nullable
+              as bool,
+      isSelectForOtherDate: null == isSelectForOtherDate
+          ? _value.isSelectForOtherDate
+          : isSelectForOtherDate // ignore: cast_nullable_to_non_nullable
+              as bool,
+      isSelectForContinue: null == isSelectForContinue
+          ? _value.isSelectForContinue
+          : isSelectForContinue // ignore: cast_nullable_to_non_nullable
+              as bool,
+      isSelectForRecurring: null == isSelectForRecurring
+          ? _value.isSelectForRecurring
+          : isSelectForRecurring // ignore: cast_nullable_to_non_nullable
+              as bool,
       selectedTimeAdded: null == selectedTimeAdded
           ? _value._selectedTimeAdded
           : selectedTimeAdded // ignore: cast_nullable_to_non_nullable
               as List<String>,
+      selectBottomSheetType: null == selectBottomSheetType
+          ? _value.selectBottomSheetType
+          : selectBottomSheetType // ignore: cast_nullable_to_non_nullable
+              as String,
+      selectedDateDayName: null == selectedDateDayName
+          ? _value.selectedDateDayName
+          : selectedDateDayName // ignore: cast_nullable_to_non_nullable
+              as String,
+      selectedSessionID: null == selectedSessionID
+          ? _value.selectedSessionID
+          : selectedSessionID // ignore: cast_nullable_to_non_nullable
+              as String,
+      selectedFromTime: null == selectedFromTime
+          ? _value.selectedFromTime
+          : selectedFromTime // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
   }
 }
@@ -246,7 +389,17 @@ class _$SessionCalendarStateImpl implements _SessionCalendarState {
       this.isLoginApiError = false,
       this.sessionCalendarModel = const SessionCalendarModel(),
       this.avilableDatesResponse = const AvailableDatesResponse(),
-      final List<String> selectedTimeAdded = const []})
+      this.timeAddedModel = const TimeAddedModel(),
+      this.isTimeAddedError = false,
+      this.isTimeAddedSuccess = false,
+      this.isSelectForOtherDate = false,
+      this.isSelectForContinue = false,
+      this.isSelectForRecurring = false,
+      final List<String> selectedTimeAdded = const [],
+      this.selectBottomSheetType = "",
+      this.selectedDateDayName = "",
+      this.selectedSessionID = "",
+      this.selectedFromTime = ""})
       : _selectedTimeAdded = selectedTimeAdded;
 
   @override
@@ -270,6 +423,24 @@ class _$SessionCalendarStateImpl implements _SessionCalendarState {
   @override
   @JsonKey()
   final AvailableDatesResponse avilableDatesResponse;
+  @override
+  @JsonKey()
+  final TimeAddedModel timeAddedModel;
+  @override
+  @JsonKey()
+  final bool isTimeAddedError;
+  @override
+  @JsonKey()
+  final bool isTimeAddedSuccess;
+  @override
+  @JsonKey()
+  final bool isSelectForOtherDate;
+  @override
+  @JsonKey()
+  final bool isSelectForContinue;
+  @override
+  @JsonKey()
+  final bool isSelectForRecurring;
   final List<String> _selectedTimeAdded;
   @override
   @JsonKey()
@@ -281,8 +452,21 @@ class _$SessionCalendarStateImpl implements _SessionCalendarState {
   }
 
   @override
+  @JsonKey()
+  final String selectBottomSheetType;
+  @override
+  @JsonKey()
+  final String selectedDateDayName;
+  @override
+  @JsonKey()
+  final String selectedSessionID;
+  @override
+  @JsonKey()
+  final String selectedFromTime;
+
+  @override
   String toString() {
-    return 'SessionCalendarState(isLoading: $isLoading, error: $error, success: $success, isError: $isError, datetime: $datetime, isLoginApiError: $isLoginApiError, sessionCalendarModel: $sessionCalendarModel, avilableDatesResponse: $avilableDatesResponse, selectedTimeAdded: $selectedTimeAdded)';
+    return 'SessionCalendarState(isLoading: $isLoading, error: $error, success: $success, isError: $isError, datetime: $datetime, isLoginApiError: $isLoginApiError, sessionCalendarModel: $sessionCalendarModel, avilableDatesResponse: $avilableDatesResponse, timeAddedModel: $timeAddedModel, isTimeAddedError: $isTimeAddedError, isTimeAddedSuccess: $isTimeAddedSuccess, isSelectForOtherDate: $isSelectForOtherDate, isSelectForContinue: $isSelectForContinue, isSelectForRecurring: $isSelectForRecurring, selectedTimeAdded: $selectedTimeAdded, selectBottomSheetType: $selectBottomSheetType, selectedDateDayName: $selectedDateDayName, selectedSessionID: $selectedSessionID, selectedFromTime: $selectedFromTime)';
   }
 
   @override
@@ -303,22 +487,53 @@ class _$SessionCalendarStateImpl implements _SessionCalendarState {
                 other.sessionCalendarModel == sessionCalendarModel) &&
             (identical(other.avilableDatesResponse, avilableDatesResponse) ||
                 other.avilableDatesResponse == avilableDatesResponse) &&
+            (identical(other.timeAddedModel, timeAddedModel) ||
+                other.timeAddedModel == timeAddedModel) &&
+            (identical(other.isTimeAddedError, isTimeAddedError) ||
+                other.isTimeAddedError == isTimeAddedError) &&
+            (identical(other.isTimeAddedSuccess, isTimeAddedSuccess) ||
+                other.isTimeAddedSuccess == isTimeAddedSuccess) &&
+            (identical(other.isSelectForOtherDate, isSelectForOtherDate) ||
+                other.isSelectForOtherDate == isSelectForOtherDate) &&
+            (identical(other.isSelectForContinue, isSelectForContinue) ||
+                other.isSelectForContinue == isSelectForContinue) &&
+            (identical(other.isSelectForRecurring, isSelectForRecurring) ||
+                other.isSelectForRecurring == isSelectForRecurring) &&
             const DeepCollectionEquality()
-                .equals(other._selectedTimeAdded, _selectedTimeAdded));
+                .equals(other._selectedTimeAdded, _selectedTimeAdded) &&
+            (identical(other.selectBottomSheetType, selectBottomSheetType) ||
+                other.selectBottomSheetType == selectBottomSheetType) &&
+            (identical(other.selectedDateDayName, selectedDateDayName) ||
+                other.selectedDateDayName == selectedDateDayName) &&
+            (identical(other.selectedSessionID, selectedSessionID) ||
+                other.selectedSessionID == selectedSessionID) &&
+            (identical(other.selectedFromTime, selectedFromTime) ||
+                other.selectedFromTime == selectedFromTime));
   }
 
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      isLoading,
-      error,
-      const DeepCollectionEquality().hash(success),
-      isError,
-      datetime,
-      isLoginApiError,
-      sessionCalendarModel,
-      avilableDatesResponse,
-      const DeepCollectionEquality().hash(_selectedTimeAdded));
+  int get hashCode => Object.hashAll([
+        runtimeType,
+        isLoading,
+        error,
+        const DeepCollectionEquality().hash(success),
+        isError,
+        datetime,
+        isLoginApiError,
+        sessionCalendarModel,
+        avilableDatesResponse,
+        timeAddedModel,
+        isTimeAddedError,
+        isTimeAddedSuccess,
+        isSelectForOtherDate,
+        isSelectForContinue,
+        isSelectForRecurring,
+        const DeepCollectionEquality().hash(_selectedTimeAdded),
+        selectBottomSheetType,
+        selectedDateDayName,
+        selectedSessionID,
+        selectedFromTime
+      ]);
 
   /// Create a copy of SessionCalendarState
   /// with the given fields replaced by the non-null parameter values.
@@ -341,7 +556,17 @@ abstract class _SessionCalendarState implements SessionCalendarState {
       final bool isLoginApiError,
       final SessionCalendarModel sessionCalendarModel,
       final AvailableDatesResponse avilableDatesResponse,
-      final List<String> selectedTimeAdded}) = _$SessionCalendarStateImpl;
+      final TimeAddedModel timeAddedModel,
+      final bool isTimeAddedError,
+      final bool isTimeAddedSuccess,
+      final bool isSelectForOtherDate,
+      final bool isSelectForContinue,
+      final bool isSelectForRecurring,
+      final List<String> selectedTimeAdded,
+      final String selectBottomSheetType,
+      final String selectedDateDayName,
+      final String selectedSessionID,
+      final String selectedFromTime}) = _$SessionCalendarStateImpl;
 
   @override
   bool get isLoading;
@@ -360,7 +585,27 @@ abstract class _SessionCalendarState implements SessionCalendarState {
   @override
   AvailableDatesResponse get avilableDatesResponse;
   @override
+  TimeAddedModel get timeAddedModel;
+  @override
+  bool get isTimeAddedError;
+  @override
+  bool get isTimeAddedSuccess;
+  @override
+  bool get isSelectForOtherDate;
+  @override
+  bool get isSelectForContinue;
+  @override
+  bool get isSelectForRecurring;
+  @override
   List<String> get selectedTimeAdded;
+  @override
+  String get selectBottomSheetType;
+  @override
+  String get selectedDateDayName;
+  @override
+  String get selectedSessionID;
+  @override
+  String get selectedFromTime;
 
   /// Create a copy of SessionCalendarState
   /// with the given fields replaced by the non-null parameter values.

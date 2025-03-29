@@ -1,23 +1,37 @@
 import 'dart:io';
+import 'package:intl/intl.dart';
 
 import 'package:rra/common/values/values_exports.dart';
 import 'package:rra/pages/parents/session/calendar/presentation/ui/component/state_input_field.dart';
 
 import '../../../../../../../common/component/custom_app_button.dart';
+import '../../bloc/session_calendar_bloc.dart';
+import '../../bloc/session_calendar_event.dart';
 
+class RecurringDialog extends StatefulWidget {
+  List dayName;
+  int count;
+  String sessionId;
 
+  RecurringDialog(this.dayName, this.count, this.sessionId);
 
-class RecurringDialog extends StatelessWidget {
-  TextEditingController stateController = TextEditingController();
-  TextEditingController countryController = TextEditingController();
-  TextEditingController cityController = TextEditingController();
+  @override
+  State<RecurringDialog> createState() => _RecurringDialogState();
+}
+
+class _RecurringDialogState extends State<RecurringDialog> {
+  TextEditingController dayController = TextEditingController();
+
+  TextEditingController timeToRepeatController = TextEditingController();
+  var count = "52";
 
   @override
   Widget build(BuildContext context) {
-    countryController.text = "US";
+    print(widget.dayName);
     var width = MediaQuery.of(context).size.width;
     var height = context.screenHeight;
-
+    print(
+        "SELECTED DATE IS ${BlocProvider.of<SessionCalendarBloc>(context).state.datetime}");
     return AlertDialog(
       contentPadding: EdgeInsets.zero,
       buttonPadding: EdgeInsets.zero,
@@ -55,7 +69,7 @@ class RecurringDialog extends StatelessWidget {
                     ),
                     const SizedBox(height: 1),
                     Text(
-                      'Wednesday, November 27th, 2024 at 10:00',
+                      '${formatDateTime("${BlocProvider.of<SessionCalendarBloc>(context).state.datetime}")} ${BlocProvider.of<SessionCalendarBloc>(context).state.selectedFromTime}',
                       style: TextStyle(
                         color: AppColor.appBlack.withOpacity(0.5),
                         fontSize: width * 0.032,
@@ -68,17 +82,58 @@ class RecurringDialog extends StatelessWidget {
                       color: AppColor.appBlack.withOpacity(0.1),
                     ),
                     const SizedBox(height: 9),
+                    // RepeatInputField(
+                    //   stateController: dayController,
+                    //   onTap: () {},
+                    // ),
                     RepeatInputField(
-                      stateController: stateController,
-                      onTap: () {},
-                    ),
+                        stateController: dayController,
+                        options: widget.dayName),
                     SizedBox(height: 12),
                     TimeToRepeatTextFiled(
-                      stateController: stateController,
-                      onTap: () {},
+                      stateController: timeToRepeatController,
+                      onTap: () async {
+                        final result = await showModalBottomSheet<String>(
+                          context: context,
+                          isScrollControlled: true,
+                          // Important for full-screen bottom sheet
+                          builder: (BuildContext context) {
+                            return Container(
+                              padding: EdgeInsets.all(10),
+                              height: MediaQuery.of(context).size.height *
+                                  0.5, // Set a fixed height
+                              child: SingleChildScrollView(
+                                // Makes it scrollable
+                                child: Column(
+                                  mainAxisSize: MainAxisSize.min,
+                                  children: List.generate(52, (index) {
+                                    int value = index + 1;
+                                    return ListTile(
+                                      title: Text(value.toString()),
+                                      onTap: () {
+                                        setState(() {
+                                          count = value.toString();
+                                        });
+                                        Navigator.pop(
+                                            context, value.toString());
+                                      },
+                                    );
+                                  }),
+                                ),
+                              ),
+                            );
+                          },
+                        );
+
+                        if (result != null) {
+                          timeToRepeatController.text =
+                              result; // Update text field with selected value
+                        }
+                      },
                     ),
+
                     Text(
-                      'This will repeat every Monday at 10:00 Starting November 27th, 2024 for 8 Time',
+                      'This will repeat every ${getDay("${BlocProvider.of<SessionCalendarBloc>(context).state.datetime}")} ${BlocProvider.of<SessionCalendarBloc>(context).state.selectedFromTime} Starting ${getDateYear("${BlocProvider.of<SessionCalendarBloc>(context).state.datetime}")} for ${count} Time',
                       style: TextStyle(
                         color: AppColor.inputhintcolor,
                         fontSize: width * 0.032,
@@ -93,7 +148,19 @@ class RecurringDialog extends StatelessWidget {
                           child: RecurringActionButton(
                             text: "See Availability",
                             onPressed: () {
-                              Navigator.pop(context);
+                              Map<String, dynamic> map = {
+                                "session_id":
+                                    BlocProvider.of<SessionCalendarBloc>(
+                                            context)
+                                        .state
+                                        .selectedSessionID,
+                                "repeat": dayController.text.toString(),
+                                //every-Thursday ,every-other-Thursday,every-third-Thursday,every-fourth-Thursday ,
+                                "repeatTime": count
+                              };
+                              BlocProvider.of<SessionCalendarBloc>(context)
+                                  .add(SetRecurringSession(map));
+                              //  Navigator.pop(context);
                             },
                           ),
                         ),
@@ -120,5 +187,62 @@ class RecurringDialog extends StatelessWidget {
         ),
       ),
     );
+  }
+
+  String formatDateTime(String dateString) {
+    DateTime dateTime =
+        DateTime.parse(dateString); // Convert string to DateTime
+
+    String day = DateFormat('d').format(dateTime); // Extract day
+    String month = DateFormat('MMMM').format(dateTime); // Extract month
+    String year = DateFormat('yyyy').format(dateTime); // Extract year
+    String weekday = DateFormat('EEEE').format(dateTime); // Extract weekday
+    String time = DateFormat('hh:mm a').format(dateTime); // Format time
+
+    String suffix = getDaySuffix(int.parse(day)); // Get day suffix
+    return "$weekday, $month ${day}$suffix, $year at"; // Final format
+  }
+
+  String getDay(String dateString) {
+    DateTime dateTime =
+        DateTime.parse(dateString); // Convert string to DateTime
+
+    String day = DateFormat('d').format(dateTime); // Extract day
+    String month = DateFormat('MMMM').format(dateTime); // Extract month
+    String year = DateFormat('yyyy').format(dateTime); // Extract year
+    String weekday = DateFormat('EEEE').format(dateTime); // Extract weekday
+    String time = DateFormat('hh:mm a').format(dateTime); // Format time
+
+    String suffix = getDaySuffix(int.parse(day)); // Get day suffix
+    return "$weekday at"; // Final format
+  }
+
+  String getDateYear(String dateString) {
+    DateTime dateTime =
+        DateTime.parse(dateString); // Convert string to DateTime
+    String day = DateFormat('d').format(dateTime); // Extract day
+    String month = DateFormat('MMMM').format(dateTime); // Extract month
+    String year = DateFormat('yyyy').format(dateTime); // Extract year
+    String weekday = DateFormat('EEEE').format(dateTime); // Extract weekday
+    String time = DateFormat('hh:mm a').format(dateTime); // Format time
+
+    String suffix = getDaySuffix(int.parse(day)); // Get day suffix
+    return "$month ${day}$suffix, $year for"; // Final format
+  }
+
+  String getDaySuffix(int day) {
+    if (day >= 11 && day <= 13) {
+      return "th"; // 11th, 12th, 13th are exceptions
+    }
+    switch (day % 10) {
+      case 1:
+        return "st"; // 1st
+      case 2:
+        return "nd"; // 2nd
+      case 3:
+        return "rd"; // 3rd
+      default:
+        return "th"; // 4th, 5th, etc.
+    }
   }
 }

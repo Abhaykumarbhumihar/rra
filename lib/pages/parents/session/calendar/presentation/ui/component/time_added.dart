@@ -11,6 +11,9 @@ class TimeAddedView extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocConsumer<SessionCalendarBloc, SessionCalendarState>(
       listener: (context, state) {
+
+
+        print("CODE IS RUNNING IN TIME SUCCESSS S SS S S  S${state.timeAddedModel.data.length}");
         // Add your listener logic here if needed
       },
       builder: (context, state) {
@@ -20,7 +23,7 @@ class TimeAddedView extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.only(left: 4.0, right: 6.0, top: 16.0),
               child: ScreenTitleForCalendar(
-                title: "Time Added",
+                title: "Time Added ${state.timeAddedModel.data.length}",
                 fontSize: context.screenWidth * 0.042,
               ),
             ),
@@ -28,14 +31,16 @@ class TimeAddedView extends StatelessWidget {
 
             // Remove Expanded here, it's causing layout issues.
             SizedBox(
-              height: context.screenHeight * 0.13, // Adjust height based on content
+              height: context.screenHeight * 0.09, // Adjust height based on content
               child: ListView.builder(
                 scrollDirection: Axis.horizontal,
                 shrinkWrap: true,
-                itemCount: state.selectedTimeAdded.length,
+                itemCount: state.timeAddedModel.data.length,
                 itemBuilder: (context, index) {
+                  var data = state.timeAddedModel.data[index];
+
                   return Padding(
-                    padding: const EdgeInsets.only(left: 4.0,right: 4.0),
+                    padding: const EdgeInsets.only(left: 4.0, right: 4.0),
                     child: Container(
                       width: context.screenWidth * 0.46,
                       padding: EdgeInsets.symmetric(
@@ -48,35 +53,30 @@ class TimeAddedView extends StatelessWidget {
                           fit: BoxFit.fill,
                         ),
                       ),
-                      child: Padding(
-                        padding: const EdgeInsets.only(left: 3.0, right: 4.0, bottom: 7),
-                        child: Row(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: <Widget>[
-                            Padding(
+                      child: Row(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: <Widget>[
+                          Flexible(
+                            child: Padding(
                               padding: const EdgeInsets.only(top: 10.0),
                               child: TimeAdded(
-                                title: state.selectedTimeAdded[index],
+                                title: data.time, // Ensure this widget allows multiline text
                               ),
                             ),
-                            SizedBox(width: context.screenWidth * 0.038),
-                            Column(
-                              mainAxisAlignment: MainAxisAlignment.start,
-                              children: <Widget>[
-                                Icon(
-                                  Icons.cancel_outlined,
-                                  color: AppColor.appWhiteColor.withOpacity(0.1),
-                                  size: 24,
-                                ),
-                              ],
-                            ),
-                          ],
-                        ),
+                          ),
+                          SizedBox(width: context.screenWidth * 0.038),
+                          Icon(
+                            Icons.cancel_outlined,
+                            color: AppColor.appWhiteColor.withOpacity(0.1),
+                            size: 24,
+                          ),
+                        ],
                       ),
                     ),
                   );
                 },
               ),
+
             ),
           ],
         );

@@ -19,6 +19,7 @@ class ChildListModel with _$ChildListModel {
 class ChildData with _$ChildData {
   const factory ChildData({
     @JsonKey(name: 'id') @Default(0) int id,
+     @Default(false) bool isSelected,
     @JsonKey(name: 'image') @Default('') String image,
     @JsonKey(name: 'parent_id') @Default(0) int parentId,
     @JsonKey(name: 'academy_id') @Default(0) int academyId,

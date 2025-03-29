@@ -109,7 +109,7 @@ class CalendarView extends StatelessWidget {
                                 onTap: (){
                                   print(availableDate);
                                   BlocProvider.of<SessionCalendarBloc>(context)
-                                      .add(CurrentDateEvent(availableDate));
+                                      .add(CurrentDateEvent(availableDate,""));
                                   print(availableDate);
                                   String formattedDate = DateFormat('yyyy-MM-dd').format(availableDate);
                                   print(formattedDate);

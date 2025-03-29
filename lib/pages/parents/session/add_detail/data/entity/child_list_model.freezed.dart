@@ -239,6 +239,7 @@ ChildData _$ChildDataFromJson(Map<String, dynamic> json) {
 mixin _$ChildData {
   @JsonKey(name: 'id')
   int get id => throw _privateConstructorUsedError;
+  bool get isSelected => throw _privateConstructorUsedError;
   @JsonKey(name: 'image')
   String get image => throw _privateConstructorUsedError;
   @JsonKey(name: 'parent_id')
@@ -287,6 +288,7 @@ abstract class $ChildDataCopyWith<$Res> {
   @useResult
   $Res call(
       {@JsonKey(name: 'id') int id,
+      bool isSelected,
       @JsonKey(name: 'image') String image,
       @JsonKey(name: 'parent_id') int parentId,
       @JsonKey(name: 'academy_id') int academyId,
@@ -321,6 +323,7 @@ class _$ChildDataCopyWithImpl<$Res, $Val extends ChildData>
   @override
   $Res call({
     Object? id = null,
+    Object? isSelected = null,
     Object? image = null,
     Object? parentId = null,
     Object? academyId = null,
@@ -342,6 +345,10 @@ class _$ChildDataCopyWithImpl<$Res, $Val extends ChildData>
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
               as int,
+      isSelected: null == isSelected
+          ? _value.isSelected
+          : isSelected // ignore: cast_nullable_to_non_nullable
+              as bool,
       image: null == image
           ? _value.image
           : image // ignore: cast_nullable_to_non_nullable
@@ -416,6 +423,7 @@ abstract class _$$ChildDataImplCopyWith<$Res>
   @useResult
   $Res call(
       {@JsonKey(name: 'id') int id,
+      bool isSelected,
       @JsonKey(name: 'image') String image,
       @JsonKey(name: 'parent_id') int parentId,
       @JsonKey(name: 'academy_id') int academyId,
@@ -448,6 +456,7 @@ class __$$ChildDataImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? id = null,
+    Object? isSelected = null,
     Object? image = null,
     Object? parentId = null,
     Object? academyId = null,
@@ -469,6 +478,10 @@ class __$$ChildDataImplCopyWithImpl<$Res>
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
               as int,
+      isSelected: null == isSelected
+          ? _value.isSelected
+          : isSelected // ignore: cast_nullable_to_non_nullable
+              as bool,
       image: null == image
           ? _value.image
           : image // ignore: cast_nullable_to_non_nullable
@@ -538,6 +551,7 @@ class __$$ChildDataImplCopyWithImpl<$Res>
 class _$ChildDataImpl implements _ChildData {
   const _$ChildDataImpl(
       {@JsonKey(name: 'id') this.id = 0,
+      this.isSelected = false,
       @JsonKey(name: 'image') this.image = '',
       @JsonKey(name: 'parent_id') this.parentId = 0,
       @JsonKey(name: 'academy_id') this.academyId = 0,
@@ -562,6 +576,9 @@ class _$ChildDataImpl implements _ChildData {
   @override
   @JsonKey(name: 'id')
   final int id;
+  @override
+  @JsonKey()
+  final bool isSelected;
   @override
   @JsonKey(name: 'image')
   final String image;
@@ -610,7 +627,7 @@ class _$ChildDataImpl implements _ChildData {
 
   @override
   String toString() {
-    return 'ChildData(id: $id, image: $image, parentId: $parentId, academyId: $academyId, childName: $childName, childDob: $childDob, childAge: $childAge, childSchool: $childSchool, childClub: $childClub, childMedicalCondition: $childMedicalCondition, childAddress: $childAddress, childPhotoSocialWebsite: $childPhotoSocialWebsite, childPermissions: $childPermissions, status: $status, createdAt: $createdAt, updatedAt: $updatedAt)';
+    return 'ChildData(id: $id, isSelected: $isSelected, image: $image, parentId: $parentId, academyId: $academyId, childName: $childName, childDob: $childDob, childAge: $childAge, childSchool: $childSchool, childClub: $childClub, childMedicalCondition: $childMedicalCondition, childAddress: $childAddress, childPhotoSocialWebsite: $childPhotoSocialWebsite, childPermissions: $childPermissions, status: $status, createdAt: $createdAt, updatedAt: $updatedAt)';
   }
 
   @override
@@ -619,6 +636,8 @@ class _$ChildDataImpl implements _ChildData {
         (other.runtimeType == runtimeType &&
             other is _$ChildDataImpl &&
             (identical(other.id, id) || other.id == id) &&
+            (identical(other.isSelected, isSelected) ||
+                other.isSelected == isSelected) &&
             (identical(other.image, image) || other.image == image) &&
             (identical(other.parentId, parentId) ||
                 other.parentId == parentId) &&
@@ -655,6 +674,7 @@ class _$ChildDataImpl implements _ChildData {
   int get hashCode => Object.hash(
       runtimeType,
       id,
+      isSelected,
       image,
       parentId,
       academyId,
@@ -690,6 +710,7 @@ class _$ChildDataImpl implements _ChildData {
 abstract class _ChildData implements ChildData {
   const factory _ChildData(
       {@JsonKey(name: 'id') final int id,
+      final bool isSelected,
       @JsonKey(name: 'image') final String image,
       @JsonKey(name: 'parent_id') final int parentId,
       @JsonKey(name: 'academy_id') final int academyId,
@@ -714,6 +735,8 @@ abstract class _ChildData implements ChildData {
   @override
   @JsonKey(name: 'id')
   int get id;
+  @override
+  bool get isSelected;
   @override
   @JsonKey(name: 'image')
   String get image;

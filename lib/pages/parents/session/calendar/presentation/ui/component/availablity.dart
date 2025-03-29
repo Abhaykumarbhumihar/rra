@@ -1,5 +1,6 @@
 import 'package:intl/intl.dart';
 import 'package:rra/common/values/values_exports.dart';
+import 'package:rra/pages/parents/session/calendar/presentation/ui/component/recurring_dialog.dart';
 
 import '../../../../../../../common/component/screen_title.dart';
 import '../../../../../../../common/routes/routes.dart';
@@ -15,7 +16,21 @@ class Availablity extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocListener<SessionCalendarBloc, SessionCalendarState>(
-      listener: (context, state) {},
+      listener: (context, state) {
+        if (state.isTimeAddedSuccess) {
+          if (state.selectBottomSheetType == "Select and continue") {
+            BlocProvider.of<SessionCalendarBloc>(context)
+                .add(SessionCalendarEvent.setSeletTypeBottomSheet(""));
+            Navigator.pushNamed(context, AppRoutes.ADDDETAILS);
+          } else if (state.selectBottomSheetType ==
+              "Select and make recurring") {
+            BlocProvider.of<SessionCalendarBloc>(context)
+                .add(SessionCalendarEvent.setSeletTypeBottomSheet(""));
+
+            recurringDialog(context, 52);
+          }
+        }
+      },
       child: BlocBuilder<SessionCalendarBloc, SessionCalendarState>(
         builder: (context, state) {
           return Column(
@@ -43,24 +58,34 @@ class Availablity extends StatelessWidget {
                       var data = state.avilableDatesResponse.data[index];
                       return InkWell(
                         onTap: () {
-                          Map<String,dynamic>map={
-                            "session_id": data.sessionDetailId,
-                            "time": data.time,
-                            "from_time":data.fromTime,
-                            "to_time": data.toTime,
-                            "slots_left": data.slotsLeft,
-                            "price": data.price
+                          print("CODE IS RUNNING HERE HERE ");
+
+                          DateTime parsedDate =
+                              DateTime.parse(state.datetime.toString());
+
+                          Map<String, dynamic> body = {
+                            "date": DateFormat('yyyy-MM-dd').format(parsedDate),
+                            "slots": [
+                              {
+                                "session_id": data.sessionDetailId,
+                                "time": data.time,
+                                "from_time": data.fromTime,
+                                "to_time": data.toTime,
+                                "slots_left": data.slotsLeft,
+                                "price": data.price
+                              }
+                            ]
                           };
-                          BlocProvider.of<SessionCalendarBloc>(context).add(SetSlotBooking(map));
-                          // print(data.sessionDay);
-                          // print(data.fromTime);
-                          // print(state.datetime);
-                           DateTime date = DateTime.parse(state.datetime.toString());
-                          //
-                          String formattedDate = Utils.formatDate(date);
-                          // print(formattedDate);
-                          // var completeString = "${formattedDate} \nat ${data.fromTime}";
-                          // _showCustomBottomSheet(context,completeString);
+
+                          print("SELECTED DAY NAME IS ${data.sessionDayName}");
+                          BlocProvider.of<SessionCalendarBloc>(context)
+                              .add(SetSelectedDateDayName(data.sessionDayName,
+                              data.sessionDetailId.toString(),
+                            data.fromTime
+                          ));
+
+                          _showCustomBottomSheet(
+                              context, body, "${data.sessionDayName}");
                         },
                         child: Row(
                           children: <Widget>[
@@ -111,10 +136,30 @@ class Availablity extends StatelessWidget {
     );
   }
 
+  void recurringDialog(BuildContext context, dayCount) async {
+    var bloc = BlocProvider.of<SessionCalendarBloc>(context);
+    showDialog(
+      context: context,
+      barrierDismissible: false,
+      builder: (BuildContext context) {
+        print("R R RR  R R RR  R R R ${bloc.state.selectedDateDayName} ");
+        var name = bloc.state.selectedDateDayName;
+        var sessionId = bloc.state.selectedSessionID;
+        var dayList = [
+          "every-${name}",
+          "every-other-${name}",
+          "every-third-${name}",
+          "every-fourth-${name}",
+        ];
+        print(dayList);
+        return RecurringDialog(dayList, dayCount,sessionId);
+      },
+    );
+  }
 
-  void _showCustomBottomSheet(BuildContext context,String data) {
-    var bloc=BlocProvider.of<SessionCalendarBloc>(context);
-    bloc.add(SetSlotForBookingEvent(data));
+  void _showCustomBottomSheet(
+      BuildContext context, Map<String, dynamic> body, dayName) {
+    var bloc = BlocProvider.of<SessionCalendarBloc>(context);
     showModalBottomSheet(
       context: context,
       shape: const RoundedRectangleBorder(
@@ -125,13 +170,22 @@ class Availablity extends StatelessWidget {
         return CustomBottomSheet(
           onOptionSelected: (selectedOption) {
             if (selectedOption == "Select and continue") {
-              Navigator.pushNamed(context, AppRoutes.ADDDETAILS);
+              bloc.add(SetSelectTypeBottomSheetEvent("Select and continue"));
+
+              bloc.add(SetSlotBooking(body));
+              //  Navigator.pushNamed(context, AppRoutes.ADDDETAILS);
             }
             if (selectedOption == "Select and make recurring") {
-             // selectStateCountyLoactionDialog(context);
+              bloc.add(
+                  SetSelectTypeBottomSheetEvent("Select and make recurring"));
+              bloc.add(SetSlotBooking(body));
+              // selectStateCountyLoactionDialog(context);
             }
-            if(selectedOption=="Select and add another time"){
-              //Navigator.pop(context);
+            if (selectedOption == "Select and add another time") {
+              bloc.add(
+                  SetSelectTypeBottomSheetEvent("Select and add another time"));
+
+              bloc.add(SetSlotBooking(body));
             }
             print("User selected: $selectedOption");
           },
@@ -140,4 +194,3 @@ class Availablity extends StatelessWidget {
     );
   }
 }
-

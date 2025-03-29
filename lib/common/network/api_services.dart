@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:http/http.dart' as http;
 import 'package:http_parser/http_parser.dart';
 
@@ -21,6 +23,7 @@ class ApiServices {
     Map<String, dynamic>? body,
     http.MultipartFile? file,
     Map<String, dynamic>? queryParams,
+        bool isJson = false,
     bool useDefaultHeaders = false, // Use default headers conditionally
   }) async {
     final apiUrl = Uri.parse(apiBaseUri + url);
@@ -30,7 +33,11 @@ class ApiServices {
     if (useDefaultHeaders) {
       final defaultHeaders = await _defaultHeaders();
       headers = {...?headers, ...defaultHeaders}; // Merging headers
+      if (isJson) {
+        headers['Content-Type'] = 'application/json'; // Ensure JSON header
+      }
     }
+
 
     try {
       print(headers);
@@ -46,17 +53,17 @@ class ApiServices {
 
         final streamedResponse = await request.send().timeout(requestTimeout);
         return await http.Response.fromStream(streamedResponse);
-      } else if (method == 'POST') {
-        print("CODE IS RUNNING HERE== with headers");
+      }
+      else if (method == 'POST') {
+        print("CODE IS RUNNING HERE== with headers isJSIN $isJson\n\n and body is $body");
         print(headers);
-      //  print("=======================");
-       // print(body);
-        // Handle regular POST request using http.post
+
 
         final response = await http.post(
           apiUrl,
           headers: headers ?? {},
-          body: _convertBodyToFields(body) ?? {},
+          body: isJson ==true? jsonEncode(body) : _convertBodyToFields(body),
+          // body: _convertBodyToFields(body) ?? {},
         ).timeout(requestTimeout);
         print(response.body);
         return response;
@@ -88,6 +95,7 @@ class ApiServices {
   }
 
   Map<String, String> _convertBodyToFields(Map<String, dynamic>? body) {
+    print("this is calling sssss");
     if (body == null) return {};
     return body.map((key, value) => MapEntry(key, value.toString()));
   }
@@ -118,9 +126,10 @@ class ApiServices {
     String url,
     Map<String, dynamic> body, {
     bool useDefaultHeaders = false,
+        bool isJson = false,
   }) async {
     return _request('POST', url,
-        body: body, useDefaultHeaders: useDefaultHeaders);
+        body: body, useDefaultHeaders: useDefaultHeaders,isJson: isJson);
   }
 
   Future<http.Response> multiPartImage({

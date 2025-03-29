@@ -24,12 +24,14 @@ mixin _$AddViewPlayerState {
   bool get isLoginApiError => throw _privateConstructorUsedError;
   int get childPhotoUseOnSocialMedia => throw _privateConstructorUsedError;
   int get administratorFirstAidNeed => throw _privateConstructorUsedError;
+  List<bool> get selectedChildren => throw _privateConstructorUsedError;
   String get childName => throw _privateConstructorUsedError;
   String get dob => throw _privateConstructorUsedError;
   String get age => throw _privateConstructorUsedError;
   String get schoolName => throw _privateConstructorUsedError;
   String get clubName => throw _privateConstructorUsedError;
   String get medicalConditionTessUs => throw _privateConstructorUsedError;
+  List<String> get selectedChildId => throw _privateConstructorUsedError;
   bool get isChildSuccess => throw _privateConstructorUsedError;
   bool get isChildError => throw _privateConstructorUsedError;
   bool get isCHildListSucces => throw _privateConstructorUsedError;
@@ -58,12 +60,14 @@ abstract class $AddViewPlayerStateCopyWith<$Res> {
       bool isLoginApiError,
       int childPhotoUseOnSocialMedia,
       int administratorFirstAidNeed,
+      List<bool> selectedChildren,
       String childName,
       String dob,
       String age,
       String schoolName,
       String clubName,
       String medicalConditionTessUs,
+      List<String> selectedChildId,
       bool isChildSuccess,
       bool isChildError,
       bool isCHildListSucces,
@@ -96,12 +100,14 @@ class _$AddViewPlayerStateCopyWithImpl<$Res, $Val extends AddViewPlayerState>
     Object? isLoginApiError = null,
     Object? childPhotoUseOnSocialMedia = null,
     Object? administratorFirstAidNeed = null,
+    Object? selectedChildren = null,
     Object? childName = null,
     Object? dob = null,
     Object? age = null,
     Object? schoolName = null,
     Object? clubName = null,
     Object? medicalConditionTessUs = null,
+    Object? selectedChildId = null,
     Object? isChildSuccess = null,
     Object? isChildError = null,
     Object? isCHildListSucces = null,
@@ -141,6 +147,10 @@ class _$AddViewPlayerStateCopyWithImpl<$Res, $Val extends AddViewPlayerState>
           ? _value.administratorFirstAidNeed
           : administratorFirstAidNeed // ignore: cast_nullable_to_non_nullable
               as int,
+      selectedChildren: null == selectedChildren
+          ? _value.selectedChildren
+          : selectedChildren // ignore: cast_nullable_to_non_nullable
+              as List<bool>,
       childName: null == childName
           ? _value.childName
           : childName // ignore: cast_nullable_to_non_nullable
@@ -165,6 +175,10 @@ class _$AddViewPlayerStateCopyWithImpl<$Res, $Val extends AddViewPlayerState>
           ? _value.medicalConditionTessUs
           : medicalConditionTessUs // ignore: cast_nullable_to_non_nullable
               as String,
+      selectedChildId: null == selectedChildId
+          ? _value.selectedChildId
+          : selectedChildId // ignore: cast_nullable_to_non_nullable
+              as List<String>,
       isChildSuccess: null == isChildSuccess
           ? _value.isChildSuccess
           : isChildSuccess // ignore: cast_nullable_to_non_nullable
@@ -216,12 +230,14 @@ abstract class _$$AddViewPlayerStateImplCopyWith<$Res>
       bool isLoginApiError,
       int childPhotoUseOnSocialMedia,
       int administratorFirstAidNeed,
+      List<bool> selectedChildren,
       String childName,
       String dob,
       String age,
       String schoolName,
       String clubName,
       String medicalConditionTessUs,
+      List<String> selectedChildId,
       bool isChildSuccess,
       bool isChildError,
       bool isCHildListSucces,
@@ -253,12 +269,14 @@ class __$$AddViewPlayerStateImplCopyWithImpl<$Res>
     Object? isLoginApiError = null,
     Object? childPhotoUseOnSocialMedia = null,
     Object? administratorFirstAidNeed = null,
+    Object? selectedChildren = null,
     Object? childName = null,
     Object? dob = null,
     Object? age = null,
     Object? schoolName = null,
     Object? clubName = null,
     Object? medicalConditionTessUs = null,
+    Object? selectedChildId = null,
     Object? isChildSuccess = null,
     Object? isChildError = null,
     Object? isCHildListSucces = null,
@@ -298,6 +316,10 @@ class __$$AddViewPlayerStateImplCopyWithImpl<$Res>
           ? _value.administratorFirstAidNeed
           : administratorFirstAidNeed // ignore: cast_nullable_to_non_nullable
               as int,
+      selectedChildren: null == selectedChildren
+          ? _value._selectedChildren
+          : selectedChildren // ignore: cast_nullable_to_non_nullable
+              as List<bool>,
       childName: null == childName
           ? _value.childName
           : childName // ignore: cast_nullable_to_non_nullable
@@ -322,6 +344,10 @@ class __$$AddViewPlayerStateImplCopyWithImpl<$Res>
           ? _value.medicalConditionTessUs
           : medicalConditionTessUs // ignore: cast_nullable_to_non_nullable
               as String,
+      selectedChildId: null == selectedChildId
+          ? _value._selectedChildId
+          : selectedChildId // ignore: cast_nullable_to_non_nullable
+              as List<String>,
       isChildSuccess: null == isChildSuccess
           ? _value.isChildSuccess
           : isChildSuccess // ignore: cast_nullable_to_non_nullable
@@ -358,17 +384,21 @@ class _$AddViewPlayerStateImpl implements _AddViewPlayerState {
       this.isLoginApiError = false,
       this.childPhotoUseOnSocialMedia = 1,
       this.administratorFirstAidNeed = 1,
+      final List<bool> selectedChildren = const [],
       this.childName = "",
       this.dob = "",
       this.age = "",
       this.schoolName = "",
       this.clubName = "",
       this.medicalConditionTessUs = "",
+      final List<String> selectedChildId = const [],
       this.isChildSuccess = false,
       this.isChildError = false,
       this.isCHildListSucces = false,
       this.isCHildListError = false,
-      this.childLisstModel = const ChildListModel()});
+      this.childLisstModel = const ChildListModel()})
+      : _selectedChildren = selectedChildren,
+        _selectedChildId = selectedChildId;
 
   @override
   @JsonKey()
@@ -392,6 +422,16 @@ class _$AddViewPlayerStateImpl implements _AddViewPlayerState {
   @override
   @JsonKey()
   final int administratorFirstAidNeed;
+  final List<bool> _selectedChildren;
+  @override
+  @JsonKey()
+  List<bool> get selectedChildren {
+    if (_selectedChildren is EqualUnmodifiableListView)
+      return _selectedChildren;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_selectedChildren);
+  }
+
   @override
   @JsonKey()
   final String childName;
@@ -410,6 +450,15 @@ class _$AddViewPlayerStateImpl implements _AddViewPlayerState {
   @override
   @JsonKey()
   final String medicalConditionTessUs;
+  final List<String> _selectedChildId;
+  @override
+  @JsonKey()
+  List<String> get selectedChildId {
+    if (_selectedChildId is EqualUnmodifiableListView) return _selectedChildId;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_selectedChildId);
+  }
+
   @override
   @JsonKey()
   final bool isChildSuccess;
@@ -428,7 +477,7 @@ class _$AddViewPlayerStateImpl implements _AddViewPlayerState {
 
   @override
   String toString() {
-    return 'AddViewPlayerState(selectedTab: $selectedTab, isLoading: $isLoading, error: $error, success: $success, isError: $isError, isLoginApiError: $isLoginApiError, childPhotoUseOnSocialMedia: $childPhotoUseOnSocialMedia, administratorFirstAidNeed: $administratorFirstAidNeed, childName: $childName, dob: $dob, age: $age, schoolName: $schoolName, clubName: $clubName, medicalConditionTessUs: $medicalConditionTessUs, isChildSuccess: $isChildSuccess, isChildError: $isChildError, isCHildListSucces: $isCHildListSucces, isCHildListError: $isCHildListError, childLisstModel: $childLisstModel)';
+    return 'AddViewPlayerState(selectedTab: $selectedTab, isLoading: $isLoading, error: $error, success: $success, isError: $isError, isLoginApiError: $isLoginApiError, childPhotoUseOnSocialMedia: $childPhotoUseOnSocialMedia, administratorFirstAidNeed: $administratorFirstAidNeed, selectedChildren: $selectedChildren, childName: $childName, dob: $dob, age: $age, schoolName: $schoolName, clubName: $clubName, medicalConditionTessUs: $medicalConditionTessUs, selectedChildId: $selectedChildId, isChildSuccess: $isChildSuccess, isChildError: $isChildError, isCHildListSucces: $isCHildListSucces, isCHildListError: $isCHildListError, childLisstModel: $childLisstModel)';
   }
 
   @override
@@ -452,6 +501,8 @@ class _$AddViewPlayerStateImpl implements _AddViewPlayerState {
             (identical(other.administratorFirstAidNeed,
                     administratorFirstAidNeed) ||
                 other.administratorFirstAidNeed == administratorFirstAidNeed) &&
+            const DeepCollectionEquality()
+                .equals(other._selectedChildren, _selectedChildren) &&
             (identical(other.childName, childName) ||
                 other.childName == childName) &&
             (identical(other.dob, dob) || other.dob == dob) &&
@@ -462,6 +513,8 @@ class _$AddViewPlayerStateImpl implements _AddViewPlayerState {
                 other.clubName == clubName) &&
             (identical(other.medicalConditionTessUs, medicalConditionTessUs) ||
                 other.medicalConditionTessUs == medicalConditionTessUs) &&
+            const DeepCollectionEquality()
+                .equals(other._selectedChildId, _selectedChildId) &&
             (identical(other.isChildSuccess, isChildSuccess) ||
                 other.isChildSuccess == isChildSuccess) &&
             (identical(other.isChildError, isChildError) ||
@@ -485,12 +538,14 @@ class _$AddViewPlayerStateImpl implements _AddViewPlayerState {
         isLoginApiError,
         childPhotoUseOnSocialMedia,
         administratorFirstAidNeed,
+        const DeepCollectionEquality().hash(_selectedChildren),
         childName,
         dob,
         age,
         schoolName,
         clubName,
         medicalConditionTessUs,
+        const DeepCollectionEquality().hash(_selectedChildId),
         isChildSuccess,
         isChildError,
         isCHildListSucces,
@@ -518,12 +573,14 @@ abstract class _AddViewPlayerState implements AddViewPlayerState {
       final bool isLoginApiError,
       final int childPhotoUseOnSocialMedia,
       final int administratorFirstAidNeed,
+      final List<bool> selectedChildren,
       final String childName,
       final String dob,
       final String age,
       final String schoolName,
       final String clubName,
       final String medicalConditionTessUs,
+      final List<String> selectedChildId,
       final bool isChildSuccess,
       final bool isChildError,
       final bool isCHildListSucces,
@@ -547,6 +604,8 @@ abstract class _AddViewPlayerState implements AddViewPlayerState {
   @override
   int get administratorFirstAidNeed;
   @override
+  List<bool> get selectedChildren;
+  @override
   String get childName;
   @override
   String get dob;
@@ -558,6 +617,8 @@ abstract class _AddViewPlayerState implements AddViewPlayerState {
   String get clubName;
   @override
   String get medicalConditionTessUs;
+  @override
+  List<String> get selectedChildId;
   @override
   bool get isChildSuccess;
   @override

@@ -7,18 +7,12 @@ import '../../domain/usecase/add_view_player_usecase.dart';
 import 'add_view_player_event.dart';
 import 'add_view_player_state.dart';
 
-
-
-
-
 class AddViewPlayerBloc extends Bloc<AddViewPlayerEvent, AddViewPlayerState> {
-  final AddViewPlayerUsecase _addViewPlayerUsecase = getIt<AddViewPlayerUsecase>();
+  final AddViewPlayerUsecase _addViewPlayerUsecase =
+      getIt<AddViewPlayerUsecase>();
   AddViewPlayerBloc() : super(AddViewPlayerState.initial()) {
     on<AddViewPlayerSelectedTabEvent>(tabSelect);
     on<AddViewPlayerChildNameEvent>(_childNameChanged);
-
-
-
     on<AddViewPlayerChiclPhotoConsentEvent>(photoConsent);
     on<AddViewPlayeAdministratorFirstAidEvent>(firstAddAdministrator);
     on<AddViewPlayerChildAgeEvent>(childAgeChanged);
@@ -26,14 +20,44 @@ class AddViewPlayerBloc extends Bloc<AddViewPlayerEvent, AddViewPlayerState> {
     on<AddViewPlayerSchoolNameEvent>(schoolNameChanged);
     on<AddViewPlayerClubNameEvent>(clubNameChanged);
     on<AddViewPlayerTessUsMedicalConditionEvent>(medicalConditionChanged);
-    on<AddViewPlayerSubmitButtonPressEvent>(submitButtonPressed);
     on<AddViewPlayerSubmitButtonPressEvent>(_addChildEvent);
     on<AddViewPlayerGetChildListEvent>(_getChildListEvent);
+    on<AddViewPlayerChildSelectionToggleEvent>(_childSelectionToggle);
+  }
+  // Handle toggling the selection of a child
+  Future<void> _childSelectionToggle(
+      AddViewPlayerChildSelectionToggleEvent event,
+      Emitter<AddViewPlayerState> emit) async {
 
+    final currentState = state;
+    final updatedSelection = List<bool>.from(currentState.selectedChildren);
+    final updatedSelectedIds = List<String>.from(currentState.selectedChildId);
+
+    // Ensure the list is large enough to accommodate the index
+    if (event.index >= updatedSelection.length) {
+      updatedSelection.addAll(List.filled(event.index - updatedSelection.length + 1, false));
+    }
+
+    // Toggle the selection
+    updatedSelection[event.index] = !updatedSelection[event.index];
+
+    // Fetch the selected child's ID
+    final selectedChildId = state.childLisstModel.data[event.index].id.toString();
+
+    // Add or remove the child ID from the selected list
+    if (updatedSelection[event.index]) {
+      updatedSelectedIds.add(selectedChildId);
+    } else {
+      updatedSelectedIds.remove(selectedChildId);
+    }
+
+    // Emit the updated state
+    emit(state.copyWith(selectedChildren: updatedSelection, selectedChildId: updatedSelectedIds));
   }
 
-  Future<void> _addChildEvent(
-      AddViewPlayerSubmitButtonPressEvent event, Emitter<AddViewPlayerState> emit) async {
+
+  Future<void> _addChildEvent(AddViewPlayerSubmitButtonPressEvent event,
+      Emitter<AddViewPlayerState> emit) async {
     try {
       print("CLICKING HEREE ");
       emit(state.copyWith(
@@ -47,7 +71,6 @@ class AddViewPlayerBloc extends Bloc<AddViewPlayerEvent, AddViewPlayerState> {
             isChildSuccess: false,
             isCHildListSucces: false,
             isCHildListError: false,
-
             isLoginApiError: false));
         return;
       }
@@ -104,12 +127,10 @@ class AddViewPlayerBloc extends Bloc<AddViewPlayerEvent, AddViewPlayerState> {
         return;
       }
 
-
-
       if (!(await Connectivity().isConnected)) {
         emit(state.copyWith(
           error:
-          'No internet connection. Please check your connection \nand try again.',
+              'No internet connection. Please check your connection \nand try again.',
           isLoginApiError: true,
           isError: true,
         ));
@@ -118,16 +139,16 @@ class AddViewPlayerBloc extends Bloc<AddViewPlayerEvent, AddViewPlayerState> {
 
       var academyId = await SharedPrefs.getString("selected_academyid");
       Map<String, dynamic> addChildMapData = {
-          "academyId": academyId,
-          "child_name": "${state.childName}",
-          "child_dob": "${state.dob}",
-          "child_age": "${state.age}",
-          "child_school": "${state.schoolName}",
-          "child_club": "${state.clubName}",
-          "child_medical_condition": "${state.medicalConditionTessUs}",
-          "child_address": "123 Elm Street, New York, NY",
-          "child_photo_social_website": state.childPhotoUseOnSocialMedia,
-          "child_permissions": state.administratorFirstAidNeed
+        "academyId": academyId,
+        "child_name": "${state.childName}",
+        "child_dob": "${state.dob}",
+        "child_age": "${state.age}",
+        "child_school": "${state.schoolName}",
+        "child_club": "${state.clubName}",
+        "child_medical_condition": "${state.medicalConditionTessUs}",
+        "child_address": "123 Elm Street, New York, NY",
+        "child_photo_social_website": state.childPhotoUseOnSocialMedia,
+        "child_permissions": state.administratorFirstAidNeed
       };
       emit(state.copyWith(
         isLoading: true,
@@ -141,8 +162,11 @@ class AddViewPlayerBloc extends Bloc<AddViewPlayerEvent, AddViewPlayerState> {
         error: '',
       ));
 
-      final response = await _addViewPlayerUsecase.addChildExecute(addChildMapData);
+      final response =
+          await _addViewPlayerUsecase.addChildExecute(addChildMapData);
       response.fold((failure) {
+        print("======addChildData =====failure =====failure \n\n");
+        print(failure);
         emit(state.copyWith(
             error: failure.message,
             isError: true,
@@ -153,7 +177,7 @@ class AddViewPlayerBloc extends Bloc<AddViewPlayerEvent, AddViewPlayerState> {
             isChildError: true,
             success: false));
       }, (addChildData) {
-        print("======check =====check =====check \n\n");
+        print("======addChildData =====addChildData =====addChildData \n\n");
         print(addChildData);
         print("======check =====check =====check \n\n");
         emit(state.copyWith(
@@ -167,6 +191,7 @@ class AddViewPlayerBloc extends Bloc<AddViewPlayerEvent, AddViewPlayerState> {
             isCHildListError: false,
             selectedTab: 0,
             success: true));
+        add(AddViewPlayerGetChildListEvent());
       });
     } catch (error) {
       // Handle the error and show error messages
@@ -174,21 +199,16 @@ class AddViewPlayerBloc extends Bloc<AddViewPlayerEvent, AddViewPlayerState> {
     }
   }
 
-  Future<void> _getChildListEvent(
-      AddViewPlayerGetChildListEvent event, Emitter<AddViewPlayerState> emit) async {
+  Future<void> _getChildListEvent(AddViewPlayerGetChildListEvent event,
+      Emitter<AddViewPlayerState> emit) async {
     try {
       print("CLICKING HEREE ");
       emit(state.copyWith(
           error: '', isError: false, isLoginApiError: false, isLoading: false));
-
-
-
-
-
       if (!(await Connectivity().isConnected)) {
         emit(state.copyWith(
           error:
-          'No internet connection. Please check your connection \nand try again.',
+              'No internet connection. Please check your connection \nand try again.',
           isLoginApiError: true,
           isError: true,
         ));
@@ -197,7 +217,7 @@ class AddViewPlayerBloc extends Bloc<AddViewPlayerEvent, AddViewPlayerState> {
 
       var academyId = await SharedPrefs.getString("selected_academyid");
       Map<String, dynamic> getChildMapData = {
-        "academyId": academyId,
+        "academyid": academyId,
       };
       emit(state.copyWith(
         isLoading: true,
@@ -211,7 +231,8 @@ class AddViewPlayerBloc extends Bloc<AddViewPlayerEvent, AddViewPlayerState> {
         error: '',
       ));
 
-      final response = await _addViewPlayerUsecase.getChildLisstExecute(getChildMapData);
+      final response =
+          await _addViewPlayerUsecase.getChildLisstExecute(getChildMapData);
       response.fold((failure) {
         emit(state.copyWith(
             error: failure.message,
@@ -231,11 +252,11 @@ class AddViewPlayerBloc extends Bloc<AddViewPlayerEvent, AddViewPlayerState> {
             isError: false,
             isLoginApiError: false,
             isLoading: false,
-            isChildSuccess: false,
+            isChildSuccess: true,
             isChildError: false,
             isCHildListSucces: true,
             isCHildListError: false,
-            childLisstModel:childListData ,
+            childLisstModel: childListData,
             success: true));
       });
     } catch (error) {
@@ -253,13 +274,24 @@ class AddViewPlayerBloc extends Bloc<AddViewPlayerEvent, AddViewPlayerState> {
   // Handle photo consent status change
   Future<void> photoConsent(AddViewPlayerChiclPhotoConsentEvent event,
       Emitter<AddViewPlayerState> emit) async {
-    emit(state.copyWith(childPhotoUseOnSocialMedia: event.consentStatus,success: false,isLoginApiError: false,isError: false,isLoading: false));
+    emit(state.copyWith(
+        childPhotoUseOnSocialMedia: event.consentStatus,
+        success: false,
+        isLoginApiError: false,
+        isError: false,
+        isLoading: false));
   }
 
   // Handle first aid status change
-  Future<void> firstAddAdministrator(AddViewPlayeAdministratorFirstAidEvent event,
+  Future<void> firstAddAdministrator(
+      AddViewPlayeAdministratorFirstAidEvent event,
       Emitter<AddViewPlayerState> emit) async {
-    emit(state.copyWith(administratorFirstAidNeed: event.firstAidStatus,success: false,isLoginApiError: false,isError: false,isLoading: false));
+    emit(state.copyWith(
+        administratorFirstAidNeed: event.firstAidStatus,
+        success: false,
+        isLoginApiError: false,
+        isError: false,
+        isLoading: false));
   }
 
   // Handle child name change
@@ -273,31 +305,58 @@ class AddViewPlayerBloc extends Bloc<AddViewPlayerEvent, AddViewPlayerState> {
   // Handle child age change
   Future<void> childAgeChanged(AddViewPlayerChildAgeEvent event,
       Emitter<AddViewPlayerState> emit) async {
-    emit(state.copyWith(age: event.age,error: "",success: false,isLoginApiError: false,isError: false,isLoading: false));
+    emit(state.copyWith(
+        age: event.age,
+        error: "",
+        success: false,
+        isLoginApiError: false,
+        isError: false,
+        isLoading: false));
   }
 
   // Handle child date of birth change
   Future<void> childDobChanged(AddViewPlayerChildDobEvent event,
       Emitter<AddViewPlayerState> emit) async {
-    emit(state.copyWith(dob: event.dob,success: false,isLoginApiError: false,isError: false,isLoading: false));
+    emit(state.copyWith(
+        dob: event.dob,
+        success: false,
+        isLoginApiError: false,
+        isError: false,
+        isLoading: false));
   }
 
   // Handle school name change
   Future<void> schoolNameChanged(AddViewPlayerSchoolNameEvent event,
       Emitter<AddViewPlayerState> emit) async {
-    emit(state.copyWith(schoolName: event.schoolName,success: false,isLoginApiError: false,isError: false,isLoading: false));
+    emit(state.copyWith(
+        schoolName: event.schoolName,
+        success: false,
+        isLoginApiError: false,
+        isError: false,
+        isLoading: false));
   }
 
   // Handle club name change
   Future<void> clubNameChanged(AddViewPlayerClubNameEvent event,
       Emitter<AddViewPlayerState> emit) async {
-    emit(state.copyWith(clubName: event.clubName,success: false,isLoginApiError: false,isError: false,isLoading: false));
+    emit(state.copyWith(
+        clubName: event.clubName,
+        success: false,
+        isLoginApiError: false,
+        isError: false,
+        isLoading: false));
   }
 
   // Handle medical condition change
-  Future<void> medicalConditionChanged(AddViewPlayerTessUsMedicalConditionEvent event,
+  Future<void> medicalConditionChanged(
+      AddViewPlayerTessUsMedicalConditionEvent event,
       Emitter<AddViewPlayerState> emit) async {
-    emit(state.copyWith(medicalConditionTessUs: event.medicalCondition,success: false,isLoginApiError: false,isError: false,isLoading: false));
+    emit(state.copyWith(
+        medicalConditionTessUs: event.medicalCondition,
+        success: false,
+        isLoginApiError: false,
+        isError: false,
+        isLoading: false));
   }
 
   // Handle submit button press
@@ -307,7 +366,4 @@ class AddViewPlayerBloc extends Bloc<AddViewPlayerEvent, AddViewPlayerState> {
     // For now, let's just reset the state or do something else.
     emit(state.copyWith(success: 'Form submitted successfully'));
   }
-
-
-
 }

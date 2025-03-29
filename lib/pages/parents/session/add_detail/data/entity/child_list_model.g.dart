@@ -29,6 +29,7 @@ Map<String, dynamic> _$$ChildListModelImplToJson(
 _$ChildDataImpl _$$ChildDataImplFromJson(Map<String, dynamic> json) =>
     _$ChildDataImpl(
       id: (json['id'] as num?)?.toInt() ?? 0,
+      isSelected: json['isSelected'] as bool? ?? false,
       image: json['image'] as String? ?? '',
       parentId: (json['parent_id'] as num?)?.toInt() ?? 0,
       academyId: (json['academy_id'] as num?)?.toInt() ?? 0,
@@ -51,6 +52,7 @@ _$ChildDataImpl _$$ChildDataImplFromJson(Map<String, dynamic> json) =>
 Map<String, dynamic> _$$ChildDataImplToJson(_$ChildDataImpl instance) =>
     <String, dynamic>{
       'id': instance.id,
+      'isSelected': instance.isSelected,
       'image': instance.image,
       'parent_id': instance.parentId,
       'academy_id': instance.academyId,

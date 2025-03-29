@@ -15,4 +15,6 @@ sealed class AddViewPlayerEvent with _$AddViewPlayerEvent {
   const factory AddViewPlayerEvent.medicalCondition(String medicalCondition) = AddViewPlayerTessUsMedicalConditionEvent;
   const factory AddViewPlayerEvent.submitButtonPress() = AddViewPlayerSubmitButtonPressEvent;
   const factory AddViewPlayerEvent.getChildListEvent() = AddViewPlayerGetChildListEvent;
+  const factory AddViewPlayerEvent.childSelectionToggle(int index) = AddViewPlayerChildSelectionToggleEvent;
+
 }

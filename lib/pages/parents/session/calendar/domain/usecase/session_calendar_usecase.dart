@@ -24,7 +24,10 @@ class SessionCalendarUsecase {
     return _sessionCalendarDatesRepositery.timeAddedModel(timeToAddData);
   }
 
-
+  Future<Either<Failure, TimeAddedModel>> recurringRequestExecute(
+      Map<String, dynamic> timeToAddData) async {
+    return _sessionCalendarDatesRepositery.recurringRequest(timeToAddData);
+  }
 
 
 }

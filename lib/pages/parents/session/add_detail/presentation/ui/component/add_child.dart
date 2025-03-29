@@ -274,7 +274,7 @@ class AddChild extends StatelessWidget {
             //     context, AppRoutes.ORDERSUMMARY);
             // print("code is running here");
             context.read<AddViewPlayerBloc>().add(
-                AddViewPlayerGetChildListEvent());
+                AddViewPlayerSubmitButtonPressEvent());
           },
         ),
         SizedBox(

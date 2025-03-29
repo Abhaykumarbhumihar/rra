@@ -6,6 +6,7 @@ import 'package:either_dart/src/either.dart';
 import 'package:http/http.dart' as http;
 import 'package:rra/pages/parents/session/calendar/data/entity/avilabele_session/avilable_dates.dart';
 import 'package:rra/pages/parents/session/calendar/data/entity/time_added/time_added_model.dart';
+import '../../../../../../common/local/SharedPrefs.dart';
 import '../../../../../../common/network/api_services.dart';
 import '../../../../../../common/network/app_constant.dart';
 import '../../../../../../common/network/failure.dart';
@@ -89,7 +90,7 @@ class SessionCalendarDateRepoImpl implements SessionCalendarDatesRepositery {
       print("++++++++++++++timeAddedModeltimeAddedModel++++++++++++++++++++++++++++++");
       print(timeAddedData);
       http.Response response =
-          await _apiServices.post(AppConstant.getStoreSesssionTimeAdded, timeAddedData,useDefaultHeaders: true);
+          await _apiServices.post(AppConstant.getStoreSesssionTimeAdded, timeAddedData,useDefaultHeaders: true,isJson: true);
       print(response.body);
       if (response.statusCode == 200) {
         final Map<String, dynamic> responseData = jsonDecode(response.body);
@@ -109,6 +110,32 @@ class SessionCalendarDateRepoImpl implements SessionCalendarDatesRepositery {
     }
   }
 
+  @override
+  Future<Either<Failure, TimeAddedModel>> recurringRequest(Map<String, dynamic> timeAddedData)async {
+    try {
+
+      print("++++++++++++++timeAddedModeltimeAddedModel++++++++++++++++++++++++++++++");
+      print(timeAddedData);
+      http.Response response =
+      await _apiServices.post(AppConstant.getRecurringSessionTimeAdded, timeAddedData,useDefaultHeaders: true,isJson: true);
+      print(response.body);
+      if (response.statusCode == 200) {
+        final Map<String, dynamic> responseData = jsonDecode(response.body);
+        if(responseData['success']){
+          final TimeAddedModel timeAddedModel = TimeAddedModel.fromJson(responseData);
+          return Right(timeAddedModel);
+        }else{
+          return Left(Failure(responseData['message']));
+        }
+
+      } else {
+        final errorMessage = _extractErrorMessage(response.body);
+        return Left(Failure(errorMessage));
+      }
+    } catch (e) {
+      return Left(Failure("$e"));
+    }
+  }
 
 
 }

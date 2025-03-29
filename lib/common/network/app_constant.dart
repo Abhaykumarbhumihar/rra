@@ -19,6 +19,7 @@ class AppConstant {
   static String get getSessionCalendarDate=> "booking/traning";
   static String get getSessionAccordingToDate=> "get/sessions";
   static String get getStoreSesssionTimeAdded=> "store-session";
+  static String get getRecurringSessionTimeAdded=> "store-recuring-session";
 
 
   static String get getAddChild=> "createplayer";

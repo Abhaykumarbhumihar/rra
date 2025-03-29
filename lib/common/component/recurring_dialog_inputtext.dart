@@ -218,7 +218,7 @@ class _RecurringDialogState extends State<RecurringDialogInputText> {
             ),
             style: TextStyle(
 
-              color: AppColor.appWhiteColor.withOpacity(0.7),
+              color: AppColor.appBlack,
               fontSize: width * 0.032,
                 fontFamily: AppFont.interRegular,
             ),

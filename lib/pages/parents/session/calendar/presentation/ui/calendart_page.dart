@@ -100,15 +100,18 @@ class CalendarPage extends StatelessWidget {
                                 height: context.screenHeight*0.19,
                                 child: Availablity(),
                               ),
-                              if(state.selectedTimeAdded.isNotEmpty)
+                              if(state.timeAddedModel.data.isNotEmpty)
                               SizedBox(
                                 width: context.screenWidth,
-                                height: context.screenHeight*0.22,
+                                height: context.screenHeight*0.17,
                                 child: TimeAddedView(),
                               ),
                               CustomButton(
                                 text: "Continue",
                                 onPressed: () async {
+                                  if(state.timeAddedModel.data.isNotEmpty){
+                                    Navigator.pushNamed(context, AppRoutes.ADDDETAILS);
+                                  }
                                //   _showCustomBottomSheet(context);
                                 },
                               ),
@@ -136,15 +139,7 @@ class CalendarPage extends StatelessWidget {
     );
   }
 
-  void selectStateCountyLoactionDialog(BuildContext context) async {
-    showDialog(
-      context: context,
-      barrierDismissible: false,
-      builder: (BuildContext context) {
-        return RecurringDialog();
-      },
-    );
-  }
+
 
 
 }

@@ -4,6 +4,8 @@ import '../../../../../../common/component/common_app_bar.dart';
 import '../../../../../../common/component/common_background.dart';
 import '../../../../../../common/component/custom_app_button.dart';
 import '../../../../../../common/component/screen_title.dart';
+import '../calendar/presentation/bloc/session_calendar_bloc.dart';
+import '../calendar/presentation/bloc/session_calendar_state.dart';
 import '../calendar/presentation/ui/component/added_slot_list_item.dart';
 import '../calendar/presentation/ui/component/booking_component.dart';
 import 'component/payment_bottom_sheet.dart';
@@ -44,6 +46,12 @@ class OrderSummary extends StatelessWidget {
     var width = MediaQuery.of(context).size.width;
     var height = MediaQuery.of(context).size.height;
 
+    return BlocListener<SessionCalendarBloc, SessionCalendarState>(
+  listener: (context, state) {
+    // TODO: implement listener
+  },
+  child: BlocBuilder<SessionCalendarBloc, SessionCalendarState>(
+  builder: (context, state) {
     return Container(
       decoration: CommonBackground.decoration,
       child: Scaffold(
@@ -88,24 +96,24 @@ class OrderSummary extends StatelessWidget {
                           title: "Group Coaching U9 Advanced (Hardball)",
                         ),
                       ),
-                      SizedBox(
-                        height: context.screenHeight * 0.6,
+                      Expanded(
                         child: ListView.builder(
+                          physics: NeverScrollableScrollPhysics(),
                           padding: const EdgeInsets.symmetric(
                               horizontal: 0.0, vertical: 0),
-                          itemCount: sessionsLst.length,
+                          itemCount: state.timeAddedModel.data.length,
                           shrinkWrap: true,
                           itemBuilder: (context, index) {
-                            final session = sessionsLst[index];
+                            final session = state.timeAddedModel.data[index];
 
                             return AddedSlotListItem(
-                              title: session['title'],
+                              title: "SS",
                               imageUrl: 'assets/images/coaching_image.png',
-                              dateTime: session['title'],
+                              dateTime: session.time.toString(),
                               onClose: () {
                                 sessionsLst.removeAt(index);
                               },
-                              price: session['price'],
+                              price:  session.price.toString(),
                             );
                           },
                         ),
@@ -137,6 +145,9 @@ class OrderSummary extends StatelessWidget {
         ),
       ),
     );
+  },
+),
+);
   }
 
   void showPaymentBottomSheet(BuildContext context, {required VoidCallback checkOutAction, VoidCallback? couponApplyAction}) {
