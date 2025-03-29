@@ -110,6 +110,34 @@ class SessionCalendarDateRepoImpl implements SessionCalendarDatesRepositery {
     }
   }
 
+
+  @override
+  Future<Either<Failure, dynamic>> removeSessionByDate(Map<String, dynamic> timeAddedData)async {
+    try {
+
+      print("++++++++++++++timeAddedModeltimeAddedModel++++++++++++++++++++++++++++++");
+      print(timeAddedData);
+      http.Response response =
+      await _apiServices.post(AppConstant.getRemoveSessionByDate, timeAddedData,useDefaultHeaders: true,isJson: true);
+      print(response.body);
+      if (response.statusCode == 200) {
+        final Map<String, dynamic> responseData = jsonDecode(response.body);
+        if(responseData['success']){
+          return Right(responseData);
+        }else{
+          return Left(Failure(responseData['message']));
+        }
+
+      } else {
+        final errorMessage = _extractErrorMessage(response.body);
+        return Left(Failure(errorMessage));
+      }
+    } catch (e) {
+      return Left(Failure("$e"));
+    }
+  }
+
+
   @override
   Future<Either<Failure, TimeAddedModel>> recurringRequest(Map<String, dynamic> timeAddedData)async {
     try {

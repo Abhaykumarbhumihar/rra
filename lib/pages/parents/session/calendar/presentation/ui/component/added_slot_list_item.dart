@@ -5,14 +5,12 @@ import 'package:rra/common/routes/exports.dart';
 import 'package:rra/common/values/values_exports.dart';
 
 class AddedSlotListItem extends StatelessWidget {
-  final String imageUrl;
   final String title;
   final String dateTime;
   final String price;
   final VoidCallback onClose;
 
   const AddedSlotListItem({
-    required this.imageUrl,
     required this.title,
     required this.dateTime,
     required this.price,
@@ -31,16 +29,7 @@ class AddedSlotListItem extends StatelessWidget {
           ),
           child: Row(
             children: [
-              ClipRRect(
-                borderRadius: BorderRadius.circular(8),
-                child:
-                Image.asset(
-                  'assets/images/coaching_image.png', // Replace with actual image path
-                  width: 80,
-                  height: 80,
-                  fit: BoxFit.cover,
-                ),
-              ),
+
               SizedBox(width: 12),
               Expanded(
                 child: Column(
@@ -54,15 +43,18 @@ class AddedSlotListItem extends StatelessWidget {
                           child: Text("$title", style: AppTextStyle.medium(
                               context.screenWidth*0.0373),),
                         ),
-                        Image.asset("assets/images/circle_close.png",
-                          width: 16,
-                          height: 16,
-                          color: AppColor.appWhiteColor.withOpacity(0.5),
+                        InkWell(
+                          onTap: onClose,
+                          child: Image.asset("assets/images/circle_close.png",
+                            width: 16,
+                            height: 16,
+                            color: AppColor.appWhiteColor.withOpacity(0.5),
+                          ),
                         )
                       ],
                     ),
                     SizedBox(height: 4),
-                    Text("Nov 27th, 2024 at 10:00 GMT", style: TextStyle(
+                    Text("$dateTime", style: TextStyle(
                       color: AppColor.appWhiteColor,
                       fontFamily: AppFont.interRegular,
                       fontSize: context.screenWidth*0.032,

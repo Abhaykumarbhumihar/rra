@@ -4,6 +4,7 @@ import 'package:rra/common/values/values_exports.dart';
 class CustomHeaderWithOutTitle extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+
     return Container(
       padding: EdgeInsets.symmetric(horizontal: 16, vertical: 12),
       child: Row(

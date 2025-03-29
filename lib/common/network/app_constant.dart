@@ -20,6 +20,7 @@ class AppConstant {
   static String get getSessionAccordingToDate=> "get/sessions";
   static String get getStoreSesssionTimeAdded=> "store-session";
   static String get getRecurringSessionTimeAdded=> "store-recuring-session";
+  static String get getRemoveSessionByDate=> "remove-sessions-by-date";
 
 
   static String get getAddChild=> "createplayer";

@@ -10,5 +10,6 @@ abstract class SessionCalendarDatesRepositery{
   Future<Either<Failure,AvailableDatesResponse>> avilableDates(Map<String, dynamic> avilableDateData);
   Future<Either<Failure,TimeAddedModel>> timeAddedModel(Map<String, dynamic> timeAddedData);
   Future<Either<Failure,TimeAddedModel>> recurringRequest(Map<String, dynamic> timeAddedData);
+  Future<Either<Failure,dynamic>> removeSessionByDate(Map<String, dynamic> removeSessionData);
 
 }

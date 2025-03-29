@@ -16,6 +16,7 @@ import '../../../../../../common/network/app_constant.dart';
 import '../../../../../../common/service_locator/setivelocator.dart';
 import '../../../../../../common/values/utils.dart';
 import '../../data/entity/avilabele_session/avilable_dates.dart';
+import '../../data/entity/time_added/time_added_model.dart';
 import '../../domain/usecase/session_calendar_usecase.dart';
 
 class SessionCalendarBloc
@@ -31,7 +32,58 @@ class SessionCalendarBloc
     on<SetRecurringSession>(_setRecurring);
     on<SetSelectedDateDayName>(setSelectedDateDayName);
     on<SetSelectTypeBottomSheetEvent>(setSelectBottomSheetType);
+    on<RemoveSessionByDateEvent>(_removeSessionByDate);
   }
+
+  Future<void> _removeSessionByDate(
+      RemoveSessionByDateEvent event, Emitter<SessionCalendarState> emit) async {
+    // Convert event.data map to JSON strings (if needed)
+    Map<String, dynamic> stringifiedBody = event.data.map(
+          (key, value) => MapEntry(jsonEncode(key), jsonEncode(value)),
+    );
+
+    print(stringifiedBody);
+
+    // Execute the use case to get the response
+    final response = await _sessionCalendarUsecase.removeSessionByDateExecute(event.data);
+
+    response.fold(
+          (failure) {
+        // If the API call fails, emit an error state
+        emit(state.copyWith(
+          isError: true,
+          isTimeAddedError: true,
+          error: failure.message,
+          isTimeAddedSuccess: false,
+        ));
+      },
+          (removeSessionByDate) {
+        // Get the existing timeAddedModel data
+        List<TimeSlot> updatedTimeSlots = List.from(state.timeAddedModel.data);
+
+        // Ensure the index is valid before removing
+        if (event.index >= 0 && event.index < updatedTimeSlots.length) {
+          updatedTimeSlots.removeAt(event.index);
+        }
+
+        // Create a new TimeAddedModel with updated data
+        TimeAddedModel updatedModel = state.timeAddedModel.copyWith(
+          data: updatedTimeSlots,
+        );
+
+        // Emit the updated state
+        emit(state.copyWith(
+          isError: false,
+          isTimeAddedError: false,
+          timeAddedModel: updatedModel,
+          isTimeAddedSuccess: true,
+        ));
+      },
+    );
+  }
+
+
+
 
   Future<void> setSelectBottomSheetType(SetSelectTypeBottomSheetEvent event,
       Emitter<SessionCalendarState> emit) async {

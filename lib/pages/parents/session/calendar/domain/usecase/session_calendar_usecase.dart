@@ -29,5 +29,8 @@ class SessionCalendarUsecase {
     return _sessionCalendarDatesRepositery.recurringRequest(timeToAddData);
   }
 
-
+  Future<Either<Failure, dynamic>> removeSessionByDateExecute(
+      Map<String, dynamic> timeToAddData) async {
+    return _sessionCalendarDatesRepositery.removeSessionByDate(timeToAddData);
+  }
 }

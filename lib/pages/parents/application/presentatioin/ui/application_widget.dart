@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:rra/pages/settings/presentation/ui/setting_page.dart';
 
 import '../../../teams/presentation/ui/teams.dart';
 
@@ -11,7 +12,7 @@ Widget buildPage(int index) {
   List<Widget> _widget = [
      Teams(),
      Teams(),
-     Teams(),
+     SettingPage(),
   ];
 
   return _widget[index];

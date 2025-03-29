@@ -18,7 +18,7 @@ class AcademicListPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return CommonPageFormat(
-        title: "Select Academic",
+        title: "Select An Academy",
         onBackPress: () {
           Navigator.pop(context);
         },
@@ -63,7 +63,7 @@ class AcademicListPage extends StatelessWidget {
                                     placeHolder: "assets/images/football.png",
                                     imageHeight: 60,
                                     radiusAll: 10,
-                                    imageFitType: BoxFit.cover,
+                                    imageFitType: BoxFit.contain,
                                   ),
                                   SizedBox(width: 10),
                                   // Add some spacing
@@ -82,14 +82,6 @@ class AcademicListPage extends StatelessWidget {
                                                       .width *
                                                   0.0373),
                                         ),
-                                        HtmlWidget(
-                                          "${state.academicListResponse.data[index].address}",
-                                          textStyle: AppTextStyle.regular(
-                                              MediaQuery.of(context)
-                                                      .size
-                                                      .width *
-                                                  0.0373),
-                                        ),
                                       ],
                                     ),
                                   ),
@@ -99,7 +91,7 @@ class AcademicListPage extends StatelessWidget {
                                   color:
                                       AppColor.appWhiteColor.withOpacity(0.4)),
                               SizedBox(
-                                height: 10.0,
+                                height: 20.0,
                               )
                             ],
                           ),

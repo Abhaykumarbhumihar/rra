@@ -28,14 +28,14 @@ class SplashBloc extends Bloc<SplashEvent, SplashState> {
      print(userdata);
     if (token != null && token.trim().isNotEmpty) {
       print("User is logged in, navigating to Home Page.");
-      if(userdata?.data.isProfileCompleted==false){
-        emit(const SplashState.navigateToProfileUpdate());
-      }else if(userdata?.data.isOtpVerified==false){
-        emit(const SplashState.navigateToOtpVerify());
-      }else{
-        emit(const SplashNavigateToHome());
-      }
-
+      // if(userdata?.data.isProfileCompleted==false){
+      //   emit(const SplashState.navigateToProfileUpdate());
+      // }else if(userdata?.data.isOtpVerified==false){
+      //   emit(const SplashState.navigateToOtpVerify());
+      // }else{
+      //   emit(const SplashNavigateToHome());
+      // }
+      emit(const SplashNavigateToHome());
     } else {
       print("User is not logged in, navigating to Login Page.");
       emit(const SplashNavigateToLogin());

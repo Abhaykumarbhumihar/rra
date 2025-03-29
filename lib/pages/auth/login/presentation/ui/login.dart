@@ -51,32 +51,42 @@ class LoginScreen extends StatelessWidget {
             await SharedPrefs.setModel("user_model", state.otpresponse);
             await SharedPrefs.setString("token", state.otpresponse.token);
             if (state.otpresponse.success) {
-              if (state.otpresponse.data.isOtpVerified == false) {
-                BlocProvider.of<OtpverificationBloc>(context)
-                    .add(ResendOtpSubmit((state.otpresponse.data.email)));
-                Map<String, dynamic> arguments = {
-                  "email": state.otpresponse.data.email,
-                  "isFromCreateAccount": true,
-                };
-                Navigator.pushNamed(context, AppRoutes.OTPVERIFICATION,
-                    arguments: arguments);
-              } else if (state.otpresponse.data.isProfileCompleted == false) {
-                Navigator.pushNamedAndRemoveUntil(
-                  context,
-                  AppRoutes.EDITPROFILE,
-                  (Route<dynamic> route) => false,
-                );
-              } else {
+              BlocProvider.of<CoachingProgramsBloc>(context).add(GroupCoachProgramsListEvent());
+              BlocProvider.of<CoachingProgramsBloc>(context).add(PrivateCoachingProgramsList());
 
-                BlocProvider.of<CoachingProgramsBloc>(context).add(GroupCoachProgramsListEvent());
-                BlocProvider.of<CoachingProgramsBloc>(context).add(PrivateCoachingProgramsList());
-
-                Navigator.pushNamedAndRemoveUntil(
-                  context,
-                  AppRoutes.APPLICATION,
-                  (Route<dynamic> route) => false,
-                );
-              }
+              Navigator.pushNamedAndRemoveUntil(
+                context,
+                AppRoutes.APPLICATION,
+                    (Route<dynamic> route) => false,
+              );
+              // if (state.otpresponse.data.isOtpVerified == false) {
+              //   BlocProvider.of<OtpverificationBloc>(context)
+              //       .add(ResendOtpSubmit((state.otpresponse.data.email)));
+              //   Map<String, dynamic> arguments = {
+              //     "email": state.otpresponse.data.email,
+              //     "isFromCreateAccount": true,
+              //   };
+              //   Navigator.pushNamed(context, AppRoutes.OTPVERIFICATION,
+              //       arguments: arguments);
+              // }
+              // else if (state.otpresponse.data.isProfileCompleted == false) {
+              //   Navigator.pushNamedAndRemoveUntil(
+              //     context,
+              //     AppRoutes.EDITPROFILE,
+              //     (Route<dynamic> route) => false,
+              //   );
+              // }
+              // else {
+              //
+              //   BlocProvider.of<CoachingProgramsBloc>(context).add(GroupCoachProgramsListEvent());
+              //   BlocProvider.of<CoachingProgramsBloc>(context).add(PrivateCoachingProgramsList());
+              //
+              //   Navigator.pushNamedAndRemoveUntil(
+              //     context,
+              //     AppRoutes.APPLICATION,
+              //     (Route<dynamic> route) => false,
+              //   );
+              // }
             }
             // Navigator.pushNamedAndRemoveUntil(
             //   context,

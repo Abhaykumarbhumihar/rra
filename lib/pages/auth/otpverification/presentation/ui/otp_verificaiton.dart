@@ -59,7 +59,7 @@ class OtpVerificaiton extends StatelessWidget {
 
               Navigator.pushNamedAndRemoveUntil(
                 context,
-                AppRoutes.EDITPROFILE,
+                AppRoutes.APPLICATION,
                     (Route<dynamic> route) => false,
               );
 
@@ -153,7 +153,7 @@ class OtpVerificaiton extends StatelessWidget {
                               selectedColor: AppColor.appWhiteColor.withOpacity(0.1),
                             ),
 
-                            hintCharacter: '*',
+                            hintCharacter: '',
                             // Set the hint character as *
                             hintStyle: TextStyle(
                                 fontFamily: AppFont.interBold,
