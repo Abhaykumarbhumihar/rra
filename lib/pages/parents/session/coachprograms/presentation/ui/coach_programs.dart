@@ -12,6 +12,7 @@ import '../../../../../../common/routes/routes.dart';
 import '../bloc/coach_programs_bloc.dart';
 import '../bloc/coach_programs_state.dart';
 import 'component/coaching_program_item.dart';
+import 'component/coaching_program_list_shimmer.dart';
 import 'component/group_coaching_program_list.dart';
 import 'component/private_coaching_program_list.dart';
 
@@ -34,40 +35,35 @@ class CoachProgramsScreen extends StatelessWidget {
         child: BlocBuilder<CoachingProgramsBloc, CoachProgramsState>(
           builder: (context, state) {
 
-            return Stack(
-              children: <Widget>[
-                Column(
-                  children: [
-                    SizedBox(
-                      height: 10,
-                    ),
-                    Padding(
-                      padding: EdgeInsets.symmetric(
-                          horizontal: context.screenWidth * 0.03, vertical: 0),
-                      child: CustomToggleSwitch(
-                        selectedTabIndex: context
-                            .read<CoachingProgramsBloc>()
-                            .state
-                            .selectedTab,
-                        tabNames: ['Private Coaching', 'Group Coaching'],
-                        onTabChanged: (index) {
-                          context
-                              .read<CoachingProgramsBloc>()
-                              .add(AllCoachProgramsSelectedTabEvent(index));
-                          print(index);
-                        },
-                      ),
-                    ),
-                    if (state.selectedTab == 0) PrivateCoachingProgramList(),
-                    if (state.selectedTab == 1) GroupCoachingProgramList(),
-                  ],
+            return Column(
+              children: [
+                SizedBox(
+                  height: 10,
                 ),
-                if (state.isLoading)
-                  InkWell(
-                      onTap: (){
-
-                      },
-                      child: const LoadingIndicator())
+                Padding(
+                  padding: EdgeInsets.symmetric(
+                      horizontal: context.screenWidth * 0.03, vertical: 0),
+                  child: CustomToggleSwitch(
+                    selectedTabIndex: context
+                        .read<CoachingProgramsBloc>()
+                        .state
+                        .selectedTab,
+                    tabNames: ['Private Coaching', 'Group Coaching'],
+                    onTabChanged: (index) {
+                      context
+                          .read<CoachingProgramsBloc>()
+                          .add(AllCoachProgramsSelectedTabEvent(index));
+                      print(index);
+                      if(index==0){
+                        BlocProvider.of<CoachingProgramsBloc>(context).add(PrivateCoachingProgramsList());
+                      }else{
+                        BlocProvider.of<CoachingProgramsBloc>(context).add(GroupCoachProgramsListEvent());
+                      }
+                    },
+                  ),
+                ),
+                if (state.selectedTab == 0) state.isLoading?CoachingProgramListShimmer(): PrivateCoachingProgramList(),
+                if (state.selectedTab == 1)  state.isLoading?CoachingProgramListShimmer():GroupCoachingProgramList(),
               ],
             );
           },

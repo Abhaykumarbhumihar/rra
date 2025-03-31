@@ -1,3 +1,4 @@
+import 'package:flutter_animate/flutter_animate.dart';
 import 'package:rra/common/values/values_exports.dart';
 
 import '../../../../../common/component/custom_session_card.dart';
@@ -16,7 +17,7 @@ class ParentDashbard extends StatelessWidget {
         CustomHeaderWithOutTitle(),
         Padding(
           padding: const EdgeInsets.only(right: 2.0),
-          child: BookSessions(),
+          child: BookSessions().animate().fade().slideX(begin: 0.5, end: 0, duration: 500.ms),
         ),
 
         SizedBox(
@@ -40,7 +41,7 @@ class ParentDashbard extends StatelessWidget {
                       context, AppRoutes.FACILITYLIST);
                   print("Book Facility clicked");
                 },
-              ),
+              ).animate().fade().slideX(begin: 0.5, end: 0, duration: 500.ms),
               SizedBox(
                 width: 20.0,
               ),
@@ -57,7 +58,7 @@ class ParentDashbard extends StatelessWidget {
                       context, AppRoutes.HOLIDAYCAMP);
                   print("Book Facility clicked");
                 },
-              ),
+              ).animate().fade().slideX(begin: 0.5, end: 0, duration: 500.ms),
             ],
           ),
         ),

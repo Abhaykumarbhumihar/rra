@@ -37,6 +37,8 @@ mixin _$SessionCalendarState {
   String get selectedDateDayName => throw _privateConstructorUsedError;
   String get selectedSessionID => throw _privateConstructorUsedError;
   String get selectedFromTime => throw _privateConstructorUsedError;
+  bool get isAvailablityLoading => throw _privateConstructorUsedError;
+  bool get isTimeAddedLoading => throw _privateConstructorUsedError;
 
   /// Create a copy of SessionCalendarState
   /// with the given fields replaced by the non-null parameter values.
@@ -70,7 +72,9 @@ abstract class $SessionCalendarStateCopyWith<$Res> {
       String selectBottomSheetType,
       String selectedDateDayName,
       String selectedSessionID,
-      String selectedFromTime});
+      String selectedFromTime,
+      bool isAvailablityLoading,
+      bool isTimeAddedLoading});
 
   $SessionCalendarModelCopyWith<$Res> get sessionCalendarModel;
   $AvailableDatesResponseCopyWith<$Res> get avilableDatesResponse;
@@ -112,6 +116,8 @@ class _$SessionCalendarStateCopyWithImpl<$Res,
     Object? selectedDateDayName = null,
     Object? selectedSessionID = null,
     Object? selectedFromTime = null,
+    Object? isAvailablityLoading = null,
+    Object? isTimeAddedLoading = null,
   }) {
     return _then(_value.copyWith(
       isLoading: null == isLoading
@@ -190,6 +196,14 @@ class _$SessionCalendarStateCopyWithImpl<$Res,
           ? _value.selectedFromTime
           : selectedFromTime // ignore: cast_nullable_to_non_nullable
               as String,
+      isAvailablityLoading: null == isAvailablityLoading
+          ? _value.isAvailablityLoading
+          : isAvailablityLoading // ignore: cast_nullable_to_non_nullable
+              as bool,
+      isTimeAddedLoading: null == isTimeAddedLoading
+          ? _value.isTimeAddedLoading
+          : isTimeAddedLoading // ignore: cast_nullable_to_non_nullable
+              as bool,
     ) as $Val);
   }
 
@@ -253,7 +267,9 @@ abstract class _$$SessionCalendarStateImplCopyWith<$Res>
       String selectBottomSheetType,
       String selectedDateDayName,
       String selectedSessionID,
-      String selectedFromTime});
+      String selectedFromTime,
+      bool isAvailablityLoading,
+      bool isTimeAddedLoading});
 
   @override
   $SessionCalendarModelCopyWith<$Res> get sessionCalendarModel;
@@ -295,6 +311,8 @@ class __$$SessionCalendarStateImplCopyWithImpl<$Res>
     Object? selectedDateDayName = null,
     Object? selectedSessionID = null,
     Object? selectedFromTime = null,
+    Object? isAvailablityLoading = null,
+    Object? isTimeAddedLoading = null,
   }) {
     return _then(_$SessionCalendarStateImpl(
       isLoading: null == isLoading
@@ -373,6 +391,14 @@ class __$$SessionCalendarStateImplCopyWithImpl<$Res>
           ? _value.selectedFromTime
           : selectedFromTime // ignore: cast_nullable_to_non_nullable
               as String,
+      isAvailablityLoading: null == isAvailablityLoading
+          ? _value.isAvailablityLoading
+          : isAvailablityLoading // ignore: cast_nullable_to_non_nullable
+              as bool,
+      isTimeAddedLoading: null == isTimeAddedLoading
+          ? _value.isTimeAddedLoading
+          : isTimeAddedLoading // ignore: cast_nullable_to_non_nullable
+              as bool,
     ));
   }
 }
@@ -399,7 +425,9 @@ class _$SessionCalendarStateImpl implements _SessionCalendarState {
       this.selectBottomSheetType = "",
       this.selectedDateDayName = "",
       this.selectedSessionID = "",
-      this.selectedFromTime = ""})
+      this.selectedFromTime = "",
+      this.isAvailablityLoading = false,
+      this.isTimeAddedLoading = false})
       : _selectedTimeAdded = selectedTimeAdded;
 
   @override
@@ -463,10 +491,16 @@ class _$SessionCalendarStateImpl implements _SessionCalendarState {
   @override
   @JsonKey()
   final String selectedFromTime;
+  @override
+  @JsonKey()
+  final bool isAvailablityLoading;
+  @override
+  @JsonKey()
+  final bool isTimeAddedLoading;
 
   @override
   String toString() {
-    return 'SessionCalendarState(isLoading: $isLoading, error: $error, success: $success, isError: $isError, datetime: $datetime, isLoginApiError: $isLoginApiError, sessionCalendarModel: $sessionCalendarModel, avilableDatesResponse: $avilableDatesResponse, timeAddedModel: $timeAddedModel, isTimeAddedError: $isTimeAddedError, isTimeAddedSuccess: $isTimeAddedSuccess, isSelectForOtherDate: $isSelectForOtherDate, isSelectForContinue: $isSelectForContinue, isSelectForRecurring: $isSelectForRecurring, selectedTimeAdded: $selectedTimeAdded, selectBottomSheetType: $selectBottomSheetType, selectedDateDayName: $selectedDateDayName, selectedSessionID: $selectedSessionID, selectedFromTime: $selectedFromTime)';
+    return 'SessionCalendarState(isLoading: $isLoading, error: $error, success: $success, isError: $isError, datetime: $datetime, isLoginApiError: $isLoginApiError, sessionCalendarModel: $sessionCalendarModel, avilableDatesResponse: $avilableDatesResponse, timeAddedModel: $timeAddedModel, isTimeAddedError: $isTimeAddedError, isTimeAddedSuccess: $isTimeAddedSuccess, isSelectForOtherDate: $isSelectForOtherDate, isSelectForContinue: $isSelectForContinue, isSelectForRecurring: $isSelectForRecurring, selectedTimeAdded: $selectedTimeAdded, selectBottomSheetType: $selectBottomSheetType, selectedDateDayName: $selectedDateDayName, selectedSessionID: $selectedSessionID, selectedFromTime: $selectedFromTime, isAvailablityLoading: $isAvailablityLoading, isTimeAddedLoading: $isTimeAddedLoading)';
   }
 
   @override
@@ -508,7 +542,11 @@ class _$SessionCalendarStateImpl implements _SessionCalendarState {
             (identical(other.selectedSessionID, selectedSessionID) ||
                 other.selectedSessionID == selectedSessionID) &&
             (identical(other.selectedFromTime, selectedFromTime) ||
-                other.selectedFromTime == selectedFromTime));
+                other.selectedFromTime == selectedFromTime) &&
+            (identical(other.isAvailablityLoading, isAvailablityLoading) ||
+                other.isAvailablityLoading == isAvailablityLoading) &&
+            (identical(other.isTimeAddedLoading, isTimeAddedLoading) ||
+                other.isTimeAddedLoading == isTimeAddedLoading));
   }
 
   @override
@@ -532,7 +570,9 @@ class _$SessionCalendarStateImpl implements _SessionCalendarState {
         selectBottomSheetType,
         selectedDateDayName,
         selectedSessionID,
-        selectedFromTime
+        selectedFromTime,
+        isAvailablityLoading,
+        isTimeAddedLoading
       ]);
 
   /// Create a copy of SessionCalendarState
@@ -566,7 +606,9 @@ abstract class _SessionCalendarState implements SessionCalendarState {
       final String selectBottomSheetType,
       final String selectedDateDayName,
       final String selectedSessionID,
-      final String selectedFromTime}) = _$SessionCalendarStateImpl;
+      final String selectedFromTime,
+      final bool isAvailablityLoading,
+      final bool isTimeAddedLoading}) = _$SessionCalendarStateImpl;
 
   @override
   bool get isLoading;
@@ -606,6 +648,10 @@ abstract class _SessionCalendarState implements SessionCalendarState {
   String get selectedSessionID;
   @override
   String get selectedFromTime;
+  @override
+  bool get isAvailablityLoading;
+  @override
+  bool get isTimeAddedLoading;
 
   /// Create a copy of SessionCalendarState
   /// with the given fields replaced by the non-null parameter values.

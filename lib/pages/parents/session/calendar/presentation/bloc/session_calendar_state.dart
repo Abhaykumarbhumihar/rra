@@ -28,8 +28,8 @@ class SessionCalendarState with _$SessionCalendarState {
    @Default("") String selectedDateDayName,
    @Default("") String selectedSessionID,
     @Default("") String selectedFromTime,
-
-
+    @Default(false) bool isAvailablityLoading,
+    @Default(false) bool isTimeAddedLoading,
 
   }) = _SessionCalendarState;
 
@@ -42,6 +42,8 @@ timeAddedModel: TimeAddedModel(),
     isSelectForOtherDate: false,
     isSelectForRecurring: false,
     selectedDateDayName:"",
+    isAvailablityLoading:false,
+    isTimeAddedLoading:false,
     isTimeAddedError: false,
     isTimeAddedSuccess: false,
       selectedSessionID:"",

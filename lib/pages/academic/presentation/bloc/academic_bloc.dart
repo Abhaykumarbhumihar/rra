@@ -85,7 +85,10 @@ class AcademicBloc extends Bloc<AcademicEvent, AcademicState> {
       });
     } catch (error) {
       // Handle the error and show error messages
-      emit(state.copyWith(isLoading: false, error: error.toString()));
+      emit(state.copyWith(error: '',
+        isError: false,
+        isLoginApiError: false,
+        isLoading: false, success: false));
     }
   }
 

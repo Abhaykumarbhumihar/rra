@@ -5,6 +5,7 @@ import 'back_image.dart';
 
 class CommonBackground {
   static const BoxDecoration decoration = BoxDecoration(
+    color: AppColor.gradientMidColor,
     image: DecorationImage(
       image: AssetImage("assets/images/login_background.png"),
       fit: BoxFit.fill,

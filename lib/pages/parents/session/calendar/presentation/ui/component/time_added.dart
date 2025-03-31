@@ -3,6 +3,7 @@ import 'package:rra/common/values/values_exports.dart';
 import '../../../../../../../common/component/screen_title.dart';
 import '../../bloc/session_calendar_bloc.dart';
 import '../../bloc/session_calendar_state.dart';
+import 'availablity_shimmer.dart';
 
 class TimeAddedView extends StatelessWidget {
   const TimeAddedView({super.key});
@@ -32,7 +33,7 @@ class TimeAddedView extends StatelessWidget {
             // Remove Expanded here, it's causing layout issues.
             SizedBox(
               height: context.screenHeight * 0.09, // Adjust height based on content
-              child: ListView.builder(
+              child:state.isTimeAddedLoading? AvailablityShimmer(): ListView.builder(
                 scrollDirection: Axis.horizontal,
                 shrinkWrap: true,
                 itemCount: state.timeAddedModel.data.length,

@@ -160,7 +160,7 @@ class _RecurringDialogState extends State<RecurringDialog> {
                               };
                               BlocProvider.of<SessionCalendarBloc>(context)
                                   .add(SetRecurringSession(map));
-                              //  Navigator.pop(context);
+                              Navigator.pop(context);
                             },
                           ),
                         ),

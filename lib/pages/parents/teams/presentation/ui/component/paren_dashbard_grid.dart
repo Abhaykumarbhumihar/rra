@@ -4,6 +4,8 @@ import 'package:rra/common/values/values_exports.dart';
 import '../../../../../../common/component/circler.dart';
 import '../../../../../../common/routes/routes.dart';
 
+import 'package:flutter_animate/flutter_animate.dart';
+
 class DashboardGrid extends StatelessWidget {
   DashboardGrid({super.key});
 
@@ -47,57 +49,46 @@ class DashboardGrid extends StatelessWidget {
       shrinkWrap: true,
       physics: BouncingScrollPhysics(),
       gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-        crossAxisCount: 2, // 2 items per row
+        crossAxisCount: 2,
         mainAxisSpacing: 12.0,
         crossAxisSpacing: 20.0,
-        childAspectRatio: 1.1, // Adjust aspect ratio as needed
+        childAspectRatio: 1.1,
       ),
-      itemCount: items.length, // Use items list length
+      itemCount: items.length,
       itemBuilder: (context, index) {
-        final item = items[index]; // Get current item
+        final item = items[index];
 
         return GestureDetector(
           onTap: () {
-            if(item['title']=="Upload Documents"){
-              Navigator.pushNamed(
-                  context, AppRoutes.ADDVIEWDOCUMENT);
-            }else if(item['title']=="View Score"){
-              Navigator.pushNamed(
-                  context, AppRoutes.PARENTPLAYERSCORELISTPAGE);
-            }else if(item['title']=="View Attendance"){
-              Navigator.pushNamed(
-                  context, AppRoutes.PARENTATTENDANCELISTPAGE);
-            }else if(item['title']=="My Orders"){
-              Navigator.pushNamed(
-                  context, AppRoutes.PARENTORDERLISTPAGE);
-            }else if(item['title']=="View Player"){
-              Map<String, dynamic> arguments = {
-                "isFromDashBoard": true,
-              };
-              Navigator.pushNamed(
-                  context, AppRoutes.ADDDETAILS,arguments: arguments);
+            if (item['title'] == "Upload Documents") {
+              Navigator.pushNamed(context, AppRoutes.ADDVIEWDOCUMENT);
+            } else if (item['title'] == "View Score") {
+              Navigator.pushNamed(context, AppRoutes.PARENTPLAYERSCORELISTPAGE);
+            } else if (item['title'] == "View Attendance") {
+              Navigator.pushNamed(context, AppRoutes.PARENTATTENDANCELISTPAGE);
+            } else if (item['title'] == "My Orders") {
+              Navigator.pushNamed(context, AppRoutes.PARENTORDERLISTPAGE);
+            } else if (item['title'] == "View Player") {
+              Map<String, dynamic> arguments = {"isFromDashBoard": true};
+              Navigator.pushNamed(context, AppRoutes.ADDDETAILS, arguments: arguments);
             }
             print("${item['title']} clicked");
           },
           child: Container(
-            padding: EdgeInsets.only(
-                top: context.screenHeight * 0.038,
-                bottom: context.screenHeight * 0.038),
+            padding: EdgeInsets.symmetric(
+              vertical: context.screenHeight * 0.038,
+            ),
             decoration: BoxDecoration(
               color: Colors.transparent,
               image: DecorationImage(
-                image: AssetImage(
-                    item["background"]!),
-               fit: BoxFit.fill,
+                image: AssetImage(item["background"]!),
+                fit: BoxFit.fill,
               ),
             ),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-
-                Circle(
-                  imagePath: item["image"]!,
-                ),
+                Circle(imagePath: item["image"]!),
                 SizedBox(height: 10),
                 Text(
                   item["title"]!,
@@ -111,7 +102,10 @@ class DashboardGrid extends StatelessWidget {
               ],
             ),
           ),
-        );
+        )
+            .animate()
+            .fade(duration: 500.ms, curve: Curves.easeIn)
+            .slideY(begin: 0.5, end: 0, duration: 600.ms, curve: Curves.easeOut);
       },
     );
   }

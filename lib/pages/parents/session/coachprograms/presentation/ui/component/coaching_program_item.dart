@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_animate/flutter_animate.dart';
 import 'package:rra/common/network/app_constant.dart';
 import 'package:rra/common/values/screenUtils.dart';
 import 'package:rra/common/values/values_exports.dart';
@@ -110,7 +111,9 @@ class CoachingProgramItem extends StatelessWidget {
           ],
         ),
       ),
-    );
+    ).animate()
+        .fade(duration: 900.ms, curve: Curves.easeIn)
+        .slideY(begin: 0.5, end: 0, duration: 900.ms, curve: Curves.easeOut);
   }
 }
 

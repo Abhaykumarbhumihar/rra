@@ -17,6 +17,7 @@ class Teams extends StatelessWidget {
         width: width,
         height: height,
         padding: EdgeInsets.zero,
+
         decoration: CommonBackground.decoration,
         child: SafeArea(
           child: SingleChildScrollView(

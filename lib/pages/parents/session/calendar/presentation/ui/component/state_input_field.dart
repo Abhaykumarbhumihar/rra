@@ -123,7 +123,7 @@ class TimeToRepeatTextFiled extends StatelessWidget {
       isPass: false,
       isSuffix: true,
 
-      hint: '12',
+      hint: 'select your repeat coutn `',
       readOnly: true,
       onTap: onTap,
       onChanged: (value) {},

@@ -103,12 +103,20 @@ class SessionCalendarBloc
     Map<String, dynamic> stringifiedBody = event.data.map(
       (key, value) => MapEntry(jsonEncode(key), jsonEncode(value)),
     );
-
+emit(state.copyWith(
+  isAvailablityLoading: false,
+  isLoading: true,
+  isTimeAddedLoading:true,
+));
     print(stringifiedBody);
     final response =
         await _sessionCalendarUsecase.timeAddedModelExecute(event.data);
     response.fold((failure) {
       emit(state.copyWith(
+
+          isAvailablityLoading: false,
+          isLoading: false,
+          isTimeAddedLoading:false,
           isError: false,
           isTimeAddedError: true,
           error: failure.message,
@@ -120,6 +128,9 @@ class SessionCalendarBloc
           isError: false,
           isTimeAddedError: false,
           timeAddedModel: timeToAdded,
+          isAvailablityLoading: false,
+          isLoading: false,
+          isTimeAddedLoading:false,
           isTimeAddedSuccess: true));
     });
   }
@@ -129,12 +140,19 @@ class SessionCalendarBloc
     Map<String, dynamic> stringifiedBody = event.data.map(
       (key, value) => MapEntry(jsonEncode(key), jsonEncode(value)),
     );
-
+    emit(state.copyWith(
+      isAvailablityLoading: false,
+      isLoading: true,
+      isTimeAddedLoading:true,
+    ));
     print(stringifiedBody);
     final response =
         await _sessionCalendarUsecase.recurringRequestExecute(event.data);
     response.fold((failure) {
       emit(state.copyWith(
+          isAvailablityLoading: false,
+          isLoading: false,
+          isTimeAddedLoading:false,
           isError: false,
           isTimeAddedError: true,
           error: failure.message,
@@ -144,6 +162,9 @@ class SessionCalendarBloc
           "CODE IS RUNNING IN TIME SUCCESSS S SS S S  S ${timeToAdded.data.length}");
       emit(state.copyWith(
           isError: false,
+          isAvailablityLoading: false,
+          isLoading: false,
+          isTimeAddedLoading:false,
           selectBottomSheetType: "",
           selectedDateDayName: "",
           selectedSessionID: "",
@@ -181,6 +202,8 @@ class SessionCalendarBloc
 
       emit(state.copyWith(
         isLoading: true,
+        isTimeAddedLoading:false,
+        isAvailablityLoading:false,
         isError: false,
         isLoginApiError: false,
         success: false,
@@ -193,7 +216,9 @@ class SessionCalendarBloc
           await _sessionCalendarUsecase.calendarDataExecute(event.data);
       response.fold((failure) {
         emit(state.copyWith(
+            isAvailablityLoading:false,
             error: failure.message,
+            isTimeAddedLoading:false,
             isError: true,
             isLoginApiError: true,
             isLoading: false,
@@ -205,9 +230,11 @@ class SessionCalendarBloc
         print(calendarData);
         print("======check =====check =====check \n\n");
         emit(state.copyWith(
+            isAvailablityLoading:false,
             error: '',
             isError: false,
             isLoginApiError: false,
+            isTimeAddedLoading:false,
             isLoading: false,
             selectedTimeAdded: [],
             sessionCalendarModel: calendarData,
@@ -244,7 +271,8 @@ class SessionCalendarBloc
 
       emit(state.copyWith(
           isLoading: true,
-          isError: false,
+          isTimeAddedLoading:false,
+          isAvailablityLoading:true,
           isLoginApiError: false,
           success: false,
           error: '',
@@ -254,7 +282,9 @@ class SessionCalendarBloc
           await _sessionCalendarUsecase.avilableDatesExecute(event.data);
       response.fold((failure) {
         emit(state.copyWith(
+            isTimeAddedLoading:false,
             error: failure.message,
+            isAvailablityLoading:false,
             isError: true,
             isLoginApiError: true,
             isLoading: false,
@@ -266,7 +296,9 @@ class SessionCalendarBloc
         print("======check =====check =====check \n\n");
         emit(state.copyWith(
             error: '',
+            isAvailablityLoading:false,
             isError: false,
+            isTimeAddedLoading:false,
             isLoginApiError: false,
             isLoading: false,
             avilableDatesResponse: avilableDatesData,
@@ -274,7 +306,9 @@ class SessionCalendarBloc
       });
     } catch (error) {
       // Handle the error and show error messages
-      emit(state.copyWith(isLoading: false, error: error.toString()));
+      emit(state.copyWith(isLoading: false,
+          isAvailablityLoading:false,
+          error: error.toString()));
     }
   }
 }

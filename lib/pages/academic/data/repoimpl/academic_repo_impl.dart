@@ -26,7 +26,9 @@ class AcademicRepoiteryImpl implements AcademicRepoitery {
 
       print(academicListData);
       http.Response response =
-      await _apiServices.post(AppConstant.getAcademicList, academicListData);
+      await _apiServices.post(AppConstant.getAcademicList, academicListData,isJson: false);
+      print("academicList academicList academicList academicList ========= academicList academicList academicList");
+      
       print(response.body);
       if (response.statusCode == 200) {
         final Map<String, dynamic> responseData = jsonDecode(response.body);

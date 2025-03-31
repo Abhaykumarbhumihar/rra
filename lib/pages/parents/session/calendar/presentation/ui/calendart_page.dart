@@ -1,3 +1,4 @@
+import 'package:flutter_animate/flutter_animate.dart';
 import 'package:intl/intl.dart';
 import 'package:rra/common/values/values_exports.dart';
 
@@ -93,7 +94,9 @@ class CalendarPage extends StatelessWidget {
                               Padding(
                                 padding:
                                     const EdgeInsets.only(right: 8.0, left: 3.0),
-                                child: CalendarView(),
+                                child: CalendarView().animate()
+                                  .fade(duration: 900.ms)
+                                  .scaleXY(begin: 0.9, end: 1.0, duration: 800.ms, curve: Curves.easeOut),
                               ),
                               SizedBox(
                                 width: context.screenWidth,
@@ -114,7 +117,9 @@ class CalendarPage extends StatelessWidget {
                                   }
                                //   _showCustomBottomSheet(context);
                                 },
-                              ),
+                              ).animate()
+                                  .fade(duration: 600.ms, delay: 500.ms)
+                                  .scaleXY(begin: 0.8, end: 1.0, duration: 500.ms, curve: Curves.bounceOut),
                               SizedBox(
                                 height: 20,
                               ),

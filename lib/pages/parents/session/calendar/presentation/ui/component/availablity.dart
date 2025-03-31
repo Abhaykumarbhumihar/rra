@@ -1,3 +1,4 @@
+import 'package:flutter_animate/flutter_animate.dart';
 import 'package:intl/intl.dart';
 import 'package:rra/common/values/values_exports.dart';
 import 'package:rra/pages/parents/session/calendar/presentation/ui/component/recurring_dialog.dart';
@@ -8,6 +9,7 @@ import '../../../../../../../common/values/utils.dart';
 import '../../bloc/session_calendar_bloc.dart';
 import '../../bloc/session_calendar_event.dart';
 import '../../bloc/session_calendar_state.dart';
+import 'availablity_shimmer.dart';
 import 'custom_bottomsheet.dart';
 
 class Availablity extends StatelessWidget {
@@ -24,10 +26,7 @@ class Availablity extends StatelessWidget {
             Navigator.pushNamed(context, AppRoutes.ADDDETAILS);
           } else if (state.selectBottomSheetType ==
               "Select and make recurring") {
-            BlocProvider.of<SessionCalendarBloc>(context)
-                .add(SessionCalendarEvent.setSeletTypeBottomSheet(""));
 
-            recurringDialog(context, 52);
           }
         }
       },
@@ -44,12 +43,15 @@ class Availablity extends StatelessWidget {
                 child: ScreenTitleForCalendar(
                   title: "Availability",
                   fontSize: context.screenWidth * 0.042,
-                ),
+                ) .animate()
+                    .fade(duration: 900.ms)
+                    .slideY(begin: -0.2, end: 0, duration: 800.ms),
               ),
               SizedBox(
                 height: 8.0,
               ),
-              Expanded(
+
+              state.isAvailablityLoading?Expanded(child: AvailablityShimmer()):Expanded(
                 child: ListView.builder(
                     shrinkWrap: true,
                     scrollDirection: Axis.horizontal,
@@ -103,7 +105,9 @@ class Availablity extends StatelessWidget {
                                 children: <Widget>[
                                   AvailablitTime(
                                     title: '${data.fromTime}',
-                                  ),
+                                  ).animate()
+                                      .fade(duration: 700.ms, delay: (index * 200).ms)
+                                      .slideY(begin: 0.3, end: 0, duration: 800.ms),
                                   SizedBox(
                                     height: 4,
                                   ),
@@ -119,11 +123,16 @@ class Availablity extends StatelessWidget {
                                     child: Center(
                                         child: AvailablitTime(
                                       title: '${data.slotsLeft} Slots',
-                                    )),
+                                    ).animate()
+                                            .fade(duration: 700.ms, delay: (index * 250).ms)
+                                            .scaleXY(begin: 0.8, end: 1.0, duration: 800.ms, curve: Curves.bounceOut),
+                                    ),
                                   )
                                 ],
                               ),
-                            ),
+                            ).animate()
+                            .fade(duration: 900.ms, delay: (index * 200).ms)
+                            .slideX(begin: 0.3, end: 0, duration: 800.ms),
                           ],
                         ),
                       );
@@ -179,7 +188,10 @@ class Availablity extends StatelessWidget {
               bloc.add(
                   SetSelectTypeBottomSheetEvent("Select and make recurring"));
               bloc.add(SetSlotBooking(body));
-              // selectStateCountyLoactionDialog(context);
+              BlocProvider.of<SessionCalendarBloc>(context)
+                  .add(SessionCalendarEvent.setSeletTypeBottomSheet(""));
+
+              recurringDialog(context, 52);
             }
             if (selectedOption == "Select and add another time") {
               bloc.add(

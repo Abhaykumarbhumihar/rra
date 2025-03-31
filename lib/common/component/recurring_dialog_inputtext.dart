@@ -175,11 +175,7 @@ class _RecurringDialogState extends State<RecurringDialogInputText> {
               suffixIcon: widget.isSuffix == true
                   ? widget.suffixIcon ??
                       GestureDetector(
-                        onTap: () {
-                          setState(() {
-                            _obscureText = !_obscureText;
-                          });
-                        },
+                        onTap: widget.onTap,
                         child: sufixs(context, _obscureText, width),
                       )
                   : const SizedBox(),
