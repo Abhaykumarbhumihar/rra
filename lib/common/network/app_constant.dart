@@ -21,7 +21,7 @@ class AppConstant {
   static String get getStoreSesssionTimeAdded=> "store-session";
   static String get getRecurringSessionTimeAdded=> "store-recuring-session";
   static String get getRemoveSessionByDate=> "remove-sessions-by-date";
-
+  static String get getSelectedSessionData=> "selected-slot-list";
 
   static String get getAddChild=> "createplayer";
   static String get getParentsChildList=> "get_parentschild";

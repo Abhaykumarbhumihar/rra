@@ -1,3 +1,4 @@
+import 'package:flutter_animate/flutter_animate.dart';
 import 'package:rra/common/routes/exports.dart';
 import 'package:rra/common/values/values_exports.dart';
 import 'package:rra/pages/academic/presentation/bloc/academic_bloc.dart';
@@ -65,17 +66,26 @@ class SplashPage extends StatelessWidget {
         },
         builder: (context, state) {
           return Container(
-              padding: EdgeInsets.zero,
-              width: context.screenWidth,
-              height: context.screenHeight,
-              decoration: SplashComponent.decoration,
+            padding: EdgeInsets.zero,
+            width: MediaQuery.of(context).size.width,
+            height: MediaQuery.of(context).size.height,
+            decoration: SplashComponent.decoration,
+            child: SizedBox(
+
               child: Center(
-                child: Image(
-                  image: AssetImage("assets/images/splach_icon.png"),
-                  width: context.screenWidth * 0.25,
-                  height: context.screenHeight * 0.25,
-                ),
-              ));
+                child: Image.asset("assets/images/splach_icon.png",
+                  width: MediaQuery.of(context).size.width * 0.4,  // Reduced size
+                  height: MediaQuery.of(context).size.width * 0.4,)
+                    .animate()
+                    .fadeIn(duration: 1000.ms, curve: Curves.easeInOut)
+                    .scaleXY(begin: 0.5, end: 1.2, duration: 600.ms, curve: Curves.easeOutBack)
+                    .rotate(begin: -0.2, end: 0.0, duration: 600.ms, curve: Curves.easeOut)
+                    .then(delay: 1200.ms)
+                    .scaleXY(end: 1.0, duration: 300.ms, curve: Curves.easeOut)
+                    .slideY(begin: 0, end: -1, duration: 700.ms, curve: Curves.easeInOut),
+              ),
+            ),
+          );
         },
       ),
     );

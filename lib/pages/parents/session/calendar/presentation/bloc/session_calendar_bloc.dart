@@ -33,6 +33,7 @@ class SessionCalendarBloc
     on<SetSelectedDateDayName>(setSelectedDateDayName);
     on<SetSelectTypeBottomSheetEvent>(setSelectBottomSheetType);
     on<RemoveSessionByDateEvent>(_removeSessionByDate);
+    on<GetSelectedSessionEvent>(_getSelectedSession);
   }
 
   Future<void> _removeSessionByDate(
@@ -83,6 +84,46 @@ class SessionCalendarBloc
   }
 
 
+  Future<void> _getSelectedSession(
+      GetSelectedSessionEvent event, Emitter<SessionCalendarState> emit) async {
+    // Execute the use case to get the response
+    fetchSelectedSlotList();
+    final response = await _sessionCalendarUsecase.getSeletedSessionExecute({});
+
+    response.fold(
+          (failure) {
+
+
+      },
+          (removeSessionByDate) {
+
+
+      },
+    );
+  }
+
+  Future<void> fetchSelectedSlotList() async {
+    final String url = "https://stage.rajasthanroyalsacademy.com/api/v1/selected-slot-list";
+    var token = await SharedPrefs.getString("token");
+
+
+    final response = await http.post(
+      Uri.parse(url),
+      headers: {
+        "Authorization": "Bearer $token",
+        "Content-Type": "application/json",
+        "X-Requested-With": "XMLHttpRequest",
+      },
+    );
+
+    if (response.statusCode == 200) {
+      var data = json.decode(response.body);
+      print("Response Data: $data");
+    } else {
+      print("Error: ${response.statusCode} - ${response.body}");
+    }
+  }
+
 
 
   Future<void> setSelectBottomSheetType(SetSelectTypeBottomSheetEvent event,
@@ -132,6 +173,7 @@ emit(state.copyWith(
           isLoading: false,
           isTimeAddedLoading:false,
           isTimeAddedSuccess: true));
+      add(GetSelectedSessionEvent());
     });
   }
 

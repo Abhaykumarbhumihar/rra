@@ -4,6 +4,7 @@ import 'dart:io';
 import 'package:either_dart/src/either.dart';
 
 import 'package:http/http.dart' as http;
+import 'package:rra/common/values/utils.dart';
 import 'package:rra/pages/parents/session/calendar/data/entity/avilabele_session/avilable_dates.dart';
 import 'package:rra/pages/parents/session/calendar/data/entity/time_added/time_added_model.dart';
 import '../../../../../../common/local/SharedPrefs.dart';
@@ -18,6 +19,35 @@ import '../entity/session_calendar_model.dart';
 class SessionCalendarDateRepoImpl implements SessionCalendarDatesRepositery {
   final ApiServices _apiServices = getIt<ApiServices>();
   SessionCalendarDateRepoImpl();
+
+  @override
+  Future<Either<Failure, dynamic>> getSeletedSession(Map<String, dynamic> calendarDataa)async {
+    try {
+
+      print("+++++++getSeletedSession++++++++++++++getSeletedSession++++++++++getSeletedSession+++++++++++++++++++");
+      print(calendarDataa);
+      http.Response response =
+      await _apiServices.post(AppConstant.getSelectedSessionData, calendarDataa,useDefaultHeaders: true,isJson: true);
+      print(response.body);
+      if (response.statusCode == 200) {
+        final Map<String, dynamic> responseData = jsonDecode(response.body);
+        if(responseData['success']){
+
+
+          return Right(responseData);
+        }else{
+          return Left(Failure(responseData['message']));
+        }
+
+      } else {
+        final errorMessage = _extractErrorMessage(response.body);
+        return Left(Failure(errorMessage));
+      }
+    } catch (e) {
+      return Left(Failure("$e"));
+    }
+  }
+
 
 
   @override
@@ -95,6 +125,22 @@ class SessionCalendarDateRepoImpl implements SessionCalendarDatesRepositery {
       if (response.statusCode == 200) {
         final Map<String, dynamic> responseData = jsonDecode(response.body);
         if(responseData['success']){
+          if (response.headers.containsKey('set-cookie')) {
+            var cookies = response.headers['set-cookie'];
+            RegExp regExp = RegExp(r'(rajasthanroyals_session=[^;]+)');
+            Match? match = regExp.firstMatch(cookies.toString());
+            if(match!=null){
+              String sessionCookie = match.group(1)!;
+              print('Session Cookie: $sessionCookie');
+              await SharedPrefs.setString("cookie", sessionCookie);
+            }
+
+          }
+
+          print("=====response.headers response.headers response.headers ======\n\n");
+          Utils.LogPrint(response.headers);
+          print("===========\n\n");
+
           final TimeAddedModel timeAddedModel = TimeAddedModel.fromJson(responseData);
           return Right(timeAddedModel);
         }else{

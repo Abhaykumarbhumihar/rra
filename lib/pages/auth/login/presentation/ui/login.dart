@@ -1,3 +1,4 @@
+import 'package:flutter_animate/flutter_animate.dart';
 import 'package:rra/common/component/common_background.dart';
 import 'package:rra/common/values/utils.dart';
 import 'package:rra/common/values/values_exports.dart';
@@ -34,6 +35,9 @@ class LoginScreen extends StatelessWidget {
 
   LoginScreen({super.key});
 
+
+
+
   @override
   Widget build(BuildContext context) {
     var width = context.screenWidth;
@@ -43,56 +47,28 @@ class LoginScreen extends StatelessWidget {
       backgroundColor: AppColor.gradientMidColor,
       body: BlocListener<LoginBloc, LoginState>(
         listener: (context, state) async {
-          if (state.error != "") {
+          if (state.error.toString().isNotEmpty) {
             context.showCustomSnackbar(state.error!,
                 backgroundColor: AppColor.appcolor);
           }
-          if (state.success == true) {
+          if (state.success) {
             await SharedPrefs.setModel("user_model", state.otpresponse);
             await SharedPrefs.setString("token", state.otpresponse.token);
+
             if (state.otpresponse.success) {
-              BlocProvider.of<CoachingProgramsBloc>(context).add(GroupCoachProgramsListEvent());
-              BlocProvider.of<CoachingProgramsBloc>(context).add(PrivateCoachingProgramsList());
+              BlocProvider.of<CoachingProgramsBloc>(context)
+                  .add(GroupCoachProgramsListEvent());
+              BlocProvider.of<CoachingProgramsBloc>(context)
+                  .add(PrivateCoachingProgramsList());
 
               Navigator.pushNamedAndRemoveUntil(
                 context,
                 AppRoutes.APPLICATION,
                     (Route<dynamic> route) => false,
               );
-              // if (state.otpresponse.data.isOtpVerified == false) {
-              //   BlocProvider.of<OtpverificationBloc>(context)
-              //       .add(ResendOtpSubmit((state.otpresponse.data.email)));
-              //   Map<String, dynamic> arguments = {
-              //     "email": state.otpresponse.data.email,
-              //     "isFromCreateAccount": true,
-              //   };
-              //   Navigator.pushNamed(context, AppRoutes.OTPVERIFICATION,
-              //       arguments: arguments);
-              // }
-              // else if (state.otpresponse.data.isProfileCompleted == false) {
-              //   Navigator.pushNamedAndRemoveUntil(
-              //     context,
-              //     AppRoutes.EDITPROFILE,
-              //     (Route<dynamic> route) => false,
-              //   );
-              // }
-              // else {
-              //
-              //   BlocProvider.of<CoachingProgramsBloc>(context).add(GroupCoachProgramsListEvent());
-              //   BlocProvider.of<CoachingProgramsBloc>(context).add(PrivateCoachingProgramsList());
-              //
-              //   Navigator.pushNamedAndRemoveUntil(
-              //     context,
-              //     AppRoutes.APPLICATION,
-              //     (Route<dynamic> route) => false,
-              //   );
-              // }
+
+
             }
-            // Navigator.pushNamedAndRemoveUntil(
-            //   context,
-            //   AppRoutes.APPLICATION,
-            //   (Route<dynamic> route) => false,
-            // );
           }
         },
         child: BlocBuilder<LoginBloc, LoginState>(
@@ -106,58 +82,55 @@ class LoginScreen extends StatelessWidget {
                 children: [
                   SingleChildScrollView(
                     child: Column(
-                      mainAxisAlignment: MainAxisAlignment.start,
                       crossAxisAlignment: CrossAxisAlignment.stretch,
                       children: [
-                        SizedBox(
-                          height: height * 0.12,
-                        ),
+                        SizedBox(height: height * 0.12),
                         Padding(
-                          padding: const EdgeInsets.symmetric(
-                              horizontal: Checkbox.width),
+                          padding: const EdgeInsets.symmetric(horizontal: 24),
                           child: Column(
                             children: [
-                              const ScreenTitle(
-                                title: "Sign In",
-                              ),
-                              SizedBox(height: height * 0.01),
+                              const ScreenTitle(title: "Sign In")
+                                  .animate()
+                                  .fadeIn(duration: 1.2.seconds)
+                                  .slideY(begin: -0.2, duration: 1.2.seconds),
+
+
+
+
+
+                        SizedBox(height: height * 0.01),
                               ScreenSubTitle(
-                                subtitle:
-                                    "Hi! Welcome back, you’ve been missed",
-                              ),
+                                subtitle: "Hi! Welcome back, you’ve been missed",
+                              )
+                                  .animate()
+                                  .fadeIn(duration: 1.seconds)
+                                  .slideY(begin: -0.1, duration: 1.2.seconds),
                               SizedBox(height: height * 0.065),
                               CustomTextInputMobile(
-                                  controller: emailController,
-                                  title: "Email",
-                                  isPass: false,
-                                  isSuffix: false,
-                                  isPrefix: true,
-                                  hint: 'Enter your email',
-                                  keyBoardType: TextInputType.emailAddress,
-                                  prefixIcon: Image.asset(
-                                    'assets/images/email.png',
-                                    width: 12,
-                                    height: 12,
-                                    color: AppColor.appWhiteColor,
-                                  ),
-                                  focusNode: emailFocusNode,
-                                  isServerError: state.isLoginApiError,
-                                  errorMessage: state.isLoginApiError
-                                      ? state.error
-                                      : (state.error ==
-                                                  "Please enter your email" ||
-                                              state.error ==
-                                                  "Please enter a valid email address"
-                                          ? state.error
-                                          : ''),
-                                  onChanged: (value) {
-                                    context
-                                        .read<LoginBloc>()
-                                        .add(LoginEvent.emailChanged(value));
-                                  }),
-                              const SizedBox(
-                                height: 12,
-                              ),
+                                controller: emailController,
+                                title: "Email",
+                                isPass: false,
+                                isSuffix: false,
+                                isPrefix: true,
+                                hint: 'Enter your email',
+                                keyBoardType: TextInputType.emailAddress,
+                                prefixIcon: Image.asset(
+                                  'assets/images/email.png',
+                                  width: 12,
+                                  height: 12,
+                                  color: AppColor.appWhiteColor,
+                                ),
+                                focusNode: emailFocusNode,
+                                isServerError: state.isLoginApiError,
+                                errorMessage: state.isLoginApiError ? state.error : '',
+                                onChanged: (value) {
+                                  context.read<LoginBloc>().add(LoginEvent.emailChanged(value));
+                                },
+                              )
+                                  .animate()
+                                  .fadeIn(duration: 1.2.seconds)
+                                  .slideX(begin: -0.2, duration: 1.2.seconds),
+                              SizedBox(height: 12),
                               CustomTextInputMobile(
                                 isPrefix: false,
                                 controller: passwordController,
@@ -173,73 +146,54 @@ class LoginScreen extends StatelessWidget {
                                 ),
                                 focusNode: passwordFocusNode,
                                 isServerError: state.isLoginApiError,
-                                errorMessage: state.isLoginApiError
-                                    ? state.error
-                                    : (state.error ==
-                                                "Please enter your password" ||
-                                            state.error ==
-                                                'Password must be at least 6 characters long and include at least one uppercase letter, one lowercase letter, one number, and one special character.'
-                                        ? state.error
-                                        : ''),
+                                errorMessage: state.isLoginApiError ? state.error : '',
                                 onChanged: (value) {
-                                  context
-                                      .read<LoginBloc>()
-                                      .add(LoginEvent.passwordChanged(value));
+                                  context.read<LoginBloc>().add(LoginEvent.passwordChanged(value));
                                 },
-                              ),
-                              const SizedBox(
-                                height: 12,
-                              ),
-
+                              )
+                                  .animate()
+                                  .fadeIn(duration: 1.2.seconds)
+                                  .slideX(begin: 0.2, duration: 1.2.seconds),
+                              SizedBox(height: 12),
                               Row(
                                 mainAxisAlignment: MainAxisAlignment.end,
-                                children: <Widget>[
+                                children: [
                                   GestureDetector(
-                                      onTap: () {
-                                        Navigator.pushNamed(
-                                            context, AppRoutes.FORGOTPASSWORD);
-                                      },
-                                      child: ForgotPasswordText()),
+                                    onTap: () {
+                                      Navigator.pushNamed(context, AppRoutes.FORGOTPASSWORD);
+                                    },
+                                    child: ForgotPasswordText(),
+                                  )
+                                      .animate()
+                                      .fadeIn(duration: 1.2.seconds),
                                 ],
                               ),
                               SizedBox(height: height * 0.04),
-                              // Login Button
                               CustomButton(
                                 text: "Sign In",
-                                onPressed: () async {
-                                  print("selected academic id ${BlocProvider.of<AcademicBloc>(context).state.selectedAcademiId}");
+                                onPressed: () {
                                   context.read<LoginBloc>().add(
                                       LoginButtonPressed(
-                                          email:
-                                              emailController.text.toString(),
-                                          password: passwordController.text
-                                              .toString(),
+                                          email: emailController.text.trim(),
+                                          password: passwordController.text.trim(),
                                           deviceID: ""));
-                                  // Navigator.pushNamedAndRemoveUntil(
-                                  //   context,
-                                  //  AppRoutes.APPLICATION,
-                                  //       (Route<dynamic> route) => false,
-                                  // );
-                                  // var data = await StripeService.instance
-                                  //     .makePayment();
-                                  // print("IN LOGIN PAGE PAGE------------------");
-                                  // Utils.LogPrint("$data");
                                 },
-                              ),
-                              SizedBox(
-                                height: context.screenHeight * 0.04,
-                              ),
+                              )
+                                  .animate()
+                                  .fade(duration: 1.2.seconds)
+                                  .scaleXY(begin: 0.8, end: 1.0, duration: 1.2.seconds, curve: Curves.bounceOut),
+                              SizedBox(height: height * 0.04),
                               SignupSigninRichtext(
                                 nonActionText: 'Don’t have an account?',
                                 actionText: 'Sign Up',
                                 actionClick: () {
-                                  Navigator.pushReplacementNamed(
-                                      context, AppRoutes.CREATEACCOUNT);
+                                  Navigator.pushReplacementNamed(context, AppRoutes.CREATEACCOUNT);
                                 },
-                              ),
-                              SizedBox(
-                                height: context.screenHeight * 0.03,
-                              ),
+                              )
+                                  .animate()
+                                  .fade(duration: 1.2.seconds)
+                                  .scaleXY(begin: 0.8, end: 1.0, duration: 1.2.seconds, curve: Curves.bounceOut),
+                              SizedBox(height: height * 0.03),
                             ],
                           ),
                         ),
@@ -247,7 +201,10 @@ class LoginScreen extends StatelessWidget {
                     ),
                   ),
                   if (state.isLoading)
-                    const LoadingIndicator()
+                    LoadingIndicator()
+                        .animate()
+                        .fadeIn(duration: 1.seconds)
+                        .scaleXY(begin: 0.9, end: 1.0, duration: 1.seconds),
                 ],
               ),
             );
@@ -256,6 +213,8 @@ class LoginScreen extends StatelessWidget {
       ),
     );
   }
+
+
 }
 
 PageRouteBuilder customPageRoute(Widget page) {

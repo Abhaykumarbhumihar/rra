@@ -14,5 +14,6 @@ class SessionCalendarEvent with _$SessionCalendarEvent {
   const factory SessionCalendarEvent.setSeletTypeBottomSheet( String type) = SetSelectTypeBottomSheetEvent;
   const factory SessionCalendarEvent.setRecurringSession( Map<String, dynamic> data) = SetRecurringSession;
   const factory SessionCalendarEvent.removeSessionByDate( Map<String, dynamic> data,index) = RemoveSessionByDateEvent;
+  const factory SessionCalendarEvent.getSeletedSessionEvent() = GetSelectedSessionEvent;
 
 }

@@ -6,15 +6,14 @@ import 'package:http_parser/http_parser.dart';
 import 'dart:io';
 import 'package:path/path.dart' as path;
 
-
-
 import '../local/SharedPrefs.dart';
 import 'app_constant.dart';
 
 class ApiServices {
   final String apiBaseUri;
   final Duration requestTimeout;
-  ApiServices(this.apiBaseUri,{this.requestTimeout = const Duration(minutes: 10)});
+  ApiServices(this.apiBaseUri,
+      {this.requestTimeout = const Duration(minutes: 10)});
 
   Future<http.Response> _request(
     String method,
@@ -23,7 +22,7 @@ class ApiServices {
     Map<String, dynamic>? body,
     http.MultipartFile? file,
     Map<String, dynamic>? queryParams,
-        bool isJson = false,
+    bool isJson = false,
     bool useDefaultHeaders = false, // Use default headers conditionally
   }) async {
     final apiUrl = Uri.parse(apiBaseUri + url);
@@ -36,8 +35,15 @@ class ApiServices {
       if (isJson) {
         headers['Content-Type'] = 'application/json'; // Ensure JSON header
       }
+      if (url ==
+          "selected-slot-list") {
+        print("YYYYYSY${url}YSYSYSYSYSYSYSYSYSSYSYSYSYSYSYSYSYSYSYSYSYSYYSYSYSY");
+        var cookie = await SharedPrefs.getString("cookie");
+        headers['Cookie'] = "laravel_session=${cookie}";
+      }else{
+        print("YYYY${url}fffffffffffff");
+      }
     }
-
 
     try {
       print(headers);
@@ -53,23 +59,23 @@ class ApiServices {
 
         final streamedResponse = await request.send().timeout(requestTimeout);
         return await http.Response.fromStream(streamedResponse);
-      }
-      else if (method == 'POST') {
-        print("CODE IS RUNNING HERE== with headers isJSIN $isJson\n\n and body is $body");
+      } else if (method == 'POST') {
+        print(
+            "CODE IS RUNNING HERE== with headers isJSIN $isJson\n\n and body is $body");
         print(headers);
 
-
-        final response = await http.post(
-          apiUrl,
-          headers: headers ?? {},
-          body: isJson ==true? jsonEncode(body) : _convertBodyToFields(body),
-          // body: _convertBodyToFields(body) ?? {},
-        ).timeout(requestTimeout);
+        final response = await http
+            .post(
+              apiUrl, headers: headers ?? {},
+              body: isJson == true
+                  ? jsonEncode(body)
+                  : _convertBodyToFields(body),
+              // body: _convertBodyToFields(body) ?? {},
+            )
+            .timeout(requestTimeout);
         print(response.body);
         return response;
       } else {
-
-
         final uri = queryParams != null && queryParams.isNotEmpty
             ? Uri.parse(apiBaseUri + url).replace(
                 queryParameters: queryParams
@@ -126,10 +132,10 @@ class ApiServices {
     String url,
     Map<String, dynamic> body, {
     bool useDefaultHeaders = false,
-        bool isJson = false,
+    bool isJson = false,
   }) async {
     return _request('POST', url,
-        body: body, useDefaultHeaders: useDefaultHeaders,isJson: isJson);
+        body: body, useDefaultHeaders: useDefaultHeaders, isJson: isJson);
   }
 
   Future<http.Response> multiPartImage({
@@ -283,7 +289,8 @@ class ApiServices {
       request.files.addAll(files);
 
       final streamedResponse = await request.send();
-      return await http.Response.fromStream(streamedResponse).timeout(requestTimeout);
+      return await http.Response.fromStream(streamedResponse)
+          .timeout(requestTimeout);
     } else {
       // If no files, send a regular POST request
       return _request(
@@ -296,18 +303,15 @@ class ApiServices {
   }
 
   Future<Map<String, String>> _defaultHeaders() async {
-
-
     //var csrftoken = await SharedPrefs.getString("csrftoken");
-
 
     var token = await SharedPrefs.getString("token");
     //var token = userdata?.data?.token;
 
     Map<String, String> headers = {};
-
     if (token != null && token.isNotEmpty) {
       headers['Authorization'] = AppConstant.bearer + token;
+      headers['X-Requested-With'] = "XMLHttpRequest";
     }
 
     // if (csrftoken.isNotEmpty) {

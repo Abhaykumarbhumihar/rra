@@ -1,6 +1,7 @@
 import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:rra/common/component/common_page_format.dart';
 import 'package:rra/common/network/connectivity_extension.dart';
@@ -52,39 +53,33 @@ class ForgotPassword extends StatelessWidget {
       },
       child: BlocBuilder<ForgetPasswordBloc, ForgetPasswordState>(
         builder: (context, state) {
-          return Container(
+          return  Container(
             width: width,
             height: height,
             child: Stack(
               children: [
                 SingleChildScrollView(
                   child: Column(
-                    mainAxisAlignment: MainAxisAlignment.start,
                     crossAxisAlignment: CrossAxisAlignment.stretch,
                     children: [
-
                       Padding(
-                        padding: const EdgeInsets.symmetric(
-                            horizontal: Checkbox.width),
+                        padding: const EdgeInsets.symmetric(horizontal: 24),
                         child: Column(
                           children: [
-                            SizedBox(
-                              height: height * 0.038,
-                            ),
-
-                            const ScreenTitle(
-                              title: "Send Otp",
-                            ),
-                            SizedBox(
-                              height: 6.0,
-                            ),
+                            SizedBox(height: height * 0.08),
+                            const ScreenTitle(title: "Send OTP")
+                                .animate()
+                                .fadeIn(duration: 1.4.seconds)
+                                .slideY(begin: -0.2, duration: 1.4.seconds, curve: Curves.easeOutBack),
+                            SizedBox(height: 6.0),
                             ScreenSubTitle(
                               subtitle:
                               "Enter your email below and we’ll send you a \nlink to reset your password",
-                            ),
-                            SizedBox(
-                              height: height * 0.05,
-                            ),
+                            )
+                                .animate()
+                                .fadeIn(duration: 1.4.seconds)
+                                .slideY(begin: -0.1, duration: 1.4.seconds),
+                            SizedBox(height: height * 0.05),
                             SizedBox(height: height * 0.018),
                             CustomTextInputMobile(
                               controller: emailController,
@@ -99,39 +94,35 @@ class ForgotPassword extends StatelessWidget {
                                 size: 24,
                                 color: AppColor.appgreycolor,
                               ),
-                              errorMessage: state.errorMessage ==
-                                  "Please enter your email" ||
-                                  state.errorMessage ==
-                                      "Please enter a valid email address"
+                              errorMessage: state.errorMessage == "Please enter your email" ||
+                                  state.errorMessage == "Please enter a valid email address"
                                   ? state.errorMessage
                                   : null,
                               onChanged: (value) {
-                                context
-                                    .read<ForgetPasswordBloc>()
-                                    .add(ForgetPasswordEmailChanged(value));
+                                context.read<ForgetPasswordBloc>().add(ForgetPasswordEmailChanged(value));
                               },
                               focusNode: emailFocusNode,
-                            ),
+                            )
+                                .animate()
+                                .fadeIn(duration: 1.4.seconds)
+                                .slideX(begin: -0.2, duration: 1.4.seconds, curve: Curves.easeOut),
                             SizedBox(height: height * 0.05),
-
-                            // Login Button
                             CustomButton(
                               text: "Reset Password",
                               onPressed: () async {
                                 if ((await Connectivity().isConnected)) {
-                                  context
-                                      .read<ForgetPasswordBloc>()
-                                      .add(ForgetPasswordSubmittedEvent());
+                                  context.read<ForgetPasswordBloc>().add(ForgetPasswordSubmittedEvent());
                                 } else {
                                   context.showCustomSnackbar(
                                       'No internet connection. Please check your connection \nand try again.',
                                       backgroundColor: AppColor.appcolor);
                                 }
                               },
-                            ),
-                            SizedBox(
-                              height: context.screenHeight * 0.02,
-                            ),
+                            )
+                                .animate()
+                                .fade(duration: 1.2.seconds)
+                                .scaleXY(begin: 0.8, end: 1.0, duration: 1.2.seconds, curve: Curves.bounceOut),
+                            SizedBox(height: context.screenHeight * 0.02),
                           ],
                         ),
                       ),
@@ -140,6 +131,9 @@ class ForgotPassword extends StatelessWidget {
                 ),
                 if (state.isLoading)
                   const LoadingIndicator()
+                      .animate()
+                      .fadeIn(duration: 1.seconds)
+                      .scaleXY(begin: 0.9, end: 1.0, duration: 1.seconds),
               ],
             ),
           );

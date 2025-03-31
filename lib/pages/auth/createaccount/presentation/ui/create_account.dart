@@ -3,6 +3,7 @@ import 'dart:convert';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import 'package:rra/common/network/connectivity_extension.dart';
@@ -92,7 +93,6 @@ class CreateAccount extends StatelessWidget {
                 children: [
                   SingleChildScrollView(
                     child: Column(
-                      mainAxisAlignment: MainAxisAlignment.start,
                       crossAxisAlignment: CrossAxisAlignment.stretch,
                       children: [
                         SizedBox(height: height * 0.12),
@@ -106,19 +106,24 @@ class CreateAccount extends StatelessWidget {
                                   alignment: WrapAlignment.center,
                                   crossAxisAlignment: WrapCrossAlignment.center,
                                   children: <Widget>[
-                                    const ScreenTitle(
-                                      title: "Create Account",
-                                    ),
-                                  ],
+                                    const ScreenTitle(title: "Create Account")
+                                        .animate()
+                                        .fade(duration: 1.5.seconds)
+                                        .slideY(begin: -0.2, duration: 1.5.seconds, curve: Curves.easeOutBack),
+
+
+
+                          ],
                                 ),
                                 SizedBox(height: height * 0.01),
                                 Padding(
-                                  padding: const EdgeInsets.only(
-                                      left: 8.0, right: 8.0),
+                                  padding: const EdgeInsets.only(left: 8.0, right: 8.0),
                                   child: ScreenSubTitle(
-                                    subtitle:
-                                        "Fill your information below or register with your social account",
-                                  ),
+                                    subtitle: "Fill your information below or register with your social account",
+                                  )
+                                      .animate()
+                                      .fadeIn(duration: 1.2.seconds)
+                                      .slideY(begin: -0.1, duration: 1.2.seconds),
                                 ),
                                 SizedBox(height: height * 0.038),
                                 CustomTextInputMobile(
@@ -137,19 +142,16 @@ class CreateAccount extends StatelessWidget {
                                   keyBoardType: TextInputType.name,
                                   focusNode: firstNameFocusNode,
                                   onChanged: (value) {
-                                    // Emit FirstNameChanged event
-                                    context
-                                        .read<CreateAccountBloc>()
-                                        .add(FirstNameChanged(value));
+                                    context.read<CreateAccountBloc>().add(FirstNameChanged(value));
                                   },
-                                  errorMessage: state.errorMessage ==
-                                          "Please enter your first name"
+                                  errorMessage: state.errorMessage == "Please enter your first name"
                                       ? state.errorMessage
                                       : null,
-                                ),
-                                SizedBox(
-                                  height: 12,
-                                ),
+                                )
+                                    .animate()
+                                    .fadeIn(duration: 1.3.seconds)
+                                    .slideX(begin: -0.2, duration: 1.3.seconds, curve: Curves.easeOut),
+                                SizedBox(height: 12),
                                 CustomTextInputMobile(
                                   controller: emailController,
                                   title: "Email",
@@ -166,21 +168,17 @@ class CreateAccount extends StatelessWidget {
                                   ),
                                   focusNode: emailFocusNode,
                                   onChanged: (value) {
-                                    // Emit EmailChanged event
-                                    context
-                                        .read<CreateAccountBloc>()
-                                        .add(EmailChanged(value));
+                                    context.read<CreateAccountBloc>().add(EmailChanged(value));
                                   },
-                                  errorMessage: state.errorMessage ==
-                                              "Please enter your email" ||
-                                          state.errorMessage ==
-                                              "Please enter a valid email address"
+                                  errorMessage: state.errorMessage == "Please enter your email" ||
+                                      state.errorMessage == "Please enter a valid email address"
                                       ? state.errorMessage
                                       : null,
-                                ),
-                                SizedBox(
-                                  height: 12,
-                                ),
+                                )
+                                    .animate()
+                                    .fadeIn(duration: 1.3.seconds)
+                                    .slideX(begin: 0.2, duration: 1.3.seconds, curve: Curves.easeOut),
+                                SizedBox(height: 12),
                                 CustomTextInputMobile(
                                   isPrefix: false,
                                   controller: passwordController,
@@ -196,51 +194,44 @@ class CreateAccount extends StatelessWidget {
                                   hint: 'Enter your password',
                                   focusNode: passwordFocusNode,
                                   onChanged: (value) {
-                                    // Emit PasswordChanged event
-                                    context
-                                        .read<CreateAccountBloc>()
-                                        .add(PasswordChanged(value));
+                                    context.read<CreateAccountBloc>().add(PasswordChanged(value));
                                   },
-                                  errorMessage: state.errorMessage ==
-                                              "Password must be at least 6 characters long and include at least one uppercase letter, one lowercase letter, one number, and one special character." ||
-                                          state.errorMessage ==
-                                              "Please enter your password"
+                                  errorMessage: state.errorMessage == "Password must be at least 6 characters long and include at least one uppercase letter, one lowercase letter, one number, and one special character." ||
+                                      state.errorMessage == "Please enter your password"
                                       ? state.errorMessage
                                       : null,
-                                ),
-                                const SizedBox(
-                                  height: 12,
-                                ),
-
+                                )
+                                    .animate()
+                                    .fadeIn(duration: 1.3.seconds)
+                                    .slideX(begin: -0.2, duration: 1.3.seconds, curve: Curves.easeOut),
+                                const SizedBox(height: 12),
                                 SizedBox(height: height * 0.03),
                                 // Create Account Button
                                 CustomButton(
-                                    text: "Sign Up",
-                                    onPressed: () async {
-                                      // Emit CreateAccountSubmitted event
-                                      print("code is running here");
-
-                                      // Navigator.pushNamed(
-                                      //     context, AppRoutes.OTPVERIFICATION);
-                                      if ((await Connectivity().isConnected)) {
-                                        context
-                                            .read<CreateAccountBloc>()
-                                            .add(CreateAccountSubmitted());
-                                      } else {
-                                        context.showCustomSnackbar(
-                                            'No internet connection. Please check your connection \nand try again.',
-                                            backgroundColor: AppColor.appcolor);
-                                      }
-                                    }),
+                                  text: "Sign Up",
+                                  onPressed: () async {
+                                    if ((await Connectivity().isConnected)) {
+                                      context.read<CreateAccountBloc>().add(CreateAccountSubmitted());
+                                    } else {
+                                      context.showCustomSnackbar(
+                                          'No internet connection. Please check your connection \nand try again.',
+                                          backgroundColor: AppColor.appcolor);
+                                    }
+                                  },
+                                )
+                                    .animate()
+                                    .fade(duration: 1.2.seconds)
+                                    .scaleXY(begin: 0.8, end: 1.0, duration: 1.2.seconds, curve: Curves.bounceOut),
                                 SizedBox(height: context.screenHeight * 0.03),
                                 SignupSigninRichtext(
                                   nonActionText: 'Already have an account?',
                                   actionText: 'Sign In',
                                   actionClick: () {
-                                    Navigator.pushNamed(
-                                        context, AppRoutes.LOGIN);
+                                    Navigator.pushNamed(context, AppRoutes.LOGIN);
                                   },
-                                ),
+                                )
+                                    .animate()
+                                    .fadeIn(duration: 1.3.seconds),
                                 SizedBox(height: context.screenHeight * 0.03),
                               ],
                             ),
@@ -251,6 +242,9 @@ class CreateAccount extends StatelessWidget {
                   ),
                   if (state.isLoading)
                     const LoadingIndicator()
+                        .animate()
+                        .fadeIn(duration: 1.2.seconds)
+                        .scaleXY(begin: 0.9, end: 1.0, duration: 1.2.seconds),
                 ],
               ),
             );
