@@ -1,6 +1,7 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 import '../../data/entity/avilabele_session/avilable_dates.dart';
+import '../../data/entity/order_summary/order_summary_model.dart';
 import '../../data/entity/session_calendar_model.dart';
 import '../../data/entity/time_added/time_added_model.dart';
 
@@ -18,6 +19,7 @@ class SessionCalendarState with _$SessionCalendarState {
     @Default(SessionCalendarModel()) SessionCalendarModel sessionCalendarModel,
     @Default(AvailableDatesResponse()) AvailableDatesResponse avilableDatesResponse,
     @Default(TimeAddedModel()) TimeAddedModel timeAddedModel,
+    @Default(OrderSummaryModel()) OrderSummaryModel orderSummaryModel,
     @Default(false) bool isTimeAddedError,
     @Default(false) bool isTimeAddedSuccess,
     @Default(false) bool isSelectForOtherDate,
@@ -37,6 +39,7 @@ class SessionCalendarState with _$SessionCalendarState {
   factory SessionCalendarState.initial() => SessionCalendarState(
       selectBottomSheetType:"",
 timeAddedModel: TimeAddedModel(),
+    orderSummaryModel:OrderSummaryModel(),
     isSelectForContinue: false,
     selectedFromTime:"",
     isSelectForOtherDate: false,

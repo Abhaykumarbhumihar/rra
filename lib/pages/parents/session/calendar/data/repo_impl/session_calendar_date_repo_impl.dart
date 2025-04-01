@@ -13,6 +13,7 @@ import '../../../../../../common/network/app_constant.dart';
 import '../../../../../../common/network/failure.dart';
 import '../../../../../../common/service_locator/setivelocator.dart';
 import '../../domain/repositery/session_calendar_dates_repositery.dart';
+import '../entity/order_summary/order_summary_model.dart';
 import '../entity/session_calendar_model.dart';
 
 
@@ -22,20 +23,30 @@ class SessionCalendarDateRepoImpl implements SessionCalendarDatesRepositery {
 
 
   @override
-  Future<Either<Failure, dynamic>> getOrderSummary(Map<String, dynamic> orderSummaryData)async {
+  Future<Either<Failure, OrderSummaryModel>> getOrderSummary(Map<String, dynamic> orderSummaryData)async {
     try {
 
-      print("+++++++getSeletedSession++++++++++++++getSeletedSession++++++++++getSeletedSession+++++++++++++++++++");
+      print("+++++++getOrderSummary++++++++++++++getSelgetOrderSummaryetedSession++++++++++getOrderSummary+++++++++++++++++++");
       print(orderSummaryData);
       http.Response response =
       await _apiServices.post(AppConstant.getOrderSummaryData, orderSummaryData,useDefaultHeaders: true,isJson: true);
+      print("nvnvnvnv+++vnvnv++++++++\n\n");
+
       print(response.body);
       if (response.statusCode == 200) {
         final Map<String, dynamic> responseData = jsonDecode(response.body);
+
+
         if(responseData['success']){
-          return Right(responseData);
+          print("CODE IS RU RURURURURURUR $responseData");//here my code is running
+          OrderSummaryModel orderSummaryModel=OrderSummaryModel.fromJson(responseData);
+///here it is not wokring
+          print("CHECKING DATA HERE _______====== $responseData");
+          Utils.LogPrint(responseData);
+          return Right(orderSummaryModel);
 
         }else{
+          print("CODE IS RU NNNNNNNN");
           return Left(Failure(responseData['message']));
         }
 

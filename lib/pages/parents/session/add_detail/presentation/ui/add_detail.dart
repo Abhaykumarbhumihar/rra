@@ -375,11 +375,12 @@ class AddDetail extends StatelessWidget {
                                         "players": state.selectedChildId
                                       };
 
-                                      //  Navigator.pushNamed(context, AppRoutes.ORDERSUMMARY);
                                       print("Selected Child IDs: ${mapData}");
                                       BlocProvider.of<SessionCalendarBloc>(
                                               context)
                                           .add(GetOrderSummaryEvent(mapData));
+                                      Navigator.pushNamed(
+                                          context, AppRoutes.ORDERSUMMARY);
                                     },
                                   ).animate().fade(duration: 500.ms).scaleXY(
                                       begin: 0.8,

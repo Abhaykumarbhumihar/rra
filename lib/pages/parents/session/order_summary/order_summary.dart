@@ -21,10 +21,14 @@ class OrderSummary extends StatelessWidget {
 
     return BlocListener<SessionCalendarBloc, SessionCalendarState>(
       listener: (context, state) {
-        // TODO: implement listener
+
+        print("CHECKING ORDER SUMMARY MODEL------");
+        print(state.orderSummaryModel);
       },
       child: BlocBuilder<SessionCalendarBloc, SessionCalendarState>(
         builder: (context, state) {
+          print("CHECKING kkkkORDER SUMMARY MODEL------");
+          print(state.orderSummaryModel);
           return Container(
             decoration: CommonBackground.decoration,
             child: Scaffold(
@@ -73,33 +77,35 @@ class OrderSummary extends StatelessWidget {
                             ),
                             SizedBox(
                               width: double.infinity,
+                              height: 300,
                               child: ListView.builder(
                                 physics: NeverScrollableScrollPhysics(),
                                 padding: const EdgeInsets.symmetric(
                                     horizontal: 0.0, vertical: 0),
-                                itemCount: state.timeAddedModel.data.length,
+                                itemCount: state.orderSummaryModel.data.length,
                                 shrinkWrap: true,
                                 itemBuilder: (context, index) {
                                   final session =
-                                      state.timeAddedModel.data[index];
+                                      state.orderSummaryModel.data[index];
 
                                   return AddedSlotListItem(
-                                    title: "N/A",
-                                    dateTime: session.time.toString(),
+                                    slotLit:session.slotList,
+                                    title: session.childName,
+                                    dateTime: "",
                                     onClose: () {
-                                      print("CLICKING WORKING HERE HERE HERE");
-                                      Map<String, dynamic> map = {
-                                        "session_id": session.sessionId,
-                                        "date": session.date,
-                                        "from_time": session.fromTime,
-                                        "to_time": session.toTime
-                                      };
-                                      BlocProvider.of<SessionCalendarBloc>(
-                                              context)
-                                          .add(RemoveSessionByDateEvent(
-                                              map, index));
+                                      // print("CLICKING WORKING HERE HERE HERE");
+                                      // Map<String, dynamic> map = {
+                                      //   "session_id": session.sessionId,
+                                      //   "date": session.date,
+                                      //   "from_time": session.fromTime,
+                                      //   "to_time": session.toTime
+                                      // };
+                                      // BlocProvider.of<SessionCalendarBloc>(
+                                      //         context)
+                                      //     .add(RemoveSessionByDateEvent(
+                                      //         map, index));
                                     },
-                                    price: session.price.toString(),
+                                    price: "",
                                   );
                                 },
                               ),

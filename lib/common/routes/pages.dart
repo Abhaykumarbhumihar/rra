@@ -203,6 +203,7 @@ class AppPages {
       PageEntitiy(
         route: AppRoutes.ORDERSUMMARY,
         page:  OrderSummary(),
+        bloc: BlocProvider(create: (_) => SessionCalendarBloc()),
       ),
     ];
   }

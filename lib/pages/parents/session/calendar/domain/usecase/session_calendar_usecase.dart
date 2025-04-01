@@ -1,6 +1,7 @@
 import 'package:either_dart/either.dart';
 import '../../../../../../common/network/failure.dart';
 import '../../data/entity/avilabele_session/avilable_dates.dart';
+import '../../data/entity/order_summary/order_summary_model.dart';
 import '../../data/entity/session_calendar_model.dart';
 import '../../data/entity/time_added/time_added_model.dart';
 import '../repositery/session_calendar_dates_repositery.dart';
@@ -37,7 +38,7 @@ class SessionCalendarUsecase {
       Map<String, dynamic> timeToAddData) async {
     return _sessionCalendarDatesRepositery.getSeletedSession(timeToAddData);
   }
-  Future<Either<Failure, dynamic>> getOrderSummaryExecute(
+  Future<Either<Failure, OrderSummaryModel>> getOrderSummaryExecute(
       Map<String, dynamic> timeToAddData) async {
     return _sessionCalendarDatesRepositery.getOrderSummary(timeToAddData);
   }

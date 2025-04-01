@@ -7,6 +7,7 @@ import 'package:http/http.dart' as http;
 import 'package:intl/intl.dart';
 import 'package:meta/meta.dart';
 import 'package:rra/common/network/connectivity_extension.dart';
+import 'package:rra/pages/parents/session/calendar/data/entity/order_summary/order_summary_model.dart';
 import 'package:rra/pages/parents/session/calendar/data/entity/session_calendar_model.dart';
 import 'package:rra/pages/parents/session/calendar/presentation/bloc/session_calendar_event.dart';
 import 'package:rra/pages/parents/session/calendar/presentation/bloc/session_calendar_state.dart';
@@ -37,22 +38,25 @@ class SessionCalendarBloc
     on<GetOrderSummaryEvent>(_getOrderSummary);
   }
 
-  Future<void> _getOrderSummary(GetOrderSummaryEvent event,
-      Emitter<SessionCalendarState> emit) async {
+  Future<void> _getOrderSummary(
+      GetOrderSummaryEvent event, Emitter<SessionCalendarState> emit) async {
     // Convert event.data map to JSON strings (if needed)
 
     // Execute the use case to get the response
+    print("C C C C C C CC C C C C C C C C C C");
     final response =
-    await _sessionCalendarUsecase.getOrderSummaryExecute(event.data);
+        await _sessionCalendarUsecase.getOrderSummaryExecute(event.data);
 
-    response.fold((failure){
-
-    }, (orderSummaryData){
+    response.fold((failure) {
+      emit(state.copyWith(
+          orderSummaryModel: OrderSummaryModel(), isLoading: false));
+    }, (orderSummaryData) {
       print("==_getOrderSummary=_getOrderSummary========\n\n");
-      Utils.LogPrint(orderSummaryData);
+    //  Utils.LogPrint(orderSummaryData);
       print("==_getOrderSummary==_getOrderSummary=======\n\n");
+      emit(state.copyWith(
+          orderSummaryModel: orderSummaryData, isLoading: false));
     });
-
   }
 
   Future<void> _removeSessionByDate(RemoveSessionByDateEvent event,
@@ -347,5 +351,4 @@ class SessionCalendarBloc
           error: error.toString()));
     }
   }
-
 }

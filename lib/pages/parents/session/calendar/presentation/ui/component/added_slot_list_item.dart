@@ -3,15 +3,17 @@ import 'package:rra/common/component/component_export.dart';
 import 'package:rra/common/component/sub_title.dart';
 import 'package:rra/common/routes/exports.dart';
 import 'package:rra/common/values/values_exports.dart';
+import 'package:rra/pages/parents/session/calendar/data/entity/order_summary/order_summary_model.dart';
 
 class AddedSlotListItem extends StatelessWidget {
   final String title;
   final String dateTime;
   final String price;
   final VoidCallback onClose;
-
+final List<Slot> slotLit;
   const AddedSlotListItem({
     required this.title,
+    required this.slotLit,
     required this.dateTime,
     required this.price,
     required this.onClose,
@@ -24,7 +26,7 @@ class AddedSlotListItem extends StatelessWidget {
         Container(
           padding: EdgeInsets.all(6),
           decoration: BoxDecoration(
-            color: Colors.transparent,
+            color: Colors.red,
             borderRadius: BorderRadius.circular(12),
           ),
           child: Row(
@@ -53,16 +55,26 @@ class AddedSlotListItem extends StatelessWidget {
                         )
                       ],
                     ),
-                    SizedBox(height: 4),
-                    Text("$dateTime", style: TextStyle(
-                      color: AppColor.appWhiteColor,
-                      fontFamily: AppFont.interRegular,
-                      fontSize: context.screenWidth*0.032,
-                    ),),
+                  ListView.builder(
+                      shrinkWrap: true,
+                      itemCount: slotLit.length,
+                      itemBuilder: (context,index){
+                        var data=slotLit[index];
+                    return Column(
+                      children: <Widget>[
+                        SizedBox(height: 4),
+                        Text("${data.date}", style: TextStyle(
+                          color: AppColor.appWhiteColor,
+                          fontFamily: AppFont.interRegular,
+                          fontSize: context.screenWidth*0.032,
+                        ),),
 
-                    SizedBox(height: 6),
-                    Text("$price", style: AppTextStyle.medium(
-                        context.screenWidth*0.0373),),
+                        SizedBox(height: 6),
+                        Text("${data.price}", style: AppTextStyle.medium(
+                            context.screenWidth*0.0373),),
+                      ],
+                    );
+                  })
 
                   ],
                 ),
