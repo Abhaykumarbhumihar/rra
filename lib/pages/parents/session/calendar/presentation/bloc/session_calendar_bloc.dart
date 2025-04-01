@@ -87,7 +87,7 @@ class SessionCalendarBloc
   Future<void> _getSelectedSession(
       GetSelectedSessionEvent event, Emitter<SessionCalendarState> emit) async {
     // Execute the use case to get the response
-    fetchSelectedSlotList();
+   /// fetchSelectedSlotList();
     final response = await _sessionCalendarUsecase.getSeletedSessionExecute({});
 
     response.fold(

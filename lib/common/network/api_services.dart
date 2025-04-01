@@ -39,7 +39,7 @@ class ApiServices {
           "selected-slot-list") {
         print("YYYYYSY${url}YSYSYSYSYSYSYSYSYSSYSYSYSYSYSYSYSYSYSYSYSYSYYSYSYSY");
         var cookie = await SharedPrefs.getString("cookie");
-        headers['Cookie'] = "laravel_session=${cookie}";
+        headers['Cookie'] = "${cookie}";
       }else{
         print("YYYY${url}fffffffffffff");
       }
