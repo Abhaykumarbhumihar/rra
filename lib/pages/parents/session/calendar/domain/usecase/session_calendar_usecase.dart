@@ -33,8 +33,12 @@ class SessionCalendarUsecase {
       Map<String, dynamic> timeToAddData) async {
     return _sessionCalendarDatesRepositery.removeSessionByDate(timeToAddData);
   }
-  Future<Either<Failure, dynamic>> getSeletedSessionExecute(
+  Future<Either<Failure, TimeAddedModel>> getSeletedSessionExecute(
       Map<String, dynamic> timeToAddData) async {
     return _sessionCalendarDatesRepositery.getSeletedSession(timeToAddData);
+  }
+  Future<Either<Failure, dynamic>> getOrderSummaryExecute(
+      Map<String, dynamic> timeToAddData) async {
+    return _sessionCalendarDatesRepositery.getOrderSummary(timeToAddData);
   }
 }

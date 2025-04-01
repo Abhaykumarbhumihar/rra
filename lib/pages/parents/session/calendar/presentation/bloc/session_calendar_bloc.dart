@@ -34,23 +34,42 @@ class SessionCalendarBloc
     on<SetSelectTypeBottomSheetEvent>(setSelectBottomSheetType);
     on<RemoveSessionByDateEvent>(_removeSessionByDate);
     on<GetSelectedSessionEvent>(_getSelectedSession);
+    on<GetOrderSummaryEvent>(_getOrderSummary);
   }
 
-  Future<void> _removeSessionByDate(
-      RemoveSessionByDateEvent event, Emitter<SessionCalendarState> emit) async {
+  Future<void> _getOrderSummary(GetOrderSummaryEvent event,
+      Emitter<SessionCalendarState> emit) async {
+    // Convert event.data map to JSON strings (if needed)
+
+    // Execute the use case to get the response
+    final response =
+    await _sessionCalendarUsecase.getOrderSummaryExecute(event.data);
+
+    response.fold((failure){
+
+    }, (orderSummaryData){
+      print("==_getOrderSummary=_getOrderSummary========\n\n");
+      Utils.LogPrint(orderSummaryData);
+      print("==_getOrderSummary==_getOrderSummary=======\n\n");
+    });
+
+  }
+
+  Future<void> _removeSessionByDate(RemoveSessionByDateEvent event,
+      Emitter<SessionCalendarState> emit) async {
     // Convert event.data map to JSON strings (if needed)
     Map<String, dynamic> stringifiedBody = event.data.map(
-          (key, value) => MapEntry(jsonEncode(key), jsonEncode(value)),
+      (key, value) => MapEntry(jsonEncode(key), jsonEncode(value)),
     );
 
     print(stringifiedBody);
 
     // Execute the use case to get the response
-    final response = await _sessionCalendarUsecase.removeSessionByDateExecute(event.data);
+    final response =
+        await _sessionCalendarUsecase.removeSessionByDateExecute(event.data);
 
     response.fold(
-          (failure) {
-        // If the API call fails, emit an error state
+      (failure) {
         emit(state.copyWith(
           isError: true,
           isTimeAddedError: true,
@@ -58,73 +77,47 @@ class SessionCalendarBloc
           isTimeAddedSuccess: false,
         ));
       },
-          (removeSessionByDate) {
-        // Get the existing timeAddedModel data
-        List<TimeSlot> updatedTimeSlots = List.from(state.timeAddedModel.data);
-
-        // Ensure the index is valid before removing
-        if (event.index >= 0 && event.index < updatedTimeSlots.length) {
-          updatedTimeSlots.removeAt(event.index);
-        }
-
-        // Create a new TimeAddedModel with updated data
-        TimeAddedModel updatedModel = state.timeAddedModel.copyWith(
-          data: updatedTimeSlots,
-        );
-
-        // Emit the updated state
+      (removeSessionByDate) {
         emit(state.copyWith(
           isError: false,
           isTimeAddedError: false,
-          timeAddedModel: updatedModel,
           isTimeAddedSuccess: true,
         ));
+        add(GetSelectedSessionEvent());
       },
     );
   }
-
 
   Future<void> _getSelectedSession(
       GetSelectedSessionEvent event, Emitter<SessionCalendarState> emit) async {
     // Execute the use case to get the response
-   /// fetchSelectedSlotList();
+    emit(state.copyWith(
+      isLoading: false,
+      isTimeAddedLoading: true,
+      isTimeAddedError: false,
+      isAvailablityLoading: false,
+    ));
     final response = await _sessionCalendarUsecase.getSeletedSessionExecute({});
 
     response.fold(
-          (failure) {
-
-
+      (failure) {
+        emit(state.copyWith(
+          isLoading: false,
+          isTimeAddedLoading: false,
+          isTimeAddedError: true,
+          isAvailablityLoading: false,
+        ));
       },
-          (removeSessionByDate) {
-
-
+      (removeSessionByDate) {
+        emit(state.copyWith(
+            isLoading: false,
+            isTimeAddedLoading: false,
+            isTimeAddedError: false,
+            isAvailablityLoading: false,
+            timeAddedModel: removeSessionByDate));
       },
     );
   }
-
-  Future<void> fetchSelectedSlotList() async {
-    final String url = "https://stage.rajasthanroyalsacademy.com/api/v1/selected-slot-list";
-    var token = await SharedPrefs.getString("token");
-
-
-    final response = await http.post(
-      Uri.parse(url),
-      headers: {
-        "Authorization": "Bearer $token",
-        "Content-Type": "application/json",
-        "X-Requested-With": "XMLHttpRequest",
-      },
-    );
-
-    if (response.statusCode == 200) {
-      var data = json.decode(response.body);
-      print("Response Data: $data");
-    } else {
-      print("Error: ${response.statusCode} - ${response.body}");
-    }
-  }
-
-
 
   Future<void> setSelectBottomSheetType(SetSelectTypeBottomSheetEvent event,
       Emitter<SessionCalendarState> emit) async {
@@ -144,20 +137,19 @@ class SessionCalendarBloc
     Map<String, dynamic> stringifiedBody = event.data.map(
       (key, value) => MapEntry(jsonEncode(key), jsonEncode(value)),
     );
-emit(state.copyWith(
-  isAvailablityLoading: false,
-  isLoading: true,
-  isTimeAddedLoading:true,
-));
+    emit(state.copyWith(
+      isAvailablityLoading: false,
+      isLoading: true,
+      isTimeAddedLoading: true,
+    ));
     print(stringifiedBody);
     final response =
         await _sessionCalendarUsecase.timeAddedModelExecute(event.data);
     response.fold((failure) {
       emit(state.copyWith(
-
           isAvailablityLoading: false,
           isLoading: false,
-          isTimeAddedLoading:false,
+          isTimeAddedLoading: false,
           isError: false,
           isTimeAddedError: true,
           error: failure.message,
@@ -168,10 +160,10 @@ emit(state.copyWith(
       emit(state.copyWith(
           isError: false,
           isTimeAddedError: false,
-          timeAddedModel: timeToAdded,
+          //   timeAddedModel: timeToAdded,
           isAvailablityLoading: false,
           isLoading: false,
-          isTimeAddedLoading:false,
+          isTimeAddedLoading: false,
           isTimeAddedSuccess: true));
       add(GetSelectedSessionEvent());
     });
@@ -185,7 +177,7 @@ emit(state.copyWith(
     emit(state.copyWith(
       isAvailablityLoading: false,
       isLoading: true,
-      isTimeAddedLoading:true,
+      isTimeAddedLoading: true,
     ));
     print(stringifiedBody);
     final response =
@@ -194,7 +186,7 @@ emit(state.copyWith(
       emit(state.copyWith(
           isAvailablityLoading: false,
           isLoading: false,
-          isTimeAddedLoading:false,
+          isTimeAddedLoading: false,
           isError: false,
           isTimeAddedError: true,
           error: failure.message,
@@ -206,14 +198,15 @@ emit(state.copyWith(
           isError: false,
           isAvailablityLoading: false,
           isLoading: false,
-          isTimeAddedLoading:false,
+          isTimeAddedLoading: false,
           selectBottomSheetType: "",
           selectedDateDayName: "",
           selectedSessionID: "",
           selectedFromTime: "",
           isTimeAddedError: false,
-          timeAddedModel: timeToAdded,
+          // timeAddedModel: timeToAdded,
           isTimeAddedSuccess: true));
+      add(GetSelectedSessionEvent());
     });
   }
 
@@ -244,8 +237,8 @@ emit(state.copyWith(
 
       emit(state.copyWith(
         isLoading: true,
-        isTimeAddedLoading:false,
-        isAvailablityLoading:false,
+        isTimeAddedLoading: false,
+        isAvailablityLoading: false,
         isError: false,
         isLoginApiError: false,
         success: false,
@@ -258,9 +251,9 @@ emit(state.copyWith(
           await _sessionCalendarUsecase.calendarDataExecute(event.data);
       response.fold((failure) {
         emit(state.copyWith(
-            isAvailablityLoading:false,
+            isAvailablityLoading: false,
             error: failure.message,
-            isTimeAddedLoading:false,
+            isTimeAddedLoading: false,
             isError: true,
             isLoginApiError: true,
             isLoading: false,
@@ -272,11 +265,11 @@ emit(state.copyWith(
         print(calendarData);
         print("======check =====check =====check \n\n");
         emit(state.copyWith(
-            isAvailablityLoading:false,
+            isAvailablityLoading: false,
             error: '',
             isError: false,
             isLoginApiError: false,
-            isTimeAddedLoading:false,
+            isTimeAddedLoading: false,
             isLoading: false,
             selectedTimeAdded: [],
             sessionCalendarModel: calendarData,
@@ -313,8 +306,8 @@ emit(state.copyWith(
 
       emit(state.copyWith(
           isLoading: true,
-          isTimeAddedLoading:false,
-          isAvailablityLoading:true,
+          isTimeAddedLoading: false,
+          isAvailablityLoading: true,
           isLoginApiError: false,
           success: false,
           error: '',
@@ -324,9 +317,9 @@ emit(state.copyWith(
           await _sessionCalendarUsecase.avilableDatesExecute(event.data);
       response.fold((failure) {
         emit(state.copyWith(
-            isTimeAddedLoading:false,
+            isTimeAddedLoading: false,
             error: failure.message,
-            isAvailablityLoading:false,
+            isAvailablityLoading: false,
             isError: true,
             isLoginApiError: true,
             isLoading: false,
@@ -338,9 +331,9 @@ emit(state.copyWith(
         print("======check =====check =====check \n\n");
         emit(state.copyWith(
             error: '',
-            isAvailablityLoading:false,
+            isAvailablityLoading: false,
             isError: false,
-            isTimeAddedLoading:false,
+            isTimeAddedLoading: false,
             isLoginApiError: false,
             isLoading: false,
             avilableDatesResponse: avilableDatesData,
@@ -348,9 +341,11 @@ emit(state.copyWith(
       });
     } catch (error) {
       // Handle the error and show error messages
-      emit(state.copyWith(isLoading: false,
-          isAvailablityLoading:false,
+      emit(state.copyWith(
+          isLoading: false,
+          isAvailablityLoading: false,
           error: error.toString()));
     }
   }
+
 }

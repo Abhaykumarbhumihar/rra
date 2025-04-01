@@ -106,9 +106,10 @@ class CalendarPage extends StatelessWidget {
                               if(state.timeAddedModel.data.isNotEmpty)
                               SizedBox(
                                 width: context.screenWidth,
-                                height: context.screenHeight*0.17,
+                                height: context.screenHeight*0.20,
                                 child: TimeAddedView(),
                               ),
+                              SizedBox(height: 20,),
                               CustomButton(
                                 text: "Continue",
                                 onPressed: () async {

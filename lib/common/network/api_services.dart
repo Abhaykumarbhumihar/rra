@@ -36,7 +36,18 @@ class ApiServices {
         headers['Content-Type'] = 'application/json'; // Ensure JSON header
       }
       if (url ==
-          "selected-slot-list") {
+          AppConstant.getSelectedSessionData
+          || url ==AppConstant.getRemoveSessionByDate
+          ||url==AppConstant.getRecurringSessionTimeAdded
+          ||url==AppConstant.getStoreSesssionTimeAdded
+          ||url==AppConstant.getSessionAccordingToDate
+          ||url==AppConstant.getOrderSummaryData
+          ||url==AppConstant.getTotal
+          ||url==AppConstant.getBuldDiscountDetails
+          ||url==AppConstant.getApplyDiscount
+          ||url==AppConstant.getRemoveDiscount
+
+      ) {
         print("YYYYYSY${url}YSYSYSYSYSYSYSYSYSSYSYSYSYSYSYSYSYSYSYSYSYSYYSYSYSY");
         var cookie = await SharedPrefs.getString("cookie");
         headers['Cookie'] = "${cookie}";

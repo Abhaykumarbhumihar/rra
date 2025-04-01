@@ -2,6 +2,7 @@ import 'package:rra/common/values/values_exports.dart';
 
 import '../../../../../../../common/component/screen_title.dart';
 import '../../bloc/session_calendar_bloc.dart';
+import '../../bloc/session_calendar_event.dart';
 import '../../bloc/session_calendar_state.dart';
 import 'availablity_shimmer.dart';
 
@@ -32,7 +33,7 @@ class TimeAddedView extends StatelessWidget {
 
             // Remove Expanded here, it's causing layout issues.
             SizedBox(
-              height: context.screenHeight * 0.09, // Adjust height based on content
+              height: context.screenHeight * 0.12, // Adjust height based on content
               child:state.isTimeAddedLoading? AvailablityShimmer(): ListView.builder(
                 scrollDirection: Axis.horizontal,
                 shrinkWrap: true,
@@ -66,10 +67,24 @@ class TimeAddedView extends StatelessWidget {
                             ),
                           ),
                           SizedBox(width: context.screenWidth * 0.038),
-                          Icon(
-                            Icons.cancel_outlined,
-                            color: AppColor.appWhiteColor.withOpacity(0.1),
-                            size: 24,
+                          InkWell(
+                            onTap: (){
+                              Map<String, dynamic> map = {
+                                "session_id": data.sessionId,
+                                "date": data.date,
+                                "from_time": data.fromTime,
+                                "to_time": data.toTime
+                              };
+                              BlocProvider.of<SessionCalendarBloc>(
+                                  context)
+                                  .add(RemoveSessionByDateEvent(
+                                  map, index));
+                            },
+                            child: Icon(
+                              Icons.cancel_outlined,
+                              color: AppColor.appWhiteColor.withOpacity(0.1),
+                              size: 24,
+                            ),
                           ),
                         ],
                       ),

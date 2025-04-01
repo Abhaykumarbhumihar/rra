@@ -11,6 +11,7 @@ abstract class SessionCalendarDatesRepositery{
   Future<Either<Failure,TimeAddedModel>> timeAddedModel(Map<String, dynamic> timeAddedData);
   Future<Either<Failure,TimeAddedModel>> recurringRequest(Map<String, dynamic> timeAddedData);
   Future<Either<Failure,dynamic>> removeSessionByDate(Map<String, dynamic> removeSessionData);
-  Future<Either<Failure,dynamic>> getSeletedSession(Map<String, dynamic> selectedSessiondata);
+  Future<Either<Failure,TimeAddedModel>> getSeletedSession(Map<String, dynamic> selectedSessiondata);
+  Future<Either<Failure,dynamic>> getOrderSummary(Map<String, dynamic> orderSummaryData);
 
 }

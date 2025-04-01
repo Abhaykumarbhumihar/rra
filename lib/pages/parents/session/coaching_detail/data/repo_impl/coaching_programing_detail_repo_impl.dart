@@ -4,6 +4,7 @@ import 'package:rra/common/network/failure.dart';
 
 import 'package:rra/pages/parents/session/coachprograms/data/entity/parent_coaching_program_list.dart';
 
+import '../../../../../../common/local/SharedPrefs.dart';
 import '../../../../../../common/network/api_services.dart';
 import '../../../../../../common/network/app_constant.dart';
 import '../../../../../../common/service_locator/setivelocator.dart';
@@ -35,6 +36,19 @@ class CoachingProgramingDetailRepoImpl implements CoachingDetailRepositery {
         final Map<String, dynamic> responseData = jsonDecode(response.body);
         final CoachingDetailResponse coachingDetailResponse =
         CoachingDetailResponse.fromJson(responseData);
+        if (response.headers.containsKey('set-cookie')) {
+            var cookies = response.headers['set-cookie'];
+            RegExp regExp = RegExp(r'(rajasthanroyals_session=[^;]+)');
+            Match? match = regExp.firstMatch(cookies.toString());
+            if(match!=null){
+              String sessionCookie = match.group(1)!;
+              print('Session Cookie: $sessionCookie');
+              await SharedPrefs.setString("cookie", sessionCookie);
+            }
+
+          }
+
+
         return Right(coachingDetailResponse);
       } else {
         final errorMessage = _extractErrorMessage(response.body);
