@@ -1,8 +1,10 @@
-import 'package:rra/pages/parents/session/order_summary/component/payment_summary_row.dart';
-import 'package:rra/pages/parents/session/order_summary/component/promo_code_field.dart';
 
-import '../../../../../common/component/custom_app_button.dart';
-import '../../../../../common/values/values_exports.dart';
+import 'package:rra/pages/parents/session/order_summary/presentation/component/payment_summary_row.dart';
+import 'package:rra/pages/parents/session/order_summary/presentation/component/promo_code_field.dart';
+
+import '../../../../../../common/component/custom_app_button.dart';
+import '../../../../../../common/values/values_exports.dart';
+
 
 class PaymentBottomSheet extends StatelessWidget {
   final VoidCallback checkOutAction;

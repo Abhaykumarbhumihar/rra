@@ -31,7 +31,8 @@ import '../../pages/parents/session/coaching_detail/presentation/bloc/coaching_d
 import '../../pages/parents/session/coaching_detail/presentation/ui/coaching_detail.dart';
 import '../../pages/parents/session/coachprograms/presentation/bloc/coach_programs_bloc.dart';
 import '../../pages/parents/session/coachprograms/presentation/ui/coach_programs.dart';
-import '../../pages/parents/session/order_summary/order_summary.dart';
+import '../../pages/parents/session/order_summary/presentation/bloc/order_summary_bloc.dart';
+import '../../pages/parents/session/order_summary/presentation/order_summary.dart';
 import 'exports.dart';
 
 
@@ -203,7 +204,7 @@ class AppPages {
       PageEntitiy(
         route: AppRoutes.ORDERSUMMARY,
         page:  OrderSummary(),
-        bloc: BlocProvider(create: (_) => SessionCalendarBloc()),
+        bloc: BlocProvider(create: (_) => OrderSummaryBloc()),
       ),
     ];
   }

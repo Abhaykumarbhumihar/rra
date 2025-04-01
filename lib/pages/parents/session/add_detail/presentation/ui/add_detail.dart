@@ -14,6 +14,8 @@ import '../../../../../../common/local/SharedPrefs.dart';
 import '../../../../../../common/routes/routes.dart';
 import '../../../calendar/presentation/bloc/session_calendar_event.dart';
 import '../../../coachprograms/presentation/bloc/coach_programs_bloc.dart';
+import '../../../order_summary/presentation/bloc/order_summary_bloc.dart';
+import '../../../order_summary/presentation/bloc/order_summary_event.dart';
 import '../bloc/add_view_player_bloc.dart';
 import '../bloc/add_view_player_event.dart';
 import '../bloc/add_view_player_state.dart';
@@ -376,7 +378,7 @@ class AddDetail extends StatelessWidget {
                                       };
 
                                       print("Selected Child IDs: ${mapData}");
-                                      BlocProvider.of<SessionCalendarBloc>(
+                                      BlocProvider.of<OrderSummaryBloc>(
                                               context)
                                           .add(GetOrderSummaryEvent(mapData));
                                       Navigator.pushNamed(

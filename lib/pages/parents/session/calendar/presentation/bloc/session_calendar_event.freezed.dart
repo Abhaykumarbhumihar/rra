@@ -30,7 +30,6 @@ mixin _$SessionCalendarEvent {
     required TResult Function(Map<String, dynamic> data, dynamic index)
         removeSessionByDate,
     required TResult Function() getSeletedSessionEvent,
-    required TResult Function(Map<String, dynamic> data) getOrderSummaryEvent,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -47,7 +46,6 @@ mixin _$SessionCalendarEvent {
     TResult? Function(Map<String, dynamic> data, dynamic index)?
         removeSessionByDate,
     TResult? Function()? getSeletedSessionEvent,
-    TResult? Function(Map<String, dynamic> data)? getOrderSummaryEvent,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -64,7 +62,6 @@ mixin _$SessionCalendarEvent {
     TResult Function(Map<String, dynamic> data, dynamic index)?
         removeSessionByDate,
     TResult Function()? getSeletedSessionEvent,
-    TResult Function(Map<String, dynamic> data)? getOrderSummaryEvent,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -84,7 +81,6 @@ mixin _$SessionCalendarEvent {
         removeSessionByDate,
     required TResult Function(GetSelectedSessionEvent value)
         getSeletedSessionEvent,
-    required TResult Function(GetOrderSummaryEvent value) getOrderSummaryEvent,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -100,7 +96,6 @@ mixin _$SessionCalendarEvent {
     TResult? Function(SetRecurringSession value)? setRecurringSession,
     TResult? Function(RemoveSessionByDateEvent value)? removeSessionByDate,
     TResult? Function(GetSelectedSessionEvent value)? getSeletedSessionEvent,
-    TResult? Function(GetOrderSummaryEvent value)? getOrderSummaryEvent,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -116,7 +111,6 @@ mixin _$SessionCalendarEvent {
     TResult Function(SetRecurringSession value)? setRecurringSession,
     TResult Function(RemoveSessionByDateEvent value)? removeSessionByDate,
     TResult Function(GetSelectedSessionEvent value)? getSeletedSessionEvent,
-    TResult Function(GetOrderSummaryEvent value)? getOrderSummaryEvent,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -232,7 +226,6 @@ class _$CalendarDateEventsImpl implements CalendarDateEvents {
     required TResult Function(Map<String, dynamic> data, dynamic index)
         removeSessionByDate,
     required TResult Function() getSeletedSessionEvent,
-    required TResult Function(Map<String, dynamic> data) getOrderSummaryEvent,
   }) {
     return getCalenDarDateEvents(data);
   }
@@ -252,7 +245,6 @@ class _$CalendarDateEventsImpl implements CalendarDateEvents {
     TResult? Function(Map<String, dynamic> data, dynamic index)?
         removeSessionByDate,
     TResult? Function()? getSeletedSessionEvent,
-    TResult? Function(Map<String, dynamic> data)? getOrderSummaryEvent,
   }) {
     return getCalenDarDateEvents?.call(data);
   }
@@ -272,7 +264,6 @@ class _$CalendarDateEventsImpl implements CalendarDateEvents {
     TResult Function(Map<String, dynamic> data, dynamic index)?
         removeSessionByDate,
     TResult Function()? getSeletedSessionEvent,
-    TResult Function(Map<String, dynamic> data)? getOrderSummaryEvent,
     required TResult orElse(),
   }) {
     if (getCalenDarDateEvents != null) {
@@ -298,7 +289,6 @@ class _$CalendarDateEventsImpl implements CalendarDateEvents {
         removeSessionByDate,
     required TResult Function(GetSelectedSessionEvent value)
         getSeletedSessionEvent,
-    required TResult Function(GetOrderSummaryEvent value) getOrderSummaryEvent,
   }) {
     return getCalenDarDateEvents(this);
   }
@@ -317,7 +307,6 @@ class _$CalendarDateEventsImpl implements CalendarDateEvents {
     TResult? Function(SetRecurringSession value)? setRecurringSession,
     TResult? Function(RemoveSessionByDateEvent value)? removeSessionByDate,
     TResult? Function(GetSelectedSessionEvent value)? getSeletedSessionEvent,
-    TResult? Function(GetOrderSummaryEvent value)? getOrderSummaryEvent,
   }) {
     return getCalenDarDateEvents?.call(this);
   }
@@ -336,7 +325,6 @@ class _$CalendarDateEventsImpl implements CalendarDateEvents {
     TResult Function(SetRecurringSession value)? setRecurringSession,
     TResult Function(RemoveSessionByDateEvent value)? removeSessionByDate,
     TResult Function(GetSelectedSessionEvent value)? getSeletedSessionEvent,
-    TResult Function(GetOrderSummaryEvent value)? getOrderSummaryEvent,
     required TResult orElse(),
   }) {
     if (getCalenDarDateEvents != null) {
@@ -447,7 +435,6 @@ class _$AvilableDateEventsImpl implements AvilableDateEvents {
     required TResult Function(Map<String, dynamic> data, dynamic index)
         removeSessionByDate,
     required TResult Function() getSeletedSessionEvent,
-    required TResult Function(Map<String, dynamic> data) getOrderSummaryEvent,
   }) {
     return getAvilableDates(data);
   }
@@ -467,7 +454,6 @@ class _$AvilableDateEventsImpl implements AvilableDateEvents {
     TResult? Function(Map<String, dynamic> data, dynamic index)?
         removeSessionByDate,
     TResult? Function()? getSeletedSessionEvent,
-    TResult? Function(Map<String, dynamic> data)? getOrderSummaryEvent,
   }) {
     return getAvilableDates?.call(data);
   }
@@ -487,7 +473,6 @@ class _$AvilableDateEventsImpl implements AvilableDateEvents {
     TResult Function(Map<String, dynamic> data, dynamic index)?
         removeSessionByDate,
     TResult Function()? getSeletedSessionEvent,
-    TResult Function(Map<String, dynamic> data)? getOrderSummaryEvent,
     required TResult orElse(),
   }) {
     if (getAvilableDates != null) {
@@ -513,7 +498,6 @@ class _$AvilableDateEventsImpl implements AvilableDateEvents {
         removeSessionByDate,
     required TResult Function(GetSelectedSessionEvent value)
         getSeletedSessionEvent,
-    required TResult Function(GetOrderSummaryEvent value) getOrderSummaryEvent,
   }) {
     return getAvilableDates(this);
   }
@@ -532,7 +516,6 @@ class _$AvilableDateEventsImpl implements AvilableDateEvents {
     TResult? Function(SetRecurringSession value)? setRecurringSession,
     TResult? Function(RemoveSessionByDateEvent value)? removeSessionByDate,
     TResult? Function(GetSelectedSessionEvent value)? getSeletedSessionEvent,
-    TResult? Function(GetOrderSummaryEvent value)? getOrderSummaryEvent,
   }) {
     return getAvilableDates?.call(this);
   }
@@ -551,7 +534,6 @@ class _$AvilableDateEventsImpl implements AvilableDateEvents {
     TResult Function(SetRecurringSession value)? setRecurringSession,
     TResult Function(RemoveSessionByDateEvent value)? removeSessionByDate,
     TResult Function(GetSelectedSessionEvent value)? getSeletedSessionEvent,
-    TResult Function(GetOrderSummaryEvent value)? getOrderSummaryEvent,
     required TResult orElse(),
   }) {
     if (getAvilableDates != null) {
@@ -663,7 +645,6 @@ class _$CurrentDateEventImpl implements CurrentDateEvent {
     required TResult Function(Map<String, dynamic> data, dynamic index)
         removeSessionByDate,
     required TResult Function() getSeletedSessionEvent,
-    required TResult Function(Map<String, dynamic> data) getOrderSummaryEvent,
   }) {
     return setCurrentDate(data, dayname);
   }
@@ -683,7 +664,6 @@ class _$CurrentDateEventImpl implements CurrentDateEvent {
     TResult? Function(Map<String, dynamic> data, dynamic index)?
         removeSessionByDate,
     TResult? Function()? getSeletedSessionEvent,
-    TResult? Function(Map<String, dynamic> data)? getOrderSummaryEvent,
   }) {
     return setCurrentDate?.call(data, dayname);
   }
@@ -703,7 +683,6 @@ class _$CurrentDateEventImpl implements CurrentDateEvent {
     TResult Function(Map<String, dynamic> data, dynamic index)?
         removeSessionByDate,
     TResult Function()? getSeletedSessionEvent,
-    TResult Function(Map<String, dynamic> data)? getOrderSummaryEvent,
     required TResult orElse(),
   }) {
     if (setCurrentDate != null) {
@@ -729,7 +708,6 @@ class _$CurrentDateEventImpl implements CurrentDateEvent {
         removeSessionByDate,
     required TResult Function(GetSelectedSessionEvent value)
         getSeletedSessionEvent,
-    required TResult Function(GetOrderSummaryEvent value) getOrderSummaryEvent,
   }) {
     return setCurrentDate(this);
   }
@@ -748,7 +726,6 @@ class _$CurrentDateEventImpl implements CurrentDateEvent {
     TResult? Function(SetRecurringSession value)? setRecurringSession,
     TResult? Function(RemoveSessionByDateEvent value)? removeSessionByDate,
     TResult? Function(GetSelectedSessionEvent value)? getSeletedSessionEvent,
-    TResult? Function(GetOrderSummaryEvent value)? getOrderSummaryEvent,
   }) {
     return setCurrentDate?.call(this);
   }
@@ -767,7 +744,6 @@ class _$CurrentDateEventImpl implements CurrentDateEvent {
     TResult Function(SetRecurringSession value)? setRecurringSession,
     TResult Function(RemoveSessionByDateEvent value)? removeSessionByDate,
     TResult Function(GetSelectedSessionEvent value)? getSeletedSessionEvent,
-    TResult Function(GetOrderSummaryEvent value)? getOrderSummaryEvent,
     required TResult orElse(),
   }) {
     if (setCurrentDate != null) {
@@ -893,7 +869,6 @@ class _$SetSelectedDateDayNameImpl implements SetSelectedDateDayName {
     required TResult Function(Map<String, dynamic> data, dynamic index)
         removeSessionByDate,
     required TResult Function() getSeletedSessionEvent,
-    required TResult Function(Map<String, dynamic> data) getOrderSummaryEvent,
   }) {
     return setSelectDateDayName(data, sessionId, fromTime);
   }
@@ -913,7 +888,6 @@ class _$SetSelectedDateDayNameImpl implements SetSelectedDateDayName {
     TResult? Function(Map<String, dynamic> data, dynamic index)?
         removeSessionByDate,
     TResult? Function()? getSeletedSessionEvent,
-    TResult? Function(Map<String, dynamic> data)? getOrderSummaryEvent,
   }) {
     return setSelectDateDayName?.call(data, sessionId, fromTime);
   }
@@ -933,7 +907,6 @@ class _$SetSelectedDateDayNameImpl implements SetSelectedDateDayName {
     TResult Function(Map<String, dynamic> data, dynamic index)?
         removeSessionByDate,
     TResult Function()? getSeletedSessionEvent,
-    TResult Function(Map<String, dynamic> data)? getOrderSummaryEvent,
     required TResult orElse(),
   }) {
     if (setSelectDateDayName != null) {
@@ -959,7 +932,6 @@ class _$SetSelectedDateDayNameImpl implements SetSelectedDateDayName {
         removeSessionByDate,
     required TResult Function(GetSelectedSessionEvent value)
         getSeletedSessionEvent,
-    required TResult Function(GetOrderSummaryEvent value) getOrderSummaryEvent,
   }) {
     return setSelectDateDayName(this);
   }
@@ -978,7 +950,6 @@ class _$SetSelectedDateDayNameImpl implements SetSelectedDateDayName {
     TResult? Function(SetRecurringSession value)? setRecurringSession,
     TResult? Function(RemoveSessionByDateEvent value)? removeSessionByDate,
     TResult? Function(GetSelectedSessionEvent value)? getSeletedSessionEvent,
-    TResult? Function(GetOrderSummaryEvent value)? getOrderSummaryEvent,
   }) {
     return setSelectDateDayName?.call(this);
   }
@@ -997,7 +968,6 @@ class _$SetSelectedDateDayNameImpl implements SetSelectedDateDayName {
     TResult Function(SetRecurringSession value)? setRecurringSession,
     TResult Function(RemoveSessionByDateEvent value)? removeSessionByDate,
     TResult Function(GetSelectedSessionEvent value)? getSeletedSessionEvent,
-    TResult Function(GetOrderSummaryEvent value)? getOrderSummaryEvent,
     required TResult orElse(),
   }) {
     if (setSelectDateDayName != null) {
@@ -1107,7 +1077,6 @@ class _$SetSlotForBookingEventImpl implements SetSlotForBookingEvent {
     required TResult Function(Map<String, dynamic> data, dynamic index)
         removeSessionByDate,
     required TResult Function() getSeletedSessionEvent,
-    required TResult Function(Map<String, dynamic> data) getOrderSummaryEvent,
   }) {
     return setSlotFOrBooking(data);
   }
@@ -1127,7 +1096,6 @@ class _$SetSlotForBookingEventImpl implements SetSlotForBookingEvent {
     TResult? Function(Map<String, dynamic> data, dynamic index)?
         removeSessionByDate,
     TResult? Function()? getSeletedSessionEvent,
-    TResult? Function(Map<String, dynamic> data)? getOrderSummaryEvent,
   }) {
     return setSlotFOrBooking?.call(data);
   }
@@ -1147,7 +1115,6 @@ class _$SetSlotForBookingEventImpl implements SetSlotForBookingEvent {
     TResult Function(Map<String, dynamic> data, dynamic index)?
         removeSessionByDate,
     TResult Function()? getSeletedSessionEvent,
-    TResult Function(Map<String, dynamic> data)? getOrderSummaryEvent,
     required TResult orElse(),
   }) {
     if (setSlotFOrBooking != null) {
@@ -1173,7 +1140,6 @@ class _$SetSlotForBookingEventImpl implements SetSlotForBookingEvent {
         removeSessionByDate,
     required TResult Function(GetSelectedSessionEvent value)
         getSeletedSessionEvent,
-    required TResult Function(GetOrderSummaryEvent value) getOrderSummaryEvent,
   }) {
     return setSlotFOrBooking(this);
   }
@@ -1192,7 +1158,6 @@ class _$SetSlotForBookingEventImpl implements SetSlotForBookingEvent {
     TResult? Function(SetRecurringSession value)? setRecurringSession,
     TResult? Function(RemoveSessionByDateEvent value)? removeSessionByDate,
     TResult? Function(GetSelectedSessionEvent value)? getSeletedSessionEvent,
-    TResult? Function(GetOrderSummaryEvent value)? getOrderSummaryEvent,
   }) {
     return setSlotFOrBooking?.call(this);
   }
@@ -1211,7 +1176,6 @@ class _$SetSlotForBookingEventImpl implements SetSlotForBookingEvent {
     TResult Function(SetRecurringSession value)? setRecurringSession,
     TResult Function(RemoveSessionByDateEvent value)? removeSessionByDate,
     TResult Function(GetSelectedSessionEvent value)? getSeletedSessionEvent,
-    TResult Function(GetOrderSummaryEvent value)? getOrderSummaryEvent,
     required TResult orElse(),
   }) {
     if (setSlotFOrBooking != null) {
@@ -1321,7 +1285,6 @@ class _$SetSlotBookingImpl implements SetSlotBooking {
     required TResult Function(Map<String, dynamic> data, dynamic index)
         removeSessionByDate,
     required TResult Function() getSeletedSessionEvent,
-    required TResult Function(Map<String, dynamic> data) getOrderSummaryEvent,
   }) {
     return setSlotBooking(data);
   }
@@ -1341,7 +1304,6 @@ class _$SetSlotBookingImpl implements SetSlotBooking {
     TResult? Function(Map<String, dynamic> data, dynamic index)?
         removeSessionByDate,
     TResult? Function()? getSeletedSessionEvent,
-    TResult? Function(Map<String, dynamic> data)? getOrderSummaryEvent,
   }) {
     return setSlotBooking?.call(data);
   }
@@ -1361,7 +1323,6 @@ class _$SetSlotBookingImpl implements SetSlotBooking {
     TResult Function(Map<String, dynamic> data, dynamic index)?
         removeSessionByDate,
     TResult Function()? getSeletedSessionEvent,
-    TResult Function(Map<String, dynamic> data)? getOrderSummaryEvent,
     required TResult orElse(),
   }) {
     if (setSlotBooking != null) {
@@ -1387,7 +1348,6 @@ class _$SetSlotBookingImpl implements SetSlotBooking {
         removeSessionByDate,
     required TResult Function(GetSelectedSessionEvent value)
         getSeletedSessionEvent,
-    required TResult Function(GetOrderSummaryEvent value) getOrderSummaryEvent,
   }) {
     return setSlotBooking(this);
   }
@@ -1406,7 +1366,6 @@ class _$SetSlotBookingImpl implements SetSlotBooking {
     TResult? Function(SetRecurringSession value)? setRecurringSession,
     TResult? Function(RemoveSessionByDateEvent value)? removeSessionByDate,
     TResult? Function(GetSelectedSessionEvent value)? getSeletedSessionEvent,
-    TResult? Function(GetOrderSummaryEvent value)? getOrderSummaryEvent,
   }) {
     return setSlotBooking?.call(this);
   }
@@ -1425,7 +1384,6 @@ class _$SetSlotBookingImpl implements SetSlotBooking {
     TResult Function(SetRecurringSession value)? setRecurringSession,
     TResult Function(RemoveSessionByDateEvent value)? removeSessionByDate,
     TResult Function(GetSelectedSessionEvent value)? getSeletedSessionEvent,
-    TResult Function(GetOrderSummaryEvent value)? getOrderSummaryEvent,
     required TResult orElse(),
   }) {
     if (setSlotBooking != null) {
@@ -1534,7 +1492,6 @@ class _$SetSelectTypeBottomSheetEventImpl
     required TResult Function(Map<String, dynamic> data, dynamic index)
         removeSessionByDate,
     required TResult Function() getSeletedSessionEvent,
-    required TResult Function(Map<String, dynamic> data) getOrderSummaryEvent,
   }) {
     return setSeletTypeBottomSheet(type);
   }
@@ -1554,7 +1511,6 @@ class _$SetSelectTypeBottomSheetEventImpl
     TResult? Function(Map<String, dynamic> data, dynamic index)?
         removeSessionByDate,
     TResult? Function()? getSeletedSessionEvent,
-    TResult? Function(Map<String, dynamic> data)? getOrderSummaryEvent,
   }) {
     return setSeletTypeBottomSheet?.call(type);
   }
@@ -1574,7 +1530,6 @@ class _$SetSelectTypeBottomSheetEventImpl
     TResult Function(Map<String, dynamic> data, dynamic index)?
         removeSessionByDate,
     TResult Function()? getSeletedSessionEvent,
-    TResult Function(Map<String, dynamic> data)? getOrderSummaryEvent,
     required TResult orElse(),
   }) {
     if (setSeletTypeBottomSheet != null) {
@@ -1600,7 +1555,6 @@ class _$SetSelectTypeBottomSheetEventImpl
         removeSessionByDate,
     required TResult Function(GetSelectedSessionEvent value)
         getSeletedSessionEvent,
-    required TResult Function(GetOrderSummaryEvent value) getOrderSummaryEvent,
   }) {
     return setSeletTypeBottomSheet(this);
   }
@@ -1619,7 +1573,6 @@ class _$SetSelectTypeBottomSheetEventImpl
     TResult? Function(SetRecurringSession value)? setRecurringSession,
     TResult? Function(RemoveSessionByDateEvent value)? removeSessionByDate,
     TResult? Function(GetSelectedSessionEvent value)? getSeletedSessionEvent,
-    TResult? Function(GetOrderSummaryEvent value)? getOrderSummaryEvent,
   }) {
     return setSeletTypeBottomSheet?.call(this);
   }
@@ -1638,7 +1591,6 @@ class _$SetSelectTypeBottomSheetEventImpl
     TResult Function(SetRecurringSession value)? setRecurringSession,
     TResult Function(RemoveSessionByDateEvent value)? removeSessionByDate,
     TResult Function(GetSelectedSessionEvent value)? getSeletedSessionEvent,
-    TResult Function(GetOrderSummaryEvent value)? getOrderSummaryEvent,
     required TResult orElse(),
   }) {
     if (setSeletTypeBottomSheet != null) {
@@ -1750,7 +1702,6 @@ class _$SetRecurringSessionImpl implements SetRecurringSession {
     required TResult Function(Map<String, dynamic> data, dynamic index)
         removeSessionByDate,
     required TResult Function() getSeletedSessionEvent,
-    required TResult Function(Map<String, dynamic> data) getOrderSummaryEvent,
   }) {
     return setRecurringSession(data);
   }
@@ -1770,7 +1721,6 @@ class _$SetRecurringSessionImpl implements SetRecurringSession {
     TResult? Function(Map<String, dynamic> data, dynamic index)?
         removeSessionByDate,
     TResult? Function()? getSeletedSessionEvent,
-    TResult? Function(Map<String, dynamic> data)? getOrderSummaryEvent,
   }) {
     return setRecurringSession?.call(data);
   }
@@ -1790,7 +1740,6 @@ class _$SetRecurringSessionImpl implements SetRecurringSession {
     TResult Function(Map<String, dynamic> data, dynamic index)?
         removeSessionByDate,
     TResult Function()? getSeletedSessionEvent,
-    TResult Function(Map<String, dynamic> data)? getOrderSummaryEvent,
     required TResult orElse(),
   }) {
     if (setRecurringSession != null) {
@@ -1816,7 +1765,6 @@ class _$SetRecurringSessionImpl implements SetRecurringSession {
         removeSessionByDate,
     required TResult Function(GetSelectedSessionEvent value)
         getSeletedSessionEvent,
-    required TResult Function(GetOrderSummaryEvent value) getOrderSummaryEvent,
   }) {
     return setRecurringSession(this);
   }
@@ -1835,7 +1783,6 @@ class _$SetRecurringSessionImpl implements SetRecurringSession {
     TResult? Function(SetRecurringSession value)? setRecurringSession,
     TResult? Function(RemoveSessionByDateEvent value)? removeSessionByDate,
     TResult? Function(GetSelectedSessionEvent value)? getSeletedSessionEvent,
-    TResult? Function(GetOrderSummaryEvent value)? getOrderSummaryEvent,
   }) {
     return setRecurringSession?.call(this);
   }
@@ -1854,7 +1801,6 @@ class _$SetRecurringSessionImpl implements SetRecurringSession {
     TResult Function(SetRecurringSession value)? setRecurringSession,
     TResult Function(RemoveSessionByDateEvent value)? removeSessionByDate,
     TResult Function(GetSelectedSessionEvent value)? getSeletedSessionEvent,
-    TResult Function(GetOrderSummaryEvent value)? getOrderSummaryEvent,
     required TResult orElse(),
   }) {
     if (setRecurringSession != null) {
@@ -1977,7 +1923,6 @@ class _$RemoveSessionByDateEventImpl implements RemoveSessionByDateEvent {
     required TResult Function(Map<String, dynamic> data, dynamic index)
         removeSessionByDate,
     required TResult Function() getSeletedSessionEvent,
-    required TResult Function(Map<String, dynamic> data) getOrderSummaryEvent,
   }) {
     return removeSessionByDate(data, index);
   }
@@ -1997,7 +1942,6 @@ class _$RemoveSessionByDateEventImpl implements RemoveSessionByDateEvent {
     TResult? Function(Map<String, dynamic> data, dynamic index)?
         removeSessionByDate,
     TResult? Function()? getSeletedSessionEvent,
-    TResult? Function(Map<String, dynamic> data)? getOrderSummaryEvent,
   }) {
     return removeSessionByDate?.call(data, index);
   }
@@ -2017,7 +1961,6 @@ class _$RemoveSessionByDateEventImpl implements RemoveSessionByDateEvent {
     TResult Function(Map<String, dynamic> data, dynamic index)?
         removeSessionByDate,
     TResult Function()? getSeletedSessionEvent,
-    TResult Function(Map<String, dynamic> data)? getOrderSummaryEvent,
     required TResult orElse(),
   }) {
     if (removeSessionByDate != null) {
@@ -2043,7 +1986,6 @@ class _$RemoveSessionByDateEventImpl implements RemoveSessionByDateEvent {
         removeSessionByDate,
     required TResult Function(GetSelectedSessionEvent value)
         getSeletedSessionEvent,
-    required TResult Function(GetOrderSummaryEvent value) getOrderSummaryEvent,
   }) {
     return removeSessionByDate(this);
   }
@@ -2062,7 +2004,6 @@ class _$RemoveSessionByDateEventImpl implements RemoveSessionByDateEvent {
     TResult? Function(SetRecurringSession value)? setRecurringSession,
     TResult? Function(RemoveSessionByDateEvent value)? removeSessionByDate,
     TResult? Function(GetSelectedSessionEvent value)? getSeletedSessionEvent,
-    TResult? Function(GetOrderSummaryEvent value)? getOrderSummaryEvent,
   }) {
     return removeSessionByDate?.call(this);
   }
@@ -2081,7 +2022,6 @@ class _$RemoveSessionByDateEventImpl implements RemoveSessionByDateEvent {
     TResult Function(SetRecurringSession value)? setRecurringSession,
     TResult Function(RemoveSessionByDateEvent value)? removeSessionByDate,
     TResult Function(GetSelectedSessionEvent value)? getSeletedSessionEvent,
-    TResult Function(GetOrderSummaryEvent value)? getOrderSummaryEvent,
     required TResult orElse(),
   }) {
     if (removeSessionByDate != null) {
@@ -2163,7 +2103,6 @@ class _$GetSelectedSessionEventImpl implements GetSelectedSessionEvent {
     required TResult Function(Map<String, dynamic> data, dynamic index)
         removeSessionByDate,
     required TResult Function() getSeletedSessionEvent,
-    required TResult Function(Map<String, dynamic> data) getOrderSummaryEvent,
   }) {
     return getSeletedSessionEvent();
   }
@@ -2183,7 +2122,6 @@ class _$GetSelectedSessionEventImpl implements GetSelectedSessionEvent {
     TResult? Function(Map<String, dynamic> data, dynamic index)?
         removeSessionByDate,
     TResult? Function()? getSeletedSessionEvent,
-    TResult? Function(Map<String, dynamic> data)? getOrderSummaryEvent,
   }) {
     return getSeletedSessionEvent?.call();
   }
@@ -2203,7 +2141,6 @@ class _$GetSelectedSessionEventImpl implements GetSelectedSessionEvent {
     TResult Function(Map<String, dynamic> data, dynamic index)?
         removeSessionByDate,
     TResult Function()? getSeletedSessionEvent,
-    TResult Function(Map<String, dynamic> data)? getOrderSummaryEvent,
     required TResult orElse(),
   }) {
     if (getSeletedSessionEvent != null) {
@@ -2229,7 +2166,6 @@ class _$GetSelectedSessionEventImpl implements GetSelectedSessionEvent {
         removeSessionByDate,
     required TResult Function(GetSelectedSessionEvent value)
         getSeletedSessionEvent,
-    required TResult Function(GetOrderSummaryEvent value) getOrderSummaryEvent,
   }) {
     return getSeletedSessionEvent(this);
   }
@@ -2248,7 +2184,6 @@ class _$GetSelectedSessionEventImpl implements GetSelectedSessionEvent {
     TResult? Function(SetRecurringSession value)? setRecurringSession,
     TResult? Function(RemoveSessionByDateEvent value)? removeSessionByDate,
     TResult? Function(GetSelectedSessionEvent value)? getSeletedSessionEvent,
-    TResult? Function(GetOrderSummaryEvent value)? getOrderSummaryEvent,
   }) {
     return getSeletedSessionEvent?.call(this);
   }
@@ -2267,7 +2202,6 @@ class _$GetSelectedSessionEventImpl implements GetSelectedSessionEvent {
     TResult Function(SetRecurringSession value)? setRecurringSession,
     TResult Function(RemoveSessionByDateEvent value)? removeSessionByDate,
     TResult Function(GetSelectedSessionEvent value)? getSeletedSessionEvent,
-    TResult Function(GetOrderSummaryEvent value)? getOrderSummaryEvent,
     required TResult orElse(),
   }) {
     if (getSeletedSessionEvent != null) {
@@ -2279,220 +2213,4 @@ class _$GetSelectedSessionEventImpl implements GetSelectedSessionEvent {
 
 abstract class GetSelectedSessionEvent implements SessionCalendarEvent {
   const factory GetSelectedSessionEvent() = _$GetSelectedSessionEventImpl;
-}
-
-/// @nodoc
-abstract class _$$GetOrderSummaryEventImplCopyWith<$Res> {
-  factory _$$GetOrderSummaryEventImplCopyWith(_$GetOrderSummaryEventImpl value,
-          $Res Function(_$GetOrderSummaryEventImpl) then) =
-      __$$GetOrderSummaryEventImplCopyWithImpl<$Res>;
-  @useResult
-  $Res call({Map<String, dynamic> data});
-}
-
-/// @nodoc
-class __$$GetOrderSummaryEventImplCopyWithImpl<$Res>
-    extends _$SessionCalendarEventCopyWithImpl<$Res, _$GetOrderSummaryEventImpl>
-    implements _$$GetOrderSummaryEventImplCopyWith<$Res> {
-  __$$GetOrderSummaryEventImplCopyWithImpl(_$GetOrderSummaryEventImpl _value,
-      $Res Function(_$GetOrderSummaryEventImpl) _then)
-      : super(_value, _then);
-
-  /// Create a copy of SessionCalendarEvent
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? data = null,
-  }) {
-    return _then(_$GetOrderSummaryEventImpl(
-      null == data
-          ? _value._data
-          : data // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>,
-    ));
-  }
-}
-
-/// @nodoc
-
-class _$GetOrderSummaryEventImpl implements GetOrderSummaryEvent {
-  const _$GetOrderSummaryEventImpl(final Map<String, dynamic> data)
-      : _data = data;
-
-  final Map<String, dynamic> _data;
-  @override
-  Map<String, dynamic> get data {
-    if (_data is EqualUnmodifiableMapView) return _data;
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableMapView(_data);
-  }
-
-  @override
-  String toString() {
-    return 'SessionCalendarEvent.getOrderSummaryEvent(data: $data)';
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$GetOrderSummaryEventImpl &&
-            const DeepCollectionEquality().equals(other._data, _data));
-  }
-
-  @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(_data));
-
-  /// Create a copy of SessionCalendarEvent
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$GetOrderSummaryEventImplCopyWith<_$GetOrderSummaryEventImpl>
-      get copyWith =>
-          __$$GetOrderSummaryEventImplCopyWithImpl<_$GetOrderSummaryEventImpl>(
-              this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(Map<String, dynamic> data) getCalenDarDateEvents,
-    required TResult Function(Map<String, dynamic> data) getAvilableDates,
-    required TResult Function(DateTime data, String dayname) setCurrentDate,
-    required TResult Function(String data, String sessionId, String fromTime)
-        setSelectDateDayName,
-    required TResult Function(String data) setSlotFOrBooking,
-    required TResult Function(Map<String, dynamic> data) setSlotBooking,
-    required TResult Function(String type) setSeletTypeBottomSheet,
-    required TResult Function(Map<String, dynamic> data) setRecurringSession,
-    required TResult Function(Map<String, dynamic> data, dynamic index)
-        removeSessionByDate,
-    required TResult Function() getSeletedSessionEvent,
-    required TResult Function(Map<String, dynamic> data) getOrderSummaryEvent,
-  }) {
-    return getOrderSummaryEvent(data);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(Map<String, dynamic> data)? getCalenDarDateEvents,
-    TResult? Function(Map<String, dynamic> data)? getAvilableDates,
-    TResult? Function(DateTime data, String dayname)? setCurrentDate,
-    TResult? Function(String data, String sessionId, String fromTime)?
-        setSelectDateDayName,
-    TResult? Function(String data)? setSlotFOrBooking,
-    TResult? Function(Map<String, dynamic> data)? setSlotBooking,
-    TResult? Function(String type)? setSeletTypeBottomSheet,
-    TResult? Function(Map<String, dynamic> data)? setRecurringSession,
-    TResult? Function(Map<String, dynamic> data, dynamic index)?
-        removeSessionByDate,
-    TResult? Function()? getSeletedSessionEvent,
-    TResult? Function(Map<String, dynamic> data)? getOrderSummaryEvent,
-  }) {
-    return getOrderSummaryEvent?.call(data);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(Map<String, dynamic> data)? getCalenDarDateEvents,
-    TResult Function(Map<String, dynamic> data)? getAvilableDates,
-    TResult Function(DateTime data, String dayname)? setCurrentDate,
-    TResult Function(String data, String sessionId, String fromTime)?
-        setSelectDateDayName,
-    TResult Function(String data)? setSlotFOrBooking,
-    TResult Function(Map<String, dynamic> data)? setSlotBooking,
-    TResult Function(String type)? setSeletTypeBottomSheet,
-    TResult Function(Map<String, dynamic> data)? setRecurringSession,
-    TResult Function(Map<String, dynamic> data, dynamic index)?
-        removeSessionByDate,
-    TResult Function()? getSeletedSessionEvent,
-    TResult Function(Map<String, dynamic> data)? getOrderSummaryEvent,
-    required TResult orElse(),
-  }) {
-    if (getOrderSummaryEvent != null) {
-      return getOrderSummaryEvent(data);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(CalendarDateEvents value) getCalenDarDateEvents,
-    required TResult Function(AvilableDateEvents value) getAvilableDates,
-    required TResult Function(CurrentDateEvent value) setCurrentDate,
-    required TResult Function(SetSelectedDateDayName value)
-        setSelectDateDayName,
-    required TResult Function(SetSlotForBookingEvent value) setSlotFOrBooking,
-    required TResult Function(SetSlotBooking value) setSlotBooking,
-    required TResult Function(SetSelectTypeBottomSheetEvent value)
-        setSeletTypeBottomSheet,
-    required TResult Function(SetRecurringSession value) setRecurringSession,
-    required TResult Function(RemoveSessionByDateEvent value)
-        removeSessionByDate,
-    required TResult Function(GetSelectedSessionEvent value)
-        getSeletedSessionEvent,
-    required TResult Function(GetOrderSummaryEvent value) getOrderSummaryEvent,
-  }) {
-    return getOrderSummaryEvent(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(CalendarDateEvents value)? getCalenDarDateEvents,
-    TResult? Function(AvilableDateEvents value)? getAvilableDates,
-    TResult? Function(CurrentDateEvent value)? setCurrentDate,
-    TResult? Function(SetSelectedDateDayName value)? setSelectDateDayName,
-    TResult? Function(SetSlotForBookingEvent value)? setSlotFOrBooking,
-    TResult? Function(SetSlotBooking value)? setSlotBooking,
-    TResult? Function(SetSelectTypeBottomSheetEvent value)?
-        setSeletTypeBottomSheet,
-    TResult? Function(SetRecurringSession value)? setRecurringSession,
-    TResult? Function(RemoveSessionByDateEvent value)? removeSessionByDate,
-    TResult? Function(GetSelectedSessionEvent value)? getSeletedSessionEvent,
-    TResult? Function(GetOrderSummaryEvent value)? getOrderSummaryEvent,
-  }) {
-    return getOrderSummaryEvent?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(CalendarDateEvents value)? getCalenDarDateEvents,
-    TResult Function(AvilableDateEvents value)? getAvilableDates,
-    TResult Function(CurrentDateEvent value)? setCurrentDate,
-    TResult Function(SetSelectedDateDayName value)? setSelectDateDayName,
-    TResult Function(SetSlotForBookingEvent value)? setSlotFOrBooking,
-    TResult Function(SetSlotBooking value)? setSlotBooking,
-    TResult Function(SetSelectTypeBottomSheetEvent value)?
-        setSeletTypeBottomSheet,
-    TResult Function(SetRecurringSession value)? setRecurringSession,
-    TResult Function(RemoveSessionByDateEvent value)? removeSessionByDate,
-    TResult Function(GetSelectedSessionEvent value)? getSeletedSessionEvent,
-    TResult Function(GetOrderSummaryEvent value)? getOrderSummaryEvent,
-    required TResult orElse(),
-  }) {
-    if (getOrderSummaryEvent != null) {
-      return getOrderSummaryEvent(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class GetOrderSummaryEvent implements SessionCalendarEvent {
-  const factory GetOrderSummaryEvent(final Map<String, dynamic> data) =
-      _$GetOrderSummaryEventImpl;
-
-  Map<String, dynamic> get data;
-
-  /// Create a copy of SessionCalendarEvent
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$GetOrderSummaryEventImplCopyWith<_$GetOrderSummaryEventImpl>
-      get copyWith => throw _privateConstructorUsedError;
 }

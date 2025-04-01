@@ -15,6 +15,5 @@ class SessionCalendarEvent with _$SessionCalendarEvent {
   const factory SessionCalendarEvent.setRecurringSession( Map<String, dynamic> data) = SetRecurringSession;
   const factory SessionCalendarEvent.removeSessionByDate( Map<String, dynamic> data,index) = RemoveSessionByDateEvent;
   const factory SessionCalendarEvent.getSeletedSessionEvent() = GetSelectedSessionEvent;
-  const factory SessionCalendarEvent.getOrderSummaryEvent(Map<String, dynamic> data) = GetOrderSummaryEvent;
 
 }

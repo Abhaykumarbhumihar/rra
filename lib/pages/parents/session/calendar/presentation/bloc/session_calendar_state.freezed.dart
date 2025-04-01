@@ -27,7 +27,6 @@ mixin _$SessionCalendarState {
   AvailableDatesResponse get avilableDatesResponse =>
       throw _privateConstructorUsedError;
   TimeAddedModel get timeAddedModel => throw _privateConstructorUsedError;
-  OrderSummaryModel get orderSummaryModel => throw _privateConstructorUsedError;
   bool get isTimeAddedError => throw _privateConstructorUsedError;
   bool get isTimeAddedSuccess => throw _privateConstructorUsedError;
   bool get isSelectForOtherDate => throw _privateConstructorUsedError;
@@ -64,7 +63,6 @@ abstract class $SessionCalendarStateCopyWith<$Res> {
       SessionCalendarModel sessionCalendarModel,
       AvailableDatesResponse avilableDatesResponse,
       TimeAddedModel timeAddedModel,
-      OrderSummaryModel orderSummaryModel,
       bool isTimeAddedError,
       bool isTimeAddedSuccess,
       bool isSelectForOtherDate,
@@ -81,7 +79,6 @@ abstract class $SessionCalendarStateCopyWith<$Res> {
   $SessionCalendarModelCopyWith<$Res> get sessionCalendarModel;
   $AvailableDatesResponseCopyWith<$Res> get avilableDatesResponse;
   $TimeAddedModelCopyWith<$Res> get timeAddedModel;
-  $OrderSummaryModelCopyWith<$Res> get orderSummaryModel;
 }
 
 /// @nodoc
@@ -109,7 +106,6 @@ class _$SessionCalendarStateCopyWithImpl<$Res,
     Object? sessionCalendarModel = null,
     Object? avilableDatesResponse = null,
     Object? timeAddedModel = null,
-    Object? orderSummaryModel = null,
     Object? isTimeAddedError = null,
     Object? isTimeAddedSuccess = null,
     Object? isSelectForOtherDate = null,
@@ -160,10 +156,6 @@ class _$SessionCalendarStateCopyWithImpl<$Res,
           ? _value.timeAddedModel
           : timeAddedModel // ignore: cast_nullable_to_non_nullable
               as TimeAddedModel,
-      orderSummaryModel: null == orderSummaryModel
-          ? _value.orderSummaryModel
-          : orderSummaryModel // ignore: cast_nullable_to_non_nullable
-              as OrderSummaryModel,
       isTimeAddedError: null == isTimeAddedError
           ? _value.isTimeAddedError
           : isTimeAddedError // ignore: cast_nullable_to_non_nullable
@@ -246,16 +238,6 @@ class _$SessionCalendarStateCopyWithImpl<$Res,
       return _then(_value.copyWith(timeAddedModel: value) as $Val);
     });
   }
-
-  /// Create a copy of SessionCalendarState
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @pragma('vm:prefer-inline')
-  $OrderSummaryModelCopyWith<$Res> get orderSummaryModel {
-    return $OrderSummaryModelCopyWith<$Res>(_value.orderSummaryModel, (value) {
-      return _then(_value.copyWith(orderSummaryModel: value) as $Val);
-    });
-  }
 }
 
 /// @nodoc
@@ -276,7 +258,6 @@ abstract class _$$SessionCalendarStateImplCopyWith<$Res>
       SessionCalendarModel sessionCalendarModel,
       AvailableDatesResponse avilableDatesResponse,
       TimeAddedModel timeAddedModel,
-      OrderSummaryModel orderSummaryModel,
       bool isTimeAddedError,
       bool isTimeAddedSuccess,
       bool isSelectForOtherDate,
@@ -296,8 +277,6 @@ abstract class _$$SessionCalendarStateImplCopyWith<$Res>
   $AvailableDatesResponseCopyWith<$Res> get avilableDatesResponse;
   @override
   $TimeAddedModelCopyWith<$Res> get timeAddedModel;
-  @override
-  $OrderSummaryModelCopyWith<$Res> get orderSummaryModel;
 }
 
 /// @nodoc
@@ -322,7 +301,6 @@ class __$$SessionCalendarStateImplCopyWithImpl<$Res>
     Object? sessionCalendarModel = null,
     Object? avilableDatesResponse = null,
     Object? timeAddedModel = null,
-    Object? orderSummaryModel = null,
     Object? isTimeAddedError = null,
     Object? isTimeAddedSuccess = null,
     Object? isSelectForOtherDate = null,
@@ -373,10 +351,6 @@ class __$$SessionCalendarStateImplCopyWithImpl<$Res>
           ? _value.timeAddedModel
           : timeAddedModel // ignore: cast_nullable_to_non_nullable
               as TimeAddedModel,
-      orderSummaryModel: null == orderSummaryModel
-          ? _value.orderSummaryModel
-          : orderSummaryModel // ignore: cast_nullable_to_non_nullable
-              as OrderSummaryModel,
       isTimeAddedError: null == isTimeAddedError
           ? _value.isTimeAddedError
           : isTimeAddedError // ignore: cast_nullable_to_non_nullable
@@ -442,7 +416,6 @@ class _$SessionCalendarStateImpl implements _SessionCalendarState {
       this.sessionCalendarModel = const SessionCalendarModel(),
       this.avilableDatesResponse = const AvailableDatesResponse(),
       this.timeAddedModel = const TimeAddedModel(),
-      this.orderSummaryModel = const OrderSummaryModel(),
       this.isTimeAddedError = false,
       this.isTimeAddedSuccess = false,
       this.isSelectForOtherDate = false,
@@ -481,9 +454,6 @@ class _$SessionCalendarStateImpl implements _SessionCalendarState {
   @override
   @JsonKey()
   final TimeAddedModel timeAddedModel;
-  @override
-  @JsonKey()
-  final OrderSummaryModel orderSummaryModel;
   @override
   @JsonKey()
   final bool isTimeAddedError;
@@ -530,7 +500,7 @@ class _$SessionCalendarStateImpl implements _SessionCalendarState {
 
   @override
   String toString() {
-    return 'SessionCalendarState(isLoading: $isLoading, error: $error, success: $success, isError: $isError, datetime: $datetime, isLoginApiError: $isLoginApiError, sessionCalendarModel: $sessionCalendarModel, avilableDatesResponse: $avilableDatesResponse, timeAddedModel: $timeAddedModel, orderSummaryModel: $orderSummaryModel, isTimeAddedError: $isTimeAddedError, isTimeAddedSuccess: $isTimeAddedSuccess, isSelectForOtherDate: $isSelectForOtherDate, isSelectForContinue: $isSelectForContinue, isSelectForRecurring: $isSelectForRecurring, selectedTimeAdded: $selectedTimeAdded, selectBottomSheetType: $selectBottomSheetType, selectedDateDayName: $selectedDateDayName, selectedSessionID: $selectedSessionID, selectedFromTime: $selectedFromTime, isAvailablityLoading: $isAvailablityLoading, isTimeAddedLoading: $isTimeAddedLoading)';
+    return 'SessionCalendarState(isLoading: $isLoading, error: $error, success: $success, isError: $isError, datetime: $datetime, isLoginApiError: $isLoginApiError, sessionCalendarModel: $sessionCalendarModel, avilableDatesResponse: $avilableDatesResponse, timeAddedModel: $timeAddedModel, isTimeAddedError: $isTimeAddedError, isTimeAddedSuccess: $isTimeAddedSuccess, isSelectForOtherDate: $isSelectForOtherDate, isSelectForContinue: $isSelectForContinue, isSelectForRecurring: $isSelectForRecurring, selectedTimeAdded: $selectedTimeAdded, selectBottomSheetType: $selectBottomSheetType, selectedDateDayName: $selectedDateDayName, selectedSessionID: $selectedSessionID, selectedFromTime: $selectedFromTime, isAvailablityLoading: $isAvailablityLoading, isTimeAddedLoading: $isTimeAddedLoading)';
   }
 
   @override
@@ -553,8 +523,6 @@ class _$SessionCalendarStateImpl implements _SessionCalendarState {
                 other.avilableDatesResponse == avilableDatesResponse) &&
             (identical(other.timeAddedModel, timeAddedModel) ||
                 other.timeAddedModel == timeAddedModel) &&
-            (identical(other.orderSummaryModel, orderSummaryModel) ||
-                other.orderSummaryModel == orderSummaryModel) &&
             (identical(other.isTimeAddedError, isTimeAddedError) ||
                 other.isTimeAddedError == isTimeAddedError) &&
             (identical(other.isTimeAddedSuccess, isTimeAddedSuccess) ||
@@ -593,7 +561,6 @@ class _$SessionCalendarStateImpl implements _SessionCalendarState {
         sessionCalendarModel,
         avilableDatesResponse,
         timeAddedModel,
-        orderSummaryModel,
         isTimeAddedError,
         isTimeAddedSuccess,
         isSelectForOtherDate,
@@ -630,7 +597,6 @@ abstract class _SessionCalendarState implements SessionCalendarState {
       final SessionCalendarModel sessionCalendarModel,
       final AvailableDatesResponse avilableDatesResponse,
       final TimeAddedModel timeAddedModel,
-      final OrderSummaryModel orderSummaryModel,
       final bool isTimeAddedError,
       final bool isTimeAddedSuccess,
       final bool isSelectForOtherDate,
@@ -662,8 +628,6 @@ abstract class _SessionCalendarState implements SessionCalendarState {
   AvailableDatesResponse get avilableDatesResponse;
   @override
   TimeAddedModel get timeAddedModel;
-  @override
-  OrderSummaryModel get orderSummaryModel;
   @override
   bool get isTimeAddedError;
   @override

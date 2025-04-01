@@ -2,7 +2,6 @@ import 'package:either_dart/either.dart';
 
 import '../../../../../../common/network/failure.dart';
 import '../../data/entity/avilabele_session/avilable_dates.dart';
-import '../../data/entity/order_summary/order_summary_model.dart';
 import '../../data/entity/session_calendar_model.dart';
 import '../../data/entity/time_added/time_added_model.dart';
 
@@ -13,6 +12,5 @@ abstract class SessionCalendarDatesRepositery{
   Future<Either<Failure,TimeAddedModel>> recurringRequest(Map<String, dynamic> timeAddedData);
   Future<Either<Failure,dynamic>> removeSessionByDate(Map<String, dynamic> removeSessionData);
   Future<Either<Failure,TimeAddedModel>> getSeletedSession(Map<String, dynamic> selectedSessiondata);
-  Future<Either<Failure,OrderSummaryModel>> getOrderSummary(Map<String, dynamic> orderSummaryData);
 
 }

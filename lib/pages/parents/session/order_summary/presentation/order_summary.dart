@@ -1,14 +1,16 @@
 import 'package:rra/common/values/values_exports.dart';
-import '../../../../../../common/component/auth_text_field.dart';
-import '../../../../../../common/component/common_app_bar.dart';
-import '../../../../../../common/component/common_background.dart';
-import '../../../../../../common/component/custom_app_button.dart';
-import '../../../../../../common/component/screen_title.dart';
-import '../calendar/presentation/bloc/session_calendar_bloc.dart';
-import '../calendar/presentation/bloc/session_calendar_event.dart';
-import '../calendar/presentation/bloc/session_calendar_state.dart';
-import '../calendar/presentation/ui/component/added_slot_list_item.dart';
-import '../calendar/presentation/ui/component/booking_component.dart';
+import '../../../../../../../common/component/auth_text_field.dart';
+import '../../../../../../../common/component/common_app_bar.dart';
+import '../../../../../../../common/component/common_background.dart';
+import '../../../../../../../common/component/custom_app_button.dart';
+import '../../../../../../../common/component/screen_title.dart';
+import '../../calendar/presentation/bloc/session_calendar_bloc.dart';
+import '../../calendar/presentation/bloc/session_calendar_event.dart';
+import '../../calendar/presentation/bloc/session_calendar_state.dart';
+import '../../calendar/presentation/ui/component/added_slot_list_item.dart';
+import '../../calendar/presentation/ui/component/booking_component.dart';
+import 'bloc/order_summary_bloc.dart';
+import 'bloc/order_summary_state.dart';
 import 'component/payment_bottom_sheet.dart';
 
 class OrderSummary extends StatelessWidget {
@@ -19,13 +21,13 @@ class OrderSummary extends StatelessWidget {
     var width = MediaQuery.of(context).size.width;
     var height = MediaQuery.of(context).size.height;
 
-    return BlocListener<SessionCalendarBloc, SessionCalendarState>(
+    return BlocListener<OrderSummaryBloc, OrderSummaryState>(
       listener: (context, state) {
 
         print("CHECKING ORDER SUMMARY MODEL------");
         print(state.orderSummaryModel);
       },
-      child: BlocBuilder<SessionCalendarBloc, SessionCalendarState>(
+      child: BlocBuilder<OrderSummaryBloc, OrderSummaryState>(
         builder: (context, state) {
           print("CHECKING kkkkORDER SUMMARY MODEL------");
           print(state.orderSummaryModel);
@@ -77,7 +79,6 @@ class OrderSummary extends StatelessWidget {
                             ),
                             SizedBox(
                               width: double.infinity,
-                              height: 300,
                               child: ListView.builder(
                                 physics: NeverScrollableScrollPhysics(),
                                 padding: const EdgeInsets.symmetric(

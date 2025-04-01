@@ -44,6 +44,9 @@ import '../../pages/parents/session/coaching_detail/domain/usecase/coaching_prog
 import '../../pages/parents/session/coachprograms/data/repoImpl/coach_programs_repo_impl.dart';
 import '../../pages/parents/session/coachprograms/domain/repositery/coach_programs_repo.dart';
 import '../../pages/parents/session/coachprograms/domain/usecase/coach_programs_usecase.dart';
+import '../../pages/parents/session/order_summary/data/repo_impl/order_summary_repo_impl.dart';
+import '../../pages/parents/session/order_summary/domain/repositry/order_summary_repositery.dart';
+import '../../pages/parents/session/order_summary/domain/usecase/order_summary_usecase.dart';
 import '../network/api_services.dart';
 import '../network/app_constant.dart';
 
@@ -126,5 +129,11 @@ void serviceLocator() {
           () => AddViewPlayerRepoImpl());
   getIt.registerLazySingleton<AddViewPlayerUsecase>(
           () => AddViewPlayerUsecase(getIt<AddViewPlayerRepositery>()));
+
+  /*order summary */
+  getIt.registerLazySingleton<OrderSummaryRepositery>(
+          () => OrderSummaryRepoImpl());
+  getIt.registerLazySingleton<OrderSummaryUsecase>(
+          () => OrderSummaryUsecase(getIt<OrderSummaryRepositery>()));
 
 }

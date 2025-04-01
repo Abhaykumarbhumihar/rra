@@ -3,7 +3,8 @@ import 'package:rra/common/component/component_export.dart';
 import 'package:rra/common/component/sub_title.dart';
 import 'package:rra/common/routes/exports.dart';
 import 'package:rra/common/values/values_exports.dart';
-import 'package:rra/pages/parents/session/calendar/data/entity/order_summary/order_summary_model.dart';
+
+import '../../../../order_summary/data/entity/order_summary/order_summary_model.dart';
 
 class AddedSlotListItem extends StatelessWidget {
   final String title;
@@ -26,13 +27,10 @@ final List<Slot> slotLit;
         Container(
           padding: EdgeInsets.all(6),
           decoration: BoxDecoration(
-            color: Colors.red,
             borderRadius: BorderRadius.circular(12),
           ),
           child: Row(
             children: [
-
-              SizedBox(width: 12),
               Expanded(
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -42,8 +40,8 @@ final List<Slot> slotLit;
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Expanded(
-                          child: Text("$title", style: AppTextStyle.medium(
-                              context.screenWidth*0.0373),),
+                          child: Text("$title", style: AppTextStyle.bold(
+                              context.screenWidth*0.0393),),
                         ),
                         InkWell(
                           onTap: onClose,
@@ -56,18 +54,39 @@ final List<Slot> slotLit;
                       ],
                     ),
                   ListView.builder(
+                    padding: EdgeInsets.zero,
                       shrinkWrap: true,
+                      physics: NeverScrollableScrollPhysics(),
                       itemCount: slotLit.length,
                       itemBuilder: (context,index){
                         var data=slotLit[index];
                     return Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      mainAxisAlignment: MainAxisAlignment.start,
                       children: <Widget>[
                         SizedBox(height: 4),
-                        Text("${data.date}", style: TextStyle(
-                          color: AppColor.appWhiteColor,
-                          fontFamily: AppFont.interRegular,
-                          fontSize: context.screenWidth*0.032,
-                        ),),
+                       Row(
+                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                         children: <Widget>[
+                           Text("${data.date}", style: TextStyle(
+                             color: AppColor.appWhiteColor,
+                             fontFamily: AppFont.interRegular,
+                             fontSize: context.screenWidth*0.032,
+                           ),),
+
+                           Row(
+                             children: <Widget>[
+                               Text("${data.time}", style: TextStyle(
+                                 color: AppColor.appWhiteColor,
+                                 fontFamily: AppFont.interRegular,
+                                 fontSize: context.screenWidth*0.032,
+                               ),),
+                             ],
+                           )
+
+
+                         ],
+                       ),
 
                         SizedBox(height: 6),
                         Text("${data.price}", style: AppTextStyle.medium(

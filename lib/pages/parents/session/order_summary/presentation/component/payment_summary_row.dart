@@ -1,6 +1,6 @@
-import '../../../../../common/component/app_text_style.dart';
-import '../../../../../common/component/screen_title.dart';
-import '../../../../../common/values/values_exports.dart';
+import '../../../../../../common/routes/exports.dart';
+import '../../../../../../common/values/values_exports.dart';
+
 
 class PaymentSummaryRow extends StatelessWidget {
   final String title;
