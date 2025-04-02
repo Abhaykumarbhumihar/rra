@@ -15,6 +15,8 @@ import '../../../../../common/component/sub_title.dart';
 import '../../../../../common/local/SharedPrefs.dart';
 import '../../../../../common/routes/routes.dart';
 import '../../../../../common/stripe/stripe_service.dart';
+import '../../../../parents/session/add_detail/presentation/bloc/add_view_player_bloc.dart';
+import '../../../../parents/session/add_detail/presentation/bloc/add_view_player_event.dart';
 import '../../../../parents/session/coachprograms/presentation/bloc/coach_programs_bloc.dart';
 import '../../../otpverification/presentation/bloc/otpverification_bloc.dart';
 import '../../../otpverification/presentation/bloc/otpverification_event.dart';
@@ -63,6 +65,10 @@ class LoginScreen extends StatelessWidget {
                   .add(PrivateCoachingProgramsList());
               var publishKey = await SharedPrefs.getString("stripe_publish_key");
               Stripe.publishableKey = publishKey;
+              BlocProvider.of<AddViewPlayerBloc>(
+                  context)
+                  .add(
+                  AddViewPlayerGetChildListEvent());
               Navigator.pushNamedAndRemoveUntil(
                 context,
                 AppRoutes.APPLICATION,

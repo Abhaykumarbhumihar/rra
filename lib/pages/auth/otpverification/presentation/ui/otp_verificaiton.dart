@@ -10,6 +10,8 @@ import '../../../../../common/component/sub_title.dart';
 import '../../../../../common/local/SharedPrefs.dart';
 import '../../../../../common/routes/routes.dart';
 import '../../../../../common/values/utils.dart';
+import '../../../../parents/session/add_detail/presentation/bloc/add_view_player_bloc.dart';
+import '../../../../parents/session/add_detail/presentation/bloc/add_view_player_event.dart';
 import '../../../../parents/session/coachprograms/presentation/bloc/coach_programs_bloc.dart';
 import '../../../login/presentation/ui/component/forgot_text.dart';
 import '../../data/entity/otp_verification_model.dart';
@@ -57,6 +59,7 @@ class OtpVerificaiton extends StatelessWidget {
               await SharedPrefs.setString("token", state.otpresponse.token);
               BlocProvider.of<CoachingProgramsBloc>(context).add(GroupCoachProgramsListEvent());
               BlocProvider.of<CoachingProgramsBloc>(context).add(PrivateCoachingProgramsList());
+              BlocProvider.of<AddViewPlayerBloc>(context).add(AddViewPlayerGetChildListEvent());
               var publishKey = await SharedPrefs.getString("stripe_publish_key");
               Stripe.publishableKey = publishKey;
               Navigator.pushNamedAndRemoveUntil(
