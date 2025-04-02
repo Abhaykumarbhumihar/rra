@@ -171,35 +171,38 @@ class OrderSummary extends StatelessWidget {
                               SizedBox(
                                 height: 15,
                               ),
-                              state.isLoading==true?Container():CustomButton(
-                                text: "Submit",
-                                onPressed: () {
-                                  showPaymentBottomSheet(context,
-                                      checkOutAction: () async {
-                                    await StripeService.instance
-                                        .setPublishableKey();
-                                    await handlePayment();
-                                    // StripeService.instance.setPublishableKey();
-                                    // StripeService.instance.makePayment(18);
-                                    print(
-                                        "PAYMENT BUTTON PRESSED PAYMENT BUTTON PRESSED");
-                                  }, couponApplyAction: () async {
-                                    FocusScope.of(context).unfocus();
-                                    print(
-                                        "Entered Promo Code: ${promoCodeController.text}");
-                                    var academyId = await SharedPrefs.getString(
-                                        "selected_academyid");
+                              state.isLoading==true?Container():Padding(
+                                padding:  EdgeInsets.only(left: context.screenWidth*0.05,right: context.screenWidth*0.05,top: 10),
+                                child: CustomButton(
+                                  text: "Submit",
+                                  onPressed: () {
+                                    showPaymentBottomSheet(context,
+                                        checkOutAction: () async {
+                                      await StripeService.instance
+                                          .setPublishableKey();
+                                      await handlePayment();
+                                      // StripeService.instance.setPublishableKey();
+                                      // StripeService.instance.makePayment(18);
+                                      print(
+                                          "PAYMENT BUTTON PRESSED PAYMENT BUTTON PRESSED");
+                                    }, couponApplyAction: () async {
+                                      FocusScope.of(context).unfocus();
+                                      print(
+                                          "Entered Promo Code: ${promoCodeController.text}");
+                                      var academyId = await SharedPrefs.getString(
+                                          "selected_academyid");
 
-                                    Map<String, dynamic> map = {
-                                      "academy_id": academyId,
-                                      "promo_code": "SUMMER2025"
-                                    };
+                                      Map<String, dynamic> map = {
+                                        "academy_id": academyId,
+                                        "promo_code": "SUMMER2025"
+                                      };
 
-                                    BlocProvider.of<OrderSummaryBloc>(context)
-                                        .add(ApplyCoupon(map));
-                                  });
-                                  print("code is running here");
-                                },
+                                      BlocProvider.of<OrderSummaryBloc>(context)
+                                          .add(ApplyCoupon(map));
+                                    });
+                                    print("code is running here");
+                                  },
+                                ),
                               ),
                               SizedBox(
                                 height: 20,
