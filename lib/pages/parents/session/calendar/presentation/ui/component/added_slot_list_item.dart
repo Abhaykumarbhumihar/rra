@@ -10,11 +10,13 @@ class AddedSlotListItem extends StatelessWidget {
   final String title;
   final String dateTime;
   final String price;
+  final String location;
   final VoidCallback onClose;
-final List<Slot> slotLit;
+final List<String> slotLit;
   const AddedSlotListItem({
     required this.title,
     required this.slotLit,
+    required this.location,
     required this.dateTime,
     required this.price,
     required this.onClose,
@@ -53,6 +55,9 @@ final List<Slot> slotLit;
                         )
                       ],
                     ),
+                    SizedBox(height: 4,),
+                    Text("$location", style: AppTextStyle.medium(
+                        context.screenWidth*0.0393),),
                   ListView.builder(
                     padding: EdgeInsets.zero,
                       shrinkWrap: true,
@@ -68,28 +73,17 @@ final List<Slot> slotLit;
                        Row(
                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
                          children: <Widget>[
-                           Text("${data.date}", style: TextStyle(
+                           Text("${data} at ${dateTime}", style: TextStyle(
                              color: AppColor.appWhiteColor,
                              fontFamily: AppFont.interRegular,
                              fontSize: context.screenWidth*0.032,
                            ),),
 
-                           Row(
-                             children: <Widget>[
-                               Text("${data.time}", style: TextStyle(
-                                 color: AppColor.appWhiteColor,
-                                 fontFamily: AppFont.interRegular,
-                                 fontSize: context.screenWidth*0.032,
-                               ),),
-                             ],
-                           )
-
-
                          ],
                        ),
 
                         SizedBox(height: 6),
-                        Text("${data.price}", style: AppTextStyle.medium(
+                        Text("${price}", style: AppTextStyle.medium(
                             context.screenWidth*0.0373),),
                       ],
                     );

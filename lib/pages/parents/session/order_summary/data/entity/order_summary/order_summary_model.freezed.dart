@@ -22,7 +22,7 @@ OrderSummaryModel _$OrderSummaryModelFromJson(Map<String, dynamic> json) {
 mixin _$OrderSummaryModel {
   int get code => throw _privateConstructorUsedError;
   bool get success => throw _privateConstructorUsedError;
-  List<ChildData> get data => throw _privateConstructorUsedError;
+  List<ProgramData> get data => throw _privateConstructorUsedError;
   String get message => throw _privateConstructorUsedError;
 
   /// Serializes this OrderSummaryModel to a JSON map.
@@ -41,7 +41,7 @@ abstract class $OrderSummaryModelCopyWith<$Res> {
           OrderSummaryModel value, $Res Function(OrderSummaryModel) then) =
       _$OrderSummaryModelCopyWithImpl<$Res, OrderSummaryModel>;
   @useResult
-  $Res call({int code, bool success, List<ChildData> data, String message});
+  $Res call({int code, bool success, List<ProgramData> data, String message});
 }
 
 /// @nodoc
@@ -76,7 +76,7 @@ class _$OrderSummaryModelCopyWithImpl<$Res, $Val extends OrderSummaryModel>
       data: null == data
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
-              as List<ChildData>,
+              as List<ProgramData>,
       message: null == message
           ? _value.message
           : message // ignore: cast_nullable_to_non_nullable
@@ -93,7 +93,7 @@ abstract class _$$OrderSummaryModelImplCopyWith<$Res>
       __$$OrderSummaryModelImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({int code, bool success, List<ChildData> data, String message});
+  $Res call({int code, bool success, List<ProgramData> data, String message});
 }
 
 /// @nodoc
@@ -126,7 +126,7 @@ class __$$OrderSummaryModelImplCopyWithImpl<$Res>
       data: null == data
           ? _value._data
           : data // ignore: cast_nullable_to_non_nullable
-              as List<ChildData>,
+              as List<ProgramData>,
       message: null == message
           ? _value.message
           : message // ignore: cast_nullable_to_non_nullable
@@ -141,7 +141,7 @@ class _$OrderSummaryModelImpl implements _OrderSummaryModel {
   const _$OrderSummaryModelImpl(
       {this.code = 200,
       this.success = false,
-      final List<ChildData> data = const [],
+      final List<ProgramData> data = const [],
       this.message = ''})
       : _data = data;
 
@@ -154,10 +154,10 @@ class _$OrderSummaryModelImpl implements _OrderSummaryModel {
   @override
   @JsonKey()
   final bool success;
-  final List<ChildData> _data;
+  final List<ProgramData> _data;
   @override
   @JsonKey()
-  List<ChildData> get data {
+  List<ProgramData> get data {
     if (_data is EqualUnmodifiableListView) return _data;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(_data);
@@ -209,7 +209,7 @@ abstract class _OrderSummaryModel implements OrderSummaryModel {
   const factory _OrderSummaryModel(
       {final int code,
       final bool success,
-      final List<ChildData> data,
+      final List<ProgramData> data,
       final String message}) = _$OrderSummaryModelImpl;
 
   factory _OrderSummaryModel.fromJson(Map<String, dynamic> json) =
@@ -220,7 +220,7 @@ abstract class _OrderSummaryModel implements OrderSummaryModel {
   @override
   bool get success;
   @override
-  List<ChildData> get data;
+  List<ProgramData> get data;
   @override
   String get message;
 
@@ -232,293 +232,115 @@ abstract class _OrderSummaryModel implements OrderSummaryModel {
       throw _privateConstructorUsedError;
 }
 
-ChildData _$ChildDataFromJson(Map<String, dynamic> json) {
-  return _ChildData.fromJson(json);
+ProgramData _$ProgramDataFromJson(Map<String, dynamic> json) {
+  return _ProgramData.fromJson(json);
 }
 
 /// @nodoc
-mixin _$ChildData {
-  @JsonKey(name: 'child_name')
-  String get childName => throw _privateConstructorUsedError;
-  @JsonKey(name: 'child_id')
-  int get childId => throw _privateConstructorUsedError;
-  @JsonKey(name: 'slot_list')
-  List<Slot> get slotList => throw _privateConstructorUsedError;
-
-  /// Serializes this ChildData to a JSON map.
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-
-  /// Create a copy of ChildData
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  $ChildDataCopyWith<ChildData> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class $ChildDataCopyWith<$Res> {
-  factory $ChildDataCopyWith(ChildData value, $Res Function(ChildData) then) =
-      _$ChildDataCopyWithImpl<$Res, ChildData>;
-  @useResult
-  $Res call(
-      {@JsonKey(name: 'child_name') String childName,
-      @JsonKey(name: 'child_id') int childId,
-      @JsonKey(name: 'slot_list') List<Slot> slotList});
-}
-
-/// @nodoc
-class _$ChildDataCopyWithImpl<$Res, $Val extends ChildData>
-    implements $ChildDataCopyWith<$Res> {
-  _$ChildDataCopyWithImpl(this._value, this._then);
-
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
-
-  /// Create a copy of ChildData
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? childName = null,
-    Object? childId = null,
-    Object? slotList = null,
-  }) {
-    return _then(_value.copyWith(
-      childName: null == childName
-          ? _value.childName
-          : childName // ignore: cast_nullable_to_non_nullable
-              as String,
-      childId: null == childId
-          ? _value.childId
-          : childId // ignore: cast_nullable_to_non_nullable
-              as int,
-      slotList: null == slotList
-          ? _value.slotList
-          : slotList // ignore: cast_nullable_to_non_nullable
-              as List<Slot>,
-    ) as $Val);
-  }
-}
-
-/// @nodoc
-abstract class _$$ChildDataImplCopyWith<$Res>
-    implements $ChildDataCopyWith<$Res> {
-  factory _$$ChildDataImplCopyWith(
-          _$ChildDataImpl value, $Res Function(_$ChildDataImpl) then) =
-      __$$ChildDataImplCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call(
-      {@JsonKey(name: 'child_name') String childName,
-      @JsonKey(name: 'child_id') int childId,
-      @JsonKey(name: 'slot_list') List<Slot> slotList});
-}
-
-/// @nodoc
-class __$$ChildDataImplCopyWithImpl<$Res>
-    extends _$ChildDataCopyWithImpl<$Res, _$ChildDataImpl>
-    implements _$$ChildDataImplCopyWith<$Res> {
-  __$$ChildDataImplCopyWithImpl(
-      _$ChildDataImpl _value, $Res Function(_$ChildDataImpl) _then)
-      : super(_value, _then);
-
-  /// Create a copy of ChildData
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? childName = null,
-    Object? childId = null,
-    Object? slotList = null,
-  }) {
-    return _then(_$ChildDataImpl(
-      childName: null == childName
-          ? _value.childName
-          : childName // ignore: cast_nullable_to_non_nullable
-              as String,
-      childId: null == childId
-          ? _value.childId
-          : childId // ignore: cast_nullable_to_non_nullable
-              as int,
-      slotList: null == slotList
-          ? _value._slotList
-          : slotList // ignore: cast_nullable_to_non_nullable
-              as List<Slot>,
-    ));
-  }
-}
-
-/// @nodoc
-@JsonSerializable()
-class _$ChildDataImpl implements _ChildData {
-  const _$ChildDataImpl(
-      {@JsonKey(name: 'child_name') this.childName = '',
-      @JsonKey(name: 'child_id') this.childId = 0,
-      @JsonKey(name: 'slot_list') final List<Slot> slotList = const []})
-      : _slotList = slotList;
-
-  factory _$ChildDataImpl.fromJson(Map<String, dynamic> json) =>
-      _$$ChildDataImplFromJson(json);
-
-  @override
-  @JsonKey(name: 'child_name')
-  final String childName;
-  @override
-  @JsonKey(name: 'child_id')
-  final int childId;
-  final List<Slot> _slotList;
-  @override
-  @JsonKey(name: 'slot_list')
-  List<Slot> get slotList {
-    if (_slotList is EqualUnmodifiableListView) return _slotList;
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_slotList);
-  }
-
-  @override
-  String toString() {
-    return 'ChildData(childName: $childName, childId: $childId, slotList: $slotList)';
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$ChildDataImpl &&
-            (identical(other.childName, childName) ||
-                other.childName == childName) &&
-            (identical(other.childId, childId) || other.childId == childId) &&
-            const DeepCollectionEquality().equals(other._slotList, _slotList));
-  }
-
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  int get hashCode => Object.hash(runtimeType, childName, childId,
-      const DeepCollectionEquality().hash(_slotList));
-
-  /// Create a copy of ChildData
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$ChildDataImplCopyWith<_$ChildDataImpl> get copyWith =>
-      __$$ChildDataImplCopyWithImpl<_$ChildDataImpl>(this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$ChildDataImplToJson(
-      this,
-    );
-  }
-}
-
-abstract class _ChildData implements ChildData {
-  const factory _ChildData(
-      {@JsonKey(name: 'child_name') final String childName,
-      @JsonKey(name: 'child_id') final int childId,
-      @JsonKey(name: 'slot_list') final List<Slot> slotList}) = _$ChildDataImpl;
-
-  factory _ChildData.fromJson(Map<String, dynamic> json) =
-      _$ChildDataImpl.fromJson;
-
-  @override
-  @JsonKey(name: 'child_name')
-  String get childName;
-  @override
-  @JsonKey(name: 'child_id')
-  int get childId;
-  @override
-  @JsonKey(name: 'slot_list')
-  List<Slot> get slotList;
-
-  /// Create a copy of ChildData
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$ChildDataImplCopyWith<_$ChildDataImpl> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-Slot _$SlotFromJson(Map<String, dynamic> json) {
-  return _Slot.fromJson(json);
-}
-
-/// @nodoc
-mixin _$Slot {
+mixin _$ProgramData {
+  @JsonKey(name: 'player_names')
+  String get playerNames => throw _privateConstructorUsedError;
+  @JsonKey(name: 'coaching_program')
+  String get coachingProgram => throw _privateConstructorUsedError;
+  String get location => throw _privateConstructorUsedError;
   @JsonKey(name: 'session_id', fromJson: _parseSessionId)
   int get sessionId => throw _privateConstructorUsedError;
-  String get time => throw _privateConstructorUsedError;
-  String get date => throw _privateConstructorUsedError;
   @JsonKey(name: 'from_time')
   String get fromTime => throw _privateConstructorUsedError;
   @JsonKey(name: 'to_time')
   String get toTime => throw _privateConstructorUsedError;
-  @JsonKey(name: 'slots_left')
+  @JsonKey(name: 'slots_left', fromJson: _parseSlotsLeft)
   int get slotsLeft => throw _privateConstructorUsedError;
-  String get price => throw _privateConstructorUsedError;
+  @JsonKey(name: 'price_per_session')
+  double get pricePerSession => throw _privateConstructorUsedError;
+  @JsonKey(name: 'number_of_sessions')
+  int get numberOfSessions => throw _privateConstructorUsedError;
+  @JsonKey(name: 'total_amount')
+  double get totalAmount => throw _privateConstructorUsedError;
+  List<Discount> get discounts => throw _privateConstructorUsedError;
+  @JsonKey(name: 'total_after_discount')
+  double get totalAfterDiscount => throw _privateConstructorUsedError;
+  @JsonKey(name: 'booking_dates')
+  List<String> get bookingDates => throw _privateConstructorUsedError;
 
-  /// Serializes this Slot to a JSON map.
+  /// Serializes this ProgramData to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
 
-  /// Create a copy of Slot
+  /// Create a copy of ProgramData
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
-  $SlotCopyWith<Slot> get copyWith => throw _privateConstructorUsedError;
+  $ProgramDataCopyWith<ProgramData> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $SlotCopyWith<$Res> {
-  factory $SlotCopyWith(Slot value, $Res Function(Slot) then) =
-      _$SlotCopyWithImpl<$Res, Slot>;
+abstract class $ProgramDataCopyWith<$Res> {
+  factory $ProgramDataCopyWith(
+          ProgramData value, $Res Function(ProgramData) then) =
+      _$ProgramDataCopyWithImpl<$Res, ProgramData>;
   @useResult
   $Res call(
-      {@JsonKey(name: 'session_id', fromJson: _parseSessionId) int sessionId,
-      String time,
-      String date,
+      {@JsonKey(name: 'player_names') String playerNames,
+      @JsonKey(name: 'coaching_program') String coachingProgram,
+      String location,
+      @JsonKey(name: 'session_id', fromJson: _parseSessionId) int sessionId,
       @JsonKey(name: 'from_time') String fromTime,
       @JsonKey(name: 'to_time') String toTime,
-      @JsonKey(name: 'slots_left') int slotsLeft,
-      String price});
+      @JsonKey(name: 'slots_left', fromJson: _parseSlotsLeft) int slotsLeft,
+      @JsonKey(name: 'price_per_session') double pricePerSession,
+      @JsonKey(name: 'number_of_sessions') int numberOfSessions,
+      @JsonKey(name: 'total_amount') double totalAmount,
+      List<Discount> discounts,
+      @JsonKey(name: 'total_after_discount') double totalAfterDiscount,
+      @JsonKey(name: 'booking_dates') List<String> bookingDates});
 }
 
 /// @nodoc
-class _$SlotCopyWithImpl<$Res, $Val extends Slot>
-    implements $SlotCopyWith<$Res> {
-  _$SlotCopyWithImpl(this._value, this._then);
+class _$ProgramDataCopyWithImpl<$Res, $Val extends ProgramData>
+    implements $ProgramDataCopyWith<$Res> {
+  _$ProgramDataCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
 
-  /// Create a copy of Slot
+  /// Create a copy of ProgramData
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? playerNames = null,
+    Object? coachingProgram = null,
+    Object? location = null,
     Object? sessionId = null,
-    Object? time = null,
-    Object? date = null,
     Object? fromTime = null,
     Object? toTime = null,
     Object? slotsLeft = null,
-    Object? price = null,
+    Object? pricePerSession = null,
+    Object? numberOfSessions = null,
+    Object? totalAmount = null,
+    Object? discounts = null,
+    Object? totalAfterDiscount = null,
+    Object? bookingDates = null,
   }) {
     return _then(_value.copyWith(
+      playerNames: null == playerNames
+          ? _value.playerNames
+          : playerNames // ignore: cast_nullable_to_non_nullable
+              as String,
+      coachingProgram: null == coachingProgram
+          ? _value.coachingProgram
+          : coachingProgram // ignore: cast_nullable_to_non_nullable
+              as String,
+      location: null == location
+          ? _value.location
+          : location // ignore: cast_nullable_to_non_nullable
+              as String,
       sessionId: null == sessionId
           ? _value.sessionId
           : sessionId // ignore: cast_nullable_to_non_nullable
               as int,
-      time: null == time
-          ? _value.time
-          : time // ignore: cast_nullable_to_non_nullable
-              as String,
-      date: null == date
-          ? _value.date
-          : date // ignore: cast_nullable_to_non_nullable
-              as String,
       fromTime: null == fromTime
           ? _value.fromTime
           : fromTime // ignore: cast_nullable_to_non_nullable
@@ -531,64 +353,102 @@ class _$SlotCopyWithImpl<$Res, $Val extends Slot>
           ? _value.slotsLeft
           : slotsLeft // ignore: cast_nullable_to_non_nullable
               as int,
-      price: null == price
-          ? _value.price
-          : price // ignore: cast_nullable_to_non_nullable
-              as String,
+      pricePerSession: null == pricePerSession
+          ? _value.pricePerSession
+          : pricePerSession // ignore: cast_nullable_to_non_nullable
+              as double,
+      numberOfSessions: null == numberOfSessions
+          ? _value.numberOfSessions
+          : numberOfSessions // ignore: cast_nullable_to_non_nullable
+              as int,
+      totalAmount: null == totalAmount
+          ? _value.totalAmount
+          : totalAmount // ignore: cast_nullable_to_non_nullable
+              as double,
+      discounts: null == discounts
+          ? _value.discounts
+          : discounts // ignore: cast_nullable_to_non_nullable
+              as List<Discount>,
+      totalAfterDiscount: null == totalAfterDiscount
+          ? _value.totalAfterDiscount
+          : totalAfterDiscount // ignore: cast_nullable_to_non_nullable
+              as double,
+      bookingDates: null == bookingDates
+          ? _value.bookingDates
+          : bookingDates // ignore: cast_nullable_to_non_nullable
+              as List<String>,
     ) as $Val);
   }
 }
 
 /// @nodoc
-abstract class _$$SlotImplCopyWith<$Res> implements $SlotCopyWith<$Res> {
-  factory _$$SlotImplCopyWith(
-          _$SlotImpl value, $Res Function(_$SlotImpl) then) =
-      __$$SlotImplCopyWithImpl<$Res>;
+abstract class _$$ProgramDataImplCopyWith<$Res>
+    implements $ProgramDataCopyWith<$Res> {
+  factory _$$ProgramDataImplCopyWith(
+          _$ProgramDataImpl value, $Res Function(_$ProgramDataImpl) then) =
+      __$$ProgramDataImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
-      {@JsonKey(name: 'session_id', fromJson: _parseSessionId) int sessionId,
-      String time,
-      String date,
+      {@JsonKey(name: 'player_names') String playerNames,
+      @JsonKey(name: 'coaching_program') String coachingProgram,
+      String location,
+      @JsonKey(name: 'session_id', fromJson: _parseSessionId) int sessionId,
       @JsonKey(name: 'from_time') String fromTime,
       @JsonKey(name: 'to_time') String toTime,
-      @JsonKey(name: 'slots_left') int slotsLeft,
-      String price});
+      @JsonKey(name: 'slots_left', fromJson: _parseSlotsLeft) int slotsLeft,
+      @JsonKey(name: 'price_per_session') double pricePerSession,
+      @JsonKey(name: 'number_of_sessions') int numberOfSessions,
+      @JsonKey(name: 'total_amount') double totalAmount,
+      List<Discount> discounts,
+      @JsonKey(name: 'total_after_discount') double totalAfterDiscount,
+      @JsonKey(name: 'booking_dates') List<String> bookingDates});
 }
 
 /// @nodoc
-class __$$SlotImplCopyWithImpl<$Res>
-    extends _$SlotCopyWithImpl<$Res, _$SlotImpl>
-    implements _$$SlotImplCopyWith<$Res> {
-  __$$SlotImplCopyWithImpl(_$SlotImpl _value, $Res Function(_$SlotImpl) _then)
+class __$$ProgramDataImplCopyWithImpl<$Res>
+    extends _$ProgramDataCopyWithImpl<$Res, _$ProgramDataImpl>
+    implements _$$ProgramDataImplCopyWith<$Res> {
+  __$$ProgramDataImplCopyWithImpl(
+      _$ProgramDataImpl _value, $Res Function(_$ProgramDataImpl) _then)
       : super(_value, _then);
 
-  /// Create a copy of Slot
+  /// Create a copy of ProgramData
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? playerNames = null,
+    Object? coachingProgram = null,
+    Object? location = null,
     Object? sessionId = null,
-    Object? time = null,
-    Object? date = null,
     Object? fromTime = null,
     Object? toTime = null,
     Object? slotsLeft = null,
-    Object? price = null,
+    Object? pricePerSession = null,
+    Object? numberOfSessions = null,
+    Object? totalAmount = null,
+    Object? discounts = null,
+    Object? totalAfterDiscount = null,
+    Object? bookingDates = null,
   }) {
-    return _then(_$SlotImpl(
+    return _then(_$ProgramDataImpl(
+      playerNames: null == playerNames
+          ? _value.playerNames
+          : playerNames // ignore: cast_nullable_to_non_nullable
+              as String,
+      coachingProgram: null == coachingProgram
+          ? _value.coachingProgram
+          : coachingProgram // ignore: cast_nullable_to_non_nullable
+              as String,
+      location: null == location
+          ? _value.location
+          : location // ignore: cast_nullable_to_non_nullable
+              as String,
       sessionId: null == sessionId
           ? _value.sessionId
           : sessionId // ignore: cast_nullable_to_non_nullable
               as int,
-      time: null == time
-          ? _value.time
-          : time // ignore: cast_nullable_to_non_nullable
-              as String,
-      date: null == date
-          ? _value.date
-          : date // ignore: cast_nullable_to_non_nullable
-              as String,
       fromTime: null == fromTime
           ? _value.fromTime
           : fromTime // ignore: cast_nullable_to_non_nullable
@@ -601,39 +461,72 @@ class __$$SlotImplCopyWithImpl<$Res>
           ? _value.slotsLeft
           : slotsLeft // ignore: cast_nullable_to_non_nullable
               as int,
-      price: null == price
-          ? _value.price
-          : price // ignore: cast_nullable_to_non_nullable
-              as String,
+      pricePerSession: null == pricePerSession
+          ? _value.pricePerSession
+          : pricePerSession // ignore: cast_nullable_to_non_nullable
+              as double,
+      numberOfSessions: null == numberOfSessions
+          ? _value.numberOfSessions
+          : numberOfSessions // ignore: cast_nullable_to_non_nullable
+              as int,
+      totalAmount: null == totalAmount
+          ? _value.totalAmount
+          : totalAmount // ignore: cast_nullable_to_non_nullable
+              as double,
+      discounts: null == discounts
+          ? _value._discounts
+          : discounts // ignore: cast_nullable_to_non_nullable
+              as List<Discount>,
+      totalAfterDiscount: null == totalAfterDiscount
+          ? _value.totalAfterDiscount
+          : totalAfterDiscount // ignore: cast_nullable_to_non_nullable
+              as double,
+      bookingDates: null == bookingDates
+          ? _value._bookingDates
+          : bookingDates // ignore: cast_nullable_to_non_nullable
+              as List<String>,
     ));
   }
 }
 
 /// @nodoc
 @JsonSerializable()
-class _$SlotImpl implements _Slot {
-  const _$SlotImpl(
-      {@JsonKey(name: 'session_id', fromJson: _parseSessionId)
+class _$ProgramDataImpl implements _ProgramData {
+  const _$ProgramDataImpl(
+      {@JsonKey(name: 'player_names') this.playerNames = '',
+      @JsonKey(name: 'coaching_program') this.coachingProgram = '',
+      this.location = '',
+      @JsonKey(name: 'session_id', fromJson: _parseSessionId)
       this.sessionId = 0,
-      this.time = '',
-      this.date = '',
       @JsonKey(name: 'from_time') this.fromTime = '',
       @JsonKey(name: 'to_time') this.toTime = '',
-      @JsonKey(name: 'slots_left') this.slotsLeft = 0,
-      this.price = '\$0.00'});
+      @JsonKey(name: 'slots_left', fromJson: _parseSlotsLeft)
+      this.slotsLeft = 0,
+      @JsonKey(name: 'price_per_session') this.pricePerSession = 0.0,
+      @JsonKey(name: 'number_of_sessions') this.numberOfSessions = 0,
+      @JsonKey(name: 'total_amount') this.totalAmount = 0.0,
+      final List<Discount> discounts = const [],
+      @JsonKey(name: 'total_after_discount') this.totalAfterDiscount = 0.0,
+      @JsonKey(name: 'booking_dates')
+      final List<String> bookingDates = const []})
+      : _discounts = discounts,
+        _bookingDates = bookingDates;
 
-  factory _$SlotImpl.fromJson(Map<String, dynamic> json) =>
-      _$$SlotImplFromJson(json);
+  factory _$ProgramDataImpl.fromJson(Map<String, dynamic> json) =>
+      _$$ProgramDataImplFromJson(json);
 
+  @override
+  @JsonKey(name: 'player_names')
+  final String playerNames;
+  @override
+  @JsonKey(name: 'coaching_program')
+  final String coachingProgram;
+  @override
+  @JsonKey()
+  final String location;
   @override
   @JsonKey(name: 'session_id', fromJson: _parseSessionId)
   final int sessionId;
-  @override
-  @JsonKey()
-  final String time;
-  @override
-  @JsonKey()
-  final String date;
   @override
   @JsonKey(name: 'from_time')
   final String fromTime;
@@ -641,75 +534,142 @@ class _$SlotImpl implements _Slot {
   @JsonKey(name: 'to_time')
   final String toTime;
   @override
-  @JsonKey(name: 'slots_left')
+  @JsonKey(name: 'slots_left', fromJson: _parseSlotsLeft)
   final int slotsLeft;
   @override
+  @JsonKey(name: 'price_per_session')
+  final double pricePerSession;
+  @override
+  @JsonKey(name: 'number_of_sessions')
+  final int numberOfSessions;
+  @override
+  @JsonKey(name: 'total_amount')
+  final double totalAmount;
+  final List<Discount> _discounts;
+  @override
   @JsonKey()
-  final String price;
+  List<Discount> get discounts {
+    if (_discounts is EqualUnmodifiableListView) return _discounts;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_discounts);
+  }
+
+  @override
+  @JsonKey(name: 'total_after_discount')
+  final double totalAfterDiscount;
+  final List<String> _bookingDates;
+  @override
+  @JsonKey(name: 'booking_dates')
+  List<String> get bookingDates {
+    if (_bookingDates is EqualUnmodifiableListView) return _bookingDates;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_bookingDates);
+  }
 
   @override
   String toString() {
-    return 'Slot(sessionId: $sessionId, time: $time, date: $date, fromTime: $fromTime, toTime: $toTime, slotsLeft: $slotsLeft, price: $price)';
+    return 'ProgramData(playerNames: $playerNames, coachingProgram: $coachingProgram, location: $location, sessionId: $sessionId, fromTime: $fromTime, toTime: $toTime, slotsLeft: $slotsLeft, pricePerSession: $pricePerSession, numberOfSessions: $numberOfSessions, totalAmount: $totalAmount, discounts: $discounts, totalAfterDiscount: $totalAfterDiscount, bookingDates: $bookingDates)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$SlotImpl &&
+            other is _$ProgramDataImpl &&
+            (identical(other.playerNames, playerNames) ||
+                other.playerNames == playerNames) &&
+            (identical(other.coachingProgram, coachingProgram) ||
+                other.coachingProgram == coachingProgram) &&
+            (identical(other.location, location) ||
+                other.location == location) &&
             (identical(other.sessionId, sessionId) ||
                 other.sessionId == sessionId) &&
-            (identical(other.time, time) || other.time == time) &&
-            (identical(other.date, date) || other.date == date) &&
             (identical(other.fromTime, fromTime) ||
                 other.fromTime == fromTime) &&
             (identical(other.toTime, toTime) || other.toTime == toTime) &&
             (identical(other.slotsLeft, slotsLeft) ||
                 other.slotsLeft == slotsLeft) &&
-            (identical(other.price, price) || other.price == price));
+            (identical(other.pricePerSession, pricePerSession) ||
+                other.pricePerSession == pricePerSession) &&
+            (identical(other.numberOfSessions, numberOfSessions) ||
+                other.numberOfSessions == numberOfSessions) &&
+            (identical(other.totalAmount, totalAmount) ||
+                other.totalAmount == totalAmount) &&
+            const DeepCollectionEquality()
+                .equals(other._discounts, _discounts) &&
+            (identical(other.totalAfterDiscount, totalAfterDiscount) ||
+                other.totalAfterDiscount == totalAfterDiscount) &&
+            const DeepCollectionEquality()
+                .equals(other._bookingDates, _bookingDates));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(
-      runtimeType, sessionId, time, date, fromTime, toTime, slotsLeft, price);
+      runtimeType,
+      playerNames,
+      coachingProgram,
+      location,
+      sessionId,
+      fromTime,
+      toTime,
+      slotsLeft,
+      pricePerSession,
+      numberOfSessions,
+      totalAmount,
+      const DeepCollectionEquality().hash(_discounts),
+      totalAfterDiscount,
+      const DeepCollectionEquality().hash(_bookingDates));
 
-  /// Create a copy of Slot
+  /// Create a copy of ProgramData
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
-  _$$SlotImplCopyWith<_$SlotImpl> get copyWith =>
-      __$$SlotImplCopyWithImpl<_$SlotImpl>(this, _$identity);
+  _$$ProgramDataImplCopyWith<_$ProgramDataImpl> get copyWith =>
+      __$$ProgramDataImplCopyWithImpl<_$ProgramDataImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$SlotImplToJson(
+    return _$$ProgramDataImplToJson(
       this,
     );
   }
 }
 
-abstract class _Slot implements Slot {
-  const factory _Slot(
-      {@JsonKey(name: 'session_id', fromJson: _parseSessionId)
+abstract class _ProgramData implements ProgramData {
+  const factory _ProgramData(
+      {@JsonKey(name: 'player_names') final String playerNames,
+      @JsonKey(name: 'coaching_program') final String coachingProgram,
+      final String location,
+      @JsonKey(name: 'session_id', fromJson: _parseSessionId)
       final int sessionId,
-      final String time,
-      final String date,
       @JsonKey(name: 'from_time') final String fromTime,
       @JsonKey(name: 'to_time') final String toTime,
-      @JsonKey(name: 'slots_left') final int slotsLeft,
-      final String price}) = _$SlotImpl;
+      @JsonKey(name: 'slots_left', fromJson: _parseSlotsLeft)
+      final int slotsLeft,
+      @JsonKey(name: 'price_per_session') final double pricePerSession,
+      @JsonKey(name: 'number_of_sessions') final int numberOfSessions,
+      @JsonKey(name: 'total_amount') final double totalAmount,
+      final List<Discount> discounts,
+      @JsonKey(name: 'total_after_discount') final double totalAfterDiscount,
+      @JsonKey(name: 'booking_dates')
+      final List<String> bookingDates}) = _$ProgramDataImpl;
 
-  factory _Slot.fromJson(Map<String, dynamic> json) = _$SlotImpl.fromJson;
+  factory _ProgramData.fromJson(Map<String, dynamic> json) =
+      _$ProgramDataImpl.fromJson;
 
+  @override
+  @JsonKey(name: 'player_names')
+  String get playerNames;
+  @override
+  @JsonKey(name: 'coaching_program')
+  String get coachingProgram;
+  @override
+  String get location;
   @override
   @JsonKey(name: 'session_id', fromJson: _parseSessionId)
   int get sessionId;
-  @override
-  String get time;
-  @override
-  String get date;
   @override
   @JsonKey(name: 'from_time')
   String get fromTime;
@@ -717,15 +677,216 @@ abstract class _Slot implements Slot {
   @JsonKey(name: 'to_time')
   String get toTime;
   @override
-  @JsonKey(name: 'slots_left')
+  @JsonKey(name: 'slots_left', fromJson: _parseSlotsLeft)
   int get slotsLeft;
   @override
-  String get price;
+  @JsonKey(name: 'price_per_session')
+  double get pricePerSession;
+  @override
+  @JsonKey(name: 'number_of_sessions')
+  int get numberOfSessions;
+  @override
+  @JsonKey(name: 'total_amount')
+  double get totalAmount;
+  @override
+  List<Discount> get discounts;
+  @override
+  @JsonKey(name: 'total_after_discount')
+  double get totalAfterDiscount;
+  @override
+  @JsonKey(name: 'booking_dates')
+  List<String> get bookingDates;
 
-  /// Create a copy of Slot
+  /// Create a copy of ProgramData
   /// with the given fields replaced by the non-null parameter values.
   @override
   @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$SlotImplCopyWith<_$SlotImpl> get copyWith =>
+  _$$ProgramDataImplCopyWith<_$ProgramDataImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+Discount _$DiscountFromJson(Map<String, dynamic> json) {
+  return _Discount.fromJson(json);
+}
+
+/// @nodoc
+mixin _$Discount {
+  String get name => throw _privateConstructorUsedError;
+  double get amount => throw _privateConstructorUsedError;
+  String get type => throw _privateConstructorUsedError;
+
+  /// Serializes this Discount to a JSON map.
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+
+  /// Create a copy of Discount
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  $DiscountCopyWith<Discount> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $DiscountCopyWith<$Res> {
+  factory $DiscountCopyWith(Discount value, $Res Function(Discount) then) =
+      _$DiscountCopyWithImpl<$Res, Discount>;
+  @useResult
+  $Res call({String name, double amount, String type});
+}
+
+/// @nodoc
+class _$DiscountCopyWithImpl<$Res, $Val extends Discount>
+    implements $DiscountCopyWith<$Res> {
+  _$DiscountCopyWithImpl(this._value, this._then);
+
+  // ignore: unused_field
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
+
+  /// Create a copy of Discount
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? name = null,
+    Object? amount = null,
+    Object? type = null,
+  }) {
+    return _then(_value.copyWith(
+      name: null == name
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
+              as String,
+      amount: null == amount
+          ? _value.amount
+          : amount // ignore: cast_nullable_to_non_nullable
+              as double,
+      type: null == type
+          ? _value.type
+          : type // ignore: cast_nullable_to_non_nullable
+              as String,
+    ) as $Val);
+  }
+}
+
+/// @nodoc
+abstract class _$$DiscountImplCopyWith<$Res>
+    implements $DiscountCopyWith<$Res> {
+  factory _$$DiscountImplCopyWith(
+          _$DiscountImpl value, $Res Function(_$DiscountImpl) then) =
+      __$$DiscountImplCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call({String name, double amount, String type});
+}
+
+/// @nodoc
+class __$$DiscountImplCopyWithImpl<$Res>
+    extends _$DiscountCopyWithImpl<$Res, _$DiscountImpl>
+    implements _$$DiscountImplCopyWith<$Res> {
+  __$$DiscountImplCopyWithImpl(
+      _$DiscountImpl _value, $Res Function(_$DiscountImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of Discount
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? name = null,
+    Object? amount = null,
+    Object? type = null,
+  }) {
+    return _then(_$DiscountImpl(
+      name: null == name
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
+              as String,
+      amount: null == amount
+          ? _value.amount
+          : amount // ignore: cast_nullable_to_non_nullable
+              as double,
+      type: null == type
+          ? _value.type
+          : type // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+@JsonSerializable()
+class _$DiscountImpl implements _Discount {
+  const _$DiscountImpl({this.name = '', this.amount = 0.0, this.type = ''});
+
+  factory _$DiscountImpl.fromJson(Map<String, dynamic> json) =>
+      _$$DiscountImplFromJson(json);
+
+  @override
+  @JsonKey()
+  final String name;
+  @override
+  @JsonKey()
+  final double amount;
+  @override
+  @JsonKey()
+  final String type;
+
+  @override
+  String toString() {
+    return 'Discount(name: $name, amount: $amount, type: $type)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$DiscountImpl &&
+            (identical(other.name, name) || other.name == name) &&
+            (identical(other.amount, amount) || other.amount == amount) &&
+            (identical(other.type, type) || other.type == type));
+  }
+
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  int get hashCode => Object.hash(runtimeType, name, amount, type);
+
+  /// Create a copy of Discount
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$DiscountImplCopyWith<_$DiscountImpl> get copyWith =>
+      __$$DiscountImplCopyWithImpl<_$DiscountImpl>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$DiscountImplToJson(
+      this,
+    );
+  }
+}
+
+abstract class _Discount implements Discount {
+  const factory _Discount(
+      {final String name,
+      final double amount,
+      final String type}) = _$DiscountImpl;
+
+  factory _Discount.fromJson(Map<String, dynamic> json) =
+      _$DiscountImpl.fromJson;
+
+  @override
+  String get name;
+  @override
+  double get amount;
+  @override
+  String get type;
+
+  /// Create a copy of Discount
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$DiscountImplCopyWith<_$DiscountImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

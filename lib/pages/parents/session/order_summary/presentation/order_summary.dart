@@ -90,13 +90,15 @@ class OrderSummary extends StatelessWidget {
                                 itemCount: state.orderSummaryModel.data.length,
                                 shrinkWrap: true,
                                 itemBuilder: (context, index) {
+
                                   final session =
                                       state.orderSummaryModel.data[index];
 
                                   return AddedSlotListItem(
-                                    slotLit: session.slotList,
-                                    title: session.childName,
-                                    dateTime: "",
+                                    location: session.location,
+                                    slotLit: session.bookingDates,
+                                    title: session.playerNames,
+                                    dateTime: session.fromTime+" -"+session.toTime,
                                     onClose: () {
                                       // print("CLICKING WORKING HERE HERE HERE");
                                       // Map<String, dynamic> map = {
@@ -110,7 +112,7 @@ class OrderSummary extends StatelessWidget {
                                       //     .add(RemoveSessionByDateEvent(
                                       //         map, index));
                                     },
-                                    price: "",
+                                    price: session.pricePerSession.toString(),
                                   );
                                 },
                               ),

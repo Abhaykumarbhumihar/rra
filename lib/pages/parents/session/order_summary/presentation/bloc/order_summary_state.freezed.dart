@@ -23,6 +23,7 @@ mixin _$OrderSummaryState {
   bool get isLoginApiError => throw _privateConstructorUsedError;
   String get couponMessage => throw _privateConstructorUsedError;
   OrderSummaryModel get orderSummaryModel => throw _privateConstructorUsedError;
+  GetTotalModel get getTotalRespone => throw _privateConstructorUsedError;
 
   /// Create a copy of OrderSummaryState
   /// with the given fields replaced by the non-null parameter values.
@@ -44,9 +45,11 @@ abstract class $OrderSummaryStateCopyWith<$Res> {
       bool isError,
       bool isLoginApiError,
       String couponMessage,
-      OrderSummaryModel orderSummaryModel});
+      OrderSummaryModel orderSummaryModel,
+      GetTotalModel getTotalRespone});
 
   $OrderSummaryModelCopyWith<$Res> get orderSummaryModel;
+  $GetTotalModelCopyWith<$Res> get getTotalRespone;
 }
 
 /// @nodoc
@@ -71,6 +74,7 @@ class _$OrderSummaryStateCopyWithImpl<$Res, $Val extends OrderSummaryState>
     Object? isLoginApiError = null,
     Object? couponMessage = null,
     Object? orderSummaryModel = null,
+    Object? getTotalRespone = null,
   }) {
     return _then(_value.copyWith(
       isLoading: null == isLoading
@@ -101,6 +105,10 @@ class _$OrderSummaryStateCopyWithImpl<$Res, $Val extends OrderSummaryState>
           ? _value.orderSummaryModel
           : orderSummaryModel // ignore: cast_nullable_to_non_nullable
               as OrderSummaryModel,
+      getTotalRespone: null == getTotalRespone
+          ? _value.getTotalRespone
+          : getTotalRespone // ignore: cast_nullable_to_non_nullable
+              as GetTotalModel,
     ) as $Val);
   }
 
@@ -111,6 +119,16 @@ class _$OrderSummaryStateCopyWithImpl<$Res, $Val extends OrderSummaryState>
   $OrderSummaryModelCopyWith<$Res> get orderSummaryModel {
     return $OrderSummaryModelCopyWith<$Res>(_value.orderSummaryModel, (value) {
       return _then(_value.copyWith(orderSummaryModel: value) as $Val);
+    });
+  }
+
+  /// Create a copy of OrderSummaryState
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $GetTotalModelCopyWith<$Res> get getTotalRespone {
+    return $GetTotalModelCopyWith<$Res>(_value.getTotalRespone, (value) {
+      return _then(_value.copyWith(getTotalRespone: value) as $Val);
     });
   }
 }
@@ -130,10 +148,13 @@ abstract class _$$OrderSummaryStateImplCopyWith<$Res>
       bool isError,
       bool isLoginApiError,
       String couponMessage,
-      OrderSummaryModel orderSummaryModel});
+      OrderSummaryModel orderSummaryModel,
+      GetTotalModel getTotalRespone});
 
   @override
   $OrderSummaryModelCopyWith<$Res> get orderSummaryModel;
+  @override
+  $GetTotalModelCopyWith<$Res> get getTotalRespone;
 }
 
 /// @nodoc
@@ -156,6 +177,7 @@ class __$$OrderSummaryStateImplCopyWithImpl<$Res>
     Object? isLoginApiError = null,
     Object? couponMessage = null,
     Object? orderSummaryModel = null,
+    Object? getTotalRespone = null,
   }) {
     return _then(_$OrderSummaryStateImpl(
       isLoading: null == isLoading
@@ -186,6 +208,10 @@ class __$$OrderSummaryStateImplCopyWithImpl<$Res>
           ? _value.orderSummaryModel
           : orderSummaryModel // ignore: cast_nullable_to_non_nullable
               as OrderSummaryModel,
+      getTotalRespone: null == getTotalRespone
+          ? _value.getTotalRespone
+          : getTotalRespone // ignore: cast_nullable_to_non_nullable
+              as GetTotalModel,
     ));
   }
 }
@@ -200,7 +226,8 @@ class _$OrderSummaryStateImpl implements _OrderSummaryState {
       this.isError = false,
       this.isLoginApiError = false,
       this.couponMessage = '',
-      this.orderSummaryModel = const OrderSummaryModel()});
+      this.orderSummaryModel = const OrderSummaryModel(),
+      this.getTotalRespone = const GetTotalModel()});
 
   @override
   @JsonKey()
@@ -221,10 +248,13 @@ class _$OrderSummaryStateImpl implements _OrderSummaryState {
   @override
   @JsonKey()
   final OrderSummaryModel orderSummaryModel;
+  @override
+  @JsonKey()
+  final GetTotalModel getTotalRespone;
 
   @override
   String toString() {
-    return 'OrderSummaryState(isLoading: $isLoading, error: $error, success: $success, isError: $isError, isLoginApiError: $isLoginApiError, couponMessage: $couponMessage, orderSummaryModel: $orderSummaryModel)';
+    return 'OrderSummaryState(isLoading: $isLoading, error: $error, success: $success, isError: $isError, isLoginApiError: $isLoginApiError, couponMessage: $couponMessage, orderSummaryModel: $orderSummaryModel, getTotalRespone: $getTotalRespone)';
   }
 
   @override
@@ -242,7 +272,9 @@ class _$OrderSummaryStateImpl implements _OrderSummaryState {
             (identical(other.couponMessage, couponMessage) ||
                 other.couponMessage == couponMessage) &&
             (identical(other.orderSummaryModel, orderSummaryModel) ||
-                other.orderSummaryModel == orderSummaryModel));
+                other.orderSummaryModel == orderSummaryModel) &&
+            (identical(other.getTotalRespone, getTotalRespone) ||
+                other.getTotalRespone == getTotalRespone));
   }
 
   @override
@@ -254,7 +286,8 @@ class _$OrderSummaryStateImpl implements _OrderSummaryState {
       isError,
       isLoginApiError,
       couponMessage,
-      orderSummaryModel);
+      orderSummaryModel,
+      getTotalRespone);
 
   /// Create a copy of OrderSummaryState
   /// with the given fields replaced by the non-null parameter values.
@@ -274,7 +307,8 @@ abstract class _OrderSummaryState implements OrderSummaryState {
       final bool isError,
       final bool isLoginApiError,
       final String couponMessage,
-      final OrderSummaryModel orderSummaryModel}) = _$OrderSummaryStateImpl;
+      final OrderSummaryModel orderSummaryModel,
+      final GetTotalModel getTotalRespone}) = _$OrderSummaryStateImpl;
 
   @override
   bool get isLoading;
@@ -290,6 +324,8 @@ abstract class _OrderSummaryState implements OrderSummaryState {
   String get couponMessage;
   @override
   OrderSummaryModel get orderSummaryModel;
+  @override
+  GetTotalModel get getTotalRespone;
 
   /// Create a copy of OrderSummaryState
   /// with the given fields replaced by the non-null parameter values.

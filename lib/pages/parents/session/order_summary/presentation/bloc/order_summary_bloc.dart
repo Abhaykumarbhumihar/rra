@@ -3,6 +3,7 @@ import 'package:meta/meta.dart';
 
 import '../../../../../../common/local/SharedPrefs.dart';
 import '../../../../../../common/service_locator/setivelocator.dart';
+import '../../../../../../common/values/utils.dart';
 import '../../data/entity/order_summary/order_summary_model.dart';
 import '../../domain/usecase/order_summary_usecase.dart';
 import 'order_summary_event.dart';
@@ -77,7 +78,7 @@ emit(state.copyWith(isLoading: true,couponMessage: ''));
           orderSummaryModel: OrderSummaryModel(), isLoading: false));
     }, (orderSummaryData) async {
       print("==_getOrderSummary=_getOrderSummary========\n\n");
-      //  Utils.LogPrint(orderSummaryData);
+      Utils.LogPrint(orderSummaryData);
       print("==_getOrderSummary==_getOrderSummary=======\n\n");
       emit(state.copyWith(
           orderSummaryModel: orderSummaryData, isLoading: false));
@@ -87,7 +88,7 @@ emit(state.copyWith(isLoading: true,couponMessage: ''));
       Map<String,dynamic>map={
         "academy_id":academyId,
       };
-      add(GetTotalPriceEvent(map));
+     // add(GetTotalPriceEvent(map));
     });
   }
 }

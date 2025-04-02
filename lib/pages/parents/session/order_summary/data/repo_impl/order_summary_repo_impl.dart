@@ -13,6 +13,7 @@ import '../../../../../../common/network/app_constant.dart';
 import '../../../../../../common/network/failure.dart';
 import '../../../../../../common/service_locator/setivelocator.dart';
 import '../../domain/repositry/order_summary_repositery.dart';
+import '../entity/get_total/get_total_model.dart';
 import '../entity/order_summary/order_summary_model.dart';
 
 
@@ -67,7 +68,7 @@ class OrderSummaryRepoImpl implements OrderSummaryRepositery {
   }
 
   @override
-  Future<Either<Failure, dynamic>> getTotalPrice(Map<String, dynamic> getPriceData)async {
+  Future<Either<Failure, GetTotalModel>> getTotalPrice(Map<String, dynamic> getPriceData)async {
     try {
 
       print("+++++++getTotalPrice++++++++++++++getTotalPrice++++++++++getTotalPrice+++++++++++++++++++");
@@ -83,9 +84,9 @@ class OrderSummaryRepoImpl implements OrderSummaryRepositery {
 
         if(responseData['success']){
           print("getTotalPrice $responseData");//here my code is running
-
+          GetTotalModel getTotalModel=GetTotalModel.fromJson(responseData);
           Utils.LogPrint(responseData);
-          return Right(responseData);
+          return Right(getTotalModel);
 
         }else{
           print("CODE IS RU NNNNNNNN");
