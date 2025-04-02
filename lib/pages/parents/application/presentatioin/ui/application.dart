@@ -30,6 +30,8 @@ class ApplicationPage extends StatelessWidget {
         builder: (context, state) {
           print(
               "application.dart application.dart application.dart application.dart");
+          context.read<AppBloc>().loadUserData();
+          context.read<AppBloc>().add(UserDataUpdate());
           return SizedBox(
             width: context.screenWidth,
             height: context.screenHeight,

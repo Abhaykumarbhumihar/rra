@@ -9,15 +9,8 @@ class ApplicationUseCase {
   final ApplicationRepositery _applicationRepositery;
   ApplicationUseCase(this._applicationRepositery);
 
-  Future<Either<Failure, StateResponseModel>> getStateListRequest(
-      Map<String, String> stateData) async {
-    return await _applicationRepositery.getStateList(stateData);
-  }
 
-  Future<Either<Failure, CityResponse>> getCityList(
-      Map<String, String> cityData) async {
-    return await _applicationRepositery.getCity(cityData);
-  }
+
 
   Future<Either<Failure, dynamic>> reportCommentReplyExecute(
       Map<String, String> reportData) async {

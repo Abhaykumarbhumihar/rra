@@ -30,17 +30,20 @@ class OrderSummaryBloc extends Bloc<OrderSummaryEvent, OrderSummaryState> {
 
   Future<void> _isSlotRemoveLoading(
       RemoveSlotEvent event, Emitter<OrderSummaryState> emit) async {
-    emit(state.copyWith(isLoading: true, couponMessage: ''));
+    emit(state.copyWith(isLoading: true,isSlotRemoveLoading: true, couponMessage: ''));
     final response =
         await _sessionCalendarUsecase.removeSessionByDateExecute(event.data);
 
     response.fold((failure) {
-      emit(state.copyWith(isLoading: false, couponMessage: failure.message));
+      emit(state.copyWith(isLoading: false,
+          isSlotRemoveLoading: false,
+          couponMessage: failure.message));
     }, (orderSummaryData) {
       print("==_applyCoupons=_applyCoupons========\n\n");
       //  Utils.LogPrint(orderSummaryData);
       print("==_applyCoupons==_applyCoupons=======\n\n");
       emit(state.copyWith(
+        isSlotRemoveLoading: false,
         isLoading: true,
       ));
       add(GetOrderSummaryEvent(state.selectedChildId));
@@ -80,6 +83,7 @@ class OrderSummaryBloc extends Bloc<OrderSummaryEvent, OrderSummaryState> {
 
   Future<void> _getOrderSummary(
       GetOrderSummaryEvent event, Emitter<OrderSummaryState> emit) async {
+    emit(state.copyWith(isLoading: true,isSlotRemoveLoading: false));
     print("C C C C C C CC C C C C C C C C C C");
     final response =
         await _orderSummaryUsecase.getOrderSummaryExecute(event.data);

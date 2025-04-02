@@ -21,28 +21,17 @@ class HandleBackPressEvent extends AppEvent {
   List<Object?> get props => [lastPressedAt];
 }
 
-
-
-
-
-class LastPageNameEvent extends AppEvent {
-  final String pageName;
-  LastPageNameEvent(this.pageName);
-
+class UserDataUpdate extends AppEvent {
   @override
-  List<Object?> get props => [pageName];
+  List<Object?> get props => [];
 }
 
 
 
-class ReportCommentReplyEvent extends AppEvent {
-  Map<String, String> reportData;
 
-  ReportCommentReplyEvent(
-      this.reportData
-      );
 
-  @override
-  List<Object?> get props => [reportData];
-}
+
+
+
+
 

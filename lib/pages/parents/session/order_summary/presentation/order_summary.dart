@@ -16,6 +16,7 @@ import '../../coachprograms/presentation/bloc/coach_programs_bloc.dart';
 import 'bloc/order_summary_bloc.dart';
 import 'bloc/order_summary_event.dart';
 import 'bloc/order_summary_state.dart';
+import 'component/order_summary_shimmer.dart';
 import 'component/payment_bottom_sheet.dart';
 
 class OrderSummary extends StatelessWidget {
@@ -93,6 +94,17 @@ class OrderSummary extends StatelessWidget {
                                       "${BlocProvider.of<CoachingProgramsBloc>(context).state.coachingName}",
                                 ),
                               ),
+                              state.isLoading==true?Container(
+                                child: ListView.builder(
+                                  padding: EdgeInsets.zero,
+                                    itemCount: 3,
+                                    shrinkWrap: true,
+                                    physics: NeverScrollableScrollPhysics(),
+
+                                    itemBuilder: (context,index){
+                                  return OrderSummaryShimmer();
+                                }),
+                              ):
                               SizedBox(
                                 width: double.infinity,
                                 child: ListView.builder(
@@ -150,17 +162,6 @@ class OrderSummary extends StatelessWidget {
                                         BlocProvider.of<OrderSummaryBloc>(
                                                 context)
                                             .add(RemoveSlotEvent(map));
-                                        // print("CLICKING WORKING HERE HERE HERE");
-                                        // Map<String, dynamic> map = {
-                                        //   "session_id": session.sessionId,
-                                        //   "date": session.date,
-                                        //   "from_time": session.fromTime,
-                                        //   "to_time": session.toTime
-                                        // };
-                                        // BlocProvider.of<SessionCalendarBloc>(
-                                        //         context)
-                                        //     .add(RemoveSessionByDateEvent(
-                                        //         map, index));
                                       },
                                       price: session.pricePerSession.toString(),
                                     );
@@ -170,7 +171,7 @@ class OrderSummary extends StatelessWidget {
                               SizedBox(
                                 height: 15,
                               ),
-                              CustomButton(
+                              state.isLoading==true?Container():CustomButton(
                                 text: "Submit",
                                 onPressed: () {
                                   showPaymentBottomSheet(context,
