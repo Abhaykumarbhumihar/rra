@@ -12,4 +12,8 @@ class OrderSummaryUsecase {
       Map<String, dynamic> timeToAddData) async {
     return _orderSummaryRepositery.getOrderSummary(timeToAddData);
   }
+  Future<Either<Failure, dynamic>> getTotalPriceExecute(
+      Map<String, dynamic> timeToAddData) async {
+    return _orderSummaryRepositery.getTotalPrice(timeToAddData);
+  }
 }

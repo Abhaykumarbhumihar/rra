@@ -25,7 +25,7 @@ class OrderSummary extends StatelessWidget {
       listener: (context, state) {
 
         print("CHECKING ORDER SUMMARY MODEL------");
-        print(state.orderSummaryModel);
+       // print(state.orderSummaryModel);
       },
       child: BlocBuilder<OrderSummaryBloc, OrderSummaryState>(
         builder: (context, state) {

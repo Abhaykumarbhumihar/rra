@@ -31,7 +31,7 @@ class OrderSummaryRepoImpl implements OrderSummaryRepositery {
       await _apiServices.post(AppConstant.getOrderSummaryData, orderSummaryData,useDefaultHeaders: true,isJson: true);
       print("nvnvnvnv+++vnvnv++++++++\n\n");
 
-      print(response.body);
+
       if (response.statusCode == 200) {
         final Map<String, dynamic> responseData = jsonDecode(response.body);
 
@@ -40,8 +40,6 @@ class OrderSummaryRepoImpl implements OrderSummaryRepositery {
           print("CODE IS RU RURURURURURUR $responseData");//here my code is running
           OrderSummaryModel orderSummaryModel=OrderSummaryModel.fromJson(responseData);
           ///here it is not wokring
-          print("CHECKING DATA HERE _______====== $responseData");
-          Utils.LogPrint(responseData);
           return Right(orderSummaryModel);
 
         }else{
@@ -65,6 +63,42 @@ class OrderSummaryRepoImpl implements OrderSummaryRepositery {
       return errorData['message'] ?? 'Unknown error occurred';
     } catch (e) {
       return 'Something goes wrong';
+    }
+  }
+
+  @override
+  Future<Either<Failure, dynamic>> getTotalPrice(Map<String, dynamic> getPriceData)async {
+    try {
+
+      print("+++++++getTotalPrice++++++++++++++getTotalPrice++++++++++getTotalPrice+++++++++++++++++++");
+      print(getPriceData);
+      http.Response response =
+          await _apiServices.post(AppConstant.getTotal, getPriceData,useDefaultHeaders: true,isJson: false);
+      print("nvnvnvnv+++vnvnv++++++++\n\n");
+
+      print(response.body);
+      if (response.statusCode == 200) {
+        final Map<String, dynamic> responseData = jsonDecode(response.body);
+
+
+        if(responseData['success']){
+          print("getTotalPrice $responseData");//here my code is running
+
+          Utils.LogPrint(responseData);
+          return Right(responseData);
+
+        }else{
+          print("CODE IS RU NNNNNNNN");
+          return Left(Failure(responseData['message']));
+        }
+
+      } else {
+        final errorMessage = _extractErrorMessage(response.body);
+        return Left(Failure(errorMessage));
+      }
+
+    } catch (e) {
+      return Left(Failure("$e"));
     }
   }
 }

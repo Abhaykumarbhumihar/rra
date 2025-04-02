@@ -73,7 +73,7 @@ class ApiServices {
       } else if (method == 'POST') {
         print(
             "CODE IS RUNNING HERE== with headers isJSIN $isJson\n\n and body is $body");
-        print(headers);
+      //  print(headers);
 
         final response = await http
             .post(
