@@ -3,6 +3,8 @@ import 'package:rra/common/values/values_exports.dart';
 import '../../../../application/presentatioin/bloc/app_bloc.dart';
 
 class CustomHeaderWithOutTitle extends StatelessWidget {
+  const CustomHeaderWithOutTitle({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Container(
