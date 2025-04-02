@@ -1,4 +1,5 @@
 import 'package:flutter_animate/flutter_animate.dart';
+import 'package:flutter_stripe/flutter_stripe.dart';
 import 'package:rra/common/component/common_background.dart';
 import 'package:rra/common/values/utils.dart';
 import 'package:rra/common/values/values_exports.dart';
@@ -60,7 +61,8 @@ class LoginScreen extends StatelessWidget {
                   .add(GroupCoachProgramsListEvent());
               BlocProvider.of<CoachingProgramsBloc>(context)
                   .add(PrivateCoachingProgramsList());
-
+              var publishKey = await SharedPrefs.getString("stripe_publish_key");
+              Stripe.publishableKey = publishKey;
               Navigator.pushNamedAndRemoveUntil(
                 context,
                 AppRoutes.APPLICATION,

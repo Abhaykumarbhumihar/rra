@@ -34,10 +34,11 @@ class AllCoachProgramsSelectedTabEvent extends CoachProgramsBlocEvent{
 class StoreCoachingNameAndId extends CoachProgramsBlocEvent {
   String coachingname;
   String coachingId;
-  StoreCoachingNameAndId(this.coachingname,this.coachingId);
+  int minimumCountOfBooking;
+  StoreCoachingNameAndId(this.coachingname,this.coachingId,this.minimumCountOfBooking);
 
   @override
-  List<Object?> get props => [coachingname,coachingId];
+  List<Object?> get props => [coachingname,coachingId,minimumCountOfBooking];
 }
 
 

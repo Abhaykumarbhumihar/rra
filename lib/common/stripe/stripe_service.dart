@@ -6,11 +6,27 @@ import 'package:flutter_stripe/flutter_stripe.dart';
 import 'package:http/http.dart' as http;
 import 'package:rra/common/stripe/stripe_const.dart';
 
+import '../local/SharedPrefs.dart';
+
 class StripeService {
   StripeService._();
 
+  /// Store publishable key
+  String? _publishableKey;
   static final StripeService instance = StripeService._();
-  Future<Map<String, String>?> makePayment() async {
+  /// Publishable Key ko SharedPrefs se Fetch karke Set Kare
+  Future<void> setPublishableKey() async {
+    _publishableKey = await SharedPrefs.getString("stripe_publish_key");
+
+    if (_publishableKey != null && _publishableKey!.isNotEmpty) {
+      Stripe.publishableKey = _publishableKey!;
+      debugPrint("Stripe Publishable Key Set: $_publishableKey");
+    } else {
+      debugPrint("Error: Publishable Key not found in SharedPrefs!");
+    }
+  }
+
+  Future<Map<String, String>?> makePayment(price) async {
     try {
       String? clientSecret = await createPaymentIntent(1800, "usd");
 
@@ -70,6 +86,7 @@ class StripeService {
   // }
   Future<Map<String, String>?> _processPayment(String paymentIntentId) async {
     try {
+      var stripeSecretKey = await SharedPrefs.getString("stripe_auth_key");
       await Stripe.instance.presentPaymentSheet();
       debugPrint("Payment successful!");
 
@@ -98,6 +115,8 @@ class StripeService {
   }
   Future<String?> createPaymentIntent(int amount, String currency) async {
     try {
+      var stripeSecretKey = await SharedPrefs.getString("stripe_auth_key");
+
       final response = await http.post(
         Uri.parse('https://api.stripe.com/v1/payment_intents'),
         headers: {

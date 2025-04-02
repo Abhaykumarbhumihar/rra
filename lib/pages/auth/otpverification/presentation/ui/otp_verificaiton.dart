@@ -1,3 +1,4 @@
+import 'package:flutter_stripe/flutter_stripe.dart';
 import 'package:pin_code_fields/pin_code_fields.dart';
 import 'package:rra/common/network/connectivity_extension.dart';
 import 'package:rra/common/values/values_exports.dart';
@@ -56,7 +57,8 @@ class OtpVerificaiton extends StatelessWidget {
               await SharedPrefs.setString("token", state.otpresponse.token);
               BlocProvider.of<CoachingProgramsBloc>(context).add(GroupCoachProgramsListEvent());
               BlocProvider.of<CoachingProgramsBloc>(context).add(PrivateCoachingProgramsList());
-
+              var publishKey = await SharedPrefs.getString("stripe_publish_key");
+              Stripe.publishableKey = publishKey;
               Navigator.pushNamedAndRemoveUntil(
                 context,
                 AppRoutes.APPLICATION,

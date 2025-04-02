@@ -45,6 +45,13 @@ class AcademicListPage extends StatelessWidget {
                     onTap: () async {
                       await SharedPrefs.setString(
                           "selected_academyid", academy.id.toString());
+
+                      await SharedPrefs.setString(
+                          "stripe_auth_key", academy.payment_gateway_details?.auth_key.toString()??"");
+
+                      await SharedPrefs.setString(
+                          "stripe_publish_key",academy.payment_gateway_details?.publish_key.toString()??"");
+
                       context
                           .read<AcademicBloc>()
                           .add(AcademicEvent.selectAcademicLogin(academy.id.toString()));

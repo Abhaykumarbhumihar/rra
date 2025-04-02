@@ -18,7 +18,7 @@ final GlobalKey<NavigatorState> navigatorKey = GlobalKey<NavigatorState>();
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   serviceLocator();
-  Stripe.publishableKey = stripePublishableKey;
+
   HttpOverrides.global = CustomHttpOverrides();
   await SharedPrefs.init();
   runApp(const MyApp());

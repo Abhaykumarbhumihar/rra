@@ -1,4 +1,5 @@
 import 'package:flutter/cupertino.dart';
+import 'package:flutter_stripe/flutter_stripe.dart';
 import 'package:rra/common/values/utils.dart';
 import 'package:rra/common/values/values_exports.dart';
 import 'package:rra/common/routes/exports.dart';
@@ -48,6 +49,8 @@ Utils.LogPrint(state.userdata);
             var userdata = await SharedPrefs.getModel<OtpVerificationModel>("user_model", (json) => OtpVerificationModel.fromJson(json));
            print(userdata?.data?.mobile!);
            print(userdata?.data?.isProfileCompleted!);
+            var publishKey = await SharedPrefs.getString("stripe_publish_key");
+            Stripe.publishableKey = publishKey;
             Navigator.pushNamedAndRemoveUntil(
               context,
               AppRoutes.APPLICATION,

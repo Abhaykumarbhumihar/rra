@@ -79,6 +79,7 @@ class CoachProgramsState with _$CoachProgramsState {
      @Default(CoachingProgramResponse()) CoachingProgramResponse privateCoachProgramList,
     @Default("") String coachingID,
     @Default("") String coachingName,
+    @Default(0) int minimumCountOfBooking,
   }) = _CoachProgramsState;
 
   // Initial state factory method
@@ -87,6 +88,7 @@ class CoachProgramsState with _$CoachProgramsState {
     groupCoachProgramList:CoachingProgramResponse(),
     privateCoachProgramList: CoachingProgramResponse(),
     coachingID:"",
+    minimumCountOfBooking:0,
     coachingName:"",
     isLoading: false,
     error: null,

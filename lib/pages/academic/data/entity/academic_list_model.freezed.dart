@@ -248,6 +248,8 @@ mixin _$AcademyData {
   int get status => throw _privateConstructorUsedError;
   String get created_at => throw _privateConstructorUsedError;
   String get updated_at => throw _privateConstructorUsedError;
+  PaymentGatewayDetails? get payment_gateway_details =>
+      throw _privateConstructorUsedError;
 
   /// Serializes this AcademyData to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -276,7 +278,10 @@ abstract class $AcademyDataCopyWith<$Res> {
       String domain,
       int status,
       String created_at,
-      String updated_at});
+      String updated_at,
+      PaymentGatewayDetails? payment_gateway_details});
+
+  $PaymentGatewayDetailsCopyWith<$Res>? get payment_gateway_details;
 }
 
 /// @nodoc
@@ -305,6 +310,7 @@ class _$AcademyDataCopyWithImpl<$Res, $Val extends AcademyData>
     Object? status = null,
     Object? created_at = null,
     Object? updated_at = null,
+    Object? payment_gateway_details = freezed,
   }) {
     return _then(_value.copyWith(
       id: null == id
@@ -351,7 +357,26 @@ class _$AcademyDataCopyWithImpl<$Res, $Val extends AcademyData>
           ? _value.updated_at
           : updated_at // ignore: cast_nullable_to_non_nullable
               as String,
+      payment_gateway_details: freezed == payment_gateway_details
+          ? _value.payment_gateway_details
+          : payment_gateway_details // ignore: cast_nullable_to_non_nullable
+              as PaymentGatewayDetails?,
     ) as $Val);
+  }
+
+  /// Create a copy of AcademyData
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $PaymentGatewayDetailsCopyWith<$Res>? get payment_gateway_details {
+    if (_value.payment_gateway_details == null) {
+      return null;
+    }
+
+    return $PaymentGatewayDetailsCopyWith<$Res>(_value.payment_gateway_details!,
+        (value) {
+      return _then(_value.copyWith(payment_gateway_details: value) as $Val);
+    });
   }
 }
 
@@ -374,7 +399,11 @@ abstract class _$$AcademyDataImplCopyWith<$Res>
       String domain,
       int status,
       String created_at,
-      String updated_at});
+      String updated_at,
+      PaymentGatewayDetails? payment_gateway_details});
+
+  @override
+  $PaymentGatewayDetailsCopyWith<$Res>? get payment_gateway_details;
 }
 
 /// @nodoc
@@ -401,6 +430,7 @@ class __$$AcademyDataImplCopyWithImpl<$Res>
     Object? status = null,
     Object? created_at = null,
     Object? updated_at = null,
+    Object? payment_gateway_details = freezed,
   }) {
     return _then(_$AcademyDataImpl(
       id: null == id
@@ -447,6 +477,10 @@ class __$$AcademyDataImplCopyWithImpl<$Res>
           ? _value.updated_at
           : updated_at // ignore: cast_nullable_to_non_nullable
               as String,
+      payment_gateway_details: freezed == payment_gateway_details
+          ? _value.payment_gateway_details
+          : payment_gateway_details // ignore: cast_nullable_to_non_nullable
+              as PaymentGatewayDetails?,
     ));
   }
 }
@@ -465,7 +499,8 @@ class _$AcademyDataImpl implements _AcademyData {
       this.domain = '',
       this.status = 0,
       this.created_at = '',
-      this.updated_at = ''});
+      this.updated_at = '',
+      this.payment_gateway_details});
 
   factory _$AcademyDataImpl.fromJson(Map<String, dynamic> json) =>
       _$$AcademyDataImplFromJson(json);
@@ -503,10 +538,12 @@ class _$AcademyDataImpl implements _AcademyData {
   @override
   @JsonKey()
   final String updated_at;
+  @override
+  final PaymentGatewayDetails? payment_gateway_details;
 
   @override
   String toString() {
-    return 'AcademyData(id: $id, academy_name: $academy_name, address: $address, logo: $logo, contact_person_name: $contact_person_name, contact_person_email: $contact_person_email, phone_number: $phone_number, domain: $domain, status: $status, created_at: $created_at, updated_at: $updated_at)';
+    return 'AcademyData(id: $id, academy_name: $academy_name, address: $address, logo: $logo, contact_person_name: $contact_person_name, contact_person_email: $contact_person_email, phone_number: $phone_number, domain: $domain, status: $status, created_at: $created_at, updated_at: $updated_at, payment_gateway_details: $payment_gateway_details)';
   }
 
   @override
@@ -530,7 +567,10 @@ class _$AcademyDataImpl implements _AcademyData {
             (identical(other.created_at, created_at) ||
                 other.created_at == created_at) &&
             (identical(other.updated_at, updated_at) ||
-                other.updated_at == updated_at));
+                other.updated_at == updated_at) &&
+            (identical(
+                    other.payment_gateway_details, payment_gateway_details) ||
+                other.payment_gateway_details == payment_gateway_details));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
@@ -547,7 +587,8 @@ class _$AcademyDataImpl implements _AcademyData {
       domain,
       status,
       created_at,
-      updated_at);
+      updated_at,
+      payment_gateway_details);
 
   /// Create a copy of AcademyData
   /// with the given fields replaced by the non-null parameter values.
@@ -567,17 +608,19 @@ class _$AcademyDataImpl implements _AcademyData {
 
 abstract class _AcademyData implements AcademyData {
   const factory _AcademyData(
-      {final int id,
-      final String academy_name,
-      final String address,
-      final String logo,
-      final String contact_person_name,
-      final String contact_person_email,
-      final String phone_number,
-      final String domain,
-      final int status,
-      final String created_at,
-      final String updated_at}) = _$AcademyDataImpl;
+          {final int id,
+          final String academy_name,
+          final String address,
+          final String logo,
+          final String contact_person_name,
+          final String contact_person_email,
+          final String phone_number,
+          final String domain,
+          final int status,
+          final String created_at,
+          final String updated_at,
+          final PaymentGatewayDetails? payment_gateway_details}) =
+      _$AcademyDataImpl;
 
   factory _AcademyData.fromJson(Map<String, dynamic> json) =
       _$AcademyDataImpl.fromJson;
@@ -604,6 +647,8 @@ abstract class _AcademyData implements AcademyData {
   String get created_at;
   @override
   String get updated_at;
+  @override
+  PaymentGatewayDetails? get payment_gateway_details;
 
   /// Create a copy of AcademyData
   /// with the given fields replaced by the non-null parameter values.
@@ -611,4 +656,391 @@ abstract class _AcademyData implements AcademyData {
   @JsonKey(includeFromJson: false, includeToJson: false)
   _$$AcademyDataImplCopyWith<_$AcademyDataImpl> get copyWith =>
       throw _privateConstructorUsedError;
+}
+
+PaymentGatewayDetails _$PaymentGatewayDetailsFromJson(
+    Map<String, dynamic> json) {
+  return _PaymentGatewayDetails.fromJson(json);
+}
+
+/// @nodoc
+mixin _$PaymentGatewayDetails {
+  int get id => throw _privateConstructorUsedError;
+  int get academy_id => throw _privateConstructorUsedError;
+  String get gateway_name => throw _privateConstructorUsedError;
+  String get auth_key => throw _privateConstructorUsedError;
+  String get publish_key => throw _privateConstructorUsedError;
+  int get status => throw _privateConstructorUsedError;
+  String? get username => throw _privateConstructorUsedError;
+  String? get password => throw _privateConstructorUsedError;
+  String? get custom_setting => throw _privateConstructorUsedError;
+  String get created_at => throw _privateConstructorUsedError;
+  String get updated_at => throw _privateConstructorUsedError;
+
+  /// Serializes this PaymentGatewayDetails to a JSON map.
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+
+  /// Create a copy of PaymentGatewayDetails
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  $PaymentGatewayDetailsCopyWith<PaymentGatewayDetails> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $PaymentGatewayDetailsCopyWith<$Res> {
+  factory $PaymentGatewayDetailsCopyWith(PaymentGatewayDetails value,
+          $Res Function(PaymentGatewayDetails) then) =
+      _$PaymentGatewayDetailsCopyWithImpl<$Res, PaymentGatewayDetails>;
+  @useResult
+  $Res call(
+      {int id,
+      int academy_id,
+      String gateway_name,
+      String auth_key,
+      String publish_key,
+      int status,
+      String? username,
+      String? password,
+      String? custom_setting,
+      String created_at,
+      String updated_at});
+}
+
+/// @nodoc
+class _$PaymentGatewayDetailsCopyWithImpl<$Res,
+        $Val extends PaymentGatewayDetails>
+    implements $PaymentGatewayDetailsCopyWith<$Res> {
+  _$PaymentGatewayDetailsCopyWithImpl(this._value, this._then);
+
+  // ignore: unused_field
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
+
+  /// Create a copy of PaymentGatewayDetails
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? id = null,
+    Object? academy_id = null,
+    Object? gateway_name = null,
+    Object? auth_key = null,
+    Object? publish_key = null,
+    Object? status = null,
+    Object? username = freezed,
+    Object? password = freezed,
+    Object? custom_setting = freezed,
+    Object? created_at = null,
+    Object? updated_at = null,
+  }) {
+    return _then(_value.copyWith(
+      id: null == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as int,
+      academy_id: null == academy_id
+          ? _value.academy_id
+          : academy_id // ignore: cast_nullable_to_non_nullable
+              as int,
+      gateway_name: null == gateway_name
+          ? _value.gateway_name
+          : gateway_name // ignore: cast_nullable_to_non_nullable
+              as String,
+      auth_key: null == auth_key
+          ? _value.auth_key
+          : auth_key // ignore: cast_nullable_to_non_nullable
+              as String,
+      publish_key: null == publish_key
+          ? _value.publish_key
+          : publish_key // ignore: cast_nullable_to_non_nullable
+              as String,
+      status: null == status
+          ? _value.status
+          : status // ignore: cast_nullable_to_non_nullable
+              as int,
+      username: freezed == username
+          ? _value.username
+          : username // ignore: cast_nullable_to_non_nullable
+              as String?,
+      password: freezed == password
+          ? _value.password
+          : password // ignore: cast_nullable_to_non_nullable
+              as String?,
+      custom_setting: freezed == custom_setting
+          ? _value.custom_setting
+          : custom_setting // ignore: cast_nullable_to_non_nullable
+              as String?,
+      created_at: null == created_at
+          ? _value.created_at
+          : created_at // ignore: cast_nullable_to_non_nullable
+              as String,
+      updated_at: null == updated_at
+          ? _value.updated_at
+          : updated_at // ignore: cast_nullable_to_non_nullable
+              as String,
+    ) as $Val);
+  }
+}
+
+/// @nodoc
+abstract class _$$PaymentGatewayDetailsImplCopyWith<$Res>
+    implements $PaymentGatewayDetailsCopyWith<$Res> {
+  factory _$$PaymentGatewayDetailsImplCopyWith(
+          _$PaymentGatewayDetailsImpl value,
+          $Res Function(_$PaymentGatewayDetailsImpl) then) =
+      __$$PaymentGatewayDetailsImplCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call(
+      {int id,
+      int academy_id,
+      String gateway_name,
+      String auth_key,
+      String publish_key,
+      int status,
+      String? username,
+      String? password,
+      String? custom_setting,
+      String created_at,
+      String updated_at});
+}
+
+/// @nodoc
+class __$$PaymentGatewayDetailsImplCopyWithImpl<$Res>
+    extends _$PaymentGatewayDetailsCopyWithImpl<$Res,
+        _$PaymentGatewayDetailsImpl>
+    implements _$$PaymentGatewayDetailsImplCopyWith<$Res> {
+  __$$PaymentGatewayDetailsImplCopyWithImpl(_$PaymentGatewayDetailsImpl _value,
+      $Res Function(_$PaymentGatewayDetailsImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of PaymentGatewayDetails
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? id = null,
+    Object? academy_id = null,
+    Object? gateway_name = null,
+    Object? auth_key = null,
+    Object? publish_key = null,
+    Object? status = null,
+    Object? username = freezed,
+    Object? password = freezed,
+    Object? custom_setting = freezed,
+    Object? created_at = null,
+    Object? updated_at = null,
+  }) {
+    return _then(_$PaymentGatewayDetailsImpl(
+      id: null == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as int,
+      academy_id: null == academy_id
+          ? _value.academy_id
+          : academy_id // ignore: cast_nullable_to_non_nullable
+              as int,
+      gateway_name: null == gateway_name
+          ? _value.gateway_name
+          : gateway_name // ignore: cast_nullable_to_non_nullable
+              as String,
+      auth_key: null == auth_key
+          ? _value.auth_key
+          : auth_key // ignore: cast_nullable_to_non_nullable
+              as String,
+      publish_key: null == publish_key
+          ? _value.publish_key
+          : publish_key // ignore: cast_nullable_to_non_nullable
+              as String,
+      status: null == status
+          ? _value.status
+          : status // ignore: cast_nullable_to_non_nullable
+              as int,
+      username: freezed == username
+          ? _value.username
+          : username // ignore: cast_nullable_to_non_nullable
+              as String?,
+      password: freezed == password
+          ? _value.password
+          : password // ignore: cast_nullable_to_non_nullable
+              as String?,
+      custom_setting: freezed == custom_setting
+          ? _value.custom_setting
+          : custom_setting // ignore: cast_nullable_to_non_nullable
+              as String?,
+      created_at: null == created_at
+          ? _value.created_at
+          : created_at // ignore: cast_nullable_to_non_nullable
+              as String,
+      updated_at: null == updated_at
+          ? _value.updated_at
+          : updated_at // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+@JsonSerializable()
+class _$PaymentGatewayDetailsImpl implements _PaymentGatewayDetails {
+  const _$PaymentGatewayDetailsImpl(
+      {this.id = 0,
+      this.academy_id = 0,
+      this.gateway_name = '',
+      this.auth_key = '',
+      this.publish_key = '',
+      this.status = 0,
+      this.username,
+      this.password,
+      this.custom_setting,
+      this.created_at = '',
+      this.updated_at = ''});
+
+  factory _$PaymentGatewayDetailsImpl.fromJson(Map<String, dynamic> json) =>
+      _$$PaymentGatewayDetailsImplFromJson(json);
+
+  @override
+  @JsonKey()
+  final int id;
+  @override
+  @JsonKey()
+  final int academy_id;
+  @override
+  @JsonKey()
+  final String gateway_name;
+  @override
+  @JsonKey()
+  final String auth_key;
+  @override
+  @JsonKey()
+  final String publish_key;
+  @override
+  @JsonKey()
+  final int status;
+  @override
+  final String? username;
+  @override
+  final String? password;
+  @override
+  final String? custom_setting;
+  @override
+  @JsonKey()
+  final String created_at;
+  @override
+  @JsonKey()
+  final String updated_at;
+
+  @override
+  String toString() {
+    return 'PaymentGatewayDetails(id: $id, academy_id: $academy_id, gateway_name: $gateway_name, auth_key: $auth_key, publish_key: $publish_key, status: $status, username: $username, password: $password, custom_setting: $custom_setting, created_at: $created_at, updated_at: $updated_at)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$PaymentGatewayDetailsImpl &&
+            (identical(other.id, id) || other.id == id) &&
+            (identical(other.academy_id, academy_id) ||
+                other.academy_id == academy_id) &&
+            (identical(other.gateway_name, gateway_name) ||
+                other.gateway_name == gateway_name) &&
+            (identical(other.auth_key, auth_key) ||
+                other.auth_key == auth_key) &&
+            (identical(other.publish_key, publish_key) ||
+                other.publish_key == publish_key) &&
+            (identical(other.status, status) || other.status == status) &&
+            (identical(other.username, username) ||
+                other.username == username) &&
+            (identical(other.password, password) ||
+                other.password == password) &&
+            (identical(other.custom_setting, custom_setting) ||
+                other.custom_setting == custom_setting) &&
+            (identical(other.created_at, created_at) ||
+                other.created_at == created_at) &&
+            (identical(other.updated_at, updated_at) ||
+                other.updated_at == updated_at));
+  }
+
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  int get hashCode => Object.hash(
+      runtimeType,
+      id,
+      academy_id,
+      gateway_name,
+      auth_key,
+      publish_key,
+      status,
+      username,
+      password,
+      custom_setting,
+      created_at,
+      updated_at);
+
+  /// Create a copy of PaymentGatewayDetails
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$PaymentGatewayDetailsImplCopyWith<_$PaymentGatewayDetailsImpl>
+      get copyWith => __$$PaymentGatewayDetailsImplCopyWithImpl<
+          _$PaymentGatewayDetailsImpl>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$PaymentGatewayDetailsImplToJson(
+      this,
+    );
+  }
+}
+
+abstract class _PaymentGatewayDetails implements PaymentGatewayDetails {
+  const factory _PaymentGatewayDetails(
+      {final int id,
+      final int academy_id,
+      final String gateway_name,
+      final String auth_key,
+      final String publish_key,
+      final int status,
+      final String? username,
+      final String? password,
+      final String? custom_setting,
+      final String created_at,
+      final String updated_at}) = _$PaymentGatewayDetailsImpl;
+
+  factory _PaymentGatewayDetails.fromJson(Map<String, dynamic> json) =
+      _$PaymentGatewayDetailsImpl.fromJson;
+
+  @override
+  int get id;
+  @override
+  int get academy_id;
+  @override
+  String get gateway_name;
+  @override
+  String get auth_key;
+  @override
+  String get publish_key;
+  @override
+  int get status;
+  @override
+  String? get username;
+  @override
+  String? get password;
+  @override
+  String? get custom_setting;
+  @override
+  String get created_at;
+  @override
+  String get updated_at;
+
+  /// Create a copy of PaymentGatewayDetails
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$PaymentGatewayDetailsImplCopyWith<_$PaymentGatewayDetailsImpl>
+      get copyWith => throw _privateConstructorUsedError;
 }

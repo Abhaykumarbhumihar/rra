@@ -28,6 +28,7 @@ mixin _$CoachProgramsState {
       throw _privateConstructorUsedError;
   String get coachingID => throw _privateConstructorUsedError;
   String get coachingName => throw _privateConstructorUsedError;
+  int get minimumCountOfBooking => throw _privateConstructorUsedError;
 
   /// Create a copy of CoachProgramsState
   /// with the given fields replaced by the non-null parameter values.
@@ -52,7 +53,8 @@ abstract class $CoachProgramsStateCopyWith<$Res> {
       CoachingProgramResponse groupCoachProgramList,
       CoachingProgramResponse privateCoachProgramList,
       String coachingID,
-      String coachingName});
+      String coachingName,
+      int minimumCountOfBooking});
 
   $CoachingProgramResponseCopyWith<$Res> get groupCoachProgramList;
   $CoachingProgramResponseCopyWith<$Res> get privateCoachProgramList;
@@ -83,6 +85,7 @@ class _$CoachProgramsStateCopyWithImpl<$Res, $Val extends CoachProgramsState>
     Object? privateCoachProgramList = null,
     Object? coachingID = null,
     Object? coachingName = null,
+    Object? minimumCountOfBooking = null,
   }) {
     return _then(_value.copyWith(
       selectedTab: null == selectedTab
@@ -125,6 +128,10 @@ class _$CoachProgramsStateCopyWithImpl<$Res, $Val extends CoachProgramsState>
           ? _value.coachingName
           : coachingName // ignore: cast_nullable_to_non_nullable
               as String,
+      minimumCountOfBooking: null == minimumCountOfBooking
+          ? _value.minimumCountOfBooking
+          : minimumCountOfBooking // ignore: cast_nullable_to_non_nullable
+              as int,
     ) as $Val);
   }
 
@@ -169,7 +176,8 @@ abstract class _$$CoachProgramsStateImplCopyWith<$Res>
       CoachingProgramResponse groupCoachProgramList,
       CoachingProgramResponse privateCoachProgramList,
       String coachingID,
-      String coachingName});
+      String coachingName,
+      int minimumCountOfBooking});
 
   @override
   $CoachingProgramResponseCopyWith<$Res> get groupCoachProgramList;
@@ -200,6 +208,7 @@ class __$$CoachProgramsStateImplCopyWithImpl<$Res>
     Object? privateCoachProgramList = null,
     Object? coachingID = null,
     Object? coachingName = null,
+    Object? minimumCountOfBooking = null,
   }) {
     return _then(_$CoachProgramsStateImpl(
       selectedTab: null == selectedTab
@@ -242,6 +251,10 @@ class __$$CoachProgramsStateImplCopyWithImpl<$Res>
           ? _value.coachingName
           : coachingName // ignore: cast_nullable_to_non_nullable
               as String,
+      minimumCountOfBooking: null == minimumCountOfBooking
+          ? _value.minimumCountOfBooking
+          : minimumCountOfBooking // ignore: cast_nullable_to_non_nullable
+              as int,
     ));
   }
 }
@@ -259,7 +272,8 @@ class _$CoachProgramsStateImpl implements _CoachProgramsState {
       this.groupCoachProgramList = const CoachingProgramResponse(),
       this.privateCoachProgramList = const CoachingProgramResponse(),
       this.coachingID = "",
-      this.coachingName = ""});
+      this.coachingName = "",
+      this.minimumCountOfBooking = 0});
 
   @override
   @JsonKey()
@@ -289,10 +303,13 @@ class _$CoachProgramsStateImpl implements _CoachProgramsState {
   @override
   @JsonKey()
   final String coachingName;
+  @override
+  @JsonKey()
+  final int minimumCountOfBooking;
 
   @override
   String toString() {
-    return 'CoachProgramsState(selectedTab: $selectedTab, isLoading: $isLoading, error: $error, success: $success, isError: $isError, isLoginApiError: $isLoginApiError, groupCoachProgramList: $groupCoachProgramList, privateCoachProgramList: $privateCoachProgramList, coachingID: $coachingID, coachingName: $coachingName)';
+    return 'CoachProgramsState(selectedTab: $selectedTab, isLoading: $isLoading, error: $error, success: $success, isError: $isError, isLoginApiError: $isLoginApiError, groupCoachProgramList: $groupCoachProgramList, privateCoachProgramList: $privateCoachProgramList, coachingID: $coachingID, coachingName: $coachingName, minimumCountOfBooking: $minimumCountOfBooking)';
   }
 
   @override
@@ -317,7 +334,9 @@ class _$CoachProgramsStateImpl implements _CoachProgramsState {
             (identical(other.coachingID, coachingID) ||
                 other.coachingID == coachingID) &&
             (identical(other.coachingName, coachingName) ||
-                other.coachingName == coachingName));
+                other.coachingName == coachingName) &&
+            (identical(other.minimumCountOfBooking, minimumCountOfBooking) ||
+                other.minimumCountOfBooking == minimumCountOfBooking));
   }
 
   @override
@@ -332,7 +351,8 @@ class _$CoachProgramsStateImpl implements _CoachProgramsState {
       groupCoachProgramList,
       privateCoachProgramList,
       coachingID,
-      coachingName);
+      coachingName,
+      minimumCountOfBooking);
 
   /// Create a copy of CoachProgramsState
   /// with the given fields replaced by the non-null parameter values.
@@ -355,7 +375,8 @@ abstract class _CoachProgramsState implements CoachProgramsState {
       final CoachingProgramResponse groupCoachProgramList,
       final CoachingProgramResponse privateCoachProgramList,
       final String coachingID,
-      final String coachingName}) = _$CoachProgramsStateImpl;
+      final String coachingName,
+      final int minimumCountOfBooking}) = _$CoachProgramsStateImpl;
 
   @override
   int get selectedTab;
@@ -377,6 +398,8 @@ abstract class _CoachProgramsState implements CoachProgramsState {
   String get coachingID;
   @override
   String get coachingName;
+  @override
+  int get minimumCountOfBooking;
 
   /// Create a copy of CoachProgramsState
   /// with the given fields replaced by the non-null parameter values.

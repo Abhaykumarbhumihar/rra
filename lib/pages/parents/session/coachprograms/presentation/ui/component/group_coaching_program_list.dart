@@ -30,7 +30,9 @@ class GroupCoachingProgramList extends StatelessWidget {
                             state.groupCoachProgramList.data[index].name
                                 .toString(),
                             state.groupCoachProgramList.data[index].id
-                                .toString()));
+                                .toString(),
+                            state.groupCoachProgramList.data[index].minCountOfBookings
+                        ));
 
                     BlocProvider.of<CoachingDetailBloc>(context).add(
                         CoachingDetail(state

@@ -1,8 +1,7 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
-
 part 'academic_list_model.freezed.dart';
-
 part 'academic_list_model.g.dart';
+
 @freezed
 class AcademyListResponse with _$AcademyListResponse {
   const factory AcademyListResponse({
@@ -30,8 +29,29 @@ class AcademyData with _$AcademyData {
     @Default(0) int status,
     @Default('') String created_at,
     @Default('') String updated_at,
+    PaymentGatewayDetails? payment_gateway_details,
   }) = _AcademyData;
 
   factory AcademyData.fromJson(Map<String, dynamic> json) =>
       _$AcademyDataFromJson(json);
+}
+
+@freezed
+class PaymentGatewayDetails with _$PaymentGatewayDetails {
+  const factory PaymentGatewayDetails({
+    @Default(0) int id,
+    @Default(0) int academy_id,
+    @Default('') String gateway_name,
+    @Default('') String auth_key,
+    @Default('') String publish_key,
+    @Default(0) int status,
+    String? username,
+    String? password,
+    String? custom_setting,
+    @Default('') String created_at,
+    @Default('') String updated_at,
+  }) = _PaymentGatewayDetails;
+
+  factory PaymentGatewayDetails.fromJson(Map<String, dynamic> json) =>
+      _$PaymentGatewayDetailsFromJson(json);
 }

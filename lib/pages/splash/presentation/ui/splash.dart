@@ -1,4 +1,5 @@
 import 'package:flutter_animate/flutter_animate.dart';
+import 'package:flutter_stripe/flutter_stripe.dart';
 import 'package:rra/common/routes/exports.dart';
 import 'package:rra/common/values/values_exports.dart';
 import 'package:rra/pages/academic/presentation/bloc/academic_bloc.dart';
@@ -57,6 +58,8 @@ class SplashPage extends StatelessWidget {
             BlocProvider.of<CoachingProgramsBloc>(context).add(GroupCoachProgramsListEvent());
             BlocProvider.of<CoachingProgramsBloc>(context).add(PrivateCoachingProgramsList());
             BlocProvider.of<AddViewPlayerBloc>(context).add(AddViewPlayerGetChildListEvent());
+            var publishKey = await SharedPrefs.getString("stripe_publish_key");
+            Stripe.publishableKey = publishKey;
             Navigator.pushNamedAndRemoveUntil(
               context,
               AppRoutes.APPLICATION,

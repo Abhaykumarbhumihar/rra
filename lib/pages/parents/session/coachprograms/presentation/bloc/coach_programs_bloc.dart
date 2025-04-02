@@ -32,7 +32,9 @@ class CoachingProgramsBloc
 
   Future<void> storeCoachingNameAndID(StoreCoachingNameAndId event,
       Emitter<CoachProgramsState> emit) async {
-    emit(state.copyWith(coachingID: event.coachingId,coachingName: event.coachingname));
+    emit(state.copyWith(coachingID: event.coachingId,
+        coachingName: event.coachingname,
+    minimumCountOfBooking: event.minimumCountOfBooking));
   }
 
   Future<void> _groupCoachingProgramListEvent(GroupCoachProgramsListEvent event,

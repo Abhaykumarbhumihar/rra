@@ -20,7 +20,7 @@ import 'component/recurring_dialog.dart';
 import 'component/time_added.dart';
 
 class CalendarPage extends StatelessWidget {
- const CalendarPage({super.key});
+  const CalendarPage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -39,7 +39,7 @@ class CalendarPage extends StatelessWidget {
               padding: EdgeInsets.zero,
               decoration: CommonBackground.decoration,
               child: Stack(
-                children:<Widget> [
+                children: <Widget>[
                   SingleChildScrollView(
                     child: Column(
                       children: <Widget>[
@@ -50,15 +50,16 @@ class CalendarPage extends StatelessWidget {
                           },
                         ),
                         Padding(
-                          padding:
-                              EdgeInsets.only(left: context.screenHeight * 0.02),
+                          padding: EdgeInsets.only(
+                              left: context.screenHeight * 0.02),
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: <Widget>[
                               Padding(
                                 padding: const EdgeInsets.only(
                                     left: 18.0, right: 18.0, top: 12.0),
-                                child: Image.asset("assets/images/tracker_one.png"),
+                                child: Image.asset(
+                                    "assets/images/tracker_one.png"),
                               ),
                               SizedBox(
                                 height: context.screenHeight * 0.013,
@@ -67,7 +68,8 @@ class CalendarPage extends StatelessWidget {
                                 padding: const EdgeInsets.only(
                                     left: 3.0, right: 6.0, bottom: 6.0),
                                 child: ScreenTitleForCalendar(
-                                  title: "${BlocProvider.of<CoachingProgramsBloc>(context).state.coachingName}",
+                                  title:
+                                      "${BlocProvider.of<CoachingProgramsBloc>(context).state.coachingName}",
                                 ),
                               ),
                               Padding(
@@ -90,35 +92,66 @@ class CalendarPage extends StatelessWidget {
                                 height: 10.0,
                               ),
                               Padding(
-                                padding:
-                                    const EdgeInsets.only(right: 8.0, left: 3.0),
-                                child: CalendarView().animate()
-                                  .fade(duration: 900.ms)
-                                  .scaleXY(begin: 0.9, end: 1.0, duration: 800.ms, curve: Curves.easeOut),
+                                padding: const EdgeInsets.only(
+                                    right: 8.0, left: 3.0),
+                                child: CalendarView()
+                                    .animate()
+                                    .fade(duration: 900.ms)
+                                    .scaleXY(
+                                        begin: 0.9,
+                                        end: 1.0,
+                                        duration: 800.ms,
+                                        curve: Curves.easeOut),
                               ),
                               SizedBox(
                                 width: context.screenWidth,
-                                height: context.screenHeight*0.19,
+                                height: context.screenHeight * 0.19,
                                 child: Availablity(),
                               ),
-                              if(state.timeAddedModel.data.isNotEmpty)
+                              if (state.timeAddedModel.data.isNotEmpty)
+                                SizedBox(
+                                  width: context.screenWidth,
+                                  height: context.screenHeight * 0.20,
+                                  child: TimeAddedView(),
+                                ),
                               SizedBox(
-                                width: context.screenWidth,
-                                height: context.screenHeight*0.20,
-                                child: TimeAddedView(),
+                                height: 20,
                               ),
-                              SizedBox(height: 20,),
-                              CustomButton(
-                                text: "Continue",
-                                onPressed: () async {
-                                  if(state.timeAddedModel.data.isNotEmpty){
-                                    Navigator.pushNamed(context, AppRoutes.ADDDETAILS);
-                                  }
-                               //   _showCustomBottomSheet(context);
-                                },
-                              ).animate()
-                                  .fade(duration: 600.ms, delay: 500.ms)
-                                  .scaleXY(begin: 0.8, end: 1.0, duration: 500.ms, curve: Curves.bounceOut),
+                              Padding(
+                                padding: EdgeInsets.only(
+                                    left: context.screenWidth * 0.04,
+                                    right: context.screenWidth * 0.06),
+                                child: CustomButton(
+                                  text: "Continue",
+                                  onPressed: () async {
+                                    int minimumCount =
+                                        BlocProvider.of<CoachingProgramsBloc>(
+                                                    context)
+                                                .state
+                                                .minimumCountOfBooking ??
+                                            0;
+                                    print("MINIMUM COUNT IS $minimumCount");
+                                    print(
+                                        "DATA LENGTH COUNT  IS ${state.timeAddedModel.data.length}");
+
+                                    if (state.timeAddedModel.data.length >=
+                                        minimumCount) {
+                                      Navigator.pushNamed(
+                                          context, AppRoutes.ADDDETAILS);
+                                    } else {
+                                      context.showCustomSnackbar(
+                                          "Please select at least $minimumCount time slots to proceed!");
+                                    }
+                                  },
+                                )
+                                    .animate()
+                                    .fade(duration: 600.ms, delay: 500.ms)
+                                    .scaleXY(
+                                        begin: 0.8,
+                                        end: 1.0,
+                                        duration: 500.ms,
+                                        curve: Curves.bounceOut),
+                              ),
                               SizedBox(
                                 height: 20,
                               ),
@@ -129,11 +162,7 @@ class CalendarPage extends StatelessWidget {
                     ),
                   ),
                   if (state.isLoading)
-                    InkWell(
-                        onTap: (){
-
-                        },
-                        child: const LoadingIndicator())
+                    InkWell(onTap: () {}, child: const LoadingIndicator())
                 ],
               ),
             );
@@ -142,5 +171,4 @@ class CalendarPage extends StatelessWidget {
       ),
     );
   }
-
 }

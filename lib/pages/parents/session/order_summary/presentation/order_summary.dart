@@ -6,6 +6,7 @@ import '../../../../../../../common/component/common_background.dart';
 import '../../../../../../../common/component/custom_app_button.dart';
 import '../../../../../../../common/component/screen_title.dart';
 import '../../../../../common/local/SharedPrefs.dart';
+import '../../../../../common/stripe/stripe_service.dart';
 import '../../add_detail/presentation/bloc/add_view_player_bloc.dart';
 import '../../calendar/presentation/bloc/session_calendar_bloc.dart';
 import '../../calendar/presentation/bloc/session_calendar_event.dart';
@@ -89,7 +90,7 @@ class OrderSummary extends StatelessWidget {
                                     left: 3.0, right: 6.0, bottom: 6.0),
                                 child: ScreenTitleForCalendar(
                                   title:
-                                  "${BlocProvider.of<CoachingProgramsBloc>(context).state.coachingName}",
+                                      "${BlocProvider.of<CoachingProgramsBloc>(context).state.coachingName}",
                                 ),
                               ),
                               SizedBox(
@@ -173,8 +174,14 @@ class OrderSummary extends StatelessWidget {
                                 text: "Submit",
                                 onPressed: () {
                                   showPaymentBottomSheet(context,
-                                      checkOutAction: () {
-                                    // Handle checkout logic
+                                      checkOutAction: () async {
+                                    await StripeService.instance
+                                        .setPublishableKey();
+                                    await handlePayment();
+                                    // StripeService.instance.setPublishableKey();
+                                    // StripeService.instance.makePayment(18);
+                                    print(
+                                        "PAYMENT BUTTON PRESSED PAYMENT BUTTON PRESSED");
                                   }, couponApplyAction: () async {
                                     FocusScope.of(context).unfocus();
                                     print(
@@ -209,6 +216,15 @@ class OrderSummary extends StatelessWidget {
         },
       ),
     );
+  }
+
+  Future<void> handlePayment() async {
+    var paymentResponse = await StripeService.instance.makePayment(1800);
+    if (paymentResponse != null) {
+      debugPrint("Payment Successful: ${paymentResponse['id']}");
+    } else {
+      debugPrint("Payment Failed");
+    }
   }
 
   void showPaymentBottomSheet(BuildContext context,
