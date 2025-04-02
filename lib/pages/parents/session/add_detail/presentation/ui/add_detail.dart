@@ -275,7 +275,7 @@ class AddDetail extends StatelessWidget {
                                       left: 3.0, right: 6.0, bottom: 6.0),
                                   child: ScreenTitleForCalendar(
                                           title:
-                                              "Group Coaching U9 Advanced (Hardball)")
+                                          "${BlocProvider.of<CoachingProgramsBloc>(context).state.coachingName}")
                                       .animate()
                                       .slideX(
                                           begin: -0.2, end: 0, duration: 500.ms)

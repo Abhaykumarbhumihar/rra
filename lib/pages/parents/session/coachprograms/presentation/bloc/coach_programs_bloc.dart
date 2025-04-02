@@ -22,11 +22,17 @@ class CoachingProgramsBloc
     on<GroupCoachProgramsListEvent>(_groupCoachingProgramListEvent);
     on<PrivateCoachingProgramsList>(_privateCoachingProgramListEvent);
     on<AllCoachProgramsSelectedTabEvent>(tabSelect);
+    on<StoreCoachingNameAndId>(storeCoachingNameAndID);
   }
 
   Future<void> tabSelect(AllCoachProgramsSelectedTabEvent event,
       Emitter<CoachProgramsState> emit) async {
     emit(state.copyWith(selectedTab: event.tabno));
+  }
+
+  Future<void> storeCoachingNameAndID(StoreCoachingNameAndId event,
+      Emitter<CoachProgramsState> emit) async {
+    emit(state.copyWith(coachingID: event.coachingId,coachingName: event.coachingname));
   }
 
   Future<void> _groupCoachingProgramListEvent(GroupCoachProgramsListEvent event,

@@ -9,6 +9,8 @@ import '../../../../../../common/component/loading_indicator.dart';
 import '../../../../../../common/component/screen_title.dart';
 
 import '../../../../../../common/routes/routes.dart';
+import '../../../coaching_detail/presentation/bloc/coaching_detail_bloc.dart';
+import '../../../coachprograms/presentation/bloc/coach_programs_bloc.dart';
 import '../bloc/session_calendar_bloc.dart';
 import '../bloc/session_calendar_state.dart';
 import 'component/availablity.dart';
@@ -18,11 +20,7 @@ import 'component/recurring_dialog.dart';
 import 'component/time_added.dart';
 
 class CalendarPage extends StatelessWidget {
-  CalendarPage({super.key});
-
-  String selectedRepeat = "Every Monday";
-  String selectedTime = "1";
-  int currentIndex = 0;
+ const CalendarPage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -69,7 +67,7 @@ class CalendarPage extends StatelessWidget {
                                 padding: const EdgeInsets.only(
                                     left: 3.0, right: 6.0, bottom: 6.0),
                                 child: ScreenTitleForCalendar(
-                                  title: "Group Coaching U9 Advanced (Hardball)",
+                                  title: "${BlocProvider.of<CoachingProgramsBloc>(context).state.coachingName}",
                                 ),
                               ),
                               Padding(
@@ -144,8 +142,5 @@ class CalendarPage extends StatelessWidget {
       ),
     );
   }
-
-
-
 
 }

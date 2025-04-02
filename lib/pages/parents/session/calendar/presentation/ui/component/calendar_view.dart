@@ -38,6 +38,7 @@ class CalendarView extends StatelessWidget {
                     width: width,
                     height: height * 0.40,
                     child: TableCalendar(
+                      availableGestures: AvailableGestures.none,
                       focusedDay: state.datetime??DateTime.now(),
                       firstDay: DateTime(2022),
                       lastDay: DateTime(2060),
@@ -45,35 +46,35 @@ class CalendarView extends StatelessWidget {
                         todayTextStyle: TextStyle(
                           fontSize: MediaQuery.of(context).size.width * 0.03,
                           color: Colors.white,
-                          fontFamily: 'YourCustomFontFamily',
+                          fontFamily: AppFont.interRegular,
                         ),
                         weekendTextStyle: TextStyle(
                           fontSize: MediaQuery.of(context).size.width * 0.03,
                           color: Colors.white,
-                          fontFamily: 'YourCustomFontFamily',
+                          fontFamily: AppFont.interRegular,
                         ),
                         outsideTextStyle: TextStyle(
                           fontSize: MediaQuery.of(context).size.width * 0.03,
                           color: Colors.white,
-                          fontFamily: 'YourCustomFontFamily',
+                          fontFamily: AppFont.interRegular,
                         ),
                         defaultTextStyle: TextStyle(
                           fontSize: MediaQuery.of(context).size.width * 0.03,
                           color: Colors.white,
-                          fontFamily: 'YourCustomFontFamily',
+                          fontFamily: AppFont.interRegular,
                         ),
                       ),
                       daysOfWeekStyle: DaysOfWeekStyle(
                         weekdayStyle: TextStyle(
                           color: Colors.white,
-                          fontFamily: 'YourCustomFontFamily',
+                          fontFamily: AppFont.interRegular,
                         ),
                         weekendStyle: TextStyle(
                           color: Colors.white,
-                          fontFamily: 'YourCustomFontFamily',
+                          fontFamily: AppFont.interRegular,
                         ),
                       ),
-                      selectedDayPredicate: (day) => isSameDay(day, state.datetime??DateTime.now(),),
+                     // selectedDayPredicate: (day) => isSameDay(day, state.datetime??DateTime.now(),),
                       headerStyle: HeaderStyle(
                         titleCentered: true,
                         titleTextFormatter: (date, locale) =>
@@ -82,7 +83,7 @@ class CalendarView extends StatelessWidget {
                         titleTextStyle: TextStyle(
                           fontSize: MediaQuery.of(context).size.width * 0.05,
                           color: Colors.white,
-                          fontFamily: 'YourCustomFontFamily',
+                          fontFamily: AppFont.interBold,
                         ),
                         leftChevronIcon: Icon(Icons.chevron_left, color: Colors.white),
                         rightChevronIcon: Icon(Icons.chevron_right, color: Colors.white),

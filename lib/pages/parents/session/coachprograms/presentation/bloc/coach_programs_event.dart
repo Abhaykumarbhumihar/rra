@@ -31,4 +31,13 @@ class AllCoachProgramsSelectedTabEvent extends CoachProgramsBlocEvent{
   List<Object?> get props => [];
 }
 
+class StoreCoachingNameAndId extends CoachProgramsBlocEvent {
+  String coachingname;
+  String coachingId;
+  StoreCoachingNameAndId(this.coachingname,this.coachingId);
+
+  @override
+  List<Object?> get props => [coachingname,coachingId];
+}
+
 

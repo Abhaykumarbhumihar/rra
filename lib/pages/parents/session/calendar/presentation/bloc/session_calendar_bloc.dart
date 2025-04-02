@@ -266,7 +266,7 @@ class SessionCalendarBloc
               ? "private"
               : "group"
         };
-        add(AvilableDateEvents(map));
+       // add(AvilableDateEvents(map));
       });
     } catch (error) {
       // Handle the error and show error messages

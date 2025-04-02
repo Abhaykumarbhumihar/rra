@@ -11,26 +11,33 @@ class GroupCoachingProgramList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocListener<CoachingProgramsBloc, CoachProgramsState>(
-      listener: (context, state) {
-
-      },
+      listener: (context, state) {},
       child: BlocBuilder<CoachingProgramsBloc, CoachProgramsState>(
         builder: (context, state) {
           return Expanded(
             child: ListView.builder(
               physics: BouncingScrollPhysics(),
-              padding: const EdgeInsets.symmetric(
-                  horizontal: 4.0, vertical: 0),
+              padding: const EdgeInsets.symmetric(horizontal: 4.0, vertical: 0),
               itemCount: state.groupCoachProgramList.data.length,
               shrinkWrap: true,
               itemBuilder: (context, index) {
                 return CoachingProgramItem(
                   coachingProgramResponse:
-                  state.groupCoachProgramList.data[index],
+                      state.groupCoachProgramList.data[index],
                   onPressed: () {
-                    BlocProvider.of<CoachingDetailBloc>(context).add(CoachingDetail(state.groupCoachProgramList.data[index].id.toString()));
-                    Navigator.pushNamed(
-                        context, AppRoutes.COACHPROGRAMS,arguments: state.groupCoachProgramList.data[index]);
+                    BlocProvider.of<CoachingProgramsBloc>(context).add(
+                        StoreCoachingNameAndId(
+                            state.groupCoachProgramList.data[index].name
+                                .toString(),
+                            state.groupCoachProgramList.data[index].id
+                                .toString()));
+
+                    BlocProvider.of<CoachingDetailBloc>(context).add(
+                        CoachingDetail(state
+                            .groupCoachProgramList.data[index].id
+                            .toString()));
+                    Navigator.pushNamed(context, AppRoutes.COACHPROGRAMS,
+                        arguments: state.groupCoachProgramList.data[index]);
                   },
                 );
               },

@@ -22,6 +22,8 @@ mixin _$OrderSummaryEvent {
     required TResult Function(Map<String, dynamic> data) getOrderSummaryEvent,
     required TResult Function(Map<String, dynamic> data) getTotalPrice,
     required TResult Function(Map<String, dynamic> data) applyCoupon,
+    required TResult Function(Map<String, dynamic> data) removeSlot,
+    required TResult Function(Map<String, dynamic> data) selectedChild,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -29,6 +31,8 @@ mixin _$OrderSummaryEvent {
     TResult? Function(Map<String, dynamic> data)? getOrderSummaryEvent,
     TResult? Function(Map<String, dynamic> data)? getTotalPrice,
     TResult? Function(Map<String, dynamic> data)? applyCoupon,
+    TResult? Function(Map<String, dynamic> data)? removeSlot,
+    TResult? Function(Map<String, dynamic> data)? selectedChild,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -36,6 +40,8 @@ mixin _$OrderSummaryEvent {
     TResult Function(Map<String, dynamic> data)? getOrderSummaryEvent,
     TResult Function(Map<String, dynamic> data)? getTotalPrice,
     TResult Function(Map<String, dynamic> data)? applyCoupon,
+    TResult Function(Map<String, dynamic> data)? removeSlot,
+    TResult Function(Map<String, dynamic> data)? selectedChild,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -44,6 +50,8 @@ mixin _$OrderSummaryEvent {
     required TResult Function(GetOrderSummaryEvent value) getOrderSummaryEvent,
     required TResult Function(GetTotalPriceEvent value) getTotalPrice,
     required TResult Function(ApplyCoupon value) applyCoupon,
+    required TResult Function(RemoveSlotEvent value) removeSlot,
+    required TResult Function(SelectedChild value) selectedChild,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -51,6 +59,8 @@ mixin _$OrderSummaryEvent {
     TResult? Function(GetOrderSummaryEvent value)? getOrderSummaryEvent,
     TResult? Function(GetTotalPriceEvent value)? getTotalPrice,
     TResult? Function(ApplyCoupon value)? applyCoupon,
+    TResult? Function(RemoveSlotEvent value)? removeSlot,
+    TResult? Function(SelectedChild value)? selectedChild,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -58,6 +68,8 @@ mixin _$OrderSummaryEvent {
     TResult Function(GetOrderSummaryEvent value)? getOrderSummaryEvent,
     TResult Function(GetTotalPriceEvent value)? getTotalPrice,
     TResult Function(ApplyCoupon value)? applyCoupon,
+    TResult Function(RemoveSlotEvent value)? removeSlot,
+    TResult Function(SelectedChild value)? selectedChild,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -186,6 +198,8 @@ class _$GetOrderSummaryEventImpl implements GetOrderSummaryEvent {
     required TResult Function(Map<String, dynamic> data) getOrderSummaryEvent,
     required TResult Function(Map<String, dynamic> data) getTotalPrice,
     required TResult Function(Map<String, dynamic> data) applyCoupon,
+    required TResult Function(Map<String, dynamic> data) removeSlot,
+    required TResult Function(Map<String, dynamic> data) selectedChild,
   }) {
     return getOrderSummaryEvent(data);
   }
@@ -196,6 +210,8 @@ class _$GetOrderSummaryEventImpl implements GetOrderSummaryEvent {
     TResult? Function(Map<String, dynamic> data)? getOrderSummaryEvent,
     TResult? Function(Map<String, dynamic> data)? getTotalPrice,
     TResult? Function(Map<String, dynamic> data)? applyCoupon,
+    TResult? Function(Map<String, dynamic> data)? removeSlot,
+    TResult? Function(Map<String, dynamic> data)? selectedChild,
   }) {
     return getOrderSummaryEvent?.call(data);
   }
@@ -206,6 +222,8 @@ class _$GetOrderSummaryEventImpl implements GetOrderSummaryEvent {
     TResult Function(Map<String, dynamic> data)? getOrderSummaryEvent,
     TResult Function(Map<String, dynamic> data)? getTotalPrice,
     TResult Function(Map<String, dynamic> data)? applyCoupon,
+    TResult Function(Map<String, dynamic> data)? removeSlot,
+    TResult Function(Map<String, dynamic> data)? selectedChild,
     required TResult orElse(),
   }) {
     if (getOrderSummaryEvent != null) {
@@ -220,6 +238,8 @@ class _$GetOrderSummaryEventImpl implements GetOrderSummaryEvent {
     required TResult Function(GetOrderSummaryEvent value) getOrderSummaryEvent,
     required TResult Function(GetTotalPriceEvent value) getTotalPrice,
     required TResult Function(ApplyCoupon value) applyCoupon,
+    required TResult Function(RemoveSlotEvent value) removeSlot,
+    required TResult Function(SelectedChild value) selectedChild,
   }) {
     return getOrderSummaryEvent(this);
   }
@@ -230,6 +250,8 @@ class _$GetOrderSummaryEventImpl implements GetOrderSummaryEvent {
     TResult? Function(GetOrderSummaryEvent value)? getOrderSummaryEvent,
     TResult? Function(GetTotalPriceEvent value)? getTotalPrice,
     TResult? Function(ApplyCoupon value)? applyCoupon,
+    TResult? Function(RemoveSlotEvent value)? removeSlot,
+    TResult? Function(SelectedChild value)? selectedChild,
   }) {
     return getOrderSummaryEvent?.call(this);
   }
@@ -240,6 +262,8 @@ class _$GetOrderSummaryEventImpl implements GetOrderSummaryEvent {
     TResult Function(GetOrderSummaryEvent value)? getOrderSummaryEvent,
     TResult Function(GetTotalPriceEvent value)? getTotalPrice,
     TResult Function(ApplyCoupon value)? applyCoupon,
+    TResult Function(RemoveSlotEvent value)? removeSlot,
+    TResult Function(SelectedChild value)? selectedChild,
     required TResult orElse(),
   }) {
     if (getOrderSummaryEvent != null) {
@@ -345,6 +369,8 @@ class _$GetTotalPriceEventImpl implements GetTotalPriceEvent {
     required TResult Function(Map<String, dynamic> data) getOrderSummaryEvent,
     required TResult Function(Map<String, dynamic> data) getTotalPrice,
     required TResult Function(Map<String, dynamic> data) applyCoupon,
+    required TResult Function(Map<String, dynamic> data) removeSlot,
+    required TResult Function(Map<String, dynamic> data) selectedChild,
   }) {
     return getTotalPrice(data);
   }
@@ -355,6 +381,8 @@ class _$GetTotalPriceEventImpl implements GetTotalPriceEvent {
     TResult? Function(Map<String, dynamic> data)? getOrderSummaryEvent,
     TResult? Function(Map<String, dynamic> data)? getTotalPrice,
     TResult? Function(Map<String, dynamic> data)? applyCoupon,
+    TResult? Function(Map<String, dynamic> data)? removeSlot,
+    TResult? Function(Map<String, dynamic> data)? selectedChild,
   }) {
     return getTotalPrice?.call(data);
   }
@@ -365,6 +393,8 @@ class _$GetTotalPriceEventImpl implements GetTotalPriceEvent {
     TResult Function(Map<String, dynamic> data)? getOrderSummaryEvent,
     TResult Function(Map<String, dynamic> data)? getTotalPrice,
     TResult Function(Map<String, dynamic> data)? applyCoupon,
+    TResult Function(Map<String, dynamic> data)? removeSlot,
+    TResult Function(Map<String, dynamic> data)? selectedChild,
     required TResult orElse(),
   }) {
     if (getTotalPrice != null) {
@@ -379,6 +409,8 @@ class _$GetTotalPriceEventImpl implements GetTotalPriceEvent {
     required TResult Function(GetOrderSummaryEvent value) getOrderSummaryEvent,
     required TResult Function(GetTotalPriceEvent value) getTotalPrice,
     required TResult Function(ApplyCoupon value) applyCoupon,
+    required TResult Function(RemoveSlotEvent value) removeSlot,
+    required TResult Function(SelectedChild value) selectedChild,
   }) {
     return getTotalPrice(this);
   }
@@ -389,6 +421,8 @@ class _$GetTotalPriceEventImpl implements GetTotalPriceEvent {
     TResult? Function(GetOrderSummaryEvent value)? getOrderSummaryEvent,
     TResult? Function(GetTotalPriceEvent value)? getTotalPrice,
     TResult? Function(ApplyCoupon value)? applyCoupon,
+    TResult? Function(RemoveSlotEvent value)? removeSlot,
+    TResult? Function(SelectedChild value)? selectedChild,
   }) {
     return getTotalPrice?.call(this);
   }
@@ -399,6 +433,8 @@ class _$GetTotalPriceEventImpl implements GetTotalPriceEvent {
     TResult Function(GetOrderSummaryEvent value)? getOrderSummaryEvent,
     TResult Function(GetTotalPriceEvent value)? getTotalPrice,
     TResult Function(ApplyCoupon value)? applyCoupon,
+    TResult Function(RemoveSlotEvent value)? removeSlot,
+    TResult Function(SelectedChild value)? selectedChild,
     required TResult orElse(),
   }) {
     if (getTotalPrice != null) {
@@ -502,6 +538,8 @@ class _$ApplyCouponImpl implements ApplyCoupon {
     required TResult Function(Map<String, dynamic> data) getOrderSummaryEvent,
     required TResult Function(Map<String, dynamic> data) getTotalPrice,
     required TResult Function(Map<String, dynamic> data) applyCoupon,
+    required TResult Function(Map<String, dynamic> data) removeSlot,
+    required TResult Function(Map<String, dynamic> data) selectedChild,
   }) {
     return applyCoupon(data);
   }
@@ -512,6 +550,8 @@ class _$ApplyCouponImpl implements ApplyCoupon {
     TResult? Function(Map<String, dynamic> data)? getOrderSummaryEvent,
     TResult? Function(Map<String, dynamic> data)? getTotalPrice,
     TResult? Function(Map<String, dynamic> data)? applyCoupon,
+    TResult? Function(Map<String, dynamic> data)? removeSlot,
+    TResult? Function(Map<String, dynamic> data)? selectedChild,
   }) {
     return applyCoupon?.call(data);
   }
@@ -522,6 +562,8 @@ class _$ApplyCouponImpl implements ApplyCoupon {
     TResult Function(Map<String, dynamic> data)? getOrderSummaryEvent,
     TResult Function(Map<String, dynamic> data)? getTotalPrice,
     TResult Function(Map<String, dynamic> data)? applyCoupon,
+    TResult Function(Map<String, dynamic> data)? removeSlot,
+    TResult Function(Map<String, dynamic> data)? selectedChild,
     required TResult orElse(),
   }) {
     if (applyCoupon != null) {
@@ -536,6 +578,8 @@ class _$ApplyCouponImpl implements ApplyCoupon {
     required TResult Function(GetOrderSummaryEvent value) getOrderSummaryEvent,
     required TResult Function(GetTotalPriceEvent value) getTotalPrice,
     required TResult Function(ApplyCoupon value) applyCoupon,
+    required TResult Function(RemoveSlotEvent value) removeSlot,
+    required TResult Function(SelectedChild value) selectedChild,
   }) {
     return applyCoupon(this);
   }
@@ -546,6 +590,8 @@ class _$ApplyCouponImpl implements ApplyCoupon {
     TResult? Function(GetOrderSummaryEvent value)? getOrderSummaryEvent,
     TResult? Function(GetTotalPriceEvent value)? getTotalPrice,
     TResult? Function(ApplyCoupon value)? applyCoupon,
+    TResult? Function(RemoveSlotEvent value)? removeSlot,
+    TResult? Function(SelectedChild value)? selectedChild,
   }) {
     return applyCoupon?.call(this);
   }
@@ -556,6 +602,8 @@ class _$ApplyCouponImpl implements ApplyCoupon {
     TResult Function(GetOrderSummaryEvent value)? getOrderSummaryEvent,
     TResult Function(GetTotalPriceEvent value)? getTotalPrice,
     TResult Function(ApplyCoupon value)? applyCoupon,
+    TResult Function(RemoveSlotEvent value)? removeSlot,
+    TResult Function(SelectedChild value)? selectedChild,
     required TResult orElse(),
   }) {
     if (applyCoupon != null) {
@@ -577,5 +625,344 @@ abstract class ApplyCoupon implements OrderSummaryEvent {
   @override
   @JsonKey(includeFromJson: false, includeToJson: false)
   _$$ApplyCouponImplCopyWith<_$ApplyCouponImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$RemoveSlotEventImplCopyWith<$Res>
+    implements $OrderSummaryEventCopyWith<$Res> {
+  factory _$$RemoveSlotEventImplCopyWith(_$RemoveSlotEventImpl value,
+          $Res Function(_$RemoveSlotEventImpl) then) =
+      __$$RemoveSlotEventImplCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call({Map<String, dynamic> data});
+}
+
+/// @nodoc
+class __$$RemoveSlotEventImplCopyWithImpl<$Res>
+    extends _$OrderSummaryEventCopyWithImpl<$Res, _$RemoveSlotEventImpl>
+    implements _$$RemoveSlotEventImplCopyWith<$Res> {
+  __$$RemoveSlotEventImplCopyWithImpl(
+      _$RemoveSlotEventImpl _value, $Res Function(_$RemoveSlotEventImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of OrderSummaryEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? data = null,
+  }) {
+    return _then(_$RemoveSlotEventImpl(
+      null == data
+          ? _value._data
+          : data // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$RemoveSlotEventImpl implements RemoveSlotEvent {
+  const _$RemoveSlotEventImpl(final Map<String, dynamic> data) : _data = data;
+
+  final Map<String, dynamic> _data;
+  @override
+  Map<String, dynamic> get data {
+    if (_data is EqualUnmodifiableMapView) return _data;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableMapView(_data);
+  }
+
+  @override
+  String toString() {
+    return 'OrderSummaryEvent.removeSlot(data: $data)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$RemoveSlotEventImpl &&
+            const DeepCollectionEquality().equals(other._data, _data));
+  }
+
+  @override
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(_data));
+
+  /// Create a copy of OrderSummaryEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$RemoveSlotEventImplCopyWith<_$RemoveSlotEventImpl> get copyWith =>
+      __$$RemoveSlotEventImplCopyWithImpl<_$RemoveSlotEventImpl>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(Map<String, dynamic> data) getOrderSummaryEvent,
+    required TResult Function(Map<String, dynamic> data) getTotalPrice,
+    required TResult Function(Map<String, dynamic> data) applyCoupon,
+    required TResult Function(Map<String, dynamic> data) removeSlot,
+    required TResult Function(Map<String, dynamic> data) selectedChild,
+  }) {
+    return removeSlot(data);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(Map<String, dynamic> data)? getOrderSummaryEvent,
+    TResult? Function(Map<String, dynamic> data)? getTotalPrice,
+    TResult? Function(Map<String, dynamic> data)? applyCoupon,
+    TResult? Function(Map<String, dynamic> data)? removeSlot,
+    TResult? Function(Map<String, dynamic> data)? selectedChild,
+  }) {
+    return removeSlot?.call(data);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(Map<String, dynamic> data)? getOrderSummaryEvent,
+    TResult Function(Map<String, dynamic> data)? getTotalPrice,
+    TResult Function(Map<String, dynamic> data)? applyCoupon,
+    TResult Function(Map<String, dynamic> data)? removeSlot,
+    TResult Function(Map<String, dynamic> data)? selectedChild,
+    required TResult orElse(),
+  }) {
+    if (removeSlot != null) {
+      return removeSlot(data);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(GetOrderSummaryEvent value) getOrderSummaryEvent,
+    required TResult Function(GetTotalPriceEvent value) getTotalPrice,
+    required TResult Function(ApplyCoupon value) applyCoupon,
+    required TResult Function(RemoveSlotEvent value) removeSlot,
+    required TResult Function(SelectedChild value) selectedChild,
+  }) {
+    return removeSlot(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(GetOrderSummaryEvent value)? getOrderSummaryEvent,
+    TResult? Function(GetTotalPriceEvent value)? getTotalPrice,
+    TResult? Function(ApplyCoupon value)? applyCoupon,
+    TResult? Function(RemoveSlotEvent value)? removeSlot,
+    TResult? Function(SelectedChild value)? selectedChild,
+  }) {
+    return removeSlot?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(GetOrderSummaryEvent value)? getOrderSummaryEvent,
+    TResult Function(GetTotalPriceEvent value)? getTotalPrice,
+    TResult Function(ApplyCoupon value)? applyCoupon,
+    TResult Function(RemoveSlotEvent value)? removeSlot,
+    TResult Function(SelectedChild value)? selectedChild,
+    required TResult orElse(),
+  }) {
+    if (removeSlot != null) {
+      return removeSlot(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class RemoveSlotEvent implements OrderSummaryEvent {
+  const factory RemoveSlotEvent(final Map<String, dynamic> data) =
+      _$RemoveSlotEventImpl;
+
+  @override
+  Map<String, dynamic> get data;
+
+  /// Create a copy of OrderSummaryEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$RemoveSlotEventImplCopyWith<_$RemoveSlotEventImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$SelectedChildImplCopyWith<$Res>
+    implements $OrderSummaryEventCopyWith<$Res> {
+  factory _$$SelectedChildImplCopyWith(
+          _$SelectedChildImpl value, $Res Function(_$SelectedChildImpl) then) =
+      __$$SelectedChildImplCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call({Map<String, dynamic> data});
+}
+
+/// @nodoc
+class __$$SelectedChildImplCopyWithImpl<$Res>
+    extends _$OrderSummaryEventCopyWithImpl<$Res, _$SelectedChildImpl>
+    implements _$$SelectedChildImplCopyWith<$Res> {
+  __$$SelectedChildImplCopyWithImpl(
+      _$SelectedChildImpl _value, $Res Function(_$SelectedChildImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of OrderSummaryEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? data = null,
+  }) {
+    return _then(_$SelectedChildImpl(
+      null == data
+          ? _value._data
+          : data // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$SelectedChildImpl implements SelectedChild {
+  const _$SelectedChildImpl(final Map<String, dynamic> data) : _data = data;
+
+  final Map<String, dynamic> _data;
+  @override
+  Map<String, dynamic> get data {
+    if (_data is EqualUnmodifiableMapView) return _data;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableMapView(_data);
+  }
+
+  @override
+  String toString() {
+    return 'OrderSummaryEvent.selectedChild(data: $data)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$SelectedChildImpl &&
+            const DeepCollectionEquality().equals(other._data, _data));
+  }
+
+  @override
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(_data));
+
+  /// Create a copy of OrderSummaryEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$SelectedChildImplCopyWith<_$SelectedChildImpl> get copyWith =>
+      __$$SelectedChildImplCopyWithImpl<_$SelectedChildImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(Map<String, dynamic> data) getOrderSummaryEvent,
+    required TResult Function(Map<String, dynamic> data) getTotalPrice,
+    required TResult Function(Map<String, dynamic> data) applyCoupon,
+    required TResult Function(Map<String, dynamic> data) removeSlot,
+    required TResult Function(Map<String, dynamic> data) selectedChild,
+  }) {
+    return selectedChild(data);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(Map<String, dynamic> data)? getOrderSummaryEvent,
+    TResult? Function(Map<String, dynamic> data)? getTotalPrice,
+    TResult? Function(Map<String, dynamic> data)? applyCoupon,
+    TResult? Function(Map<String, dynamic> data)? removeSlot,
+    TResult? Function(Map<String, dynamic> data)? selectedChild,
+  }) {
+    return selectedChild?.call(data);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(Map<String, dynamic> data)? getOrderSummaryEvent,
+    TResult Function(Map<String, dynamic> data)? getTotalPrice,
+    TResult Function(Map<String, dynamic> data)? applyCoupon,
+    TResult Function(Map<String, dynamic> data)? removeSlot,
+    TResult Function(Map<String, dynamic> data)? selectedChild,
+    required TResult orElse(),
+  }) {
+    if (selectedChild != null) {
+      return selectedChild(data);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(GetOrderSummaryEvent value) getOrderSummaryEvent,
+    required TResult Function(GetTotalPriceEvent value) getTotalPrice,
+    required TResult Function(ApplyCoupon value) applyCoupon,
+    required TResult Function(RemoveSlotEvent value) removeSlot,
+    required TResult Function(SelectedChild value) selectedChild,
+  }) {
+    return selectedChild(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(GetOrderSummaryEvent value)? getOrderSummaryEvent,
+    TResult? Function(GetTotalPriceEvent value)? getTotalPrice,
+    TResult? Function(ApplyCoupon value)? applyCoupon,
+    TResult? Function(RemoveSlotEvent value)? removeSlot,
+    TResult? Function(SelectedChild value)? selectedChild,
+  }) {
+    return selectedChild?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(GetOrderSummaryEvent value)? getOrderSummaryEvent,
+    TResult Function(GetTotalPriceEvent value)? getTotalPrice,
+    TResult Function(ApplyCoupon value)? applyCoupon,
+    TResult Function(RemoveSlotEvent value)? removeSlot,
+    TResult Function(SelectedChild value)? selectedChild,
+    required TResult orElse(),
+  }) {
+    if (selectedChild != null) {
+      return selectedChild(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class SelectedChild implements OrderSummaryEvent {
+  const factory SelectedChild(final Map<String, dynamic> data) =
+      _$SelectedChildImpl;
+
+  @override
+  Map<String, dynamic> get data;
+
+  /// Create a copy of OrderSummaryEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$SelectedChildImplCopyWith<_$SelectedChildImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

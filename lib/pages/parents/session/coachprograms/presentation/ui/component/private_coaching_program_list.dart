@@ -28,7 +28,10 @@ class PrivateCoachingProgramList extends StatelessWidget {
                   coachingProgramResponse:
                   state.privateCoachProgramList.data[index],
                   onPressed: () {
+                    BlocProvider.of<CoachingProgramsBloc>(context).add(StoreCoachingNameAndId(state.privateCoachProgramList.data[index].name.toString(),state.privateCoachProgramList.data[index].id.toString()));
+
                     BlocProvider.of<CoachingDetailBloc>(context).add(CoachingDetail(state.privateCoachProgramList.data[index].id.toString()));
+
                     Navigator.pushNamed(
                         context, AppRoutes.COACHPROGRAMS,arguments: state.privateCoachProgramList.data[index]);
                   },

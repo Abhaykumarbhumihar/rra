@@ -21,9 +21,12 @@ mixin _$OrderSummaryState {
   dynamic get success => throw _privateConstructorUsedError;
   bool get isError => throw _privateConstructorUsedError;
   bool get isLoginApiError => throw _privateConstructorUsedError;
+  Map<String, dynamic> get selectedChildId =>
+      throw _privateConstructorUsedError;
   String get couponMessage => throw _privateConstructorUsedError;
   OrderSummaryModel get orderSummaryModel => throw _privateConstructorUsedError;
   GetTotalModel get getTotalRespone => throw _privateConstructorUsedError;
+  bool get isSlotRemoveLoading => throw _privateConstructorUsedError;
 
   /// Create a copy of OrderSummaryState
   /// with the given fields replaced by the non-null parameter values.
@@ -44,9 +47,11 @@ abstract class $OrderSummaryStateCopyWith<$Res> {
       dynamic success,
       bool isError,
       bool isLoginApiError,
+      Map<String, dynamic> selectedChildId,
       String couponMessage,
       OrderSummaryModel orderSummaryModel,
-      GetTotalModel getTotalRespone});
+      GetTotalModel getTotalRespone,
+      bool isSlotRemoveLoading});
 
   $OrderSummaryModelCopyWith<$Res> get orderSummaryModel;
   $GetTotalModelCopyWith<$Res> get getTotalRespone;
@@ -72,9 +77,11 @@ class _$OrderSummaryStateCopyWithImpl<$Res, $Val extends OrderSummaryState>
     Object? success = freezed,
     Object? isError = null,
     Object? isLoginApiError = null,
+    Object? selectedChildId = null,
     Object? couponMessage = null,
     Object? orderSummaryModel = null,
     Object? getTotalRespone = null,
+    Object? isSlotRemoveLoading = null,
   }) {
     return _then(_value.copyWith(
       isLoading: null == isLoading
@@ -97,6 +104,10 @@ class _$OrderSummaryStateCopyWithImpl<$Res, $Val extends OrderSummaryState>
           ? _value.isLoginApiError
           : isLoginApiError // ignore: cast_nullable_to_non_nullable
               as bool,
+      selectedChildId: null == selectedChildId
+          ? _value.selectedChildId
+          : selectedChildId // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>,
       couponMessage: null == couponMessage
           ? _value.couponMessage
           : couponMessage // ignore: cast_nullable_to_non_nullable
@@ -109,6 +120,10 @@ class _$OrderSummaryStateCopyWithImpl<$Res, $Val extends OrderSummaryState>
           ? _value.getTotalRespone
           : getTotalRespone // ignore: cast_nullable_to_non_nullable
               as GetTotalModel,
+      isSlotRemoveLoading: null == isSlotRemoveLoading
+          ? _value.isSlotRemoveLoading
+          : isSlotRemoveLoading // ignore: cast_nullable_to_non_nullable
+              as bool,
     ) as $Val);
   }
 
@@ -147,9 +162,11 @@ abstract class _$$OrderSummaryStateImplCopyWith<$Res>
       dynamic success,
       bool isError,
       bool isLoginApiError,
+      Map<String, dynamic> selectedChildId,
       String couponMessage,
       OrderSummaryModel orderSummaryModel,
-      GetTotalModel getTotalRespone});
+      GetTotalModel getTotalRespone,
+      bool isSlotRemoveLoading});
 
   @override
   $OrderSummaryModelCopyWith<$Res> get orderSummaryModel;
@@ -175,9 +192,11 @@ class __$$OrderSummaryStateImplCopyWithImpl<$Res>
     Object? success = freezed,
     Object? isError = null,
     Object? isLoginApiError = null,
+    Object? selectedChildId = null,
     Object? couponMessage = null,
     Object? orderSummaryModel = null,
     Object? getTotalRespone = null,
+    Object? isSlotRemoveLoading = null,
   }) {
     return _then(_$OrderSummaryStateImpl(
       isLoading: null == isLoading
@@ -200,6 +219,10 @@ class __$$OrderSummaryStateImplCopyWithImpl<$Res>
           ? _value.isLoginApiError
           : isLoginApiError // ignore: cast_nullable_to_non_nullable
               as bool,
+      selectedChildId: null == selectedChildId
+          ? _value._selectedChildId
+          : selectedChildId // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>,
       couponMessage: null == couponMessage
           ? _value.couponMessage
           : couponMessage // ignore: cast_nullable_to_non_nullable
@@ -212,6 +235,10 @@ class __$$OrderSummaryStateImplCopyWithImpl<$Res>
           ? _value.getTotalRespone
           : getTotalRespone // ignore: cast_nullable_to_non_nullable
               as GetTotalModel,
+      isSlotRemoveLoading: null == isSlotRemoveLoading
+          ? _value.isSlotRemoveLoading
+          : isSlotRemoveLoading // ignore: cast_nullable_to_non_nullable
+              as bool,
     ));
   }
 }
@@ -225,9 +252,12 @@ class _$OrderSummaryStateImpl implements _OrderSummaryState {
       this.success,
       this.isError = false,
       this.isLoginApiError = false,
+      final Map<String, dynamic> selectedChildId = const {},
       this.couponMessage = '',
       this.orderSummaryModel = const OrderSummaryModel(),
-      this.getTotalRespone = const GetTotalModel()});
+      this.getTotalRespone = const GetTotalModel(),
+      this.isSlotRemoveLoading = false})
+      : _selectedChildId = selectedChildId;
 
   @override
   @JsonKey()
@@ -242,6 +272,15 @@ class _$OrderSummaryStateImpl implements _OrderSummaryState {
   @override
   @JsonKey()
   final bool isLoginApiError;
+  final Map<String, dynamic> _selectedChildId;
+  @override
+  @JsonKey()
+  Map<String, dynamic> get selectedChildId {
+    if (_selectedChildId is EqualUnmodifiableMapView) return _selectedChildId;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableMapView(_selectedChildId);
+  }
+
   @override
   @JsonKey()
   final String couponMessage;
@@ -251,10 +290,13 @@ class _$OrderSummaryStateImpl implements _OrderSummaryState {
   @override
   @JsonKey()
   final GetTotalModel getTotalRespone;
+  @override
+  @JsonKey()
+  final bool isSlotRemoveLoading;
 
   @override
   String toString() {
-    return 'OrderSummaryState(isLoading: $isLoading, error: $error, success: $success, isError: $isError, isLoginApiError: $isLoginApiError, couponMessage: $couponMessage, orderSummaryModel: $orderSummaryModel, getTotalRespone: $getTotalRespone)';
+    return 'OrderSummaryState(isLoading: $isLoading, error: $error, success: $success, isError: $isError, isLoginApiError: $isLoginApiError, selectedChildId: $selectedChildId, couponMessage: $couponMessage, orderSummaryModel: $orderSummaryModel, getTotalRespone: $getTotalRespone, isSlotRemoveLoading: $isSlotRemoveLoading)';
   }
 
   @override
@@ -269,12 +311,16 @@ class _$OrderSummaryStateImpl implements _OrderSummaryState {
             (identical(other.isError, isError) || other.isError == isError) &&
             (identical(other.isLoginApiError, isLoginApiError) ||
                 other.isLoginApiError == isLoginApiError) &&
+            const DeepCollectionEquality()
+                .equals(other._selectedChildId, _selectedChildId) &&
             (identical(other.couponMessage, couponMessage) ||
                 other.couponMessage == couponMessage) &&
             (identical(other.orderSummaryModel, orderSummaryModel) ||
                 other.orderSummaryModel == orderSummaryModel) &&
             (identical(other.getTotalRespone, getTotalRespone) ||
-                other.getTotalRespone == getTotalRespone));
+                other.getTotalRespone == getTotalRespone) &&
+            (identical(other.isSlotRemoveLoading, isSlotRemoveLoading) ||
+                other.isSlotRemoveLoading == isSlotRemoveLoading));
   }
 
   @override
@@ -285,9 +331,11 @@ class _$OrderSummaryStateImpl implements _OrderSummaryState {
       const DeepCollectionEquality().hash(success),
       isError,
       isLoginApiError,
+      const DeepCollectionEquality().hash(_selectedChildId),
       couponMessage,
       orderSummaryModel,
-      getTotalRespone);
+      getTotalRespone,
+      isSlotRemoveLoading);
 
   /// Create a copy of OrderSummaryState
   /// with the given fields replaced by the non-null parameter values.
@@ -306,9 +354,11 @@ abstract class _OrderSummaryState implements OrderSummaryState {
       final dynamic success,
       final bool isError,
       final bool isLoginApiError,
+      final Map<String, dynamic> selectedChildId,
       final String couponMessage,
       final OrderSummaryModel orderSummaryModel,
-      final GetTotalModel getTotalRespone}) = _$OrderSummaryStateImpl;
+      final GetTotalModel getTotalRespone,
+      final bool isSlotRemoveLoading}) = _$OrderSummaryStateImpl;
 
   @override
   bool get isLoading;
@@ -321,11 +371,15 @@ abstract class _OrderSummaryState implements OrderSummaryState {
   @override
   bool get isLoginApiError;
   @override
+  Map<String, dynamic> get selectedChildId;
+  @override
   String get couponMessage;
   @override
   OrderSummaryModel get orderSummaryModel;
   @override
   GetTotalModel get getTotalRespone;
+  @override
+  bool get isSlotRemoveLoading;
 
   /// Create a copy of OrderSummaryState
   /// with the given fields replaced by the non-null parameter values.

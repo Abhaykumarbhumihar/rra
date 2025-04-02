@@ -12,9 +12,11 @@ class OrderSummaryState with _$OrderSummaryState {
     dynamic success,
     @Default(false) bool isError,
     @Default(false) bool isLoginApiError,
+    @Default({}) Map<String, dynamic>  selectedChildId,
     @Default('') String couponMessage,
     @Default(OrderSummaryModel()) OrderSummaryModel orderSummaryModel,
     @Default(GetTotalModel()) GetTotalModel getTotalRespone,
+    @Default(false) bool isSlotRemoveLoading,
   }) = _OrderSummaryState;
 
   // Initial state factory method
@@ -25,7 +27,9 @@ class OrderSummaryState with _$OrderSummaryState {
     error: null,
     success: null,
     isError: false,
+    selectedChildId:{},
     couponMessage: '',
+    isSlotRemoveLoading:false,
     isLoginApiError: false,
   );
 }

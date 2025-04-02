@@ -77,6 +77,8 @@ class CoachProgramsState with _$CoachProgramsState {
     @Default(false) bool isLoginApiError,
      @Default(CoachingProgramResponse()) CoachingProgramResponse groupCoachProgramList,
      @Default(CoachingProgramResponse()) CoachingProgramResponse privateCoachProgramList,
+    @Default("") String coachingID,
+    @Default("") String coachingName,
   }) = _CoachProgramsState;
 
   // Initial state factory method
@@ -84,6 +86,8 @@ class CoachProgramsState with _$CoachProgramsState {
 
     groupCoachProgramList:CoachingProgramResponse(),
     privateCoachProgramList: CoachingProgramResponse(),
+    coachingID:"",
+    coachingName:"",
     isLoading: false,
     error: null,
     success: null,
