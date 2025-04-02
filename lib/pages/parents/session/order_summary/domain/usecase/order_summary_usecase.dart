@@ -16,4 +16,9 @@ class OrderSummaryUsecase {
       Map<String, dynamic> timeToAddData) async {
     return _orderSummaryRepositery.getTotalPrice(timeToAddData);
   }
+
+  Future<Either<Failure, dynamic>> appLyCouponsExecute(
+      Map<String, dynamic> couponData) async {
+    return _orderSummaryRepositery.appLyCoupons(couponData);
+  }
 }

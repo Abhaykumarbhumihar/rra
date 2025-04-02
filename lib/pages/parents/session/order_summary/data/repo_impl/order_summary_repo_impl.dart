@@ -101,4 +101,41 @@ class OrderSummaryRepoImpl implements OrderSummaryRepositery {
       return Left(Failure("$e"));
     }
   }
+
+
+  @override
+  Future<Either<Failure, dynamic>> appLyCoupons(Map<String, dynamic> couponData)async {
+    try {
+
+      print("+++++++couponData++++++++++++++couponData++++++++++couponData+++++++++++++++++++");
+      print(couponData);
+      http.Response response =
+      await _apiServices.post(AppConstant.getApplyDiscount, couponData,useDefaultHeaders: true,isJson: false);
+      print("nvnvnvnv+++vnvnv++++++++\n\n");
+
+      print(response.body);
+      if (response.statusCode == 200) {
+        final Map<String, dynamic> responseData = jsonDecode(response.body);
+
+
+        if(responseData['success']){
+          print("couponData $responseData");//here my code is running
+
+          Utils.LogPrint(responseData);
+          return Right(responseData);
+
+        }else{
+          print("CODE IS RU NNNNNNNN");
+          return Left(Failure(responseData['message']));
+        }
+
+      } else {
+        final errorMessage = _extractErrorMessage(response.body);
+        return Left(Failure(errorMessage));
+      }
+
+    } catch (e) {
+      return Left(Failure("$e"));
+    }
+  }
 }

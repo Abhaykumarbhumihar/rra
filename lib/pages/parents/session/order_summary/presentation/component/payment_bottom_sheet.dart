@@ -9,9 +9,14 @@ import '../../../../../../common/values/values_exports.dart';
 class PaymentBottomSheet extends StatelessWidget {
   final VoidCallback checkOutAction;
   final VoidCallback? couponApplyAction;
+  final TextEditingController promoCodeController;
 
-  const PaymentBottomSheet({super.key, required this.checkOutAction, this.couponApplyAction});
-
+  const PaymentBottomSheet({
+    super.key,
+    required this.checkOutAction,
+    this.couponApplyAction,
+    required this.promoCodeController,
+  });
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -21,7 +26,9 @@ class PaymentBottomSheet extends StatelessWidget {
         shrinkWrap: true,
         children: [
           const SizedBox(height: 24),
-          PromoCodeField(onApply: couponApplyAction),
+          PromoCodeField(
+              controller: promoCodeController,
+              onApply: couponApplyAction),
           const SizedBox(height: 24),
           PaymentSummaryRow(title: "Total", value: "\$1200"),
           PaymentSummaryRow(title: "Discount", value: "\$200"),

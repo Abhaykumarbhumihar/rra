@@ -6,5 +6,6 @@ part 'order_summary_event.freezed.dart';
 class OrderSummaryEvent with _$OrderSummaryEvent {
    const factory OrderSummaryEvent.getOrderSummaryEvent(Map<String, dynamic> data) = GetOrderSummaryEvent;
    const factory OrderSummaryEvent.getTotalPrice(Map<String, dynamic> data) = GetTotalPriceEvent;
+   const factory OrderSummaryEvent.applyCoupon(Map<String, dynamic> data) = ApplyCoupon;
 
 }

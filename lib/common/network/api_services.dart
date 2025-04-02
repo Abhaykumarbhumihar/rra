@@ -42,9 +42,9 @@ class ApiServices {
           ||url==AppConstant.getStoreSesssionTimeAdded
           ||url==AppConstant.getSessionAccordingToDate
           ||url==AppConstant.getOrderSummaryData
-          ||url==AppConstant.getTotal
+        //  ||url==AppConstant.getTotal
           ||url==AppConstant.getBuldDiscountDetails
-          ||url==AppConstant.getApplyDiscount
+         // ||url==AppConstant.getApplyDiscount
           ||url==AppConstant.getRemoveDiscount
 
       ) {

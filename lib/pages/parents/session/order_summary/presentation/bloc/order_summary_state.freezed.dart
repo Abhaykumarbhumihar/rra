@@ -21,6 +21,7 @@ mixin _$OrderSummaryState {
   dynamic get success => throw _privateConstructorUsedError;
   bool get isError => throw _privateConstructorUsedError;
   bool get isLoginApiError => throw _privateConstructorUsedError;
+  String get couponMessage => throw _privateConstructorUsedError;
   OrderSummaryModel get orderSummaryModel => throw _privateConstructorUsedError;
 
   /// Create a copy of OrderSummaryState
@@ -42,6 +43,7 @@ abstract class $OrderSummaryStateCopyWith<$Res> {
       dynamic success,
       bool isError,
       bool isLoginApiError,
+      String couponMessage,
       OrderSummaryModel orderSummaryModel});
 
   $OrderSummaryModelCopyWith<$Res> get orderSummaryModel;
@@ -67,6 +69,7 @@ class _$OrderSummaryStateCopyWithImpl<$Res, $Val extends OrderSummaryState>
     Object? success = freezed,
     Object? isError = null,
     Object? isLoginApiError = null,
+    Object? couponMessage = null,
     Object? orderSummaryModel = null,
   }) {
     return _then(_value.copyWith(
@@ -90,6 +93,10 @@ class _$OrderSummaryStateCopyWithImpl<$Res, $Val extends OrderSummaryState>
           ? _value.isLoginApiError
           : isLoginApiError // ignore: cast_nullable_to_non_nullable
               as bool,
+      couponMessage: null == couponMessage
+          ? _value.couponMessage
+          : couponMessage // ignore: cast_nullable_to_non_nullable
+              as String,
       orderSummaryModel: null == orderSummaryModel
           ? _value.orderSummaryModel
           : orderSummaryModel // ignore: cast_nullable_to_non_nullable
@@ -122,6 +129,7 @@ abstract class _$$OrderSummaryStateImplCopyWith<$Res>
       dynamic success,
       bool isError,
       bool isLoginApiError,
+      String couponMessage,
       OrderSummaryModel orderSummaryModel});
 
   @override
@@ -146,6 +154,7 @@ class __$$OrderSummaryStateImplCopyWithImpl<$Res>
     Object? success = freezed,
     Object? isError = null,
     Object? isLoginApiError = null,
+    Object? couponMessage = null,
     Object? orderSummaryModel = null,
   }) {
     return _then(_$OrderSummaryStateImpl(
@@ -169,6 +178,10 @@ class __$$OrderSummaryStateImplCopyWithImpl<$Res>
           ? _value.isLoginApiError
           : isLoginApiError // ignore: cast_nullable_to_non_nullable
               as bool,
+      couponMessage: null == couponMessage
+          ? _value.couponMessage
+          : couponMessage // ignore: cast_nullable_to_non_nullable
+              as String,
       orderSummaryModel: null == orderSummaryModel
           ? _value.orderSummaryModel
           : orderSummaryModel // ignore: cast_nullable_to_non_nullable
@@ -186,6 +199,7 @@ class _$OrderSummaryStateImpl implements _OrderSummaryState {
       this.success,
       this.isError = false,
       this.isLoginApiError = false,
+      this.couponMessage = '',
       this.orderSummaryModel = const OrderSummaryModel()});
 
   @override
@@ -203,11 +217,14 @@ class _$OrderSummaryStateImpl implements _OrderSummaryState {
   final bool isLoginApiError;
   @override
   @JsonKey()
+  final String couponMessage;
+  @override
+  @JsonKey()
   final OrderSummaryModel orderSummaryModel;
 
   @override
   String toString() {
-    return 'OrderSummaryState(isLoading: $isLoading, error: $error, success: $success, isError: $isError, isLoginApiError: $isLoginApiError, orderSummaryModel: $orderSummaryModel)';
+    return 'OrderSummaryState(isLoading: $isLoading, error: $error, success: $success, isError: $isError, isLoginApiError: $isLoginApiError, couponMessage: $couponMessage, orderSummaryModel: $orderSummaryModel)';
   }
 
   @override
@@ -222,6 +239,8 @@ class _$OrderSummaryStateImpl implements _OrderSummaryState {
             (identical(other.isError, isError) || other.isError == isError) &&
             (identical(other.isLoginApiError, isLoginApiError) ||
                 other.isLoginApiError == isLoginApiError) &&
+            (identical(other.couponMessage, couponMessage) ||
+                other.couponMessage == couponMessage) &&
             (identical(other.orderSummaryModel, orderSummaryModel) ||
                 other.orderSummaryModel == orderSummaryModel));
   }
@@ -234,6 +253,7 @@ class _$OrderSummaryStateImpl implements _OrderSummaryState {
       const DeepCollectionEquality().hash(success),
       isError,
       isLoginApiError,
+      couponMessage,
       orderSummaryModel);
 
   /// Create a copy of OrderSummaryState
@@ -253,6 +273,7 @@ abstract class _OrderSummaryState implements OrderSummaryState {
       final dynamic success,
       final bool isError,
       final bool isLoginApiError,
+      final String couponMessage,
       final OrderSummaryModel orderSummaryModel}) = _$OrderSummaryStateImpl;
 
   @override
@@ -265,6 +286,8 @@ abstract class _OrderSummaryState implements OrderSummaryState {
   bool get isError;
   @override
   bool get isLoginApiError;
+  @override
+  String get couponMessage;
   @override
   OrderSummaryModel get orderSummaryModel;
 

@@ -4,17 +4,21 @@ import '../../../../../../../common/component/common_app_bar.dart';
 import '../../../../../../../common/component/common_background.dart';
 import '../../../../../../../common/component/custom_app_button.dart';
 import '../../../../../../../common/component/screen_title.dart';
+import '../../../../../common/local/SharedPrefs.dart';
 import '../../calendar/presentation/bloc/session_calendar_bloc.dart';
 import '../../calendar/presentation/bloc/session_calendar_event.dart';
 import '../../calendar/presentation/bloc/session_calendar_state.dart';
 import '../../calendar/presentation/ui/component/added_slot_list_item.dart';
 import '../../calendar/presentation/ui/component/booking_component.dart';
 import 'bloc/order_summary_bloc.dart';
+import 'bloc/order_summary_event.dart';
 import 'bloc/order_summary_state.dart';
 import 'component/payment_bottom_sheet.dart';
 
 class OrderSummary extends StatelessWidget {
   OrderSummary({super.key});
+
+  final TextEditingController promoCodeController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -23,9 +27,9 @@ class OrderSummary extends StatelessWidget {
 
     return BlocListener<OrderSummaryBloc, OrderSummaryState>(
       listener: (context, state) {
-
-        print("CHECKING ORDER SUMMARY MODEL------");
-       // print(state.orderSummaryModel);
+        if (state.couponMessage != '') {
+          context.showCustomSnackbar(state.couponMessage);
+        }
       },
       child: BlocBuilder<OrderSummaryBloc, OrderSummaryState>(
         builder: (context, state) {
@@ -90,7 +94,7 @@ class OrderSummary extends StatelessWidget {
                                       state.orderSummaryModel.data[index];
 
                                   return AddedSlotListItem(
-                                    slotLit:session.slotList,
+                                    slotLit: session.slotList,
                                     title: session.childName,
                                     dateTime: "",
                                     onClose: () {
@@ -120,8 +124,20 @@ class OrderSummary extends StatelessWidget {
                                 showPaymentBottomSheet(context,
                                     checkOutAction: () {
                                   // Handle checkout logic
-                                }, couponApplyAction: () {
-                                  // Handle coupon apply logic
+                                }, couponApplyAction: () async {
+                                  FocusScope.of(context).unfocus();
+                                  print(
+                                      "Entered Promo Code: ${promoCodeController.text}");
+                                  var academyId = await SharedPrefs.getString(
+                                      "selected_academyid");
+
+                                  Map<String, dynamic> map = {
+                                    "academy_id": academyId,
+                                    "promo_code": "SUMMER2025"
+                                  };
+
+                                  BlocProvider.of<OrderSummaryBloc>(context)
+                                      .add(ApplyCoupon(map));
                                 });
                                 print("code is running here");
                               },
@@ -153,6 +169,7 @@ class OrderSummary extends StatelessWidget {
       clipBehavior: Clip.antiAliasWithSaveLayer,
       builder: (context) => PaymentBottomSheet(
         checkOutAction: checkOutAction,
+        promoCodeController: promoCodeController,
         couponApplyAction: couponApplyAction,
       ),
     );

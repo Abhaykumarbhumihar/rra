@@ -11,6 +11,7 @@ class OrderSummaryState with _$OrderSummaryState {
     dynamic success,
     @Default(false) bool isError,
     @Default(false) bool isLoginApiError,
+    @Default('') String couponMessage,
     @Default(OrderSummaryModel()) OrderSummaryModel orderSummaryModel,
   }) = _OrderSummaryState;
 
@@ -21,6 +22,7 @@ class OrderSummaryState with _$OrderSummaryState {
     error: null,
     success: null,
     isError: false,
+    couponMessage: '',
     isLoginApiError: false,
   );
 }

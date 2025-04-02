@@ -16,6 +16,29 @@ class OrderSummaryBloc extends Bloc<OrderSummaryEvent, OrderSummaryState> {
   OrderSummaryBloc() : super(OrderSummaryState.initial()) {
     on<GetOrderSummaryEvent>(_getOrderSummary);
     on<GetTotalPriceEvent>(_getTotalPrice);
+    on<ApplyCoupon>(_applyCoupons);
+  }
+
+  Future<void> _applyCoupons(
+      ApplyCoupon event, Emitter<OrderSummaryState> emit) async {
+    // Convert event.data map to JSON strings (if needed)
+
+    // Execute the use case to get the response
+emit(state.copyWith(isLoading: true,couponMessage: ''));
+    final response =
+    await _sessionCalendarUsecase.appLyCouponsExecute(event.data);
+
+    response.fold((failure) {
+      emit(state.copyWith(
+          isLoading: false,couponMessage: failure.message));
+    }, (orderSummaryData) {
+      print("==_applyCoupons=_applyCoupons========\n\n");
+      //  Utils.LogPrint(orderSummaryData);
+      print("==_applyCoupons==_applyCoupons=======\n\n");
+      emit(state.copyWith(
+          isLoading: false,couponMessage: "Cpupon apply successfully"));
+
+    });
   }
 
   Future<void> _getTotalPrice(
