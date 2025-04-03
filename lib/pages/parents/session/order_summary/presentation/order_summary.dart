@@ -167,11 +167,17 @@ class OrderSummary extends StatelessWidget {
                                     showPaymentBottomSheet(context,
                                         checkOutAction: () async {
 print("SS S S S S S S S S S S S S S ");
+var academyId = await SharedPrefs.getString("selected_academyid");
 
-Navigator.pop(context); // Close BottomSheet first
-Future.delayed(Duration(milliseconds: 300), () {
-  showCreditCardDialog(context); // Show Dialog after BottomSheet is closed
-});
+Map<String,dynamic> map={
+  "academy_id": academyId,
+  "notes": "This is a test order"
+};
+     BlocProvider.of<OrderSummaryBloc>(context).add(OrderPlaceEvent(map));
+// Navigator.pop(context); // Close BottomSheet first
+// Future.delayed(Duration(milliseconds: 300), () {
+//   showCreditCardDialog(context); // Show Dialog after BottomSheet is closed
+// });
                                       // await StripeService.instance
                                       //     .setPublishableKey();
                                       // await handlePayment();

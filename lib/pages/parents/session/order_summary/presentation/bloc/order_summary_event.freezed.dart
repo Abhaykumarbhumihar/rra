@@ -23,6 +23,7 @@ mixin _$OrderSummaryEvent {
     required TResult Function(Map<String, dynamic> data) applyCoupon,
     required TResult Function(Map<String, dynamic> data) removeSlot,
     required TResult Function(Map<String, dynamic> data) selectedChild,
+    required TResult Function(Map<String, dynamic> data) orderPlace,
     required TResult Function(String cardNumber) storeCardNumber,
     required TResult Function(String date) storeCardDDMM,
     required TResult Function(String cvv) storeCardCvv,
@@ -37,6 +38,7 @@ mixin _$OrderSummaryEvent {
     TResult? Function(Map<String, dynamic> data)? applyCoupon,
     TResult? Function(Map<String, dynamic> data)? removeSlot,
     TResult? Function(Map<String, dynamic> data)? selectedChild,
+    TResult? Function(Map<String, dynamic> data)? orderPlace,
     TResult? Function(String cardNumber)? storeCardNumber,
     TResult? Function(String date)? storeCardDDMM,
     TResult? Function(String cvv)? storeCardCvv,
@@ -51,6 +53,7 @@ mixin _$OrderSummaryEvent {
     TResult Function(Map<String, dynamic> data)? applyCoupon,
     TResult Function(Map<String, dynamic> data)? removeSlot,
     TResult Function(Map<String, dynamic> data)? selectedChild,
+    TResult Function(Map<String, dynamic> data)? orderPlace,
     TResult Function(String cardNumber)? storeCardNumber,
     TResult Function(String date)? storeCardDDMM,
     TResult Function(String cvv)? storeCardCvv,
@@ -66,6 +69,7 @@ mixin _$OrderSummaryEvent {
     required TResult Function(ApplyCoupon value) applyCoupon,
     required TResult Function(RemoveSlotEvent value) removeSlot,
     required TResult Function(SelectedChild value) selectedChild,
+    required TResult Function(OrderPlaceEvent value) orderPlace,
     required TResult Function(StoreCardNumberEvent value) storeCardNumber,
     required TResult Function(StoreCardDateMonthEvent value) storeCardDDMM,
     required TResult Function(StoreCardDateCvv value) storeCardCvv,
@@ -80,6 +84,7 @@ mixin _$OrderSummaryEvent {
     TResult? Function(ApplyCoupon value)? applyCoupon,
     TResult? Function(RemoveSlotEvent value)? removeSlot,
     TResult? Function(SelectedChild value)? selectedChild,
+    TResult? Function(OrderPlaceEvent value)? orderPlace,
     TResult? Function(StoreCardNumberEvent value)? storeCardNumber,
     TResult? Function(StoreCardDateMonthEvent value)? storeCardDDMM,
     TResult? Function(StoreCardDateCvv value)? storeCardCvv,
@@ -94,6 +99,7 @@ mixin _$OrderSummaryEvent {
     TResult Function(ApplyCoupon value)? applyCoupon,
     TResult Function(RemoveSlotEvent value)? removeSlot,
     TResult Function(SelectedChild value)? selectedChild,
+    TResult Function(OrderPlaceEvent value)? orderPlace,
     TResult Function(StoreCardNumberEvent value)? storeCardNumber,
     TResult Function(StoreCardDateMonthEvent value)? storeCardDDMM,
     TResult Function(StoreCardDateCvv value)? storeCardCvv,
@@ -207,6 +213,7 @@ class _$GetOrderSummaryEventImpl implements GetOrderSummaryEvent {
     required TResult Function(Map<String, dynamic> data) applyCoupon,
     required TResult Function(Map<String, dynamic> data) removeSlot,
     required TResult Function(Map<String, dynamic> data) selectedChild,
+    required TResult Function(Map<String, dynamic> data) orderPlace,
     required TResult Function(String cardNumber) storeCardNumber,
     required TResult Function(String date) storeCardDDMM,
     required TResult Function(String cvv) storeCardCvv,
@@ -224,6 +231,7 @@ class _$GetOrderSummaryEventImpl implements GetOrderSummaryEvent {
     TResult? Function(Map<String, dynamic> data)? applyCoupon,
     TResult? Function(Map<String, dynamic> data)? removeSlot,
     TResult? Function(Map<String, dynamic> data)? selectedChild,
+    TResult? Function(Map<String, dynamic> data)? orderPlace,
     TResult? Function(String cardNumber)? storeCardNumber,
     TResult? Function(String date)? storeCardDDMM,
     TResult? Function(String cvv)? storeCardCvv,
@@ -241,6 +249,7 @@ class _$GetOrderSummaryEventImpl implements GetOrderSummaryEvent {
     TResult Function(Map<String, dynamic> data)? applyCoupon,
     TResult Function(Map<String, dynamic> data)? removeSlot,
     TResult Function(Map<String, dynamic> data)? selectedChild,
+    TResult Function(Map<String, dynamic> data)? orderPlace,
     TResult Function(String cardNumber)? storeCardNumber,
     TResult Function(String date)? storeCardDDMM,
     TResult Function(String cvv)? storeCardCvv,
@@ -262,6 +271,7 @@ class _$GetOrderSummaryEventImpl implements GetOrderSummaryEvent {
     required TResult Function(ApplyCoupon value) applyCoupon,
     required TResult Function(RemoveSlotEvent value) removeSlot,
     required TResult Function(SelectedChild value) selectedChild,
+    required TResult Function(OrderPlaceEvent value) orderPlace,
     required TResult Function(StoreCardNumberEvent value) storeCardNumber,
     required TResult Function(StoreCardDateMonthEvent value) storeCardDDMM,
     required TResult Function(StoreCardDateCvv value) storeCardCvv,
@@ -279,6 +289,7 @@ class _$GetOrderSummaryEventImpl implements GetOrderSummaryEvent {
     TResult? Function(ApplyCoupon value)? applyCoupon,
     TResult? Function(RemoveSlotEvent value)? removeSlot,
     TResult? Function(SelectedChild value)? selectedChild,
+    TResult? Function(OrderPlaceEvent value)? orderPlace,
     TResult? Function(StoreCardNumberEvent value)? storeCardNumber,
     TResult? Function(StoreCardDateMonthEvent value)? storeCardDDMM,
     TResult? Function(StoreCardDateCvv value)? storeCardCvv,
@@ -296,6 +307,7 @@ class _$GetOrderSummaryEventImpl implements GetOrderSummaryEvent {
     TResult Function(ApplyCoupon value)? applyCoupon,
     TResult Function(RemoveSlotEvent value)? removeSlot,
     TResult Function(SelectedChild value)? selectedChild,
+    TResult Function(OrderPlaceEvent value)? orderPlace,
     TResult Function(StoreCardNumberEvent value)? storeCardNumber,
     TResult Function(StoreCardDateMonthEvent value)? storeCardDDMM,
     TResult Function(StoreCardDateCvv value)? storeCardCvv,
@@ -404,6 +416,7 @@ class _$GetTotalPriceEventImpl implements GetTotalPriceEvent {
     required TResult Function(Map<String, dynamic> data) applyCoupon,
     required TResult Function(Map<String, dynamic> data) removeSlot,
     required TResult Function(Map<String, dynamic> data) selectedChild,
+    required TResult Function(Map<String, dynamic> data) orderPlace,
     required TResult Function(String cardNumber) storeCardNumber,
     required TResult Function(String date) storeCardDDMM,
     required TResult Function(String cvv) storeCardCvv,
@@ -421,6 +434,7 @@ class _$GetTotalPriceEventImpl implements GetTotalPriceEvent {
     TResult? Function(Map<String, dynamic> data)? applyCoupon,
     TResult? Function(Map<String, dynamic> data)? removeSlot,
     TResult? Function(Map<String, dynamic> data)? selectedChild,
+    TResult? Function(Map<String, dynamic> data)? orderPlace,
     TResult? Function(String cardNumber)? storeCardNumber,
     TResult? Function(String date)? storeCardDDMM,
     TResult? Function(String cvv)? storeCardCvv,
@@ -438,6 +452,7 @@ class _$GetTotalPriceEventImpl implements GetTotalPriceEvent {
     TResult Function(Map<String, dynamic> data)? applyCoupon,
     TResult Function(Map<String, dynamic> data)? removeSlot,
     TResult Function(Map<String, dynamic> data)? selectedChild,
+    TResult Function(Map<String, dynamic> data)? orderPlace,
     TResult Function(String cardNumber)? storeCardNumber,
     TResult Function(String date)? storeCardDDMM,
     TResult Function(String cvv)? storeCardCvv,
@@ -459,6 +474,7 @@ class _$GetTotalPriceEventImpl implements GetTotalPriceEvent {
     required TResult Function(ApplyCoupon value) applyCoupon,
     required TResult Function(RemoveSlotEvent value) removeSlot,
     required TResult Function(SelectedChild value) selectedChild,
+    required TResult Function(OrderPlaceEvent value) orderPlace,
     required TResult Function(StoreCardNumberEvent value) storeCardNumber,
     required TResult Function(StoreCardDateMonthEvent value) storeCardDDMM,
     required TResult Function(StoreCardDateCvv value) storeCardCvv,
@@ -476,6 +492,7 @@ class _$GetTotalPriceEventImpl implements GetTotalPriceEvent {
     TResult? Function(ApplyCoupon value)? applyCoupon,
     TResult? Function(RemoveSlotEvent value)? removeSlot,
     TResult? Function(SelectedChild value)? selectedChild,
+    TResult? Function(OrderPlaceEvent value)? orderPlace,
     TResult? Function(StoreCardNumberEvent value)? storeCardNumber,
     TResult? Function(StoreCardDateMonthEvent value)? storeCardDDMM,
     TResult? Function(StoreCardDateCvv value)? storeCardCvv,
@@ -493,6 +510,7 @@ class _$GetTotalPriceEventImpl implements GetTotalPriceEvent {
     TResult Function(ApplyCoupon value)? applyCoupon,
     TResult Function(RemoveSlotEvent value)? removeSlot,
     TResult Function(SelectedChild value)? selectedChild,
+    TResult Function(OrderPlaceEvent value)? orderPlace,
     TResult Function(StoreCardNumberEvent value)? storeCardNumber,
     TResult Function(StoreCardDateMonthEvent value)? storeCardDDMM,
     TResult Function(StoreCardDateCvv value)? storeCardCvv,
@@ -599,6 +617,7 @@ class _$ApplyCouponImpl implements ApplyCoupon {
     required TResult Function(Map<String, dynamic> data) applyCoupon,
     required TResult Function(Map<String, dynamic> data) removeSlot,
     required TResult Function(Map<String, dynamic> data) selectedChild,
+    required TResult Function(Map<String, dynamic> data) orderPlace,
     required TResult Function(String cardNumber) storeCardNumber,
     required TResult Function(String date) storeCardDDMM,
     required TResult Function(String cvv) storeCardCvv,
@@ -616,6 +635,7 @@ class _$ApplyCouponImpl implements ApplyCoupon {
     TResult? Function(Map<String, dynamic> data)? applyCoupon,
     TResult? Function(Map<String, dynamic> data)? removeSlot,
     TResult? Function(Map<String, dynamic> data)? selectedChild,
+    TResult? Function(Map<String, dynamic> data)? orderPlace,
     TResult? Function(String cardNumber)? storeCardNumber,
     TResult? Function(String date)? storeCardDDMM,
     TResult? Function(String cvv)? storeCardCvv,
@@ -633,6 +653,7 @@ class _$ApplyCouponImpl implements ApplyCoupon {
     TResult Function(Map<String, dynamic> data)? applyCoupon,
     TResult Function(Map<String, dynamic> data)? removeSlot,
     TResult Function(Map<String, dynamic> data)? selectedChild,
+    TResult Function(Map<String, dynamic> data)? orderPlace,
     TResult Function(String cardNumber)? storeCardNumber,
     TResult Function(String date)? storeCardDDMM,
     TResult Function(String cvv)? storeCardCvv,
@@ -654,6 +675,7 @@ class _$ApplyCouponImpl implements ApplyCoupon {
     required TResult Function(ApplyCoupon value) applyCoupon,
     required TResult Function(RemoveSlotEvent value) removeSlot,
     required TResult Function(SelectedChild value) selectedChild,
+    required TResult Function(OrderPlaceEvent value) orderPlace,
     required TResult Function(StoreCardNumberEvent value) storeCardNumber,
     required TResult Function(StoreCardDateMonthEvent value) storeCardDDMM,
     required TResult Function(StoreCardDateCvv value) storeCardCvv,
@@ -671,6 +693,7 @@ class _$ApplyCouponImpl implements ApplyCoupon {
     TResult? Function(ApplyCoupon value)? applyCoupon,
     TResult? Function(RemoveSlotEvent value)? removeSlot,
     TResult? Function(SelectedChild value)? selectedChild,
+    TResult? Function(OrderPlaceEvent value)? orderPlace,
     TResult? Function(StoreCardNumberEvent value)? storeCardNumber,
     TResult? Function(StoreCardDateMonthEvent value)? storeCardDDMM,
     TResult? Function(StoreCardDateCvv value)? storeCardCvv,
@@ -688,6 +711,7 @@ class _$ApplyCouponImpl implements ApplyCoupon {
     TResult Function(ApplyCoupon value)? applyCoupon,
     TResult Function(RemoveSlotEvent value)? removeSlot,
     TResult Function(SelectedChild value)? selectedChild,
+    TResult Function(OrderPlaceEvent value)? orderPlace,
     TResult Function(StoreCardNumberEvent value)? storeCardNumber,
     TResult Function(StoreCardDateMonthEvent value)? storeCardDDMM,
     TResult Function(StoreCardDateCvv value)? storeCardCvv,
@@ -795,6 +819,7 @@ class _$RemoveSlotEventImpl implements RemoveSlotEvent {
     required TResult Function(Map<String, dynamic> data) applyCoupon,
     required TResult Function(Map<String, dynamic> data) removeSlot,
     required TResult Function(Map<String, dynamic> data) selectedChild,
+    required TResult Function(Map<String, dynamic> data) orderPlace,
     required TResult Function(String cardNumber) storeCardNumber,
     required TResult Function(String date) storeCardDDMM,
     required TResult Function(String cvv) storeCardCvv,
@@ -812,6 +837,7 @@ class _$RemoveSlotEventImpl implements RemoveSlotEvent {
     TResult? Function(Map<String, dynamic> data)? applyCoupon,
     TResult? Function(Map<String, dynamic> data)? removeSlot,
     TResult? Function(Map<String, dynamic> data)? selectedChild,
+    TResult? Function(Map<String, dynamic> data)? orderPlace,
     TResult? Function(String cardNumber)? storeCardNumber,
     TResult? Function(String date)? storeCardDDMM,
     TResult? Function(String cvv)? storeCardCvv,
@@ -829,6 +855,7 @@ class _$RemoveSlotEventImpl implements RemoveSlotEvent {
     TResult Function(Map<String, dynamic> data)? applyCoupon,
     TResult Function(Map<String, dynamic> data)? removeSlot,
     TResult Function(Map<String, dynamic> data)? selectedChild,
+    TResult Function(Map<String, dynamic> data)? orderPlace,
     TResult Function(String cardNumber)? storeCardNumber,
     TResult Function(String date)? storeCardDDMM,
     TResult Function(String cvv)? storeCardCvv,
@@ -850,6 +877,7 @@ class _$RemoveSlotEventImpl implements RemoveSlotEvent {
     required TResult Function(ApplyCoupon value) applyCoupon,
     required TResult Function(RemoveSlotEvent value) removeSlot,
     required TResult Function(SelectedChild value) selectedChild,
+    required TResult Function(OrderPlaceEvent value) orderPlace,
     required TResult Function(StoreCardNumberEvent value) storeCardNumber,
     required TResult Function(StoreCardDateMonthEvent value) storeCardDDMM,
     required TResult Function(StoreCardDateCvv value) storeCardCvv,
@@ -867,6 +895,7 @@ class _$RemoveSlotEventImpl implements RemoveSlotEvent {
     TResult? Function(ApplyCoupon value)? applyCoupon,
     TResult? Function(RemoveSlotEvent value)? removeSlot,
     TResult? Function(SelectedChild value)? selectedChild,
+    TResult? Function(OrderPlaceEvent value)? orderPlace,
     TResult? Function(StoreCardNumberEvent value)? storeCardNumber,
     TResult? Function(StoreCardDateMonthEvent value)? storeCardDDMM,
     TResult? Function(StoreCardDateCvv value)? storeCardCvv,
@@ -884,6 +913,7 @@ class _$RemoveSlotEventImpl implements RemoveSlotEvent {
     TResult Function(ApplyCoupon value)? applyCoupon,
     TResult Function(RemoveSlotEvent value)? removeSlot,
     TResult Function(SelectedChild value)? selectedChild,
+    TResult Function(OrderPlaceEvent value)? orderPlace,
     TResult Function(StoreCardNumberEvent value)? storeCardNumber,
     TResult Function(StoreCardDateMonthEvent value)? storeCardDDMM,
     TResult Function(StoreCardDateCvv value)? storeCardCvv,
@@ -990,6 +1020,7 @@ class _$SelectedChildImpl implements SelectedChild {
     required TResult Function(Map<String, dynamic> data) applyCoupon,
     required TResult Function(Map<String, dynamic> data) removeSlot,
     required TResult Function(Map<String, dynamic> data) selectedChild,
+    required TResult Function(Map<String, dynamic> data) orderPlace,
     required TResult Function(String cardNumber) storeCardNumber,
     required TResult Function(String date) storeCardDDMM,
     required TResult Function(String cvv) storeCardCvv,
@@ -1007,6 +1038,7 @@ class _$SelectedChildImpl implements SelectedChild {
     TResult? Function(Map<String, dynamic> data)? applyCoupon,
     TResult? Function(Map<String, dynamic> data)? removeSlot,
     TResult? Function(Map<String, dynamic> data)? selectedChild,
+    TResult? Function(Map<String, dynamic> data)? orderPlace,
     TResult? Function(String cardNumber)? storeCardNumber,
     TResult? Function(String date)? storeCardDDMM,
     TResult? Function(String cvv)? storeCardCvv,
@@ -1024,6 +1056,7 @@ class _$SelectedChildImpl implements SelectedChild {
     TResult Function(Map<String, dynamic> data)? applyCoupon,
     TResult Function(Map<String, dynamic> data)? removeSlot,
     TResult Function(Map<String, dynamic> data)? selectedChild,
+    TResult Function(Map<String, dynamic> data)? orderPlace,
     TResult Function(String cardNumber)? storeCardNumber,
     TResult Function(String date)? storeCardDDMM,
     TResult Function(String cvv)? storeCardCvv,
@@ -1045,6 +1078,7 @@ class _$SelectedChildImpl implements SelectedChild {
     required TResult Function(ApplyCoupon value) applyCoupon,
     required TResult Function(RemoveSlotEvent value) removeSlot,
     required TResult Function(SelectedChild value) selectedChild,
+    required TResult Function(OrderPlaceEvent value) orderPlace,
     required TResult Function(StoreCardNumberEvent value) storeCardNumber,
     required TResult Function(StoreCardDateMonthEvent value) storeCardDDMM,
     required TResult Function(StoreCardDateCvv value) storeCardCvv,
@@ -1062,6 +1096,7 @@ class _$SelectedChildImpl implements SelectedChild {
     TResult? Function(ApplyCoupon value)? applyCoupon,
     TResult? Function(RemoveSlotEvent value)? removeSlot,
     TResult? Function(SelectedChild value)? selectedChild,
+    TResult? Function(OrderPlaceEvent value)? orderPlace,
     TResult? Function(StoreCardNumberEvent value)? storeCardNumber,
     TResult? Function(StoreCardDateMonthEvent value)? storeCardDDMM,
     TResult? Function(StoreCardDateCvv value)? storeCardCvv,
@@ -1079,6 +1114,7 @@ class _$SelectedChildImpl implements SelectedChild {
     TResult Function(ApplyCoupon value)? applyCoupon,
     TResult Function(RemoveSlotEvent value)? removeSlot,
     TResult Function(SelectedChild value)? selectedChild,
+    TResult Function(OrderPlaceEvent value)? orderPlace,
     TResult Function(StoreCardNumberEvent value)? storeCardNumber,
     TResult Function(StoreCardDateMonthEvent value)? storeCardDDMM,
     TResult Function(StoreCardDateCvv value)? storeCardCvv,
@@ -1103,6 +1139,208 @@ abstract class SelectedChild implements OrderSummaryEvent {
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
   _$$SelectedChildImplCopyWith<_$SelectedChildImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$OrderPlaceEventImplCopyWith<$Res> {
+  factory _$$OrderPlaceEventImplCopyWith(_$OrderPlaceEventImpl value,
+          $Res Function(_$OrderPlaceEventImpl) then) =
+      __$$OrderPlaceEventImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({Map<String, dynamic> data});
+}
+
+/// @nodoc
+class __$$OrderPlaceEventImplCopyWithImpl<$Res>
+    extends _$OrderSummaryEventCopyWithImpl<$Res, _$OrderPlaceEventImpl>
+    implements _$$OrderPlaceEventImplCopyWith<$Res> {
+  __$$OrderPlaceEventImplCopyWithImpl(
+      _$OrderPlaceEventImpl _value, $Res Function(_$OrderPlaceEventImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of OrderSummaryEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? data = null,
+  }) {
+    return _then(_$OrderPlaceEventImpl(
+      null == data
+          ? _value._data
+          : data // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$OrderPlaceEventImpl implements OrderPlaceEvent {
+  const _$OrderPlaceEventImpl(final Map<String, dynamic> data) : _data = data;
+
+  final Map<String, dynamic> _data;
+  @override
+  Map<String, dynamic> get data {
+    if (_data is EqualUnmodifiableMapView) return _data;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableMapView(_data);
+  }
+
+  @override
+  String toString() {
+    return 'OrderSummaryEvent.orderPlace(data: $data)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$OrderPlaceEventImpl &&
+            const DeepCollectionEquality().equals(other._data, _data));
+  }
+
+  @override
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(_data));
+
+  /// Create a copy of OrderSummaryEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$OrderPlaceEventImplCopyWith<_$OrderPlaceEventImpl> get copyWith =>
+      __$$OrderPlaceEventImplCopyWithImpl<_$OrderPlaceEventImpl>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(Map<String, dynamic> data) getOrderSummaryEvent,
+    required TResult Function(Map<String, dynamic> data) getTotalPrice,
+    required TResult Function(Map<String, dynamic> data) applyCoupon,
+    required TResult Function(Map<String, dynamic> data) removeSlot,
+    required TResult Function(Map<String, dynamic> data) selectedChild,
+    required TResult Function(Map<String, dynamic> data) orderPlace,
+    required TResult Function(String cardNumber) storeCardNumber,
+    required TResult Function(String date) storeCardDDMM,
+    required TResult Function(String cvv) storeCardCvv,
+    required TResult Function(String userName) storeCardUserName,
+    required TResult Function(String couponCode) storeCouponCode,
+  }) {
+    return orderPlace(data);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(Map<String, dynamic> data)? getOrderSummaryEvent,
+    TResult? Function(Map<String, dynamic> data)? getTotalPrice,
+    TResult? Function(Map<String, dynamic> data)? applyCoupon,
+    TResult? Function(Map<String, dynamic> data)? removeSlot,
+    TResult? Function(Map<String, dynamic> data)? selectedChild,
+    TResult? Function(Map<String, dynamic> data)? orderPlace,
+    TResult? Function(String cardNumber)? storeCardNumber,
+    TResult? Function(String date)? storeCardDDMM,
+    TResult? Function(String cvv)? storeCardCvv,
+    TResult? Function(String userName)? storeCardUserName,
+    TResult? Function(String couponCode)? storeCouponCode,
+  }) {
+    return orderPlace?.call(data);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(Map<String, dynamic> data)? getOrderSummaryEvent,
+    TResult Function(Map<String, dynamic> data)? getTotalPrice,
+    TResult Function(Map<String, dynamic> data)? applyCoupon,
+    TResult Function(Map<String, dynamic> data)? removeSlot,
+    TResult Function(Map<String, dynamic> data)? selectedChild,
+    TResult Function(Map<String, dynamic> data)? orderPlace,
+    TResult Function(String cardNumber)? storeCardNumber,
+    TResult Function(String date)? storeCardDDMM,
+    TResult Function(String cvv)? storeCardCvv,
+    TResult Function(String userName)? storeCardUserName,
+    TResult Function(String couponCode)? storeCouponCode,
+    required TResult orElse(),
+  }) {
+    if (orderPlace != null) {
+      return orderPlace(data);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(GetOrderSummaryEvent value) getOrderSummaryEvent,
+    required TResult Function(GetTotalPriceEvent value) getTotalPrice,
+    required TResult Function(ApplyCoupon value) applyCoupon,
+    required TResult Function(RemoveSlotEvent value) removeSlot,
+    required TResult Function(SelectedChild value) selectedChild,
+    required TResult Function(OrderPlaceEvent value) orderPlace,
+    required TResult Function(StoreCardNumberEvent value) storeCardNumber,
+    required TResult Function(StoreCardDateMonthEvent value) storeCardDDMM,
+    required TResult Function(StoreCardDateCvv value) storeCardCvv,
+    required TResult Function(StoreCardUserName value) storeCardUserName,
+    required TResult Function(StoreCouponCode value) storeCouponCode,
+  }) {
+    return orderPlace(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(GetOrderSummaryEvent value)? getOrderSummaryEvent,
+    TResult? Function(GetTotalPriceEvent value)? getTotalPrice,
+    TResult? Function(ApplyCoupon value)? applyCoupon,
+    TResult? Function(RemoveSlotEvent value)? removeSlot,
+    TResult? Function(SelectedChild value)? selectedChild,
+    TResult? Function(OrderPlaceEvent value)? orderPlace,
+    TResult? Function(StoreCardNumberEvent value)? storeCardNumber,
+    TResult? Function(StoreCardDateMonthEvent value)? storeCardDDMM,
+    TResult? Function(StoreCardDateCvv value)? storeCardCvv,
+    TResult? Function(StoreCardUserName value)? storeCardUserName,
+    TResult? Function(StoreCouponCode value)? storeCouponCode,
+  }) {
+    return orderPlace?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(GetOrderSummaryEvent value)? getOrderSummaryEvent,
+    TResult Function(GetTotalPriceEvent value)? getTotalPrice,
+    TResult Function(ApplyCoupon value)? applyCoupon,
+    TResult Function(RemoveSlotEvent value)? removeSlot,
+    TResult Function(SelectedChild value)? selectedChild,
+    TResult Function(OrderPlaceEvent value)? orderPlace,
+    TResult Function(StoreCardNumberEvent value)? storeCardNumber,
+    TResult Function(StoreCardDateMonthEvent value)? storeCardDDMM,
+    TResult Function(StoreCardDateCvv value)? storeCardCvv,
+    TResult Function(StoreCardUserName value)? storeCardUserName,
+    TResult Function(StoreCouponCode value)? storeCouponCode,
+    required TResult orElse(),
+  }) {
+    if (orderPlace != null) {
+      return orderPlace(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class OrderPlaceEvent implements OrderSummaryEvent {
+  const factory OrderPlaceEvent(final Map<String, dynamic> data) =
+      _$OrderPlaceEventImpl;
+
+  Map<String, dynamic> get data;
+
+  /// Create a copy of OrderSummaryEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$OrderPlaceEventImplCopyWith<_$OrderPlaceEventImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -1182,6 +1420,7 @@ class _$StoreCardNumberEventImpl implements StoreCardNumberEvent {
     required TResult Function(Map<String, dynamic> data) applyCoupon,
     required TResult Function(Map<String, dynamic> data) removeSlot,
     required TResult Function(Map<String, dynamic> data) selectedChild,
+    required TResult Function(Map<String, dynamic> data) orderPlace,
     required TResult Function(String cardNumber) storeCardNumber,
     required TResult Function(String date) storeCardDDMM,
     required TResult Function(String cvv) storeCardCvv,
@@ -1199,6 +1438,7 @@ class _$StoreCardNumberEventImpl implements StoreCardNumberEvent {
     TResult? Function(Map<String, dynamic> data)? applyCoupon,
     TResult? Function(Map<String, dynamic> data)? removeSlot,
     TResult? Function(Map<String, dynamic> data)? selectedChild,
+    TResult? Function(Map<String, dynamic> data)? orderPlace,
     TResult? Function(String cardNumber)? storeCardNumber,
     TResult? Function(String date)? storeCardDDMM,
     TResult? Function(String cvv)? storeCardCvv,
@@ -1216,6 +1456,7 @@ class _$StoreCardNumberEventImpl implements StoreCardNumberEvent {
     TResult Function(Map<String, dynamic> data)? applyCoupon,
     TResult Function(Map<String, dynamic> data)? removeSlot,
     TResult Function(Map<String, dynamic> data)? selectedChild,
+    TResult Function(Map<String, dynamic> data)? orderPlace,
     TResult Function(String cardNumber)? storeCardNumber,
     TResult Function(String date)? storeCardDDMM,
     TResult Function(String cvv)? storeCardCvv,
@@ -1237,6 +1478,7 @@ class _$StoreCardNumberEventImpl implements StoreCardNumberEvent {
     required TResult Function(ApplyCoupon value) applyCoupon,
     required TResult Function(RemoveSlotEvent value) removeSlot,
     required TResult Function(SelectedChild value) selectedChild,
+    required TResult Function(OrderPlaceEvent value) orderPlace,
     required TResult Function(StoreCardNumberEvent value) storeCardNumber,
     required TResult Function(StoreCardDateMonthEvent value) storeCardDDMM,
     required TResult Function(StoreCardDateCvv value) storeCardCvv,
@@ -1254,6 +1496,7 @@ class _$StoreCardNumberEventImpl implements StoreCardNumberEvent {
     TResult? Function(ApplyCoupon value)? applyCoupon,
     TResult? Function(RemoveSlotEvent value)? removeSlot,
     TResult? Function(SelectedChild value)? selectedChild,
+    TResult? Function(OrderPlaceEvent value)? orderPlace,
     TResult? Function(StoreCardNumberEvent value)? storeCardNumber,
     TResult? Function(StoreCardDateMonthEvent value)? storeCardDDMM,
     TResult? Function(StoreCardDateCvv value)? storeCardCvv,
@@ -1271,6 +1514,7 @@ class _$StoreCardNumberEventImpl implements StoreCardNumberEvent {
     TResult Function(ApplyCoupon value)? applyCoupon,
     TResult Function(RemoveSlotEvent value)? removeSlot,
     TResult Function(SelectedChild value)? selectedChild,
+    TResult Function(OrderPlaceEvent value)? orderPlace,
     TResult Function(StoreCardNumberEvent value)? storeCardNumber,
     TResult Function(StoreCardDateMonthEvent value)? storeCardDDMM,
     TResult Function(StoreCardDateCvv value)? storeCardCvv,
@@ -1374,6 +1618,7 @@ class _$StoreCardDateMonthEventImpl implements StoreCardDateMonthEvent {
     required TResult Function(Map<String, dynamic> data) applyCoupon,
     required TResult Function(Map<String, dynamic> data) removeSlot,
     required TResult Function(Map<String, dynamic> data) selectedChild,
+    required TResult Function(Map<String, dynamic> data) orderPlace,
     required TResult Function(String cardNumber) storeCardNumber,
     required TResult Function(String date) storeCardDDMM,
     required TResult Function(String cvv) storeCardCvv,
@@ -1391,6 +1636,7 @@ class _$StoreCardDateMonthEventImpl implements StoreCardDateMonthEvent {
     TResult? Function(Map<String, dynamic> data)? applyCoupon,
     TResult? Function(Map<String, dynamic> data)? removeSlot,
     TResult? Function(Map<String, dynamic> data)? selectedChild,
+    TResult? Function(Map<String, dynamic> data)? orderPlace,
     TResult? Function(String cardNumber)? storeCardNumber,
     TResult? Function(String date)? storeCardDDMM,
     TResult? Function(String cvv)? storeCardCvv,
@@ -1408,6 +1654,7 @@ class _$StoreCardDateMonthEventImpl implements StoreCardDateMonthEvent {
     TResult Function(Map<String, dynamic> data)? applyCoupon,
     TResult Function(Map<String, dynamic> data)? removeSlot,
     TResult Function(Map<String, dynamic> data)? selectedChild,
+    TResult Function(Map<String, dynamic> data)? orderPlace,
     TResult Function(String cardNumber)? storeCardNumber,
     TResult Function(String date)? storeCardDDMM,
     TResult Function(String cvv)? storeCardCvv,
@@ -1429,6 +1676,7 @@ class _$StoreCardDateMonthEventImpl implements StoreCardDateMonthEvent {
     required TResult Function(ApplyCoupon value) applyCoupon,
     required TResult Function(RemoveSlotEvent value) removeSlot,
     required TResult Function(SelectedChild value) selectedChild,
+    required TResult Function(OrderPlaceEvent value) orderPlace,
     required TResult Function(StoreCardNumberEvent value) storeCardNumber,
     required TResult Function(StoreCardDateMonthEvent value) storeCardDDMM,
     required TResult Function(StoreCardDateCvv value) storeCardCvv,
@@ -1446,6 +1694,7 @@ class _$StoreCardDateMonthEventImpl implements StoreCardDateMonthEvent {
     TResult? Function(ApplyCoupon value)? applyCoupon,
     TResult? Function(RemoveSlotEvent value)? removeSlot,
     TResult? Function(SelectedChild value)? selectedChild,
+    TResult? Function(OrderPlaceEvent value)? orderPlace,
     TResult? Function(StoreCardNumberEvent value)? storeCardNumber,
     TResult? Function(StoreCardDateMonthEvent value)? storeCardDDMM,
     TResult? Function(StoreCardDateCvv value)? storeCardCvv,
@@ -1463,6 +1712,7 @@ class _$StoreCardDateMonthEventImpl implements StoreCardDateMonthEvent {
     TResult Function(ApplyCoupon value)? applyCoupon,
     TResult Function(RemoveSlotEvent value)? removeSlot,
     TResult Function(SelectedChild value)? selectedChild,
+    TResult Function(OrderPlaceEvent value)? orderPlace,
     TResult Function(StoreCardNumberEvent value)? storeCardNumber,
     TResult Function(StoreCardDateMonthEvent value)? storeCardDDMM,
     TResult Function(StoreCardDateCvv value)? storeCardCvv,
@@ -1564,6 +1814,7 @@ class _$StoreCardDateCvvImpl implements StoreCardDateCvv {
     required TResult Function(Map<String, dynamic> data) applyCoupon,
     required TResult Function(Map<String, dynamic> data) removeSlot,
     required TResult Function(Map<String, dynamic> data) selectedChild,
+    required TResult Function(Map<String, dynamic> data) orderPlace,
     required TResult Function(String cardNumber) storeCardNumber,
     required TResult Function(String date) storeCardDDMM,
     required TResult Function(String cvv) storeCardCvv,
@@ -1581,6 +1832,7 @@ class _$StoreCardDateCvvImpl implements StoreCardDateCvv {
     TResult? Function(Map<String, dynamic> data)? applyCoupon,
     TResult? Function(Map<String, dynamic> data)? removeSlot,
     TResult? Function(Map<String, dynamic> data)? selectedChild,
+    TResult? Function(Map<String, dynamic> data)? orderPlace,
     TResult? Function(String cardNumber)? storeCardNumber,
     TResult? Function(String date)? storeCardDDMM,
     TResult? Function(String cvv)? storeCardCvv,
@@ -1598,6 +1850,7 @@ class _$StoreCardDateCvvImpl implements StoreCardDateCvv {
     TResult Function(Map<String, dynamic> data)? applyCoupon,
     TResult Function(Map<String, dynamic> data)? removeSlot,
     TResult Function(Map<String, dynamic> data)? selectedChild,
+    TResult Function(Map<String, dynamic> data)? orderPlace,
     TResult Function(String cardNumber)? storeCardNumber,
     TResult Function(String date)? storeCardDDMM,
     TResult Function(String cvv)? storeCardCvv,
@@ -1619,6 +1872,7 @@ class _$StoreCardDateCvvImpl implements StoreCardDateCvv {
     required TResult Function(ApplyCoupon value) applyCoupon,
     required TResult Function(RemoveSlotEvent value) removeSlot,
     required TResult Function(SelectedChild value) selectedChild,
+    required TResult Function(OrderPlaceEvent value) orderPlace,
     required TResult Function(StoreCardNumberEvent value) storeCardNumber,
     required TResult Function(StoreCardDateMonthEvent value) storeCardDDMM,
     required TResult Function(StoreCardDateCvv value) storeCardCvv,
@@ -1636,6 +1890,7 @@ class _$StoreCardDateCvvImpl implements StoreCardDateCvv {
     TResult? Function(ApplyCoupon value)? applyCoupon,
     TResult? Function(RemoveSlotEvent value)? removeSlot,
     TResult? Function(SelectedChild value)? selectedChild,
+    TResult? Function(OrderPlaceEvent value)? orderPlace,
     TResult? Function(StoreCardNumberEvent value)? storeCardNumber,
     TResult? Function(StoreCardDateMonthEvent value)? storeCardDDMM,
     TResult? Function(StoreCardDateCvv value)? storeCardCvv,
@@ -1653,6 +1908,7 @@ class _$StoreCardDateCvvImpl implements StoreCardDateCvv {
     TResult Function(ApplyCoupon value)? applyCoupon,
     TResult Function(RemoveSlotEvent value)? removeSlot,
     TResult Function(SelectedChild value)? selectedChild,
+    TResult Function(OrderPlaceEvent value)? orderPlace,
     TResult Function(StoreCardNumberEvent value)? storeCardNumber,
     TResult Function(StoreCardDateMonthEvent value)? storeCardDDMM,
     TResult Function(StoreCardDateCvv value)? storeCardCvv,
@@ -1754,6 +2010,7 @@ class _$StoreCardUserNameImpl implements StoreCardUserName {
     required TResult Function(Map<String, dynamic> data) applyCoupon,
     required TResult Function(Map<String, dynamic> data) removeSlot,
     required TResult Function(Map<String, dynamic> data) selectedChild,
+    required TResult Function(Map<String, dynamic> data) orderPlace,
     required TResult Function(String cardNumber) storeCardNumber,
     required TResult Function(String date) storeCardDDMM,
     required TResult Function(String cvv) storeCardCvv,
@@ -1771,6 +2028,7 @@ class _$StoreCardUserNameImpl implements StoreCardUserName {
     TResult? Function(Map<String, dynamic> data)? applyCoupon,
     TResult? Function(Map<String, dynamic> data)? removeSlot,
     TResult? Function(Map<String, dynamic> data)? selectedChild,
+    TResult? Function(Map<String, dynamic> data)? orderPlace,
     TResult? Function(String cardNumber)? storeCardNumber,
     TResult? Function(String date)? storeCardDDMM,
     TResult? Function(String cvv)? storeCardCvv,
@@ -1788,6 +2046,7 @@ class _$StoreCardUserNameImpl implements StoreCardUserName {
     TResult Function(Map<String, dynamic> data)? applyCoupon,
     TResult Function(Map<String, dynamic> data)? removeSlot,
     TResult Function(Map<String, dynamic> data)? selectedChild,
+    TResult Function(Map<String, dynamic> data)? orderPlace,
     TResult Function(String cardNumber)? storeCardNumber,
     TResult Function(String date)? storeCardDDMM,
     TResult Function(String cvv)? storeCardCvv,
@@ -1809,6 +2068,7 @@ class _$StoreCardUserNameImpl implements StoreCardUserName {
     required TResult Function(ApplyCoupon value) applyCoupon,
     required TResult Function(RemoveSlotEvent value) removeSlot,
     required TResult Function(SelectedChild value) selectedChild,
+    required TResult Function(OrderPlaceEvent value) orderPlace,
     required TResult Function(StoreCardNumberEvent value) storeCardNumber,
     required TResult Function(StoreCardDateMonthEvent value) storeCardDDMM,
     required TResult Function(StoreCardDateCvv value) storeCardCvv,
@@ -1826,6 +2086,7 @@ class _$StoreCardUserNameImpl implements StoreCardUserName {
     TResult? Function(ApplyCoupon value)? applyCoupon,
     TResult? Function(RemoveSlotEvent value)? removeSlot,
     TResult? Function(SelectedChild value)? selectedChild,
+    TResult? Function(OrderPlaceEvent value)? orderPlace,
     TResult? Function(StoreCardNumberEvent value)? storeCardNumber,
     TResult? Function(StoreCardDateMonthEvent value)? storeCardDDMM,
     TResult? Function(StoreCardDateCvv value)? storeCardCvv,
@@ -1843,6 +2104,7 @@ class _$StoreCardUserNameImpl implements StoreCardUserName {
     TResult Function(ApplyCoupon value)? applyCoupon,
     TResult Function(RemoveSlotEvent value)? removeSlot,
     TResult Function(SelectedChild value)? selectedChild,
+    TResult Function(OrderPlaceEvent value)? orderPlace,
     TResult Function(StoreCardNumberEvent value)? storeCardNumber,
     TResult Function(StoreCardDateMonthEvent value)? storeCardDDMM,
     TResult Function(StoreCardDateCvv value)? storeCardCvv,
@@ -1945,6 +2207,7 @@ class _$StoreCouponCodeImpl implements StoreCouponCode {
     required TResult Function(Map<String, dynamic> data) applyCoupon,
     required TResult Function(Map<String, dynamic> data) removeSlot,
     required TResult Function(Map<String, dynamic> data) selectedChild,
+    required TResult Function(Map<String, dynamic> data) orderPlace,
     required TResult Function(String cardNumber) storeCardNumber,
     required TResult Function(String date) storeCardDDMM,
     required TResult Function(String cvv) storeCardCvv,
@@ -1962,6 +2225,7 @@ class _$StoreCouponCodeImpl implements StoreCouponCode {
     TResult? Function(Map<String, dynamic> data)? applyCoupon,
     TResult? Function(Map<String, dynamic> data)? removeSlot,
     TResult? Function(Map<String, dynamic> data)? selectedChild,
+    TResult? Function(Map<String, dynamic> data)? orderPlace,
     TResult? Function(String cardNumber)? storeCardNumber,
     TResult? Function(String date)? storeCardDDMM,
     TResult? Function(String cvv)? storeCardCvv,
@@ -1979,6 +2243,7 @@ class _$StoreCouponCodeImpl implements StoreCouponCode {
     TResult Function(Map<String, dynamic> data)? applyCoupon,
     TResult Function(Map<String, dynamic> data)? removeSlot,
     TResult Function(Map<String, dynamic> data)? selectedChild,
+    TResult Function(Map<String, dynamic> data)? orderPlace,
     TResult Function(String cardNumber)? storeCardNumber,
     TResult Function(String date)? storeCardDDMM,
     TResult Function(String cvv)? storeCardCvv,
@@ -2000,6 +2265,7 @@ class _$StoreCouponCodeImpl implements StoreCouponCode {
     required TResult Function(ApplyCoupon value) applyCoupon,
     required TResult Function(RemoveSlotEvent value) removeSlot,
     required TResult Function(SelectedChild value) selectedChild,
+    required TResult Function(OrderPlaceEvent value) orderPlace,
     required TResult Function(StoreCardNumberEvent value) storeCardNumber,
     required TResult Function(StoreCardDateMonthEvent value) storeCardDDMM,
     required TResult Function(StoreCardDateCvv value) storeCardCvv,
@@ -2017,6 +2283,7 @@ class _$StoreCouponCodeImpl implements StoreCouponCode {
     TResult? Function(ApplyCoupon value)? applyCoupon,
     TResult? Function(RemoveSlotEvent value)? removeSlot,
     TResult? Function(SelectedChild value)? selectedChild,
+    TResult? Function(OrderPlaceEvent value)? orderPlace,
     TResult? Function(StoreCardNumberEvent value)? storeCardNumber,
     TResult? Function(StoreCardDateMonthEvent value)? storeCardDDMM,
     TResult? Function(StoreCardDateCvv value)? storeCardCvv,
@@ -2034,6 +2301,7 @@ class _$StoreCouponCodeImpl implements StoreCouponCode {
     TResult Function(ApplyCoupon value)? applyCoupon,
     TResult Function(RemoveSlotEvent value)? removeSlot,
     TResult Function(SelectedChild value)? selectedChild,
+    TResult Function(OrderPlaceEvent value)? orderPlace,
     TResult Function(StoreCardNumberEvent value)? storeCardNumber,
     TResult Function(StoreCardDateMonthEvent value)? storeCardDDMM,
     TResult Function(StoreCardDateCvv value)? storeCardCvv,

@@ -26,6 +26,7 @@ class OrderSummaryBloc extends Bloc<OrderSummaryEvent, OrderSummaryState> {
     on<StoreCardDateCvv>(_storeCardCvv);
     on<StoreCardUserName>(_storeCardUserName);
     on<StoreCouponCode>(_storeCouponCode);
+    on<OrderPlaceEvent>(_order_place);
   }
 
   Future<void> _storeCouponCode(
@@ -139,4 +140,28 @@ class OrderSummaryBloc extends Bloc<OrderSummaryEvent, OrderSummaryState> {
       // add(GetTotalPriceEvent(map));
     });
   }
+
+
+
+
+
+
+
+
+  Future<void> _order_place(
+      OrderPlaceEvent event, Emitter<OrderSummaryState> emit) async {
+    emit(state.copyWith(isLoading: true, couponErrorMessage: '',couponSuccessMessage: ''));
+    final response = await _orderSummaryUsecase.orderPlaceExecute(event.data);
+
+    response.fold((failure) {
+      print("SS S S S S S S${failure.message}");
+      emit(state.copyWith(isLoading: false, couponErrorMessage: failure.message,couponSuccessMessage: ''));
+    }, (orderSummaryData) {
+      print("==_applyCoupons=_applyCoupons========\n\n");
+
+      emit(state.copyWith(
+          isLoading: false,couponErrorMessage: '', couponSuccessMessage: "Coupon apply successfully"));
+    });
+  }
+
 }

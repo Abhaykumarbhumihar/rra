@@ -22,4 +22,9 @@ class OrderSummaryUsecase {
       Map<String, dynamic> couponData) async {
     return _orderSummaryRepositery.appLyCoupons(couponData);
   }
+
+  Future<Either<Failure, dynamic>> orderPlaceExecute(
+      Map<String, dynamic> orderPlaceData) async {
+    return _orderSummaryRepositery.orderPlace(orderPlaceData);
+  }
 }
