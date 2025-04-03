@@ -1,6 +1,5 @@
 import 'exports.dart';
 
-
 class AppPages {
   static List<PageEntitiy> routes() {
     return [
@@ -52,123 +51,117 @@ class AppPages {
 
       PageEntitiy(
         route: AppRoutes.COACHPROGRAMS,
-        page:  CoachingDetailScreen(),
+        page: CoachingDetailScreen(),
         bloc: BlocProvider(create: (_) => CoachingDetailBloc()),
       ),
 
       PageEntitiy(
         route: AppRoutes.BOOKTRAINING,
-        page:  CoachProgramsScreen(),
+        page: CoachProgramsScreen(),
         bloc: BlocProvider(create: (_) => CoachingProgramsBloc()),
       ),
       PageEntitiy(
-        route: AppRoutes.CALENDAR,
-        page:  CalendarPage(),
-        bloc: BlocProvider(create: (_) =>SessionCalendarBloc())
-
-      ),
+          route: AppRoutes.CALENDAR,
+          page: CalendarPage(),
+          bloc: BlocProvider(create: (_) => SessionCalendarBloc())),
       PageEntitiy(
-        route: AppRoutes.ADDDETAILS,
-        page:  AddDetail(),
-          bloc: BlocProvider(create: (_) =>AddViewPlayerBloc())
-      ),
+          route: AppRoutes.ADDDETAILS,
+          page: AddDetail(),
+          bloc: BlocProvider(create: (_) => AddViewPlayerBloc())),
       PageEntitiy(
         route: AppRoutes.HOLIDAYCAMP,
-        page:  HolidayCampp(),
+        page: HolidayCampp(),
       ),
       PageEntitiy(
         route: AppRoutes.FACILITYLIST,
-        page:  FacilityList(),
+        page: FacilityList(),
       ),
       PageEntitiy(
         route: AppRoutes.FACILITYDETAIL,
-        page:  FacilityDetailPage(),
+        page: FacilityDetailPage(),
       ),
       PageEntitiy(
         route: AppRoutes.FACILITADDTOCARTPAGE,
-        page:  FacilityAddToCartPage(),
+        page: FacilityAddToCartPage(),
       ),
       PageEntitiy(
         route: AppRoutes.ADDVIEWDOCUMENT,
-        page:  AddViewDocumenPage(),
+        page: AddViewDocumenPage(),
         bloc: BlocProvider(create: (_) => AddDocumentBloc()),
       ),
 
       PageEntitiy(
         route: AppRoutes.LOCATIONPAGE,
-        page:  LocationListPage(),
+        page: LocationListPage(),
         bloc: BlocProvider(create: (_) => LocationBloc()),
       ),
       PageEntitiy(
         route: AppRoutes.HOLIDAYCAMPDETAIL,
-        page:  HolidayDetailPage(),
+        page: HolidayDetailPage(),
       ),
-
-
-
 
       //coach
 
       PageEntitiy(
         route: AppRoutes.COACHVIEWSESSION,
-        page:  CoachViewSessioin(),
+        page: CoachViewSessioin(),
       ),
       PageEntitiy(
         route: AppRoutes.COACHMYCOLLATERALSLIST,
-        page:  MyCollateralList(),
+        page: MyCollateralList(),
       ),
       PageEntitiy(
         route: AppRoutes.COACHCOLLATERALSDETAILS,
-        page:  CoachMyCollateralDetail(),
+        page: CoachMyCollateralDetail(),
       ),
       PageEntitiy(
         route: AppRoutes.COACHMANAGETEAMLIST,
-        page:  ManageTeamList(),
+        page: ManageTeamList(),
       ),
 
       PageEntitiy(
         route: AppRoutes.COACHPLAYERATTENDANCELIST,
-        page:  CoachPlayerAttendanceList(),
+        page: CoachPlayerAttendanceList(),
       ),
       PageEntitiy(
         route: AppRoutes.COACHSINGLEPLAYERATTENDANCE,
-        page:  CoachSinglePlayerDetailPage(),
+        page: CoachSinglePlayerDetailPage(),
       ),
 
       PageEntitiy(
         route: AppRoutes.COACHPLAYERREPOORTLISTPAGE,
-        page:  CoachPlayerReortListAge(),
+        page: CoachPlayerReortListAge(),
       ),
 
       PageEntitiy(
         route: AppRoutes.COACHPLAYERREPOORTDETAILPAGE,
-        page:  CoachPlayerReportDetailPage(),
+        page: CoachPlayerReportDetailPage(),
       ),
 
       PageEntitiy(
         route: AppRoutes.COACHPLAYERREPOORTGRAPHPAGE,
-        page:  CoachPlayerReportGraphPage(),
+        page: CoachPlayerReportGraphPage(),
       ),
 
       PageEntitiy(
         route: AppRoutes.PARENTPLAYERSCORELISTPAGE,
-        page:  ParentPlayerScoreListPage(),
+        page: ParentPlayerScoreListPage(),
       ),
       PageEntitiy(
         route: AppRoutes.PARENTATTENDANCELISTPAGE,
-        page:  ParentAttendanceListAge(),
+        page: ParentAttendanceListAge(),
       ),
       PageEntitiy(
         route: AppRoutes.PARENTORDERLISTPAGE,
-        page:  ParentOrderListPage(),
+        page: ParentOrderListPage(),
       ),
       PageEntitiy(
         route: AppRoutes.PARENTORDERDETAILPAGE,
-        page:  ParentOrderDetail(),
+        page: ParentOrderDetail(),
       ),
       PageEntitiy(
         route: AppRoutes.ORDERSUMMARY,
-        page:  OrderSummary(),
+        page: OrderSummary(),
         bloc: BlocProvider(create: (_) => OrderSummaryBloc()),
       ),
     ];
@@ -188,7 +181,8 @@ class AppPages {
     print("Navigating to ${settings.name}");
 
     if (settings.name == '/') {
-      print("App is trying to route to root (/) - check initial route settings.");
+      print(
+          "App is trying to route to root (/) - check initial route settings.");
     }
 
     var result = routes().where((element) => element.route == settings.name);
@@ -196,7 +190,8 @@ class AppPages {
       return PageRouteBuilder(
         settings: settings,
         transitionDuration: const Duration(milliseconds: 500),
-        pageBuilder: (context, animation, secondaryAnimation) => result.first.page,
+        pageBuilder: (context, animation, secondaryAnimation) =>
+            result.first.page,
         transitionsBuilder: (context, animation, secondaryAnimation, child) {
           const begin = Offset(1.0, 0.0);
           const end = Offset.zero;
