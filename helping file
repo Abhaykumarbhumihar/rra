@@ -11,3 +11,15 @@ app-x86_64-release.apk	❌ Not for mobile (for emulators/Chromebooks)	Android em
 
 freezed command
 dart run build_runner watch -d
+
+
+👉 Use app-arm64-v8a-release.apk ✅
+⏩ Supports 64-bit processors (Most common).
+
+For Older Phones (Pre-2020)
+👉 Use app-armeabi-v7a-release.apk ✅
+⏩ Supports 32-bit processors.
+
+For Emulators & Special Cases
+👉 Use app-x86_64-release.apk ✅
+⏩ Only needed for Android emulators or x86 tablets.
