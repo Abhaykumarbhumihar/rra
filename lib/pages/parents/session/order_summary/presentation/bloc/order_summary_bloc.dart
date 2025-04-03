@@ -163,7 +163,7 @@ class OrderSummaryBloc extends Bloc<OrderSummaryEvent, OrderSummaryState> {
           paymentID: "",
           couponErrorMessage: failure.message,
           couponSuccessMessage: ''));
-    }, (orderSummaryData) {
+    }, (orderSummaryData) async {
       print("==_applyCoupons=_applyCoupons========\n\n");
 
       emit(state.copyWith(
@@ -175,6 +175,11 @@ class OrderSummaryBloc extends Bloc<OrderSummaryEvent, OrderSummaryState> {
           isOrderPlaceSuccess: false,
           paymentID: "",
           couponSuccessMessage: "Coupon apply successfully"));
+      var academyId = await SharedPrefs.getString("selected_academyid");
+      Map<String, dynamic> map = {
+        "academy_id": academyId,
+      };
+      add(GetTotalPriceEvent(map));
     });
   }
 

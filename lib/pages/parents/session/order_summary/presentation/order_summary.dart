@@ -251,7 +251,7 @@ class OrderSummary extends StatelessWidget {
 
                                             Map<String, dynamic> map = {
                                               "academy_id": academyId,
-                                              "promo_code": "SUMMER2025"
+                                              "promo_code": "${promoCodeController.text}"
                                             };
 
                                             BlocProvider.of<OrderSummaryBloc>(
