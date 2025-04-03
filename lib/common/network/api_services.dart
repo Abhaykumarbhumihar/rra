@@ -1,14 +1,6 @@
-import 'dart:convert';
-
+import 'network_eport.dart';
 import 'package:http/http.dart' as http;
-import 'package:http_parser/http_parser.dart';
-
-import 'dart:io';
-import 'package:path/path.dart' as path;
-
-import '../local/SharedPrefs.dart';
-import 'app_constant.dart';
-
+import  'package:path/path.dart' as path;
 class ApiServices {
   final String apiBaseUri;
   final Duration requestTimeout;
