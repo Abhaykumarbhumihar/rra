@@ -5,6 +5,8 @@ import 'package:rra/common/component/component_export.dart';
 import '../../../../common/local/SharedPrefs.dart';
 import '../../../../common/routes/exports.dart';
 import '../../../../common/routes/routes.dart';
+import '../../../academic/presentation/bloc/academic_bloc.dart';
+import '../../../academic/presentation/bloc/academic_event.dart';
 
 class SettingPage extends StatelessWidget {
   const SettingPage({super.key});
@@ -39,6 +41,7 @@ class SettingPage extends StatelessWidget {
                           BlocProvider.of<EditprofileBloc>(context)
                               .loadUserData();
                           BlocProvider.of<AppBloc>(context).loadUserData();
+                          BlocProvider.of<AcademicBloc>(context).add(AcademicListEvent(""));
 
                           Navigator.pushNamedAndRemoveUntil(
                             context,

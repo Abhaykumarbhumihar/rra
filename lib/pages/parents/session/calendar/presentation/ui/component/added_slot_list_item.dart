@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:intl/intl.dart';
 import 'package:rra/common/component/component_export.dart';
 import 'package:rra/common/component/sub_title.dart';
@@ -119,23 +120,34 @@ class AddedSlotListItem extends StatelessWidget {
                                       ),
                                       InkWell(
                                         onTap: (){
-                                          List<String> parts = data.split(" - ");
-                                          String datePart = parts[0]; // "January 2, 2025"
 
-                                          // Parse the input date
-                                          DateTime parsedDate = DateFormat("MMMM d, yyyy").parse(datePart);
+    showLogoutConfirmationDialog(
+    context: context,
+    onCancel: () {
+    //  Navigator.pop(context);
+    },
+    yes: () async {
+      List<String> parts = data.split(" - ");
+      String datePart = parts[0]; // "January 2, 2025"
 
-                                          // Format into "yyyy-MM-dd"
-                                          String formattedDate = DateFormat("yyyy-MM-dd").format(parsedDate);
-                                          Map<String, dynamic> map = {
-                                            "session_id": sessionID,
-                                            "date": formattedDate,
-                                            "from_time": fromTime,
-                                            "to_time": toTime
-                                          };
-                                          print("CANCLE BUTTON PRESS CANCLE BUTTON PRESS CANCLE BUTTON PRESS CANCLE BUTTON PRESS");
-                                          BlocProvider.of<OrderSummaryBloc>(context).add(RemoveSlotEvent(map));
-                                        },
+      // Parse the input date
+      DateTime parsedDate = DateFormat("MMMM d, yyyy").parse(datePart);
+
+      // Format into "yyyy-MM-dd"
+      String formattedDate = DateFormat("yyyy-MM-dd").format(parsedDate);
+      Map<String, dynamic> map = {
+        "session_id": sessionID,
+        "date": formattedDate,
+        "from_time": fromTime,
+        "to_time": toTime
+      };
+      print("CANCLE BUTTON PRESS CANCLE BUTTON PRESS CANCLE BUTTON PRESS CANCLE BUTTON PRESS");
+      BlocProvider.of<OrderSummaryBloc>(context).add(RemoveSlotEvent(map));
+
+
+    });
+
+                                                                                 },
                                         child: Image.asset(
                                           "assets/images/circle_close.png",
                                           width: 16,
@@ -164,6 +176,42 @@ class AddedSlotListItem extends StatelessWidget {
           ),
         ),
       ],
+    );
+
+
+  }
+
+  void showLogoutConfirmationDialog({
+    required BuildContext context,
+    required VoidCallback onCancel,
+    required VoidCallback yes,
+  }) {
+    showCupertinoDialog(
+      context: context,
+      builder: (context) {
+        return CupertinoAlertDialog(
+          title: Text('Remove Session.'),
+          content: Text(
+              'Are you sure to remove sessions from your order list?'),
+          actions: <Widget>[
+            CupertinoDialogAction(
+              child: Text('No'),
+              onPressed: () {
+                Navigator.pop(context); // Close the dialog
+                onCancel(); // Call the provided onCancel callback
+              },
+            ),
+            CupertinoDialogAction(
+              child: Text('Yes'),
+              isDestructiveAction: true,
+              onPressed: () {
+                Navigator.pop(context); // Close the dialog
+                yes(); // Call the provided onLogout callback
+              },
+            ),
+          ],
+        );
+      },
     );
   }
 }

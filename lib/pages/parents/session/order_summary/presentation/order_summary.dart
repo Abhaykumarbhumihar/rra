@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:intl/intl.dart';
 import 'package:rra/common/values/values_exports.dart';
 import '../../../../../../../common/component/auth_text_field.dart';
@@ -137,31 +138,41 @@ class OrderSummary extends StatelessWidget {
                                           " -" +
                                           session.toTime,
                                       onClose: (data) {
-                                        // Remove the day of the week
-                                        List<String> parts = data.split(" - ");
-                                        String datePart =
-                                            parts[0]; // "January 2, 2025"
 
-                                        // Parse the input date
-                                        DateTime parsedDate =
-                                            DateFormat("MMMM d, yyyy")
-                                                .parse(datePart);
+                                        showLogoutConfirmationDialog(
+                                            context: context,
+                                            onCancel: () {
+                                              //  Navigator.pop(context);
+                                            },
+                                            yes: () async {
+                                              // Remove the day of the week
+                                              List<String> parts = data.split(" - ");
+                                              String datePart =
+                                              parts[0]; // "January 2, 2025"
 
-                                        // Format into "yyyy-MM-dd"
-                                        String formattedDate =
-                                            DateFormat("yyyy-MM-dd")
-                                                .format(parsedDate);
-                                        Map<String, dynamic> map = {
-                                          "session_id": session.sessionId,
-                                          "date": formattedDate,
-                                          "from_time": session.fromTime,
-                                          "to_time": session.toTime
-                                        };
-                                        print(
-                                            "CANCLE BUTTON PRESS CANCLE BUTTON PRESS CANCLE BUTTON PRESS CANCLE BUTTON PRESS");
-                                        BlocProvider.of<OrderSummaryBloc>(
-                                                context)
-                                            .add(RemoveSlotEvent(map));
+                                              // Parse the input date
+                                              DateTime parsedDate =
+                                              DateFormat("MMMM d, yyyy")
+                                                  .parse(datePart);
+
+                                              // Format into "yyyy-MM-dd"
+                                              String formattedDate =
+                                              DateFormat("yyyy-MM-dd")
+                                                  .format(parsedDate);
+                                              Map<String, dynamic> map = {
+                                                "session_id": session.sessionId,
+                                                "date": formattedDate,
+                                                "from_time": session.fromTime,
+                                                "to_time": session.toTime
+                                              };
+                                              print(
+                                                  "CANCLE BUTTON PRESS CANCLE BUTTON PRESS CANCLE BUTTON PRESS CANCLE BUTTON PRESS");
+                                              BlocProvider.of<OrderSummaryBloc>(
+                                                  context)
+                                                  .add(RemoveSlotEvent(map));
+                                            });
+
+
                                       },
                                       price: session.pricePerSession.toString(),
                                     );
@@ -244,6 +255,40 @@ class OrderSummary extends StatelessWidget {
         promoCodeController: promoCodeController,
         couponApplyAction: couponApplyAction,
       ),
+    );
+  }
+
+
+  void showLogoutConfirmationDialog({
+    required BuildContext context,
+    required VoidCallback onCancel,
+    required VoidCallback yes,
+  }) {
+    showCupertinoDialog(
+      context: context,
+      builder: (context) {
+        return CupertinoAlertDialog(
+          title: Text('Remove Session.'),
+          content: Text('Are you sure to remove sessions from your order list?'),
+          actions: <Widget>[
+            CupertinoDialogAction(
+              child: Text('No'),
+              onPressed: () {
+                Navigator.pop(context); // Close the dialog
+                onCancel(); // Call the provided onCancel callback
+              },
+            ),
+            CupertinoDialogAction(
+              child: Text('Yes'),
+              isDestructiveAction: true,
+              onPressed: () {
+                Navigator.pop(context); // Close the dialog
+                yes(); // Call the provided onLogout callback
+              },
+            ),
+          ],
+        );
+      },
     );
   }
 }
