@@ -153,7 +153,7 @@ class CoachingDetailScreen extends StatelessWidget {
                                 var academyId = await SharedPrefs.getString("selected_academyid");
 
                                 Map<String, dynamic> map = {
-                                  "coaching_program_id": 21,
+                                  "coaching_program_id": data.id,
                                   "academy_id": academyId,
                                   "type": data.private == "1" ? "private" : "group",
                                  if (data.private == "1") "coach_id": state.selectedCoachId,
