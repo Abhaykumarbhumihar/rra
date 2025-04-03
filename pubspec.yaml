@@ -66,6 +66,7 @@ dependencies:
   geolocator_android: 4.6.1
   flutter_widget_from_html:
   flutter_animate: ^4.5.2
+  flutter_credit_card:
 
 dev_dependencies:
   flutter_test:

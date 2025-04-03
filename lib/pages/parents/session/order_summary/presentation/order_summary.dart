@@ -19,6 +19,7 @@ import 'bloc/order_summary_event.dart';
 import 'bloc/order_summary_state.dart';
 import 'component/order_summary_shimmer.dart';
 import 'component/payment_bottom_sheet.dart';
+import 'package:flutter_credit_card/flutter_credit_card.dart';
 
 class OrderSummary extends StatelessWidget {
   OrderSummary({super.key});
@@ -182,8 +183,22 @@ class OrderSummary extends StatelessWidget {
                               SizedBox(
                                 height: 15,
                               ),
+                              //https://stackoverflow.com/questions/71633188/how-create-textfield-like-credit-card-number-in-flutter
+                              CreditCardWidget(
+                                cardNumber: "4242424242424242",
+                                expiryDate: "05/26",
+                                cardHolderName: "Abhay kumar",
+                                cvvCode: "435",
+                                isHolderNameVisible: true,
+                                isChipVisible: true,
+                                isSwipeGestureEnabled: true,
+                                obscureCardCvv: false,
+                                showBackView: true, //true when you want to show cvv(back) view
+                                onCreditCardWidgetChange: (CreditCardBrand brand) {}, // Callback for anytime credit card brand is changed
+                              ),
                               state.isLoading==true?Container():Padding(
-                                padding:  EdgeInsets.only(left: context.screenWidth*0.05,right: context.screenWidth*0.05,top: 10),
+                                padding:  EdgeInsets.only(left: context.screenWidth*0.05,
+                                    right: context.screenWidth*0.05,top: 10),
                                 child: CustomButton(
                                   text: "Submit",
                                   onPressed: () {
