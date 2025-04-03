@@ -1,7 +1,6 @@
 import 'package:rra/common/component/app_text_style.dart';
 import 'package:rra/common/component/common_background.dart';
 import 'package:rra/common/values/values_exports.dart';
-import 'package:toggle_switch/toggle_switch.dart';
 
 import '../../../../../../common/component/common_app_bar.dart';
 import '../../../../../../common/component/custom_app_button.dart';
