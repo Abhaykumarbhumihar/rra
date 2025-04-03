@@ -231,7 +231,7 @@ class SessionCalendarBloc
       ));
 
       final response =
-          await _sessionCalendarUsecase.calendarDataExecute(event.data);
+          await _sessionCalendarUsecase.calendarDataExecute(event.data,event.isPrivate);
       response.fold((failure) {
         emit(state.copyWith(
             isAvailablityLoading: false,

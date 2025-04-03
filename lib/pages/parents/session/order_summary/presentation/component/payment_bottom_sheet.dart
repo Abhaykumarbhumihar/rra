@@ -37,6 +37,8 @@ class PaymentBottomSheet extends StatelessWidget {
                 PromoCodeField(
                     controller: promoCodeController,
                     onApply: couponApplyAction),
+                state.couponErrorMessage!=""?Text(state.couponErrorMessage):SizedBox(),
+
                 const SizedBox(height: 24),
                 PaymentSummaryRow(title: "Total", value: "${state.getTotalRespone.data.total}"),
                 PaymentSummaryRow(title: "Discount", value: "${state.getTotalRespone.data.total_session_discount}"),

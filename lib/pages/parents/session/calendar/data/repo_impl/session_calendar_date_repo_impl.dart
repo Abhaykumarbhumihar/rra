@@ -54,13 +54,19 @@ class SessionCalendarDateRepoImpl implements SessionCalendarDatesRepositery {
   }
 
   @override
-  Future<Either<Failure, SessionCalendarModel>> calendarData(Map<String, dynamic> calendarDataa)async {
+  Future<Either<Failure, SessionCalendarModel>> calendarData(Map<String, dynamic> calendarDataa,bool isPrivate)async {
     try {
 
       print("++++++++++++++++++++++++++++++++++++++++++++++++++");
       print(calendarDataa);
+      var endUrl="";
+      if(isPrivate){
+        endUrl=AppConstant.getSessionCalendarDatePRIVATE;
+      }else{
+endUrl=AppConstant.getSessionCalendarDate;
+      }
       http.Response response =
-          await _apiServices.post(AppConstant.getSessionCalendarDate, calendarDataa,useDefaultHeaders: true);
+          await _apiServices.post(endUrl, calendarDataa,useDefaultHeaders: true);
       print(response.body);
       if (response.statusCode == 200) {
         final Map<String, dynamic> responseData = jsonDecode(response.body);

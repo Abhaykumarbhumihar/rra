@@ -11,6 +11,7 @@ class CoachingDetailState with _$CoachingDetailState {
     dynamic success,
     @Default(false) bool isError,
     @Default(false) bool isLoginApiError,
+    @Default("") String selectedCoachId,
     @Default(CoachingDetailResponse()) CoachingDetailResponse coachingDetailResponse,
   }) = _CoachingDetailState;
 

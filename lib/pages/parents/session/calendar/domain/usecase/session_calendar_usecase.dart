@@ -10,8 +10,8 @@ class SessionCalendarUsecase {
   SessionCalendarUsecase(this._sessionCalendarDatesRepositery);
 
   Future<Either<Failure, SessionCalendarModel>> calendarDataExecute(
-      Map<String, dynamic> calendarData) async {
-    return _sessionCalendarDatesRepositery.calendarData(calendarData);
+      Map<String, dynamic> calendarData,bool isPrivate) async {
+    return _sessionCalendarDatesRepositery.calendarData(calendarData,isPrivate);
   }
 
   Future<Either<Failure, AvailableDatesResponse>> avilableDatesExecute(

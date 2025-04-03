@@ -18,7 +18,8 @@ final _privateConstructorUsedError = UnsupportedError(
 mixin _$SessionCalendarEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(Map<String, dynamic> data) getCalenDarDateEvents,
+    required TResult Function(Map<String, dynamic> data, bool isPrivate)
+        getCalenDarDateEvents,
     required TResult Function(Map<String, dynamic> data) getAvilableDates,
     required TResult Function(DateTime data, String dayname) setCurrentDate,
     required TResult Function(String data, String sessionId, String fromTime)
@@ -34,7 +35,8 @@ mixin _$SessionCalendarEvent {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(Map<String, dynamic> data)? getCalenDarDateEvents,
+    TResult? Function(Map<String, dynamic> data, bool isPrivate)?
+        getCalenDarDateEvents,
     TResult? Function(Map<String, dynamic> data)? getAvilableDates,
     TResult? Function(DateTime data, String dayname)? setCurrentDate,
     TResult? Function(String data, String sessionId, String fromTime)?
@@ -50,7 +52,8 @@ mixin _$SessionCalendarEvent {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(Map<String, dynamic> data)? getCalenDarDateEvents,
+    TResult Function(Map<String, dynamic> data, bool isPrivate)?
+        getCalenDarDateEvents,
     TResult Function(Map<String, dynamic> data)? getAvilableDates,
     TResult Function(DateTime data, String dayname)? setCurrentDate,
     TResult Function(String data, String sessionId, String fromTime)?
@@ -144,7 +147,7 @@ abstract class _$$CalendarDateEventsImplCopyWith<$Res> {
           $Res Function(_$CalendarDateEventsImpl) then) =
       __$$CalendarDateEventsImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({Map<String, dynamic> data});
+  $Res call({Map<String, dynamic> data, bool isPrivate});
 }
 
 /// @nodoc
@@ -161,12 +164,17 @@ class __$$CalendarDateEventsImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? data = null,
+    Object? isPrivate = null,
   }) {
     return _then(_$CalendarDateEventsImpl(
       null == data
           ? _value._data
           : data // ignore: cast_nullable_to_non_nullable
               as Map<String, dynamic>,
+      null == isPrivate
+          ? _value.isPrivate
+          : isPrivate // ignore: cast_nullable_to_non_nullable
+              as bool,
     ));
   }
 }
@@ -174,7 +182,8 @@ class __$$CalendarDateEventsImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$CalendarDateEventsImpl implements CalendarDateEvents {
-  const _$CalendarDateEventsImpl(final Map<String, dynamic> data)
+  const _$CalendarDateEventsImpl(
+      final Map<String, dynamic> data, this.isPrivate)
       : _data = data;
 
   final Map<String, dynamic> _data;
@@ -186,8 +195,11 @@ class _$CalendarDateEventsImpl implements CalendarDateEvents {
   }
 
   @override
+  final bool isPrivate;
+
+  @override
   String toString() {
-    return 'SessionCalendarEvent.getCalenDarDateEvents(data: $data)';
+    return 'SessionCalendarEvent.getCalenDarDateEvents(data: $data, isPrivate: $isPrivate)';
   }
 
   @override
@@ -195,12 +207,14 @@ class _$CalendarDateEventsImpl implements CalendarDateEvents {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$CalendarDateEventsImpl &&
-            const DeepCollectionEquality().equals(other._data, _data));
+            const DeepCollectionEquality().equals(other._data, _data) &&
+            (identical(other.isPrivate, isPrivate) ||
+                other.isPrivate == isPrivate));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(_data));
+  int get hashCode => Object.hash(
+      runtimeType, const DeepCollectionEquality().hash(_data), isPrivate);
 
   /// Create a copy of SessionCalendarEvent
   /// with the given fields replaced by the non-null parameter values.
@@ -214,7 +228,8 @@ class _$CalendarDateEventsImpl implements CalendarDateEvents {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(Map<String, dynamic> data) getCalenDarDateEvents,
+    required TResult Function(Map<String, dynamic> data, bool isPrivate)
+        getCalenDarDateEvents,
     required TResult Function(Map<String, dynamic> data) getAvilableDates,
     required TResult Function(DateTime data, String dayname) setCurrentDate,
     required TResult Function(String data, String sessionId, String fromTime)
@@ -227,13 +242,14 @@ class _$CalendarDateEventsImpl implements CalendarDateEvents {
         removeSessionByDate,
     required TResult Function() getSeletedSessionEvent,
   }) {
-    return getCalenDarDateEvents(data);
+    return getCalenDarDateEvents(data, isPrivate);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(Map<String, dynamic> data)? getCalenDarDateEvents,
+    TResult? Function(Map<String, dynamic> data, bool isPrivate)?
+        getCalenDarDateEvents,
     TResult? Function(Map<String, dynamic> data)? getAvilableDates,
     TResult? Function(DateTime data, String dayname)? setCurrentDate,
     TResult? Function(String data, String sessionId, String fromTime)?
@@ -246,13 +262,14 @@ class _$CalendarDateEventsImpl implements CalendarDateEvents {
         removeSessionByDate,
     TResult? Function()? getSeletedSessionEvent,
   }) {
-    return getCalenDarDateEvents?.call(data);
+    return getCalenDarDateEvents?.call(data, isPrivate);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(Map<String, dynamic> data)? getCalenDarDateEvents,
+    TResult Function(Map<String, dynamic> data, bool isPrivate)?
+        getCalenDarDateEvents,
     TResult Function(Map<String, dynamic> data)? getAvilableDates,
     TResult Function(DateTime data, String dayname)? setCurrentDate,
     TResult Function(String data, String sessionId, String fromTime)?
@@ -267,7 +284,7 @@ class _$CalendarDateEventsImpl implements CalendarDateEvents {
     required TResult orElse(),
   }) {
     if (getCalenDarDateEvents != null) {
-      return getCalenDarDateEvents(data);
+      return getCalenDarDateEvents(data, isPrivate);
     }
     return orElse();
   }
@@ -335,10 +352,12 @@ class _$CalendarDateEventsImpl implements CalendarDateEvents {
 }
 
 abstract class CalendarDateEvents implements SessionCalendarEvent {
-  const factory CalendarDateEvents(final Map<String, dynamic> data) =
+  const factory CalendarDateEvents(
+          final Map<String, dynamic> data, final bool isPrivate) =
       _$CalendarDateEventsImpl;
 
   Map<String, dynamic> get data;
+  bool get isPrivate;
 
   /// Create a copy of SessionCalendarEvent
   /// with the given fields replaced by the non-null parameter values.
@@ -423,7 +442,8 @@ class _$AvilableDateEventsImpl implements AvilableDateEvents {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(Map<String, dynamic> data) getCalenDarDateEvents,
+    required TResult Function(Map<String, dynamic> data, bool isPrivate)
+        getCalenDarDateEvents,
     required TResult Function(Map<String, dynamic> data) getAvilableDates,
     required TResult Function(DateTime data, String dayname) setCurrentDate,
     required TResult Function(String data, String sessionId, String fromTime)
@@ -442,7 +462,8 @@ class _$AvilableDateEventsImpl implements AvilableDateEvents {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(Map<String, dynamic> data)? getCalenDarDateEvents,
+    TResult? Function(Map<String, dynamic> data, bool isPrivate)?
+        getCalenDarDateEvents,
     TResult? Function(Map<String, dynamic> data)? getAvilableDates,
     TResult? Function(DateTime data, String dayname)? setCurrentDate,
     TResult? Function(String data, String sessionId, String fromTime)?
@@ -461,7 +482,8 @@ class _$AvilableDateEventsImpl implements AvilableDateEvents {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(Map<String, dynamic> data)? getCalenDarDateEvents,
+    TResult Function(Map<String, dynamic> data, bool isPrivate)?
+        getCalenDarDateEvents,
     TResult Function(Map<String, dynamic> data)? getAvilableDates,
     TResult Function(DateTime data, String dayname)? setCurrentDate,
     TResult Function(String data, String sessionId, String fromTime)?
@@ -633,7 +655,8 @@ class _$CurrentDateEventImpl implements CurrentDateEvent {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(Map<String, dynamic> data) getCalenDarDateEvents,
+    required TResult Function(Map<String, dynamic> data, bool isPrivate)
+        getCalenDarDateEvents,
     required TResult Function(Map<String, dynamic> data) getAvilableDates,
     required TResult Function(DateTime data, String dayname) setCurrentDate,
     required TResult Function(String data, String sessionId, String fromTime)
@@ -652,7 +675,8 @@ class _$CurrentDateEventImpl implements CurrentDateEvent {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(Map<String, dynamic> data)? getCalenDarDateEvents,
+    TResult? Function(Map<String, dynamic> data, bool isPrivate)?
+        getCalenDarDateEvents,
     TResult? Function(Map<String, dynamic> data)? getAvilableDates,
     TResult? Function(DateTime data, String dayname)? setCurrentDate,
     TResult? Function(String data, String sessionId, String fromTime)?
@@ -671,7 +695,8 @@ class _$CurrentDateEventImpl implements CurrentDateEvent {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(Map<String, dynamic> data)? getCalenDarDateEvents,
+    TResult Function(Map<String, dynamic> data, bool isPrivate)?
+        getCalenDarDateEvents,
     TResult Function(Map<String, dynamic> data)? getAvilableDates,
     TResult Function(DateTime data, String dayname)? setCurrentDate,
     TResult Function(String data, String sessionId, String fromTime)?
@@ -857,7 +882,8 @@ class _$SetSelectedDateDayNameImpl implements SetSelectedDateDayName {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(Map<String, dynamic> data) getCalenDarDateEvents,
+    required TResult Function(Map<String, dynamic> data, bool isPrivate)
+        getCalenDarDateEvents,
     required TResult Function(Map<String, dynamic> data) getAvilableDates,
     required TResult Function(DateTime data, String dayname) setCurrentDate,
     required TResult Function(String data, String sessionId, String fromTime)
@@ -876,7 +902,8 @@ class _$SetSelectedDateDayNameImpl implements SetSelectedDateDayName {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(Map<String, dynamic> data)? getCalenDarDateEvents,
+    TResult? Function(Map<String, dynamic> data, bool isPrivate)?
+        getCalenDarDateEvents,
     TResult? Function(Map<String, dynamic> data)? getAvilableDates,
     TResult? Function(DateTime data, String dayname)? setCurrentDate,
     TResult? Function(String data, String sessionId, String fromTime)?
@@ -895,7 +922,8 @@ class _$SetSelectedDateDayNameImpl implements SetSelectedDateDayName {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(Map<String, dynamic> data)? getCalenDarDateEvents,
+    TResult Function(Map<String, dynamic> data, bool isPrivate)?
+        getCalenDarDateEvents,
     TResult Function(Map<String, dynamic> data)? getAvilableDates,
     TResult Function(DateTime data, String dayname)? setCurrentDate,
     TResult Function(String data, String sessionId, String fromTime)?
@@ -1065,7 +1093,8 @@ class _$SetSlotForBookingEventImpl implements SetSlotForBookingEvent {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(Map<String, dynamic> data) getCalenDarDateEvents,
+    required TResult Function(Map<String, dynamic> data, bool isPrivate)
+        getCalenDarDateEvents,
     required TResult Function(Map<String, dynamic> data) getAvilableDates,
     required TResult Function(DateTime data, String dayname) setCurrentDate,
     required TResult Function(String data, String sessionId, String fromTime)
@@ -1084,7 +1113,8 @@ class _$SetSlotForBookingEventImpl implements SetSlotForBookingEvent {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(Map<String, dynamic> data)? getCalenDarDateEvents,
+    TResult? Function(Map<String, dynamic> data, bool isPrivate)?
+        getCalenDarDateEvents,
     TResult? Function(Map<String, dynamic> data)? getAvilableDates,
     TResult? Function(DateTime data, String dayname)? setCurrentDate,
     TResult? Function(String data, String sessionId, String fromTime)?
@@ -1103,7 +1133,8 @@ class _$SetSlotForBookingEventImpl implements SetSlotForBookingEvent {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(Map<String, dynamic> data)? getCalenDarDateEvents,
+    TResult Function(Map<String, dynamic> data, bool isPrivate)?
+        getCalenDarDateEvents,
     TResult Function(Map<String, dynamic> data)? getAvilableDates,
     TResult Function(DateTime data, String dayname)? setCurrentDate,
     TResult Function(String data, String sessionId, String fromTime)?
@@ -1273,7 +1304,8 @@ class _$SetSlotBookingImpl implements SetSlotBooking {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(Map<String, dynamic> data) getCalenDarDateEvents,
+    required TResult Function(Map<String, dynamic> data, bool isPrivate)
+        getCalenDarDateEvents,
     required TResult Function(Map<String, dynamic> data) getAvilableDates,
     required TResult Function(DateTime data, String dayname) setCurrentDate,
     required TResult Function(String data, String sessionId, String fromTime)
@@ -1292,7 +1324,8 @@ class _$SetSlotBookingImpl implements SetSlotBooking {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(Map<String, dynamic> data)? getCalenDarDateEvents,
+    TResult? Function(Map<String, dynamic> data, bool isPrivate)?
+        getCalenDarDateEvents,
     TResult? Function(Map<String, dynamic> data)? getAvilableDates,
     TResult? Function(DateTime data, String dayname)? setCurrentDate,
     TResult? Function(String data, String sessionId, String fromTime)?
@@ -1311,7 +1344,8 @@ class _$SetSlotBookingImpl implements SetSlotBooking {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(Map<String, dynamic> data)? getCalenDarDateEvents,
+    TResult Function(Map<String, dynamic> data, bool isPrivate)?
+        getCalenDarDateEvents,
     TResult Function(Map<String, dynamic> data)? getAvilableDates,
     TResult Function(DateTime data, String dayname)? setCurrentDate,
     TResult Function(String data, String sessionId, String fromTime)?
@@ -1480,7 +1514,8 @@ class _$SetSelectTypeBottomSheetEventImpl
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(Map<String, dynamic> data) getCalenDarDateEvents,
+    required TResult Function(Map<String, dynamic> data, bool isPrivate)
+        getCalenDarDateEvents,
     required TResult Function(Map<String, dynamic> data) getAvilableDates,
     required TResult Function(DateTime data, String dayname) setCurrentDate,
     required TResult Function(String data, String sessionId, String fromTime)
@@ -1499,7 +1534,8 @@ class _$SetSelectTypeBottomSheetEventImpl
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(Map<String, dynamic> data)? getCalenDarDateEvents,
+    TResult? Function(Map<String, dynamic> data, bool isPrivate)?
+        getCalenDarDateEvents,
     TResult? Function(Map<String, dynamic> data)? getAvilableDates,
     TResult? Function(DateTime data, String dayname)? setCurrentDate,
     TResult? Function(String data, String sessionId, String fromTime)?
@@ -1518,7 +1554,8 @@ class _$SetSelectTypeBottomSheetEventImpl
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(Map<String, dynamic> data)? getCalenDarDateEvents,
+    TResult Function(Map<String, dynamic> data, bool isPrivate)?
+        getCalenDarDateEvents,
     TResult Function(Map<String, dynamic> data)? getAvilableDates,
     TResult Function(DateTime data, String dayname)? setCurrentDate,
     TResult Function(String data, String sessionId, String fromTime)?
@@ -1690,7 +1727,8 @@ class _$SetRecurringSessionImpl implements SetRecurringSession {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(Map<String, dynamic> data) getCalenDarDateEvents,
+    required TResult Function(Map<String, dynamic> data, bool isPrivate)
+        getCalenDarDateEvents,
     required TResult Function(Map<String, dynamic> data) getAvilableDates,
     required TResult Function(DateTime data, String dayname) setCurrentDate,
     required TResult Function(String data, String sessionId, String fromTime)
@@ -1709,7 +1747,8 @@ class _$SetRecurringSessionImpl implements SetRecurringSession {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(Map<String, dynamic> data)? getCalenDarDateEvents,
+    TResult? Function(Map<String, dynamic> data, bool isPrivate)?
+        getCalenDarDateEvents,
     TResult? Function(Map<String, dynamic> data)? getAvilableDates,
     TResult? Function(DateTime data, String dayname)? setCurrentDate,
     TResult? Function(String data, String sessionId, String fromTime)?
@@ -1728,7 +1767,8 @@ class _$SetRecurringSessionImpl implements SetRecurringSession {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(Map<String, dynamic> data)? getCalenDarDateEvents,
+    TResult Function(Map<String, dynamic> data, bool isPrivate)?
+        getCalenDarDateEvents,
     TResult Function(Map<String, dynamic> data)? getAvilableDates,
     TResult Function(DateTime data, String dayname)? setCurrentDate,
     TResult Function(String data, String sessionId, String fromTime)?
@@ -1911,7 +1951,8 @@ class _$RemoveSessionByDateEventImpl implements RemoveSessionByDateEvent {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(Map<String, dynamic> data) getCalenDarDateEvents,
+    required TResult Function(Map<String, dynamic> data, bool isPrivate)
+        getCalenDarDateEvents,
     required TResult Function(Map<String, dynamic> data) getAvilableDates,
     required TResult Function(DateTime data, String dayname) setCurrentDate,
     required TResult Function(String data, String sessionId, String fromTime)
@@ -1930,7 +1971,8 @@ class _$RemoveSessionByDateEventImpl implements RemoveSessionByDateEvent {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(Map<String, dynamic> data)? getCalenDarDateEvents,
+    TResult? Function(Map<String, dynamic> data, bool isPrivate)?
+        getCalenDarDateEvents,
     TResult? Function(Map<String, dynamic> data)? getAvilableDates,
     TResult? Function(DateTime data, String dayname)? setCurrentDate,
     TResult? Function(String data, String sessionId, String fromTime)?
@@ -1949,7 +1991,8 @@ class _$RemoveSessionByDateEventImpl implements RemoveSessionByDateEvent {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(Map<String, dynamic> data)? getCalenDarDateEvents,
+    TResult Function(Map<String, dynamic> data, bool isPrivate)?
+        getCalenDarDateEvents,
     TResult Function(Map<String, dynamic> data)? getAvilableDates,
     TResult Function(DateTime data, String dayname)? setCurrentDate,
     TResult Function(String data, String sessionId, String fromTime)?
@@ -2091,7 +2134,8 @@ class _$GetSelectedSessionEventImpl implements GetSelectedSessionEvent {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(Map<String, dynamic> data) getCalenDarDateEvents,
+    required TResult Function(Map<String, dynamic> data, bool isPrivate)
+        getCalenDarDateEvents,
     required TResult Function(Map<String, dynamic> data) getAvilableDates,
     required TResult Function(DateTime data, String dayname) setCurrentDate,
     required TResult Function(String data, String sessionId, String fromTime)
@@ -2110,7 +2154,8 @@ class _$GetSelectedSessionEventImpl implements GetSelectedSessionEvent {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(Map<String, dynamic> data)? getCalenDarDateEvents,
+    TResult? Function(Map<String, dynamic> data, bool isPrivate)?
+        getCalenDarDateEvents,
     TResult? Function(Map<String, dynamic> data)? getAvilableDates,
     TResult? Function(DateTime data, String dayname)? setCurrentDate,
     TResult? Function(String data, String sessionId, String fromTime)?
@@ -2129,7 +2174,8 @@ class _$GetSelectedSessionEventImpl implements GetSelectedSessionEvent {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(Map<String, dynamic> data)? getCalenDarDateEvents,
+    TResult Function(Map<String, dynamic> data, bool isPrivate)?
+        getCalenDarDateEvents,
     TResult Function(Map<String, dynamic> data)? getAvilableDates,
     TResult Function(DateTime data, String dayname)? setCurrentDate,
     TResult Function(String data, String sessionId, String fromTime)?

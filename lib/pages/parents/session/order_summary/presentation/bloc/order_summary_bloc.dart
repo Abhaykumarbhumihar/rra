@@ -21,7 +21,37 @@ class OrderSummaryBloc extends Bloc<OrderSummaryEvent, OrderSummaryState> {
     on<ApplyCoupon>(_applyCoupons);
     on<RemoveSlotEvent>(_isSlotRemoveLoading);
     on<SelectedChild>(_storeSelectedChild);
+    on<StoreCardNumberEvent>(_storeCardNumber);
+    on<StoreCardDateMonthEvent>(_storeCardDdMm);
+    on<StoreCardDateCvv>(_storeCardCvv);
+    on<StoreCardUserName>(_storeCardUserName);
+    on<StoreCouponCode>(_storeCouponCode);
   }
+
+  Future<void> _storeCouponCode(
+      StoreCouponCode event, Emitter<OrderSummaryState> emit) async {
+    emit(state.copyWith(couponCode: event.couponCode,couponErrorMessage: ""));
+  }
+
+  Future<void> _storeCardNumber(
+      StoreCardNumberEvent event, Emitter<OrderSummaryState> emit) async {
+    emit(state.copyWith(cardNumber: event.cardNumber));
+  }
+  Future<void> _storeCardDdMm(
+      StoreCardDateMonthEvent event, Emitter<OrderSummaryState> emit) async {
+    emit(state.copyWith(ddMM: event.date));
+  }
+  Future<void> _storeCardCvv(
+      StoreCardDateCvv event, Emitter<OrderSummaryState> emit) async {
+    emit(state.copyWith(cVV: event.cvv));
+  }
+  Future<void> _storeCardUserName(
+      StoreCardUserName event, Emitter<OrderSummaryState> emit) async {
+    emit(state.copyWith(userName: event.userName));
+  }
+
+
+
 
   Future<void> _storeSelectedChild(
       SelectedChild event, Emitter<OrderSummaryState> emit) async {
@@ -30,14 +60,14 @@ class OrderSummaryBloc extends Bloc<OrderSummaryEvent, OrderSummaryState> {
 
   Future<void> _isSlotRemoveLoading(
       RemoveSlotEvent event, Emitter<OrderSummaryState> emit) async {
-    emit(state.copyWith(isLoading: true,isSlotRemoveLoading: true, couponMessage: ''));
+    emit(state.copyWith(isLoading: true,isSlotRemoveLoading: true, couponErrorMessage: ''));
     final response =
         await _sessionCalendarUsecase.removeSessionByDateExecute(event.data);
 
     response.fold((failure) {
       emit(state.copyWith(isLoading: false,
           isSlotRemoveLoading: false,
-          couponMessage: failure.message));
+          couponErrorMessage: failure.message));
     }, (orderSummaryData) {
       print("==_applyCoupons=_applyCoupons========\n\n");
       //  Utils.LogPrint(orderSummaryData);
@@ -52,16 +82,17 @@ class OrderSummaryBloc extends Bloc<OrderSummaryEvent, OrderSummaryState> {
 
   Future<void> _applyCoupons(
       ApplyCoupon event, Emitter<OrderSummaryState> emit) async {
-    emit(state.copyWith(isLoading: true, couponMessage: ''));
+    emit(state.copyWith(isLoading: true, couponErrorMessage: '',couponSuccessMessage: ''));
     final response = await _orderSummaryUsecase.appLyCouponsExecute(event.data);
 
     response.fold((failure) {
-      emit(state.copyWith(isLoading: false, couponMessage: failure.message));
+      print("SS S S S S S S${failure.message}");
+      emit(state.copyWith(isLoading: false, couponErrorMessage: failure.message,couponSuccessMessage: ''));
     }, (orderSummaryData) {
       print("==_applyCoupons=_applyCoupons========\n\n");
 
       emit(state.copyWith(
-          isLoading: false, couponMessage: "Cpupon apply successfully"));
+          isLoading: false,couponErrorMessage: '', couponSuccessMessage: "Coupon apply successfully"));
     });
   }
 

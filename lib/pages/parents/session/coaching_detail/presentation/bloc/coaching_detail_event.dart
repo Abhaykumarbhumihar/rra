@@ -13,3 +13,11 @@ class CoachingDetail extends CoachingDetailEvent {
   @override
   List<Object?> get props => [coaching_program_id];
 }
+
+class SelectedCoachIdEvent extends CoachingDetailEvent {
+  String coach_id;
+  SelectedCoachIdEvent(this.coach_id);
+
+  @override
+  List<Object?> get props => [coach_id];
+}

@@ -21,6 +21,7 @@ mixin _$CoachingDetailState {
   dynamic get success => throw _privateConstructorUsedError;
   bool get isError => throw _privateConstructorUsedError;
   bool get isLoginApiError => throw _privateConstructorUsedError;
+  String get selectedCoachId => throw _privateConstructorUsedError;
   CoachingDetailResponse get coachingDetailResponse =>
       throw _privateConstructorUsedError;
 
@@ -43,6 +44,7 @@ abstract class $CoachingDetailStateCopyWith<$Res> {
       dynamic success,
       bool isError,
       bool isLoginApiError,
+      String selectedCoachId,
       CoachingDetailResponse coachingDetailResponse});
 
   $CoachingDetailResponseCopyWith<$Res> get coachingDetailResponse;
@@ -68,6 +70,7 @@ class _$CoachingDetailStateCopyWithImpl<$Res, $Val extends CoachingDetailState>
     Object? success = freezed,
     Object? isError = null,
     Object? isLoginApiError = null,
+    Object? selectedCoachId = null,
     Object? coachingDetailResponse = null,
   }) {
     return _then(_value.copyWith(
@@ -91,6 +94,10 @@ class _$CoachingDetailStateCopyWithImpl<$Res, $Val extends CoachingDetailState>
           ? _value.isLoginApiError
           : isLoginApiError // ignore: cast_nullable_to_non_nullable
               as bool,
+      selectedCoachId: null == selectedCoachId
+          ? _value.selectedCoachId
+          : selectedCoachId // ignore: cast_nullable_to_non_nullable
+              as String,
       coachingDetailResponse: null == coachingDetailResponse
           ? _value.coachingDetailResponse
           : coachingDetailResponse // ignore: cast_nullable_to_non_nullable
@@ -124,6 +131,7 @@ abstract class _$$CoachingDetailStateImplCopyWith<$Res>
       dynamic success,
       bool isError,
       bool isLoginApiError,
+      String selectedCoachId,
       CoachingDetailResponse coachingDetailResponse});
 
   @override
@@ -148,6 +156,7 @@ class __$$CoachingDetailStateImplCopyWithImpl<$Res>
     Object? success = freezed,
     Object? isError = null,
     Object? isLoginApiError = null,
+    Object? selectedCoachId = null,
     Object? coachingDetailResponse = null,
   }) {
     return _then(_$CoachingDetailStateImpl(
@@ -171,6 +180,10 @@ class __$$CoachingDetailStateImplCopyWithImpl<$Res>
           ? _value.isLoginApiError
           : isLoginApiError // ignore: cast_nullable_to_non_nullable
               as bool,
+      selectedCoachId: null == selectedCoachId
+          ? _value.selectedCoachId
+          : selectedCoachId // ignore: cast_nullable_to_non_nullable
+              as String,
       coachingDetailResponse: null == coachingDetailResponse
           ? _value.coachingDetailResponse
           : coachingDetailResponse // ignore: cast_nullable_to_non_nullable
@@ -188,6 +201,7 @@ class _$CoachingDetailStateImpl implements _CoachingDetailState {
       this.success,
       this.isError = false,
       this.isLoginApiError = false,
+      this.selectedCoachId = "",
       this.coachingDetailResponse = const CoachingDetailResponse()});
 
   @override
@@ -206,11 +220,14 @@ class _$CoachingDetailStateImpl implements _CoachingDetailState {
   final bool isLoginApiError;
   @override
   @JsonKey()
+  final String selectedCoachId;
+  @override
+  @JsonKey()
   final CoachingDetailResponse coachingDetailResponse;
 
   @override
   String toString() {
-    return 'CoachingDetailState(isLoading: $isLoading, error: $error, success: $success, isError: $isError, isLoginApiError: $isLoginApiError, coachingDetailResponse: $coachingDetailResponse)';
+    return 'CoachingDetailState(isLoading: $isLoading, error: $error, success: $success, isError: $isError, isLoginApiError: $isLoginApiError, selectedCoachId: $selectedCoachId, coachingDetailResponse: $coachingDetailResponse)';
   }
 
   @override
@@ -225,6 +242,8 @@ class _$CoachingDetailStateImpl implements _CoachingDetailState {
             (identical(other.isError, isError) || other.isError == isError) &&
             (identical(other.isLoginApiError, isLoginApiError) ||
                 other.isLoginApiError == isLoginApiError) &&
+            (identical(other.selectedCoachId, selectedCoachId) ||
+                other.selectedCoachId == selectedCoachId) &&
             (identical(other.coachingDetailResponse, coachingDetailResponse) ||
                 other.coachingDetailResponse == coachingDetailResponse));
   }
@@ -237,6 +256,7 @@ class _$CoachingDetailStateImpl implements _CoachingDetailState {
       const DeepCollectionEquality().hash(success),
       isError,
       isLoginApiError,
+      selectedCoachId,
       coachingDetailResponse);
 
   /// Create a copy of CoachingDetailState
@@ -256,6 +276,7 @@ abstract class _CoachingDetailState implements CoachingDetailState {
           final dynamic success,
           final bool isError,
           final bool isLoginApiError,
+          final String selectedCoachId,
           final CoachingDetailResponse coachingDetailResponse}) =
       _$CoachingDetailStateImpl;
 
@@ -269,6 +290,8 @@ abstract class _CoachingDetailState implements CoachingDetailState {
   bool get isError;
   @override
   bool get isLoginApiError;
+  @override
+  String get selectedCoachId;
   @override
   CoachingDetailResponse get coachingDetailResponse;
 

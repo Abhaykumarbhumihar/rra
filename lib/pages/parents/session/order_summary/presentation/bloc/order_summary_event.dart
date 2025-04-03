@@ -9,5 +9,10 @@ class OrderSummaryEvent with _$OrderSummaryEvent {
    const factory OrderSummaryEvent.applyCoupon(Map<String, dynamic> data) = ApplyCoupon;
    const factory OrderSummaryEvent.removeSlot(Map<String, dynamic> data) = RemoveSlotEvent;
    const factory OrderSummaryEvent.selectedChild(Map<String, dynamic> data) = SelectedChild;
+   const factory OrderSummaryEvent.storeCardNumber(String cardNumber) = StoreCardNumberEvent;
+   const factory OrderSummaryEvent.storeCardDDMM(String date) = StoreCardDateMonthEvent;
+   const factory OrderSummaryEvent.storeCardCvv(String cvv) = StoreCardDateCvv;
+   const factory OrderSummaryEvent.storeCardUserName(String userName) = StoreCardUserName;
+   const factory OrderSummaryEvent.storeCouponCode(String couponCode) = StoreCouponCode;
 
 }

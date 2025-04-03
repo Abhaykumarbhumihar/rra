@@ -17,6 +17,7 @@ class AppConstant {
   static String get getAcademicList =>"get-academies";
 
   static String get getSessionCalendarDate=> "booking/traning";
+  static String get getSessionCalendarDatePRIVATE=> "booking/private/traning";
   static String get getSessionAccordingToDate=> "get/sessions";
   static String get getStoreSesssionTimeAdded=> "store-session";
   static String get getRecurringSessionTimeAdded=> "store-recuring-session";

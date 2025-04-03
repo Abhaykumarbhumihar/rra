@@ -1,5 +1,8 @@
+import 'package:rra/pages/parents/session/order_summary/presentation/bloc/order_summary_bloc.dart';
+
 import '../../../../../../common/component/temp.dart';
 import '../../../../../../common/values/values_exports.dart';
+import '../bloc/order_summary_event.dart';
 
 class PromoCodeField extends StatelessWidget {
   final VoidCallback? onApply;
@@ -43,17 +46,20 @@ class PromoCodeField extends StatelessWidget {
                 fontSize: width * 0.032,
                 fontFamily: AppFont.interRegular,
               ),
+              onChanged: (value) {
+                BlocProvider.of<OrderSummaryBloc>(context)
+                    .add(StoreCouponCode(value));
+              },
             ),
           ),
           Container(
-            padding: EdgeInsets.symmetric(horizontal: 20.0,vertical:0.0),
+            padding: EdgeInsets.symmetric(horizontal: 20.0, vertical: 0.0),
             decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(16), // Rounded corners
-               image:   DecorationImage(
-                 image: AssetImage('assets/images/button_background.png'),
-                 fit: BoxFit.cover,
-               )
-            ),
+                borderRadius: BorderRadius.circular(16), // Rounded corners
+                image: DecorationImage(
+                  image: AssetImage('assets/images/button_background.png'),
+                  fit: BoxFit.cover,
+                )),
             child: TextButton(
               onPressed: () {
                 FocusScope.of(context).unfocus(); // Close keyboard

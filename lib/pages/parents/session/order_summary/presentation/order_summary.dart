@@ -1,11 +1,14 @@
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/services.dart';
 import 'package:intl/intl.dart';
 import 'package:rra/common/values/values_exports.dart';
+import 'package:rra/pages/parents/session/order_summary/presentation/component/pay_late_view.dart';
 import '../../../../../../../common/component/auth_text_field.dart';
 import '../../../../../../../common/component/common_app_bar.dart';
 import '../../../../../../../common/component/common_background.dart';
 import '../../../../../../../common/component/custom_app_button.dart';
 import '../../../../../../../common/component/screen_title.dart';
+import '../../../../../common/component/credit_card_input.dart';
 import '../../../../../common/local/SharedPrefs.dart';
 import '../../../../../common/stripe/stripe_service.dart';
 import '../../add_detail/presentation/bloc/add_view_player_bloc.dart';
@@ -25,6 +28,10 @@ class OrderSummary extends StatelessWidget {
   OrderSummary({super.key});
 
   final TextEditingController promoCodeController = TextEditingController();
+  TextEditingController cardNumberController = TextEditingController();
+  TextEditingController expiryDateController = TextEditingController();
+  TextEditingController cvvController = TextEditingController();
+  TextEditingController cardHolderController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -33,8 +40,8 @@ class OrderSummary extends StatelessWidget {
 
     return BlocListener<OrderSummaryBloc, OrderSummaryState>(
       listener: (context, state) {
-        if (state.couponMessage != '') {
-          context.showCustomSnackbar(state.couponMessage);
+        if (state.couponErrorMessage != '') {
+          context.showCustomSnackbar(state.couponErrorMessage);
         }
       },
       child: BlocBuilder<OrderSummaryBloc, OrderSummaryState>(
@@ -140,38 +147,6 @@ class OrderSummary extends StatelessWidget {
                                           session.toTime,
                                       onClose: (data) {
 
-                                        showLogoutConfirmationDialog(
-                                            context: context,
-                                            onCancel: () {
-                                              //  Navigator.pop(context);
-                                            },
-                                            yes: () async {
-                                              // Remove the day of the week
-                                              List<String> parts = data.split(" - ");
-                                              String datePart =
-                                              parts[0]; // "January 2, 2025"
-
-                                              // Parse the input date
-                                              DateTime parsedDate =
-                                              DateFormat("MMMM d, yyyy")
-                                                  .parse(datePart);
-
-                                              // Format into "yyyy-MM-dd"
-                                              String formattedDate =
-                                              DateFormat("yyyy-MM-dd")
-                                                  .format(parsedDate);
-                                              Map<String, dynamic> map = {
-                                                "session_id": session.sessionId,
-                                                "date": formattedDate,
-                                                "from_time": session.fromTime,
-                                                "to_time": session.toTime
-                                              };
-                                              print(
-                                                  "CANCLE BUTTON PRESS CANCLE BUTTON PRESS CANCLE BUTTON PRESS CANCLE BUTTON PRESS");
-                                              BlocProvider.of<OrderSummaryBloc>(
-                                                  context)
-                                                  .add(RemoveSlotEvent(map));
-                                            });
 
 
                                       },
@@ -183,20 +158,7 @@ class OrderSummary extends StatelessWidget {
                               SizedBox(
                                 height: 15,
                               ),
-                              //https://stackoverflow.com/questions/71633188/how-create-textfield-like-credit-card-number-in-flutter
-                              CreditCardWidget(
-                                cardNumber: "4242424242424242",
-                                expiryDate: "05/26",
-                                cardHolderName: "Abhay kumar",
-                                cvvCode: "435",
-                                isHolderNameVisible: true,
-                                isChipVisible: true,
-                                isSwipeGestureEnabled: true,
-                                obscureCardCvv: false,
-                                showBackView: true, //true when you want to show cvv(back) view
-                                onCreditCardWidgetChange: (CreditCardBrand brand) {}, // Callback for anytime credit card brand is changed
-                              ),
-                              state.isLoading==true?Container():Padding(
+                                state.isLoading==true?Container():Padding(
                                 padding:  EdgeInsets.only(left: context.screenWidth*0.05,
                                     right: context.screenWidth*0.05,top: 10),
                                 child: CustomButton(
@@ -204,9 +166,15 @@ class OrderSummary extends StatelessWidget {
                                   onPressed: () {
                                     showPaymentBottomSheet(context,
                                         checkOutAction: () async {
-                                      await StripeService.instance
-                                          .setPublishableKey();
-                                      await handlePayment();
+print("SS S S S S S S S S S S S S S ");
+
+Navigator.pop(context); // Close BottomSheet first
+Future.delayed(Duration(milliseconds: 300), () {
+  showCreditCardDialog(context); // Show Dialog after BottomSheet is closed
+});
+                                      // await StripeService.instance
+                                      //     .setPublishableKey();
+                                      // await handlePayment();
                                       // StripeService.instance.setPublishableKey();
                                       // StripeService.instance.makePayment(18);
                                       print(
@@ -274,36 +242,23 @@ class OrderSummary extends StatelessWidget {
   }
 
 
-  void showLogoutConfirmationDialog({
-    required BuildContext context,
-    required VoidCallback onCancel,
-    required VoidCallback yes,
-  }) {
-    showCupertinoDialog(
+
+  void showCreditCardDialog(BuildContext context) {
+    showDialog(
       context: context,
-      builder: (context) {
-        return CupertinoAlertDialog(
-          title: Text('Remove Session.'),
-          content: Text('Are you sure to remove sessions from your order list?'),
-          actions: <Widget>[
-            CupertinoDialogAction(
-              child: Text('No'),
-              onPressed: () {
-                Navigator.pop(context); // Close the dialog
-                onCancel(); // Call the provided onCancel callback
-              },
-            ),
-            CupertinoDialogAction(
-              child: Text('Yes'),
-              isDestructiveAction: true,
-              onPressed: () {
-                Navigator.pop(context); // Close the dialog
-                yes(); // Call the provided onLogout callback
-              },
-            ),
-          ],
+      builder: (BuildContext context) {
+        return PayLaterView(
+
+
         );
       },
-    );
+    ).then((_) {
+
+
+      // Navigator.pop(context);
+    });
   }
+
+
+
 }

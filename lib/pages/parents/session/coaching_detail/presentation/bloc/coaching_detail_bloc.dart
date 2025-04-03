@@ -15,6 +15,10 @@ class CoachingDetailBloc  extends Bloc<CoachingDetailEvent, CoachingDetailState>
 
   CoachingDetailBloc() : super(CoachingDetailState.initial()) {
     on<CoachingDetail>(_coachingProgramDetail);
+    on<SelectedCoachIdEvent>(_storeSelectedCoachId);
+  }
+  Future<void>_storeSelectedCoachId(SelectedCoachIdEvent event, Emitter<CoachingDetailState> emit)async{
+    emit(state.copyWith(selectedCoachId: event.coach_id));
   }
 
   Future<void> _coachingProgramDetail(
@@ -25,6 +29,7 @@ class CoachingDetailBloc  extends Bloc<CoachingDetailEvent, CoachingDetailState>
       success: false,
       isLoginApiError: true,
       isError: true,
+      selectedCoachId: "",
       coachingDetailResponse: CoachingDetailResponse(),
     ));
     var academyId = await SharedPrefs.getString("selected_academyid");
@@ -41,6 +46,7 @@ class CoachingDetailBloc  extends Bloc<CoachingDetailEvent, CoachingDetailState>
         success: false,
         isLoginApiError: true,
         isError: true,
+        selectedCoachId: "",
         coachingDetailResponse: CoachingDetailResponse(),
       ));
     }, (coachingProgramData) {
@@ -50,6 +56,7 @@ class CoachingDetailBloc  extends Bloc<CoachingDetailEvent, CoachingDetailState>
           isLoading: false,
           error: '',
           success: true,
+          selectedCoachId: "",
           isLoginApiError: false,
           isError: false,
           coachingDetailResponse: coachingProgramData));
