@@ -264,7 +264,7 @@ SessionCalendarData _$SessionCalendarDataFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$SessionCalendarData {
-  @JsonKey(name: 'coaching_programs')
+  @JsonKey(name: 'coaching_program')
   CoachingProgram get coachingPrograms => throw _privateConstructorUsedError;
   @JsonKey(name: 'available_dates')
   List<String> get availableDates => throw _privateConstructorUsedError;
@@ -286,7 +286,7 @@ abstract class $SessionCalendarDataCopyWith<$Res> {
       _$SessionCalendarDataCopyWithImpl<$Res, SessionCalendarData>;
   @useResult
   $Res call(
-      {@JsonKey(name: 'coaching_programs') CoachingProgram coachingPrograms,
+      {@JsonKey(name: 'coaching_program') CoachingProgram coachingPrograms,
       @JsonKey(name: 'available_dates') List<String> availableDates});
 
   $CoachingProgramCopyWith<$Res> get coachingPrograms;
@@ -342,7 +342,7 @@ abstract class _$$SessionCalendarDataImplCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {@JsonKey(name: 'coaching_programs') CoachingProgram coachingPrograms,
+      {@JsonKey(name: 'coaching_program') CoachingProgram coachingPrograms,
       @JsonKey(name: 'available_dates') List<String> availableDates});
 
   @override
@@ -382,7 +382,7 @@ class __$$SessionCalendarDataImplCopyWithImpl<$Res>
 @JsonSerializable()
 class _$SessionCalendarDataImpl implements _SessionCalendarData {
   const _$SessionCalendarDataImpl(
-      {@JsonKey(name: 'coaching_programs')
+      {@JsonKey(name: 'coaching_program')
       this.coachingPrograms = const CoachingProgram(),
       @JsonKey(name: 'available_dates')
       final List<String> availableDates = const []})
@@ -392,7 +392,7 @@ class _$SessionCalendarDataImpl implements _SessionCalendarData {
       _$$SessionCalendarDataImplFromJson(json);
 
   @override
-  @JsonKey(name: 'coaching_programs')
+  @JsonKey(name: 'coaching_program')
   final CoachingProgram coachingPrograms;
   final List<String> _availableDates;
   @override
@@ -443,7 +443,7 @@ class _$SessionCalendarDataImpl implements _SessionCalendarData {
 
 abstract class _SessionCalendarData implements SessionCalendarData {
   const factory _SessionCalendarData(
-      {@JsonKey(name: 'coaching_programs')
+      {@JsonKey(name: 'coaching_program')
       final CoachingProgram coachingPrograms,
       @JsonKey(name: 'available_dates')
       final List<String> availableDates}) = _$SessionCalendarDataImpl;
@@ -452,7 +452,7 @@ abstract class _SessionCalendarData implements SessionCalendarData {
       _$SessionCalendarDataImpl.fromJson;
 
   @override
-  @JsonKey(name: 'coaching_programs')
+  @JsonKey(name: 'coaching_program')
   CoachingProgram get coachingPrograms;
   @override
   @JsonKey(name: 'available_dates')

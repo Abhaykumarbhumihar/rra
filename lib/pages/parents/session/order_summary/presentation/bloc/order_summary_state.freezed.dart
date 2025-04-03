@@ -20,7 +20,10 @@ mixin _$OrderSummaryState {
   String? get error => throw _privateConstructorUsedError;
   dynamic get success => throw _privateConstructorUsedError;
   bool get isError => throw _privateConstructorUsedError;
+  bool get isOrderPlaceSuccess => throw _privateConstructorUsedError;
+  bool get isOrderPlaceError => throw _privateConstructorUsedError;
   bool get isLoginApiError => throw _privateConstructorUsedError;
+  bool get finalPaymentDone => throw _privateConstructorUsedError;
   Map<String, dynamic> get selectedChildId =>
       throw _privateConstructorUsedError;
   String get couponSuccessMessage => throw _privateConstructorUsedError;
@@ -33,6 +36,9 @@ mixin _$OrderSummaryState {
   String get cVV => throw _privateConstructorUsedError;
   String get userName => throw _privateConstructorUsedError;
   String get couponCode => throw _privateConstructorUsedError;
+  String get paymentID => throw _privateConstructorUsedError;
+  String get orderId => throw _privateConstructorUsedError;
+  String get orderPayment => throw _privateConstructorUsedError;
 
   /// Create a copy of OrderSummaryState
   /// with the given fields replaced by the non-null parameter values.
@@ -52,7 +58,10 @@ abstract class $OrderSummaryStateCopyWith<$Res> {
       String? error,
       dynamic success,
       bool isError,
+      bool isOrderPlaceSuccess,
+      bool isOrderPlaceError,
       bool isLoginApiError,
+      bool finalPaymentDone,
       Map<String, dynamic> selectedChildId,
       String couponSuccessMessage,
       String couponErrorMessage,
@@ -63,7 +72,10 @@ abstract class $OrderSummaryStateCopyWith<$Res> {
       String ddMM,
       String cVV,
       String userName,
-      String couponCode});
+      String couponCode,
+      String paymentID,
+      String orderId,
+      String orderPayment});
 
   $OrderSummaryModelCopyWith<$Res> get orderSummaryModel;
   $GetTotalModelCopyWith<$Res> get getTotalRespone;
@@ -88,7 +100,10 @@ class _$OrderSummaryStateCopyWithImpl<$Res, $Val extends OrderSummaryState>
     Object? error = freezed,
     Object? success = freezed,
     Object? isError = null,
+    Object? isOrderPlaceSuccess = null,
+    Object? isOrderPlaceError = null,
     Object? isLoginApiError = null,
+    Object? finalPaymentDone = null,
     Object? selectedChildId = null,
     Object? couponSuccessMessage = null,
     Object? couponErrorMessage = null,
@@ -100,6 +115,9 @@ class _$OrderSummaryStateCopyWithImpl<$Res, $Val extends OrderSummaryState>
     Object? cVV = null,
     Object? userName = null,
     Object? couponCode = null,
+    Object? paymentID = null,
+    Object? orderId = null,
+    Object? orderPayment = null,
   }) {
     return _then(_value.copyWith(
       isLoading: null == isLoading
@@ -118,9 +136,21 @@ class _$OrderSummaryStateCopyWithImpl<$Res, $Val extends OrderSummaryState>
           ? _value.isError
           : isError // ignore: cast_nullable_to_non_nullable
               as bool,
+      isOrderPlaceSuccess: null == isOrderPlaceSuccess
+          ? _value.isOrderPlaceSuccess
+          : isOrderPlaceSuccess // ignore: cast_nullable_to_non_nullable
+              as bool,
+      isOrderPlaceError: null == isOrderPlaceError
+          ? _value.isOrderPlaceError
+          : isOrderPlaceError // ignore: cast_nullable_to_non_nullable
+              as bool,
       isLoginApiError: null == isLoginApiError
           ? _value.isLoginApiError
           : isLoginApiError // ignore: cast_nullable_to_non_nullable
+              as bool,
+      finalPaymentDone: null == finalPaymentDone
+          ? _value.finalPaymentDone
+          : finalPaymentDone // ignore: cast_nullable_to_non_nullable
               as bool,
       selectedChildId: null == selectedChildId
           ? _value.selectedChildId
@@ -166,6 +196,18 @@ class _$OrderSummaryStateCopyWithImpl<$Res, $Val extends OrderSummaryState>
           ? _value.couponCode
           : couponCode // ignore: cast_nullable_to_non_nullable
               as String,
+      paymentID: null == paymentID
+          ? _value.paymentID
+          : paymentID // ignore: cast_nullable_to_non_nullable
+              as String,
+      orderId: null == orderId
+          ? _value.orderId
+          : orderId // ignore: cast_nullable_to_non_nullable
+              as String,
+      orderPayment: null == orderPayment
+          ? _value.orderPayment
+          : orderPayment // ignore: cast_nullable_to_non_nullable
+              as String,
     ) as $Val);
   }
 
@@ -203,7 +245,10 @@ abstract class _$$OrderSummaryStateImplCopyWith<$Res>
       String? error,
       dynamic success,
       bool isError,
+      bool isOrderPlaceSuccess,
+      bool isOrderPlaceError,
       bool isLoginApiError,
+      bool finalPaymentDone,
       Map<String, dynamic> selectedChildId,
       String couponSuccessMessage,
       String couponErrorMessage,
@@ -214,7 +259,10 @@ abstract class _$$OrderSummaryStateImplCopyWith<$Res>
       String ddMM,
       String cVV,
       String userName,
-      String couponCode});
+      String couponCode,
+      String paymentID,
+      String orderId,
+      String orderPayment});
 
   @override
   $OrderSummaryModelCopyWith<$Res> get orderSummaryModel;
@@ -239,7 +287,10 @@ class __$$OrderSummaryStateImplCopyWithImpl<$Res>
     Object? error = freezed,
     Object? success = freezed,
     Object? isError = null,
+    Object? isOrderPlaceSuccess = null,
+    Object? isOrderPlaceError = null,
     Object? isLoginApiError = null,
+    Object? finalPaymentDone = null,
     Object? selectedChildId = null,
     Object? couponSuccessMessage = null,
     Object? couponErrorMessage = null,
@@ -251,6 +302,9 @@ class __$$OrderSummaryStateImplCopyWithImpl<$Res>
     Object? cVV = null,
     Object? userName = null,
     Object? couponCode = null,
+    Object? paymentID = null,
+    Object? orderId = null,
+    Object? orderPayment = null,
   }) {
     return _then(_$OrderSummaryStateImpl(
       isLoading: null == isLoading
@@ -269,9 +323,21 @@ class __$$OrderSummaryStateImplCopyWithImpl<$Res>
           ? _value.isError
           : isError // ignore: cast_nullable_to_non_nullable
               as bool,
+      isOrderPlaceSuccess: null == isOrderPlaceSuccess
+          ? _value.isOrderPlaceSuccess
+          : isOrderPlaceSuccess // ignore: cast_nullable_to_non_nullable
+              as bool,
+      isOrderPlaceError: null == isOrderPlaceError
+          ? _value.isOrderPlaceError
+          : isOrderPlaceError // ignore: cast_nullable_to_non_nullable
+              as bool,
       isLoginApiError: null == isLoginApiError
           ? _value.isLoginApiError
           : isLoginApiError // ignore: cast_nullable_to_non_nullable
+              as bool,
+      finalPaymentDone: null == finalPaymentDone
+          ? _value.finalPaymentDone
+          : finalPaymentDone // ignore: cast_nullable_to_non_nullable
               as bool,
       selectedChildId: null == selectedChildId
           ? _value._selectedChildId
@@ -317,6 +383,18 @@ class __$$OrderSummaryStateImplCopyWithImpl<$Res>
           ? _value.couponCode
           : couponCode // ignore: cast_nullable_to_non_nullable
               as String,
+      paymentID: null == paymentID
+          ? _value.paymentID
+          : paymentID // ignore: cast_nullable_to_non_nullable
+              as String,
+      orderId: null == orderId
+          ? _value.orderId
+          : orderId // ignore: cast_nullable_to_non_nullable
+              as String,
+      orderPayment: null == orderPayment
+          ? _value.orderPayment
+          : orderPayment // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
   }
 }
@@ -329,7 +407,10 @@ class _$OrderSummaryStateImpl implements _OrderSummaryState {
       this.error,
       this.success,
       this.isError = false,
+      this.isOrderPlaceSuccess = false,
+      this.isOrderPlaceError = false,
       this.isLoginApiError = false,
+      this.finalPaymentDone = false,
       final Map<String, dynamic> selectedChildId = const {},
       this.couponSuccessMessage = '',
       this.couponErrorMessage = '',
@@ -340,7 +421,10 @@ class _$OrderSummaryStateImpl implements _OrderSummaryState {
       this.ddMM = "",
       this.cVV = "",
       this.userName = "",
-      this.couponCode = ""})
+      this.couponCode = "",
+      this.paymentID = "",
+      this.orderId = "",
+      this.orderPayment = ""})
       : _selectedChildId = selectedChildId;
 
   @override
@@ -355,7 +439,16 @@ class _$OrderSummaryStateImpl implements _OrderSummaryState {
   final bool isError;
   @override
   @JsonKey()
+  final bool isOrderPlaceSuccess;
+  @override
+  @JsonKey()
+  final bool isOrderPlaceError;
+  @override
+  @JsonKey()
   final bool isLoginApiError;
+  @override
+  @JsonKey()
+  final bool finalPaymentDone;
   final Map<String, dynamic> _selectedChildId;
   @override
   @JsonKey()
@@ -395,10 +488,19 @@ class _$OrderSummaryStateImpl implements _OrderSummaryState {
   @override
   @JsonKey()
   final String couponCode;
+  @override
+  @JsonKey()
+  final String paymentID;
+  @override
+  @JsonKey()
+  final String orderId;
+  @override
+  @JsonKey()
+  final String orderPayment;
 
   @override
   String toString() {
-    return 'OrderSummaryState(isLoading: $isLoading, error: $error, success: $success, isError: $isError, isLoginApiError: $isLoginApiError, selectedChildId: $selectedChildId, couponSuccessMessage: $couponSuccessMessage, couponErrorMessage: $couponErrorMessage, orderSummaryModel: $orderSummaryModel, getTotalRespone: $getTotalRespone, isSlotRemoveLoading: $isSlotRemoveLoading, cardNumber: $cardNumber, ddMM: $ddMM, cVV: $cVV, userName: $userName, couponCode: $couponCode)';
+    return 'OrderSummaryState(isLoading: $isLoading, error: $error, success: $success, isError: $isError, isOrderPlaceSuccess: $isOrderPlaceSuccess, isOrderPlaceError: $isOrderPlaceError, isLoginApiError: $isLoginApiError, finalPaymentDone: $finalPaymentDone, selectedChildId: $selectedChildId, couponSuccessMessage: $couponSuccessMessage, couponErrorMessage: $couponErrorMessage, orderSummaryModel: $orderSummaryModel, getTotalRespone: $getTotalRespone, isSlotRemoveLoading: $isSlotRemoveLoading, cardNumber: $cardNumber, ddMM: $ddMM, cVV: $cVV, userName: $userName, couponCode: $couponCode, paymentID: $paymentID, orderId: $orderId, orderPayment: $orderPayment)';
   }
 
   @override
@@ -411,8 +513,14 @@ class _$OrderSummaryStateImpl implements _OrderSummaryState {
             (identical(other.error, error) || other.error == error) &&
             const DeepCollectionEquality().equals(other.success, success) &&
             (identical(other.isError, isError) || other.isError == isError) &&
+            (identical(other.isOrderPlaceSuccess, isOrderPlaceSuccess) ||
+                other.isOrderPlaceSuccess == isOrderPlaceSuccess) &&
+            (identical(other.isOrderPlaceError, isOrderPlaceError) ||
+                other.isOrderPlaceError == isOrderPlaceError) &&
             (identical(other.isLoginApiError, isLoginApiError) ||
                 other.isLoginApiError == isLoginApiError) &&
+            (identical(other.finalPaymentDone, finalPaymentDone) ||
+                other.finalPaymentDone == finalPaymentDone) &&
             const DeepCollectionEquality()
                 .equals(other._selectedChildId, _selectedChildId) &&
             (identical(other.couponSuccessMessage, couponSuccessMessage) ||
@@ -432,28 +540,40 @@ class _$OrderSummaryStateImpl implements _OrderSummaryState {
             (identical(other.userName, userName) ||
                 other.userName == userName) &&
             (identical(other.couponCode, couponCode) ||
-                other.couponCode == couponCode));
+                other.couponCode == couponCode) &&
+            (identical(other.paymentID, paymentID) ||
+                other.paymentID == paymentID) &&
+            (identical(other.orderId, orderId) || other.orderId == orderId) &&
+            (identical(other.orderPayment, orderPayment) ||
+                other.orderPayment == orderPayment));
   }
 
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      isLoading,
-      error,
-      const DeepCollectionEquality().hash(success),
-      isError,
-      isLoginApiError,
-      const DeepCollectionEquality().hash(_selectedChildId),
-      couponSuccessMessage,
-      couponErrorMessage,
-      orderSummaryModel,
-      getTotalRespone,
-      isSlotRemoveLoading,
-      cardNumber,
-      ddMM,
-      cVV,
-      userName,
-      couponCode);
+  int get hashCode => Object.hashAll([
+        runtimeType,
+        isLoading,
+        error,
+        const DeepCollectionEquality().hash(success),
+        isError,
+        isOrderPlaceSuccess,
+        isOrderPlaceError,
+        isLoginApiError,
+        finalPaymentDone,
+        const DeepCollectionEquality().hash(_selectedChildId),
+        couponSuccessMessage,
+        couponErrorMessage,
+        orderSummaryModel,
+        getTotalRespone,
+        isSlotRemoveLoading,
+        cardNumber,
+        ddMM,
+        cVV,
+        userName,
+        couponCode,
+        paymentID,
+        orderId,
+        orderPayment
+      ]);
 
   /// Create a copy of OrderSummaryState
   /// with the given fields replaced by the non-null parameter values.
@@ -471,7 +591,10 @@ abstract class _OrderSummaryState implements OrderSummaryState {
       final String? error,
       final dynamic success,
       final bool isError,
+      final bool isOrderPlaceSuccess,
+      final bool isOrderPlaceError,
       final bool isLoginApiError,
+      final bool finalPaymentDone,
       final Map<String, dynamic> selectedChildId,
       final String couponSuccessMessage,
       final String couponErrorMessage,
@@ -482,7 +605,10 @@ abstract class _OrderSummaryState implements OrderSummaryState {
       final String ddMM,
       final String cVV,
       final String userName,
-      final String couponCode}) = _$OrderSummaryStateImpl;
+      final String couponCode,
+      final String paymentID,
+      final String orderId,
+      final String orderPayment}) = _$OrderSummaryStateImpl;
 
   @override
   bool get isLoading;
@@ -493,7 +619,13 @@ abstract class _OrderSummaryState implements OrderSummaryState {
   @override
   bool get isError;
   @override
+  bool get isOrderPlaceSuccess;
+  @override
+  bool get isOrderPlaceError;
+  @override
   bool get isLoginApiError;
+  @override
+  bool get finalPaymentDone;
   @override
   Map<String, dynamic> get selectedChildId;
   @override
@@ -516,6 +648,12 @@ abstract class _OrderSummaryState implements OrderSummaryState {
   String get userName;
   @override
   String get couponCode;
+  @override
+  String get paymentID;
+  @override
+  String get orderId;
+  @override
+  String get orderPayment;
 
   /// Create a copy of OrderSummaryState
   /// with the given fields replaced by the non-null parameter values.

@@ -33,7 +33,7 @@ class AppConstant {
   static String get getParentsChildList=> "get_parentschild";
 
   static String get getOrderPlace=> "order/place";
-  static String get getOrderPlacePayment=> "/order/payment";
+  static String get getOrderPlacePayment=> "order/payment";
 
 
   static String get getStateList => "user/myfinds/state";

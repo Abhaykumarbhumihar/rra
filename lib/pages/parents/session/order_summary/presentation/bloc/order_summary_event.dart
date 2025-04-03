@@ -15,5 +15,7 @@ class OrderSummaryEvent with _$OrderSummaryEvent {
    const factory OrderSummaryEvent.storeCardCvv(String cvv) = StoreCardDateCvv;
    const factory OrderSummaryEvent.storeCardUserName(String userName) = StoreCardUserName;
    const factory OrderSummaryEvent.storeCouponCode(String couponCode) = StoreCouponCode;
+   const factory OrderSummaryEvent.orderPlaceMentWithPaymentId(Map<String, dynamic> data) = OrderPlaceMentWithPaymentIdEvent;
+   const factory OrderSummaryEvent.resetState() = ResetStateEvent;
 
 }

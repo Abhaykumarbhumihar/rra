@@ -29,6 +29,9 @@ mixin _$OrderSummaryEvent {
     required TResult Function(String cvv) storeCardCvv,
     required TResult Function(String userName) storeCardUserName,
     required TResult Function(String couponCode) storeCouponCode,
+    required TResult Function(Map<String, dynamic> data)
+        orderPlaceMentWithPaymentId,
+    required TResult Function() resetState,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -44,6 +47,8 @@ mixin _$OrderSummaryEvent {
     TResult? Function(String cvv)? storeCardCvv,
     TResult? Function(String userName)? storeCardUserName,
     TResult? Function(String couponCode)? storeCouponCode,
+    TResult? Function(Map<String, dynamic> data)? orderPlaceMentWithPaymentId,
+    TResult? Function()? resetState,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -59,6 +64,8 @@ mixin _$OrderSummaryEvent {
     TResult Function(String cvv)? storeCardCvv,
     TResult Function(String userName)? storeCardUserName,
     TResult Function(String couponCode)? storeCouponCode,
+    TResult Function(Map<String, dynamic> data)? orderPlaceMentWithPaymentId,
+    TResult Function()? resetState,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -75,6 +82,9 @@ mixin _$OrderSummaryEvent {
     required TResult Function(StoreCardDateCvv value) storeCardCvv,
     required TResult Function(StoreCardUserName value) storeCardUserName,
     required TResult Function(StoreCouponCode value) storeCouponCode,
+    required TResult Function(OrderPlaceMentWithPaymentIdEvent value)
+        orderPlaceMentWithPaymentId,
+    required TResult Function(ResetStateEvent value) resetState,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -90,6 +100,9 @@ mixin _$OrderSummaryEvent {
     TResult? Function(StoreCardDateCvv value)? storeCardCvv,
     TResult? Function(StoreCardUserName value)? storeCardUserName,
     TResult? Function(StoreCouponCode value)? storeCouponCode,
+    TResult? Function(OrderPlaceMentWithPaymentIdEvent value)?
+        orderPlaceMentWithPaymentId,
+    TResult? Function(ResetStateEvent value)? resetState,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -105,6 +118,9 @@ mixin _$OrderSummaryEvent {
     TResult Function(StoreCardDateCvv value)? storeCardCvv,
     TResult Function(StoreCardUserName value)? storeCardUserName,
     TResult Function(StoreCouponCode value)? storeCouponCode,
+    TResult Function(OrderPlaceMentWithPaymentIdEvent value)?
+        orderPlaceMentWithPaymentId,
+    TResult Function(ResetStateEvent value)? resetState,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -219,6 +235,9 @@ class _$GetOrderSummaryEventImpl implements GetOrderSummaryEvent {
     required TResult Function(String cvv) storeCardCvv,
     required TResult Function(String userName) storeCardUserName,
     required TResult Function(String couponCode) storeCouponCode,
+    required TResult Function(Map<String, dynamic> data)
+        orderPlaceMentWithPaymentId,
+    required TResult Function() resetState,
   }) {
     return getOrderSummaryEvent(data);
   }
@@ -237,6 +256,8 @@ class _$GetOrderSummaryEventImpl implements GetOrderSummaryEvent {
     TResult? Function(String cvv)? storeCardCvv,
     TResult? Function(String userName)? storeCardUserName,
     TResult? Function(String couponCode)? storeCouponCode,
+    TResult? Function(Map<String, dynamic> data)? orderPlaceMentWithPaymentId,
+    TResult? Function()? resetState,
   }) {
     return getOrderSummaryEvent?.call(data);
   }
@@ -255,6 +276,8 @@ class _$GetOrderSummaryEventImpl implements GetOrderSummaryEvent {
     TResult Function(String cvv)? storeCardCvv,
     TResult Function(String userName)? storeCardUserName,
     TResult Function(String couponCode)? storeCouponCode,
+    TResult Function(Map<String, dynamic> data)? orderPlaceMentWithPaymentId,
+    TResult Function()? resetState,
     required TResult orElse(),
   }) {
     if (getOrderSummaryEvent != null) {
@@ -277,6 +300,9 @@ class _$GetOrderSummaryEventImpl implements GetOrderSummaryEvent {
     required TResult Function(StoreCardDateCvv value) storeCardCvv,
     required TResult Function(StoreCardUserName value) storeCardUserName,
     required TResult Function(StoreCouponCode value) storeCouponCode,
+    required TResult Function(OrderPlaceMentWithPaymentIdEvent value)
+        orderPlaceMentWithPaymentId,
+    required TResult Function(ResetStateEvent value) resetState,
   }) {
     return getOrderSummaryEvent(this);
   }
@@ -295,6 +321,9 @@ class _$GetOrderSummaryEventImpl implements GetOrderSummaryEvent {
     TResult? Function(StoreCardDateCvv value)? storeCardCvv,
     TResult? Function(StoreCardUserName value)? storeCardUserName,
     TResult? Function(StoreCouponCode value)? storeCouponCode,
+    TResult? Function(OrderPlaceMentWithPaymentIdEvent value)?
+        orderPlaceMentWithPaymentId,
+    TResult? Function(ResetStateEvent value)? resetState,
   }) {
     return getOrderSummaryEvent?.call(this);
   }
@@ -313,6 +342,9 @@ class _$GetOrderSummaryEventImpl implements GetOrderSummaryEvent {
     TResult Function(StoreCardDateCvv value)? storeCardCvv,
     TResult Function(StoreCardUserName value)? storeCardUserName,
     TResult Function(StoreCouponCode value)? storeCouponCode,
+    TResult Function(OrderPlaceMentWithPaymentIdEvent value)?
+        orderPlaceMentWithPaymentId,
+    TResult Function(ResetStateEvent value)? resetState,
     required TResult orElse(),
   }) {
     if (getOrderSummaryEvent != null) {
@@ -422,6 +454,9 @@ class _$GetTotalPriceEventImpl implements GetTotalPriceEvent {
     required TResult Function(String cvv) storeCardCvv,
     required TResult Function(String userName) storeCardUserName,
     required TResult Function(String couponCode) storeCouponCode,
+    required TResult Function(Map<String, dynamic> data)
+        orderPlaceMentWithPaymentId,
+    required TResult Function() resetState,
   }) {
     return getTotalPrice(data);
   }
@@ -440,6 +475,8 @@ class _$GetTotalPriceEventImpl implements GetTotalPriceEvent {
     TResult? Function(String cvv)? storeCardCvv,
     TResult? Function(String userName)? storeCardUserName,
     TResult? Function(String couponCode)? storeCouponCode,
+    TResult? Function(Map<String, dynamic> data)? orderPlaceMentWithPaymentId,
+    TResult? Function()? resetState,
   }) {
     return getTotalPrice?.call(data);
   }
@@ -458,6 +495,8 @@ class _$GetTotalPriceEventImpl implements GetTotalPriceEvent {
     TResult Function(String cvv)? storeCardCvv,
     TResult Function(String userName)? storeCardUserName,
     TResult Function(String couponCode)? storeCouponCode,
+    TResult Function(Map<String, dynamic> data)? orderPlaceMentWithPaymentId,
+    TResult Function()? resetState,
     required TResult orElse(),
   }) {
     if (getTotalPrice != null) {
@@ -480,6 +519,9 @@ class _$GetTotalPriceEventImpl implements GetTotalPriceEvent {
     required TResult Function(StoreCardDateCvv value) storeCardCvv,
     required TResult Function(StoreCardUserName value) storeCardUserName,
     required TResult Function(StoreCouponCode value) storeCouponCode,
+    required TResult Function(OrderPlaceMentWithPaymentIdEvent value)
+        orderPlaceMentWithPaymentId,
+    required TResult Function(ResetStateEvent value) resetState,
   }) {
     return getTotalPrice(this);
   }
@@ -498,6 +540,9 @@ class _$GetTotalPriceEventImpl implements GetTotalPriceEvent {
     TResult? Function(StoreCardDateCvv value)? storeCardCvv,
     TResult? Function(StoreCardUserName value)? storeCardUserName,
     TResult? Function(StoreCouponCode value)? storeCouponCode,
+    TResult? Function(OrderPlaceMentWithPaymentIdEvent value)?
+        orderPlaceMentWithPaymentId,
+    TResult? Function(ResetStateEvent value)? resetState,
   }) {
     return getTotalPrice?.call(this);
   }
@@ -516,6 +561,9 @@ class _$GetTotalPriceEventImpl implements GetTotalPriceEvent {
     TResult Function(StoreCardDateCvv value)? storeCardCvv,
     TResult Function(StoreCardUserName value)? storeCardUserName,
     TResult Function(StoreCouponCode value)? storeCouponCode,
+    TResult Function(OrderPlaceMentWithPaymentIdEvent value)?
+        orderPlaceMentWithPaymentId,
+    TResult Function(ResetStateEvent value)? resetState,
     required TResult orElse(),
   }) {
     if (getTotalPrice != null) {
@@ -623,6 +671,9 @@ class _$ApplyCouponImpl implements ApplyCoupon {
     required TResult Function(String cvv) storeCardCvv,
     required TResult Function(String userName) storeCardUserName,
     required TResult Function(String couponCode) storeCouponCode,
+    required TResult Function(Map<String, dynamic> data)
+        orderPlaceMentWithPaymentId,
+    required TResult Function() resetState,
   }) {
     return applyCoupon(data);
   }
@@ -641,6 +692,8 @@ class _$ApplyCouponImpl implements ApplyCoupon {
     TResult? Function(String cvv)? storeCardCvv,
     TResult? Function(String userName)? storeCardUserName,
     TResult? Function(String couponCode)? storeCouponCode,
+    TResult? Function(Map<String, dynamic> data)? orderPlaceMentWithPaymentId,
+    TResult? Function()? resetState,
   }) {
     return applyCoupon?.call(data);
   }
@@ -659,6 +712,8 @@ class _$ApplyCouponImpl implements ApplyCoupon {
     TResult Function(String cvv)? storeCardCvv,
     TResult Function(String userName)? storeCardUserName,
     TResult Function(String couponCode)? storeCouponCode,
+    TResult Function(Map<String, dynamic> data)? orderPlaceMentWithPaymentId,
+    TResult Function()? resetState,
     required TResult orElse(),
   }) {
     if (applyCoupon != null) {
@@ -681,6 +736,9 @@ class _$ApplyCouponImpl implements ApplyCoupon {
     required TResult Function(StoreCardDateCvv value) storeCardCvv,
     required TResult Function(StoreCardUserName value) storeCardUserName,
     required TResult Function(StoreCouponCode value) storeCouponCode,
+    required TResult Function(OrderPlaceMentWithPaymentIdEvent value)
+        orderPlaceMentWithPaymentId,
+    required TResult Function(ResetStateEvent value) resetState,
   }) {
     return applyCoupon(this);
   }
@@ -699,6 +757,9 @@ class _$ApplyCouponImpl implements ApplyCoupon {
     TResult? Function(StoreCardDateCvv value)? storeCardCvv,
     TResult? Function(StoreCardUserName value)? storeCardUserName,
     TResult? Function(StoreCouponCode value)? storeCouponCode,
+    TResult? Function(OrderPlaceMentWithPaymentIdEvent value)?
+        orderPlaceMentWithPaymentId,
+    TResult? Function(ResetStateEvent value)? resetState,
   }) {
     return applyCoupon?.call(this);
   }
@@ -717,6 +778,9 @@ class _$ApplyCouponImpl implements ApplyCoupon {
     TResult Function(StoreCardDateCvv value)? storeCardCvv,
     TResult Function(StoreCardUserName value)? storeCardUserName,
     TResult Function(StoreCouponCode value)? storeCouponCode,
+    TResult Function(OrderPlaceMentWithPaymentIdEvent value)?
+        orderPlaceMentWithPaymentId,
+    TResult Function(ResetStateEvent value)? resetState,
     required TResult orElse(),
   }) {
     if (applyCoupon != null) {
@@ -825,6 +889,9 @@ class _$RemoveSlotEventImpl implements RemoveSlotEvent {
     required TResult Function(String cvv) storeCardCvv,
     required TResult Function(String userName) storeCardUserName,
     required TResult Function(String couponCode) storeCouponCode,
+    required TResult Function(Map<String, dynamic> data)
+        orderPlaceMentWithPaymentId,
+    required TResult Function() resetState,
   }) {
     return removeSlot(data);
   }
@@ -843,6 +910,8 @@ class _$RemoveSlotEventImpl implements RemoveSlotEvent {
     TResult? Function(String cvv)? storeCardCvv,
     TResult? Function(String userName)? storeCardUserName,
     TResult? Function(String couponCode)? storeCouponCode,
+    TResult? Function(Map<String, dynamic> data)? orderPlaceMentWithPaymentId,
+    TResult? Function()? resetState,
   }) {
     return removeSlot?.call(data);
   }
@@ -861,6 +930,8 @@ class _$RemoveSlotEventImpl implements RemoveSlotEvent {
     TResult Function(String cvv)? storeCardCvv,
     TResult Function(String userName)? storeCardUserName,
     TResult Function(String couponCode)? storeCouponCode,
+    TResult Function(Map<String, dynamic> data)? orderPlaceMentWithPaymentId,
+    TResult Function()? resetState,
     required TResult orElse(),
   }) {
     if (removeSlot != null) {
@@ -883,6 +954,9 @@ class _$RemoveSlotEventImpl implements RemoveSlotEvent {
     required TResult Function(StoreCardDateCvv value) storeCardCvv,
     required TResult Function(StoreCardUserName value) storeCardUserName,
     required TResult Function(StoreCouponCode value) storeCouponCode,
+    required TResult Function(OrderPlaceMentWithPaymentIdEvent value)
+        orderPlaceMentWithPaymentId,
+    required TResult Function(ResetStateEvent value) resetState,
   }) {
     return removeSlot(this);
   }
@@ -901,6 +975,9 @@ class _$RemoveSlotEventImpl implements RemoveSlotEvent {
     TResult? Function(StoreCardDateCvv value)? storeCardCvv,
     TResult? Function(StoreCardUserName value)? storeCardUserName,
     TResult? Function(StoreCouponCode value)? storeCouponCode,
+    TResult? Function(OrderPlaceMentWithPaymentIdEvent value)?
+        orderPlaceMentWithPaymentId,
+    TResult? Function(ResetStateEvent value)? resetState,
   }) {
     return removeSlot?.call(this);
   }
@@ -919,6 +996,9 @@ class _$RemoveSlotEventImpl implements RemoveSlotEvent {
     TResult Function(StoreCardDateCvv value)? storeCardCvv,
     TResult Function(StoreCardUserName value)? storeCardUserName,
     TResult Function(StoreCouponCode value)? storeCouponCode,
+    TResult Function(OrderPlaceMentWithPaymentIdEvent value)?
+        orderPlaceMentWithPaymentId,
+    TResult Function(ResetStateEvent value)? resetState,
     required TResult orElse(),
   }) {
     if (removeSlot != null) {
@@ -1026,6 +1106,9 @@ class _$SelectedChildImpl implements SelectedChild {
     required TResult Function(String cvv) storeCardCvv,
     required TResult Function(String userName) storeCardUserName,
     required TResult Function(String couponCode) storeCouponCode,
+    required TResult Function(Map<String, dynamic> data)
+        orderPlaceMentWithPaymentId,
+    required TResult Function() resetState,
   }) {
     return selectedChild(data);
   }
@@ -1044,6 +1127,8 @@ class _$SelectedChildImpl implements SelectedChild {
     TResult? Function(String cvv)? storeCardCvv,
     TResult? Function(String userName)? storeCardUserName,
     TResult? Function(String couponCode)? storeCouponCode,
+    TResult? Function(Map<String, dynamic> data)? orderPlaceMentWithPaymentId,
+    TResult? Function()? resetState,
   }) {
     return selectedChild?.call(data);
   }
@@ -1062,6 +1147,8 @@ class _$SelectedChildImpl implements SelectedChild {
     TResult Function(String cvv)? storeCardCvv,
     TResult Function(String userName)? storeCardUserName,
     TResult Function(String couponCode)? storeCouponCode,
+    TResult Function(Map<String, dynamic> data)? orderPlaceMentWithPaymentId,
+    TResult Function()? resetState,
     required TResult orElse(),
   }) {
     if (selectedChild != null) {
@@ -1084,6 +1171,9 @@ class _$SelectedChildImpl implements SelectedChild {
     required TResult Function(StoreCardDateCvv value) storeCardCvv,
     required TResult Function(StoreCardUserName value) storeCardUserName,
     required TResult Function(StoreCouponCode value) storeCouponCode,
+    required TResult Function(OrderPlaceMentWithPaymentIdEvent value)
+        orderPlaceMentWithPaymentId,
+    required TResult Function(ResetStateEvent value) resetState,
   }) {
     return selectedChild(this);
   }
@@ -1102,6 +1192,9 @@ class _$SelectedChildImpl implements SelectedChild {
     TResult? Function(StoreCardDateCvv value)? storeCardCvv,
     TResult? Function(StoreCardUserName value)? storeCardUserName,
     TResult? Function(StoreCouponCode value)? storeCouponCode,
+    TResult? Function(OrderPlaceMentWithPaymentIdEvent value)?
+        orderPlaceMentWithPaymentId,
+    TResult? Function(ResetStateEvent value)? resetState,
   }) {
     return selectedChild?.call(this);
   }
@@ -1120,6 +1213,9 @@ class _$SelectedChildImpl implements SelectedChild {
     TResult Function(StoreCardDateCvv value)? storeCardCvv,
     TResult Function(StoreCardUserName value)? storeCardUserName,
     TResult Function(StoreCouponCode value)? storeCouponCode,
+    TResult Function(OrderPlaceMentWithPaymentIdEvent value)?
+        orderPlaceMentWithPaymentId,
+    TResult Function(ResetStateEvent value)? resetState,
     required TResult orElse(),
   }) {
     if (selectedChild != null) {
@@ -1228,6 +1324,9 @@ class _$OrderPlaceEventImpl implements OrderPlaceEvent {
     required TResult Function(String cvv) storeCardCvv,
     required TResult Function(String userName) storeCardUserName,
     required TResult Function(String couponCode) storeCouponCode,
+    required TResult Function(Map<String, dynamic> data)
+        orderPlaceMentWithPaymentId,
+    required TResult Function() resetState,
   }) {
     return orderPlace(data);
   }
@@ -1246,6 +1345,8 @@ class _$OrderPlaceEventImpl implements OrderPlaceEvent {
     TResult? Function(String cvv)? storeCardCvv,
     TResult? Function(String userName)? storeCardUserName,
     TResult? Function(String couponCode)? storeCouponCode,
+    TResult? Function(Map<String, dynamic> data)? orderPlaceMentWithPaymentId,
+    TResult? Function()? resetState,
   }) {
     return orderPlace?.call(data);
   }
@@ -1264,6 +1365,8 @@ class _$OrderPlaceEventImpl implements OrderPlaceEvent {
     TResult Function(String cvv)? storeCardCvv,
     TResult Function(String userName)? storeCardUserName,
     TResult Function(String couponCode)? storeCouponCode,
+    TResult Function(Map<String, dynamic> data)? orderPlaceMentWithPaymentId,
+    TResult Function()? resetState,
     required TResult orElse(),
   }) {
     if (orderPlace != null) {
@@ -1286,6 +1389,9 @@ class _$OrderPlaceEventImpl implements OrderPlaceEvent {
     required TResult Function(StoreCardDateCvv value) storeCardCvv,
     required TResult Function(StoreCardUserName value) storeCardUserName,
     required TResult Function(StoreCouponCode value) storeCouponCode,
+    required TResult Function(OrderPlaceMentWithPaymentIdEvent value)
+        orderPlaceMentWithPaymentId,
+    required TResult Function(ResetStateEvent value) resetState,
   }) {
     return orderPlace(this);
   }
@@ -1304,6 +1410,9 @@ class _$OrderPlaceEventImpl implements OrderPlaceEvent {
     TResult? Function(StoreCardDateCvv value)? storeCardCvv,
     TResult? Function(StoreCardUserName value)? storeCardUserName,
     TResult? Function(StoreCouponCode value)? storeCouponCode,
+    TResult? Function(OrderPlaceMentWithPaymentIdEvent value)?
+        orderPlaceMentWithPaymentId,
+    TResult? Function(ResetStateEvent value)? resetState,
   }) {
     return orderPlace?.call(this);
   }
@@ -1322,6 +1431,9 @@ class _$OrderPlaceEventImpl implements OrderPlaceEvent {
     TResult Function(StoreCardDateCvv value)? storeCardCvv,
     TResult Function(StoreCardUserName value)? storeCardUserName,
     TResult Function(StoreCouponCode value)? storeCouponCode,
+    TResult Function(OrderPlaceMentWithPaymentIdEvent value)?
+        orderPlaceMentWithPaymentId,
+    TResult Function(ResetStateEvent value)? resetState,
     required TResult orElse(),
   }) {
     if (orderPlace != null) {
@@ -1426,6 +1538,9 @@ class _$StoreCardNumberEventImpl implements StoreCardNumberEvent {
     required TResult Function(String cvv) storeCardCvv,
     required TResult Function(String userName) storeCardUserName,
     required TResult Function(String couponCode) storeCouponCode,
+    required TResult Function(Map<String, dynamic> data)
+        orderPlaceMentWithPaymentId,
+    required TResult Function() resetState,
   }) {
     return storeCardNumber(cardNumber);
   }
@@ -1444,6 +1559,8 @@ class _$StoreCardNumberEventImpl implements StoreCardNumberEvent {
     TResult? Function(String cvv)? storeCardCvv,
     TResult? Function(String userName)? storeCardUserName,
     TResult? Function(String couponCode)? storeCouponCode,
+    TResult? Function(Map<String, dynamic> data)? orderPlaceMentWithPaymentId,
+    TResult? Function()? resetState,
   }) {
     return storeCardNumber?.call(cardNumber);
   }
@@ -1462,6 +1579,8 @@ class _$StoreCardNumberEventImpl implements StoreCardNumberEvent {
     TResult Function(String cvv)? storeCardCvv,
     TResult Function(String userName)? storeCardUserName,
     TResult Function(String couponCode)? storeCouponCode,
+    TResult Function(Map<String, dynamic> data)? orderPlaceMentWithPaymentId,
+    TResult Function()? resetState,
     required TResult orElse(),
   }) {
     if (storeCardNumber != null) {
@@ -1484,6 +1603,9 @@ class _$StoreCardNumberEventImpl implements StoreCardNumberEvent {
     required TResult Function(StoreCardDateCvv value) storeCardCvv,
     required TResult Function(StoreCardUserName value) storeCardUserName,
     required TResult Function(StoreCouponCode value) storeCouponCode,
+    required TResult Function(OrderPlaceMentWithPaymentIdEvent value)
+        orderPlaceMentWithPaymentId,
+    required TResult Function(ResetStateEvent value) resetState,
   }) {
     return storeCardNumber(this);
   }
@@ -1502,6 +1624,9 @@ class _$StoreCardNumberEventImpl implements StoreCardNumberEvent {
     TResult? Function(StoreCardDateCvv value)? storeCardCvv,
     TResult? Function(StoreCardUserName value)? storeCardUserName,
     TResult? Function(StoreCouponCode value)? storeCouponCode,
+    TResult? Function(OrderPlaceMentWithPaymentIdEvent value)?
+        orderPlaceMentWithPaymentId,
+    TResult? Function(ResetStateEvent value)? resetState,
   }) {
     return storeCardNumber?.call(this);
   }
@@ -1520,6 +1645,9 @@ class _$StoreCardNumberEventImpl implements StoreCardNumberEvent {
     TResult Function(StoreCardDateCvv value)? storeCardCvv,
     TResult Function(StoreCardUserName value)? storeCardUserName,
     TResult Function(StoreCouponCode value)? storeCouponCode,
+    TResult Function(OrderPlaceMentWithPaymentIdEvent value)?
+        orderPlaceMentWithPaymentId,
+    TResult Function(ResetStateEvent value)? resetState,
     required TResult orElse(),
   }) {
     if (storeCardNumber != null) {
@@ -1624,6 +1752,9 @@ class _$StoreCardDateMonthEventImpl implements StoreCardDateMonthEvent {
     required TResult Function(String cvv) storeCardCvv,
     required TResult Function(String userName) storeCardUserName,
     required TResult Function(String couponCode) storeCouponCode,
+    required TResult Function(Map<String, dynamic> data)
+        orderPlaceMentWithPaymentId,
+    required TResult Function() resetState,
   }) {
     return storeCardDDMM(date);
   }
@@ -1642,6 +1773,8 @@ class _$StoreCardDateMonthEventImpl implements StoreCardDateMonthEvent {
     TResult? Function(String cvv)? storeCardCvv,
     TResult? Function(String userName)? storeCardUserName,
     TResult? Function(String couponCode)? storeCouponCode,
+    TResult? Function(Map<String, dynamic> data)? orderPlaceMentWithPaymentId,
+    TResult? Function()? resetState,
   }) {
     return storeCardDDMM?.call(date);
   }
@@ -1660,6 +1793,8 @@ class _$StoreCardDateMonthEventImpl implements StoreCardDateMonthEvent {
     TResult Function(String cvv)? storeCardCvv,
     TResult Function(String userName)? storeCardUserName,
     TResult Function(String couponCode)? storeCouponCode,
+    TResult Function(Map<String, dynamic> data)? orderPlaceMentWithPaymentId,
+    TResult Function()? resetState,
     required TResult orElse(),
   }) {
     if (storeCardDDMM != null) {
@@ -1682,6 +1817,9 @@ class _$StoreCardDateMonthEventImpl implements StoreCardDateMonthEvent {
     required TResult Function(StoreCardDateCvv value) storeCardCvv,
     required TResult Function(StoreCardUserName value) storeCardUserName,
     required TResult Function(StoreCouponCode value) storeCouponCode,
+    required TResult Function(OrderPlaceMentWithPaymentIdEvent value)
+        orderPlaceMentWithPaymentId,
+    required TResult Function(ResetStateEvent value) resetState,
   }) {
     return storeCardDDMM(this);
   }
@@ -1700,6 +1838,9 @@ class _$StoreCardDateMonthEventImpl implements StoreCardDateMonthEvent {
     TResult? Function(StoreCardDateCvv value)? storeCardCvv,
     TResult? Function(StoreCardUserName value)? storeCardUserName,
     TResult? Function(StoreCouponCode value)? storeCouponCode,
+    TResult? Function(OrderPlaceMentWithPaymentIdEvent value)?
+        orderPlaceMentWithPaymentId,
+    TResult? Function(ResetStateEvent value)? resetState,
   }) {
     return storeCardDDMM?.call(this);
   }
@@ -1718,6 +1859,9 @@ class _$StoreCardDateMonthEventImpl implements StoreCardDateMonthEvent {
     TResult Function(StoreCardDateCvv value)? storeCardCvv,
     TResult Function(StoreCardUserName value)? storeCardUserName,
     TResult Function(StoreCouponCode value)? storeCouponCode,
+    TResult Function(OrderPlaceMentWithPaymentIdEvent value)?
+        orderPlaceMentWithPaymentId,
+    TResult Function(ResetStateEvent value)? resetState,
     required TResult orElse(),
   }) {
     if (storeCardDDMM != null) {
@@ -1820,6 +1964,9 @@ class _$StoreCardDateCvvImpl implements StoreCardDateCvv {
     required TResult Function(String cvv) storeCardCvv,
     required TResult Function(String userName) storeCardUserName,
     required TResult Function(String couponCode) storeCouponCode,
+    required TResult Function(Map<String, dynamic> data)
+        orderPlaceMentWithPaymentId,
+    required TResult Function() resetState,
   }) {
     return storeCardCvv(cvv);
   }
@@ -1838,6 +1985,8 @@ class _$StoreCardDateCvvImpl implements StoreCardDateCvv {
     TResult? Function(String cvv)? storeCardCvv,
     TResult? Function(String userName)? storeCardUserName,
     TResult? Function(String couponCode)? storeCouponCode,
+    TResult? Function(Map<String, dynamic> data)? orderPlaceMentWithPaymentId,
+    TResult? Function()? resetState,
   }) {
     return storeCardCvv?.call(cvv);
   }
@@ -1856,6 +2005,8 @@ class _$StoreCardDateCvvImpl implements StoreCardDateCvv {
     TResult Function(String cvv)? storeCardCvv,
     TResult Function(String userName)? storeCardUserName,
     TResult Function(String couponCode)? storeCouponCode,
+    TResult Function(Map<String, dynamic> data)? orderPlaceMentWithPaymentId,
+    TResult Function()? resetState,
     required TResult orElse(),
   }) {
     if (storeCardCvv != null) {
@@ -1878,6 +2029,9 @@ class _$StoreCardDateCvvImpl implements StoreCardDateCvv {
     required TResult Function(StoreCardDateCvv value) storeCardCvv,
     required TResult Function(StoreCardUserName value) storeCardUserName,
     required TResult Function(StoreCouponCode value) storeCouponCode,
+    required TResult Function(OrderPlaceMentWithPaymentIdEvent value)
+        orderPlaceMentWithPaymentId,
+    required TResult Function(ResetStateEvent value) resetState,
   }) {
     return storeCardCvv(this);
   }
@@ -1896,6 +2050,9 @@ class _$StoreCardDateCvvImpl implements StoreCardDateCvv {
     TResult? Function(StoreCardDateCvv value)? storeCardCvv,
     TResult? Function(StoreCardUserName value)? storeCardUserName,
     TResult? Function(StoreCouponCode value)? storeCouponCode,
+    TResult? Function(OrderPlaceMentWithPaymentIdEvent value)?
+        orderPlaceMentWithPaymentId,
+    TResult? Function(ResetStateEvent value)? resetState,
   }) {
     return storeCardCvv?.call(this);
   }
@@ -1914,6 +2071,9 @@ class _$StoreCardDateCvvImpl implements StoreCardDateCvv {
     TResult Function(StoreCardDateCvv value)? storeCardCvv,
     TResult Function(StoreCardUserName value)? storeCardUserName,
     TResult Function(StoreCouponCode value)? storeCouponCode,
+    TResult Function(OrderPlaceMentWithPaymentIdEvent value)?
+        orderPlaceMentWithPaymentId,
+    TResult Function(ResetStateEvent value)? resetState,
     required TResult orElse(),
   }) {
     if (storeCardCvv != null) {
@@ -2016,6 +2176,9 @@ class _$StoreCardUserNameImpl implements StoreCardUserName {
     required TResult Function(String cvv) storeCardCvv,
     required TResult Function(String userName) storeCardUserName,
     required TResult Function(String couponCode) storeCouponCode,
+    required TResult Function(Map<String, dynamic> data)
+        orderPlaceMentWithPaymentId,
+    required TResult Function() resetState,
   }) {
     return storeCardUserName(userName);
   }
@@ -2034,6 +2197,8 @@ class _$StoreCardUserNameImpl implements StoreCardUserName {
     TResult? Function(String cvv)? storeCardCvv,
     TResult? Function(String userName)? storeCardUserName,
     TResult? Function(String couponCode)? storeCouponCode,
+    TResult? Function(Map<String, dynamic> data)? orderPlaceMentWithPaymentId,
+    TResult? Function()? resetState,
   }) {
     return storeCardUserName?.call(userName);
   }
@@ -2052,6 +2217,8 @@ class _$StoreCardUserNameImpl implements StoreCardUserName {
     TResult Function(String cvv)? storeCardCvv,
     TResult Function(String userName)? storeCardUserName,
     TResult Function(String couponCode)? storeCouponCode,
+    TResult Function(Map<String, dynamic> data)? orderPlaceMentWithPaymentId,
+    TResult Function()? resetState,
     required TResult orElse(),
   }) {
     if (storeCardUserName != null) {
@@ -2074,6 +2241,9 @@ class _$StoreCardUserNameImpl implements StoreCardUserName {
     required TResult Function(StoreCardDateCvv value) storeCardCvv,
     required TResult Function(StoreCardUserName value) storeCardUserName,
     required TResult Function(StoreCouponCode value) storeCouponCode,
+    required TResult Function(OrderPlaceMentWithPaymentIdEvent value)
+        orderPlaceMentWithPaymentId,
+    required TResult Function(ResetStateEvent value) resetState,
   }) {
     return storeCardUserName(this);
   }
@@ -2092,6 +2262,9 @@ class _$StoreCardUserNameImpl implements StoreCardUserName {
     TResult? Function(StoreCardDateCvv value)? storeCardCvv,
     TResult? Function(StoreCardUserName value)? storeCardUserName,
     TResult? Function(StoreCouponCode value)? storeCouponCode,
+    TResult? Function(OrderPlaceMentWithPaymentIdEvent value)?
+        orderPlaceMentWithPaymentId,
+    TResult? Function(ResetStateEvent value)? resetState,
   }) {
     return storeCardUserName?.call(this);
   }
@@ -2110,6 +2283,9 @@ class _$StoreCardUserNameImpl implements StoreCardUserName {
     TResult Function(StoreCardDateCvv value)? storeCardCvv,
     TResult Function(StoreCardUserName value)? storeCardUserName,
     TResult Function(StoreCouponCode value)? storeCouponCode,
+    TResult Function(OrderPlaceMentWithPaymentIdEvent value)?
+        orderPlaceMentWithPaymentId,
+    TResult Function(ResetStateEvent value)? resetState,
     required TResult orElse(),
   }) {
     if (storeCardUserName != null) {
@@ -2213,6 +2389,9 @@ class _$StoreCouponCodeImpl implements StoreCouponCode {
     required TResult Function(String cvv) storeCardCvv,
     required TResult Function(String userName) storeCardUserName,
     required TResult Function(String couponCode) storeCouponCode,
+    required TResult Function(Map<String, dynamic> data)
+        orderPlaceMentWithPaymentId,
+    required TResult Function() resetState,
   }) {
     return storeCouponCode(couponCode);
   }
@@ -2231,6 +2410,8 @@ class _$StoreCouponCodeImpl implements StoreCouponCode {
     TResult? Function(String cvv)? storeCardCvv,
     TResult? Function(String userName)? storeCardUserName,
     TResult? Function(String couponCode)? storeCouponCode,
+    TResult? Function(Map<String, dynamic> data)? orderPlaceMentWithPaymentId,
+    TResult? Function()? resetState,
   }) {
     return storeCouponCode?.call(couponCode);
   }
@@ -2249,6 +2430,8 @@ class _$StoreCouponCodeImpl implements StoreCouponCode {
     TResult Function(String cvv)? storeCardCvv,
     TResult Function(String userName)? storeCardUserName,
     TResult Function(String couponCode)? storeCouponCode,
+    TResult Function(Map<String, dynamic> data)? orderPlaceMentWithPaymentId,
+    TResult Function()? resetState,
     required TResult orElse(),
   }) {
     if (storeCouponCode != null) {
@@ -2271,6 +2454,9 @@ class _$StoreCouponCodeImpl implements StoreCouponCode {
     required TResult Function(StoreCardDateCvv value) storeCardCvv,
     required TResult Function(StoreCardUserName value) storeCardUserName,
     required TResult Function(StoreCouponCode value) storeCouponCode,
+    required TResult Function(OrderPlaceMentWithPaymentIdEvent value)
+        orderPlaceMentWithPaymentId,
+    required TResult Function(ResetStateEvent value) resetState,
   }) {
     return storeCouponCode(this);
   }
@@ -2289,6 +2475,9 @@ class _$StoreCouponCodeImpl implements StoreCouponCode {
     TResult? Function(StoreCardDateCvv value)? storeCardCvv,
     TResult? Function(StoreCardUserName value)? storeCardUserName,
     TResult? Function(StoreCouponCode value)? storeCouponCode,
+    TResult? Function(OrderPlaceMentWithPaymentIdEvent value)?
+        orderPlaceMentWithPaymentId,
+    TResult? Function(ResetStateEvent value)? resetState,
   }) {
     return storeCouponCode?.call(this);
   }
@@ -2307,6 +2496,9 @@ class _$StoreCouponCodeImpl implements StoreCouponCode {
     TResult Function(StoreCardDateCvv value)? storeCardCvv,
     TResult Function(StoreCardUserName value)? storeCardUserName,
     TResult Function(StoreCouponCode value)? storeCouponCode,
+    TResult Function(OrderPlaceMentWithPaymentIdEvent value)?
+        orderPlaceMentWithPaymentId,
+    TResult Function(ResetStateEvent value)? resetState,
     required TResult orElse(),
   }) {
     if (storeCouponCode != null) {
@@ -2327,4 +2519,404 @@ abstract class StoreCouponCode implements OrderSummaryEvent {
   @JsonKey(includeFromJson: false, includeToJson: false)
   _$$StoreCouponCodeImplCopyWith<_$StoreCouponCodeImpl> get copyWith =>
       throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$OrderPlaceMentWithPaymentIdEventImplCopyWith<$Res> {
+  factory _$$OrderPlaceMentWithPaymentIdEventImplCopyWith(
+          _$OrderPlaceMentWithPaymentIdEventImpl value,
+          $Res Function(_$OrderPlaceMentWithPaymentIdEventImpl) then) =
+      __$$OrderPlaceMentWithPaymentIdEventImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({Map<String, dynamic> data});
+}
+
+/// @nodoc
+class __$$OrderPlaceMentWithPaymentIdEventImplCopyWithImpl<$Res>
+    extends _$OrderSummaryEventCopyWithImpl<$Res,
+        _$OrderPlaceMentWithPaymentIdEventImpl>
+    implements _$$OrderPlaceMentWithPaymentIdEventImplCopyWith<$Res> {
+  __$$OrderPlaceMentWithPaymentIdEventImplCopyWithImpl(
+      _$OrderPlaceMentWithPaymentIdEventImpl _value,
+      $Res Function(_$OrderPlaceMentWithPaymentIdEventImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of OrderSummaryEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? data = null,
+  }) {
+    return _then(_$OrderPlaceMentWithPaymentIdEventImpl(
+      null == data
+          ? _value._data
+          : data // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$OrderPlaceMentWithPaymentIdEventImpl
+    implements OrderPlaceMentWithPaymentIdEvent {
+  const _$OrderPlaceMentWithPaymentIdEventImpl(final Map<String, dynamic> data)
+      : _data = data;
+
+  final Map<String, dynamic> _data;
+  @override
+  Map<String, dynamic> get data {
+    if (_data is EqualUnmodifiableMapView) return _data;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableMapView(_data);
+  }
+
+  @override
+  String toString() {
+    return 'OrderSummaryEvent.orderPlaceMentWithPaymentId(data: $data)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$OrderPlaceMentWithPaymentIdEventImpl &&
+            const DeepCollectionEquality().equals(other._data, _data));
+  }
+
+  @override
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(_data));
+
+  /// Create a copy of OrderSummaryEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$OrderPlaceMentWithPaymentIdEventImplCopyWith<
+          _$OrderPlaceMentWithPaymentIdEventImpl>
+      get copyWith => __$$OrderPlaceMentWithPaymentIdEventImplCopyWithImpl<
+          _$OrderPlaceMentWithPaymentIdEventImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(Map<String, dynamic> data) getOrderSummaryEvent,
+    required TResult Function(Map<String, dynamic> data) getTotalPrice,
+    required TResult Function(Map<String, dynamic> data) applyCoupon,
+    required TResult Function(Map<String, dynamic> data) removeSlot,
+    required TResult Function(Map<String, dynamic> data) selectedChild,
+    required TResult Function(Map<String, dynamic> data) orderPlace,
+    required TResult Function(String cardNumber) storeCardNumber,
+    required TResult Function(String date) storeCardDDMM,
+    required TResult Function(String cvv) storeCardCvv,
+    required TResult Function(String userName) storeCardUserName,
+    required TResult Function(String couponCode) storeCouponCode,
+    required TResult Function(Map<String, dynamic> data)
+        orderPlaceMentWithPaymentId,
+    required TResult Function() resetState,
+  }) {
+    return orderPlaceMentWithPaymentId(data);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(Map<String, dynamic> data)? getOrderSummaryEvent,
+    TResult? Function(Map<String, dynamic> data)? getTotalPrice,
+    TResult? Function(Map<String, dynamic> data)? applyCoupon,
+    TResult? Function(Map<String, dynamic> data)? removeSlot,
+    TResult? Function(Map<String, dynamic> data)? selectedChild,
+    TResult? Function(Map<String, dynamic> data)? orderPlace,
+    TResult? Function(String cardNumber)? storeCardNumber,
+    TResult? Function(String date)? storeCardDDMM,
+    TResult? Function(String cvv)? storeCardCvv,
+    TResult? Function(String userName)? storeCardUserName,
+    TResult? Function(String couponCode)? storeCouponCode,
+    TResult? Function(Map<String, dynamic> data)? orderPlaceMentWithPaymentId,
+    TResult? Function()? resetState,
+  }) {
+    return orderPlaceMentWithPaymentId?.call(data);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(Map<String, dynamic> data)? getOrderSummaryEvent,
+    TResult Function(Map<String, dynamic> data)? getTotalPrice,
+    TResult Function(Map<String, dynamic> data)? applyCoupon,
+    TResult Function(Map<String, dynamic> data)? removeSlot,
+    TResult Function(Map<String, dynamic> data)? selectedChild,
+    TResult Function(Map<String, dynamic> data)? orderPlace,
+    TResult Function(String cardNumber)? storeCardNumber,
+    TResult Function(String date)? storeCardDDMM,
+    TResult Function(String cvv)? storeCardCvv,
+    TResult Function(String userName)? storeCardUserName,
+    TResult Function(String couponCode)? storeCouponCode,
+    TResult Function(Map<String, dynamic> data)? orderPlaceMentWithPaymentId,
+    TResult Function()? resetState,
+    required TResult orElse(),
+  }) {
+    if (orderPlaceMentWithPaymentId != null) {
+      return orderPlaceMentWithPaymentId(data);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(GetOrderSummaryEvent value) getOrderSummaryEvent,
+    required TResult Function(GetTotalPriceEvent value) getTotalPrice,
+    required TResult Function(ApplyCoupon value) applyCoupon,
+    required TResult Function(RemoveSlotEvent value) removeSlot,
+    required TResult Function(SelectedChild value) selectedChild,
+    required TResult Function(OrderPlaceEvent value) orderPlace,
+    required TResult Function(StoreCardNumberEvent value) storeCardNumber,
+    required TResult Function(StoreCardDateMonthEvent value) storeCardDDMM,
+    required TResult Function(StoreCardDateCvv value) storeCardCvv,
+    required TResult Function(StoreCardUserName value) storeCardUserName,
+    required TResult Function(StoreCouponCode value) storeCouponCode,
+    required TResult Function(OrderPlaceMentWithPaymentIdEvent value)
+        orderPlaceMentWithPaymentId,
+    required TResult Function(ResetStateEvent value) resetState,
+  }) {
+    return orderPlaceMentWithPaymentId(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(GetOrderSummaryEvent value)? getOrderSummaryEvent,
+    TResult? Function(GetTotalPriceEvent value)? getTotalPrice,
+    TResult? Function(ApplyCoupon value)? applyCoupon,
+    TResult? Function(RemoveSlotEvent value)? removeSlot,
+    TResult? Function(SelectedChild value)? selectedChild,
+    TResult? Function(OrderPlaceEvent value)? orderPlace,
+    TResult? Function(StoreCardNumberEvent value)? storeCardNumber,
+    TResult? Function(StoreCardDateMonthEvent value)? storeCardDDMM,
+    TResult? Function(StoreCardDateCvv value)? storeCardCvv,
+    TResult? Function(StoreCardUserName value)? storeCardUserName,
+    TResult? Function(StoreCouponCode value)? storeCouponCode,
+    TResult? Function(OrderPlaceMentWithPaymentIdEvent value)?
+        orderPlaceMentWithPaymentId,
+    TResult? Function(ResetStateEvent value)? resetState,
+  }) {
+    return orderPlaceMentWithPaymentId?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(GetOrderSummaryEvent value)? getOrderSummaryEvent,
+    TResult Function(GetTotalPriceEvent value)? getTotalPrice,
+    TResult Function(ApplyCoupon value)? applyCoupon,
+    TResult Function(RemoveSlotEvent value)? removeSlot,
+    TResult Function(SelectedChild value)? selectedChild,
+    TResult Function(OrderPlaceEvent value)? orderPlace,
+    TResult Function(StoreCardNumberEvent value)? storeCardNumber,
+    TResult Function(StoreCardDateMonthEvent value)? storeCardDDMM,
+    TResult Function(StoreCardDateCvv value)? storeCardCvv,
+    TResult Function(StoreCardUserName value)? storeCardUserName,
+    TResult Function(StoreCouponCode value)? storeCouponCode,
+    TResult Function(OrderPlaceMentWithPaymentIdEvent value)?
+        orderPlaceMentWithPaymentId,
+    TResult Function(ResetStateEvent value)? resetState,
+    required TResult orElse(),
+  }) {
+    if (orderPlaceMentWithPaymentId != null) {
+      return orderPlaceMentWithPaymentId(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class OrderPlaceMentWithPaymentIdEvent implements OrderSummaryEvent {
+  const factory OrderPlaceMentWithPaymentIdEvent(
+      final Map<String, dynamic> data) = _$OrderPlaceMentWithPaymentIdEventImpl;
+
+  Map<String, dynamic> get data;
+
+  /// Create a copy of OrderSummaryEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$OrderPlaceMentWithPaymentIdEventImplCopyWith<
+          _$OrderPlaceMentWithPaymentIdEventImpl>
+      get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$ResetStateEventImplCopyWith<$Res> {
+  factory _$$ResetStateEventImplCopyWith(_$ResetStateEventImpl value,
+          $Res Function(_$ResetStateEventImpl) then) =
+      __$$ResetStateEventImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$ResetStateEventImplCopyWithImpl<$Res>
+    extends _$OrderSummaryEventCopyWithImpl<$Res, _$ResetStateEventImpl>
+    implements _$$ResetStateEventImplCopyWith<$Res> {
+  __$$ResetStateEventImplCopyWithImpl(
+      _$ResetStateEventImpl _value, $Res Function(_$ResetStateEventImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of OrderSummaryEvent
+  /// with the given fields replaced by the non-null parameter values.
+}
+
+/// @nodoc
+
+class _$ResetStateEventImpl implements ResetStateEvent {
+  const _$ResetStateEventImpl();
+
+  @override
+  String toString() {
+    return 'OrderSummaryEvent.resetState()';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$ResetStateEventImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(Map<String, dynamic> data) getOrderSummaryEvent,
+    required TResult Function(Map<String, dynamic> data) getTotalPrice,
+    required TResult Function(Map<String, dynamic> data) applyCoupon,
+    required TResult Function(Map<String, dynamic> data) removeSlot,
+    required TResult Function(Map<String, dynamic> data) selectedChild,
+    required TResult Function(Map<String, dynamic> data) orderPlace,
+    required TResult Function(String cardNumber) storeCardNumber,
+    required TResult Function(String date) storeCardDDMM,
+    required TResult Function(String cvv) storeCardCvv,
+    required TResult Function(String userName) storeCardUserName,
+    required TResult Function(String couponCode) storeCouponCode,
+    required TResult Function(Map<String, dynamic> data)
+        orderPlaceMentWithPaymentId,
+    required TResult Function() resetState,
+  }) {
+    return resetState();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(Map<String, dynamic> data)? getOrderSummaryEvent,
+    TResult? Function(Map<String, dynamic> data)? getTotalPrice,
+    TResult? Function(Map<String, dynamic> data)? applyCoupon,
+    TResult? Function(Map<String, dynamic> data)? removeSlot,
+    TResult? Function(Map<String, dynamic> data)? selectedChild,
+    TResult? Function(Map<String, dynamic> data)? orderPlace,
+    TResult? Function(String cardNumber)? storeCardNumber,
+    TResult? Function(String date)? storeCardDDMM,
+    TResult? Function(String cvv)? storeCardCvv,
+    TResult? Function(String userName)? storeCardUserName,
+    TResult? Function(String couponCode)? storeCouponCode,
+    TResult? Function(Map<String, dynamic> data)? orderPlaceMentWithPaymentId,
+    TResult? Function()? resetState,
+  }) {
+    return resetState?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(Map<String, dynamic> data)? getOrderSummaryEvent,
+    TResult Function(Map<String, dynamic> data)? getTotalPrice,
+    TResult Function(Map<String, dynamic> data)? applyCoupon,
+    TResult Function(Map<String, dynamic> data)? removeSlot,
+    TResult Function(Map<String, dynamic> data)? selectedChild,
+    TResult Function(Map<String, dynamic> data)? orderPlace,
+    TResult Function(String cardNumber)? storeCardNumber,
+    TResult Function(String date)? storeCardDDMM,
+    TResult Function(String cvv)? storeCardCvv,
+    TResult Function(String userName)? storeCardUserName,
+    TResult Function(String couponCode)? storeCouponCode,
+    TResult Function(Map<String, dynamic> data)? orderPlaceMentWithPaymentId,
+    TResult Function()? resetState,
+    required TResult orElse(),
+  }) {
+    if (resetState != null) {
+      return resetState();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(GetOrderSummaryEvent value) getOrderSummaryEvent,
+    required TResult Function(GetTotalPriceEvent value) getTotalPrice,
+    required TResult Function(ApplyCoupon value) applyCoupon,
+    required TResult Function(RemoveSlotEvent value) removeSlot,
+    required TResult Function(SelectedChild value) selectedChild,
+    required TResult Function(OrderPlaceEvent value) orderPlace,
+    required TResult Function(StoreCardNumberEvent value) storeCardNumber,
+    required TResult Function(StoreCardDateMonthEvent value) storeCardDDMM,
+    required TResult Function(StoreCardDateCvv value) storeCardCvv,
+    required TResult Function(StoreCardUserName value) storeCardUserName,
+    required TResult Function(StoreCouponCode value) storeCouponCode,
+    required TResult Function(OrderPlaceMentWithPaymentIdEvent value)
+        orderPlaceMentWithPaymentId,
+    required TResult Function(ResetStateEvent value) resetState,
+  }) {
+    return resetState(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(GetOrderSummaryEvent value)? getOrderSummaryEvent,
+    TResult? Function(GetTotalPriceEvent value)? getTotalPrice,
+    TResult? Function(ApplyCoupon value)? applyCoupon,
+    TResult? Function(RemoveSlotEvent value)? removeSlot,
+    TResult? Function(SelectedChild value)? selectedChild,
+    TResult? Function(OrderPlaceEvent value)? orderPlace,
+    TResult? Function(StoreCardNumberEvent value)? storeCardNumber,
+    TResult? Function(StoreCardDateMonthEvent value)? storeCardDDMM,
+    TResult? Function(StoreCardDateCvv value)? storeCardCvv,
+    TResult? Function(StoreCardUserName value)? storeCardUserName,
+    TResult? Function(StoreCouponCode value)? storeCouponCode,
+    TResult? Function(OrderPlaceMentWithPaymentIdEvent value)?
+        orderPlaceMentWithPaymentId,
+    TResult? Function(ResetStateEvent value)? resetState,
+  }) {
+    return resetState?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(GetOrderSummaryEvent value)? getOrderSummaryEvent,
+    TResult Function(GetTotalPriceEvent value)? getTotalPrice,
+    TResult Function(ApplyCoupon value)? applyCoupon,
+    TResult Function(RemoveSlotEvent value)? removeSlot,
+    TResult Function(SelectedChild value)? selectedChild,
+    TResult Function(OrderPlaceEvent value)? orderPlace,
+    TResult Function(StoreCardNumberEvent value)? storeCardNumber,
+    TResult Function(StoreCardDateMonthEvent value)? storeCardDDMM,
+    TResult Function(StoreCardDateCvv value)? storeCardCvv,
+    TResult Function(StoreCardUserName value)? storeCardUserName,
+    TResult Function(StoreCouponCode value)? storeCouponCode,
+    TResult Function(OrderPlaceMentWithPaymentIdEvent value)?
+        orderPlaceMentWithPaymentId,
+    TResult Function(ResetStateEvent value)? resetState,
+    required TResult orElse(),
+  }) {
+    if (resetState != null) {
+      return resetState(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class ResetStateEvent implements OrderSummaryEvent {
+  const factory ResetStateEvent() = _$ResetStateEventImpl;
 }

@@ -29,10 +29,10 @@ Map<String, dynamic> _$$SessionCalendarModelImplToJson(
 _$SessionCalendarDataImpl _$$SessionCalendarDataImplFromJson(
         Map<String, dynamic> json) =>
     _$SessionCalendarDataImpl(
-      coachingPrograms: json['coaching_programs'] == null
+      coachingPrograms: json['coaching_program'] == null
           ? const CoachingProgram()
           : CoachingProgram.fromJson(
-              json['coaching_programs'] as Map<String, dynamic>),
+              json['coaching_program'] as Map<String, dynamic>),
       availableDates: (json['available_dates'] as List<dynamic>?)
               ?.map((e) => e as String)
               .toList() ??
@@ -42,7 +42,7 @@ _$SessionCalendarDataImpl _$$SessionCalendarDataImplFromJson(
 Map<String, dynamic> _$$SessionCalendarDataImplToJson(
         _$SessionCalendarDataImpl instance) =>
     <String, dynamic>{
-      'coaching_programs': instance.coachingPrograms,
+      'coaching_program': instance.coachingPrograms,
       'available_dates': instance.availableDates,
     };
 

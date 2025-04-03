@@ -19,7 +19,7 @@ class SessionCalendarModel with _$SessionCalendarModel {
 @freezed
 class SessionCalendarData with _$SessionCalendarData {
  const factory SessionCalendarData({
-    @JsonKey(name: 'coaching_programs') @Default(CoachingProgram()) CoachingProgram coachingPrograms,
+    @JsonKey(name: 'coaching_program') @Default(CoachingProgram()) CoachingProgram coachingPrograms,
     @JsonKey(name: 'available_dates') @Default([]) List<String> availableDates,
   }) = _SessionCalendarData;
 

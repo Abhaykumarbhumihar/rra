@@ -9,5 +9,6 @@ abstract class OrderSummaryRepositery{
   Future<Either<Failure,GetTotalModel>> getTotalPrice(Map<String, dynamic> getPriceData);
   Future<Either<Failure,dynamic>> appLyCoupons(Map<String, dynamic> couponData);
   Future<Either<Failure,dynamic>> orderPlace(Map<String, dynamic> orderData);
+  Future<Either<Failure,dynamic>> orderPaymentWithPaymentId(Map<String, dynamic> paymentData);
 
 }

@@ -23,7 +23,7 @@ class Availablity extends StatelessWidget {
           if (state.selectBottomSheetType == "Select and continue") {
             BlocProvider.of<SessionCalendarBloc>(context)
                 .add(SessionCalendarEvent.setSeletTypeBottomSheet(""));
-            Navigator.pushNamed(context, AppRoutes.ADDDETAILS);
+
           } else if (state.selectBottomSheetType ==
               "Select and make recurring") {
 
@@ -180,8 +180,8 @@ class Availablity extends StatelessWidget {
           onOptionSelected: (selectedOption) {
             if (selectedOption == "Select and continue") {
               bloc.add(SetSelectTypeBottomSheetEvent("Select and continue"));
-
               bloc.add(SetSlotBooking(body));
+              Navigator.pushNamed(context, AppRoutes.ADDDETAILS);
               //  Navigator.pushNamed(context, AppRoutes.ADDDETAILS);
             }
             if (selectedOption == "Select and make recurring") {

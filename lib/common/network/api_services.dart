@@ -34,9 +34,9 @@ class ApiServices {
           ||url==AppConstant.getStoreSesssionTimeAdded
           ||url==AppConstant.getSessionAccordingToDate
           ||url==AppConstant.getOrderSummaryData
-        //  ||url==AppConstant.getTotal
+          ||url==AppConstant.getOrderPlacePayment
           ||url==AppConstant.getBuldDiscountDetails
-         // ||url==AppConstant.getApplyDiscount
+          ||url==AppConstant.getOrderPlace
           ||url==AppConstant.getRemoveDiscount
 
       ) {

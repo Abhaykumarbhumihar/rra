@@ -56,6 +56,40 @@ class OrderSummaryRepoImpl implements OrderSummaryRepositery {
 
 
 
+  @override
+  Future<Either<Failure, dynamic>> orderPaymentWithPaymentId(Map<String, dynamic> orderplace_data)async {
+    try {
+
+      print("+++++++orderPaymentWithPaymentId++++++++++++++orderPaymentWithPaymentId++++++++++orderPaymentWithPaymentId+++++++++++++++++++");
+      print(orderplace_data);
+      http.Response response =
+      await _apiServices.post(AppConstant.getOrderPlacePayment, orderplace_data,useDefaultHeaders: true,isJson: true);
+      print("nvnvnvnv+++vnvnv++++++++\n\n");
+
+      print(response.body);
+      if (response.statusCode == 200) {
+        final Map<String, dynamic> responseData = jsonDecode(response.body);
+
+        if(responseData['success']){
+          print("orderPaymentWithPaymentId $responseData");//here my code is running
+          return Right(responseData);
+        }else{
+          print("CODE IS RU NNNNNNNN");
+          return Left(Failure(responseData['message']));
+        }
+
+      } else {
+        final errorMessage = _extractErrorMessage(response.body);
+        return Left(Failure(errorMessage));
+      }
+
+    } catch (e) {
+      return Left(Failure("$e"));
+    }
+  }
+
+
+
 
   @override
   Future<Either<Failure, OrderSummaryModel>> getOrderSummary(Map<String, dynamic> orderSummaryData)async {

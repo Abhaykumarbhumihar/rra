@@ -27,4 +27,9 @@ class OrderSummaryUsecase {
       Map<String, dynamic> orderPlaceData) async {
     return _orderSummaryRepositery.orderPlace(orderPlaceData);
   }
+
+  Future<Either<Failure, dynamic>> orderPaymentWithPaymentIdExecute(
+      Map<String, dynamic> orderPlaceData) async {
+    return _orderSummaryRepositery.orderPaymentWithPaymentId(orderPlaceData);
+  }
 }
