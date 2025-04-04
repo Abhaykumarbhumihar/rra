@@ -1,3 +1,6 @@
+import '../../pages/parents/parent_order/parent_order_list/data/repo_impl/parent_myorder_repo_impl.dart';
+import '../../pages/parents/parent_order/parent_order_list/domain/repositery/parent_myorder_repositery.dart';
+import '../../pages/parents/parent_order/parent_order_list/domain/usecase/parent_my_order_usecase.dart';
 import 'service_export.dart';
 
 final GetIt getIt = GetIt.instance;
@@ -6,82 +9,87 @@ void serviceLocator() {
       () => ApiServices(AppConstant.baseUrl));
 
   /*Login*/
-  getIt.registerLazySingleton<LoginRepositery>(
-          () => LoginImpl());
+  getIt.registerLazySingleton<LoginRepositery>(() => LoginImpl());
   getIt.registerLazySingleton<LoginUseCase>(
-          () => LoginUseCase(getIt<LoginRepositery>()));
+      () => LoginUseCase(getIt<LoginRepositery>()));
 
   /*create account*/
   getIt.registerLazySingleton<CreateAccountRepositery>(
-          () => CreateAccountImpl());
+      () => CreateAccountImpl());
   getIt.registerLazySingleton<CreateAccountUseCase>(
-          () => CreateAccountUseCase(getIt<CreateAccountRepositery>()));
+      () => CreateAccountUseCase(getIt<CreateAccountRepositery>()));
 
   /*send otp*/
   getIt.registerLazySingleton<ForgotPasswordRepositery>(
-          () => ForgotPasswordImpl());
+      () => ForgotPasswordImpl());
   getIt.registerLazySingleton<ForgotPasswordUseCase>(
-          () => ForgotPasswordUseCase(getIt<ForgotPasswordRepositery>()));
+      () => ForgotPasswordUseCase(getIt<ForgotPasswordRepositery>()));
 
   /*verify otp*/
-  getIt.registerLazySingleton<VerifyOtpRepositery>(
-          () => VerifyOtpImpl());
+  getIt.registerLazySingleton<VerifyOtpRepositery>(() => VerifyOtpImpl());
   getIt.registerLazySingleton<VerifyOtpUseCase>(
-          () => VerifyOtpUseCase(getIt<VerifyOtpRepositery>()));
+      () => VerifyOtpUseCase(getIt<VerifyOtpRepositery>()));
 
   /*reset password*/
   getIt.registerLazySingleton<ResetPasswrodRepositery>(
-          () => ResetPasswordImpl());
+      () => ResetPasswordImpl());
   getIt.registerLazySingleton<ResetPasswordUsecase>(
-          () => ResetPasswordUsecase(getIt<ResetPasswrodRepositery>()));
+      () => ResetPasswordUsecase(getIt<ResetPasswrodRepositery>()));
 
   /*edit profile*/
   getIt.registerLazySingleton<EditProfileRepositery>(
-          () => EditProfileRepoImpl());
+      () => EditProfileRepoImpl());
   getIt.registerLazySingleton<EditProfileUsecase>(
-          () => EditProfileUsecase(getIt<EditProfileRepositery>()));
+      () => EditProfileUsecase(getIt<EditProfileRepositery>()));
 
   /*application */
   getIt.registerLazySingleton<ApplicationRepositery>(
-          () => ApplicationRepositeryImpl());
+      () => ApplicationRepositeryImpl());
   getIt.registerLazySingleton<ApplicationUseCase>(
-          () => ApplicationUseCase(getIt<ApplicationRepositery>()));
+      () => ApplicationUseCase(getIt<ApplicationRepositery>()));
 
   /*coaching programs */
-  getIt.registerLazySingleton<CoachProgramsRepo>(
-          () => CoachProgramsRepoImpl());
+  getIt.registerLazySingleton<CoachProgramsRepo>(() => CoachProgramsRepoImpl());
   getIt.registerLazySingleton<CoachProgramsUseCase>(
-          () => CoachProgramsUseCase(getIt<CoachProgramsRepo>()));
+      () => CoachProgramsUseCase(getIt<CoachProgramsRepo>()));
 
   /*location */
-  getIt.registerLazySingleton<AcademicRepoitery>(
-          () => AcademicRepoiteryImpl());
+  getIt.registerLazySingleton<AcademicRepoitery>(() => AcademicRepoiteryImpl());
   getIt.registerLazySingleton<AcademicUsecase>(
-          () => AcademicUsecase(getIt<AcademicRepoitery>()));
-
+      () => AcademicUsecase(getIt<AcademicRepoitery>()));
 
   /*session calendar */
   getIt.registerLazySingleton<SessionCalendarDatesRepositery>(
-          () => SessionCalendarDateRepoImpl());
+      () => SessionCalendarDateRepoImpl());
   getIt.registerLazySingleton<SessionCalendarUsecase>(
-          () => SessionCalendarUsecase(getIt<SessionCalendarDatesRepositery>()));
+      () => SessionCalendarUsecase(getIt<SessionCalendarDatesRepositery>()));
 /*coaching program detail */
   getIt.registerLazySingleton<CoachingDetailRepositery>(
-          () => CoachingProgramingDetailRepoImpl());
+      () => CoachingProgramingDetailRepoImpl());
   getIt.registerLazySingleton<CoachingProgramDetailUsecase>(
-          () => CoachingProgramDetailUsecase(getIt<CoachingDetailRepositery>()));
-
+      () => CoachingProgramDetailUsecase(getIt<CoachingDetailRepositery>()));
 
   /*coaching program detail */
   getIt.registerLazySingleton<AddViewPlayerRepositery>(
-          () => AddViewPlayerRepoImpl());
+      () => AddViewPlayerRepoImpl());
   getIt.registerLazySingleton<AddViewPlayerUsecase>(
-          () => AddViewPlayerUsecase(getIt<AddViewPlayerRepositery>()));
+      () => AddViewPlayerUsecase(getIt<AddViewPlayerRepositery>()));
 
   /*order summary */
   getIt.registerLazySingleton<OrderSummaryRepositery>(
-          () => OrderSummaryRepoImpl());
+      () => OrderSummaryRepoImpl());
   getIt.registerLazySingleton<OrderSummaryUsecase>(
-          () => OrderSummaryUsecase(getIt<OrderSummaryRepositery>()));
+      () => OrderSummaryUsecase(getIt<OrderSummaryRepositery>()));
 
+  /*parent document*/
+  getIt.registerLazySingleton<ParentDocumentRepositery>(
+      () => ParentDocumentRepoImpl());
+  getIt.registerLazySingleton<ParentDocumentUsecase>(
+      () => ParentDocumentUsecase(getIt<ParentDocumentRepositery>()));
+
+  /*parent my order*/
+  getIt.registerLazySingleton<ParentMyorderRepositery>(
+          () => ParentMyorderRepoImpl());
+  getIt.registerLazySingleton<ParentMyOrderUsecase>(
+          () => ParentMyOrderUsecase(getIt<ParentMyorderRepositery>()));
 }

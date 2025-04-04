@@ -1,3 +1,4 @@
+import '../../pages/parents/parent_order/parent_order_list/presentation/bloc/parent_order_bloc.dart';
 import 'exports.dart';
 
 class AppPages {
@@ -154,6 +155,7 @@ class AppPages {
       PageEntitiy(
         route: AppRoutes.PARENTORDERLISTPAGE,
         page: ParentOrderListPage(),
+        bloc: BlocProvider(create: (_) => ParentOrderBloc()),
       ),
       PageEntitiy(
         route: AppRoutes.PARENTORDERDETAILPAGE,

@@ -38,7 +38,10 @@ mixin _$OrderSummaryState {
   String get couponCode => throw _privateConstructorUsedError;
   String get paymentID => throw _privateConstructorUsedError;
   String get orderId => throw _privateConstructorUsedError;
-  String get orderPayment => throw _privateConstructorUsedError;
+  String get orderPayment =>
+      throw _privateConstructorUsedError; //for future payment
+  String get customerId => throw _privateConstructorUsedError;
+  String get paymentMethodId => throw _privateConstructorUsedError;
 
   /// Create a copy of OrderSummaryState
   /// with the given fields replaced by the non-null parameter values.
@@ -75,7 +78,9 @@ abstract class $OrderSummaryStateCopyWith<$Res> {
       String couponCode,
       String paymentID,
       String orderId,
-      String orderPayment});
+      String orderPayment,
+      String customerId,
+      String paymentMethodId});
 
   $OrderSummaryModelCopyWith<$Res> get orderSummaryModel;
   $GetTotalModelCopyWith<$Res> get getTotalRespone;
@@ -118,6 +123,8 @@ class _$OrderSummaryStateCopyWithImpl<$Res, $Val extends OrderSummaryState>
     Object? paymentID = null,
     Object? orderId = null,
     Object? orderPayment = null,
+    Object? customerId = null,
+    Object? paymentMethodId = null,
   }) {
     return _then(_value.copyWith(
       isLoading: null == isLoading
@@ -208,6 +215,14 @@ class _$OrderSummaryStateCopyWithImpl<$Res, $Val extends OrderSummaryState>
           ? _value.orderPayment
           : orderPayment // ignore: cast_nullable_to_non_nullable
               as String,
+      customerId: null == customerId
+          ? _value.customerId
+          : customerId // ignore: cast_nullable_to_non_nullable
+              as String,
+      paymentMethodId: null == paymentMethodId
+          ? _value.paymentMethodId
+          : paymentMethodId // ignore: cast_nullable_to_non_nullable
+              as String,
     ) as $Val);
   }
 
@@ -262,7 +277,9 @@ abstract class _$$OrderSummaryStateImplCopyWith<$Res>
       String couponCode,
       String paymentID,
       String orderId,
-      String orderPayment});
+      String orderPayment,
+      String customerId,
+      String paymentMethodId});
 
   @override
   $OrderSummaryModelCopyWith<$Res> get orderSummaryModel;
@@ -305,6 +322,8 @@ class __$$OrderSummaryStateImplCopyWithImpl<$Res>
     Object? paymentID = null,
     Object? orderId = null,
     Object? orderPayment = null,
+    Object? customerId = null,
+    Object? paymentMethodId = null,
   }) {
     return _then(_$OrderSummaryStateImpl(
       isLoading: null == isLoading
@@ -395,6 +414,14 @@ class __$$OrderSummaryStateImplCopyWithImpl<$Res>
           ? _value.orderPayment
           : orderPayment // ignore: cast_nullable_to_non_nullable
               as String,
+      customerId: null == customerId
+          ? _value.customerId
+          : customerId // ignore: cast_nullable_to_non_nullable
+              as String,
+      paymentMethodId: null == paymentMethodId
+          ? _value.paymentMethodId
+          : paymentMethodId // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
   }
 }
@@ -424,7 +451,9 @@ class _$OrderSummaryStateImpl implements _OrderSummaryState {
       this.couponCode = "",
       this.paymentID = "",
       this.orderId = "",
-      this.orderPayment = ""})
+      this.orderPayment = "",
+      this.customerId = "",
+      this.paymentMethodId = ""})
       : _selectedChildId = selectedChildId;
 
   @override
@@ -497,10 +526,17 @@ class _$OrderSummaryStateImpl implements _OrderSummaryState {
   @override
   @JsonKey()
   final String orderPayment;
+//for future payment
+  @override
+  @JsonKey()
+  final String customerId;
+  @override
+  @JsonKey()
+  final String paymentMethodId;
 
   @override
   String toString() {
-    return 'OrderSummaryState(isLoading: $isLoading, error: $error, success: $success, isError: $isError, isOrderPlaceSuccess: $isOrderPlaceSuccess, isOrderPlaceError: $isOrderPlaceError, isLoginApiError: $isLoginApiError, finalPaymentDone: $finalPaymentDone, selectedChildId: $selectedChildId, couponSuccessMessage: $couponSuccessMessage, couponErrorMessage: $couponErrorMessage, orderSummaryModel: $orderSummaryModel, getTotalRespone: $getTotalRespone, isSlotRemoveLoading: $isSlotRemoveLoading, cardNumber: $cardNumber, ddMM: $ddMM, cVV: $cVV, userName: $userName, couponCode: $couponCode, paymentID: $paymentID, orderId: $orderId, orderPayment: $orderPayment)';
+    return 'OrderSummaryState(isLoading: $isLoading, error: $error, success: $success, isError: $isError, isOrderPlaceSuccess: $isOrderPlaceSuccess, isOrderPlaceError: $isOrderPlaceError, isLoginApiError: $isLoginApiError, finalPaymentDone: $finalPaymentDone, selectedChildId: $selectedChildId, couponSuccessMessage: $couponSuccessMessage, couponErrorMessage: $couponErrorMessage, orderSummaryModel: $orderSummaryModel, getTotalRespone: $getTotalRespone, isSlotRemoveLoading: $isSlotRemoveLoading, cardNumber: $cardNumber, ddMM: $ddMM, cVV: $cVV, userName: $userName, couponCode: $couponCode, paymentID: $paymentID, orderId: $orderId, orderPayment: $orderPayment, customerId: $customerId, paymentMethodId: $paymentMethodId)';
   }
 
   @override
@@ -545,7 +581,11 @@ class _$OrderSummaryStateImpl implements _OrderSummaryState {
                 other.paymentID == paymentID) &&
             (identical(other.orderId, orderId) || other.orderId == orderId) &&
             (identical(other.orderPayment, orderPayment) ||
-                other.orderPayment == orderPayment));
+                other.orderPayment == orderPayment) &&
+            (identical(other.customerId, customerId) ||
+                other.customerId == customerId) &&
+            (identical(other.paymentMethodId, paymentMethodId) ||
+                other.paymentMethodId == paymentMethodId));
   }
 
   @override
@@ -572,7 +612,9 @@ class _$OrderSummaryStateImpl implements _OrderSummaryState {
         couponCode,
         paymentID,
         orderId,
-        orderPayment
+        orderPayment,
+        customerId,
+        paymentMethodId
       ]);
 
   /// Create a copy of OrderSummaryState
@@ -608,7 +650,9 @@ abstract class _OrderSummaryState implements OrderSummaryState {
       final String couponCode,
       final String paymentID,
       final String orderId,
-      final String orderPayment}) = _$OrderSummaryStateImpl;
+      final String orderPayment,
+      final String customerId,
+      final String paymentMethodId}) = _$OrderSummaryStateImpl;
 
   @override
   bool get isLoading;
@@ -653,7 +697,11 @@ abstract class _OrderSummaryState implements OrderSummaryState {
   @override
   String get orderId;
   @override
-  String get orderPayment;
+  String get orderPayment; //for future payment
+  @override
+  String get customerId;
+  @override
+  String get paymentMethodId;
 
   /// Create a copy of OrderSummaryState
   /// with the given fields replaced by the non-null parameter values.

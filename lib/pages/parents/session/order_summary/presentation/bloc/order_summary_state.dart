@@ -29,6 +29,11 @@ class OrderSummaryState with _$OrderSummaryState {
     @Default("") String paymentID,
     @Default("") String orderId,
     @Default("") String orderPayment,
+
+
+    //for future payment
+    @Default("") String customerId,
+    @Default("") String paymentMethodId,
   }) = _OrderSummaryState;
 
   // Initial state factory method
@@ -38,6 +43,8 @@ class OrderSummaryState with _$OrderSummaryState {
     isLoading: false,
     finalPaymentDone: false,
     error: "",
+    customerId: "",
+    paymentMethodId: "",
     isOrderPlaceSuccess:false,
     isOrderPlaceError :false,
     orderId:"",

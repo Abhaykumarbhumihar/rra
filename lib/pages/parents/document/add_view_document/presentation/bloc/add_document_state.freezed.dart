@@ -17,6 +17,13 @@ final _privateConstructorUsedError = UnsupportedError(
 /// @nodoc
 mixin _$AddDocumentState {
   int get selectedTab => throw _privateConstructorUsedError;
+  bool get isError => throw _privateConstructorUsedError;
+  bool get isLoading => throw _privateConstructorUsedError;
+  bool get isSuccess => throw _privateConstructorUsedError;
+  bool get isUploadSuccess => throw _privateConstructorUsedError;
+  bool get isUploadError => throw _privateConstructorUsedError;
+  ParentDocumentListModel get parentDocumentListModel =>
+      throw _privateConstructorUsedError;
 
   /// Create a copy of AddDocumentState
   /// with the given fields replaced by the non-null parameter values.
@@ -31,7 +38,16 @@ abstract class $AddDocumentStateCopyWith<$Res> {
           AddDocumentState value, $Res Function(AddDocumentState) then) =
       _$AddDocumentStateCopyWithImpl<$Res, AddDocumentState>;
   @useResult
-  $Res call({int selectedTab});
+  $Res call(
+      {int selectedTab,
+      bool isError,
+      bool isLoading,
+      bool isSuccess,
+      bool isUploadSuccess,
+      bool isUploadError,
+      ParentDocumentListModel parentDocumentListModel});
+
+  $ParentDocumentListModelCopyWith<$Res> get parentDocumentListModel;
 }
 
 /// @nodoc
@@ -50,13 +66,54 @@ class _$AddDocumentStateCopyWithImpl<$Res, $Val extends AddDocumentState>
   @override
   $Res call({
     Object? selectedTab = null,
+    Object? isError = null,
+    Object? isLoading = null,
+    Object? isSuccess = null,
+    Object? isUploadSuccess = null,
+    Object? isUploadError = null,
+    Object? parentDocumentListModel = null,
   }) {
     return _then(_value.copyWith(
       selectedTab: null == selectedTab
           ? _value.selectedTab
           : selectedTab // ignore: cast_nullable_to_non_nullable
               as int,
+      isError: null == isError
+          ? _value.isError
+          : isError // ignore: cast_nullable_to_non_nullable
+              as bool,
+      isLoading: null == isLoading
+          ? _value.isLoading
+          : isLoading // ignore: cast_nullable_to_non_nullable
+              as bool,
+      isSuccess: null == isSuccess
+          ? _value.isSuccess
+          : isSuccess // ignore: cast_nullable_to_non_nullable
+              as bool,
+      isUploadSuccess: null == isUploadSuccess
+          ? _value.isUploadSuccess
+          : isUploadSuccess // ignore: cast_nullable_to_non_nullable
+              as bool,
+      isUploadError: null == isUploadError
+          ? _value.isUploadError
+          : isUploadError // ignore: cast_nullable_to_non_nullable
+              as bool,
+      parentDocumentListModel: null == parentDocumentListModel
+          ? _value.parentDocumentListModel
+          : parentDocumentListModel // ignore: cast_nullable_to_non_nullable
+              as ParentDocumentListModel,
     ) as $Val);
+  }
+
+  /// Create a copy of AddDocumentState
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $ParentDocumentListModelCopyWith<$Res> get parentDocumentListModel {
+    return $ParentDocumentListModelCopyWith<$Res>(
+        _value.parentDocumentListModel, (value) {
+      return _then(_value.copyWith(parentDocumentListModel: value) as $Val);
+    });
   }
 }
 
@@ -68,7 +125,17 @@ abstract class _$$AddDocumentStateImplCopyWith<$Res>
       __$$AddDocumentStateImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({int selectedTab});
+  $Res call(
+      {int selectedTab,
+      bool isError,
+      bool isLoading,
+      bool isSuccess,
+      bool isUploadSuccess,
+      bool isUploadError,
+      ParentDocumentListModel parentDocumentListModel});
+
+  @override
+  $ParentDocumentListModelCopyWith<$Res> get parentDocumentListModel;
 }
 
 /// @nodoc
@@ -85,12 +152,42 @@ class __$$AddDocumentStateImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? selectedTab = null,
+    Object? isError = null,
+    Object? isLoading = null,
+    Object? isSuccess = null,
+    Object? isUploadSuccess = null,
+    Object? isUploadError = null,
+    Object? parentDocumentListModel = null,
   }) {
     return _then(_$AddDocumentStateImpl(
       selectedTab: null == selectedTab
           ? _value.selectedTab
           : selectedTab // ignore: cast_nullable_to_non_nullable
               as int,
+      isError: null == isError
+          ? _value.isError
+          : isError // ignore: cast_nullable_to_non_nullable
+              as bool,
+      isLoading: null == isLoading
+          ? _value.isLoading
+          : isLoading // ignore: cast_nullable_to_non_nullable
+              as bool,
+      isSuccess: null == isSuccess
+          ? _value.isSuccess
+          : isSuccess // ignore: cast_nullable_to_non_nullable
+              as bool,
+      isUploadSuccess: null == isUploadSuccess
+          ? _value.isUploadSuccess
+          : isUploadSuccess // ignore: cast_nullable_to_non_nullable
+              as bool,
+      isUploadError: null == isUploadError
+          ? _value.isUploadError
+          : isUploadError // ignore: cast_nullable_to_non_nullable
+              as bool,
+      parentDocumentListModel: null == parentDocumentListModel
+          ? _value.parentDocumentListModel
+          : parentDocumentListModel // ignore: cast_nullable_to_non_nullable
+              as ParentDocumentListModel,
     ));
   }
 }
@@ -98,15 +195,40 @@ class __$$AddDocumentStateImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$AddDocumentStateImpl implements _AddDocumentState {
-  const _$AddDocumentStateImpl({this.selectedTab = 0});
+  const _$AddDocumentStateImpl(
+      {this.selectedTab = 0,
+      this.isError = false,
+      this.isLoading = false,
+      this.isSuccess = false,
+      this.isUploadSuccess = false,
+      this.isUploadError = false,
+      this.parentDocumentListModel = const ParentDocumentListModel()});
 
   @override
   @JsonKey()
   final int selectedTab;
+  @override
+  @JsonKey()
+  final bool isError;
+  @override
+  @JsonKey()
+  final bool isLoading;
+  @override
+  @JsonKey()
+  final bool isSuccess;
+  @override
+  @JsonKey()
+  final bool isUploadSuccess;
+  @override
+  @JsonKey()
+  final bool isUploadError;
+  @override
+  @JsonKey()
+  final ParentDocumentListModel parentDocumentListModel;
 
   @override
   String toString() {
-    return 'AddDocumentState(selectedTab: $selectedTab)';
+    return 'AddDocumentState(selectedTab: $selectedTab, isError: $isError, isLoading: $isLoading, isSuccess: $isSuccess, isUploadSuccess: $isUploadSuccess, isUploadError: $isUploadError, parentDocumentListModel: $parentDocumentListModel)';
   }
 
   @override
@@ -115,11 +237,24 @@ class _$AddDocumentStateImpl implements _AddDocumentState {
         (other.runtimeType == runtimeType &&
             other is _$AddDocumentStateImpl &&
             (identical(other.selectedTab, selectedTab) ||
-                other.selectedTab == selectedTab));
+                other.selectedTab == selectedTab) &&
+            (identical(other.isError, isError) || other.isError == isError) &&
+            (identical(other.isLoading, isLoading) ||
+                other.isLoading == isLoading) &&
+            (identical(other.isSuccess, isSuccess) ||
+                other.isSuccess == isSuccess) &&
+            (identical(other.isUploadSuccess, isUploadSuccess) ||
+                other.isUploadSuccess == isUploadSuccess) &&
+            (identical(other.isUploadError, isUploadError) ||
+                other.isUploadError == isUploadError) &&
+            (identical(
+                    other.parentDocumentListModel, parentDocumentListModel) ||
+                other.parentDocumentListModel == parentDocumentListModel));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, selectedTab);
+  int get hashCode => Object.hash(runtimeType, selectedTab, isError, isLoading,
+      isSuccess, isUploadSuccess, isUploadError, parentDocumentListModel);
 
   /// Create a copy of AddDocumentState
   /// with the given fields replaced by the non-null parameter values.
@@ -132,11 +267,30 @@ class _$AddDocumentStateImpl implements _AddDocumentState {
 }
 
 abstract class _AddDocumentState implements AddDocumentState {
-  const factory _AddDocumentState({final int selectedTab}) =
+  const factory _AddDocumentState(
+          {final int selectedTab,
+          final bool isError,
+          final bool isLoading,
+          final bool isSuccess,
+          final bool isUploadSuccess,
+          final bool isUploadError,
+          final ParentDocumentListModel parentDocumentListModel}) =
       _$AddDocumentStateImpl;
 
   @override
   int get selectedTab;
+  @override
+  bool get isError;
+  @override
+  bool get isLoading;
+  @override
+  bool get isSuccess;
+  @override
+  bool get isUploadSuccess;
+  @override
+  bool get isUploadError;
+  @override
+  ParentDocumentListModel get parentDocumentListModel;
 
   /// Create a copy of AddDocumentState
   /// with the given fields replaced by the non-null parameter values.

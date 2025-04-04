@@ -29,10 +29,32 @@ class OrderSummaryBloc extends Bloc<OrderSummaryEvent, OrderSummaryState> {
     on<StoreCouponCode>(_storeCouponCode);
     on<OrderPlaceEvent>(_order_place);
     on<OrderPlaceMentWithPaymentIdEvent>(_order_placeWithPaymentId);
+    on<ResetStatusOfPaymentAndOrderAfterErrorEvent>(_resetStatusOfPaymentAndOrderAfterError);
     on<ResetStateEvent>((event, emit) {
       emit(OrderSummaryState.initial());
     });
   }
+
+  Future<void> _resetStatusOfPaymentAndOrderAfterError(
+      ResetStatusOfPaymentAndOrderAfterErrorEvent event, Emitter<OrderSummaryState> emit) async {
+    emit(state.copyWith(
+        finalPaymentDone: false,
+orderId: "",
+        success: false,
+        orderPayment: "",
+        isLoginApiError: false,
+        isSlotRemoveLoading: false,
+        isError: false,
+        couponSuccessMessage: "",
+
+        isLoading: false,
+        couponErrorMessage: "",
+        isOrderPlaceError: false,
+        isOrderPlaceSuccess: false,
+        error: "",
+        paymentID: ""));
+  }
+
 
   Future<void> _storeCouponCode(
       StoreCouponCode event, Emitter<OrderSummaryState> emit) async {

@@ -17,5 +17,6 @@ class OrderSummaryEvent with _$OrderSummaryEvent {
    const factory OrderSummaryEvent.storeCouponCode(String couponCode) = StoreCouponCode;
    const factory OrderSummaryEvent.orderPlaceMentWithPaymentId(Map<String, dynamic> data) = OrderPlaceMentWithPaymentIdEvent;
    const factory OrderSummaryEvent.resetState() = ResetStateEvent;
+   const factory OrderSummaryEvent.resetStatusOfPaymentAndOrderAfterError() = ResetStatusOfPaymentAndOrderAfterErrorEvent;
 
 }

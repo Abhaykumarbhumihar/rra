@@ -36,9 +36,17 @@ class AppConstant {
   static String get getOrderPlacePayment=> "order/payment";
 
 
+  /*document*/
+  static String get getParentUploadDocument=> "parent/document/store";
+  static String get getParentUploadDocumentList=> "parent/documents/list";
+
+
   static String get getStateList => "user/myfinds/state";
   static String get getCityList => "user/myfinds/city";
 
+
+  /*my order parent*/
+  static String get getParentMyOrder => "parent/my/orders";
 
 
 

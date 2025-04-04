@@ -55,7 +55,7 @@ class OrderSummary extends StatelessWidget {
           print("Final Payment Amount in Cents: $amountInCents"); // Debugging
 
           var payMentData =
-              await StripeService.instance.makePayment(amountInCents);
+          await StripeService.instance.makePayment(amountInCents);
           if (payMentData != null && payMentData.containsKey("client_secret")) {
             print("========================================");
             print("Client Secret: ${payMentData["client_secret"]}");
@@ -80,7 +80,6 @@ class OrderSummary extends StatelessWidget {
         }
 
         if (state.finalPaymentDone) {
-          context.showCustomSnackbar("Order place successfully");
           showThankYouDialog(context);
         }
 
@@ -88,13 +87,14 @@ class OrderSummary extends StatelessWidget {
           context.showCustomSnackbar(state.error.toString(),
               backgroundColor: Colors.red);
         }
+
       },
       child: BlocBuilder<OrderSummaryBloc, OrderSummaryState>(
         builder: (context, state) {
-          print("CHECKING kkkkORDER SUMMARY MODEL------");
-          print(state.orderSummaryModel);
           return WillPopScope(
             onWillPop: () async {
+              BlocProvider.of<OrderSummaryBloc>(context)
+                  .add(ResetStatusOfPaymentAndOrderAfterErrorEvent());
               BlocProvider.of<SessionCalendarBloc>(context)
                   .add(GetSelectedSessionEvent());
               return true;
@@ -117,6 +117,8 @@ class OrderSummary extends StatelessWidget {
                           onBackPress: () {
 
                             Navigator.pop(context);
+                            BlocProvider.of<OrderSummaryBloc>(context)
+                                .add(ResetStatusOfPaymentAndOrderAfterErrorEvent());
                             BlocProvider.of<SessionCalendarBloc>(context)
                                 .add(GetSelectedSessionEvent());
                           },
@@ -279,6 +281,7 @@ class OrderSummary extends StatelessWidget {
       ),
     );
   }
+
   void showThankYouDialog(BuildContext context) {
     var bloc=BlocProvider.of<OrderSummaryBloc>(context);
 

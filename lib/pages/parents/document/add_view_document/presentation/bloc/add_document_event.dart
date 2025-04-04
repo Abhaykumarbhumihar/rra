@@ -5,4 +5,5 @@ part 'add_document_event.freezed.dart';
 @freezed
 class AddDocumentEvent with _$AddDocumentEvent {
   const factory AddDocumentEvent.selectTabEvent(int tabno) = SelectedTabEvent;
+  const factory AddDocumentEvent.getParentUploadedDocument(Map<String,dynamic>data) = GetUploadedParentDocument;
 }

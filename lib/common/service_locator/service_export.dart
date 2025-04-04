@@ -63,3 +63,14 @@ export '../../pages/parents/session/order_summary/domain/usecase/order_summary_u
 export '../network/api_services.dart';
 export '../network/app_constant.dart';
 export 'package:get_it/get_it.dart';
+
+
+// 📌 Document
+export '../../pages/parents/document/add_view_document/data/repo_impl/parent_document_repo_impl.dart';
+export '../../pages/parents/document/add_view_document/domain/repositery/parent_document_repositery.dart';
+export '../../pages/parents/document/add_view_document/domain/usecase/parent_document_usecase.dart';
+
+// 📌 Parent My Order
+export '../../pages/parents/parent_order/parent_order_list/data/repo_impl/parent_myorder_repo_impl.dart';
+export '../../pages/parents/parent_order/parent_order_list/domain/repositery/parent_myorder_repositery.dart';
+export '../../pages/parents/parent_order/parent_order_list/domain/usecase/parent_my_order_usecase.dart';

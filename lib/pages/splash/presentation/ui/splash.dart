@@ -12,6 +12,9 @@ import '../../../auth/login/presentation/bloc/login_event.dart';
 import '../../../auth/otpverification/data/entity/otp_verification_model.dart';
 import '../../../auth/otpverification/presentation/bloc/otpverification_bloc.dart';
 import '../../../auth/otpverification/presentation/bloc/otpverification_event.dart';
+import '../../../parents/document/add_view_document/presentation/bloc/add_document_event.dart';
+import '../../../parents/parent_order/parent_order_list/presentation/bloc/parent_order_bloc.dart';
+import '../../../parents/parent_order/parent_order_list/presentation/bloc/parent_order_event.dart';
 import '../../../parents/session/add_detail/presentation/bloc/add_view_player_bloc.dart';
 import '../../../parents/session/add_detail/presentation/bloc/add_view_player_event.dart';
 import '../../../parents/session/coachprograms/presentation/bloc/coach_programs_bloc.dart';
@@ -58,6 +61,9 @@ class SplashPage extends StatelessWidget {
             BlocProvider.of<CoachingProgramsBloc>(context).add(GroupCoachProgramsListEvent());
             BlocProvider.of<CoachingProgramsBloc>(context).add(PrivateCoachingProgramsList());
             BlocProvider.of<AddViewPlayerBloc>(context).add(AddViewPlayerGetChildListEvent());
+            BlocProvider.of<ParentOrderBloc>(context).add(ParentMyOrderListEvent({}));
+
+            BlocProvider.of<AddDocumentBloc>(context).add(GetUploadedParentDocument({}));
             var publishKey = await SharedPrefs.getString("stripe_publish_key");
             Stripe.publishableKey = publishKey;
             Navigator.pushNamedAndRemoveUntil(

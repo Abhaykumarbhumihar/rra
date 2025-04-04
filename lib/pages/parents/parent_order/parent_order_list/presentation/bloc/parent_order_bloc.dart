@@ -1,35 +1,23 @@
 import 'package:bloc/bloc.dart';
 import 'package:connectivity_plus/connectivity_plus.dart';
-import 'package:meta/meta.dart';
 import 'package:rra/common/network/connectivity_extension.dart';
 import 'package:rra/common/service_locator/setivelocator.dart';
+import 'package:rra/pages/parents/parent_order/parent_order_list/presentation/bloc/parent_order_event.dart';
+import 'package:rra/pages/parents/parent_order/parent_order_list/presentation/bloc/parent_order_state.dart';
 
 import '../../../../../../common/local/SharedPrefs.dart';
-import '../../data/entity/parent_document_list_model.dart';
-import '../../domain/usecase/parent_document_usecase.dart';
-import 'add_document_event.dart';
-import 'add_document_state.dart';
+import '../../data/enitity/parent_my_order/parent_my_order_list_model.dart';
+import '../../domain/usecase/parent_my_order_usecase.dart';
 
-
-class AddDocumentBloc extends Bloc<AddDocumentEvent, AddDocumentState> {
-  final ParentDocumentUsecase _parentDocumentUsecase =
-  getIt<ParentDocumentUsecase>();
-
-  AddDocumentBloc() : super(AddDocumentState.initial()) {
-    on<SelectedTabEvent>(tabSelect);
-    on<GetUploadedParentDocument>(_getParentUploadedDocument);
+class ParentOrderBloc extends Bloc<ParentOrderEvent, ParentOrderState> {
+  final ParentMyOrderUsecase _parentMyOrderUsecase =
+      getIt<ParentMyOrderUsecase>();
+  ParentOrderBloc() : super(ParentOrderState.initial()) {
+    on<ParentMyOrderListEvent>(_getParentOrderList);
   }
 
-  Future<void> tabSelect(
-      SelectedTabEvent event, Emitter<AddDocumentState> emit) async {
-    emit(state.copyWith(
-      selectedTab: event.tabno
-    ));
-  }
-
-
-  Future<void> _getParentUploadedDocument(
-      GetUploadedParentDocument event, Emitter<AddDocumentState> emit) async {
+  Future<void> _getParentOrderList(
+      ParentMyOrderListEvent event, Emitter<ParentOrderState> emit) async {
     try {
       print("CLICKING HEREE ");
       emit(state.copyWith(isError: false, isLoading: false));
@@ -44,29 +32,29 @@ class AddDocumentBloc extends Bloc<AddDocumentEvent, AddDocumentState> {
 
       var academyId = await SharedPrefs.getString("selected_academyid");
       Map<String, dynamic> map = {
-        "academy_id": academyId,
+        "academyid": academyId,
       };
       emit(state.copyWith(
           isLoading: true,
           isError: false,
-          parentDocumentListModel: ParentDocumentListModel()));
+          parentMyOrderListModel: ParentMyOrderListModel()));
 
-      final response = await _parentDocumentUsecase.getDocumentListExecute(map);
+      final response = await _parentMyOrderUsecase.getParentMyOrderExecute(map);
       response.fold((failure) {
         emit(state.copyWith(
           isError: true,
           isLoading: false,
         ));
-      }, (parentUploadedDocument) {
+      }, (parentMyOrder) {
         print(
             "======getParentMyOrderExecute =====getParentMyOrderExecute =====check \n\n");
-        print(parentUploadedDocument);
+        print(parentMyOrder);
         print(
             "======getParentMyOrderExecute =====getParentMyOrderExecute =====check \n\n");
         emit(state.copyWith(
             isError: false,
             isLoading: false,
-            parentDocumentListModel: parentUploadedDocument));
+            parentMyOrderListModel: parentMyOrder));
       });
     } catch (error) {
       // Handle the error and show error messages
