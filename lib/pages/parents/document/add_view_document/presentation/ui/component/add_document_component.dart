@@ -1,7 +1,10 @@
+import 'dart:io';
+
 import 'package:rra/common/values/values_exports.dart';
 import 'package:rra/common/routes/exports.dart';
 
 import '../../../../../../../common/component/auth_text_field.dart';
+import '../../../../../../../common/image/camera_file_utility.dart';
 class AddDocumentComponent extends StatelessWidget {
    AddDocumentComponent({super.key});
   final TextEditingController titleController = TextEditingController();
@@ -86,9 +89,14 @@ class AddDocumentComponent extends StatelessWidget {
                   ),
                 ),
                 SizedBox(width: 14.0,),
-                Text("No File Choosen ",style: TextStyle( color: AppColor.appWhiteColor.withOpacity(0.7),
-                  fontSize: context.screenWidth * 0.032,
-                  fontFamily: AppFont.interRegular,),)
+                InkWell(
+                  onTap: (){
+                    _pickFile(context);
+                  },
+                  child: Text("No File Choosen ",style: TextStyle( color: AppColor.appWhiteColor.withOpacity(0.7),
+                    fontSize: context.screenWidth * 0.032,
+                    fontFamily: AppFont.interRegular,),),
+                )
               ],
             ),
           ),
@@ -121,4 +129,24 @@ class AddDocumentComponent extends StatelessWidget {
       ),
     );
   }
+
+   void _pickFile(BuildContext context) async {
+     CameraFileUtility utility = CameraFileUtility();
+     Map<String, dynamic>? result = await utility.pickDocumentWithFileName(context);
+
+     if (result != null) {
+       File selectedFile = result['file'];
+       String fileName = result['fileName'];
+
+       print("Selected File: ${selectedFile.path}");
+       print("File Name: $fileName");
+
+       // Show file name in UI (example)
+       ScaffoldMessenger.of(context).showSnackBar(
+         SnackBar(content: Text("Selected File: $fileName")),
+       );
+     } else {
+       print("No file selected");
+     }
+   }
 }

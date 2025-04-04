@@ -5,7 +5,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_exif_rotation/flutter_exif_rotation.dart';
-
+import 'package:file_picker/file_picker.dart';
 
 import 'package:http/http.dart' as http;
 import 'package:image_picker/image_picker.dart';
@@ -303,5 +303,35 @@ class CameraFileUtility {
     }
 
     return selectedImages; // Ensure the function always returns a List<File>
+  }
+
+  Future<File?> pickDocumentt(BuildContext context) async {
+    try {
+      FilePickerResult? result = await FilePicker.platform.pickFiles();
+      if (result != null && result.files.single.path != null) {
+        return File(result.files.single.path!);
+      }
+    } catch (err) {
+      showPermissionDeniedDialog(context, "File System");
+    }
+    return null;
+  }
+
+  Future<Map<String, dynamic>?> pickDocumentWithFileName(BuildContext context) async {
+    try {
+      FilePickerResult? result = await FilePicker.platform.pickFiles(
+        type: FileType.custom,
+        allowedExtensions: ['pdf', 'doc', 'docx', 'xls', 'xlsx', 'ppt', 'pptx'],
+      );
+    //  FilePickerResult? result = await FilePicker.platform.pickFiles();
+      if (result != null && result.files.single.path != null) {
+        String fileName = result.files.single.name;
+        File file = File(result.files.single.path!);
+        return {'file': file, 'fileName': fileName};
+      }
+    } catch (err) {
+      showPermissionDeniedDialog(context, "File System");
+    }
+    return null;
   }
 }

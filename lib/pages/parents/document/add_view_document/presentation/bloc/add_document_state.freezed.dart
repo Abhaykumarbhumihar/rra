@@ -24,6 +24,10 @@ mixin _$AddDocumentState {
   bool get isUploadError => throw _privateConstructorUsedError;
   ParentDocumentListModel get parentDocumentListModel =>
       throw _privateConstructorUsedError;
+  String get title => throw _privateConstructorUsedError;
+  String get selectedCoachId => throw _privateConstructorUsedError;
+  String get selectedFileName => throw _privateConstructorUsedError;
+  String get message => throw _privateConstructorUsedError;
 
   /// Create a copy of AddDocumentState
   /// with the given fields replaced by the non-null parameter values.
@@ -45,7 +49,11 @@ abstract class $AddDocumentStateCopyWith<$Res> {
       bool isSuccess,
       bool isUploadSuccess,
       bool isUploadError,
-      ParentDocumentListModel parentDocumentListModel});
+      ParentDocumentListModel parentDocumentListModel,
+      String title,
+      String selectedCoachId,
+      String selectedFileName,
+      String message});
 
   $ParentDocumentListModelCopyWith<$Res> get parentDocumentListModel;
 }
@@ -72,6 +80,10 @@ class _$AddDocumentStateCopyWithImpl<$Res, $Val extends AddDocumentState>
     Object? isUploadSuccess = null,
     Object? isUploadError = null,
     Object? parentDocumentListModel = null,
+    Object? title = null,
+    Object? selectedCoachId = null,
+    Object? selectedFileName = null,
+    Object? message = null,
   }) {
     return _then(_value.copyWith(
       selectedTab: null == selectedTab
@@ -102,6 +114,22 @@ class _$AddDocumentStateCopyWithImpl<$Res, $Val extends AddDocumentState>
           ? _value.parentDocumentListModel
           : parentDocumentListModel // ignore: cast_nullable_to_non_nullable
               as ParentDocumentListModel,
+      title: null == title
+          ? _value.title
+          : title // ignore: cast_nullable_to_non_nullable
+              as String,
+      selectedCoachId: null == selectedCoachId
+          ? _value.selectedCoachId
+          : selectedCoachId // ignore: cast_nullable_to_non_nullable
+              as String,
+      selectedFileName: null == selectedFileName
+          ? _value.selectedFileName
+          : selectedFileName // ignore: cast_nullable_to_non_nullable
+              as String,
+      message: null == message
+          ? _value.message
+          : message // ignore: cast_nullable_to_non_nullable
+              as String,
     ) as $Val);
   }
 
@@ -132,7 +160,11 @@ abstract class _$$AddDocumentStateImplCopyWith<$Res>
       bool isSuccess,
       bool isUploadSuccess,
       bool isUploadError,
-      ParentDocumentListModel parentDocumentListModel});
+      ParentDocumentListModel parentDocumentListModel,
+      String title,
+      String selectedCoachId,
+      String selectedFileName,
+      String message});
 
   @override
   $ParentDocumentListModelCopyWith<$Res> get parentDocumentListModel;
@@ -158,6 +190,10 @@ class __$$AddDocumentStateImplCopyWithImpl<$Res>
     Object? isUploadSuccess = null,
     Object? isUploadError = null,
     Object? parentDocumentListModel = null,
+    Object? title = null,
+    Object? selectedCoachId = null,
+    Object? selectedFileName = null,
+    Object? message = null,
   }) {
     return _then(_$AddDocumentStateImpl(
       selectedTab: null == selectedTab
@@ -188,6 +224,22 @@ class __$$AddDocumentStateImplCopyWithImpl<$Res>
           ? _value.parentDocumentListModel
           : parentDocumentListModel // ignore: cast_nullable_to_non_nullable
               as ParentDocumentListModel,
+      title: null == title
+          ? _value.title
+          : title // ignore: cast_nullable_to_non_nullable
+              as String,
+      selectedCoachId: null == selectedCoachId
+          ? _value.selectedCoachId
+          : selectedCoachId // ignore: cast_nullable_to_non_nullable
+              as String,
+      selectedFileName: null == selectedFileName
+          ? _value.selectedFileName
+          : selectedFileName // ignore: cast_nullable_to_non_nullable
+              as String,
+      message: null == message
+          ? _value.message
+          : message // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
   }
 }
@@ -202,7 +254,11 @@ class _$AddDocumentStateImpl implements _AddDocumentState {
       this.isSuccess = false,
       this.isUploadSuccess = false,
       this.isUploadError = false,
-      this.parentDocumentListModel = const ParentDocumentListModel()});
+      this.parentDocumentListModel = const ParentDocumentListModel(),
+      this.title = "",
+      this.selectedCoachId = "",
+      this.selectedFileName = "",
+      this.message = ""});
 
   @override
   @JsonKey()
@@ -225,10 +281,22 @@ class _$AddDocumentStateImpl implements _AddDocumentState {
   @override
   @JsonKey()
   final ParentDocumentListModel parentDocumentListModel;
+  @override
+  @JsonKey()
+  final String title;
+  @override
+  @JsonKey()
+  final String selectedCoachId;
+  @override
+  @JsonKey()
+  final String selectedFileName;
+  @override
+  @JsonKey()
+  final String message;
 
   @override
   String toString() {
-    return 'AddDocumentState(selectedTab: $selectedTab, isError: $isError, isLoading: $isLoading, isSuccess: $isSuccess, isUploadSuccess: $isUploadSuccess, isUploadError: $isUploadError, parentDocumentListModel: $parentDocumentListModel)';
+    return 'AddDocumentState(selectedTab: $selectedTab, isError: $isError, isLoading: $isLoading, isSuccess: $isSuccess, isUploadSuccess: $isUploadSuccess, isUploadError: $isUploadError, parentDocumentListModel: $parentDocumentListModel, title: $title, selectedCoachId: $selectedCoachId, selectedFileName: $selectedFileName, message: $message)';
   }
 
   @override
@@ -249,12 +317,29 @@ class _$AddDocumentStateImpl implements _AddDocumentState {
                 other.isUploadError == isUploadError) &&
             (identical(
                     other.parentDocumentListModel, parentDocumentListModel) ||
-                other.parentDocumentListModel == parentDocumentListModel));
+                other.parentDocumentListModel == parentDocumentListModel) &&
+            (identical(other.title, title) || other.title == title) &&
+            (identical(other.selectedCoachId, selectedCoachId) ||
+                other.selectedCoachId == selectedCoachId) &&
+            (identical(other.selectedFileName, selectedFileName) ||
+                other.selectedFileName == selectedFileName) &&
+            (identical(other.message, message) || other.message == message));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, selectedTab, isError, isLoading,
-      isSuccess, isUploadSuccess, isUploadError, parentDocumentListModel);
+  int get hashCode => Object.hash(
+      runtimeType,
+      selectedTab,
+      isError,
+      isLoading,
+      isSuccess,
+      isUploadSuccess,
+      isUploadError,
+      parentDocumentListModel,
+      title,
+      selectedCoachId,
+      selectedFileName,
+      message);
 
   /// Create a copy of AddDocumentState
   /// with the given fields replaced by the non-null parameter values.
@@ -268,14 +353,17 @@ class _$AddDocumentStateImpl implements _AddDocumentState {
 
 abstract class _AddDocumentState implements AddDocumentState {
   const factory _AddDocumentState(
-          {final int selectedTab,
-          final bool isError,
-          final bool isLoading,
-          final bool isSuccess,
-          final bool isUploadSuccess,
-          final bool isUploadError,
-          final ParentDocumentListModel parentDocumentListModel}) =
-      _$AddDocumentStateImpl;
+      {final int selectedTab,
+      final bool isError,
+      final bool isLoading,
+      final bool isSuccess,
+      final bool isUploadSuccess,
+      final bool isUploadError,
+      final ParentDocumentListModel parentDocumentListModel,
+      final String title,
+      final String selectedCoachId,
+      final String selectedFileName,
+      final String message}) = _$AddDocumentStateImpl;
 
   @override
   int get selectedTab;
@@ -291,6 +379,14 @@ abstract class _AddDocumentState implements AddDocumentState {
   bool get isUploadError;
   @override
   ParentDocumentListModel get parentDocumentListModel;
+  @override
+  String get title;
+  @override
+  String get selectedCoachId;
+  @override
+  String get selectedFileName;
+  @override
+  String get message;
 
   /// Create a copy of AddDocumentState
   /// with the given fields replaced by the non-null parameter values.

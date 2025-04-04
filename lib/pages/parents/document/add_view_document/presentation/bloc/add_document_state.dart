@@ -14,6 +14,10 @@ class AddDocumentState with _$AddDocumentState {
     @Default(false) bool isUploadSuccess,
     @Default(false) bool isUploadError,
     @Default(ParentDocumentListModel()) ParentDocumentListModel parentDocumentListModel,
+    @Default("") String title,
+    @Default("") String selectedCoachId,
+    @Default("") String selectedFileName,
+    @Default("") String message,
 
   }) = _AddDocumentState;
 
