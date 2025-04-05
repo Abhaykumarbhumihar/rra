@@ -2,6 +2,7 @@ import 'dart:io';
 
 import 'package:rra/common/component/app_text_style.dart';
 import 'package:rra/common/component/common_background.dart';
+import 'package:rra/common/component/loading_indicator.dart';
 import 'package:rra/common/values/values_exports.dart';
 
 import '../../../../../../common/component/common_app_bar.dart';
@@ -32,7 +33,9 @@ class AddViewDocumenPage extends StatelessWidget {
         backgroundColor: Colors.transparent,
         body: BlocConsumer<AddDocumentBloc, AddDocumentState>(
           listener: (context, state) {
-          // print(state);
+         if(state.infoMessage!=""){
+           context.showCustomSnackbar(state.infoMessage);
+         }
           },
           builder: (context, state) {
             return Container(
@@ -40,78 +43,84 @@ class AddViewDocumenPage extends StatelessWidget {
               height: height,
               padding: EdgeInsets.zero,
               decoration: CommonBackground.decoration,
-              child: SingleChildScrollView(
+              child: Stack(
+                children: [
+                  SingleChildScrollView(
 
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    CustomHeader(
-                      title: "Add Documents",
-                      onBackPress: () {
-                        Navigator.pop(context);
-                      },
-                    ),
-                    SizedBox(
-                      height: 24,
-                    ),
-                    Padding(
-                      padding: EdgeInsets.only(
-                        left: context.screenWidth * 0.052,
-                        right: context.screenWidth * 0.052,
-                      ),
-                      child: CustomToggleSwitch(),
-                    ),
-                    SizedBox(
-                      height: context.screenHeight*0.05,
-                    ),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        CustomHeader(
+                          title: "Add Documents",
+                          onBackPress: () {
+                            Navigator.pop(context);
+                          },
+                        ),
+                        SizedBox(
+                          height: 24,
+                        ),
+                        Padding(
+                          padding: EdgeInsets.only(
+                            left: context.screenWidth * 0.052,
+                            right: context.screenWidth * 0.052,
+                          ),
+                          child: CustomToggleSwitch(),
+                        ),
+                        SizedBox(
+                          height: context.screenHeight*0.05,
+                        ),
 
-                AnimatedSwitcher(
-                  duration: const Duration(milliseconds: 300),
-                  child: context.watch<AddDocumentBloc>().state.selectedTab == 1
-                      ? ListView.builder(
-                      itemCount: state.parentDocumentListModel.data.uploaded.length,
-                      shrinkWrap: true,
-                      physics: NeverScrollableScrollPhysics(),
-                      padding: EdgeInsets.zero,
-                      itemBuilder: (context,index){
+                    AnimatedSwitcher(
+                      duration: const Duration(milliseconds: 300),
+                      child: context.watch<AddDocumentBloc>().state.selectedTab == 1
+                          ? ListView.builder(
+                          itemCount: state.parentDocumentListModel.data.uploaded.length,
+                          shrinkWrap: true,
+                          physics: NeverScrollableScrollPhysics(),
+                          padding: EdgeInsets.zero,
+                          itemBuilder: (context,index){
 
-                        return DocumentItem(
-                         coaches: state.parentDocumentListModel.data.coaches,
-                          uploadedDocument: state.parentDocumentListModel.data.uploaded[index],
-                        );
-                  })
-                      : AddDocumentComponent(
-                    titleController: titleController,
-                    dateController: dateController,
-                    timeController: timeController,
-                    commentController: commentController,
-                  //  descriptionFocusNode: descriptionFocusNode,
-                    onPickFile: (){
-                      _handlePickFile(context);
-                    },
-                  ),
-                ),
-                    SizedBox(height: context.screenHeight*0.05,),
-                  state.selectedTab==0?  Padding(
-                      padding:  EdgeInsets.symmetric(horizontal: context.screenWidth*0.05),
-                      child: CustomButton(
-                        text: "Continue",
-                        onPressed: () async {
-// When submitting the form
-                          try {
-                             BlocProvider.of<AddDocumentBloc>(context)
-                                .add(SubmitParentDocumentEvent());
-                          } catch (e) {
-                            ScaffoldMessenger.of(context).showSnackBar(
-                              SnackBar(content: Text(e.toString())),
+                            return DocumentItem(
+                             coaches: state.parentDocumentListModel.data.coaches,
+                              uploadedDocument: state.parentDocumentListModel.data.uploaded[index],
                             );
-                          }
-
+                      })
+                          : AddDocumentComponent(
+                        titleController: titleController,
+                        dateController: dateController,
+                        timeController: timeController,
+                        commentController: commentController,
+                      //  descriptionFocusNode: descriptionFocusNode,
+                        onPickFile: (){
+                          _handlePickFile(context);
                         },
                       ),
-                    ):SizedBox(),
-                  ],
-                ),
+                    ),
+                        SizedBox(height: context.screenHeight*0.05,),
+                      state.selectedTab==0?  Padding(
+                          padding:  EdgeInsets.symmetric(horizontal: context.screenWidth*0.05),
+                          child: CustomButton(
+                            text: "Continue",
+                            onPressed: () async {
+                  // When submitting the form
+                              try {
+                                 BlocProvider.of<AddDocumentBloc>(context)
+                                    .add(SubmitParentDocumentEvent());
+                              } catch (e) {
+                                ScaffoldMessenger.of(context).showSnackBar(
+                                  SnackBar(content: Text(e.toString())),
+                                );
+                              }
+
+                            },
+                          ),
+                        ):SizedBox(),
+                      ],
+                    ),
+                  ),
+                  if(state.isLoading)
+                    LoadingIndicator()
+                ],
               ),
             );
           },

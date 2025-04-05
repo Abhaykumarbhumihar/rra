@@ -30,6 +30,7 @@ mixin _$AddDocumentState {
   String get selectedCoachName => throw _privateConstructorUsedError;
   String get selectedFileName => throw _privateConstructorUsedError;
   String get message => throw _privateConstructorUsedError;
+  String get infoMessage => throw _privateConstructorUsedError;
   File? get document => throw _privateConstructorUsedError;
 
   /// Create a copy of AddDocumentState
@@ -59,6 +60,7 @@ abstract class $AddDocumentStateCopyWith<$Res> {
       String selectedCoachName,
       String selectedFileName,
       String message,
+      String infoMessage,
       File? document});
 
   $ParentDocumentListModelCopyWith<$Res> get parentDocumentListModel;
@@ -92,6 +94,7 @@ class _$AddDocumentStateCopyWithImpl<$Res, $Val extends AddDocumentState>
     Object? selectedCoachName = null,
     Object? selectedFileName = null,
     Object? message = null,
+    Object? infoMessage = null,
     Object? document = freezed,
   }) {
     return _then(_value.copyWith(
@@ -147,6 +150,10 @@ class _$AddDocumentStateCopyWithImpl<$Res, $Val extends AddDocumentState>
           ? _value.message
           : message // ignore: cast_nullable_to_non_nullable
               as String,
+      infoMessage: null == infoMessage
+          ? _value.infoMessage
+          : infoMessage // ignore: cast_nullable_to_non_nullable
+              as String,
       document: freezed == document
           ? _value.document
           : document // ignore: cast_nullable_to_non_nullable
@@ -188,6 +195,7 @@ abstract class _$$AddDocumentStateImplCopyWith<$Res>
       String selectedCoachName,
       String selectedFileName,
       String message,
+      String infoMessage,
       File? document});
 
   @override
@@ -220,6 +228,7 @@ class __$$AddDocumentStateImplCopyWithImpl<$Res>
     Object? selectedCoachName = null,
     Object? selectedFileName = null,
     Object? message = null,
+    Object? infoMessage = null,
     Object? document = freezed,
   }) {
     return _then(_$AddDocumentStateImpl(
@@ -275,6 +284,10 @@ class __$$AddDocumentStateImplCopyWithImpl<$Res>
           ? _value.message
           : message // ignore: cast_nullable_to_non_nullable
               as String,
+      infoMessage: null == infoMessage
+          ? _value.infoMessage
+          : infoMessage // ignore: cast_nullable_to_non_nullable
+              as String,
       document: freezed == document
           ? _value.document
           : document // ignore: cast_nullable_to_non_nullable
@@ -300,6 +313,7 @@ class _$AddDocumentStateImpl implements _AddDocumentState {
       this.selectedCoachName = "",
       this.selectedFileName = "",
       this.message = "",
+      this.infoMessage = "",
       this.document})
       : _coaches = coaches;
 
@@ -349,11 +363,14 @@ class _$AddDocumentStateImpl implements _AddDocumentState {
   @JsonKey()
   final String message;
   @override
+  @JsonKey()
+  final String infoMessage;
+  @override
   final File? document;
 
   @override
   String toString() {
-    return 'AddDocumentState(selectedTab: $selectedTab, isError: $isError, isLoading: $isLoading, isSuccess: $isSuccess, isUploadSuccess: $isUploadSuccess, isUploadError: $isUploadError, parentDocumentListModel: $parentDocumentListModel, title: $title, selectedCoachId: $selectedCoachId, coaches: $coaches, selectedCoachName: $selectedCoachName, selectedFileName: $selectedFileName, message: $message, document: $document)';
+    return 'AddDocumentState(selectedTab: $selectedTab, isError: $isError, isLoading: $isLoading, isSuccess: $isSuccess, isUploadSuccess: $isUploadSuccess, isUploadError: $isUploadError, parentDocumentListModel: $parentDocumentListModel, title: $title, selectedCoachId: $selectedCoachId, coaches: $coaches, selectedCoachName: $selectedCoachName, selectedFileName: $selectedFileName, message: $message, infoMessage: $infoMessage, document: $document)';
   }
 
   @override
@@ -384,6 +401,8 @@ class _$AddDocumentStateImpl implements _AddDocumentState {
             (identical(other.selectedFileName, selectedFileName) ||
                 other.selectedFileName == selectedFileName) &&
             (identical(other.message, message) || other.message == message) &&
+            (identical(other.infoMessage, infoMessage) ||
+                other.infoMessage == infoMessage) &&
             (identical(other.document, document) ||
                 other.document == document));
   }
@@ -404,6 +423,7 @@ class _$AddDocumentStateImpl implements _AddDocumentState {
       selectedCoachName,
       selectedFileName,
       message,
+      infoMessage,
       document);
 
   /// Create a copy of AddDocumentState
@@ -431,6 +451,7 @@ abstract class _AddDocumentState implements AddDocumentState {
       final String selectedCoachName,
       final String selectedFileName,
       final String message,
+      final String infoMessage,
       final File? document}) = _$AddDocumentStateImpl;
 
   @override
@@ -459,6 +480,8 @@ abstract class _AddDocumentState implements AddDocumentState {
   String get selectedFileName;
   @override
   String get message;
+  @override
+  String get infoMessage;
   @override
   File? get document;
 

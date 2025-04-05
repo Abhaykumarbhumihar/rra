@@ -22,6 +22,7 @@ class AddDocumentState with _$AddDocumentState {
     @Default("") String selectedCoachName,
     @Default("") String selectedFileName,
     @Default("") String message,
+    @Default("") String infoMessage,
     File? document,
 
   }) = _AddDocumentState;

@@ -35,7 +35,8 @@ class AddDocumentBloc extends Bloc<AddDocumentEvent, AddDocumentState> {
   Future<void> tabSelect(
       SelectedTabEvent event, Emitter<AddDocumentState> emit) async {
     emit(state.copyWith(
-      selectedTab: event.tabno
+      selectedTab: event.tabno,
+        infoMessage: ""
     ));
   }
 
@@ -43,13 +44,14 @@ class AddDocumentBloc extends Bloc<AddDocumentEvent, AddDocumentState> {
   Future<void> _setTitle(
       SetTitleParentDocumentEvent event, Emitter<AddDocumentState> emit) async {
     emit(state.copyWith(
+        infoMessage: "",
         title: event.title
     ));
   }
 
   Future<void> _removeSelectedCoach(
       RemoveSelectedCoachEvent event, Emitter<AddDocumentState> emit) async {
-    emit(state.copyWith(
+    emit(state.copyWith(infoMessage: "",
       coaches: state.coaches
           .where((coach) => coach != event.coach)
           .toList(),
@@ -61,6 +63,7 @@ class AddDocumentBloc extends Bloc<AddDocumentEvent, AddDocumentState> {
       SetSelectedCoachIdParentDocumentEvent event, Emitter<AddDocumentState> emit) async {
     if (!state.coaches.contains(event.caoch)) {
       emit(state.copyWith(
+        infoMessage: "",
         coaches: [...state.coaches, event.caoch],
       ));
     }
@@ -70,6 +73,7 @@ class AddDocumentBloc extends Bloc<AddDocumentEvent, AddDocumentState> {
   Future<void> _setMessage(
       SetMessageParentDocumentEvent event, Emitter<AddDocumentState> emit) async {
     emit(state.copyWith(
+        infoMessage: "",
         message: event.message
     ));
   }
@@ -78,6 +82,7 @@ class AddDocumentBloc extends Bloc<AddDocumentEvent, AddDocumentState> {
   Future<void> _setFile(
       SetDocumentForParentDocumentEvent event, Emitter<AddDocumentState> emit) async {
     emit(state.copyWith(
+        infoMessage: "",
         document : event.documentFile,
         selectedFileName: event.fileName
     ));
@@ -95,32 +100,43 @@ class AddDocumentBloc extends Bloc<AddDocumentEvent, AddDocumentState> {
       emit(state.copyWith(
         isError: true,
         isLoading: false,
+          infoMessage: "Please enter a title for the document."
       ));
-      throw Exception("Please enter a title for the document");
+      return;
     }
 
     if (state.coaches.isEmpty) {
       emit(state.copyWith(
         isError: true,
         isLoading: false,
+          infoMessage: "Please select a coach."
       ));
-      throw Exception("Please select a coach");
+return;
     }
 
     if (state.selectedFileName.isEmpty || state.document == null) {
       emit(state.copyWith(
         isError: true,
         isLoading: false,
+          infoMessage: "Please select a file to upload."
       ));
-      throw Exception("Please select a file to upload");
+return ;
     }
 
     if (state.message.isEmpty) {
       emit(state.copyWith(
         isError: true,
         isLoading: false,
+          infoMessage: "Please enter a message."
       ));
-      throw Exception("Please enter a message");
+return;
+    }
+    if (!(await Connectivity().isConnected)) {
+      emit(state.copyWith(
+        isLoading: false,
+        isError: true,
+          infoMessage: "No internet connection."
+      ));
     }
 
     try {
@@ -129,15 +145,10 @@ class AddDocumentBloc extends Bloc<AddDocumentEvent, AddDocumentState> {
         isError: false,
         isUploadError: false,
         isUploadSuccess: false,
+          infoMessage: ""
       ));
 
-      if (!(await Connectivity().isConnected)) {
-        emit(state.copyWith(
-          isLoading: false,
-          isError: true,
-        ));
-        throw Exception("No internet connection");
-      }
+
 
       // Prepare the data for submission
       String? base64Image;
@@ -158,11 +169,11 @@ class AddDocumentBloc extends Bloc<AddDocumentEvent, AddDocumentState> {
       response.fold(
             (failure) {
           emit(state.copyWith(
+            infoMessage:failure.message,
             isLoading: false,
             isError: true,
             isUploadError: true,
           ));
-          throw Exception("Failed to upload document: ${failure.message}");
         },
             (success) {
           emit(state.copyWith(
@@ -180,8 +191,9 @@ class AddDocumentBloc extends Bloc<AddDocumentEvent, AddDocumentState> {
             isUploadError: false,
             isSuccess: false,
             document: null,
+            infoMessage: "Document uploaded successfully."
           ));
-          navigatorKey.currentContext!.showCustomSnackbar("Document uploaded successfully.");
+          add(GetUploadedParentDocument({}));
         },
       );
     } catch (e) {
@@ -198,15 +210,16 @@ class AddDocumentBloc extends Bloc<AddDocumentEvent, AddDocumentState> {
       GetUploadedParentDocument event, Emitter<AddDocumentState> emit) async {
     try {
       print("CLICKING HEREE ");
-      emit(state.copyWith(isError: false, isLoading: false));
       if (!(await Connectivity().isConnected)) {
         emit(state.copyWith(
           isLoading: false,
           isSuccess: false,
           isError: true,
+            infoMessage: "No internet connection.",
         ));
         return;
       }
+
 
       var academyId = await SharedPrefs.getString("selected_academyid");
       Map<String, dynamic> map = {
@@ -215,6 +228,7 @@ class AddDocumentBloc extends Bloc<AddDocumentEvent, AddDocumentState> {
       emit(state.copyWith(
           isLoading: true,
           isError: false,
+          infoMessage: "",
           parentDocumentListModel: ParentDocumentListModel()));
 
       final response = await _parentDocumentUsecase.getDocumentListExecute(map);
@@ -238,6 +252,7 @@ class AddDocumentBloc extends Bloc<AddDocumentEvent, AddDocumentState> {
       // Handle the error and show error messages
       emit(state.copyWith(
         isLoading: false,
+        infoMessage: ""
       ));
     }
   }
