@@ -1,3 +1,4 @@
+import '../../pages/parents/parent_order/parent_order_detail/presentation/bloc/parent_myorder_detail_bloc.dart';
 import '../../pages/parents/parent_order/parent_order_list/presentation/bloc/parent_order_bloc.dart';
 import 'exports.dart';
 
@@ -160,6 +161,8 @@ class AppPages {
       PageEntitiy(
         route: AppRoutes.PARENTORDERDETAILPAGE,
         page: ParentOrderDetail(),
+          bloc: BlocProvider(create: (_) => ParentMyorderDetailBloc()),
+
       ),
       PageEntitiy(
         route: AppRoutes.ORDERSUMMARY,

@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 import '../../data/entity/parent_document_list_model.dart';
@@ -16,8 +18,11 @@ class AddDocumentState with _$AddDocumentState {
     @Default(ParentDocumentListModel()) ParentDocumentListModel parentDocumentListModel,
     @Default("") String title,
     @Default("") String selectedCoachId,
+    @Default([]) List<Coach> coaches,
+    @Default("") String selectedCoachName,
     @Default("") String selectedFileName,
     @Default("") String message,
+    File? document,
 
   }) = _AddDocumentState;
 

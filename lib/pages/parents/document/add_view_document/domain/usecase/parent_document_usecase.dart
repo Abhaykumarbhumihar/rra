@@ -11,7 +11,7 @@ class ParentDocumentUsecase {
   final ParentDocumentRepositery _parentDocumentRepositery;
   ParentDocumentUsecase(this._parentDocumentRepositery);
 
-  Future<Either<Failure, dynamic>> uploadDocumentExecute(Map<String, String> documentData) async {
+  Future<Either<Failure, dynamic>> uploadDocumentExecute(Map<String, dynamic> documentData) async {
     return _parentDocumentRepositery.uploadDocument( documentData);
   }
 

@@ -17,14 +17,14 @@ class ParentDocumentRepoImpl implements ParentDocumentRepositery {
 
   @override
   Future<Either<Failure, dynamic>> uploadDocument(
-      Map<String, String> userData) async {
+      Map<String, dynamic> userData) async {
 
     try {
       print("code is running here");
 
       http.Response response = await _apiServices.post(
           AppConstant.getParentUploadDocument, userData,
-          useDefaultHeaders: true);
+          useDefaultHeaders: true,isJson: true);
       print("uploadDocument == ${userData}");
       print(response.body);
       if (response.statusCode == 200) {
@@ -59,7 +59,7 @@ class ParentDocumentRepoImpl implements ParentDocumentRepositery {
 
       http.Response response = await _apiServices.post(
           AppConstant.getParentUploadDocumentList, documentData,
-          useDefaultHeaders: true);
+          useDefaultHeaders: true,isJson: true);
       print("getDocumentList == ${documentData}");
       print(response.body);
       if (response.statusCode == 200) {

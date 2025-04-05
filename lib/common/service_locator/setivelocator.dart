@@ -1,3 +1,6 @@
+import '../../pages/parents/parent_order/parent_order_detail/data/repo_impl/parent_myorder_detail_repo_impl.dart';
+import '../../pages/parents/parent_order/parent_order_detail/domain/repositery/parent_myorder_detail_repositery.dart';
+import '../../pages/parents/parent_order/parent_order_detail/domain/usecase/parent_my_order_detail_usecase.dart';
 import '../../pages/parents/parent_order/parent_order_list/data/repo_impl/parent_myorder_repo_impl.dart';
 import '../../pages/parents/parent_order/parent_order_list/domain/repositery/parent_myorder_repositery.dart';
 import '../../pages/parents/parent_order/parent_order_list/domain/usecase/parent_my_order_usecase.dart';
@@ -92,4 +95,10 @@ void serviceLocator() {
           () => ParentMyorderRepoImpl());
   getIt.registerLazySingleton<ParentMyOrderUsecase>(
           () => ParentMyOrderUsecase(getIt<ParentMyorderRepositery>()));
+
+  /*parent my order detail*/
+  getIt.registerLazySingleton<ParentMyorderDetailRepositery>(
+          () => ParentMyorderDetailRepoImpl());
+  getIt.registerLazySingleton<ParentMyOrderDetailUsecase>(
+          () => ParentMyOrderDetailUsecase(getIt<ParentMyorderDetailRepositery>()));
 }

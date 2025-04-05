@@ -47,6 +47,7 @@ class AppConstant {
 
   /*my order parent*/
   static String get getParentMyOrder => "parent/my/orders";
+  static String get getParentMyOrderDetail => "parent/oder/detail";
 
 
 

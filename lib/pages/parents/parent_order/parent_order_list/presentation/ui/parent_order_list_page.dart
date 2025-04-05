@@ -1,6 +1,8 @@
 import 'package:rra/common/values/values_exports.dart';
 import 'package:rra/common/component/component_export.dart';
 
+import '../bloc/parent_order_bloc.dart';
+import '../bloc/parent_order_state.dart';
 import 'component/parent_order_list_item.dart';
 
 class ParentOrderListPage extends StatelessWidget {
@@ -10,24 +12,41 @@ class ParentOrderListPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return CommonPageFormat(
-      title: "My Orders",
-      onBackPress: () {
-        Navigator.pop(context);
-
+    return BlocListener<ParentOrderBloc, ParentOrderState>(
+      listener: (context, state) {},
+      child: BlocBuilder<ParentOrderBloc, ParentOrderState>(
+        builder: (context, state) {
+          return CommonPageFormat(
+            title: "My Orders",
+            onBackPress: () {
+              Navigator.pop(context);
+            },
+            child: state.isLoading
+                ? Container()
+                : Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      ListView.builder(
+                          padding: EdgeInsets.zero,
+                          scrollDirection: Axis.vertical,
+                          itemCount:
+                              state.parentMyOrderListModel.data.orders.length,
+                          shrinkWrap: true,
+                          physics: NeverScrollableScrollPhysics(),
+                          itemBuilder: (context, index) {
+                            var data =
+                                state.parentMyOrderListModel.data.orders[index];
+                            return ParentOrderListItem(
+                              myOrder: data,
+                            );
+                          }),
+                      SizedBox(
+                        height: 30,
+                      )
+                    ],
+                  ),
+          );
         },
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          SizedBox(
-            height: 24,
-          ),
-          ParentOrderListItem(),
-          SizedBox(
-            height: 8.0,
-          ),
-          ParentOrderListItem()
-        ],
       ),
     );
   }

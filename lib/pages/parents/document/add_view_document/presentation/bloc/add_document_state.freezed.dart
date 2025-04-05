@@ -26,8 +26,11 @@ mixin _$AddDocumentState {
       throw _privateConstructorUsedError;
   String get title => throw _privateConstructorUsedError;
   String get selectedCoachId => throw _privateConstructorUsedError;
+  List<Coach> get coaches => throw _privateConstructorUsedError;
+  String get selectedCoachName => throw _privateConstructorUsedError;
   String get selectedFileName => throw _privateConstructorUsedError;
   String get message => throw _privateConstructorUsedError;
+  File? get document => throw _privateConstructorUsedError;
 
   /// Create a copy of AddDocumentState
   /// with the given fields replaced by the non-null parameter values.
@@ -52,8 +55,11 @@ abstract class $AddDocumentStateCopyWith<$Res> {
       ParentDocumentListModel parentDocumentListModel,
       String title,
       String selectedCoachId,
+      List<Coach> coaches,
+      String selectedCoachName,
       String selectedFileName,
-      String message});
+      String message,
+      File? document});
 
   $ParentDocumentListModelCopyWith<$Res> get parentDocumentListModel;
 }
@@ -82,8 +88,11 @@ class _$AddDocumentStateCopyWithImpl<$Res, $Val extends AddDocumentState>
     Object? parentDocumentListModel = null,
     Object? title = null,
     Object? selectedCoachId = null,
+    Object? coaches = null,
+    Object? selectedCoachName = null,
     Object? selectedFileName = null,
     Object? message = null,
+    Object? document = freezed,
   }) {
     return _then(_value.copyWith(
       selectedTab: null == selectedTab
@@ -122,6 +131,14 @@ class _$AddDocumentStateCopyWithImpl<$Res, $Val extends AddDocumentState>
           ? _value.selectedCoachId
           : selectedCoachId // ignore: cast_nullable_to_non_nullable
               as String,
+      coaches: null == coaches
+          ? _value.coaches
+          : coaches // ignore: cast_nullable_to_non_nullable
+              as List<Coach>,
+      selectedCoachName: null == selectedCoachName
+          ? _value.selectedCoachName
+          : selectedCoachName // ignore: cast_nullable_to_non_nullable
+              as String,
       selectedFileName: null == selectedFileName
           ? _value.selectedFileName
           : selectedFileName // ignore: cast_nullable_to_non_nullable
@@ -130,6 +147,10 @@ class _$AddDocumentStateCopyWithImpl<$Res, $Val extends AddDocumentState>
           ? _value.message
           : message // ignore: cast_nullable_to_non_nullable
               as String,
+      document: freezed == document
+          ? _value.document
+          : document // ignore: cast_nullable_to_non_nullable
+              as File?,
     ) as $Val);
   }
 
@@ -163,8 +184,11 @@ abstract class _$$AddDocumentStateImplCopyWith<$Res>
       ParentDocumentListModel parentDocumentListModel,
       String title,
       String selectedCoachId,
+      List<Coach> coaches,
+      String selectedCoachName,
       String selectedFileName,
-      String message});
+      String message,
+      File? document});
 
   @override
   $ParentDocumentListModelCopyWith<$Res> get parentDocumentListModel;
@@ -192,8 +216,11 @@ class __$$AddDocumentStateImplCopyWithImpl<$Res>
     Object? parentDocumentListModel = null,
     Object? title = null,
     Object? selectedCoachId = null,
+    Object? coaches = null,
+    Object? selectedCoachName = null,
     Object? selectedFileName = null,
     Object? message = null,
+    Object? document = freezed,
   }) {
     return _then(_$AddDocumentStateImpl(
       selectedTab: null == selectedTab
@@ -232,6 +259,14 @@ class __$$AddDocumentStateImplCopyWithImpl<$Res>
           ? _value.selectedCoachId
           : selectedCoachId // ignore: cast_nullable_to_non_nullable
               as String,
+      coaches: null == coaches
+          ? _value._coaches
+          : coaches // ignore: cast_nullable_to_non_nullable
+              as List<Coach>,
+      selectedCoachName: null == selectedCoachName
+          ? _value.selectedCoachName
+          : selectedCoachName // ignore: cast_nullable_to_non_nullable
+              as String,
       selectedFileName: null == selectedFileName
           ? _value.selectedFileName
           : selectedFileName // ignore: cast_nullable_to_non_nullable
@@ -240,6 +275,10 @@ class __$$AddDocumentStateImplCopyWithImpl<$Res>
           ? _value.message
           : message // ignore: cast_nullable_to_non_nullable
               as String,
+      document: freezed == document
+          ? _value.document
+          : document // ignore: cast_nullable_to_non_nullable
+              as File?,
     ));
   }
 }
@@ -257,8 +296,12 @@ class _$AddDocumentStateImpl implements _AddDocumentState {
       this.parentDocumentListModel = const ParentDocumentListModel(),
       this.title = "",
       this.selectedCoachId = "",
+      final List<Coach> coaches = const [],
+      this.selectedCoachName = "",
       this.selectedFileName = "",
-      this.message = ""});
+      this.message = "",
+      this.document})
+      : _coaches = coaches;
 
   @override
   @JsonKey()
@@ -287,16 +330,30 @@ class _$AddDocumentStateImpl implements _AddDocumentState {
   @override
   @JsonKey()
   final String selectedCoachId;
+  final List<Coach> _coaches;
+  @override
+  @JsonKey()
+  List<Coach> get coaches {
+    if (_coaches is EqualUnmodifiableListView) return _coaches;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_coaches);
+  }
+
+  @override
+  @JsonKey()
+  final String selectedCoachName;
   @override
   @JsonKey()
   final String selectedFileName;
   @override
   @JsonKey()
   final String message;
+  @override
+  final File? document;
 
   @override
   String toString() {
-    return 'AddDocumentState(selectedTab: $selectedTab, isError: $isError, isLoading: $isLoading, isSuccess: $isSuccess, isUploadSuccess: $isUploadSuccess, isUploadError: $isUploadError, parentDocumentListModel: $parentDocumentListModel, title: $title, selectedCoachId: $selectedCoachId, selectedFileName: $selectedFileName, message: $message)';
+    return 'AddDocumentState(selectedTab: $selectedTab, isError: $isError, isLoading: $isLoading, isSuccess: $isSuccess, isUploadSuccess: $isUploadSuccess, isUploadError: $isUploadError, parentDocumentListModel: $parentDocumentListModel, title: $title, selectedCoachId: $selectedCoachId, coaches: $coaches, selectedCoachName: $selectedCoachName, selectedFileName: $selectedFileName, message: $message, document: $document)';
   }
 
   @override
@@ -321,9 +378,14 @@ class _$AddDocumentStateImpl implements _AddDocumentState {
             (identical(other.title, title) || other.title == title) &&
             (identical(other.selectedCoachId, selectedCoachId) ||
                 other.selectedCoachId == selectedCoachId) &&
+            const DeepCollectionEquality().equals(other._coaches, _coaches) &&
+            (identical(other.selectedCoachName, selectedCoachName) ||
+                other.selectedCoachName == selectedCoachName) &&
             (identical(other.selectedFileName, selectedFileName) ||
                 other.selectedFileName == selectedFileName) &&
-            (identical(other.message, message) || other.message == message));
+            (identical(other.message, message) || other.message == message) &&
+            (identical(other.document, document) ||
+                other.document == document));
   }
 
   @override
@@ -338,8 +400,11 @@ class _$AddDocumentStateImpl implements _AddDocumentState {
       parentDocumentListModel,
       title,
       selectedCoachId,
+      const DeepCollectionEquality().hash(_coaches),
+      selectedCoachName,
       selectedFileName,
-      message);
+      message,
+      document);
 
   /// Create a copy of AddDocumentState
   /// with the given fields replaced by the non-null parameter values.
@@ -362,8 +427,11 @@ abstract class _AddDocumentState implements AddDocumentState {
       final ParentDocumentListModel parentDocumentListModel,
       final String title,
       final String selectedCoachId,
+      final List<Coach> coaches,
+      final String selectedCoachName,
       final String selectedFileName,
-      final String message}) = _$AddDocumentStateImpl;
+      final String message,
+      final File? document}) = _$AddDocumentStateImpl;
 
   @override
   int get selectedTab;
@@ -384,9 +452,15 @@ abstract class _AddDocumentState implements AddDocumentState {
   @override
   String get selectedCoachId;
   @override
+  List<Coach> get coaches;
+  @override
+  String get selectedCoachName;
+  @override
   String get selectedFileName;
   @override
   String get message;
+  @override
+  File? get document;
 
   /// Create a copy of AddDocumentState
   /// with the given fields replaced by the non-null parameter values.
