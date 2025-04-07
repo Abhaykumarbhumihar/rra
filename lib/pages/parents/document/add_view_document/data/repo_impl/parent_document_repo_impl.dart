@@ -5,6 +5,7 @@ import 'package:either_dart/either.dart';
 import 'package:http/http.dart' as http;
 import 'package:rra/common/service_locator/setivelocator.dart';
 import 'package:rra/pages/parents/document/add_view_document/data/entity/parent_document_list_model.dart';
+import 'package:rra/pages/parents/document/add_view_document/data/entity/terms_program_session/terms_program_session_player_model.dart';
 
 import '../../../../../../common/network/api_services.dart';
 import '../../../../../../common/network/app_constant.dart';
@@ -75,6 +76,34 @@ class ParentDocumentRepoImpl implements ParentDocumentRepositery {
       }
     } catch (e) {
       print("getDocumentList error ${AppConstant.updateUserProfile} $e");
+
+      return Left(Failure("$e"));
+    }
+  }
+
+  @override
+  Future<Either<Failure, TermsProgramSessionPlayerModel>> getTermsSessionPlayerCoaching(Map<String, dynamic> termsData) async {
+    try {
+      print("code is running here getTermsSessionPlayerCoaching");
+
+      http.Response response = await _apiServices.post(
+          AppConstant.getTermsSessionCoachingPlayer, termsData,
+          useDefaultHeaders: true,isJson: true);
+      print("getTermsSessionPlayerCoaching == ${termsData}");
+      print(response.body);
+      if (response.statusCode == 200) {
+        print("getDocumentList ERROR ERROR  == ${response.body}");
+        final Map<String, dynamic> responseData = jsonDecode(response.body);
+        TermsProgramSessionPlayerModel termsProgramSessionPlayerModel = TermsProgramSessionPlayerModel
+            .fromJson(responseData);
+        return Right(termsProgramSessionPlayerModel);
+      } else {
+        print("getTermsSessionPlayerCoaching ERROR ERROR  == ${termsData}");
+        final errorMessage = _extractErrorMessage(response.body);
+        return Left(Failure(errorMessage));
+      }
+    } catch (e) {
+      print("getTermsSessionPlayerCoaching error ${AppConstant.updateUserProfile} $e");
 
       return Left(Failure("$e"));
     }

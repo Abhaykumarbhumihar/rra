@@ -49,6 +49,9 @@ class AppConstant {
   static String get getParentMyOrder => "parent/my/orders";
   static String get getParentMyOrderDetail => "parent/oder/detail";
 
+  /*coach document terms session player coaching*/
+static String get getTermsSessionCoachingPlayer=>"term/coaching/session";
+
 
 
 

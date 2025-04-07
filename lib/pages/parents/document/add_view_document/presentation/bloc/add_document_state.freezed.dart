@@ -24,13 +24,21 @@ mixin _$AddDocumentState {
   bool get isUploadError => throw _privateConstructorUsedError;
   ParentDocumentListModel get parentDocumentListModel =>
       throw _privateConstructorUsedError;
+  TermsProgramSessionPlayerModel get termsProgramSessionPlayerModelData =>
+      throw _privateConstructorUsedError;
   String get title => throw _privateConstructorUsedError;
   String get selectedCoachId => throw _privateConstructorUsedError;
   List<Coach> get coaches => throw _privateConstructorUsedError;
+  List<Term> get terms => throw _privateConstructorUsedError;
+  List<CoachingProgram> get coachingProgram =>
+      throw _privateConstructorUsedError;
+  List<Session> get session => throw _privateConstructorUsedError;
+  List<Player> get player => throw _privateConstructorUsedError;
   String get selectedCoachName => throw _privateConstructorUsedError;
   String get selectedFileName => throw _privateConstructorUsedError;
   String get message => throw _privateConstructorUsedError;
   String get infoMessage => throw _privateConstructorUsedError;
+  dynamic get parent_coach_radio => throw _privateConstructorUsedError;
   File? get document => throw _privateConstructorUsedError;
 
   /// Create a copy of AddDocumentState
@@ -54,16 +62,24 @@ abstract class $AddDocumentStateCopyWith<$Res> {
       bool isUploadSuccess,
       bool isUploadError,
       ParentDocumentListModel parentDocumentListModel,
+      TermsProgramSessionPlayerModel termsProgramSessionPlayerModelData,
       String title,
       String selectedCoachId,
       List<Coach> coaches,
+      List<Term> terms,
+      List<CoachingProgram> coachingProgram,
+      List<Session> session,
+      List<Player> player,
       String selectedCoachName,
       String selectedFileName,
       String message,
       String infoMessage,
+      dynamic parent_coach_radio,
       File? document});
 
   $ParentDocumentListModelCopyWith<$Res> get parentDocumentListModel;
+  $TermsProgramSessionPlayerModelCopyWith<$Res>
+      get termsProgramSessionPlayerModelData;
 }
 
 /// @nodoc
@@ -88,13 +104,19 @@ class _$AddDocumentStateCopyWithImpl<$Res, $Val extends AddDocumentState>
     Object? isUploadSuccess = null,
     Object? isUploadError = null,
     Object? parentDocumentListModel = null,
+    Object? termsProgramSessionPlayerModelData = null,
     Object? title = null,
     Object? selectedCoachId = null,
     Object? coaches = null,
+    Object? terms = null,
+    Object? coachingProgram = null,
+    Object? session = null,
+    Object? player = null,
     Object? selectedCoachName = null,
     Object? selectedFileName = null,
     Object? message = null,
     Object? infoMessage = null,
+    Object? parent_coach_radio = freezed,
     Object? document = freezed,
   }) {
     return _then(_value.copyWith(
@@ -126,6 +148,11 @@ class _$AddDocumentStateCopyWithImpl<$Res, $Val extends AddDocumentState>
           ? _value.parentDocumentListModel
           : parentDocumentListModel // ignore: cast_nullable_to_non_nullable
               as ParentDocumentListModel,
+      termsProgramSessionPlayerModelData: null ==
+              termsProgramSessionPlayerModelData
+          ? _value.termsProgramSessionPlayerModelData
+          : termsProgramSessionPlayerModelData // ignore: cast_nullable_to_non_nullable
+              as TermsProgramSessionPlayerModel,
       title: null == title
           ? _value.title
           : title // ignore: cast_nullable_to_non_nullable
@@ -138,6 +165,22 @@ class _$AddDocumentStateCopyWithImpl<$Res, $Val extends AddDocumentState>
           ? _value.coaches
           : coaches // ignore: cast_nullable_to_non_nullable
               as List<Coach>,
+      terms: null == terms
+          ? _value.terms
+          : terms // ignore: cast_nullable_to_non_nullable
+              as List<Term>,
+      coachingProgram: null == coachingProgram
+          ? _value.coachingProgram
+          : coachingProgram // ignore: cast_nullable_to_non_nullable
+              as List<CoachingProgram>,
+      session: null == session
+          ? _value.session
+          : session // ignore: cast_nullable_to_non_nullable
+              as List<Session>,
+      player: null == player
+          ? _value.player
+          : player // ignore: cast_nullable_to_non_nullable
+              as List<Player>,
       selectedCoachName: null == selectedCoachName
           ? _value.selectedCoachName
           : selectedCoachName // ignore: cast_nullable_to_non_nullable
@@ -154,6 +197,10 @@ class _$AddDocumentStateCopyWithImpl<$Res, $Val extends AddDocumentState>
           ? _value.infoMessage
           : infoMessage // ignore: cast_nullable_to_non_nullable
               as String,
+      parent_coach_radio: freezed == parent_coach_radio
+          ? _value.parent_coach_radio
+          : parent_coach_radio // ignore: cast_nullable_to_non_nullable
+              as dynamic,
       document: freezed == document
           ? _value.document
           : document // ignore: cast_nullable_to_non_nullable
@@ -169,6 +216,19 @@ class _$AddDocumentStateCopyWithImpl<$Res, $Val extends AddDocumentState>
     return $ParentDocumentListModelCopyWith<$Res>(
         _value.parentDocumentListModel, (value) {
       return _then(_value.copyWith(parentDocumentListModel: value) as $Val);
+    });
+  }
+
+  /// Create a copy of AddDocumentState
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $TermsProgramSessionPlayerModelCopyWith<$Res>
+      get termsProgramSessionPlayerModelData {
+    return $TermsProgramSessionPlayerModelCopyWith<$Res>(
+        _value.termsProgramSessionPlayerModelData, (value) {
+      return _then(
+          _value.copyWith(termsProgramSessionPlayerModelData: value) as $Val);
     });
   }
 }
@@ -189,17 +249,26 @@ abstract class _$$AddDocumentStateImplCopyWith<$Res>
       bool isUploadSuccess,
       bool isUploadError,
       ParentDocumentListModel parentDocumentListModel,
+      TermsProgramSessionPlayerModel termsProgramSessionPlayerModelData,
       String title,
       String selectedCoachId,
       List<Coach> coaches,
+      List<Term> terms,
+      List<CoachingProgram> coachingProgram,
+      List<Session> session,
+      List<Player> player,
       String selectedCoachName,
       String selectedFileName,
       String message,
       String infoMessage,
+      dynamic parent_coach_radio,
       File? document});
 
   @override
   $ParentDocumentListModelCopyWith<$Res> get parentDocumentListModel;
+  @override
+  $TermsProgramSessionPlayerModelCopyWith<$Res>
+      get termsProgramSessionPlayerModelData;
 }
 
 /// @nodoc
@@ -222,13 +291,19 @@ class __$$AddDocumentStateImplCopyWithImpl<$Res>
     Object? isUploadSuccess = null,
     Object? isUploadError = null,
     Object? parentDocumentListModel = null,
+    Object? termsProgramSessionPlayerModelData = null,
     Object? title = null,
     Object? selectedCoachId = null,
     Object? coaches = null,
+    Object? terms = null,
+    Object? coachingProgram = null,
+    Object? session = null,
+    Object? player = null,
     Object? selectedCoachName = null,
     Object? selectedFileName = null,
     Object? message = null,
     Object? infoMessage = null,
+    Object? parent_coach_radio = freezed,
     Object? document = freezed,
   }) {
     return _then(_$AddDocumentStateImpl(
@@ -260,6 +335,11 @@ class __$$AddDocumentStateImplCopyWithImpl<$Res>
           ? _value.parentDocumentListModel
           : parentDocumentListModel // ignore: cast_nullable_to_non_nullable
               as ParentDocumentListModel,
+      termsProgramSessionPlayerModelData: null ==
+              termsProgramSessionPlayerModelData
+          ? _value.termsProgramSessionPlayerModelData
+          : termsProgramSessionPlayerModelData // ignore: cast_nullable_to_non_nullable
+              as TermsProgramSessionPlayerModel,
       title: null == title
           ? _value.title
           : title // ignore: cast_nullable_to_non_nullable
@@ -272,6 +352,22 @@ class __$$AddDocumentStateImplCopyWithImpl<$Res>
           ? _value._coaches
           : coaches // ignore: cast_nullable_to_non_nullable
               as List<Coach>,
+      terms: null == terms
+          ? _value._terms
+          : terms // ignore: cast_nullable_to_non_nullable
+              as List<Term>,
+      coachingProgram: null == coachingProgram
+          ? _value._coachingProgram
+          : coachingProgram // ignore: cast_nullable_to_non_nullable
+              as List<CoachingProgram>,
+      session: null == session
+          ? _value._session
+          : session // ignore: cast_nullable_to_non_nullable
+              as List<Session>,
+      player: null == player
+          ? _value._player
+          : player // ignore: cast_nullable_to_non_nullable
+              as List<Player>,
       selectedCoachName: null == selectedCoachName
           ? _value.selectedCoachName
           : selectedCoachName // ignore: cast_nullable_to_non_nullable
@@ -288,6 +384,9 @@ class __$$AddDocumentStateImplCopyWithImpl<$Res>
           ? _value.infoMessage
           : infoMessage // ignore: cast_nullable_to_non_nullable
               as String,
+      parent_coach_radio: freezed == parent_coach_radio
+          ? _value.parent_coach_radio!
+          : parent_coach_radio,
       document: freezed == document
           ? _value.document
           : document // ignore: cast_nullable_to_non_nullable
@@ -307,15 +406,26 @@ class _$AddDocumentStateImpl implements _AddDocumentState {
       this.isUploadSuccess = false,
       this.isUploadError = false,
       this.parentDocumentListModel = const ParentDocumentListModel(),
+      this.termsProgramSessionPlayerModelData =
+          const TermsProgramSessionPlayerModel(),
       this.title = "",
       this.selectedCoachId = "",
       final List<Coach> coaches = const [],
+      final List<Term> terms = const [],
+      final List<CoachingProgram> coachingProgram = const [],
+      final List<Session> session = const [],
+      final List<Player> player = const [],
       this.selectedCoachName = "",
       this.selectedFileName = "",
       this.message = "",
       this.infoMessage = "",
+      this.parent_coach_radio = 1,
       this.document})
-      : _coaches = coaches;
+      : _coaches = coaches,
+        _terms = terms,
+        _coachingProgram = coachingProgram,
+        _session = session,
+        _player = player;
 
   @override
   @JsonKey()
@@ -340,6 +450,9 @@ class _$AddDocumentStateImpl implements _AddDocumentState {
   final ParentDocumentListModel parentDocumentListModel;
   @override
   @JsonKey()
+  final TermsProgramSessionPlayerModel termsProgramSessionPlayerModelData;
+  @override
+  @JsonKey()
   final String title;
   @override
   @JsonKey()
@@ -351,6 +464,42 @@ class _$AddDocumentStateImpl implements _AddDocumentState {
     if (_coaches is EqualUnmodifiableListView) return _coaches;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(_coaches);
+  }
+
+  final List<Term> _terms;
+  @override
+  @JsonKey()
+  List<Term> get terms {
+    if (_terms is EqualUnmodifiableListView) return _terms;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_terms);
+  }
+
+  final List<CoachingProgram> _coachingProgram;
+  @override
+  @JsonKey()
+  List<CoachingProgram> get coachingProgram {
+    if (_coachingProgram is EqualUnmodifiableListView) return _coachingProgram;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_coachingProgram);
+  }
+
+  final List<Session> _session;
+  @override
+  @JsonKey()
+  List<Session> get session {
+    if (_session is EqualUnmodifiableListView) return _session;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_session);
+  }
+
+  final List<Player> _player;
+  @override
+  @JsonKey()
+  List<Player> get player {
+    if (_player is EqualUnmodifiableListView) return _player;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_player);
   }
 
   @override
@@ -366,11 +515,14 @@ class _$AddDocumentStateImpl implements _AddDocumentState {
   @JsonKey()
   final String infoMessage;
   @override
+  @JsonKey()
+  final dynamic parent_coach_radio;
+  @override
   final File? document;
 
   @override
   String toString() {
-    return 'AddDocumentState(selectedTab: $selectedTab, isError: $isError, isLoading: $isLoading, isSuccess: $isSuccess, isUploadSuccess: $isUploadSuccess, isUploadError: $isUploadError, parentDocumentListModel: $parentDocumentListModel, title: $title, selectedCoachId: $selectedCoachId, coaches: $coaches, selectedCoachName: $selectedCoachName, selectedFileName: $selectedFileName, message: $message, infoMessage: $infoMessage, document: $document)';
+    return 'AddDocumentState(selectedTab: $selectedTab, isError: $isError, isLoading: $isLoading, isSuccess: $isSuccess, isUploadSuccess: $isUploadSuccess, isUploadError: $isUploadError, parentDocumentListModel: $parentDocumentListModel, termsProgramSessionPlayerModelData: $termsProgramSessionPlayerModelData, title: $title, selectedCoachId: $selectedCoachId, coaches: $coaches, terms: $terms, coachingProgram: $coachingProgram, session: $session, player: $player, selectedCoachName: $selectedCoachName, selectedFileName: $selectedFileName, message: $message, infoMessage: $infoMessage, parent_coach_radio: $parent_coach_radio, document: $document)';
   }
 
   @override
@@ -392,10 +544,19 @@ class _$AddDocumentStateImpl implements _AddDocumentState {
             (identical(
                     other.parentDocumentListModel, parentDocumentListModel) ||
                 other.parentDocumentListModel == parentDocumentListModel) &&
+            (identical(other.termsProgramSessionPlayerModelData,
+                    termsProgramSessionPlayerModelData) ||
+                other.termsProgramSessionPlayerModelData ==
+                    termsProgramSessionPlayerModelData) &&
             (identical(other.title, title) || other.title == title) &&
             (identical(other.selectedCoachId, selectedCoachId) ||
                 other.selectedCoachId == selectedCoachId) &&
             const DeepCollectionEquality().equals(other._coaches, _coaches) &&
+            const DeepCollectionEquality().equals(other._terms, _terms) &&
+            const DeepCollectionEquality()
+                .equals(other._coachingProgram, _coachingProgram) &&
+            const DeepCollectionEquality().equals(other._session, _session) &&
+            const DeepCollectionEquality().equals(other._player, _player) &&
             (identical(other.selectedCoachName, selectedCoachName) ||
                 other.selectedCoachName == selectedCoachName) &&
             (identical(other.selectedFileName, selectedFileName) ||
@@ -403,28 +564,37 @@ class _$AddDocumentStateImpl implements _AddDocumentState {
             (identical(other.message, message) || other.message == message) &&
             (identical(other.infoMessage, infoMessage) ||
                 other.infoMessage == infoMessage) &&
+            const DeepCollectionEquality()
+                .equals(other.parent_coach_radio, parent_coach_radio) &&
             (identical(other.document, document) ||
                 other.document == document));
   }
 
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      selectedTab,
-      isError,
-      isLoading,
-      isSuccess,
-      isUploadSuccess,
-      isUploadError,
-      parentDocumentListModel,
-      title,
-      selectedCoachId,
-      const DeepCollectionEquality().hash(_coaches),
-      selectedCoachName,
-      selectedFileName,
-      message,
-      infoMessage,
-      document);
+  int get hashCode => Object.hashAll([
+        runtimeType,
+        selectedTab,
+        isError,
+        isLoading,
+        isSuccess,
+        isUploadSuccess,
+        isUploadError,
+        parentDocumentListModel,
+        termsProgramSessionPlayerModelData,
+        title,
+        selectedCoachId,
+        const DeepCollectionEquality().hash(_coaches),
+        const DeepCollectionEquality().hash(_terms),
+        const DeepCollectionEquality().hash(_coachingProgram),
+        const DeepCollectionEquality().hash(_session),
+        const DeepCollectionEquality().hash(_player),
+        selectedCoachName,
+        selectedFileName,
+        message,
+        infoMessage,
+        const DeepCollectionEquality().hash(parent_coach_radio),
+        document
+      ]);
 
   /// Create a copy of AddDocumentState
   /// with the given fields replaced by the non-null parameter values.
@@ -445,13 +615,19 @@ abstract class _AddDocumentState implements AddDocumentState {
       final bool isUploadSuccess,
       final bool isUploadError,
       final ParentDocumentListModel parentDocumentListModel,
+      final TermsProgramSessionPlayerModel termsProgramSessionPlayerModelData,
       final String title,
       final String selectedCoachId,
       final List<Coach> coaches,
+      final List<Term> terms,
+      final List<CoachingProgram> coachingProgram,
+      final List<Session> session,
+      final List<Player> player,
       final String selectedCoachName,
       final String selectedFileName,
       final String message,
       final String infoMessage,
+      final dynamic parent_coach_radio,
       final File? document}) = _$AddDocumentStateImpl;
 
   @override
@@ -469,11 +645,21 @@ abstract class _AddDocumentState implements AddDocumentState {
   @override
   ParentDocumentListModel get parentDocumentListModel;
   @override
+  TermsProgramSessionPlayerModel get termsProgramSessionPlayerModelData;
+  @override
   String get title;
   @override
   String get selectedCoachId;
   @override
   List<Coach> get coaches;
+  @override
+  List<Term> get terms;
+  @override
+  List<CoachingProgram> get coachingProgram;
+  @override
+  List<Session> get session;
+  @override
+  List<Player> get player;
   @override
   String get selectedCoachName;
   @override
@@ -482,6 +668,8 @@ abstract class _AddDocumentState implements AddDocumentState {
   String get message;
   @override
   String get infoMessage;
+  @override
+  dynamic get parent_coach_radio;
   @override
   File? get document;
 

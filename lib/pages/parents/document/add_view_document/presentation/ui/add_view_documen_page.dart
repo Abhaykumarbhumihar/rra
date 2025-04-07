@@ -18,9 +18,13 @@ import 'component/document_item.dart';
 class AddViewDocumenPage extends StatelessWidget {
    AddViewDocumenPage({super.key});
   final titleController = TextEditingController();
-  final dateController = TextEditingController();
+  final coachController = TextEditingController();
   final timeController = TextEditingController();
   final commentController = TextEditingController();
+   final TextEditingController termsController= TextEditingController();
+   final TextEditingController programController= TextEditingController();
+   final TextEditingController sessionController= TextEditingController();
+   final TextEditingController playerController= TextEditingController();
   final descriptionFocusNode = FocusNode();
   @override
   Widget build(BuildContext context) {
@@ -59,13 +63,7 @@ class AddViewDocumenPage extends StatelessWidget {
                         SizedBox(
                           height: 24,
                         ),
-                        // Padding(
-                        //   padding: EdgeInsets.only(
-                        //     left: context.screenWidth * 0.052,
-                        //     right: context.screenWidth * 0.052,
-                        //   ),
-                        //   child: CustomToggleSwitch(),
-                        // ),
+
                         Padding(
                           padding: EdgeInsets.symmetric(
                               horizontal: context.screenWidth * 0.03, vertical: 0),
@@ -88,32 +86,46 @@ class AddViewDocumenPage extends StatelessWidget {
                           height: context.screenHeight*0.05,
                         ),
 
-                    AnimatedSwitcher(
-                      duration: const Duration(milliseconds: 300),
-                      child: context.watch<AddDocumentBloc>().state.selectedTab == 1
-                          ? ListView.builder(
-                          itemCount: state.parentDocumentListModel.data.uploaded.length,
-                          shrinkWrap: true,
-                          physics: NeverScrollableScrollPhysics(),
-                          padding: EdgeInsets.zero,
-                          itemBuilder: (context,index){
+                        AnimatedSwitcher(
+                          duration: const Duration(milliseconds: 300),
+                          child: Builder(
+                            builder: (context) {
+                              final selectedTab = context.watch<AddDocumentBloc>().state.selectedTab;
 
-                            return DocumentItem(
-                             coaches: state.parentDocumentListModel.data.coaches,
-                              uploadedDocument: state.parentDocumentListModel.data.uploaded[index],
-                            );
-                      })
-                          : AddDocumentComponent(
-                        titleController: titleController,
-                        dateController: dateController,
-                        timeController: timeController,
-                        commentController: commentController,
-                      //  descriptionFocusNode: descriptionFocusNode,
-                        onPickFile: (){
-                          _handlePickFile(context);
-                        },
-                      ),
-                    ),
+                              if (selectedTab == 1) {
+                                return ListView.builder(
+                                  itemCount: state.parentDocumentListModel.data.uploaded.length,
+                                  shrinkWrap: true,
+                                  physics: NeverScrollableScrollPhysics(),
+                                  padding: EdgeInsets.zero,
+                                  itemBuilder: (context, index) {
+                                    return DocumentItem(
+                                      coaches: state.parentDocumentListModel.data.coaches,
+                                      uploadedDocument: state.parentDocumentListModel.data.uploaded[index],
+                                    );
+                                  },
+                                );
+                              } else if (selectedTab == 2) {
+                                return SizedBox();
+                              } else {
+                                return AddDocumentComponent(
+                                  titleController: titleController,
+                                  coachController: coachController,
+                                  playerController: playerController,
+                                  programController: programController,
+                                  sessionController: sessionController,
+                                  termsController: termsController,
+                                  commentController: commentController,
+                                  selectParentCoach: state.parent_coach_radio ?? 2,
+                                  onPickFile: () {
+                                    _handlePickFile(context);
+                                  },
+                                );
+                              }
+                            },
+                          ),
+                        ),
+
                         SizedBox(height: context.screenHeight*0.05,),
                       state.selectedTab==0?  Padding(
                           padding:  EdgeInsets.symmetric(horizontal: context.screenWidth*0.05),

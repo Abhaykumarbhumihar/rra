@@ -58,12 +58,17 @@ class SplashPage extends StatelessWidget {
           // }
 
           if (state is SplashNavigateToHome) {
-            BlocProvider.of<CoachingProgramsBloc>(context).add(GroupCoachProgramsListEvent());
-            BlocProvider.of<CoachingProgramsBloc>(context).add(PrivateCoachingProgramsList());
-            BlocProvider.of<AddViewPlayerBloc>(context).add(AddViewPlayerGetChildListEvent());
-            BlocProvider.of<ParentOrderBloc>(context).add(ParentMyOrderListEvent({}));
-
+            var userdata = await SharedPrefs.getModel<OtpVerificationModel>("user_model", (json) => OtpVerificationModel.fromJson(json));
             BlocProvider.of<AddDocumentBloc>(context).add(GetUploadedParentDocument({}));
+            if(userdata?.data.role=="coach"){
+              BlocProvider.of<AddDocumentBloc>(context).add(GetTermsSessionCoachingPlayerEvents({"academy_id":36}));
+            }else{
+              BlocProvider.of<CoachingProgramsBloc>(context).add(GroupCoachProgramsListEvent());
+              BlocProvider.of<CoachingProgramsBloc>(context).add(PrivateCoachingProgramsList());
+              BlocProvider.of<AddViewPlayerBloc>(context).add(AddViewPlayerGetChildListEvent());
+              BlocProvider.of<ParentOrderBloc>(context).add(ParentMyOrderListEvent({}));
+
+            }
             var publishKey = await SharedPrefs.getString("stripe_publish_key");
             Stripe.publishableKey = publishKey;
             Navigator.pushNamedAndRemoveUntil(
