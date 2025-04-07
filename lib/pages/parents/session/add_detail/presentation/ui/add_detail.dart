@@ -52,6 +52,9 @@ class AddDetail extends StatelessWidget {
             if (state.isCHildListSucces) {
               print("all child list is ${state.childLisstModel.data.length}");
             }
+            if(state.error!=""){
+              context.showCustomSnackbar(state.error.toString());
+            }
           },
           child: BlocBuilder<AddViewPlayerBloc, AddViewPlayerState>(
             builder: (context, state) {
@@ -121,8 +124,8 @@ class AddDetail extends StatelessWidget {
                                   schoolNameController: schoolNameController,
                                   clubNameController: clubNameController,
                                   medicalConditionController: medicalConditionController,
-                                  photoConsent: state.childPhotoUseOnSocialMedia!,
-                                  firstAidConsent: state.administratorFirstAidNeed!,
+                                  photoConsent: state.childPhotoUseOnSocialMedia??2,
+                                  firstAidConsent: state.administratorFirstAidNeed??2,
                                 ).animate().fade(duration: 600.ms).slideX(begin: 0.3, end: 0, duration: 500.ms),
 
                               if (state.selectedTab == 0)

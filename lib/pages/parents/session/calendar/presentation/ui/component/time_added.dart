@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:intl/intl.dart';
 import 'package:rra/common/values/values_exports.dart';
 
@@ -26,7 +27,7 @@ class TimeAddedView extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.only(left: 4.0, right: 6.0, top: 16.0),
               child: ScreenTitleForCalendar(
-                title: "Time Added ${state.timeAddedModel.data.length}",
+                title: "Time Added ",
                 fontSize: context.screenWidth * 0.042,
               ),
             ),
@@ -34,7 +35,7 @@ class TimeAddedView extends StatelessWidget {
 
             // Remove Expanded here, it's causing layout issues.
             SizedBox(
-              height: context.screenHeight * 0.12, // Adjust height based on content
+              height: context.screenHeight * 0.14, // Adjust height based on content
               child:state.isTimeAddedLoading? AvailablityShimmer(): ListView.builder(
                 scrollDirection: Axis.horizontal,
                 shrinkWrap: true,
@@ -70,16 +71,27 @@ class TimeAddedView extends StatelessWidget {
                           SizedBox(width: context.screenWidth * 0.038),
                           InkWell(
                             onTap: (){
-                              Map<String, dynamic> map = {
-                                "session_id": data.sessionId,
-                                "date": data.date,
-                                "from_time": data.fromTime,
-                                "to_time": data.toTime
-                              };
-                              BlocProvider.of<SessionCalendarBloc>(
-                                  context)
-                                  .add(RemoveSessionByDateEvent(
-                                  map, index));
+
+                              //here need to show alertdialog.
+                              showLogoutConfirmationDialog(
+                                  context: context,
+                                  onCancel: () {
+                                    //  Navigator.pop(context);
+                                  },
+                                  yes: () async {
+                                    Map<String, dynamic> map = {
+                                      "session_id": data.sessionId,
+                                      "date": data.date,
+                                      "from_time": data.fromTime,
+                                      "to_time": data.toTime
+                                    };
+                                    BlocProvider.of<SessionCalendarBloc>(
+                                        context)
+                                        .add(RemoveSessionByDateEvent(
+                                        map, index));
+                                  });
+
+
                             },
                             child: Icon(
                               Icons.cancel_outlined,
@@ -103,5 +115,39 @@ class TimeAddedView extends StatelessWidget {
   String formatDate(String dateStr) {
     DateTime parsedDate = DateTime.parse(dateStr); // Parse the string
     return DateFormat('MMM dd, yyyy').format(parsedDate); // Format it
+  }
+
+  void showLogoutConfirmationDialog({
+    required BuildContext context,
+    required VoidCallback onCancel,
+    required VoidCallback yes,
+  }) {
+    showCupertinoDialog(
+      context: context,
+      builder: (context) {
+        return CupertinoAlertDialog(
+          title: Text('Remove Session.'),
+          content:
+          Text('Are you sure to remove sessions from your order list?'),
+          actions: <Widget>[
+            CupertinoDialogAction(
+              child: Text('No'),
+              onPressed: () {
+                Navigator.pop(context); // Close the dialog
+                onCancel(); // Call the provided onCancel callback
+              },
+            ),
+            CupertinoDialogAction(
+              child: Text('Yes'),
+              isDestructiveAction: true,
+              onPressed: () {
+                Navigator.pop(context); // Close the dialog
+                yes(); // Call the provided onLogout callback
+              },
+            ),
+          ],
+        );
+      },
+    );
   }
 }

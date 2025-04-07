@@ -117,13 +117,13 @@ class CalendarPage extends StatelessWidget {
                               ),
                               SizedBox(
                                 width: context.screenWidth,
-                                height: context.screenHeight * 0.22,
+                                height: context.screenHeight * 0.28,
                                 child: Availablity(),
                               ),
                               if (state.timeAddedModel.data.isNotEmpty)
                                 SizedBox(
                                   width: context.screenWidth,
-                                  height: context.screenHeight * 0.20,
+                                  height: context.screenHeight * 0.24,
                                   child: TimeAddedView(),
                                 ),
                               SizedBox(height: 20),

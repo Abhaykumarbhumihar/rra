@@ -15,16 +15,16 @@ class AddedSlotListItem extends StatelessWidget {
   final String dateTime;
   final String price;
   final String location;
-  final Function(String) onClose;  // Argument accept karne ke liye modify
+  final Function(String) onClose; // Argument accept karne ke liye modify
   final int childCount;
   final List<String> slotLit;
   final String fromTime;
   final String toTime;
   final String sessionID;
   const AddedSlotListItem({
-   required this.fromTime,
-   required this.toTime,
-   required this.sessionID,
+    required this.fromTime,
+    required this.toTime,
+    required this.sessionID,
     required this.childProgram,
     required this.title,
     required this.slotLit,
@@ -119,35 +119,41 @@ class AddedSlotListItem extends StatelessWidget {
                                         ),
                                       ),
                                       InkWell(
-                                        onTap: (){
+                                        onTap: () {
+                                          showLogoutConfirmationDialog(
+                                              context: context,
+                                              onCancel: () {
+                                                //  Navigator.pop(context);
+                                              },
+                                              yes: () async {
+                                                List<String> parts =
+                                                    data.split(" - ");
+                                                String datePart = parts[
+                                                    0]; // "January 2, 2025"
 
-    showLogoutConfirmationDialog(
-    context: context,
-    onCancel: () {
-    //  Navigator.pop(context);
-    },
-    yes: () async {
-      List<String> parts = data.split(" - ");
-      String datePart = parts[0]; // "January 2, 2025"
+                                                // Parse the input date
+                                                DateTime parsedDate =
+                                                    DateFormat("MMMM d, yyyy")
+                                                        .parse(datePart);
 
-      // Parse the input date
-      DateTime parsedDate = DateFormat("MMMM d, yyyy").parse(datePart);
-
-      // Format into "yyyy-MM-dd"
-      String formattedDate = DateFormat("yyyy-MM-dd").format(parsedDate);
-      Map<String, dynamic> map = {
-        "session_id": sessionID,
-        "date": formattedDate,
-        "from_time": fromTime,
-        "to_time": toTime
-      };
-      print("CANCLE BUTTON PRESS CANCLE BUTTON PRESS CANCLE BUTTON PRESS CANCLE BUTTON PRESS");
-      BlocProvider.of<OrderSummaryBloc>(context).add(RemoveSlotEvent(map));
-
-
-    });
-
-                                                                                 },
+                                                // Format into "yyyy-MM-dd"
+                                                String formattedDate =
+                                                    DateFormat("yyyy-MM-dd")
+                                                        .format(parsedDate);
+                                                Map<String, dynamic> map = {
+                                                  "session_id": sessionID,
+                                                  "date": formattedDate,
+                                                  "from_time": fromTime,
+                                                  "to_time": toTime
+                                                };
+                                                print(
+                                                    "CANCLE BUTTON PRESS CANCLE BUTTON PRESS CANCLE BUTTON PRESS CANCLE BUTTON PRESS");
+                                                BlocProvider.of<
+                                                            OrderSummaryBloc>(
+                                                        context)
+                                                    .add(RemoveSlotEvent(map));
+                                              });
+                                        },
                                         child: Image.asset(
                                           "assets/images/circle_close.png",
                                           width: 16,
@@ -177,8 +183,6 @@ class AddedSlotListItem extends StatelessWidget {
         ),
       ],
     );
-
-
   }
 
   void showLogoutConfirmationDialog({
@@ -191,8 +195,8 @@ class AddedSlotListItem extends StatelessWidget {
       builder: (context) {
         return CupertinoAlertDialog(
           title: Text('Remove Session.'),
-          content: Text(
-              'Are you sure to remove sessions from your order list?'),
+          content:
+              Text('Are you sure to remove sessions from your order list?'),
           actions: <Widget>[
             CupertinoDialogAction(
               child: Text('No'),

@@ -59,7 +59,7 @@ class Availablity extends StatelessWidget {
               ),
               state.isAvailablityLoading?Expanded(child: AvailablityShimmer()):SizedBox(
                 width: double.infinity,
-                height: context.screenHeight*0.145,
+                height: context.screenHeight*0.19,
                 child: ListView.builder(
                     shrinkWrap: true,
                     padding: EdgeInsets.zero,
@@ -112,6 +112,8 @@ class Availablity extends StatelessWidget {
                             ),
                             child: Column(
                               mainAxisSize: MainAxisSize.min,
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              crossAxisAlignment: CrossAxisAlignment.center,
                               children: <Widget>[
                                 AvailablitTime(
                                   title: '${data.fromTime}-\n${data.toTime}',

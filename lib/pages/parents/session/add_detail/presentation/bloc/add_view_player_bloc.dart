@@ -35,7 +35,7 @@ class AddViewPlayerBloc extends Bloc<AddViewPlayerEvent, AddViewPlayerState> {
 
     // Ensure the list is large enough to accommodate the index
     if (event.index >= updatedSelection.length) {
-      updatedSelection.addAll(List.filled(event.index - updatedSelection.length + 1, false));
+      updatedSelection.addAll(List.filled(event.index - updatedSelection.length + 1, false,));
     }
 
     // Toggle the selection
@@ -52,7 +52,7 @@ class AddViewPlayerBloc extends Bloc<AddViewPlayerEvent, AddViewPlayerState> {
     }
 
     // Emit the updated state
-    emit(state.copyWith(selectedChildren: updatedSelection, selectedChildId: updatedSelectedIds));
+    emit(state.copyWith(selectedChildren: updatedSelection, selectedChildId: updatedSelectedIds,error: ""));
   }
 
 
@@ -77,7 +77,7 @@ class AddViewPlayerBloc extends Bloc<AddViewPlayerEvent, AddViewPlayerState> {
 
       if (state.dob.toString().trim().isEmpty) {
         emit(state.copyWith(
-            error: 'Please enter your password',
+            error: 'Please enter your dob',
             isError: true,
             isChildError: false,
             isLoading: false,
@@ -88,9 +88,59 @@ class AddViewPlayerBloc extends Bloc<AddViewPlayerEvent, AddViewPlayerState> {
         return;
       }
 
-      if (state.age.toString().trim().isEmpty) {
+      // if (state.age.toString().trim().isEmpty) {
+      //   emit(state.copyWith(
+      //       error: 'Please enter your child age',
+      //       isError: true,
+      //       isChildError: false,
+      //       isLoading: false,
+      //       isChildSuccess: false,
+      //       isCHildListSucces: false,
+      //       isCHildListError: false,
+      //       isLoginApiError: false));
+      //   return;
+      // }
+
+      // if (state.schoolName.toString().trim().isEmpty) {
+      //   emit(state.copyWith(
+      //       error: 'Please enter school name',
+      //       isError: true,
+      //       isChildError: false,
+      //       isLoading: false,
+      //       isChildSuccess: false,
+      //       isCHildListSucces: false,
+      //       isCHildListError: false,
+      //       isLoginApiError: false));
+      //   return;
+      // }
+
+      // if (state.clubName.toString().trim().isEmpty) {
+      //   emit(state.copyWith(
+      //       error: 'Please enter club name name',
+      //       isError: true,
+      //       isChildError: false,
+      //       isLoading: false,
+      //       isChildSuccess: false,
+      //       isCHildListSucces: false,
+      //       isCHildListError: false,
+      //       isLoginApiError: false));
+      //   return;
+      //}
+      if(state.childPhotoUseOnSocialMedia==null){
         emit(state.copyWith(
-            error: 'Please enter your child age',
+            error: "Please select if we have your consent to use your child's photos",
+            isError: true,
+            isChildError: false,
+            isLoading: false,
+            isChildSuccess: false,
+            isCHildListSucces: false,
+            isCHildListError: false,
+            isLoginApiError: false));
+        return;
+      }
+      if(state.administratorFirstAidNeed==null){
+        emit(state.copyWith(
+            error: 'Please select if we can administer first aid to your child',
             isError: true,
             isChildError: false,
             isLoading: false,
@@ -101,31 +151,6 @@ class AddViewPlayerBloc extends Bloc<AddViewPlayerEvent, AddViewPlayerState> {
         return;
       }
 
-      if (state.schoolName.toString().trim().isEmpty) {
-        emit(state.copyWith(
-            error: 'Please enter school name',
-            isError: true,
-            isChildError: false,
-            isLoading: false,
-            isChildSuccess: false,
-            isCHildListSucces: false,
-            isCHildListError: false,
-            isLoginApiError: false));
-        return;
-      }
-
-      if (state.clubName.toString().trim().isEmpty) {
-        emit(state.copyWith(
-            error: 'Please enter club name name',
-            isError: true,
-            isChildError: false,
-            isLoading: false,
-            isChildSuccess: false,
-            isCHildListSucces: false,
-            isCHildListError: false,
-            isLoginApiError: false));
-        return;
-      }
 
       if (!(await Connectivity().isConnected)) {
         emit(state.copyWith(
@@ -142,7 +167,7 @@ class AddViewPlayerBloc extends Bloc<AddViewPlayerEvent, AddViewPlayerState> {
         "academyId": academyId,
         "child_name": "${state.childName}",
         "child_dob": "${state.dob}",
-        "child_age": "${state.age}",
+        "child_age": "",
         "child_school": "${state.schoolName}",
         "child_club": "${state.clubName}",
         "child_medical_condition": "${state.medicalConditionTessUs}",
@@ -268,7 +293,7 @@ class AddViewPlayerBloc extends Bloc<AddViewPlayerEvent, AddViewPlayerState> {
   // Handle tab selection
   Future<void> tabSelect(AddViewPlayerSelectedTabEvent event,
       Emitter<AddViewPlayerState> emit) async {
-    emit(state.copyWith(selectedTab: event.tabno));
+    emit(state.copyWith(selectedTab: event.tabno, error: ""));
   }
 
   // Handle photo consent status change
@@ -278,6 +303,7 @@ class AddViewPlayerBloc extends Bloc<AddViewPlayerEvent, AddViewPlayerState> {
         childPhotoUseOnSocialMedia: event.consentStatus,
         success: false,
         isLoginApiError: false,
+        error: "",
         isError: false,
         isLoading: false));
   }
@@ -290,6 +316,7 @@ class AddViewPlayerBloc extends Bloc<AddViewPlayerEvent, AddViewPlayerState> {
         administratorFirstAidNeed: event.firstAidStatus,
         success: false,
         isLoginApiError: false,
+        error: "",
         isError: false,
         isLoading: false));
   }
@@ -299,7 +326,7 @@ class AddViewPlayerBloc extends Bloc<AddViewPlayerEvent, AddViewPlayerState> {
       Emitter<AddViewPlayerState> emit) async {
     print("CODE IS RUNNING HERE HERE HERE ...");
     print(event.childName);
-    emit(state.copyWith(childName: event.childName));
+    emit(state.copyWith(childName: event.childName,error: "",));
   }
 
   // Handle child age change
@@ -319,6 +346,7 @@ class AddViewPlayerBloc extends Bloc<AddViewPlayerEvent, AddViewPlayerState> {
       Emitter<AddViewPlayerState> emit) async {
     emit(state.copyWith(
         dob: event.dob,
+        error: "",
         success: false,
         isLoginApiError: false,
         isError: false,
@@ -331,6 +359,7 @@ class AddViewPlayerBloc extends Bloc<AddViewPlayerEvent, AddViewPlayerState> {
     emit(state.copyWith(
         schoolName: event.schoolName,
         success: false,
+        error: "",
         isLoginApiError: false,
         isError: false,
         isLoading: false));
@@ -343,6 +372,7 @@ class AddViewPlayerBloc extends Bloc<AddViewPlayerEvent, AddViewPlayerState> {
         clubName: event.clubName,
         success: false,
         isLoginApiError: false,
+        error: "",
         isError: false,
         isLoading: false));
   }
@@ -355,6 +385,7 @@ class AddViewPlayerBloc extends Bloc<AddViewPlayerEvent, AddViewPlayerState> {
         medicalConditionTessUs: event.medicalCondition,
         success: false,
         isLoginApiError: false,
+        error: "",
         isError: false,
         isLoading: false));
   }
@@ -364,6 +395,6 @@ class AddViewPlayerBloc extends Bloc<AddViewPlayerEvent, AddViewPlayerState> {
       Emitter<AddViewPlayerState> emit) async {
     // You can add any logic for submitting here, e.g., making API calls or validation
     // For now, let's just reset the state or do something else.
-    emit(state.copyWith(success: 'Form submitted successfully'));
+    emit(state.copyWith(success: 'Form submitted successfully',error: "",));
   }
 }
