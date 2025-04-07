@@ -71,7 +71,7 @@ class CoachingDetailScreen extends StatelessWidget {
                             .slideY(begin: 0.2, end: 0, duration: 800.ms),
                         SizedBox(height: height * 0.02),
                         Text(
-                          "The sevens stadium",
+                          "${data.locationName}",
                           textAlign: TextAlign.start,
                           style:
                               AppTextStyle.medium(context.screenWidth * 0.048),

@@ -40,36 +40,45 @@ class CalendarPage extends StatelessWidget {
               decoration: CommonBackground.decoration,
               child: Stack(
                 children: <Widget>[
-                  SingleChildScrollView(
-                    child: Column(
-                      children: <Widget>[
-                        CustomHeader(
-                          title: "Coaching Programs",
-                          onBackPress: () {
-                            Navigator.pop(context);
-                          },
+                  Column(
+                    children: [
+                      // 🧍 Static (non-scrollable) content
+                      CustomHeader(
+                        title: "Coaching Programs",
+                        onBackPress: () {
+                          Navigator.pop(context);
+                        },
+                      ),
+                      Padding(
+                        padding:
+                        EdgeInsets.only(left: context.screenHeight * 0.02),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Padding(
+                              padding: const EdgeInsets.only(
+                                  left: 18.0, right: 18.0, top: 12.0),
+                              child:
+                              Image.asset("assets/images/tracker_one.png"),
+                            ),
+                          ],
                         ),
-                        Padding(
+                      ),
+                      // 🔃 Scrollable content below this point
+                      Expanded(
+                        child: SingleChildScrollView(
                           padding: EdgeInsets.only(
-                              left: context.screenHeight * 0.02),
+                              left: context.screenHeight * 0.02,
+                              bottom: 20), // optional bottom padding
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: <Widget>[
-                              Padding(
-                                padding: const EdgeInsets.only(
-                                    left: 18.0, right: 18.0, top: 12.0),
-                                child: Image.asset(
-                                    "assets/images/tracker_one.png"),
-                              ),
-                              SizedBox(
-                                height: context.screenHeight * 0.013,
-                              ),
+                              SizedBox(height: context.screenHeight * 0.013),
                               Padding(
                                 padding: const EdgeInsets.only(
                                     left: 3.0, right: 6.0, bottom: 6.0),
                                 child: ScreenTitleForCalendar(
-                                  title:
-                                      "${BlocProvider.of<CoachingProgramsBloc>(context).state.coachingName}",
+                                  title: "${BlocProvider.of<CoachingProgramsBloc>(context).state.coachingName}",
                                 ),
                               ),
                               Padding(
@@ -82,30 +91,33 @@ class CalendarPage extends StatelessWidget {
                                   width: context.screenWidth,
                                   height: 1.5,
                                   decoration: BoxDecoration(
-                                      // color: Colors.green,
                                       image: DecorationImage(
-                                          image: AssetImage(
-                                              "assets/images/line.png"))),
+                                          image: AssetImage("assets/images/line.png")
+                                      )
+                                  ),
                                 ),
                               ),
-                              SizedBox(
-                                height: 10.0,
+                              SizedBox(height: 10.0),
+                              Padding(
+                                padding: const EdgeInsets.only(left: 4.0, bottom: 2),
+                                child: Text(
+                                  "Green highlighted dates have events. Tap to check availability.",
+                                  style: TextStyle(
+                                      color: AppColor.appWhiteColor,
+                                      fontFamily: AppFont.interRegular,
+                                      fontSize: 10),
+                                ),
                               ),
                               Padding(
-                                padding: const EdgeInsets.only(
-                                    right: 8.0, left: 3.0),
+                                padding: const EdgeInsets.only(right: 8.0, left: 3.0),
                                 child: CalendarView()
                                     .animate()
                                     .fade(duration: 900.ms)
-                                    .scaleXY(
-                                        begin: 0.9,
-                                        end: 1.0,
-                                        duration: 800.ms,
-                                        curve: Curves.easeOut),
+                                    .scaleXY(begin: 0.9, end: 1.0, duration: 800.ms, curve: Curves.easeOut),
                               ),
                               SizedBox(
                                 width: context.screenWidth,
-                                height: context.screenHeight * 0.19,
+                                height: context.screenHeight * 0.22,
                                 child: Availablity(),
                               ),
                               if (state.timeAddedModel.data.isNotEmpty)
@@ -114,9 +126,7 @@ class CalendarPage extends StatelessWidget {
                                   height: context.screenHeight * 0.20,
                                   child: TimeAddedView(),
                                 ),
-                              SizedBox(
-                                height: 20,
-                              ),
+                              SizedBox(height: 20),
                               Padding(
                                 padding: EdgeInsets.only(
                                     left: context.screenWidth * 0.04,
@@ -124,42 +134,23 @@ class CalendarPage extends StatelessWidget {
                                 child: CustomButton(
                                   text: "Continue",
                                   onPressed: () async {
-                                    int minimumCount =
-                                        BlocProvider.of<CoachingProgramsBloc>(
-                                                    context)
-                                                .state
-                                                .minimumCountOfBooking ??
-                                            0;
-                                    print("MINIMUM COUNT IS $minimumCount");
-                                    print(
-                                        "DATA LENGTH COUNT  IS ${state.timeAddedModel.data.length}");
-
-                                    if (state.timeAddedModel.data.length >=
-                                        minimumCount) {
-                                      Navigator.pushNamed(
-                                          context, AppRoutes.ADDDETAILS);
+                                    int minimumCount = BlocProvider.of<CoachingProgramsBloc>(context).state.minimumCountOfBooking ?? 0;
+                                    if (state.timeAddedModel.data.length >= minimumCount) {
+                                      Navigator.pushNamed(context, AppRoutes.ADDDETAILS);
                                     } else {
-                                      context.showCustomSnackbar(
-                                          "Please select at least $minimumCount time slots to proceed!");
+                                      context.showCustomSnackbar("Please select at least $minimumCount time slots to proceed!");
                                     }
                                   },
-                                )
-                                    .animate()
+                                ).animate()
                                     .fade(duration: 600.ms, delay: 500.ms)
-                                    .scaleXY(
-                                        begin: 0.8,
-                                        end: 1.0,
-                                        duration: 500.ms,
-                                        curve: Curves.bounceOut),
+                                    .scaleXY(begin: 0.8, end: 1.0, duration: 500.ms, curve: Curves.bounceOut),
                               ),
-                              SizedBox(
-                                height: 20,
-                              ),
+                              SizedBox(height: 20),
                             ],
                           ),
-                        )
-                      ],
-                    ),
+                        ),
+                      ),
+                    ],
                   ),
                   if (state.isLoading)
                     InkWell(onTap: () {}, child: const LoadingIndicator())
@@ -170,5 +161,6 @@ class CalendarPage extends StatelessWidget {
         ),
       ),
     );
+
   }
 }

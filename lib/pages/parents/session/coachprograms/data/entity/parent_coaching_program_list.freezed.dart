@@ -262,8 +262,8 @@ mixin _$CoachingProgramData {
   int get id => throw _privateConstructorUsedError;
   @JsonKey(name: 'academyid')
   int get academyId => throw _privateConstructorUsedError;
-  @JsonKey(name: 'locationid')
-  int get locationId => throw _privateConstructorUsedError;
+  @JsonKey(name: 'location_name')
+  String get locationName => throw _privateConstructorUsedError;
   @JsonKey(name: 'name')
   String get name => throw _privateConstructorUsedError;
   @JsonKey(name: 'description')
@@ -322,7 +322,7 @@ abstract class $CoachingProgramDataCopyWith<$Res> {
   $Res call(
       {int id,
       @JsonKey(name: 'academyid') int academyId,
-      @JsonKey(name: 'locationid') int locationId,
+      @JsonKey(name: 'location_name') String locationName,
       @JsonKey(name: 'name') String name,
       @JsonKey(name: 'description') String description,
       @JsonKey(name: 'image') String image,
@@ -364,7 +364,7 @@ class _$CoachingProgramDataCopyWithImpl<$Res, $Val extends CoachingProgramData>
   $Res call({
     Object? id = null,
     Object? academyId = null,
-    Object? locationId = null,
+    Object? locationName = null,
     Object? name = null,
     Object? description = null,
     Object? image = null,
@@ -395,10 +395,10 @@ class _$CoachingProgramDataCopyWithImpl<$Res, $Val extends CoachingProgramData>
           ? _value.academyId
           : academyId // ignore: cast_nullable_to_non_nullable
               as int,
-      locationId: null == locationId
-          ? _value.locationId
-          : locationId // ignore: cast_nullable_to_non_nullable
-              as int,
+      locationName: null == locationName
+          ? _value.locationName
+          : locationName // ignore: cast_nullable_to_non_nullable
+              as String,
       name: null == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
@@ -494,7 +494,7 @@ abstract class _$$CoachingProgramDataImplCopyWith<$Res>
   $Res call(
       {int id,
       @JsonKey(name: 'academyid') int academyId,
-      @JsonKey(name: 'locationid') int locationId,
+      @JsonKey(name: 'location_name') String locationName,
       @JsonKey(name: 'name') String name,
       @JsonKey(name: 'description') String description,
       @JsonKey(name: 'image') String image,
@@ -534,7 +534,7 @@ class __$$CoachingProgramDataImplCopyWithImpl<$Res>
   $Res call({
     Object? id = null,
     Object? academyId = null,
-    Object? locationId = null,
+    Object? locationName = null,
     Object? name = null,
     Object? description = null,
     Object? image = null,
@@ -565,10 +565,10 @@ class __$$CoachingProgramDataImplCopyWithImpl<$Res>
           ? _value.academyId
           : academyId // ignore: cast_nullable_to_non_nullable
               as int,
-      locationId: null == locationId
-          ? _value.locationId
-          : locationId // ignore: cast_nullable_to_non_nullable
-              as int,
+      locationName: null == locationName
+          ? _value.locationName
+          : locationName // ignore: cast_nullable_to_non_nullable
+              as String,
       name: null == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
@@ -659,7 +659,7 @@ class _$CoachingProgramDataImpl implements _CoachingProgramData {
   const _$CoachingProgramDataImpl(
       {this.id = 0,
       @JsonKey(name: 'academyid') this.academyId = 0,
-      @JsonKey(name: 'locationid') this.locationId = 0,
+      @JsonKey(name: 'location_name') this.locationName = "",
       @JsonKey(name: 'name') this.name = '',
       @JsonKey(name: 'description') this.description = '',
       @JsonKey(name: 'image') this.image = '',
@@ -694,8 +694,8 @@ class _$CoachingProgramDataImpl implements _CoachingProgramData {
   @JsonKey(name: 'academyid')
   final int academyId;
   @override
-  @JsonKey(name: 'locationid')
-  final int locationId;
+  @JsonKey(name: 'location_name')
+  final String locationName;
   @override
   @JsonKey(name: 'name')
   final String name;
@@ -759,7 +759,7 @@ class _$CoachingProgramDataImpl implements _CoachingProgramData {
 
   @override
   String toString() {
-    return 'CoachingProgramData(id: $id, academyId: $academyId, locationId: $locationId, name: $name, description: $description, image: $image, registrationFees: $registrationFees, minCountOfBookings: $minCountOfBookings, allowPastDateBooking: $allowPastDateBooking, availAdditionalBooking: $availAdditionalBooking, additionalBookingChoice: $additionalBookingChoice, minCountForDiscount: $minCountForDiscount, bulkDiscountAdditionalBooking: $bulkDiscountAdditionalBooking, firstSessionDiscount: $firstSessionDiscount, secondSessionDiscount: $secondSessionDiscount, thirdSessionDiscount: $thirdSessionDiscount, fourthSessionDiscount: $fourthSessionDiscount, isPayNow: $isPayNow, isPayLater: $isPayLater, isSplitPay: $isSplitPay, private: $private, discountApply: $discountApply, status: $status)';
+    return 'CoachingProgramData(id: $id, academyId: $academyId, locationName: $locationName, name: $name, description: $description, image: $image, registrationFees: $registrationFees, minCountOfBookings: $minCountOfBookings, allowPastDateBooking: $allowPastDateBooking, availAdditionalBooking: $availAdditionalBooking, additionalBookingChoice: $additionalBookingChoice, minCountForDiscount: $minCountForDiscount, bulkDiscountAdditionalBooking: $bulkDiscountAdditionalBooking, firstSessionDiscount: $firstSessionDiscount, secondSessionDiscount: $secondSessionDiscount, thirdSessionDiscount: $thirdSessionDiscount, fourthSessionDiscount: $fourthSessionDiscount, isPayNow: $isPayNow, isPayLater: $isPayLater, isSplitPay: $isSplitPay, private: $private, discountApply: $discountApply, status: $status)';
   }
 
   @override
@@ -770,8 +770,8 @@ class _$CoachingProgramDataImpl implements _CoachingProgramData {
             (identical(other.id, id) || other.id == id) &&
             (identical(other.academyId, academyId) ||
                 other.academyId == academyId) &&
-            (identical(other.locationId, locationId) ||
-                other.locationId == locationId) &&
+            (identical(other.locationName, locationName) ||
+                other.locationName == locationName) &&
             (identical(other.name, name) || other.name == name) &&
             (identical(other.description, description) ||
                 other.description == description) &&
@@ -819,7 +819,7 @@ class _$CoachingProgramDataImpl implements _CoachingProgramData {
         runtimeType,
         id,
         academyId,
-        locationId,
+        locationName,
         name,
         description,
         image,
@@ -863,7 +863,7 @@ abstract class _CoachingProgramData implements CoachingProgramData {
   const factory _CoachingProgramData(
       {final int id,
       @JsonKey(name: 'academyid') final int academyId,
-      @JsonKey(name: 'locationid') final int locationId,
+      @JsonKey(name: 'location_name') final String locationName,
       @JsonKey(name: 'name') final String name,
       @JsonKey(name: 'description') final String description,
       @JsonKey(name: 'image') final String image,
@@ -899,8 +899,8 @@ abstract class _CoachingProgramData implements CoachingProgramData {
   @JsonKey(name: 'academyid')
   int get academyId;
   @override
-  @JsonKey(name: 'locationid')
-  int get locationId;
+  @JsonKey(name: 'location_name')
+  String get locationName;
   @override
   @JsonKey(name: 'name')
   String get name;

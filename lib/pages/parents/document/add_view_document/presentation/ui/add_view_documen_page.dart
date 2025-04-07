@@ -6,13 +6,13 @@ import 'package:rra/common/component/loading_indicator.dart';
 import 'package:rra/common/values/values_exports.dart';
 
 import '../../../../../../common/component/common_app_bar.dart';
+import '../../../../../../common/component/common_toggle_tab.dart';
 import '../../../../../../common/component/custom_app_button.dart';
 import '../../../../../../common/image/camera_file_utility.dart';
 import '../bloc/add_document_bloc.dart';
 import '../bloc/add_document_event.dart';
 import '../bloc/add_document_state.dart';
 import 'component/add_document_component.dart';
-import 'component/custom_toggles_switch.dart';
 import 'component/document_item.dart';
 
 class AddViewDocumenPage extends StatelessWidget {
@@ -59,12 +59,30 @@ class AddViewDocumenPage extends StatelessWidget {
                         SizedBox(
                           height: 24,
                         ),
+                        // Padding(
+                        //   padding: EdgeInsets.only(
+                        //     left: context.screenWidth * 0.052,
+                        //     right: context.screenWidth * 0.052,
+                        //   ),
+                        //   child: CustomToggleSwitch(),
+                        // ),
                         Padding(
-                          padding: EdgeInsets.only(
-                            left: context.screenWidth * 0.052,
-                            right: context.screenWidth * 0.052,
+                          padding: EdgeInsets.symmetric(
+                              horizontal: context.screenWidth * 0.03, vertical: 0),
+                          child: CustomToggleSwitch(
+                            selectedTabIndex: context
+                                .read<AddDocumentBloc>()
+                                .state
+                                .selectedTab,
+                            tabNames: ['Add\nDocument', 'View\nDocument','Receive\nDocument'],
+                            onTabChanged: (index) {
+                              BlocProvider.of<AddDocumentBloc>(context).add(
+                                  AddDocumentEvent.selectTabEvent(index));
+
+                              print(index);
+
+                            },
                           ),
-                          child: CustomToggleSwitch(),
                         ),
                         SizedBox(
                           height: context.screenHeight*0.05,

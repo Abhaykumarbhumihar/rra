@@ -1,3 +1,4 @@
+import 'package:intl/intl.dart';
 import 'package:rra/common/values/values_exports.dart';
 
 import '../../../../../../../common/component/screen_title.dart';
@@ -62,7 +63,7 @@ class TimeAddedView extends StatelessWidget {
                             child: Padding(
                               padding: const EdgeInsets.only(top: 10.0),
                               child: TimeAdded(
-                                title: data.time, // Ensure this widget allows multiline text
+                                title: formatDate(data.date)+" at "+data.time, // Ensure this widget allows multiline text
                               ),
                             ),
                           ),
@@ -82,7 +83,7 @@ class TimeAddedView extends StatelessWidget {
                             },
                             child: Icon(
                               Icons.cancel_outlined,
-                              color: AppColor.appWhiteColor.withOpacity(0.1),
+                              color: AppColor.appWhiteColor.withOpacity(0.6),
                               size: 24,
                             ),
                           ),
@@ -98,5 +99,9 @@ class TimeAddedView extends StatelessWidget {
         );
       },
     );
+  }
+  String formatDate(String dateStr) {
+    DateTime parsedDate = DateTime.parse(dateStr); // Parse the string
+    return DateFormat('MMM dd, yyyy').format(parsedDate); // Format it
   }
 }

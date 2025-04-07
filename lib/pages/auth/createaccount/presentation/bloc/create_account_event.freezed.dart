@@ -21,6 +21,7 @@ mixin _$CreateAccountEvent {
     required TResult Function(String firstName) firstNameChanged,
     required TResult Function(String email) emailChanged,
     required TResult Function(String password) passwordChanged,
+    required TResult Function(String password) confirmPasswordChanged,
     required TResult Function(String academicId) selectAcademicCreateAccount,
     required TResult Function() createAccountSubmitted,
     required TResult Function() makeInitial,
@@ -31,6 +32,7 @@ mixin _$CreateAccountEvent {
     TResult? Function(String firstName)? firstNameChanged,
     TResult? Function(String email)? emailChanged,
     TResult? Function(String password)? passwordChanged,
+    TResult? Function(String password)? confirmPasswordChanged,
     TResult? Function(String academicId)? selectAcademicCreateAccount,
     TResult? Function()? createAccountSubmitted,
     TResult? Function()? makeInitial,
@@ -41,6 +43,7 @@ mixin _$CreateAccountEvent {
     TResult Function(String firstName)? firstNameChanged,
     TResult Function(String email)? emailChanged,
     TResult Function(String password)? passwordChanged,
+    TResult Function(String password)? confirmPasswordChanged,
     TResult Function(String academicId)? selectAcademicCreateAccount,
     TResult Function()? createAccountSubmitted,
     TResult Function()? makeInitial,
@@ -52,6 +55,8 @@ mixin _$CreateAccountEvent {
     required TResult Function(FirstNameChanged value) firstNameChanged,
     required TResult Function(EmailChanged value) emailChanged,
     required TResult Function(PasswordChanged value) passwordChanged,
+    required TResult Function(ConfirmPasswordChanged value)
+        confirmPasswordChanged,
     required TResult Function(SelectAcademicCreateAccount value)
         selectAcademicCreateAccount,
     required TResult Function(CreateAccountSubmitted value)
@@ -64,6 +69,7 @@ mixin _$CreateAccountEvent {
     TResult? Function(FirstNameChanged value)? firstNameChanged,
     TResult? Function(EmailChanged value)? emailChanged,
     TResult? Function(PasswordChanged value)? passwordChanged,
+    TResult? Function(ConfirmPasswordChanged value)? confirmPasswordChanged,
     TResult? Function(SelectAcademicCreateAccount value)?
         selectAcademicCreateAccount,
     TResult? Function(CreateAccountSubmitted value)? createAccountSubmitted,
@@ -75,6 +81,7 @@ mixin _$CreateAccountEvent {
     TResult Function(FirstNameChanged value)? firstNameChanged,
     TResult Function(EmailChanged value)? emailChanged,
     TResult Function(PasswordChanged value)? passwordChanged,
+    TResult Function(ConfirmPasswordChanged value)? confirmPasswordChanged,
     TResult Function(SelectAcademicCreateAccount value)?
         selectAcademicCreateAccount,
     TResult Function(CreateAccountSubmitted value)? createAccountSubmitted,
@@ -178,6 +185,7 @@ class _$FirstNameChangedImpl implements FirstNameChanged {
     required TResult Function(String firstName) firstNameChanged,
     required TResult Function(String email) emailChanged,
     required TResult Function(String password) passwordChanged,
+    required TResult Function(String password) confirmPasswordChanged,
     required TResult Function(String academicId) selectAcademicCreateAccount,
     required TResult Function() createAccountSubmitted,
     required TResult Function() makeInitial,
@@ -191,6 +199,7 @@ class _$FirstNameChangedImpl implements FirstNameChanged {
     TResult? Function(String firstName)? firstNameChanged,
     TResult? Function(String email)? emailChanged,
     TResult? Function(String password)? passwordChanged,
+    TResult? Function(String password)? confirmPasswordChanged,
     TResult? Function(String academicId)? selectAcademicCreateAccount,
     TResult? Function()? createAccountSubmitted,
     TResult? Function()? makeInitial,
@@ -204,6 +213,7 @@ class _$FirstNameChangedImpl implements FirstNameChanged {
     TResult Function(String firstName)? firstNameChanged,
     TResult Function(String email)? emailChanged,
     TResult Function(String password)? passwordChanged,
+    TResult Function(String password)? confirmPasswordChanged,
     TResult Function(String academicId)? selectAcademicCreateAccount,
     TResult Function()? createAccountSubmitted,
     TResult Function()? makeInitial,
@@ -221,6 +231,8 @@ class _$FirstNameChangedImpl implements FirstNameChanged {
     required TResult Function(FirstNameChanged value) firstNameChanged,
     required TResult Function(EmailChanged value) emailChanged,
     required TResult Function(PasswordChanged value) passwordChanged,
+    required TResult Function(ConfirmPasswordChanged value)
+        confirmPasswordChanged,
     required TResult Function(SelectAcademicCreateAccount value)
         selectAcademicCreateAccount,
     required TResult Function(CreateAccountSubmitted value)
@@ -236,6 +248,7 @@ class _$FirstNameChangedImpl implements FirstNameChanged {
     TResult? Function(FirstNameChanged value)? firstNameChanged,
     TResult? Function(EmailChanged value)? emailChanged,
     TResult? Function(PasswordChanged value)? passwordChanged,
+    TResult? Function(ConfirmPasswordChanged value)? confirmPasswordChanged,
     TResult? Function(SelectAcademicCreateAccount value)?
         selectAcademicCreateAccount,
     TResult? Function(CreateAccountSubmitted value)? createAccountSubmitted,
@@ -250,6 +263,7 @@ class _$FirstNameChangedImpl implements FirstNameChanged {
     TResult Function(FirstNameChanged value)? firstNameChanged,
     TResult Function(EmailChanged value)? emailChanged,
     TResult Function(PasswordChanged value)? passwordChanged,
+    TResult Function(ConfirmPasswordChanged value)? confirmPasswordChanged,
     TResult Function(SelectAcademicCreateAccount value)?
         selectAcademicCreateAccount,
     TResult Function(CreateAccountSubmitted value)? createAccountSubmitted,
@@ -347,6 +361,7 @@ class _$EmailChangedImpl implements EmailChanged {
     required TResult Function(String firstName) firstNameChanged,
     required TResult Function(String email) emailChanged,
     required TResult Function(String password) passwordChanged,
+    required TResult Function(String password) confirmPasswordChanged,
     required TResult Function(String academicId) selectAcademicCreateAccount,
     required TResult Function() createAccountSubmitted,
     required TResult Function() makeInitial,
@@ -360,6 +375,7 @@ class _$EmailChangedImpl implements EmailChanged {
     TResult? Function(String firstName)? firstNameChanged,
     TResult? Function(String email)? emailChanged,
     TResult? Function(String password)? passwordChanged,
+    TResult? Function(String password)? confirmPasswordChanged,
     TResult? Function(String academicId)? selectAcademicCreateAccount,
     TResult? Function()? createAccountSubmitted,
     TResult? Function()? makeInitial,
@@ -373,6 +389,7 @@ class _$EmailChangedImpl implements EmailChanged {
     TResult Function(String firstName)? firstNameChanged,
     TResult Function(String email)? emailChanged,
     TResult Function(String password)? passwordChanged,
+    TResult Function(String password)? confirmPasswordChanged,
     TResult Function(String academicId)? selectAcademicCreateAccount,
     TResult Function()? createAccountSubmitted,
     TResult Function()? makeInitial,
@@ -390,6 +407,8 @@ class _$EmailChangedImpl implements EmailChanged {
     required TResult Function(FirstNameChanged value) firstNameChanged,
     required TResult Function(EmailChanged value) emailChanged,
     required TResult Function(PasswordChanged value) passwordChanged,
+    required TResult Function(ConfirmPasswordChanged value)
+        confirmPasswordChanged,
     required TResult Function(SelectAcademicCreateAccount value)
         selectAcademicCreateAccount,
     required TResult Function(CreateAccountSubmitted value)
@@ -405,6 +424,7 @@ class _$EmailChangedImpl implements EmailChanged {
     TResult? Function(FirstNameChanged value)? firstNameChanged,
     TResult? Function(EmailChanged value)? emailChanged,
     TResult? Function(PasswordChanged value)? passwordChanged,
+    TResult? Function(ConfirmPasswordChanged value)? confirmPasswordChanged,
     TResult? Function(SelectAcademicCreateAccount value)?
         selectAcademicCreateAccount,
     TResult? Function(CreateAccountSubmitted value)? createAccountSubmitted,
@@ -419,6 +439,7 @@ class _$EmailChangedImpl implements EmailChanged {
     TResult Function(FirstNameChanged value)? firstNameChanged,
     TResult Function(EmailChanged value)? emailChanged,
     TResult Function(PasswordChanged value)? passwordChanged,
+    TResult Function(ConfirmPasswordChanged value)? confirmPasswordChanged,
     TResult Function(SelectAcademicCreateAccount value)?
         selectAcademicCreateAccount,
     TResult Function(CreateAccountSubmitted value)? createAccountSubmitted,
@@ -517,6 +538,7 @@ class _$PasswordChangedImpl implements PasswordChanged {
     required TResult Function(String firstName) firstNameChanged,
     required TResult Function(String email) emailChanged,
     required TResult Function(String password) passwordChanged,
+    required TResult Function(String password) confirmPasswordChanged,
     required TResult Function(String academicId) selectAcademicCreateAccount,
     required TResult Function() createAccountSubmitted,
     required TResult Function() makeInitial,
@@ -530,6 +552,7 @@ class _$PasswordChangedImpl implements PasswordChanged {
     TResult? Function(String firstName)? firstNameChanged,
     TResult? Function(String email)? emailChanged,
     TResult? Function(String password)? passwordChanged,
+    TResult? Function(String password)? confirmPasswordChanged,
     TResult? Function(String academicId)? selectAcademicCreateAccount,
     TResult? Function()? createAccountSubmitted,
     TResult? Function()? makeInitial,
@@ -543,6 +566,7 @@ class _$PasswordChangedImpl implements PasswordChanged {
     TResult Function(String firstName)? firstNameChanged,
     TResult Function(String email)? emailChanged,
     TResult Function(String password)? passwordChanged,
+    TResult Function(String password)? confirmPasswordChanged,
     TResult Function(String academicId)? selectAcademicCreateAccount,
     TResult Function()? createAccountSubmitted,
     TResult Function()? makeInitial,
@@ -560,6 +584,8 @@ class _$PasswordChangedImpl implements PasswordChanged {
     required TResult Function(FirstNameChanged value) firstNameChanged,
     required TResult Function(EmailChanged value) emailChanged,
     required TResult Function(PasswordChanged value) passwordChanged,
+    required TResult Function(ConfirmPasswordChanged value)
+        confirmPasswordChanged,
     required TResult Function(SelectAcademicCreateAccount value)
         selectAcademicCreateAccount,
     required TResult Function(CreateAccountSubmitted value)
@@ -575,6 +601,7 @@ class _$PasswordChangedImpl implements PasswordChanged {
     TResult? Function(FirstNameChanged value)? firstNameChanged,
     TResult? Function(EmailChanged value)? emailChanged,
     TResult? Function(PasswordChanged value)? passwordChanged,
+    TResult? Function(ConfirmPasswordChanged value)? confirmPasswordChanged,
     TResult? Function(SelectAcademicCreateAccount value)?
         selectAcademicCreateAccount,
     TResult? Function(CreateAccountSubmitted value)? createAccountSubmitted,
@@ -589,6 +616,7 @@ class _$PasswordChangedImpl implements PasswordChanged {
     TResult Function(FirstNameChanged value)? firstNameChanged,
     TResult Function(EmailChanged value)? emailChanged,
     TResult Function(PasswordChanged value)? passwordChanged,
+    TResult Function(ConfirmPasswordChanged value)? confirmPasswordChanged,
     TResult Function(SelectAcademicCreateAccount value)?
         selectAcademicCreateAccount,
     TResult Function(CreateAccountSubmitted value)? createAccountSubmitted,
@@ -612,6 +640,186 @@ abstract class PasswordChanged implements CreateAccountEvent {
   @JsonKey(includeFromJson: false, includeToJson: false)
   _$$PasswordChangedImplCopyWith<_$PasswordChangedImpl> get copyWith =>
       throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$ConfirmPasswordChangedImplCopyWith<$Res> {
+  factory _$$ConfirmPasswordChangedImplCopyWith(
+          _$ConfirmPasswordChangedImpl value,
+          $Res Function(_$ConfirmPasswordChangedImpl) then) =
+      __$$ConfirmPasswordChangedImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String password});
+}
+
+/// @nodoc
+class __$$ConfirmPasswordChangedImplCopyWithImpl<$Res>
+    extends _$CreateAccountEventCopyWithImpl<$Res, _$ConfirmPasswordChangedImpl>
+    implements _$$ConfirmPasswordChangedImplCopyWith<$Res> {
+  __$$ConfirmPasswordChangedImplCopyWithImpl(
+      _$ConfirmPasswordChangedImpl _value,
+      $Res Function(_$ConfirmPasswordChangedImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of CreateAccountEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? password = null,
+  }) {
+    return _then(_$ConfirmPasswordChangedImpl(
+      null == password
+          ? _value.password
+          : password // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$ConfirmPasswordChangedImpl implements ConfirmPasswordChanged {
+  const _$ConfirmPasswordChangedImpl(this.password);
+
+  @override
+  final String password;
+
+  @override
+  String toString() {
+    return 'CreateAccountEvent.confirmPasswordChanged(password: $password)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$ConfirmPasswordChangedImpl &&
+            (identical(other.password, password) ||
+                other.password == password));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, password);
+
+  /// Create a copy of CreateAccountEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$ConfirmPasswordChangedImplCopyWith<_$ConfirmPasswordChangedImpl>
+      get copyWith => __$$ConfirmPasswordChangedImplCopyWithImpl<
+          _$ConfirmPasswordChangedImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(String firstName) firstNameChanged,
+    required TResult Function(String email) emailChanged,
+    required TResult Function(String password) passwordChanged,
+    required TResult Function(String password) confirmPasswordChanged,
+    required TResult Function(String academicId) selectAcademicCreateAccount,
+    required TResult Function() createAccountSubmitted,
+    required TResult Function() makeInitial,
+  }) {
+    return confirmPasswordChanged(password);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(String firstName)? firstNameChanged,
+    TResult? Function(String email)? emailChanged,
+    TResult? Function(String password)? passwordChanged,
+    TResult? Function(String password)? confirmPasswordChanged,
+    TResult? Function(String academicId)? selectAcademicCreateAccount,
+    TResult? Function()? createAccountSubmitted,
+    TResult? Function()? makeInitial,
+  }) {
+    return confirmPasswordChanged?.call(password);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String firstName)? firstNameChanged,
+    TResult Function(String email)? emailChanged,
+    TResult Function(String password)? passwordChanged,
+    TResult Function(String password)? confirmPasswordChanged,
+    TResult Function(String academicId)? selectAcademicCreateAccount,
+    TResult Function()? createAccountSubmitted,
+    TResult Function()? makeInitial,
+    required TResult orElse(),
+  }) {
+    if (confirmPasswordChanged != null) {
+      return confirmPasswordChanged(password);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(FirstNameChanged value) firstNameChanged,
+    required TResult Function(EmailChanged value) emailChanged,
+    required TResult Function(PasswordChanged value) passwordChanged,
+    required TResult Function(ConfirmPasswordChanged value)
+        confirmPasswordChanged,
+    required TResult Function(SelectAcademicCreateAccount value)
+        selectAcademicCreateAccount,
+    required TResult Function(CreateAccountSubmitted value)
+        createAccountSubmitted,
+    required TResult Function(MakeInitial value) makeInitial,
+  }) {
+    return confirmPasswordChanged(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(FirstNameChanged value)? firstNameChanged,
+    TResult? Function(EmailChanged value)? emailChanged,
+    TResult? Function(PasswordChanged value)? passwordChanged,
+    TResult? Function(ConfirmPasswordChanged value)? confirmPasswordChanged,
+    TResult? Function(SelectAcademicCreateAccount value)?
+        selectAcademicCreateAccount,
+    TResult? Function(CreateAccountSubmitted value)? createAccountSubmitted,
+    TResult? Function(MakeInitial value)? makeInitial,
+  }) {
+    return confirmPasswordChanged?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(FirstNameChanged value)? firstNameChanged,
+    TResult Function(EmailChanged value)? emailChanged,
+    TResult Function(PasswordChanged value)? passwordChanged,
+    TResult Function(ConfirmPasswordChanged value)? confirmPasswordChanged,
+    TResult Function(SelectAcademicCreateAccount value)?
+        selectAcademicCreateAccount,
+    TResult Function(CreateAccountSubmitted value)? createAccountSubmitted,
+    TResult Function(MakeInitial value)? makeInitial,
+    required TResult orElse(),
+  }) {
+    if (confirmPasswordChanged != null) {
+      return confirmPasswordChanged(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class ConfirmPasswordChanged implements CreateAccountEvent {
+  const factory ConfirmPasswordChanged(final String password) =
+      _$ConfirmPasswordChangedImpl;
+
+  String get password;
+
+  /// Create a copy of CreateAccountEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$ConfirmPasswordChangedImplCopyWith<_$ConfirmPasswordChangedImpl>
+      get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -690,6 +898,7 @@ class _$SelectAcademicCreateAccountImpl implements SelectAcademicCreateAccount {
     required TResult Function(String firstName) firstNameChanged,
     required TResult Function(String email) emailChanged,
     required TResult Function(String password) passwordChanged,
+    required TResult Function(String password) confirmPasswordChanged,
     required TResult Function(String academicId) selectAcademicCreateAccount,
     required TResult Function() createAccountSubmitted,
     required TResult Function() makeInitial,
@@ -703,6 +912,7 @@ class _$SelectAcademicCreateAccountImpl implements SelectAcademicCreateAccount {
     TResult? Function(String firstName)? firstNameChanged,
     TResult? Function(String email)? emailChanged,
     TResult? Function(String password)? passwordChanged,
+    TResult? Function(String password)? confirmPasswordChanged,
     TResult? Function(String academicId)? selectAcademicCreateAccount,
     TResult? Function()? createAccountSubmitted,
     TResult? Function()? makeInitial,
@@ -716,6 +926,7 @@ class _$SelectAcademicCreateAccountImpl implements SelectAcademicCreateAccount {
     TResult Function(String firstName)? firstNameChanged,
     TResult Function(String email)? emailChanged,
     TResult Function(String password)? passwordChanged,
+    TResult Function(String password)? confirmPasswordChanged,
     TResult Function(String academicId)? selectAcademicCreateAccount,
     TResult Function()? createAccountSubmitted,
     TResult Function()? makeInitial,
@@ -733,6 +944,8 @@ class _$SelectAcademicCreateAccountImpl implements SelectAcademicCreateAccount {
     required TResult Function(FirstNameChanged value) firstNameChanged,
     required TResult Function(EmailChanged value) emailChanged,
     required TResult Function(PasswordChanged value) passwordChanged,
+    required TResult Function(ConfirmPasswordChanged value)
+        confirmPasswordChanged,
     required TResult Function(SelectAcademicCreateAccount value)
         selectAcademicCreateAccount,
     required TResult Function(CreateAccountSubmitted value)
@@ -748,6 +961,7 @@ class _$SelectAcademicCreateAccountImpl implements SelectAcademicCreateAccount {
     TResult? Function(FirstNameChanged value)? firstNameChanged,
     TResult? Function(EmailChanged value)? emailChanged,
     TResult? Function(PasswordChanged value)? passwordChanged,
+    TResult? Function(ConfirmPasswordChanged value)? confirmPasswordChanged,
     TResult? Function(SelectAcademicCreateAccount value)?
         selectAcademicCreateAccount,
     TResult? Function(CreateAccountSubmitted value)? createAccountSubmitted,
@@ -762,6 +976,7 @@ class _$SelectAcademicCreateAccountImpl implements SelectAcademicCreateAccount {
     TResult Function(FirstNameChanged value)? firstNameChanged,
     TResult Function(EmailChanged value)? emailChanged,
     TResult Function(PasswordChanged value)? passwordChanged,
+    TResult Function(ConfirmPasswordChanged value)? confirmPasswordChanged,
     TResult Function(SelectAcademicCreateAccount value)?
         selectAcademicCreateAccount,
     TResult Function(CreateAccountSubmitted value)? createAccountSubmitted,
@@ -835,6 +1050,7 @@ class _$CreateAccountSubmittedImpl implements CreateAccountSubmitted {
     required TResult Function(String firstName) firstNameChanged,
     required TResult Function(String email) emailChanged,
     required TResult Function(String password) passwordChanged,
+    required TResult Function(String password) confirmPasswordChanged,
     required TResult Function(String academicId) selectAcademicCreateAccount,
     required TResult Function() createAccountSubmitted,
     required TResult Function() makeInitial,
@@ -848,6 +1064,7 @@ class _$CreateAccountSubmittedImpl implements CreateAccountSubmitted {
     TResult? Function(String firstName)? firstNameChanged,
     TResult? Function(String email)? emailChanged,
     TResult? Function(String password)? passwordChanged,
+    TResult? Function(String password)? confirmPasswordChanged,
     TResult? Function(String academicId)? selectAcademicCreateAccount,
     TResult? Function()? createAccountSubmitted,
     TResult? Function()? makeInitial,
@@ -861,6 +1078,7 @@ class _$CreateAccountSubmittedImpl implements CreateAccountSubmitted {
     TResult Function(String firstName)? firstNameChanged,
     TResult Function(String email)? emailChanged,
     TResult Function(String password)? passwordChanged,
+    TResult Function(String password)? confirmPasswordChanged,
     TResult Function(String academicId)? selectAcademicCreateAccount,
     TResult Function()? createAccountSubmitted,
     TResult Function()? makeInitial,
@@ -878,6 +1096,8 @@ class _$CreateAccountSubmittedImpl implements CreateAccountSubmitted {
     required TResult Function(FirstNameChanged value) firstNameChanged,
     required TResult Function(EmailChanged value) emailChanged,
     required TResult Function(PasswordChanged value) passwordChanged,
+    required TResult Function(ConfirmPasswordChanged value)
+        confirmPasswordChanged,
     required TResult Function(SelectAcademicCreateAccount value)
         selectAcademicCreateAccount,
     required TResult Function(CreateAccountSubmitted value)
@@ -893,6 +1113,7 @@ class _$CreateAccountSubmittedImpl implements CreateAccountSubmitted {
     TResult? Function(FirstNameChanged value)? firstNameChanged,
     TResult? Function(EmailChanged value)? emailChanged,
     TResult? Function(PasswordChanged value)? passwordChanged,
+    TResult? Function(ConfirmPasswordChanged value)? confirmPasswordChanged,
     TResult? Function(SelectAcademicCreateAccount value)?
         selectAcademicCreateAccount,
     TResult? Function(CreateAccountSubmitted value)? createAccountSubmitted,
@@ -907,6 +1128,7 @@ class _$CreateAccountSubmittedImpl implements CreateAccountSubmitted {
     TResult Function(FirstNameChanged value)? firstNameChanged,
     TResult Function(EmailChanged value)? emailChanged,
     TResult Function(PasswordChanged value)? passwordChanged,
+    TResult Function(ConfirmPasswordChanged value)? confirmPasswordChanged,
     TResult Function(SelectAcademicCreateAccount value)?
         selectAcademicCreateAccount,
     TResult Function(CreateAccountSubmitted value)? createAccountSubmitted,
@@ -968,6 +1190,7 @@ class _$MakeInitialImpl implements MakeInitial {
     required TResult Function(String firstName) firstNameChanged,
     required TResult Function(String email) emailChanged,
     required TResult Function(String password) passwordChanged,
+    required TResult Function(String password) confirmPasswordChanged,
     required TResult Function(String academicId) selectAcademicCreateAccount,
     required TResult Function() createAccountSubmitted,
     required TResult Function() makeInitial,
@@ -981,6 +1204,7 @@ class _$MakeInitialImpl implements MakeInitial {
     TResult? Function(String firstName)? firstNameChanged,
     TResult? Function(String email)? emailChanged,
     TResult? Function(String password)? passwordChanged,
+    TResult? Function(String password)? confirmPasswordChanged,
     TResult? Function(String academicId)? selectAcademicCreateAccount,
     TResult? Function()? createAccountSubmitted,
     TResult? Function()? makeInitial,
@@ -994,6 +1218,7 @@ class _$MakeInitialImpl implements MakeInitial {
     TResult Function(String firstName)? firstNameChanged,
     TResult Function(String email)? emailChanged,
     TResult Function(String password)? passwordChanged,
+    TResult Function(String password)? confirmPasswordChanged,
     TResult Function(String academicId)? selectAcademicCreateAccount,
     TResult Function()? createAccountSubmitted,
     TResult Function()? makeInitial,
@@ -1011,6 +1236,8 @@ class _$MakeInitialImpl implements MakeInitial {
     required TResult Function(FirstNameChanged value) firstNameChanged,
     required TResult Function(EmailChanged value) emailChanged,
     required TResult Function(PasswordChanged value) passwordChanged,
+    required TResult Function(ConfirmPasswordChanged value)
+        confirmPasswordChanged,
     required TResult Function(SelectAcademicCreateAccount value)
         selectAcademicCreateAccount,
     required TResult Function(CreateAccountSubmitted value)
@@ -1026,6 +1253,7 @@ class _$MakeInitialImpl implements MakeInitial {
     TResult? Function(FirstNameChanged value)? firstNameChanged,
     TResult? Function(EmailChanged value)? emailChanged,
     TResult? Function(PasswordChanged value)? passwordChanged,
+    TResult? Function(ConfirmPasswordChanged value)? confirmPasswordChanged,
     TResult? Function(SelectAcademicCreateAccount value)?
         selectAcademicCreateAccount,
     TResult? Function(CreateAccountSubmitted value)? createAccountSubmitted,
@@ -1040,6 +1268,7 @@ class _$MakeInitialImpl implements MakeInitial {
     TResult Function(FirstNameChanged value)? firstNameChanged,
     TResult Function(EmailChanged value)? emailChanged,
     TResult Function(PasswordChanged value)? passwordChanged,
+    TResult Function(ConfirmPasswordChanged value)? confirmPasswordChanged,
     TResult Function(SelectAcademicCreateAccount value)?
         selectAcademicCreateAccount,
     TResult Function(CreateAccountSubmitted value)? createAccountSubmitted,

@@ -20,7 +20,7 @@ class CustomToggleSwitch extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.all(8.0),
       child: Container(
-        padding: EdgeInsets.all(2),
+      //  padding: EdgeInsets.all(2),
         // Outer padding
         decoration: BoxDecoration(
           color: Colors.white.withOpacity(0.4),
@@ -32,6 +32,7 @@ class CustomToggleSwitch extends StatelessWidget {
         ),
         child: Row(
           children: List.generate(
+
             tabNames.length,
                 (index) => _buildToggleButton(index, context),
           ),
@@ -61,8 +62,9 @@ class CustomToggleSwitch extends StatelessWidget {
           child: Center(
             child: Text(
               tabNames[index], // Dynamically set the tab name
+              textAlign: TextAlign.center,
               style: TextStyle(
-                fontSize: 16,
+                fontSize: 14,
                 fontWeight: FontWeight.bold,
                 color: isActive ? Colors.white : Colors.white,
               ),

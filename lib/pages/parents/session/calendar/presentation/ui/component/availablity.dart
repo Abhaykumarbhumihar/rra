@@ -33,7 +33,8 @@ class Availablity extends StatelessWidget {
       child: BlocBuilder<SessionCalendarBloc, SessionCalendarState>(
         builder: (context, state) {
           return Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
+           crossAxisAlignment: CrossAxisAlignment.start,
+            mainAxisAlignment: MainAxisAlignment.start,
             children: <Widget>[
               SizedBox(
                 height: 12,
@@ -47,13 +48,21 @@ class Availablity extends StatelessWidget {
                     .fade(duration: 900.ms)
                     .slideY(begin: -0.2, end: 0, duration: 800.ms),
               ),
-              SizedBox(
-                height: 8.0,
+              Padding(
+                padding: const EdgeInsets.only(left: 5.0,top: 4,bottom: 4),
+                child: Text("Tap to add slot for the event.",
+                  style: TextStyle(
+                      color: AppColor.appWhiteColor,
+                      fontFamily: AppFont.interRegular,
+                      fontSize: 10
+                  ),),
               ),
-
-              state.isAvailablityLoading?Expanded(child: AvailablityShimmer()):Expanded(
+              state.isAvailablityLoading?Expanded(child: AvailablityShimmer()):SizedBox(
+                width: double.infinity,
+                height: context.screenHeight*0.145,
                 child: ListView.builder(
                     shrinkWrap: true,
+                    padding: EdgeInsets.zero,
                     scrollDirection: Axis.horizontal,
                     itemCount: state.avilableDatesResponse.data.length,
                     itemBuilder: (context, index) {
@@ -89,51 +98,68 @@ class Availablity extends StatelessWidget {
                           _showCustomBottomSheet(
                               context, body, "${data.sessionDayName}");
                         },
-                        child: Row(
-                          children: <Widget>[
-                            Container(
-                              width: context.screenWidth * 0.28,
-                              padding: EdgeInsets.symmetric(
-                                  vertical: context.screenHeight * 0.015,
-                                  horizontal: context.screenWidth * 0.02),
-                              decoration: BoxDecoration(
-                                  image: DecorationImage(
-                                      image: AssetImage(
-                                          "assets/images/availablity.png"))),
-                              child: Column(
-                                mainAxisSize: MainAxisSize.min,
-                                children: <Widget>[
-                                  AvailablitTime(
-                                    title: '${data.fromTime}',
+                        child: Padding(
+                          padding: const EdgeInsets.only(left: 2.0,right: 5),
+                          child: Container(
+                            width: context.screenWidth * 0.3,
+                            padding: EdgeInsets.symmetric(
+                                vertical: context.screenHeight * 0.012,
+                                horizontal: context.screenWidth * 0.02),
+                            decoration: BoxDecoration(
+                                image: DecorationImage(
+                                    image: AssetImage(
+                                        "assets/images/availablity.png"),fit: BoxFit.fill),
+                            ),
+                            child: Column(
+                              mainAxisSize: MainAxisSize.min,
+                              children: <Widget>[
+                                AvailablitTime(
+                                  title: '${data.fromTime}-\n${data.toTime}',
+                                ).animate()
+                                    .fade(duration: 700.ms, delay: (index * 200).ms)
+                                    .slideY(begin: 0.3, end: 0, duration: 800.ms),
+
+                                SizedBox(
+                                  height: 4,
+                                ),
+                                Container(
+                                  padding: EdgeInsets.symmetric(
+                                      vertical: context.screenHeight * 0.005,
+                                      horizontal:
+                                          context.screenWidth * 0.003),
+                                  decoration: BoxDecoration(
+                                      image: DecorationImage(
+                                          image: AssetImage(
+                                              "assets/images/rounded_pink.png"))),
+                                  child: Center(
+                                      child: AvailablitTime(
+                                    title: '${data.slotsLeft} Slots',
                                   ).animate()
-                                      .fade(duration: 700.ms, delay: (index * 200).ms)
-                                      .slideY(begin: 0.3, end: 0, duration: 800.ms),
-                                  SizedBox(
-                                    height: 4,
+                                          .fade(duration: 700.ms, delay: (index * 250).ms)
+                                          .scaleXY(begin: 0.8, end: 1.0, duration: 800.ms, curve: Curves.bounceOut),
                                   ),
-                                  Container(
-                                    padding: EdgeInsets.symmetric(
-                                        vertical: context.screenHeight * 0.005,
-                                        horizontal:
-                                            context.screenWidth * 0.003),
-                                    decoration: BoxDecoration(
-                                        image: DecorationImage(
-                                            image: AssetImage(
-                                                "assets/images/rounded_pink.png"))),
-                                    child: Center(
-                                        child: AvailablitTime(
-                                      title: '${data.slotsLeft} Slots',
-                                    ).animate()
-                                            .fade(duration: 700.ms, delay: (index * 250).ms)
-                                            .scaleXY(begin: 0.8, end: 1.0, duration: 800.ms, curve: Curves.bounceOut),
+                                ),
+                                SizedBox(height: 4),
+
+                                Container(
+                                  decoration: BoxDecoration(
+                                    color: Colors.white54,
+                                    borderRadius: BorderRadius.circular(4.0),
+                                  ),
+                                  child: Padding(
+                                    padding: const EdgeInsets.symmetric(horizontal: 6.0,vertical: 6),
+                                    child: Text(
+                                      "Price: ${data.price}",
+                                      style: TextStyle(fontSize: 12, fontWeight: FontWeight.w500),
                                     ),
-                                  )
-                                ],
-                              ),
-                            ).animate()
-                            .fade(duration: 900.ms, delay: (index * 200).ms)
-                            .slideX(begin: 0.3, end: 0, duration: 800.ms),
-                          ],
+                                  ),
+                                ),
+
+                              ],
+                            ),
+                          ).animate()
+                          .fade(duration: 900.ms, delay: (index * 200).ms)
+                          .slideX(begin: 0.3, end: 0, duration: 800.ms),
                         ),
                       );
                     }),

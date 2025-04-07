@@ -7,6 +7,7 @@ class CreateAccountEvent with _$CreateAccountEvent {
   const factory CreateAccountEvent.firstNameChanged(String firstName) = FirstNameChanged;
   const factory CreateAccountEvent.emailChanged(String email) = EmailChanged;
   const factory CreateAccountEvent.passwordChanged(String password) = PasswordChanged;
+  const factory CreateAccountEvent.confirmPasswordChanged(String password) = ConfirmPasswordChanged;
   const factory CreateAccountEvent.selectAcademicCreateAccount(String academicId) = SelectAcademicCreateAccount;
   const factory CreateAccountEvent.createAccountSubmitted() = CreateAccountSubmitted;
   const factory CreateAccountEvent.makeInitial() = MakeInitial;

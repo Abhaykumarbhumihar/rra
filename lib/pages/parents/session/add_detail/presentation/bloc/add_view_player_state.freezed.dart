@@ -22,8 +22,8 @@ mixin _$AddViewPlayerState {
   dynamic get success => throw _privateConstructorUsedError;
   bool get isError => throw _privateConstructorUsedError;
   bool get isLoginApiError => throw _privateConstructorUsedError;
-  int get childPhotoUseOnSocialMedia => throw _privateConstructorUsedError;
-  int get administratorFirstAidNeed => throw _privateConstructorUsedError;
+  int? get childPhotoUseOnSocialMedia => throw _privateConstructorUsedError;
+  int? get administratorFirstAidNeed => throw _privateConstructorUsedError;
   List<bool> get selectedChildren => throw _privateConstructorUsedError;
   String get childName => throw _privateConstructorUsedError;
   String get dob => throw _privateConstructorUsedError;
@@ -58,8 +58,8 @@ abstract class $AddViewPlayerStateCopyWith<$Res> {
       dynamic success,
       bool isError,
       bool isLoginApiError,
-      int childPhotoUseOnSocialMedia,
-      int administratorFirstAidNeed,
+      int? childPhotoUseOnSocialMedia,
+      int? administratorFirstAidNeed,
       List<bool> selectedChildren,
       String childName,
       String dob,
@@ -98,8 +98,8 @@ class _$AddViewPlayerStateCopyWithImpl<$Res, $Val extends AddViewPlayerState>
     Object? success = freezed,
     Object? isError = null,
     Object? isLoginApiError = null,
-    Object? childPhotoUseOnSocialMedia = null,
-    Object? administratorFirstAidNeed = null,
+    Object? childPhotoUseOnSocialMedia = freezed,
+    Object? administratorFirstAidNeed = freezed,
     Object? selectedChildren = null,
     Object? childName = null,
     Object? dob = null,
@@ -139,14 +139,14 @@ class _$AddViewPlayerStateCopyWithImpl<$Res, $Val extends AddViewPlayerState>
           ? _value.isLoginApiError
           : isLoginApiError // ignore: cast_nullable_to_non_nullable
               as bool,
-      childPhotoUseOnSocialMedia: null == childPhotoUseOnSocialMedia
+      childPhotoUseOnSocialMedia: freezed == childPhotoUseOnSocialMedia
           ? _value.childPhotoUseOnSocialMedia
           : childPhotoUseOnSocialMedia // ignore: cast_nullable_to_non_nullable
-              as int,
-      administratorFirstAidNeed: null == administratorFirstAidNeed
+              as int?,
+      administratorFirstAidNeed: freezed == administratorFirstAidNeed
           ? _value.administratorFirstAidNeed
           : administratorFirstAidNeed // ignore: cast_nullable_to_non_nullable
-              as int,
+              as int?,
       selectedChildren: null == selectedChildren
           ? _value.selectedChildren
           : selectedChildren // ignore: cast_nullable_to_non_nullable
@@ -228,8 +228,8 @@ abstract class _$$AddViewPlayerStateImplCopyWith<$Res>
       dynamic success,
       bool isError,
       bool isLoginApiError,
-      int childPhotoUseOnSocialMedia,
-      int administratorFirstAidNeed,
+      int? childPhotoUseOnSocialMedia,
+      int? administratorFirstAidNeed,
       List<bool> selectedChildren,
       String childName,
       String dob,
@@ -267,8 +267,8 @@ class __$$AddViewPlayerStateImplCopyWithImpl<$Res>
     Object? success = freezed,
     Object? isError = null,
     Object? isLoginApiError = null,
-    Object? childPhotoUseOnSocialMedia = null,
-    Object? administratorFirstAidNeed = null,
+    Object? childPhotoUseOnSocialMedia = freezed,
+    Object? administratorFirstAidNeed = freezed,
     Object? selectedChildren = null,
     Object? childName = null,
     Object? dob = null,
@@ -308,14 +308,14 @@ class __$$AddViewPlayerStateImplCopyWithImpl<$Res>
           ? _value.isLoginApiError
           : isLoginApiError // ignore: cast_nullable_to_non_nullable
               as bool,
-      childPhotoUseOnSocialMedia: null == childPhotoUseOnSocialMedia
+      childPhotoUseOnSocialMedia: freezed == childPhotoUseOnSocialMedia
           ? _value.childPhotoUseOnSocialMedia
           : childPhotoUseOnSocialMedia // ignore: cast_nullable_to_non_nullable
-              as int,
-      administratorFirstAidNeed: null == administratorFirstAidNeed
+              as int?,
+      administratorFirstAidNeed: freezed == administratorFirstAidNeed
           ? _value.administratorFirstAidNeed
           : administratorFirstAidNeed // ignore: cast_nullable_to_non_nullable
-              as int,
+              as int?,
       selectedChildren: null == selectedChildren
           ? _value._selectedChildren
           : selectedChildren // ignore: cast_nullable_to_non_nullable
@@ -382,8 +382,8 @@ class _$AddViewPlayerStateImpl implements _AddViewPlayerState {
       this.success,
       this.isError = false,
       this.isLoginApiError = false,
-      this.childPhotoUseOnSocialMedia = 1,
-      this.administratorFirstAidNeed = 1,
+      this.childPhotoUseOnSocialMedia,
+      this.administratorFirstAidNeed,
       final List<bool> selectedChildren = const [],
       this.childName = "",
       this.dob = "",
@@ -417,11 +417,9 @@ class _$AddViewPlayerStateImpl implements _AddViewPlayerState {
   @JsonKey()
   final bool isLoginApiError;
   @override
-  @JsonKey()
-  final int childPhotoUseOnSocialMedia;
+  final int? childPhotoUseOnSocialMedia;
   @override
-  @JsonKey()
-  final int administratorFirstAidNeed;
+  final int? administratorFirstAidNeed;
   final List<bool> _selectedChildren;
   @override
   @JsonKey()
@@ -571,8 +569,8 @@ abstract class _AddViewPlayerState implements AddViewPlayerState {
       final dynamic success,
       final bool isError,
       final bool isLoginApiError,
-      final int childPhotoUseOnSocialMedia,
-      final int administratorFirstAidNeed,
+      final int? childPhotoUseOnSocialMedia,
+      final int? administratorFirstAidNeed,
       final List<bool> selectedChildren,
       final String childName,
       final String dob,
@@ -600,9 +598,9 @@ abstract class _AddViewPlayerState implements AddViewPlayerState {
   @override
   bool get isLoginApiError;
   @override
-  int get childPhotoUseOnSocialMedia;
+  int? get childPhotoUseOnSocialMedia;
   @override
-  int get administratorFirstAidNeed;
+  int? get administratorFirstAidNeed;
   @override
   List<bool> get selectedChildren;
   @override

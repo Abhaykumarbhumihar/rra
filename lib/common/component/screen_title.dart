@@ -39,6 +39,7 @@ class ScreenTitleForCalendar extends StatelessWidget {
     return Text(
       title,
       textAlign: TextAlign.start,
+
       style: TextStyle(
         color: AppColor.appWhiteColor,
         fontFamily: AppFont.interMedium,

@@ -22,7 +22,7 @@ class CoachingProgramData with _$CoachingProgramData {
   const factory CoachingProgramData({
     @Default(0) int id,
     @JsonKey(name: 'academyid') @Default(0) int academyId,
-    @JsonKey(name: 'locationid') @Default(0) int locationId,
+    @JsonKey(name: 'location_name') @Default("") String locationName,
     @JsonKey(name: 'name')  @Default('') String name,
     @JsonKey(name: 'description')  @Default('') String description,
     @JsonKey(name: 'image')  @Default('') String image,

@@ -33,7 +33,7 @@ _$CoachingProgramDataImpl _$$CoachingProgramDataImplFromJson(
     _$CoachingProgramDataImpl(
       id: (json['id'] as num?)?.toInt() ?? 0,
       academyId: (json['academyid'] as num?)?.toInt() ?? 0,
-      locationId: (json['locationid'] as num?)?.toInt() ?? 0,
+      locationName: json['location_name'] as String? ?? "",
       name: json['name'] as String? ?? '',
       description: json['description'] as String? ?? '',
       image: json['image'] as String? ?? '',
@@ -70,7 +70,7 @@ Map<String, dynamic> _$$CoachingProgramDataImplToJson(
     <String, dynamic>{
       'id': instance.id,
       'academyid': instance.academyId,
-      'locationid': instance.locationId,
+      'location_name': instance.locationName,
       'name': instance.name,
       'description': instance.description,
       'image': instance.image,

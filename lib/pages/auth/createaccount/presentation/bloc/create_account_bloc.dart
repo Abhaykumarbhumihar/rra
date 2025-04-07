@@ -19,6 +19,7 @@ class CreateAccountBloc extends Bloc<CreateAccountEvent, CreateAccountState> {
     on<EmailChanged>(_onEmailChanged);
     on<SelectAcademicCreateAccount>(_selectAcademic);
     on<PasswordChanged>(_onPasswordChanged);
+    on<ConfirmPasswordChanged>(_onConfirmPasswordChanged);
     on<CreateAccountSubmitted>(_onCreateAccountSubmitted);
     on<MakeInitial>(_onMakeInitial);
   }
@@ -74,7 +75,16 @@ class CreateAccountBloc extends Bloc<CreateAccountEvent, CreateAccountState> {
         isServerError: false
      ));
   }
-
+  Future<void> _onConfirmPasswordChanged(
+      ConfirmPasswordChanged event, Emitter<CreateAccountState> emit) async {
+    emit(state.copyWith(
+        confirmPassword: event.password,
+        successMessage: '',
+        errorMessage: '',
+        isSuccess: false,
+        isServerError: false
+    ));
+  }
 
 
   Future<void> _onCreateAccountSubmitted(
@@ -137,8 +147,14 @@ class CreateAccountBloc extends Bloc<CreateAccountEvent, CreateAccountState> {
           isServerError: false));
       return;
     }
-
-
+    // ✅ Password and Confirm Password match validation
+    if (state.password.trim() != state.confirmPassword.trim()) {
+      emit(state.copyWith(
+          successMessage: '',
+          errorMessage: 'Passwords do not match.',
+          isServerError: false));
+      return;
+    }
 
     try {
       var academyId = await SharedPrefs.getString("selected_academyid");

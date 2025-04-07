@@ -144,7 +144,7 @@ class LoginScreen extends StatelessWidget {
                                 controller: passwordController,
                                 title: "Password",
                                 isPass: true,
-                                isSuffix: false,
+                                isSuffix: true,
                                 hint: 'Enter your password',
                                 prefixIcon: Image.asset(
                                   'assets/images/lock.png',

@@ -40,18 +40,34 @@ class CoachingProgramListShimmer extends StatelessWidget {
                           SizedBox(width: 8.0),
                           Expanded(
                             child: Padding(
-                              padding: const EdgeInsets.only(right: 28.0),
-                              child: Container(
-                                height: 16,
-                                width: MediaQuery.of(context).size.width * 0.4,
+                              padding: const EdgeInsets.only(right: 28.0,top: 6),
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Container(
+                                    height: 16,
+                                    width: MediaQuery.of(context).size.width * 0.4,
 
-                                decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(10.0),
-                                  color: Colors.grey[400],
-                                ),
+                                    decoration: BoxDecoration(
+                                      borderRadius: BorderRadius.circular(10.0),
+                                      color: Colors.grey[400],
+                                    ),
+                                  ),
+                                  SizedBox(height: 8,),
+                                  Container(
+                                    height: 16,
+                                    width: MediaQuery.of(context).size.width * 0.4,
+
+                                    decoration: BoxDecoration(
+                                      borderRadius: BorderRadius.circular(10.0),
+                                      color: Colors.grey[400],
+                                    ),
+                                  ),
+                                ],
                               ),
                             ),
                           ),
+
                         ],
                       ),
                     ),

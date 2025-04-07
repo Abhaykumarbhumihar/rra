@@ -184,7 +184,7 @@ class CreateAccount extends StatelessWidget {
                                   controller: passwordController,
                                   title: "Password",
                                   isPass: true,
-                                  isSuffix: false,
+                                  isSuffix: true,
                                   prefixIcon: Image.asset(
                                     'assets/images/lock.png',
                                     width: 12,
@@ -204,6 +204,33 @@ class CreateAccount extends StatelessWidget {
                                     .animate()
                                     .fadeIn(duration: 1.3.seconds)
                                     .slideX(begin: -0.2, duration: 1.3.seconds, curve: Curves.easeOut),
+                                SizedBox(height: 12),
+                                CustomTextInputMobile(
+                                  isPrefix: false,
+                                  controller: confirmPasswordController,
+                                  title: "Confirm Password",
+                                  isPass: true,
+                                  isSuffix: true,
+                                  prefixIcon: Image.asset(
+                                    'assets/images/lock.png',
+                                    width: 12,
+                                    height: 12,
+                                    color: AppColor.appWhiteColor,
+                                  ),
+                                  hint: 'Re Enter your password',
+                                  focusNode: confirmPasswordFocusNode,
+                                  onChanged: (value) {
+                                    context.read<CreateAccountBloc>().add(ConfirmPasswordChanged(value));
+                                  },
+                                  errorMessage: state.errorMessage == "Password must be at least 6 characters long and include at least one uppercase letter, one lowercase letter, one number, and one special character." ||
+                                      state.errorMessage == "Please enter your password"
+                                      ? state.errorMessage
+                                      : null,
+                                )
+                                    .animate()
+                                    .fadeIn(duration: 1.3.seconds)
+                                    .slideX(begin: 0.2, duration: 1.3.seconds, curve: Curves.easeOut),
+
                                 const SizedBox(height: 12),
                                 SizedBox(height: height * 0.03),
                                 // Create Account Button
