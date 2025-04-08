@@ -9,6 +9,7 @@ import '../../../../../../../common/component/recurring_dialog_inputtext.dart';
 import '../../../../../../../common/routes/exports.dart';
 import '../../../../../../../common/values/app_color.dart';
 import '../../../../../../../common/values/fonts.dart';
+import '../../bloc/session_calendar_event.dart';
 
 
 class RepeatInputField extends StatefulWidget {
@@ -46,6 +47,7 @@ class _RepeatInputFieldState extends State<RepeatInputField> {
       readOnly: true,
 
       onTap: () async {
+        var bloc = BlocProvider.of<SessionCalendarBloc>(context);
         final result = await showModalBottomSheet<String>(
           context: context,
           builder: (BuildContext context) {
@@ -53,11 +55,24 @@ class _RepeatInputFieldState extends State<RepeatInputField> {
               padding: EdgeInsets.all(10),
               child: Column(
                 mainAxisSize: MainAxisSize.min,
-                children: widget.options.map((option) {
+                children: widget.options.asMap().entries.map((entry) {
+                  final index = entry.key;
+                  final option = entry.value;
                   return ListTile(
-                    title: Text(option),
+                    title: Text(option.toString()),
                     onTap: () {
-                      Navigator.pop(context, option);
+                      if(index==0){
+                        bloc.add(GetDayCountSessionEvent(52));
+                      }else if(index==1){
+                        bloc.add(GetDayCountSessionEvent(26));
+                      }else if(index==2){
+                        bloc.add(GetDayCountSessionEvent(17));
+                      }else if(index==3){
+                        bloc.add(GetDayCountSessionEvent(17));
+                      }
+                      print("Tapped index: $index"); // Prints the index
+                      print("Tapped option: $option"); // Prints the option
+                      Navigator.pop(context, option); // Returns the selected option
                     },
                   );
                 }).toList(),
@@ -68,7 +83,7 @@ class _RepeatInputFieldState extends State<RepeatInputField> {
 
         if (result != null) {
           setState(() {
-            widget.stateController.text = result; // Update text field with selected value
+            widget.stateController.text = result;
           });
         }
       },

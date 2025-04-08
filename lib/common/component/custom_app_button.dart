@@ -77,7 +77,7 @@ class CustomButtonWithLineBorder extends StatelessWidget {
       child: Container(
         width: buttonWidth,
         //height: height*0.062,
-        padding: EdgeInsets.symmetric(vertical:  height*0.018),
+        padding: EdgeInsets.symmetric(vertical:  height*0.012),
         decoration: BoxDecoration(
          color: AppColor.appWhiteColor,
           border: Border.all(

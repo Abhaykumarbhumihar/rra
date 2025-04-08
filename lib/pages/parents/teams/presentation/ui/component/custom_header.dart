@@ -18,8 +18,11 @@ class CustomHeaderWithOutTitle extends StatelessWidget {
               // Profile Image
               CircleAvatar(
                 radius: 20, // Adjust size
-                backgroundImage: AssetImage(
-                    "assets/images/avatar.png"), // Replace with actual asset
+                backgroundImage: NetworkImage(BlocProvider.of<AppBloc>(context)
+                    .state
+                    .userdata
+                    .data
+                    .image), // Replace with actual asset
               ),
               SizedBox(width: 10), // Space between image and text
               // Text Column

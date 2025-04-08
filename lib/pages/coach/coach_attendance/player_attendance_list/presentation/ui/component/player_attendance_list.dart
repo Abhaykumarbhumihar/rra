@@ -1,8 +1,10 @@
 import 'package:rra/common/component/component_export.dart';
 import 'package:rra/common/values/values_exports.dart';
 
+import '../../../../../../../common/local/SharedPrefs.dart';
 import '../../../../../../../common/routes/routes.dart';
 import '../../bloc/attendance_bloc.dart';
+import '../../bloc/attendance_event.dart';
 import '../../bloc/attendance_state.dart';
 
 class PlayerAttendanceList extends StatelessWidget {
@@ -19,6 +21,7 @@ class PlayerAttendanceList extends StatelessWidget {
     return ListView.builder(
       padding: EdgeInsets.zero,
         shrinkWrap: true,
+        physics: BouncingScrollPhysics(),
         itemCount: state.attendancePlayerListResponse.data.players.length,
         itemBuilder: (context,index){
         var data=state.attendancePlayerListResponse.data.players[index];
@@ -69,8 +72,14 @@ class PlayerAttendanceList extends StatelessWidget {
                             SizedBox(height: 3.0,),
                             CommonSmallElevatedButton(
                               label: "View",
-                              onPressed: (){
+                              onPressed: () async {
                                 print(data.id);
+                                var academyId = await SharedPrefs.getString("selected_academyid");
+                                Map<String,dynamic>map={
+                                  "academy_id": academyId,
+                                  "player_id": data.id
+                                };
+                                BlocProvider.of<AttendanceBloc>(context).add(GetDetailOfOneChildAttendanceEvent(map));
                                 // Navigator.pushNamed(
                                 //     context, AppRoutes.COACHSINGLEPLAYERATTENDANCE);
                               },

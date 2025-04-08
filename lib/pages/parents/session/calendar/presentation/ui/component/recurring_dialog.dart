@@ -7,6 +7,7 @@ import 'package:rra/pages/parents/session/calendar/presentation/ui/component/sta
 import '../../../../../../../common/component/custom_app_button.dart';
 import '../../bloc/session_calendar_bloc.dart';
 import '../../bloc/session_calendar_event.dart';
+import '../../bloc/session_calendar_state.dart';
 
 class RecurringDialog extends StatefulWidget {
   List dayName;
@@ -24,14 +25,24 @@ class _RecurringDialogState extends State<RecurringDialog> {
 
   TextEditingController timeToRepeatController = TextEditingController();
   var count = "52";
+  var countt=52;
 
   @override
   Widget build(BuildContext context) {
-    print(widget.dayName);
+    print("4444444");
+    print("ffffff${widget.dayName}");
     var width = MediaQuery.of(context).size.width;
     var height = context.screenHeight;
+    print(dayController.text);
+
     print(
         "SELECTED DATE IS ${BlocProvider.of<SessionCalendarBloc>(context).state.datetime}");
+    return BlocListener<SessionCalendarBloc, SessionCalendarState>(
+  listener: (context, state) {
+    // TODO: implement listener
+  },
+  child: BlocBuilder<SessionCalendarBloc, SessionCalendarState>(
+  builder: (context, state) {
     return AlertDialog(
       contentPadding: EdgeInsets.zero,
       buttonPadding: EdgeInsets.zero,
@@ -93,6 +104,18 @@ class _RecurringDialogState extends State<RecurringDialog> {
                     TimeToRepeatTextFiled(
                       stateController: timeToRepeatController,
                       onTap: () async {
+                        try{
+                          if(dayController.text==widget.dayName[0]){
+                            countt=52;
+                          }else  if(dayController.text==widget.dayName[1]){
+                            countt=26;
+                          }else  if(dayController.text==widget.dayName[2]){
+                            countt=17;
+                          }else  if(dayController.text==widget.dayName[3]){
+                            countt=13;
+                          }
+                          BlocProvider.of<SessionCalendarBloc>(context).add(GetDayCountSessionEvent(countt));
+                        }catch(e){}
                         final result = await showModalBottomSheet<String>(
                           context: context,
                           isScrollControlled: true,
@@ -106,7 +129,7 @@ class _RecurringDialogState extends State<RecurringDialog> {
                                 // Makes it scrollable
                                 child: Column(
                                   mainAxisSize: MainAxisSize.min,
-                                  children: List.generate(52, (index) {
+                                  children: List.generate(state.countt, (index) {
                                     int value = index + 1;
                                     return ListTile(
                                       title: Text(value.toString()),
@@ -146,7 +169,7 @@ class _RecurringDialogState extends State<RecurringDialog> {
                         Expanded(
                           flex: 1,
                           child: RecurringActionButton(
-                            text: "See Availability",
+                            text: "Add",
                             onPressed: () {
                               Map<String, dynamic> map = {
                                 "session_id":
@@ -187,6 +210,9 @@ class _RecurringDialogState extends State<RecurringDialog> {
         ),
       ),
     );
+  },
+),
+);
   }
 
   String formatDateTime(String dateString) {

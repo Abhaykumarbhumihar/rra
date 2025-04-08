@@ -3,7 +3,7 @@
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
-part of 'view_session_state.dart';
+part of 'collateral_state.dart';
 
 // **************************************************************************
 // FreezedGenerator
@@ -15,47 +15,47 @@ final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
-mixin _$ViewSessionState {
+mixin _$CollateralState {
   bool get isLoading => throw _privateConstructorUsedError;
   bool get isStatusUpdated => throw _privateConstructorUsedError;
   bool get isError => throw _privateConstructorUsedError;
   String get message => throw _privateConstructorUsedError;
-  BookedSessionList get bookedSession => throw _privateConstructorUsedError;
+  CollateralModel get collateralModel => throw _privateConstructorUsedError;
 
-  /// Create a copy of ViewSessionState
+  /// Create a copy of CollateralState
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
-  $ViewSessionStateCopyWith<ViewSessionState> get copyWith =>
+  $CollateralStateCopyWith<CollateralState> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $ViewSessionStateCopyWith<$Res> {
-  factory $ViewSessionStateCopyWith(
-          ViewSessionState value, $Res Function(ViewSessionState) then) =
-      _$ViewSessionStateCopyWithImpl<$Res, ViewSessionState>;
+abstract class $CollateralStateCopyWith<$Res> {
+  factory $CollateralStateCopyWith(
+          CollateralState value, $Res Function(CollateralState) then) =
+      _$CollateralStateCopyWithImpl<$Res, CollateralState>;
   @useResult
   $Res call(
       {bool isLoading,
       bool isStatusUpdated,
       bool isError,
       String message,
-      BookedSessionList bookedSession});
+      CollateralModel collateralModel});
 
-  $BookedSessionListCopyWith<$Res> get bookedSession;
+  $CollateralModelCopyWith<$Res> get collateralModel;
 }
 
 /// @nodoc
-class _$ViewSessionStateCopyWithImpl<$Res, $Val extends ViewSessionState>
-    implements $ViewSessionStateCopyWith<$Res> {
-  _$ViewSessionStateCopyWithImpl(this._value, this._then);
+class _$CollateralStateCopyWithImpl<$Res, $Val extends CollateralState>
+    implements $CollateralStateCopyWith<$Res> {
+  _$CollateralStateCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
 
-  /// Create a copy of ViewSessionState
+  /// Create a copy of CollateralState
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
@@ -64,7 +64,7 @@ class _$ViewSessionStateCopyWithImpl<$Res, $Val extends ViewSessionState>
     Object? isStatusUpdated = null,
     Object? isError = null,
     Object? message = null,
-    Object? bookedSession = null,
+    Object? collateralModel = null,
   }) {
     return _then(_value.copyWith(
       isLoading: null == isLoading
@@ -83,30 +83,30 @@ class _$ViewSessionStateCopyWithImpl<$Res, $Val extends ViewSessionState>
           ? _value.message
           : message // ignore: cast_nullable_to_non_nullable
               as String,
-      bookedSession: null == bookedSession
-          ? _value.bookedSession
-          : bookedSession // ignore: cast_nullable_to_non_nullable
-              as BookedSessionList,
+      collateralModel: null == collateralModel
+          ? _value.collateralModel
+          : collateralModel // ignore: cast_nullable_to_non_nullable
+              as CollateralModel,
     ) as $Val);
   }
 
-  /// Create a copy of ViewSessionState
+  /// Create a copy of CollateralState
   /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
-  $BookedSessionListCopyWith<$Res> get bookedSession {
-    return $BookedSessionListCopyWith<$Res>(_value.bookedSession, (value) {
-      return _then(_value.copyWith(bookedSession: value) as $Val);
+  $CollateralModelCopyWith<$Res> get collateralModel {
+    return $CollateralModelCopyWith<$Res>(_value.collateralModel, (value) {
+      return _then(_value.copyWith(collateralModel: value) as $Val);
     });
   }
 }
 
 /// @nodoc
-abstract class _$$ViewSessionStateImplCopyWith<$Res>
-    implements $ViewSessionStateCopyWith<$Res> {
-  factory _$$ViewSessionStateImplCopyWith(_$ViewSessionStateImpl value,
-          $Res Function(_$ViewSessionStateImpl) then) =
-      __$$ViewSessionStateImplCopyWithImpl<$Res>;
+abstract class _$$CollateralStateImplCopyWith<$Res>
+    implements $CollateralStateCopyWith<$Res> {
+  factory _$$CollateralStateImplCopyWith(_$CollateralStateImpl value,
+          $Res Function(_$CollateralStateImpl) then) =
+      __$$CollateralStateImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -114,21 +114,21 @@ abstract class _$$ViewSessionStateImplCopyWith<$Res>
       bool isStatusUpdated,
       bool isError,
       String message,
-      BookedSessionList bookedSession});
+      CollateralModel collateralModel});
 
   @override
-  $BookedSessionListCopyWith<$Res> get bookedSession;
+  $CollateralModelCopyWith<$Res> get collateralModel;
 }
 
 /// @nodoc
-class __$$ViewSessionStateImplCopyWithImpl<$Res>
-    extends _$ViewSessionStateCopyWithImpl<$Res, _$ViewSessionStateImpl>
-    implements _$$ViewSessionStateImplCopyWith<$Res> {
-  __$$ViewSessionStateImplCopyWithImpl(_$ViewSessionStateImpl _value,
-      $Res Function(_$ViewSessionStateImpl) _then)
+class __$$CollateralStateImplCopyWithImpl<$Res>
+    extends _$CollateralStateCopyWithImpl<$Res, _$CollateralStateImpl>
+    implements _$$CollateralStateImplCopyWith<$Res> {
+  __$$CollateralStateImplCopyWithImpl(
+      _$CollateralStateImpl _value, $Res Function(_$CollateralStateImpl) _then)
       : super(_value, _then);
 
-  /// Create a copy of ViewSessionState
+  /// Create a copy of CollateralState
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
@@ -137,9 +137,9 @@ class __$$ViewSessionStateImplCopyWithImpl<$Res>
     Object? isStatusUpdated = null,
     Object? isError = null,
     Object? message = null,
-    Object? bookedSession = null,
+    Object? collateralModel = null,
   }) {
-    return _then(_$ViewSessionStateImpl(
+    return _then(_$CollateralStateImpl(
       isLoading: null == isLoading
           ? _value.isLoading
           : isLoading // ignore: cast_nullable_to_non_nullable
@@ -156,23 +156,23 @@ class __$$ViewSessionStateImplCopyWithImpl<$Res>
           ? _value.message
           : message // ignore: cast_nullable_to_non_nullable
               as String,
-      bookedSession: null == bookedSession
-          ? _value.bookedSession
-          : bookedSession // ignore: cast_nullable_to_non_nullable
-              as BookedSessionList,
+      collateralModel: null == collateralModel
+          ? _value.collateralModel
+          : collateralModel // ignore: cast_nullable_to_non_nullable
+              as CollateralModel,
     ));
   }
 }
 
 /// @nodoc
 
-class _$ViewSessionStateImpl implements _ViewSessionState {
-  const _$ViewSessionStateImpl(
+class _$CollateralStateImpl implements _CollateralState {
+  const _$CollateralStateImpl(
       {this.isLoading = false,
       this.isStatusUpdated = false,
       this.isError = false,
       this.message = "",
-      this.bookedSession = const BookedSessionList()});
+      this.collateralModel = const CollateralModel()});
 
   @override
   @JsonKey()
@@ -188,49 +188,49 @@ class _$ViewSessionStateImpl implements _ViewSessionState {
   final String message;
   @override
   @JsonKey()
-  final BookedSessionList bookedSession;
+  final CollateralModel collateralModel;
 
   @override
   String toString() {
-    return 'ViewSessionState(isLoading: $isLoading, isStatusUpdated: $isStatusUpdated, isError: $isError, message: $message, bookedSession: $bookedSession)';
+    return 'CollateralState(isLoading: $isLoading, isStatusUpdated: $isStatusUpdated, isError: $isError, message: $message, collateralModel: $collateralModel)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$ViewSessionStateImpl &&
+            other is _$CollateralStateImpl &&
             (identical(other.isLoading, isLoading) ||
                 other.isLoading == isLoading) &&
             (identical(other.isStatusUpdated, isStatusUpdated) ||
                 other.isStatusUpdated == isStatusUpdated) &&
             (identical(other.isError, isError) || other.isError == isError) &&
             (identical(other.message, message) || other.message == message) &&
-            (identical(other.bookedSession, bookedSession) ||
-                other.bookedSession == bookedSession));
+            (identical(other.collateralModel, collateralModel) ||
+                other.collateralModel == collateralModel));
   }
 
   @override
-  int get hashCode => Object.hash(
-      runtimeType, isLoading, isStatusUpdated, isError, message, bookedSession);
+  int get hashCode => Object.hash(runtimeType, isLoading, isStatusUpdated,
+      isError, message, collateralModel);
 
-  /// Create a copy of ViewSessionState
+  /// Create a copy of CollateralState
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
-  _$$ViewSessionStateImplCopyWith<_$ViewSessionStateImpl> get copyWith =>
-      __$$ViewSessionStateImplCopyWithImpl<_$ViewSessionStateImpl>(
+  _$$CollateralStateImplCopyWith<_$CollateralStateImpl> get copyWith =>
+      __$$CollateralStateImplCopyWithImpl<_$CollateralStateImpl>(
           this, _$identity);
 }
 
-abstract class _ViewSessionState implements ViewSessionState {
-  const factory _ViewSessionState(
+abstract class _CollateralState implements CollateralState {
+  const factory _CollateralState(
       {final bool isLoading,
       final bool isStatusUpdated,
       final bool isError,
       final String message,
-      final BookedSessionList bookedSession}) = _$ViewSessionStateImpl;
+      final CollateralModel collateralModel}) = _$CollateralStateImpl;
 
   @override
   bool get isLoading;
@@ -241,12 +241,12 @@ abstract class _ViewSessionState implements ViewSessionState {
   @override
   String get message;
   @override
-  BookedSessionList get bookedSession;
+  CollateralModel get collateralModel;
 
-  /// Create a copy of ViewSessionState
+  /// Create a copy of CollateralState
   /// with the given fields replaced by the non-null parameter values.
   @override
   @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$ViewSessionStateImplCopyWith<_$ViewSessionStateImpl> get copyWith =>
+  _$$CollateralStateImplCopyWith<_$CollateralStateImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

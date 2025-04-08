@@ -17,6 +17,7 @@ class AttendanceBloc extends Bloc<AttendanceEvent, AttendanceState> {
 
   AttendanceBloc() : super(AttendanceState.initial()) {
     on<GetAttendanceListEvent>(_getChildAttendanceList);
+    on<GetDetailOfOneChildAttendanceEvent>(_getSinglePlayerAttendanceDetailEvent);
   }
 
   Future<void> _getChildAttendanceList(

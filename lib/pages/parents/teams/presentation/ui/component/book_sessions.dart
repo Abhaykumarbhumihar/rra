@@ -3,6 +3,8 @@ import 'package:rra/common/values/values_exports.dart';
 
 import '../../../../../../common/local/SharedPrefs.dart';
 import '../../../../../../common/routes/routes.dart';
+import '../../../../../coach/view_session/presentation/bloc/view_session_bloc.dart';
+import '../../../../../coach/view_session/presentation/bloc/view_session_event.dart';
 
 class BookSessions extends StatelessWidget {
   const BookSessions({super.key});
@@ -35,7 +37,7 @@ class BookSessions extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    "06",
+                    "${BlocProvider.of<ViewSessionBloc>(context).state.bookedSession.data.sessions.length}",
                     style: TextStyle(
                       height: 1.0,
                       fontSize: context.screenWidth * 0.128,
@@ -59,23 +61,33 @@ class BookSessions extends StatelessWidget {
               Column(
                 crossAxisAlignment: CrossAxisAlignment.end,
                 children: <Widget>[
-                  Container(
-                    decoration: BoxDecoration(
-                      image: DecorationImage(
-                        image: AssetImage(
-                            "assets/images/trans_button.png"),
-                        fit: BoxFit.fill,
+                  InkWell(
+                    onTap: () async {
+                      var academyId = await SharedPrefs.getString("selected_academyid");
+
+                      BlocProvider.of<ViewSessionBloc>(context).add(GetBookedSessionListEvent({"academy_id":academyId}));
+
+                      Navigator.pushNamed(
+                          context, AppRoutes.COACHVIEWSESSION);
+                    },
+                    child: Container(
+                      decoration: BoxDecoration(
+                        image: DecorationImage(
+                          image: AssetImage(
+                              "assets/images/trans_button.png"),
+                          fit: BoxFit.fill,
+                        ),
                       ),
-                    ),
-                    child: Padding(
-                      padding: const EdgeInsets.symmetric(
-                          horizontal: 10.0, vertical: 6.0),
-                      child: Text(
-                        "View Session",
-                        style: TextStyle(
-                          fontSize: context.screenWidth * 0.032,
-                          color: AppColor.appWhiteColor,
-                          fontFamily: AppFont.interMedium,
+                      child: Padding(
+                        padding: const EdgeInsets.symmetric(
+                            horizontal: 10.0, vertical: 6.0),
+                        child: Text(
+                          "View Session",
+                          style: TextStyle(
+                            fontSize: context.screenWidth * 0.032,
+                            color: AppColor.appWhiteColor,
+                            fontFamily: AppFont.interMedium,
+                          ),
                         ),
                       ),
                     ),

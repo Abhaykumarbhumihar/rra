@@ -20,6 +20,7 @@ mixin _$SessionCalendarState {
   String? get error => throw _privateConstructorUsedError;
   dynamic get success => throw _privateConstructorUsedError;
   bool get isError => throw _privateConstructorUsedError;
+  int get countt => throw _privateConstructorUsedError;
   DateTime? get datetime => throw _privateConstructorUsedError;
   bool get isLoginApiError => throw _privateConstructorUsedError;
   SessionCalendarModel get sessionCalendarModel =>
@@ -58,6 +59,7 @@ abstract class $SessionCalendarStateCopyWith<$Res> {
       String? error,
       dynamic success,
       bool isError,
+      int countt,
       DateTime? datetime,
       bool isLoginApiError,
       SessionCalendarModel sessionCalendarModel,
@@ -101,6 +103,7 @@ class _$SessionCalendarStateCopyWithImpl<$Res,
     Object? error = freezed,
     Object? success = freezed,
     Object? isError = null,
+    Object? countt = null,
     Object? datetime = freezed,
     Object? isLoginApiError = null,
     Object? sessionCalendarModel = null,
@@ -136,6 +139,10 @@ class _$SessionCalendarStateCopyWithImpl<$Res,
           ? _value.isError
           : isError // ignore: cast_nullable_to_non_nullable
               as bool,
+      countt: null == countt
+          ? _value.countt
+          : countt // ignore: cast_nullable_to_non_nullable
+              as int,
       datetime: freezed == datetime
           ? _value.datetime
           : datetime // ignore: cast_nullable_to_non_nullable
@@ -253,6 +260,7 @@ abstract class _$$SessionCalendarStateImplCopyWith<$Res>
       String? error,
       dynamic success,
       bool isError,
+      int countt,
       DateTime? datetime,
       bool isLoginApiError,
       SessionCalendarModel sessionCalendarModel,
@@ -296,6 +304,7 @@ class __$$SessionCalendarStateImplCopyWithImpl<$Res>
     Object? error = freezed,
     Object? success = freezed,
     Object? isError = null,
+    Object? countt = null,
     Object? datetime = freezed,
     Object? isLoginApiError = null,
     Object? sessionCalendarModel = null,
@@ -331,6 +340,10 @@ class __$$SessionCalendarStateImplCopyWithImpl<$Res>
           ? _value.isError
           : isError // ignore: cast_nullable_to_non_nullable
               as bool,
+      countt: null == countt
+          ? _value.countt
+          : countt // ignore: cast_nullable_to_non_nullable
+              as int,
       datetime: freezed == datetime
           ? _value.datetime
           : datetime // ignore: cast_nullable_to_non_nullable
@@ -411,6 +424,7 @@ class _$SessionCalendarStateImpl implements _SessionCalendarState {
       this.error,
       this.success,
       this.isError = false,
+      this.countt = 52,
       this.datetime,
       this.isLoginApiError = false,
       this.sessionCalendarModel = const SessionCalendarModel(),
@@ -440,6 +454,9 @@ class _$SessionCalendarStateImpl implements _SessionCalendarState {
   @override
   @JsonKey()
   final bool isError;
+  @override
+  @JsonKey()
+  final int countt;
   @override
   final DateTime? datetime;
   @override
@@ -500,7 +517,7 @@ class _$SessionCalendarStateImpl implements _SessionCalendarState {
 
   @override
   String toString() {
-    return 'SessionCalendarState(isLoading: $isLoading, error: $error, success: $success, isError: $isError, datetime: $datetime, isLoginApiError: $isLoginApiError, sessionCalendarModel: $sessionCalendarModel, avilableDatesResponse: $avilableDatesResponse, timeAddedModel: $timeAddedModel, isTimeAddedError: $isTimeAddedError, isTimeAddedSuccess: $isTimeAddedSuccess, isSelectForOtherDate: $isSelectForOtherDate, isSelectForContinue: $isSelectForContinue, isSelectForRecurring: $isSelectForRecurring, selectedTimeAdded: $selectedTimeAdded, selectBottomSheetType: $selectBottomSheetType, selectedDateDayName: $selectedDateDayName, selectedSessionID: $selectedSessionID, selectedFromTime: $selectedFromTime, isAvailablityLoading: $isAvailablityLoading, isTimeAddedLoading: $isTimeAddedLoading)';
+    return 'SessionCalendarState(isLoading: $isLoading, error: $error, success: $success, isError: $isError, countt: $countt, datetime: $datetime, isLoginApiError: $isLoginApiError, sessionCalendarModel: $sessionCalendarModel, avilableDatesResponse: $avilableDatesResponse, timeAddedModel: $timeAddedModel, isTimeAddedError: $isTimeAddedError, isTimeAddedSuccess: $isTimeAddedSuccess, isSelectForOtherDate: $isSelectForOtherDate, isSelectForContinue: $isSelectForContinue, isSelectForRecurring: $isSelectForRecurring, selectedTimeAdded: $selectedTimeAdded, selectBottomSheetType: $selectBottomSheetType, selectedDateDayName: $selectedDateDayName, selectedSessionID: $selectedSessionID, selectedFromTime: $selectedFromTime, isAvailablityLoading: $isAvailablityLoading, isTimeAddedLoading: $isTimeAddedLoading)';
   }
 
   @override
@@ -513,6 +530,7 @@ class _$SessionCalendarStateImpl implements _SessionCalendarState {
             (identical(other.error, error) || other.error == error) &&
             const DeepCollectionEquality().equals(other.success, success) &&
             (identical(other.isError, isError) || other.isError == isError) &&
+            (identical(other.countt, countt) || other.countt == countt) &&
             (identical(other.datetime, datetime) ||
                 other.datetime == datetime) &&
             (identical(other.isLoginApiError, isLoginApiError) ||
@@ -556,6 +574,7 @@ class _$SessionCalendarStateImpl implements _SessionCalendarState {
         error,
         const DeepCollectionEquality().hash(success),
         isError,
+        countt,
         datetime,
         isLoginApiError,
         sessionCalendarModel,
@@ -592,6 +611,7 @@ abstract class _SessionCalendarState implements SessionCalendarState {
       final String? error,
       final dynamic success,
       final bool isError,
+      final int countt,
       final DateTime? datetime,
       final bool isLoginApiError,
       final SessionCalendarModel sessionCalendarModel,
@@ -618,6 +638,8 @@ abstract class _SessionCalendarState implements SessionCalendarState {
   dynamic get success;
   @override
   bool get isError;
+  @override
+  int get countt;
   @override
   DateTime? get datetime;
   @override

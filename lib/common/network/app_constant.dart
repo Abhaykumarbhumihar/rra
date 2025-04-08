@@ -57,8 +57,11 @@ static String get getTermsSessionCoachingPlayer=>"term/coaching/session";
   static String get getAttendanceList=>"attendacnce/list";
   static String get getAttendanceDetailOfPlayer=>"ttendacnce/detail";
 
+/*booked session list*/
+static String get getBookedSessionList =>"booked-session-list";
 
-
+/*collater*/
+static String get getCollateralList=>"collaterals/list";
 
 
 

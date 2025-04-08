@@ -189,7 +189,7 @@ class Availablity extends StatelessWidget {
           "every-fourth-${name}",
         ];
         print(dayList);
-        return RecurringDialog(dayList, dayCount,sessionId);
+        return RecurringDialog(dayList, dayCount,sessionId,);
       },
     );
   }

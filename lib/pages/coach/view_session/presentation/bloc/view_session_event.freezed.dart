@@ -20,16 +20,20 @@ mixin _$ViewSessionEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(Map<String, dynamic> data) getBookedSessionList,
+    required TResult Function(Map<String, dynamic> data)
+        getFilterBookedSessionList,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(Map<String, dynamic> data)? getBookedSessionList,
+    TResult? Function(Map<String, dynamic> data)? getFilterBookedSessionList,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(Map<String, dynamic> data)? getBookedSessionList,
+    TResult Function(Map<String, dynamic> data)? getFilterBookedSessionList,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -37,16 +41,22 @@ mixin _$ViewSessionEvent {
   TResult map<TResult extends Object?>({
     required TResult Function(GetBookedSessionListEvent value)
         getBookedSessionList,
+    required TResult Function(GetFilterBookedSessionListEvent value)
+        getFilterBookedSessionList,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(GetBookedSessionListEvent value)? getBookedSessionList,
+    TResult? Function(GetFilterBookedSessionListEvent value)?
+        getFilterBookedSessionList,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(GetBookedSessionListEvent value)? getBookedSessionList,
+    TResult Function(GetFilterBookedSessionListEvent value)?
+        getFilterBookedSessionList,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -175,6 +185,8 @@ class _$GetBookedSessionListEventImpl implements GetBookedSessionListEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(Map<String, dynamic> data) getBookedSessionList,
+    required TResult Function(Map<String, dynamic> data)
+        getFilterBookedSessionList,
   }) {
     return getBookedSessionList(data);
   }
@@ -183,6 +195,7 @@ class _$GetBookedSessionListEventImpl implements GetBookedSessionListEvent {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(Map<String, dynamic> data)? getBookedSessionList,
+    TResult? Function(Map<String, dynamic> data)? getFilterBookedSessionList,
   }) {
     return getBookedSessionList?.call(data);
   }
@@ -191,6 +204,7 @@ class _$GetBookedSessionListEventImpl implements GetBookedSessionListEvent {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(Map<String, dynamic> data)? getBookedSessionList,
+    TResult Function(Map<String, dynamic> data)? getFilterBookedSessionList,
     required TResult orElse(),
   }) {
     if (getBookedSessionList != null) {
@@ -204,6 +218,8 @@ class _$GetBookedSessionListEventImpl implements GetBookedSessionListEvent {
   TResult map<TResult extends Object?>({
     required TResult Function(GetBookedSessionListEvent value)
         getBookedSessionList,
+    required TResult Function(GetFilterBookedSessionListEvent value)
+        getFilterBookedSessionList,
   }) {
     return getBookedSessionList(this);
   }
@@ -212,6 +228,8 @@ class _$GetBookedSessionListEventImpl implements GetBookedSessionListEvent {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(GetBookedSessionListEvent value)? getBookedSessionList,
+    TResult? Function(GetFilterBookedSessionListEvent value)?
+        getFilterBookedSessionList,
   }) {
     return getBookedSessionList?.call(this);
   }
@@ -220,6 +238,8 @@ class _$GetBookedSessionListEventImpl implements GetBookedSessionListEvent {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(GetBookedSessionListEvent value)? getBookedSessionList,
+    TResult Function(GetFilterBookedSessionListEvent value)?
+        getFilterBookedSessionList,
     required TResult orElse(),
   }) {
     if (getBookedSessionList != null) {
@@ -241,5 +261,169 @@ abstract class GetBookedSessionListEvent implements ViewSessionEvent {
   @override
   @JsonKey(includeFromJson: false, includeToJson: false)
   _$$GetBookedSessionListEventImplCopyWith<_$GetBookedSessionListEventImpl>
+      get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$GetFilterBookedSessionListEventImplCopyWith<$Res>
+    implements $ViewSessionEventCopyWith<$Res> {
+  factory _$$GetFilterBookedSessionListEventImplCopyWith(
+          _$GetFilterBookedSessionListEventImpl value,
+          $Res Function(_$GetFilterBookedSessionListEventImpl) then) =
+      __$$GetFilterBookedSessionListEventImplCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call({Map<String, dynamic> data});
+}
+
+/// @nodoc
+class __$$GetFilterBookedSessionListEventImplCopyWithImpl<$Res>
+    extends _$ViewSessionEventCopyWithImpl<$Res,
+        _$GetFilterBookedSessionListEventImpl>
+    implements _$$GetFilterBookedSessionListEventImplCopyWith<$Res> {
+  __$$GetFilterBookedSessionListEventImplCopyWithImpl(
+      _$GetFilterBookedSessionListEventImpl _value,
+      $Res Function(_$GetFilterBookedSessionListEventImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of ViewSessionEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? data = null,
+  }) {
+    return _then(_$GetFilterBookedSessionListEventImpl(
+      null == data
+          ? _value._data
+          : data // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$GetFilterBookedSessionListEventImpl
+    implements GetFilterBookedSessionListEvent {
+  const _$GetFilterBookedSessionListEventImpl(final Map<String, dynamic> data)
+      : _data = data;
+
+  final Map<String, dynamic> _data;
+  @override
+  Map<String, dynamic> get data {
+    if (_data is EqualUnmodifiableMapView) return _data;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableMapView(_data);
+  }
+
+  @override
+  String toString() {
+    return 'ViewSessionEvent.getFilterBookedSessionList(data: $data)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$GetFilterBookedSessionListEventImpl &&
+            const DeepCollectionEquality().equals(other._data, _data));
+  }
+
+  @override
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(_data));
+
+  /// Create a copy of ViewSessionEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$GetFilterBookedSessionListEventImplCopyWith<
+          _$GetFilterBookedSessionListEventImpl>
+      get copyWith => __$$GetFilterBookedSessionListEventImplCopyWithImpl<
+          _$GetFilterBookedSessionListEventImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(Map<String, dynamic> data) getBookedSessionList,
+    required TResult Function(Map<String, dynamic> data)
+        getFilterBookedSessionList,
+  }) {
+    return getFilterBookedSessionList(data);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(Map<String, dynamic> data)? getBookedSessionList,
+    TResult? Function(Map<String, dynamic> data)? getFilterBookedSessionList,
+  }) {
+    return getFilterBookedSessionList?.call(data);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(Map<String, dynamic> data)? getBookedSessionList,
+    TResult Function(Map<String, dynamic> data)? getFilterBookedSessionList,
+    required TResult orElse(),
+  }) {
+    if (getFilterBookedSessionList != null) {
+      return getFilterBookedSessionList(data);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(GetBookedSessionListEvent value)
+        getBookedSessionList,
+    required TResult Function(GetFilterBookedSessionListEvent value)
+        getFilterBookedSessionList,
+  }) {
+    return getFilterBookedSessionList(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(GetBookedSessionListEvent value)? getBookedSessionList,
+    TResult? Function(GetFilterBookedSessionListEvent value)?
+        getFilterBookedSessionList,
+  }) {
+    return getFilterBookedSessionList?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(GetBookedSessionListEvent value)? getBookedSessionList,
+    TResult Function(GetFilterBookedSessionListEvent value)?
+        getFilterBookedSessionList,
+    required TResult orElse(),
+  }) {
+    if (getFilterBookedSessionList != null) {
+      return getFilterBookedSessionList(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class GetFilterBookedSessionListEvent implements ViewSessionEvent {
+  const factory GetFilterBookedSessionListEvent(
+      final Map<String, dynamic> data) = _$GetFilterBookedSessionListEventImpl;
+
+  @override
+  Map<String, dynamic> get data;
+
+  /// Create a copy of ViewSessionEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$GetFilterBookedSessionListEventImplCopyWith<
+          _$GetFilterBookedSessionListEventImpl>
       get copyWith => throw _privateConstructorUsedError;
 }

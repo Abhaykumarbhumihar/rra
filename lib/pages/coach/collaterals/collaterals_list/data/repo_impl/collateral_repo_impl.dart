@@ -8,28 +8,29 @@ import '../../../../../../common/network/api_services.dart';
 import '../../../../../../common/network/app_constant.dart';
 import '../../../../../../common/network/failure.dart';
 import '../../../../../../common/service_locator/setivelocator.dart';
-import '../../domain/repositery/view_session_repositey.dart';
-import '../entity/booked_session_list.dart';
+import '../../domain/repositery/collateral_repositery.dart';
+import '../entity/collateral_model.dart';
 
 
-class ViewSessionRepoImpl implements ViewSessionRepositey {
+class CollateralRepoImpl implements CollateralRepositery {
   final ApiServices _apiServices = getIt<ApiServices>();
-  ViewSessionRepoImpl();
+  CollateralRepoImpl();
 
+   @override
+  Future<Either<Failure, CollateralModel>> getCollateralList(Map<String, dynamic> playerData)async {
 
-  @override
-  Future<Either<Failure, BookedSessionList>> getSessionList(Map<String, dynamic> playerData)async {
     try {
 
       print(playerData);
       http.Response response =
-      await _apiServices.post(AppConstant.getBookedSessionList, playerData,useDefaultHeaders: true,isJson: true);
+          await _apiServices.post(AppConstant.getCollateralList, playerData,useDefaultHeaders: true,isJson: true);
       print(response.body);
       if (response.statusCode == 200) {
         final Map<String, dynamic> responseData = jsonDecode(response.body);
+        print("getCollateralList getCollateralList getCollateralList $responseData");
         if(responseData['success']){
-          BookedSessionList bookedSessionList=BookedSessionList.fromJson(responseData);
-          return Right(bookedSessionList);
+          CollateralModel collateralModel=CollateralModel.fromJson(responseData);
+          return Right(collateralModel);
         }else{
           return Left(Failure(responseData['success']));
         }
@@ -43,8 +44,6 @@ class ViewSessionRepoImpl implements ViewSessionRepositey {
     }
   }
 
-
-
   String _extractErrorMessage(String responseBody) {
     try {
       final Map<String, dynamic> errorData = jsonDecode(responseBody);
@@ -53,8 +52,6 @@ class ViewSessionRepoImpl implements ViewSessionRepositey {
       return 'Something goes wrong';
     }
   }
-
-
 
 
 

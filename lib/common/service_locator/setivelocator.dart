@@ -1,6 +1,9 @@
 import '../../pages/coach/coach_attendance/player_attendance_list/data/repo_impl/player_attendance_repo_impl.dart';
 import '../../pages/coach/coach_attendance/player_attendance_list/domain/repositery/player_attendance_repositey.dart';
 import '../../pages/coach/coach_attendance/player_attendance_list/domain/usecase/playerAttendanceUsease.dart';
+import '../../pages/coach/collaterals/collaterals_list/data/repo_impl/collateral_repo_impl.dart';
+import '../../pages/coach/collaterals/collaterals_list/domain/repositery/collateral_repositery.dart';
+import '../../pages/coach/collaterals/collaterals_list/domain/usecase/collateral_usease.dart';
 import '../../pages/coach/view_session/data/repo_impl/view_session_repo_impl.dart';
 import '../../pages/coach/view_session/domain/repositery/view_session_repositey.dart';
 import '../../pages/coach/view_session/domain/usecase/view_session_Usease.dart';
@@ -121,4 +124,9 @@ void serviceLocator() {
   getIt.registerLazySingleton<ViewSessionUsease>(
           () => ViewSessionUsease(getIt<ViewSessionRepositey>()));
 
+  /*collateral list*/
+  getIt.registerLazySingleton<CollateralRepositery>(
+          () => CollateralRepoImpl());
+  getIt.registerLazySingleton<CollateralUsease>(
+          () => CollateralUsease(getIt<CollateralRepositery>()));
 }

@@ -1,6 +1,8 @@
 
 import 'package:freezed_annotation/freezed_annotation.dart';
 
+import '../../data/entity/booked_session_list.dart';
+
 part 'view_session_state.freezed.dart';
 
 
@@ -11,6 +13,7 @@ class ViewSessionState with _$ViewSessionState {
     @Default(false) bool isStatusUpdated,
     @Default(false) bool isError,
     @Default("") String message,
+    @Default(BookedSessionList()) BookedSessionList bookedSession,
   }) = _ViewSessionState;
 
   factory ViewSessionState.initial() => const ViewSessionState(

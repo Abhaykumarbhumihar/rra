@@ -1,5 +1,7 @@
 import 'package:rra/common/values/values_exports.dart';
 import 'package:rra/common/component/component_export.dart';
+import '../bloc/collateral_bloc.dart';
+import '../bloc/collateral_state.dart';
 import 'component/collateral_item.dart';
 
 class MyCollateralList extends StatelessWidget {
@@ -12,25 +14,31 @@ class MyCollateralList extends StatelessWidget {
     var width = context.screenWidth;
     var height = context.screenHeight;
 
-    return CommonPageFormat(
-      title: "My Collaterals",
-      onBackPress: () {
-        Navigator.pop(context);
+    return BlocListener<CollateralBloc, CollateralState>(
+      listener: (context, state) {
+        // TODO: implement listener
       },
-      child: Column(
-        children: [
-          SizedBox(
-            height: 24,
-          ),
-          CollateralItem(),
-          SizedBox(
-            height: 8.0,
-          ),
-          CollateralItem(),
+      child: BlocBuilder<CollateralBloc, CollateralState>(
+        builder: (context, state) {
+          return CommonPageFormat(
+            isScrollable: false,
+            title: "My Collaterals",
+            onBackPress: () {
+              Navigator.pop(context);
+            },
+            child: Column(
+              children: [
+                SizedBox(
+                  height: 24,
+                ),
+                CollateralItem(),
 
-        ],
+
+              ],
+            ),
+          );
+        },
       ),
     );
-
   }
 }

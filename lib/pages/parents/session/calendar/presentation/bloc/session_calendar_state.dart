@@ -13,6 +13,7 @@ class SessionCalendarState with _$SessionCalendarState {
     String? error,
     dynamic success,
     @Default(false) bool isError,
+   @Default(52) int countt,
      DateTime? datetime,
     @Default(false) bool isLoginApiError,
     @Default(SessionCalendarModel()) SessionCalendarModel sessionCalendarModel,

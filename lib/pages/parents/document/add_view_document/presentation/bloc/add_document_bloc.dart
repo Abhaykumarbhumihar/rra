@@ -367,7 +367,7 @@ class AddDocumentBloc extends Bloc<AddDocumentEvent, AddDocumentState> {
       final sessionIds = state.session.map((s) => s.id).toList();
 
       if (termIds.isNotEmpty) {
-        map["term_id"] = 18;
+        map["term_id"] = termIds;
       }
       if (programIds.isNotEmpty) {
         map["program_id"] = programIds;
