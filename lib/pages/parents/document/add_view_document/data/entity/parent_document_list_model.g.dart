@@ -33,7 +33,10 @@ _$ParentDocumentDataImpl _$$ParentDocumentDataImplFromJson(
               ?.map((e) => UploadedDocument.fromJson(e as Map<String, dynamic>))
               .toList() ??
           const [],
-      received: json['received'] as List<dynamic>? ?? const [],
+      received: (json['received'] as List<dynamic>?)
+              ?.map((e) => UploadedDocument.fromJson(e as Map<String, dynamic>))
+              .toList() ??
+          const [],
       coaches: (json['coaches'] as List<dynamic>?)
               ?.map((e) => Coach.fromJson(e as Map<String, dynamic>))
               .toList() ??

@@ -1,5 +1,6 @@
 import '../../pages/coach/coach_attendance/player_attendance_list/presentation/bloc/attendance_bloc.dart';
 import '../../pages/coach/view_session/presentation/bloc/view_session_bloc.dart';
+import '../../pages/parents/document/add_view_document/presentation/ui/document_detail.dart';
 import '../../pages/parents/parent_order/parent_order_detail/presentation/bloc/parent_myorder_detail_bloc.dart';
 import '../../pages/parents/parent_order/parent_order_list/presentation/bloc/parent_order_bloc.dart';
 import 'exports.dart';
@@ -92,6 +93,11 @@ class AppPages {
         route: AppRoutes.ADDVIEWDOCUMENT,
         page: AddViewDocumenPage(),
         bloc: BlocProvider(create: (_) => AddDocumentBloc()),
+      ),
+      PageEntitiy(
+        route: AppRoutes.ADDVIEWDOCUMENTDETAIL,
+        page: DocumentDetail(),
+
       ),
 
       PageEntitiy(

@@ -127,7 +127,21 @@ class AddViewDocumenPage extends StatelessWidget {
                                   },
                                 );
                               } else if (selectedTab == 2) {
-                                return SizedBox();
+                                return ListView.builder(
+                                  itemCount: state.parentDocumentListModel.data
+                                      .received.length,
+                                  shrinkWrap: true,
+                                  physics: NeverScrollableScrollPhysics(),
+                                  padding: EdgeInsets.zero,
+                                  itemBuilder: (context, index) {
+                                    return DocumentItem(
+                                      coaches: state
+                                          .parentDocumentListModel.data.coaches,
+                                      uploadedDocument: state.parentDocumentListModel.data
+                                          .received[index],
+                                    );
+                                  },
+                                );
                               } else {
                                 return AddDocumentComponent(
                                   titleController: titleController,

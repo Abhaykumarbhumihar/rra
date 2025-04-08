@@ -20,7 +20,7 @@ class ParentDocumentListModel with _$ParentDocumentListModel {
 class ParentDocumentData with _$ParentDocumentData {
   const factory ParentDocumentData({
     @Default([]) List<UploadedDocument> uploaded,
-    @Default([]) List<dynamic> received,
+    @Default([]) List<UploadedDocument> received,
     @Default([]) List<Coach> coaches,
   }) = _ParentDocumentData;
 

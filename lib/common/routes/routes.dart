@@ -33,6 +33,7 @@ static const WELCOMEPAGE="/welcom_page";
 
   //document
   static const ADDVIEWDOCUMENT="/add_view_document";
+  static const ADDVIEWDOCUMENTDETAIL="/add_view_document_detail";
 
   static const PARENTPLAYERSCORELISTPAGE="/parent_player_score_list_page";
   static const PARENTATTENDANCELISTPAGE="/parent_attendance_list_page";

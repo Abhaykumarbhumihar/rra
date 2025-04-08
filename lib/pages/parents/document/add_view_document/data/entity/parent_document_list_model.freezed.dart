@@ -251,7 +251,7 @@ ParentDocumentData _$ParentDocumentDataFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$ParentDocumentData {
   List<UploadedDocument> get uploaded => throw _privateConstructorUsedError;
-  List<dynamic> get received => throw _privateConstructorUsedError;
+  List<UploadedDocument> get received => throw _privateConstructorUsedError;
   List<Coach> get coaches => throw _privateConstructorUsedError;
 
   /// Serializes this ParentDocumentData to a JSON map.
@@ -272,7 +272,7 @@ abstract class $ParentDocumentDataCopyWith<$Res> {
   @useResult
   $Res call(
       {List<UploadedDocument> uploaded,
-      List<dynamic> received,
+      List<UploadedDocument> received,
       List<Coach> coaches});
 }
 
@@ -303,7 +303,7 @@ class _$ParentDocumentDataCopyWithImpl<$Res, $Val extends ParentDocumentData>
       received: null == received
           ? _value.received
           : received // ignore: cast_nullable_to_non_nullable
-              as List<dynamic>,
+              as List<UploadedDocument>,
       coaches: null == coaches
           ? _value.coaches
           : coaches // ignore: cast_nullable_to_non_nullable
@@ -322,7 +322,7 @@ abstract class _$$ParentDocumentDataImplCopyWith<$Res>
   @useResult
   $Res call(
       {List<UploadedDocument> uploaded,
-      List<dynamic> received,
+      List<UploadedDocument> received,
       List<Coach> coaches});
 }
 
@@ -351,7 +351,7 @@ class __$$ParentDocumentDataImplCopyWithImpl<$Res>
       received: null == received
           ? _value._received
           : received // ignore: cast_nullable_to_non_nullable
-              as List<dynamic>,
+              as List<UploadedDocument>,
       coaches: null == coaches
           ? _value._coaches
           : coaches // ignore: cast_nullable_to_non_nullable
@@ -365,7 +365,7 @@ class __$$ParentDocumentDataImplCopyWithImpl<$Res>
 class _$ParentDocumentDataImpl implements _ParentDocumentData {
   const _$ParentDocumentDataImpl(
       {final List<UploadedDocument> uploaded = const [],
-      final List<dynamic> received = const [],
+      final List<UploadedDocument> received = const [],
       final List<Coach> coaches = const []})
       : _uploaded = uploaded,
         _received = received,
@@ -383,10 +383,10 @@ class _$ParentDocumentDataImpl implements _ParentDocumentData {
     return EqualUnmodifiableListView(_uploaded);
   }
 
-  final List<dynamic> _received;
+  final List<UploadedDocument> _received;
   @override
   @JsonKey()
-  List<dynamic> get received {
+  List<UploadedDocument> get received {
     if (_received is EqualUnmodifiableListView) return _received;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(_received);
@@ -444,7 +444,7 @@ class _$ParentDocumentDataImpl implements _ParentDocumentData {
 abstract class _ParentDocumentData implements ParentDocumentData {
   const factory _ParentDocumentData(
       {final List<UploadedDocument> uploaded,
-      final List<dynamic> received,
+      final List<UploadedDocument> received,
       final List<Coach> coaches}) = _$ParentDocumentDataImpl;
 
   factory _ParentDocumentData.fromJson(Map<String, dynamic> json) =
@@ -453,7 +453,7 @@ abstract class _ParentDocumentData implements ParentDocumentData {
   @override
   List<UploadedDocument> get uploaded;
   @override
-  List<dynamic> get received;
+  List<UploadedDocument> get received;
   @override
   List<Coach> get coaches;
 
