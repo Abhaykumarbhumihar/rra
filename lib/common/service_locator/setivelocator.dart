@@ -1,3 +1,9 @@
+import '../../pages/coach/coach_attendance/player_attendance_list/data/repo_impl/player_attendance_repo_impl.dart';
+import '../../pages/coach/coach_attendance/player_attendance_list/domain/repositery/player_attendance_repositey.dart';
+import '../../pages/coach/coach_attendance/player_attendance_list/domain/usecase/playerAttendanceUsease.dart';
+import '../../pages/coach/view_session/data/repo_impl/view_session_repo_impl.dart';
+import '../../pages/coach/view_session/domain/repositery/view_session_repositey.dart';
+import '../../pages/coach/view_session/domain/usecase/view_session_Usease.dart';
 import '../../pages/parents/parent_order/parent_order_detail/data/repo_impl/parent_myorder_detail_repo_impl.dart';
 import '../../pages/parents/parent_order/parent_order_detail/domain/repositery/parent_myorder_detail_repositery.dart';
 import '../../pages/parents/parent_order/parent_order_detail/domain/usecase/parent_my_order_detail_usecase.dart';
@@ -101,4 +107,18 @@ void serviceLocator() {
           () => ParentMyorderDetailRepoImpl());
   getIt.registerLazySingleton<ParentMyOrderDetailUsecase>(
           () => ParentMyOrderDetailUsecase(getIt<ParentMyorderDetailRepositery>()));
+
+  /*attendance*/
+  getIt.registerLazySingleton<PlayerAttendanceRepositey>(
+          () => PlayerAttendanceRepoImpl());
+  getIt.registerLazySingleton<Playerattendanceusease>(
+          () => Playerattendanceusease(getIt<PlayerAttendanceRepositey>()));
+
+
+  /*view session*/
+  getIt.registerLazySingleton<ViewSessionRepositey>(
+          () => ViewSessionRepoImpl());
+  getIt.registerLazySingleton<ViewSessionUsease>(
+          () => ViewSessionUsease(getIt<ViewSessionRepositey>()));
+
 }
