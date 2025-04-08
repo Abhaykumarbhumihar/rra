@@ -70,8 +70,9 @@ class PlayerAttendanceList extends StatelessWidget {
                             CommonSmallElevatedButton(
                               label: "View",
                               onPressed: (){
-                                Navigator.pushNamed(
-                                    context, AppRoutes.COACHSINGLEPLAYERATTENDANCE);
+                                print(data.id);
+                                // Navigator.pushNamed(
+                                //     context, AppRoutes.COACHSINGLEPLAYERATTENDANCE);
                               },
                               color: AppColor.appButtonColor,
                             )
