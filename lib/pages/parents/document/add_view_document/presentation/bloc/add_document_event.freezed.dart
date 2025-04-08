@@ -38,6 +38,7 @@ mixin _$AddDocumentEvent {
     required TResult Function(Session session) removeSelectedSession,
     required TResult Function(Player player) removeSelectedPlayer,
     required TResult Function(int coachParentSelect) selectParentOrCoach,
+    required TResult Function() resetAfterUploadDocument,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -61,6 +62,7 @@ mixin _$AddDocumentEvent {
     TResult? Function(Session session)? removeSelectedSession,
     TResult? Function(Player player)? removeSelectedPlayer,
     TResult? Function(int coachParentSelect)? selectParentOrCoach,
+    TResult? Function()? resetAfterUploadDocument,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -83,6 +85,7 @@ mixin _$AddDocumentEvent {
     TResult Function(Session session)? removeSelectedSession,
     TResult Function(Player player)? removeSelectedPlayer,
     TResult Function(int coachParentSelect)? selectParentOrCoach,
+    TResult Function()? resetAfterUploadDocument,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -119,6 +122,8 @@ mixin _$AddDocumentEvent {
     required TResult Function(RemoveSelectedPlayervent value)
         removeSelectedPlayer,
     required TResult Function(SelectParentCoachEvent value) selectParentOrCoach,
+    required TResult Function(ResetAfterDocumentUploadEvent value)
+        resetAfterUploadDocument,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -147,6 +152,8 @@ mixin _$AddDocumentEvent {
     TResult? Function(RemoveSelectedSessionvent value)? removeSelectedSession,
     TResult? Function(RemoveSelectedPlayervent value)? removeSelectedPlayer,
     TResult? Function(SelectParentCoachEvent value)? selectParentOrCoach,
+    TResult? Function(ResetAfterDocumentUploadEvent value)?
+        resetAfterUploadDocument,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -173,6 +180,8 @@ mixin _$AddDocumentEvent {
     TResult Function(RemoveSelectedSessionvent value)? removeSelectedSession,
     TResult Function(RemoveSelectedPlayervent value)? removeSelectedPlayer,
     TResult Function(SelectParentCoachEvent value)? selectParentOrCoach,
+    TResult Function(ResetAfterDocumentUploadEvent value)?
+        resetAfterUploadDocument,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -288,6 +297,7 @@ class _$SelectedTabEventImpl implements SelectedTabEvent {
     required TResult Function(Session session) removeSelectedSession,
     required TResult Function(Player player) removeSelectedPlayer,
     required TResult Function(int coachParentSelect) selectParentOrCoach,
+    required TResult Function() resetAfterUploadDocument,
   }) {
     return selectTabEvent(tabno);
   }
@@ -314,6 +324,7 @@ class _$SelectedTabEventImpl implements SelectedTabEvent {
     TResult? Function(Session session)? removeSelectedSession,
     TResult? Function(Player player)? removeSelectedPlayer,
     TResult? Function(int coachParentSelect)? selectParentOrCoach,
+    TResult? Function()? resetAfterUploadDocument,
   }) {
     return selectTabEvent?.call(tabno);
   }
@@ -339,6 +350,7 @@ class _$SelectedTabEventImpl implements SelectedTabEvent {
     TResult Function(Session session)? removeSelectedSession,
     TResult Function(Player player)? removeSelectedPlayer,
     TResult Function(int coachParentSelect)? selectParentOrCoach,
+    TResult Function()? resetAfterUploadDocument,
     required TResult orElse(),
   }) {
     if (selectTabEvent != null) {
@@ -381,6 +393,8 @@ class _$SelectedTabEventImpl implements SelectedTabEvent {
     required TResult Function(RemoveSelectedPlayervent value)
         removeSelectedPlayer,
     required TResult Function(SelectParentCoachEvent value) selectParentOrCoach,
+    required TResult Function(ResetAfterDocumentUploadEvent value)
+        resetAfterUploadDocument,
   }) {
     return selectTabEvent(this);
   }
@@ -412,6 +426,8 @@ class _$SelectedTabEventImpl implements SelectedTabEvent {
     TResult? Function(RemoveSelectedSessionvent value)? removeSelectedSession,
     TResult? Function(RemoveSelectedPlayervent value)? removeSelectedPlayer,
     TResult? Function(SelectParentCoachEvent value)? selectParentOrCoach,
+    TResult? Function(ResetAfterDocumentUploadEvent value)?
+        resetAfterUploadDocument,
   }) {
     return selectTabEvent?.call(this);
   }
@@ -441,6 +457,8 @@ class _$SelectedTabEventImpl implements SelectedTabEvent {
     TResult Function(RemoveSelectedSessionvent value)? removeSelectedSession,
     TResult Function(RemoveSelectedPlayervent value)? removeSelectedPlayer,
     TResult Function(SelectParentCoachEvent value)? selectParentOrCoach,
+    TResult Function(ResetAfterDocumentUploadEvent value)?
+        resetAfterUploadDocument,
     required TResult orElse(),
   }) {
     if (selectTabEvent != null) {
@@ -561,6 +579,7 @@ class _$GetUploadedParentDocumentImpl implements GetUploadedParentDocument {
     required TResult Function(Session session) removeSelectedSession,
     required TResult Function(Player player) removeSelectedPlayer,
     required TResult Function(int coachParentSelect) selectParentOrCoach,
+    required TResult Function() resetAfterUploadDocument,
   }) {
     return getParentUploadedDocument(data);
   }
@@ -587,6 +606,7 @@ class _$GetUploadedParentDocumentImpl implements GetUploadedParentDocument {
     TResult? Function(Session session)? removeSelectedSession,
     TResult? Function(Player player)? removeSelectedPlayer,
     TResult? Function(int coachParentSelect)? selectParentOrCoach,
+    TResult? Function()? resetAfterUploadDocument,
   }) {
     return getParentUploadedDocument?.call(data);
   }
@@ -612,6 +632,7 @@ class _$GetUploadedParentDocumentImpl implements GetUploadedParentDocument {
     TResult Function(Session session)? removeSelectedSession,
     TResult Function(Player player)? removeSelectedPlayer,
     TResult Function(int coachParentSelect)? selectParentOrCoach,
+    TResult Function()? resetAfterUploadDocument,
     required TResult orElse(),
   }) {
     if (getParentUploadedDocument != null) {
@@ -654,6 +675,8 @@ class _$GetUploadedParentDocumentImpl implements GetUploadedParentDocument {
     required TResult Function(RemoveSelectedPlayervent value)
         removeSelectedPlayer,
     required TResult Function(SelectParentCoachEvent value) selectParentOrCoach,
+    required TResult Function(ResetAfterDocumentUploadEvent value)
+        resetAfterUploadDocument,
   }) {
     return getParentUploadedDocument(this);
   }
@@ -685,6 +708,8 @@ class _$GetUploadedParentDocumentImpl implements GetUploadedParentDocument {
     TResult? Function(RemoveSelectedSessionvent value)? removeSelectedSession,
     TResult? Function(RemoveSelectedPlayervent value)? removeSelectedPlayer,
     TResult? Function(SelectParentCoachEvent value)? selectParentOrCoach,
+    TResult? Function(ResetAfterDocumentUploadEvent value)?
+        resetAfterUploadDocument,
   }) {
     return getParentUploadedDocument?.call(this);
   }
@@ -714,6 +739,8 @@ class _$GetUploadedParentDocumentImpl implements GetUploadedParentDocument {
     TResult Function(RemoveSelectedSessionvent value)? removeSelectedSession,
     TResult Function(RemoveSelectedPlayervent value)? removeSelectedPlayer,
     TResult Function(SelectParentCoachEvent value)? selectParentOrCoach,
+    TResult Function(ResetAfterDocumentUploadEvent value)?
+        resetAfterUploadDocument,
     required TResult orElse(),
   }) {
     if (getParentUploadedDocument != null) {
@@ -838,6 +865,7 @@ class _$GetTermsSessionCoachingPlayerEventsImpl
     required TResult Function(Session session) removeSelectedSession,
     required TResult Function(Player player) removeSelectedPlayer,
     required TResult Function(int coachParentSelect) selectParentOrCoach,
+    required TResult Function() resetAfterUploadDocument,
   }) {
     return getTermsSessionPlayer(data);
   }
@@ -864,6 +892,7 @@ class _$GetTermsSessionCoachingPlayerEventsImpl
     TResult? Function(Session session)? removeSelectedSession,
     TResult? Function(Player player)? removeSelectedPlayer,
     TResult? Function(int coachParentSelect)? selectParentOrCoach,
+    TResult? Function()? resetAfterUploadDocument,
   }) {
     return getTermsSessionPlayer?.call(data);
   }
@@ -889,6 +918,7 @@ class _$GetTermsSessionCoachingPlayerEventsImpl
     TResult Function(Session session)? removeSelectedSession,
     TResult Function(Player player)? removeSelectedPlayer,
     TResult Function(int coachParentSelect)? selectParentOrCoach,
+    TResult Function()? resetAfterUploadDocument,
     required TResult orElse(),
   }) {
     if (getTermsSessionPlayer != null) {
@@ -931,6 +961,8 @@ class _$GetTermsSessionCoachingPlayerEventsImpl
     required TResult Function(RemoveSelectedPlayervent value)
         removeSelectedPlayer,
     required TResult Function(SelectParentCoachEvent value) selectParentOrCoach,
+    required TResult Function(ResetAfterDocumentUploadEvent value)
+        resetAfterUploadDocument,
   }) {
     return getTermsSessionPlayer(this);
   }
@@ -962,6 +994,8 @@ class _$GetTermsSessionCoachingPlayerEventsImpl
     TResult? Function(RemoveSelectedSessionvent value)? removeSelectedSession,
     TResult? Function(RemoveSelectedPlayervent value)? removeSelectedPlayer,
     TResult? Function(SelectParentCoachEvent value)? selectParentOrCoach,
+    TResult? Function(ResetAfterDocumentUploadEvent value)?
+        resetAfterUploadDocument,
   }) {
     return getTermsSessionPlayer?.call(this);
   }
@@ -991,6 +1025,8 @@ class _$GetTermsSessionCoachingPlayerEventsImpl
     TResult Function(RemoveSelectedSessionvent value)? removeSelectedSession,
     TResult Function(RemoveSelectedPlayervent value)? removeSelectedPlayer,
     TResult Function(SelectParentCoachEvent value)? selectParentOrCoach,
+    TResult Function(ResetAfterDocumentUploadEvent value)?
+        resetAfterUploadDocument,
     required TResult orElse(),
   }) {
     if (getTermsSessionPlayer != null) {
@@ -1107,6 +1143,7 @@ class _$SetTitleParentDocumentEventImpl implements SetTitleParentDocumentEvent {
     required TResult Function(Session session) removeSelectedSession,
     required TResult Function(Player player) removeSelectedPlayer,
     required TResult Function(int coachParentSelect) selectParentOrCoach,
+    required TResult Function() resetAfterUploadDocument,
   }) {
     return setTitle(title);
   }
@@ -1133,6 +1170,7 @@ class _$SetTitleParentDocumentEventImpl implements SetTitleParentDocumentEvent {
     TResult? Function(Session session)? removeSelectedSession,
     TResult? Function(Player player)? removeSelectedPlayer,
     TResult? Function(int coachParentSelect)? selectParentOrCoach,
+    TResult? Function()? resetAfterUploadDocument,
   }) {
     return setTitle?.call(title);
   }
@@ -1158,6 +1196,7 @@ class _$SetTitleParentDocumentEventImpl implements SetTitleParentDocumentEvent {
     TResult Function(Session session)? removeSelectedSession,
     TResult Function(Player player)? removeSelectedPlayer,
     TResult Function(int coachParentSelect)? selectParentOrCoach,
+    TResult Function()? resetAfterUploadDocument,
     required TResult orElse(),
   }) {
     if (setTitle != null) {
@@ -1200,6 +1239,8 @@ class _$SetTitleParentDocumentEventImpl implements SetTitleParentDocumentEvent {
     required TResult Function(RemoveSelectedPlayervent value)
         removeSelectedPlayer,
     required TResult Function(SelectParentCoachEvent value) selectParentOrCoach,
+    required TResult Function(ResetAfterDocumentUploadEvent value)
+        resetAfterUploadDocument,
   }) {
     return setTitle(this);
   }
@@ -1231,6 +1272,8 @@ class _$SetTitleParentDocumentEventImpl implements SetTitleParentDocumentEvent {
     TResult? Function(RemoveSelectedSessionvent value)? removeSelectedSession,
     TResult? Function(RemoveSelectedPlayervent value)? removeSelectedPlayer,
     TResult? Function(SelectParentCoachEvent value)? selectParentOrCoach,
+    TResult? Function(ResetAfterDocumentUploadEvent value)?
+        resetAfterUploadDocument,
   }) {
     return setTitle?.call(this);
   }
@@ -1260,6 +1303,8 @@ class _$SetTitleParentDocumentEventImpl implements SetTitleParentDocumentEvent {
     TResult Function(RemoveSelectedSessionvent value)? removeSelectedSession,
     TResult Function(RemoveSelectedPlayervent value)? removeSelectedPlayer,
     TResult Function(SelectParentCoachEvent value)? selectParentOrCoach,
+    TResult Function(ResetAfterDocumentUploadEvent value)?
+        resetAfterUploadDocument,
     required TResult orElse(),
   }) {
     if (setTitle != null) {
@@ -1376,6 +1421,7 @@ class _$SetMessageParentDocumentEventImpl
     required TResult Function(Session session) removeSelectedSession,
     required TResult Function(Player player) removeSelectedPlayer,
     required TResult Function(int coachParentSelect) selectParentOrCoach,
+    required TResult Function() resetAfterUploadDocument,
   }) {
     return setMessage(message);
   }
@@ -1402,6 +1448,7 @@ class _$SetMessageParentDocumentEventImpl
     TResult? Function(Session session)? removeSelectedSession,
     TResult? Function(Player player)? removeSelectedPlayer,
     TResult? Function(int coachParentSelect)? selectParentOrCoach,
+    TResult? Function()? resetAfterUploadDocument,
   }) {
     return setMessage?.call(message);
   }
@@ -1427,6 +1474,7 @@ class _$SetMessageParentDocumentEventImpl
     TResult Function(Session session)? removeSelectedSession,
     TResult Function(Player player)? removeSelectedPlayer,
     TResult Function(int coachParentSelect)? selectParentOrCoach,
+    TResult Function()? resetAfterUploadDocument,
     required TResult orElse(),
   }) {
     if (setMessage != null) {
@@ -1469,6 +1517,8 @@ class _$SetMessageParentDocumentEventImpl
     required TResult Function(RemoveSelectedPlayervent value)
         removeSelectedPlayer,
     required TResult Function(SelectParentCoachEvent value) selectParentOrCoach,
+    required TResult Function(ResetAfterDocumentUploadEvent value)
+        resetAfterUploadDocument,
   }) {
     return setMessage(this);
   }
@@ -1500,6 +1550,8 @@ class _$SetMessageParentDocumentEventImpl
     TResult? Function(RemoveSelectedSessionvent value)? removeSelectedSession,
     TResult? Function(RemoveSelectedPlayervent value)? removeSelectedPlayer,
     TResult? Function(SelectParentCoachEvent value)? selectParentOrCoach,
+    TResult? Function(ResetAfterDocumentUploadEvent value)?
+        resetAfterUploadDocument,
   }) {
     return setMessage?.call(this);
   }
@@ -1529,6 +1581,8 @@ class _$SetMessageParentDocumentEventImpl
     TResult Function(RemoveSelectedSessionvent value)? removeSelectedSession,
     TResult Function(RemoveSelectedPlayervent value)? removeSelectedPlayer,
     TResult Function(SelectParentCoachEvent value)? selectParentOrCoach,
+    TResult Function(ResetAfterDocumentUploadEvent value)?
+        resetAfterUploadDocument,
     required TResult orElse(),
   }) {
     if (setMessage != null) {
@@ -1658,6 +1712,7 @@ class _$SetSelectedCoachIdParentDocumentEventImpl
     required TResult Function(Session session) removeSelectedSession,
     required TResult Function(Player player) removeSelectedPlayer,
     required TResult Function(int coachParentSelect) selectParentOrCoach,
+    required TResult Function() resetAfterUploadDocument,
   }) {
     return setSelectedCoachId(caoch);
   }
@@ -1684,6 +1739,7 @@ class _$SetSelectedCoachIdParentDocumentEventImpl
     TResult? Function(Session session)? removeSelectedSession,
     TResult? Function(Player player)? removeSelectedPlayer,
     TResult? Function(int coachParentSelect)? selectParentOrCoach,
+    TResult? Function()? resetAfterUploadDocument,
   }) {
     return setSelectedCoachId?.call(caoch);
   }
@@ -1709,6 +1765,7 @@ class _$SetSelectedCoachIdParentDocumentEventImpl
     TResult Function(Session session)? removeSelectedSession,
     TResult Function(Player player)? removeSelectedPlayer,
     TResult Function(int coachParentSelect)? selectParentOrCoach,
+    TResult Function()? resetAfterUploadDocument,
     required TResult orElse(),
   }) {
     if (setSelectedCoachId != null) {
@@ -1751,6 +1808,8 @@ class _$SetSelectedCoachIdParentDocumentEventImpl
     required TResult Function(RemoveSelectedPlayervent value)
         removeSelectedPlayer,
     required TResult Function(SelectParentCoachEvent value) selectParentOrCoach,
+    required TResult Function(ResetAfterDocumentUploadEvent value)
+        resetAfterUploadDocument,
   }) {
     return setSelectedCoachId(this);
   }
@@ -1782,6 +1841,8 @@ class _$SetSelectedCoachIdParentDocumentEventImpl
     TResult? Function(RemoveSelectedSessionvent value)? removeSelectedSession,
     TResult? Function(RemoveSelectedPlayervent value)? removeSelectedPlayer,
     TResult? Function(SelectParentCoachEvent value)? selectParentOrCoach,
+    TResult? Function(ResetAfterDocumentUploadEvent value)?
+        resetAfterUploadDocument,
   }) {
     return setSelectedCoachId?.call(this);
   }
@@ -1811,6 +1872,8 @@ class _$SetSelectedCoachIdParentDocumentEventImpl
     TResult Function(RemoveSelectedSessionvent value)? removeSelectedSession,
     TResult Function(RemoveSelectedPlayervent value)? removeSelectedPlayer,
     TResult Function(SelectParentCoachEvent value)? selectParentOrCoach,
+    TResult Function(ResetAfterDocumentUploadEvent value)?
+        resetAfterUploadDocument,
     required TResult orElse(),
   }) {
     if (setSelectedCoachId != null) {
@@ -1941,6 +2004,7 @@ class _$setSelectedTermDocumentEventImpl
     required TResult Function(Session session) removeSelectedSession,
     required TResult Function(Player player) removeSelectedPlayer,
     required TResult Function(int coachParentSelect) selectParentOrCoach,
+    required TResult Function() resetAfterUploadDocument,
   }) {
     return setSelectedTerm(terms);
   }
@@ -1967,6 +2031,7 @@ class _$setSelectedTermDocumentEventImpl
     TResult? Function(Session session)? removeSelectedSession,
     TResult? Function(Player player)? removeSelectedPlayer,
     TResult? Function(int coachParentSelect)? selectParentOrCoach,
+    TResult? Function()? resetAfterUploadDocument,
   }) {
     return setSelectedTerm?.call(terms);
   }
@@ -1992,6 +2057,7 @@ class _$setSelectedTermDocumentEventImpl
     TResult Function(Session session)? removeSelectedSession,
     TResult Function(Player player)? removeSelectedPlayer,
     TResult Function(int coachParentSelect)? selectParentOrCoach,
+    TResult Function()? resetAfterUploadDocument,
     required TResult orElse(),
   }) {
     if (setSelectedTerm != null) {
@@ -2034,6 +2100,8 @@ class _$setSelectedTermDocumentEventImpl
     required TResult Function(RemoveSelectedPlayervent value)
         removeSelectedPlayer,
     required TResult Function(SelectParentCoachEvent value) selectParentOrCoach,
+    required TResult Function(ResetAfterDocumentUploadEvent value)
+        resetAfterUploadDocument,
   }) {
     return setSelectedTerm(this);
   }
@@ -2065,6 +2133,8 @@ class _$setSelectedTermDocumentEventImpl
     TResult? Function(RemoveSelectedSessionvent value)? removeSelectedSession,
     TResult? Function(RemoveSelectedPlayervent value)? removeSelectedPlayer,
     TResult? Function(SelectParentCoachEvent value)? selectParentOrCoach,
+    TResult? Function(ResetAfterDocumentUploadEvent value)?
+        resetAfterUploadDocument,
   }) {
     return setSelectedTerm?.call(this);
   }
@@ -2094,6 +2164,8 @@ class _$setSelectedTermDocumentEventImpl
     TResult Function(RemoveSelectedSessionvent value)? removeSelectedSession,
     TResult Function(RemoveSelectedPlayervent value)? removeSelectedPlayer,
     TResult Function(SelectParentCoachEvent value)? selectParentOrCoach,
+    TResult Function(ResetAfterDocumentUploadEvent value)?
+        resetAfterUploadDocument,
     required TResult orElse(),
   }) {
     if (setSelectedTerm != null) {
@@ -2224,6 +2296,7 @@ class _$setSelectedProgramDocumentEventImpl
     required TResult Function(Session session) removeSelectedSession,
     required TResult Function(Player player) removeSelectedPlayer,
     required TResult Function(int coachParentSelect) selectParentOrCoach,
+    required TResult Function() resetAfterUploadDocument,
   }) {
     return setSelectedProgram(programs);
   }
@@ -2250,6 +2323,7 @@ class _$setSelectedProgramDocumentEventImpl
     TResult? Function(Session session)? removeSelectedSession,
     TResult? Function(Player player)? removeSelectedPlayer,
     TResult? Function(int coachParentSelect)? selectParentOrCoach,
+    TResult? Function()? resetAfterUploadDocument,
   }) {
     return setSelectedProgram?.call(programs);
   }
@@ -2275,6 +2349,7 @@ class _$setSelectedProgramDocumentEventImpl
     TResult Function(Session session)? removeSelectedSession,
     TResult Function(Player player)? removeSelectedPlayer,
     TResult Function(int coachParentSelect)? selectParentOrCoach,
+    TResult Function()? resetAfterUploadDocument,
     required TResult orElse(),
   }) {
     if (setSelectedProgram != null) {
@@ -2317,6 +2392,8 @@ class _$setSelectedProgramDocumentEventImpl
     required TResult Function(RemoveSelectedPlayervent value)
         removeSelectedPlayer,
     required TResult Function(SelectParentCoachEvent value) selectParentOrCoach,
+    required TResult Function(ResetAfterDocumentUploadEvent value)
+        resetAfterUploadDocument,
   }) {
     return setSelectedProgram(this);
   }
@@ -2348,6 +2425,8 @@ class _$setSelectedProgramDocumentEventImpl
     TResult? Function(RemoveSelectedSessionvent value)? removeSelectedSession,
     TResult? Function(RemoveSelectedPlayervent value)? removeSelectedPlayer,
     TResult? Function(SelectParentCoachEvent value)? selectParentOrCoach,
+    TResult? Function(ResetAfterDocumentUploadEvent value)?
+        resetAfterUploadDocument,
   }) {
     return setSelectedProgram?.call(this);
   }
@@ -2377,6 +2456,8 @@ class _$setSelectedProgramDocumentEventImpl
     TResult Function(RemoveSelectedSessionvent value)? removeSelectedSession,
     TResult Function(RemoveSelectedPlayervent value)? removeSelectedPlayer,
     TResult Function(SelectParentCoachEvent value)? selectParentOrCoach,
+    TResult Function(ResetAfterDocumentUploadEvent value)?
+        resetAfterUploadDocument,
     required TResult orElse(),
   }) {
     if (setSelectedProgram != null) {
@@ -2506,6 +2587,7 @@ class _$setSelectedSessionDocumentEventImpl
     required TResult Function(Session session) removeSelectedSession,
     required TResult Function(Player player) removeSelectedPlayer,
     required TResult Function(int coachParentSelect) selectParentOrCoach,
+    required TResult Function() resetAfterUploadDocument,
   }) {
     return setSelectedSession(session);
   }
@@ -2532,6 +2614,7 @@ class _$setSelectedSessionDocumentEventImpl
     TResult? Function(Session session)? removeSelectedSession,
     TResult? Function(Player player)? removeSelectedPlayer,
     TResult? Function(int coachParentSelect)? selectParentOrCoach,
+    TResult? Function()? resetAfterUploadDocument,
   }) {
     return setSelectedSession?.call(session);
   }
@@ -2557,6 +2640,7 @@ class _$setSelectedSessionDocumentEventImpl
     TResult Function(Session session)? removeSelectedSession,
     TResult Function(Player player)? removeSelectedPlayer,
     TResult Function(int coachParentSelect)? selectParentOrCoach,
+    TResult Function()? resetAfterUploadDocument,
     required TResult orElse(),
   }) {
     if (setSelectedSession != null) {
@@ -2599,6 +2683,8 @@ class _$setSelectedSessionDocumentEventImpl
     required TResult Function(RemoveSelectedPlayervent value)
         removeSelectedPlayer,
     required TResult Function(SelectParentCoachEvent value) selectParentOrCoach,
+    required TResult Function(ResetAfterDocumentUploadEvent value)
+        resetAfterUploadDocument,
   }) {
     return setSelectedSession(this);
   }
@@ -2630,6 +2716,8 @@ class _$setSelectedSessionDocumentEventImpl
     TResult? Function(RemoveSelectedSessionvent value)? removeSelectedSession,
     TResult? Function(RemoveSelectedPlayervent value)? removeSelectedPlayer,
     TResult? Function(SelectParentCoachEvent value)? selectParentOrCoach,
+    TResult? Function(ResetAfterDocumentUploadEvent value)?
+        resetAfterUploadDocument,
   }) {
     return setSelectedSession?.call(this);
   }
@@ -2659,6 +2747,8 @@ class _$setSelectedSessionDocumentEventImpl
     TResult Function(RemoveSelectedSessionvent value)? removeSelectedSession,
     TResult Function(RemoveSelectedPlayervent value)? removeSelectedPlayer,
     TResult Function(SelectParentCoachEvent value)? selectParentOrCoach,
+    TResult Function(ResetAfterDocumentUploadEvent value)?
+        resetAfterUploadDocument,
     required TResult orElse(),
   }) {
     if (setSelectedSession != null) {
@@ -2788,6 +2878,7 @@ class _$setSelectedPlayerDocumentEventImpl
     required TResult Function(Session session) removeSelectedSession,
     required TResult Function(Player player) removeSelectedPlayer,
     required TResult Function(int coachParentSelect) selectParentOrCoach,
+    required TResult Function() resetAfterUploadDocument,
   }) {
     return setSelectedPlayer(player);
   }
@@ -2814,6 +2905,7 @@ class _$setSelectedPlayerDocumentEventImpl
     TResult? Function(Session session)? removeSelectedSession,
     TResult? Function(Player player)? removeSelectedPlayer,
     TResult? Function(int coachParentSelect)? selectParentOrCoach,
+    TResult? Function()? resetAfterUploadDocument,
   }) {
     return setSelectedPlayer?.call(player);
   }
@@ -2839,6 +2931,7 @@ class _$setSelectedPlayerDocumentEventImpl
     TResult Function(Session session)? removeSelectedSession,
     TResult Function(Player player)? removeSelectedPlayer,
     TResult Function(int coachParentSelect)? selectParentOrCoach,
+    TResult Function()? resetAfterUploadDocument,
     required TResult orElse(),
   }) {
     if (setSelectedPlayer != null) {
@@ -2881,6 +2974,8 @@ class _$setSelectedPlayerDocumentEventImpl
     required TResult Function(RemoveSelectedPlayervent value)
         removeSelectedPlayer,
     required TResult Function(SelectParentCoachEvent value) selectParentOrCoach,
+    required TResult Function(ResetAfterDocumentUploadEvent value)
+        resetAfterUploadDocument,
   }) {
     return setSelectedPlayer(this);
   }
@@ -2912,6 +3007,8 @@ class _$setSelectedPlayerDocumentEventImpl
     TResult? Function(RemoveSelectedSessionvent value)? removeSelectedSession,
     TResult? Function(RemoveSelectedPlayervent value)? removeSelectedPlayer,
     TResult? Function(SelectParentCoachEvent value)? selectParentOrCoach,
+    TResult? Function(ResetAfterDocumentUploadEvent value)?
+        resetAfterUploadDocument,
   }) {
     return setSelectedPlayer?.call(this);
   }
@@ -2941,6 +3038,8 @@ class _$setSelectedPlayerDocumentEventImpl
     TResult Function(RemoveSelectedSessionvent value)? removeSelectedSession,
     TResult Function(RemoveSelectedPlayervent value)? removeSelectedPlayer,
     TResult Function(SelectParentCoachEvent value)? selectParentOrCoach,
+    TResult Function(ResetAfterDocumentUploadEvent value)?
+        resetAfterUploadDocument,
     required TResult orElse(),
   }) {
     if (setSelectedPlayer != null) {
@@ -3069,6 +3168,7 @@ class _$SetDocumentForParentDocumentEventImpl
     required TResult Function(Session session) removeSelectedSession,
     required TResult Function(Player player) removeSelectedPlayer,
     required TResult Function(int coachParentSelect) selectParentOrCoach,
+    required TResult Function() resetAfterUploadDocument,
   }) {
     return setDoucmentForUpload(fileName, documentFile);
   }
@@ -3095,6 +3195,7 @@ class _$SetDocumentForParentDocumentEventImpl
     TResult? Function(Session session)? removeSelectedSession,
     TResult? Function(Player player)? removeSelectedPlayer,
     TResult? Function(int coachParentSelect)? selectParentOrCoach,
+    TResult? Function()? resetAfterUploadDocument,
   }) {
     return setDoucmentForUpload?.call(fileName, documentFile);
   }
@@ -3120,6 +3221,7 @@ class _$SetDocumentForParentDocumentEventImpl
     TResult Function(Session session)? removeSelectedSession,
     TResult Function(Player player)? removeSelectedPlayer,
     TResult Function(int coachParentSelect)? selectParentOrCoach,
+    TResult Function()? resetAfterUploadDocument,
     required TResult orElse(),
   }) {
     if (setDoucmentForUpload != null) {
@@ -3162,6 +3264,8 @@ class _$SetDocumentForParentDocumentEventImpl
     required TResult Function(RemoveSelectedPlayervent value)
         removeSelectedPlayer,
     required TResult Function(SelectParentCoachEvent value) selectParentOrCoach,
+    required TResult Function(ResetAfterDocumentUploadEvent value)
+        resetAfterUploadDocument,
   }) {
     return setDoucmentForUpload(this);
   }
@@ -3193,6 +3297,8 @@ class _$SetDocumentForParentDocumentEventImpl
     TResult? Function(RemoveSelectedSessionvent value)? removeSelectedSession,
     TResult? Function(RemoveSelectedPlayervent value)? removeSelectedPlayer,
     TResult? Function(SelectParentCoachEvent value)? selectParentOrCoach,
+    TResult? Function(ResetAfterDocumentUploadEvent value)?
+        resetAfterUploadDocument,
   }) {
     return setDoucmentForUpload?.call(this);
   }
@@ -3222,6 +3328,8 @@ class _$SetDocumentForParentDocumentEventImpl
     TResult Function(RemoveSelectedSessionvent value)? removeSelectedSession,
     TResult Function(RemoveSelectedPlayervent value)? removeSelectedPlayer,
     TResult Function(SelectParentCoachEvent value)? selectParentOrCoach,
+    TResult Function(ResetAfterDocumentUploadEvent value)?
+        resetAfterUploadDocument,
     required TResult orElse(),
   }) {
     if (setDoucmentForUpload != null) {
@@ -3312,6 +3420,7 @@ class _$SubmitParentDocumentEventImpl implements SubmitParentDocumentEvent {
     required TResult Function(Session session) removeSelectedSession,
     required TResult Function(Player player) removeSelectedPlayer,
     required TResult Function(int coachParentSelect) selectParentOrCoach,
+    required TResult Function() resetAfterUploadDocument,
   }) {
     return submitDocument();
   }
@@ -3338,6 +3447,7 @@ class _$SubmitParentDocumentEventImpl implements SubmitParentDocumentEvent {
     TResult? Function(Session session)? removeSelectedSession,
     TResult? Function(Player player)? removeSelectedPlayer,
     TResult? Function(int coachParentSelect)? selectParentOrCoach,
+    TResult? Function()? resetAfterUploadDocument,
   }) {
     return submitDocument?.call();
   }
@@ -3363,6 +3473,7 @@ class _$SubmitParentDocumentEventImpl implements SubmitParentDocumentEvent {
     TResult Function(Session session)? removeSelectedSession,
     TResult Function(Player player)? removeSelectedPlayer,
     TResult Function(int coachParentSelect)? selectParentOrCoach,
+    TResult Function()? resetAfterUploadDocument,
     required TResult orElse(),
   }) {
     if (submitDocument != null) {
@@ -3405,6 +3516,8 @@ class _$SubmitParentDocumentEventImpl implements SubmitParentDocumentEvent {
     required TResult Function(RemoveSelectedPlayervent value)
         removeSelectedPlayer,
     required TResult Function(SelectParentCoachEvent value) selectParentOrCoach,
+    required TResult Function(ResetAfterDocumentUploadEvent value)
+        resetAfterUploadDocument,
   }) {
     return submitDocument(this);
   }
@@ -3436,6 +3549,8 @@ class _$SubmitParentDocumentEventImpl implements SubmitParentDocumentEvent {
     TResult? Function(RemoveSelectedSessionvent value)? removeSelectedSession,
     TResult? Function(RemoveSelectedPlayervent value)? removeSelectedPlayer,
     TResult? Function(SelectParentCoachEvent value)? selectParentOrCoach,
+    TResult? Function(ResetAfterDocumentUploadEvent value)?
+        resetAfterUploadDocument,
   }) {
     return submitDocument?.call(this);
   }
@@ -3465,6 +3580,8 @@ class _$SubmitParentDocumentEventImpl implements SubmitParentDocumentEvent {
     TResult Function(RemoveSelectedSessionvent value)? removeSelectedSession,
     TResult Function(RemoveSelectedPlayervent value)? removeSelectedPlayer,
     TResult Function(SelectParentCoachEvent value)? selectParentOrCoach,
+    TResult Function(ResetAfterDocumentUploadEvent value)?
+        resetAfterUploadDocument,
     required TResult orElse(),
   }) {
     if (submitDocument != null) {
@@ -3581,6 +3698,7 @@ class _$RemoveSelectedCoachEventImpl implements RemoveSelectedCoachEvent {
     required TResult Function(Session session) removeSelectedSession,
     required TResult Function(Player player) removeSelectedPlayer,
     required TResult Function(int coachParentSelect) selectParentOrCoach,
+    required TResult Function() resetAfterUploadDocument,
   }) {
     return removeSelectedCoach(coach);
   }
@@ -3607,6 +3725,7 @@ class _$RemoveSelectedCoachEventImpl implements RemoveSelectedCoachEvent {
     TResult? Function(Session session)? removeSelectedSession,
     TResult? Function(Player player)? removeSelectedPlayer,
     TResult? Function(int coachParentSelect)? selectParentOrCoach,
+    TResult? Function()? resetAfterUploadDocument,
   }) {
     return removeSelectedCoach?.call(coach);
   }
@@ -3632,6 +3751,7 @@ class _$RemoveSelectedCoachEventImpl implements RemoveSelectedCoachEvent {
     TResult Function(Session session)? removeSelectedSession,
     TResult Function(Player player)? removeSelectedPlayer,
     TResult Function(int coachParentSelect)? selectParentOrCoach,
+    TResult Function()? resetAfterUploadDocument,
     required TResult orElse(),
   }) {
     if (removeSelectedCoach != null) {
@@ -3674,6 +3794,8 @@ class _$RemoveSelectedCoachEventImpl implements RemoveSelectedCoachEvent {
     required TResult Function(RemoveSelectedPlayervent value)
         removeSelectedPlayer,
     required TResult Function(SelectParentCoachEvent value) selectParentOrCoach,
+    required TResult Function(ResetAfterDocumentUploadEvent value)
+        resetAfterUploadDocument,
   }) {
     return removeSelectedCoach(this);
   }
@@ -3705,6 +3827,8 @@ class _$RemoveSelectedCoachEventImpl implements RemoveSelectedCoachEvent {
     TResult? Function(RemoveSelectedSessionvent value)? removeSelectedSession,
     TResult? Function(RemoveSelectedPlayervent value)? removeSelectedPlayer,
     TResult? Function(SelectParentCoachEvent value)? selectParentOrCoach,
+    TResult? Function(ResetAfterDocumentUploadEvent value)?
+        resetAfterUploadDocument,
   }) {
     return removeSelectedCoach?.call(this);
   }
@@ -3734,6 +3858,8 @@ class _$RemoveSelectedCoachEventImpl implements RemoveSelectedCoachEvent {
     TResult Function(RemoveSelectedSessionvent value)? removeSelectedSession,
     TResult Function(RemoveSelectedPlayervent value)? removeSelectedPlayer,
     TResult Function(SelectParentCoachEvent value)? selectParentOrCoach,
+    TResult Function(ResetAfterDocumentUploadEvent value)?
+        resetAfterUploadDocument,
     required TResult orElse(),
   }) {
     if (removeSelectedCoach != null) {
@@ -3859,6 +3985,7 @@ class _$RemoveSelectedTermsventImpl implements RemoveSelectedTermsvent {
     required TResult Function(Session session) removeSelectedSession,
     required TResult Function(Player player) removeSelectedPlayer,
     required TResult Function(int coachParentSelect) selectParentOrCoach,
+    required TResult Function() resetAfterUploadDocument,
   }) {
     return removeSelectedTerms(term);
   }
@@ -3885,6 +4012,7 @@ class _$RemoveSelectedTermsventImpl implements RemoveSelectedTermsvent {
     TResult? Function(Session session)? removeSelectedSession,
     TResult? Function(Player player)? removeSelectedPlayer,
     TResult? Function(int coachParentSelect)? selectParentOrCoach,
+    TResult? Function()? resetAfterUploadDocument,
   }) {
     return removeSelectedTerms?.call(term);
   }
@@ -3910,6 +4038,7 @@ class _$RemoveSelectedTermsventImpl implements RemoveSelectedTermsvent {
     TResult Function(Session session)? removeSelectedSession,
     TResult Function(Player player)? removeSelectedPlayer,
     TResult Function(int coachParentSelect)? selectParentOrCoach,
+    TResult Function()? resetAfterUploadDocument,
     required TResult orElse(),
   }) {
     if (removeSelectedTerms != null) {
@@ -3952,6 +4081,8 @@ class _$RemoveSelectedTermsventImpl implements RemoveSelectedTermsvent {
     required TResult Function(RemoveSelectedPlayervent value)
         removeSelectedPlayer,
     required TResult Function(SelectParentCoachEvent value) selectParentOrCoach,
+    required TResult Function(ResetAfterDocumentUploadEvent value)
+        resetAfterUploadDocument,
   }) {
     return removeSelectedTerms(this);
   }
@@ -3983,6 +4114,8 @@ class _$RemoveSelectedTermsventImpl implements RemoveSelectedTermsvent {
     TResult? Function(RemoveSelectedSessionvent value)? removeSelectedSession,
     TResult? Function(RemoveSelectedPlayervent value)? removeSelectedPlayer,
     TResult? Function(SelectParentCoachEvent value)? selectParentOrCoach,
+    TResult? Function(ResetAfterDocumentUploadEvent value)?
+        resetAfterUploadDocument,
   }) {
     return removeSelectedTerms?.call(this);
   }
@@ -4012,6 +4145,8 @@ class _$RemoveSelectedTermsventImpl implements RemoveSelectedTermsvent {
     TResult Function(RemoveSelectedSessionvent value)? removeSelectedSession,
     TResult Function(RemoveSelectedPlayervent value)? removeSelectedPlayer,
     TResult Function(SelectParentCoachEvent value)? selectParentOrCoach,
+    TResult Function(ResetAfterDocumentUploadEvent value)?
+        resetAfterUploadDocument,
     required TResult orElse(),
   }) {
     if (removeSelectedTerms != null) {
@@ -4138,6 +4273,7 @@ class _$RemoveSelectedProgramventImpl implements RemoveSelectedProgramvent {
     required TResult Function(Session session) removeSelectedSession,
     required TResult Function(Player player) removeSelectedPlayer,
     required TResult Function(int coachParentSelect) selectParentOrCoach,
+    required TResult Function() resetAfterUploadDocument,
   }) {
     return removeSelectedProgram(program);
   }
@@ -4164,6 +4300,7 @@ class _$RemoveSelectedProgramventImpl implements RemoveSelectedProgramvent {
     TResult? Function(Session session)? removeSelectedSession,
     TResult? Function(Player player)? removeSelectedPlayer,
     TResult? Function(int coachParentSelect)? selectParentOrCoach,
+    TResult? Function()? resetAfterUploadDocument,
   }) {
     return removeSelectedProgram?.call(program);
   }
@@ -4189,6 +4326,7 @@ class _$RemoveSelectedProgramventImpl implements RemoveSelectedProgramvent {
     TResult Function(Session session)? removeSelectedSession,
     TResult Function(Player player)? removeSelectedPlayer,
     TResult Function(int coachParentSelect)? selectParentOrCoach,
+    TResult Function()? resetAfterUploadDocument,
     required TResult orElse(),
   }) {
     if (removeSelectedProgram != null) {
@@ -4231,6 +4369,8 @@ class _$RemoveSelectedProgramventImpl implements RemoveSelectedProgramvent {
     required TResult Function(RemoveSelectedPlayervent value)
         removeSelectedPlayer,
     required TResult Function(SelectParentCoachEvent value) selectParentOrCoach,
+    required TResult Function(ResetAfterDocumentUploadEvent value)
+        resetAfterUploadDocument,
   }) {
     return removeSelectedProgram(this);
   }
@@ -4262,6 +4402,8 @@ class _$RemoveSelectedProgramventImpl implements RemoveSelectedProgramvent {
     TResult? Function(RemoveSelectedSessionvent value)? removeSelectedSession,
     TResult? Function(RemoveSelectedPlayervent value)? removeSelectedPlayer,
     TResult? Function(SelectParentCoachEvent value)? selectParentOrCoach,
+    TResult? Function(ResetAfterDocumentUploadEvent value)?
+        resetAfterUploadDocument,
   }) {
     return removeSelectedProgram?.call(this);
   }
@@ -4291,6 +4433,8 @@ class _$RemoveSelectedProgramventImpl implements RemoveSelectedProgramvent {
     TResult Function(RemoveSelectedSessionvent value)? removeSelectedSession,
     TResult Function(RemoveSelectedPlayervent value)? removeSelectedPlayer,
     TResult Function(SelectParentCoachEvent value)? selectParentOrCoach,
+    TResult Function(ResetAfterDocumentUploadEvent value)?
+        resetAfterUploadDocument,
     required TResult orElse(),
   }) {
     if (removeSelectedProgram != null) {
@@ -4417,6 +4561,7 @@ class _$RemoveSelectedSessionventImpl implements RemoveSelectedSessionvent {
     required TResult Function(Session session) removeSelectedSession,
     required TResult Function(Player player) removeSelectedPlayer,
     required TResult Function(int coachParentSelect) selectParentOrCoach,
+    required TResult Function() resetAfterUploadDocument,
   }) {
     return removeSelectedSession(session);
   }
@@ -4443,6 +4588,7 @@ class _$RemoveSelectedSessionventImpl implements RemoveSelectedSessionvent {
     TResult? Function(Session session)? removeSelectedSession,
     TResult? Function(Player player)? removeSelectedPlayer,
     TResult? Function(int coachParentSelect)? selectParentOrCoach,
+    TResult? Function()? resetAfterUploadDocument,
   }) {
     return removeSelectedSession?.call(session);
   }
@@ -4468,6 +4614,7 @@ class _$RemoveSelectedSessionventImpl implements RemoveSelectedSessionvent {
     TResult Function(Session session)? removeSelectedSession,
     TResult Function(Player player)? removeSelectedPlayer,
     TResult Function(int coachParentSelect)? selectParentOrCoach,
+    TResult Function()? resetAfterUploadDocument,
     required TResult orElse(),
   }) {
     if (removeSelectedSession != null) {
@@ -4510,6 +4657,8 @@ class _$RemoveSelectedSessionventImpl implements RemoveSelectedSessionvent {
     required TResult Function(RemoveSelectedPlayervent value)
         removeSelectedPlayer,
     required TResult Function(SelectParentCoachEvent value) selectParentOrCoach,
+    required TResult Function(ResetAfterDocumentUploadEvent value)
+        resetAfterUploadDocument,
   }) {
     return removeSelectedSession(this);
   }
@@ -4541,6 +4690,8 @@ class _$RemoveSelectedSessionventImpl implements RemoveSelectedSessionvent {
     TResult? Function(RemoveSelectedSessionvent value)? removeSelectedSession,
     TResult? Function(RemoveSelectedPlayervent value)? removeSelectedPlayer,
     TResult? Function(SelectParentCoachEvent value)? selectParentOrCoach,
+    TResult? Function(ResetAfterDocumentUploadEvent value)?
+        resetAfterUploadDocument,
   }) {
     return removeSelectedSession?.call(this);
   }
@@ -4570,6 +4721,8 @@ class _$RemoveSelectedSessionventImpl implements RemoveSelectedSessionvent {
     TResult Function(RemoveSelectedSessionvent value)? removeSelectedSession,
     TResult Function(RemoveSelectedPlayervent value)? removeSelectedPlayer,
     TResult Function(SelectParentCoachEvent value)? selectParentOrCoach,
+    TResult Function(ResetAfterDocumentUploadEvent value)?
+        resetAfterUploadDocument,
     required TResult orElse(),
   }) {
     if (removeSelectedSession != null) {
@@ -4695,6 +4848,7 @@ class _$RemoveSelectedPlayerventImpl implements RemoveSelectedPlayervent {
     required TResult Function(Session session) removeSelectedSession,
     required TResult Function(Player player) removeSelectedPlayer,
     required TResult Function(int coachParentSelect) selectParentOrCoach,
+    required TResult Function() resetAfterUploadDocument,
   }) {
     return removeSelectedPlayer(player);
   }
@@ -4721,6 +4875,7 @@ class _$RemoveSelectedPlayerventImpl implements RemoveSelectedPlayervent {
     TResult? Function(Session session)? removeSelectedSession,
     TResult? Function(Player player)? removeSelectedPlayer,
     TResult? Function(int coachParentSelect)? selectParentOrCoach,
+    TResult? Function()? resetAfterUploadDocument,
   }) {
     return removeSelectedPlayer?.call(player);
   }
@@ -4746,6 +4901,7 @@ class _$RemoveSelectedPlayerventImpl implements RemoveSelectedPlayervent {
     TResult Function(Session session)? removeSelectedSession,
     TResult Function(Player player)? removeSelectedPlayer,
     TResult Function(int coachParentSelect)? selectParentOrCoach,
+    TResult Function()? resetAfterUploadDocument,
     required TResult orElse(),
   }) {
     if (removeSelectedPlayer != null) {
@@ -4788,6 +4944,8 @@ class _$RemoveSelectedPlayerventImpl implements RemoveSelectedPlayervent {
     required TResult Function(RemoveSelectedPlayervent value)
         removeSelectedPlayer,
     required TResult Function(SelectParentCoachEvent value) selectParentOrCoach,
+    required TResult Function(ResetAfterDocumentUploadEvent value)
+        resetAfterUploadDocument,
   }) {
     return removeSelectedPlayer(this);
   }
@@ -4819,6 +4977,8 @@ class _$RemoveSelectedPlayerventImpl implements RemoveSelectedPlayervent {
     TResult? Function(RemoveSelectedSessionvent value)? removeSelectedSession,
     TResult? Function(RemoveSelectedPlayervent value)? removeSelectedPlayer,
     TResult? Function(SelectParentCoachEvent value)? selectParentOrCoach,
+    TResult? Function(ResetAfterDocumentUploadEvent value)?
+        resetAfterUploadDocument,
   }) {
     return removeSelectedPlayer?.call(this);
   }
@@ -4848,6 +5008,8 @@ class _$RemoveSelectedPlayerventImpl implements RemoveSelectedPlayervent {
     TResult Function(RemoveSelectedSessionvent value)? removeSelectedSession,
     TResult Function(RemoveSelectedPlayervent value)? removeSelectedPlayer,
     TResult Function(SelectParentCoachEvent value)? selectParentOrCoach,
+    TResult Function(ResetAfterDocumentUploadEvent value)?
+        resetAfterUploadDocument,
     required TResult orElse(),
   }) {
     if (removeSelectedPlayer != null) {
@@ -4962,6 +5124,7 @@ class _$SelectParentCoachEventImpl implements SelectParentCoachEvent {
     required TResult Function(Session session) removeSelectedSession,
     required TResult Function(Player player) removeSelectedPlayer,
     required TResult Function(int coachParentSelect) selectParentOrCoach,
+    required TResult Function() resetAfterUploadDocument,
   }) {
     return selectParentOrCoach(coachParentSelect);
   }
@@ -4988,6 +5151,7 @@ class _$SelectParentCoachEventImpl implements SelectParentCoachEvent {
     TResult? Function(Session session)? removeSelectedSession,
     TResult? Function(Player player)? removeSelectedPlayer,
     TResult? Function(int coachParentSelect)? selectParentOrCoach,
+    TResult? Function()? resetAfterUploadDocument,
   }) {
     return selectParentOrCoach?.call(coachParentSelect);
   }
@@ -5013,6 +5177,7 @@ class _$SelectParentCoachEventImpl implements SelectParentCoachEvent {
     TResult Function(Session session)? removeSelectedSession,
     TResult Function(Player player)? removeSelectedPlayer,
     TResult Function(int coachParentSelect)? selectParentOrCoach,
+    TResult Function()? resetAfterUploadDocument,
     required TResult orElse(),
   }) {
     if (selectParentOrCoach != null) {
@@ -5055,6 +5220,8 @@ class _$SelectParentCoachEventImpl implements SelectParentCoachEvent {
     required TResult Function(RemoveSelectedPlayervent value)
         removeSelectedPlayer,
     required TResult Function(SelectParentCoachEvent value) selectParentOrCoach,
+    required TResult Function(ResetAfterDocumentUploadEvent value)
+        resetAfterUploadDocument,
   }) {
     return selectParentOrCoach(this);
   }
@@ -5086,6 +5253,8 @@ class _$SelectParentCoachEventImpl implements SelectParentCoachEvent {
     TResult? Function(RemoveSelectedSessionvent value)? removeSelectedSession,
     TResult? Function(RemoveSelectedPlayervent value)? removeSelectedPlayer,
     TResult? Function(SelectParentCoachEvent value)? selectParentOrCoach,
+    TResult? Function(ResetAfterDocumentUploadEvent value)?
+        resetAfterUploadDocument,
   }) {
     return selectParentOrCoach?.call(this);
   }
@@ -5115,6 +5284,8 @@ class _$SelectParentCoachEventImpl implements SelectParentCoachEvent {
     TResult Function(RemoveSelectedSessionvent value)? removeSelectedSession,
     TResult Function(RemoveSelectedPlayervent value)? removeSelectedPlayer,
     TResult Function(SelectParentCoachEvent value)? selectParentOrCoach,
+    TResult Function(ResetAfterDocumentUploadEvent value)?
+        resetAfterUploadDocument,
     required TResult orElse(),
   }) {
     if (selectParentOrCoach != null) {
@@ -5135,4 +5306,246 @@ abstract class SelectParentCoachEvent implements AddDocumentEvent {
   @JsonKey(includeFromJson: false, includeToJson: false)
   _$$SelectParentCoachEventImplCopyWith<_$SelectParentCoachEventImpl>
       get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$ResetAfterDocumentUploadEventImplCopyWith<$Res> {
+  factory _$$ResetAfterDocumentUploadEventImplCopyWith(
+          _$ResetAfterDocumentUploadEventImpl value,
+          $Res Function(_$ResetAfterDocumentUploadEventImpl) then) =
+      __$$ResetAfterDocumentUploadEventImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$ResetAfterDocumentUploadEventImplCopyWithImpl<$Res>
+    extends _$AddDocumentEventCopyWithImpl<$Res,
+        _$ResetAfterDocumentUploadEventImpl>
+    implements _$$ResetAfterDocumentUploadEventImplCopyWith<$Res> {
+  __$$ResetAfterDocumentUploadEventImplCopyWithImpl(
+      _$ResetAfterDocumentUploadEventImpl _value,
+      $Res Function(_$ResetAfterDocumentUploadEventImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of AddDocumentEvent
+  /// with the given fields replaced by the non-null parameter values.
+}
+
+/// @nodoc
+
+class _$ResetAfterDocumentUploadEventImpl
+    implements ResetAfterDocumentUploadEvent {
+  const _$ResetAfterDocumentUploadEventImpl();
+
+  @override
+  String toString() {
+    return 'AddDocumentEvent.resetAfterUploadDocument()';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$ResetAfterDocumentUploadEventImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(int tabno) selectTabEvent,
+    required TResult Function(Map<String, dynamic> data)
+        getParentUploadedDocument,
+    required TResult Function(Map<String, dynamic> data) getTermsSessionPlayer,
+    required TResult Function(String title) setTitle,
+    required TResult Function(String message) setMessage,
+    required TResult Function(Coach caoch) setSelectedCoachId,
+    required TResult Function(Term terms) setSelectedTerm,
+    required TResult Function(CoachingProgram programs) setSelectedProgram,
+    required TResult Function(Session session) setSelectedSession,
+    required TResult Function(Player player) setSelectedPlayer,
+    required TResult Function(String fileName, File? documentFile)
+        setDoucmentForUpload,
+    required TResult Function() submitDocument,
+    required TResult Function(Coach coach) removeSelectedCoach,
+    required TResult Function(Term term) removeSelectedTerms,
+    required TResult Function(CoachingProgram program) removeSelectedProgram,
+    required TResult Function(Session session) removeSelectedSession,
+    required TResult Function(Player player) removeSelectedPlayer,
+    required TResult Function(int coachParentSelect) selectParentOrCoach,
+    required TResult Function() resetAfterUploadDocument,
+  }) {
+    return resetAfterUploadDocument();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(int tabno)? selectTabEvent,
+    TResult? Function(Map<String, dynamic> data)? getParentUploadedDocument,
+    TResult? Function(Map<String, dynamic> data)? getTermsSessionPlayer,
+    TResult? Function(String title)? setTitle,
+    TResult? Function(String message)? setMessage,
+    TResult? Function(Coach caoch)? setSelectedCoachId,
+    TResult? Function(Term terms)? setSelectedTerm,
+    TResult? Function(CoachingProgram programs)? setSelectedProgram,
+    TResult? Function(Session session)? setSelectedSession,
+    TResult? Function(Player player)? setSelectedPlayer,
+    TResult? Function(String fileName, File? documentFile)?
+        setDoucmentForUpload,
+    TResult? Function()? submitDocument,
+    TResult? Function(Coach coach)? removeSelectedCoach,
+    TResult? Function(Term term)? removeSelectedTerms,
+    TResult? Function(CoachingProgram program)? removeSelectedProgram,
+    TResult? Function(Session session)? removeSelectedSession,
+    TResult? Function(Player player)? removeSelectedPlayer,
+    TResult? Function(int coachParentSelect)? selectParentOrCoach,
+    TResult? Function()? resetAfterUploadDocument,
+  }) {
+    return resetAfterUploadDocument?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(int tabno)? selectTabEvent,
+    TResult Function(Map<String, dynamic> data)? getParentUploadedDocument,
+    TResult Function(Map<String, dynamic> data)? getTermsSessionPlayer,
+    TResult Function(String title)? setTitle,
+    TResult Function(String message)? setMessage,
+    TResult Function(Coach caoch)? setSelectedCoachId,
+    TResult Function(Term terms)? setSelectedTerm,
+    TResult Function(CoachingProgram programs)? setSelectedProgram,
+    TResult Function(Session session)? setSelectedSession,
+    TResult Function(Player player)? setSelectedPlayer,
+    TResult Function(String fileName, File? documentFile)? setDoucmentForUpload,
+    TResult Function()? submitDocument,
+    TResult Function(Coach coach)? removeSelectedCoach,
+    TResult Function(Term term)? removeSelectedTerms,
+    TResult Function(CoachingProgram program)? removeSelectedProgram,
+    TResult Function(Session session)? removeSelectedSession,
+    TResult Function(Player player)? removeSelectedPlayer,
+    TResult Function(int coachParentSelect)? selectParentOrCoach,
+    TResult Function()? resetAfterUploadDocument,
+    required TResult orElse(),
+  }) {
+    if (resetAfterUploadDocument != null) {
+      return resetAfterUploadDocument();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(SelectedTabEvent value) selectTabEvent,
+    required TResult Function(GetUploadedParentDocument value)
+        getParentUploadedDocument,
+    required TResult Function(GetTermsSessionCoachingPlayerEvents value)
+        getTermsSessionPlayer,
+    required TResult Function(SetTitleParentDocumentEvent value) setTitle,
+    required TResult Function(SetMessageParentDocumentEvent value) setMessage,
+    required TResult Function(SetSelectedCoachIdParentDocumentEvent value)
+        setSelectedCoachId,
+    required TResult Function(setSelectedTermDocumentEvent value)
+        setSelectedTerm,
+    required TResult Function(setSelectedProgramDocumentEvent value)
+        setSelectedProgram,
+    required TResult Function(setSelectedSessionDocumentEvent value)
+        setSelectedSession,
+    required TResult Function(setSelectedPlayerDocumentEvent value)
+        setSelectedPlayer,
+    required TResult Function(SetDocumentForParentDocumentEvent value)
+        setDoucmentForUpload,
+    required TResult Function(SubmitParentDocumentEvent value) submitDocument,
+    required TResult Function(RemoveSelectedCoachEvent value)
+        removeSelectedCoach,
+    required TResult Function(RemoveSelectedTermsvent value)
+        removeSelectedTerms,
+    required TResult Function(RemoveSelectedProgramvent value)
+        removeSelectedProgram,
+    required TResult Function(RemoveSelectedSessionvent value)
+        removeSelectedSession,
+    required TResult Function(RemoveSelectedPlayervent value)
+        removeSelectedPlayer,
+    required TResult Function(SelectParentCoachEvent value) selectParentOrCoach,
+    required TResult Function(ResetAfterDocumentUploadEvent value)
+        resetAfterUploadDocument,
+  }) {
+    return resetAfterUploadDocument(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(SelectedTabEvent value)? selectTabEvent,
+    TResult? Function(GetUploadedParentDocument value)?
+        getParentUploadedDocument,
+    TResult? Function(GetTermsSessionCoachingPlayerEvents value)?
+        getTermsSessionPlayer,
+    TResult? Function(SetTitleParentDocumentEvent value)? setTitle,
+    TResult? Function(SetMessageParentDocumentEvent value)? setMessage,
+    TResult? Function(SetSelectedCoachIdParentDocumentEvent value)?
+        setSelectedCoachId,
+    TResult? Function(setSelectedTermDocumentEvent value)? setSelectedTerm,
+    TResult? Function(setSelectedProgramDocumentEvent value)?
+        setSelectedProgram,
+    TResult? Function(setSelectedSessionDocumentEvent value)?
+        setSelectedSession,
+    TResult? Function(setSelectedPlayerDocumentEvent value)? setSelectedPlayer,
+    TResult? Function(SetDocumentForParentDocumentEvent value)?
+        setDoucmentForUpload,
+    TResult? Function(SubmitParentDocumentEvent value)? submitDocument,
+    TResult? Function(RemoveSelectedCoachEvent value)? removeSelectedCoach,
+    TResult? Function(RemoveSelectedTermsvent value)? removeSelectedTerms,
+    TResult? Function(RemoveSelectedProgramvent value)? removeSelectedProgram,
+    TResult? Function(RemoveSelectedSessionvent value)? removeSelectedSession,
+    TResult? Function(RemoveSelectedPlayervent value)? removeSelectedPlayer,
+    TResult? Function(SelectParentCoachEvent value)? selectParentOrCoach,
+    TResult? Function(ResetAfterDocumentUploadEvent value)?
+        resetAfterUploadDocument,
+  }) {
+    return resetAfterUploadDocument?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(SelectedTabEvent value)? selectTabEvent,
+    TResult Function(GetUploadedParentDocument value)?
+        getParentUploadedDocument,
+    TResult Function(GetTermsSessionCoachingPlayerEvents value)?
+        getTermsSessionPlayer,
+    TResult Function(SetTitleParentDocumentEvent value)? setTitle,
+    TResult Function(SetMessageParentDocumentEvent value)? setMessage,
+    TResult Function(SetSelectedCoachIdParentDocumentEvent value)?
+        setSelectedCoachId,
+    TResult Function(setSelectedTermDocumentEvent value)? setSelectedTerm,
+    TResult Function(setSelectedProgramDocumentEvent value)? setSelectedProgram,
+    TResult Function(setSelectedSessionDocumentEvent value)? setSelectedSession,
+    TResult Function(setSelectedPlayerDocumentEvent value)? setSelectedPlayer,
+    TResult Function(SetDocumentForParentDocumentEvent value)?
+        setDoucmentForUpload,
+    TResult Function(SubmitParentDocumentEvent value)? submitDocument,
+    TResult Function(RemoveSelectedCoachEvent value)? removeSelectedCoach,
+    TResult Function(RemoveSelectedTermsvent value)? removeSelectedTerms,
+    TResult Function(RemoveSelectedProgramvent value)? removeSelectedProgram,
+    TResult Function(RemoveSelectedSessionvent value)? removeSelectedSession,
+    TResult Function(RemoveSelectedPlayervent value)? removeSelectedPlayer,
+    TResult Function(SelectParentCoachEvent value)? selectParentOrCoach,
+    TResult Function(ResetAfterDocumentUploadEvent value)?
+        resetAfterUploadDocument,
+    required TResult orElse(),
+  }) {
+    if (resetAfterUploadDocument != null) {
+      return resetAfterUploadDocument(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class ResetAfterDocumentUploadEvent implements AddDocumentEvent {
+  const factory ResetAfterDocumentUploadEvent() =
+      _$ResetAfterDocumentUploadEventImpl;
 }

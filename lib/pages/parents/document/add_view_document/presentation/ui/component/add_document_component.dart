@@ -1,15 +1,26 @@
 import 'dart:io';
 
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:rra/common/component/app_text_style.dart';
 import 'package:rra/common/values/values_exports.dart';
 import 'package:rra/common/routes/exports.dart';
+import 'package:rra/pages/parents/document/add_view_document/data/entity/parent_document_list_model.dart';
+import 'package:rra/pages/parents/document/add_view_document/presentation/ui/component/radio_optioin_component.dart';
+import 'package:rra/pages/parents/document/add_view_document/presentation/ui/component/selection_chip_component.dart';
 
 import '../../../../../../../common/component/auth_text_field.dart';
 import '../../../../../../../common/image/camera_file_utility.dart';
 import '../../../../../../../common/local/SharedPrefs.dart';
+import '../../../data/entity/terms_program_session/terms_program_session_player_model.dart';
 import '../../bloc/add_document_event.dart';
 import '../../bloc/add_document_state.dart';
-import 'coach_select_bottomsheet.dart';
+import 'bottomsheet/coach_selection_bottomsheet.dart';
+import 'bottomsheet/coaching_selection_bottomsheet.dart';
+import 'bottomsheet/player_selection_bottomsheet.dart';
+import 'bottomsheet/session_selection_bottomsheet.dart';
+import 'bottomsheet/terms_selection_bottomsheet.dart';
+
+import 'file_chooser_component.dart';
 
 class AddDocumentComponent extends StatelessWidget {
   final TextEditingController titleController;
@@ -47,6 +58,11 @@ class AddDocumentComponent extends StatelessWidget {
       child: BlocConsumer<AddDocumentBloc, AddDocumentState>(
         listener: (context, state) {},
         builder: (context, state) {
+          final isCoach =
+              BlocProvider.of<AppBloc>(context).state.userdata.data.role ==
+                  "coach";
+          final showParentOptions = isCoach && state.parent_coach_radio == 1;
+
           return Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
@@ -66,649 +82,305 @@ class AddDocumentComponent extends StatelessWidget {
                       .add(SetTitleParentDocumentEvent(value));
                 },
               ),
-              const SizedBox(height: 4),
-              /*File chooser*/
-              Container(
-                width: context.screenWidth,
-                height: context.screenHeight * 0.0625,
-                decoration: BoxDecoration(
-                  color: AppColor.appWhiteColor.withOpacity(0.01),
-                  border: Border.all(
-                    width: 1.2,
-                    color: AppColor.appWhiteColor.withOpacity(0.2),
-                  ),
-                  borderRadius:
-                      BorderRadius.circular(context.screenWidth * 0.4),
-                ),
-                child: Row(
-                  children: <Widget>[
-                    Padding(
-                      padding: const EdgeInsets.all(2.0),
-                      child: Container(
-                        decoration: BoxDecoration(
-                          color: AppColor.greycolor1,
-                          borderRadius:
-                              BorderRadius.circular(context.screenWidth * 0.4),
-                        ),
-                        child: Padding(
-                          padding: const EdgeInsets.only(
-                              left: 32.0, right: 32.0, top: 8.0, bottom: 8.0),
-                          child: const Center(
-                            child: Text("Choose file"),
-                          ),
-                        ),
-                      ),
-                    ),
-                    const SizedBox(width: 14.0),
-                    InkWell(
-                      onTap: onPickFile,
-                      child: Text(
-                        BlocProvider.of<AddDocumentBloc>(context)
-                                .state
-                                .selectedFileName
-                                .isEmpty
-                            ? "No File Choosen"
-                            : BlocProvider.of<AddDocumentBloc>(context)
-                                .state
-                                .selectedFileName
-                                .substring(0, 30),
-                        style: TextStyle(
-                          color: AppColor.appWhiteColor.withOpacity(0.7),
-                          fontSize: context.screenWidth * 0.032,
-                          fontFamily: AppFont.interRegular,
-                        ),
-                        overflow: TextOverflow.ellipsis,
-                        maxLines: 1,
-                      ),
-                    )
-                  ],
-                ),
+
+              FileChooserComponent(
+                onPickFile: onPickFile,
+                selectedFileName: state.selectedFileName,
               ),
-              const SizedBox(height: 6),
 
-              /*parent and coach radio button*/
-              BlocProvider.of<AppBloc>(context).state.userdata.data.role ==
-                      "coach"
-                  ? Padding(
-                      padding: EdgeInsets.zero,
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        mainAxisSize: MainAxisSize.min,
-                        children: [
-                          _buildRadioOption(
-                            "Parent",
-                            1,
-                            selectParentCoach, // Bind dynamic value
-                            (v) {
-                              context.read<AddDocumentBloc>().add(
-                                    SelectParentCoachEvent(v!),
-                                  );
-                            },
-                          ),
-                          _buildRadioOption(
-                            "Coach",
-                            0,
-                            selectParentCoach, // Bind dynamic value
-                            (v) {
-                              context.read<AddDocumentBloc>().add(
-                                    SelectParentCoachEvent(v!),
-                                  );
-                            },
-                          ),
-                        ],
-                      ),
-                    )
-                  : SizedBox(),
+              if (isCoach)
+                RoleRadioOptions(
+                  selectedValue: selectParentCoach,
+                  onChanged: (v) {
+                    context.read<AddDocumentBloc>().add(
+                          SelectParentCoachEvent(v!),
+                        );
+                  },
+                ),
 
-              //select coach
-              BlocProvider.of<AppBloc>(context).state.userdata.data.role ==
-                          "parent" ||
-                      BlocProvider.of<AddDocumentBloc>(context)
-                              .state
-                              .parent_coach_radio ==
-                          0
-                  ? Container(
-                      width: context.screenWidth,
-                      // height: context.screenHeight * 0.0625,
-                      padding: EdgeInsets.all(4.0),
-                      decoration: BoxDecoration(
-                        color: AppColor.appWhiteColor.withOpacity(0.01),
-                        border: Border.all(
-                          width: 1.2,
-                          color: AppColor.appWhiteColor.withOpacity(0.2),
-                        ),
-                        borderRadius: BorderRadius.circular(16),
-                      ),
-                      child: Row(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: <Widget>[
-                          Expanded(
-                            child: Padding(
-                              padding: const EdgeInsets.only(
-                                left: 12,
-                                top: 8,
-                                bottom: 8,
-                                right: 8,
-                              ),
-                              child: state.coaches.isEmpty
-                                  ? Text(
-                                      'Select Coach',
-                                      style: TextStyle(
-                                        color: Colors.white.withOpacity(0.5),
-                                        fontSize: context.screenWidth * 0.035,
-                                      ),
-                                    )
-                                  : Wrap(
-                                      spacing:
-                                          8.0, // Horizontal space between chips
-                                      runSpacing:
-                                          6.0, // Vertical space between lines
-                                      children: state.coaches
-                                          .map((coach) => Chip(
-                                                label: Text(
-                                                  coach.name,
-                                                  style: TextStyle(
-                                                      fontSize:
-                                                          context.screenWidth *
-                                                              0.03,
-                                                      fontFamily:
-                                                          AppFont.interMedium),
-                                                ),
-                                                backgroundColor: Colors.blue
-                                                    .withOpacity(0.2),
-                                                shape: RoundedRectangleBorder(
-                                                  borderRadius:
-                                                      BorderRadius.circular(16),
-                                                  side: BorderSide(
-                                                    color: Colors.blue
-                                                        .withOpacity(0.4),
-                                                    width: 1,
-                                                  ),
-                                                ),
-                                                deleteIcon: Icon(
-                                                  Icons.close,
-                                                  size: context.screenWidth *
-                                                      0.04,
-                                                  color: Colors.blue,
-                                                ),
-                                                onDeleted: () {
-                                                  context
-                                                      .read<AddDocumentBloc>()
-                                                      .add(
-                                                        RemoveSelectedCoachEvent(
-                                                            coach),
-                                                      );
-                                                },
-                                              ))
-                                          .toList(),
-                                    ),
-                            ),
-                          ),
-                          InkWell(
-                            onTap: () {
-                              _showCoachSelectionBottomSheet(context, state);
-                            },
-                            child: Padding(
-                              padding:
-                                  const EdgeInsets.only(right: 8.0, top: 6.0),
-                              child: Icon(
-                                FontAwesomeIcons.chevronDown,
-                                color: Colors.white.withOpacity(0.8),
-                                size: context.screenWidth * 0.04,
-                              ),
-                            ),
-                          )
-                        ],
-                      ),
-                    )
-                  : SizedBox(),
-
-
-              /*select terms*/
-              shouldShowContainer(context)
-                  ? Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: <Widget>[
-                        const SizedBox(height: 4),
-                        Container(
-                          width: context.screenWidth,
-                          // height: context.screenHeight * 0.0625,
-                          padding: EdgeInsets.all(4.0),
-                          decoration: BoxDecoration(
-                            color: AppColor.appWhiteColor.withOpacity(0.01),
-                            border: Border.all(
-                              width: 1.2,
-                              color: AppColor.appWhiteColor.withOpacity(0.2),
-                            ),
-                            borderRadius: BorderRadius.circular(16),
-                          ),
-                          child: Row(
-                            crossAxisAlignment: CrossAxisAlignment.start,
+              // Coach selection (visible for parent or when coach selects coach option)
+              if (!isCoach || state.parent_coach_radio == 0)
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: <Widget>[
+                    state.parentDocumentListModel.data.coaches.isNotEmpty
+                        ? Row(
+                            mainAxisAlignment: MainAxisAlignment.end,
                             children: <Widget>[
-                              Expanded(
-                                child: Padding(
-                                  padding: const EdgeInsets.only(
-                                    left: 12,
-                                    top: 8,
-                                    bottom: 8,
-                                    right: 8,
-                                  ),
-                                  child: state
-                                          .terms
-                                          .isEmpty
-                                      ? Text(
-                                          'Select Terms',
-                                          style: TextStyle(
-                                            color:
-                                                Colors.white.withOpacity(0.5),
-                                            fontSize:
-                                                context.screenWidth * 0.035,
-                                          ),
-                                        )
-                                      : Wrap(
-                                          spacing:
-                                              8.0, // Horizontal space between chips
-                                          runSpacing:
-                                              6.0, // Vertical space between lines
-                                          children: state.terms
-                                              .map((terms) => Chip(
-                                                    label: Text(
-                                                      terms.termName,
-                                                      style: TextStyle(
-                                                          fontSize: context
-                                                                  .screenWidth *
-                                                              0.03,
-                                                          fontFamily: AppFont
-                                                              .interMedium),
-                                                    ),
-                                                    backgroundColor: Colors.blue
-                                                        .withOpacity(0.2),
-                                                    shape:
-                                                        RoundedRectangleBorder(
-                                                      borderRadius:
-                                                          BorderRadius.circular(
-                                                              16),
-                                                      side: BorderSide(
-                                                        color: Colors.blue
-                                                            .withOpacity(0.4),
-                                                        width: 1,
-                                                      ),
-                                                    ),
-                                                    deleteIcon: Icon(
-                                                      Icons.close,
-                                                      size:
-                                                          context.screenWidth *
-                                                              0.04,
-                                                      color: Colors.blue,
-                                                    ),
-                                                    onDeleted: () {
-                                                      context
-                                                          .read<
-                                                              AddDocumentBloc>()
-                                                          .add(
-                                                            RemoveSelectedTermsvent(
-                                                                terms),
-                                                          );
-                                                    },
-                                                  ))
-                                              .toList(),
-                                        ),
-                                ),
-                              ),
-                              InkWell(
-                                onTap: () {
-                                  _showTermsSelectionBottomSheet(
-                                      context, state);
-                                },
-                                child: Padding(
-                                  padding: const EdgeInsets.only(
-                                      right: 8.0, top: 6.0),
-                                  child: Icon(
-                                    FontAwesomeIcons.chevronDown,
-                                    color: Colors.white.withOpacity(0.8),
-                                    size: context.screenWidth * 0.04,
-                                  ),
-                                ),
-                              )
-                            ],
-                          ),
-                        ),
-                      ],
-                    )
-                  : SizedBox(),
-
-              /*select program*/
-              shouldShowContainer(context)
-                  ? Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: <Widget>[
-                        const SizedBox(height: 12),
-                        Container(
-                          width: context.screenWidth,
-                          // height: context.screenHeight * 0.0625,
-                          padding: EdgeInsets.all(4.0),
-                          decoration: BoxDecoration(
-                            color: AppColor.appWhiteColor.withOpacity(0.01),
-                            border: Border.all(
-                              width: 1.2,
-                              color: AppColor.appWhiteColor.withOpacity(0.2),
-                            ),
-                            borderRadius: BorderRadius.circular(16),
-                          ),
-                          child: Row(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: <Widget>[
-                              Expanded(
-                                child: Padding(
-                                  padding: const EdgeInsets.only(
-                                    left: 12,
-                                    top: 8,
-                                    bottom: 8,
-                                    right: 8,
-                                  ),
-                                  child: state.coachingProgram.isEmpty
-                                      ? Text(
-                                          'Select Coaching Program',
-                                          style: TextStyle(
-                                            color:
-                                                Colors.white.withOpacity(0.5),
-                                            fontSize:
-                                                context.screenWidth * 0.035,
-                                          ),
-                                        )
-                                      : Wrap(
-                                          spacing:
-                                              8.0, // Horizontal space between chips
-                                          runSpacing:
-                                              6.0, // Vertical space between lines
-                                          children: state.coachingProgram
-                                              .map((coachingProgram) => Chip(
-                                                    label: Text(
-                                                      coachingProgram.name,
-                                                      style: TextStyle(
-                                                          fontSize: context
-                                                                  .screenWidth *
-                                                              0.03,
-                                                          fontFamily: AppFont
-                                                              .interMedium),
-                                                    ),
-                                                    backgroundColor: Colors.blue
-                                                        .withOpacity(0.2),
-                                                    shape:
-                                                        RoundedRectangleBorder(
-                                                      borderRadius:
-                                                          BorderRadius.circular(
-                                                              16),
-                                                      side: BorderSide(
-                                                        color: Colors.blue
-                                                            .withOpacity(0.4),
-                                                        width: 1,
-                                                      ),
-                                                    ),
-                                                    deleteIcon: Icon(
-                                                      Icons.close,
-                                                      size:
-                                                          context.screenWidth *
-                                                              0.04,
-                                                      color: Colors.blue,
-                                                    ),
-                                                    onDeleted: () {
-                                                      context
-                                                          .read<
-                                                              AddDocumentBloc>()
-                                                          .add(
-                                                            RemoveSelectedProgramvent(
-                                                                coachingProgram),
-                                                          );
-                                                    },
-                                                  ))
-                                              .toList(),
-                                        ),
-                                ),
-                              ),
-                              InkWell(
-                                onTap: () {
-                                  _showCoachinProgram(context, state);
-                                },
-                                child: Padding(
-                                  padding: const EdgeInsets.only(
-                                      right: 8.0, top: 6.0),
-                                  child: Icon(
-                                    FontAwesomeIcons.chevronDown,
-                                    color: Colors.white.withOpacity(0.8),
-                                    size: context.screenWidth * 0.04,
-                                  ),
-                                ),
-                              )
-                            ],
-                          ),
-                        ),
-                      ],
-                    )
-                  : SizedBox(),
-
-/*select session*/
-              shouldShowContainer(context)
-                  ? Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: <Widget>[
-                        const SizedBox(height: 12),
-                        Container(
-                          width: context.screenWidth,
-                          // height: context.screenHeight * 0.0625,
-                          padding: EdgeInsets.all(4.0),
-                          decoration: BoxDecoration(
-                            color: AppColor.appWhiteColor.withOpacity(0.01),
-                            border: Border.all(
-                              width: 1.2,
-                              color: AppColor.appWhiteColor.withOpacity(0.2),
-                            ),
-                            borderRadius: BorderRadius.circular(16),
-                          ),
-                          child: Row(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: <Widget>[
-                              Expanded(
-                                child: Padding(
-                                  padding: const EdgeInsets.only(
-                                    left: 12,
-                                    top: 8,
-                                    bottom: 8,
-                                    right: 8,
-                                  ),
-                                  child: state.session.isEmpty
-                                      ? Text(
-                                          'Select Session',
-                                          style: TextStyle(
-                                            color:
-                                                Colors.white.withOpacity(0.5),
-                                            fontSize:
-                                                context.screenWidth * 0.035,
-                                          ),
-                                        )
-                                      : Wrap(
-                                          spacing:
-                                              8.0, // Horizontal space between chips
-                                          runSpacing:
-                                              6.0, // Vertical space between lines
-                                          children: state.session
-                                              .map((coach) => Chip(
-                                                    label: Text(
-                                                      coach.title,
-                                                      style: TextStyle(
-                                                          fontSize: context
-                                                                  .screenWidth *
-                                                              0.03,
-                                                          fontFamily: AppFont
-                                                              .interMedium),
-                                                    ),
-                                                    backgroundColor: Colors.blue
-                                                        .withOpacity(0.2),
-                                                    shape:
-                                                        RoundedRectangleBorder(
-                                                      borderRadius:
-                                                          BorderRadius.circular(
-                                                              16),
-                                                      side: BorderSide(
-                                                        color: Colors.blue
-                                                            .withOpacity(0.4),
-                                                        width: 1,
-                                                      ),
-                                                    ),
-                                                    deleteIcon: Icon(
-                                                      Icons.close,
-                                                      size:
-                                                          context.screenWidth *
-                                                              0.04,
-                                                      color: Colors.blue,
-                                                    ),
-                                                    onDeleted: () {
-                                                      context
-                                                          .read<
-                                                              AddDocumentBloc>()
-                                                          .add(
-                                                            RemoveSelectedSessionvent(
-                                                                coach),
-                                                          );
-                                                    },
-                                                  ))
-                                              .toList(),
-                                        ),
-                                ),
-                              ),
-                              InkWell(
-                                onTap: () async {
+                              TextButton(
+                                onPressed: () {
+                                  state.parentDocumentListModel.data.coaches
+                                      .map((coach) => BlocProvider.of<
+                                              AddDocumentBloc>(context)
+                                          .add(
+                                              SetSelectedCoachIdParentDocumentEvent(
+                                                  coach)))
+                                      .toList();
                                   BlocProvider.of<AddDocumentBloc>(context).add(
                                       GetTermsSessionCoachingPlayerEvents({}));
-
-                                  _showSessionProgram(context, state);
                                 },
-                                child: Padding(
-                                  padding: const EdgeInsets.only(
-                                      right: 8.0, top: 6.0),
-                                  child: Icon(
-                                    FontAwesomeIcons.chevronDown,
-                                    color: Colors.white.withOpacity(0.8),
-                                    size: context.screenWidth * 0.04,
-                                  ),
-                                ),
-                              )
-                            ],
-                          ),
-                        ),
-                      ],
-                    )
-                  : SizedBox(),
-
-              /*Select player*/
-              shouldShowContainer(context)
-                  ? Column(
-                      children: <Widget>[
-                        const SizedBox(height: 12),
-                        Container(
-                          width: context.screenWidth,
-                          // height: context.screenHeight * 0.0625,
-                          padding: EdgeInsets.all(4.0),
-                          decoration: BoxDecoration(
-                            color: AppColor.appWhiteColor.withOpacity(0.01),
-                            border: Border.all(
-                              width: 1.2,
-                              color: AppColor.appWhiteColor.withOpacity(0.2),
-                            ),
-                            borderRadius: BorderRadius.circular(16),
-                          ),
-                          child: Row(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: <Widget>[
-                              Expanded(
-                                child: Padding(
-                                  padding: const EdgeInsets.only(
-                                    left: 12,
-                                    top: 8,
-                                    bottom: 8,
-                                    right: 8,
-                                  ),
-                                  child: state.player.isEmpty
-                                      ? Text(
-                                          'Select Player',
-                                          style: TextStyle(
-                                            color:
-                                                Colors.white.withOpacity(0.5),
-                                            fontSize:
-                                                context.screenWidth * 0.035,
-                                          ),
-                                        )
-                                      : Wrap(
-                                          spacing:
-                                              8.0, // Horizontal space between chips
-                                          runSpacing:
-                                              6.0, // Vertical space between lines
-                                          children: state.player
-                                              .map((coach) => Chip(
-                                                    label: Text(
-                                                      coach.childName,
-                                                      style: TextStyle(
-                                                          fontSize: context
-                                                                  .screenWidth *
-                                                              0.03,
-                                                          fontFamily: AppFont
-                                                              .interMedium),
-                                                    ),
-                                                    backgroundColor: Colors.blue
-                                                        .withOpacity(0.2),
-                                                    shape:
-                                                        RoundedRectangleBorder(
-                                                      borderRadius:
-                                                          BorderRadius.circular(
-                                                              16),
-                                                      side: BorderSide(
-                                                        color: Colors.blue
-                                                            .withOpacity(0.4),
-                                                        width: 1,
-                                                      ),
-                                                    ),
-                                                    deleteIcon: Icon(
-                                                      Icons.close,
-                                                      size:
-                                                          context.screenWidth *
-                                                              0.04,
-                                                      color: Colors.blue,
-                                                    ),
-                                                    onDeleted: () {
-                                                      context
-                                                          .read<
-                                                              AddDocumentBloc>()
-                                                          .add(
-                                                            RemoveSelectedPlayervent(
-                                                                coach),
-                                                          );
-                                                    },
-                                                  ))
-                                              .toList(),
-                                        ),
+                                child: Text(
+                                  'Select All',
+                                  style: AppTextStyle.bold(
+                                      context.screenWidth * 0.035),
                                 ),
                               ),
-                              InkWell(
-                                onTap: () {
-                                  _showPlayer(context, state);
+                            ],
+                          )
+                        : SizedBox(),
+                    SelectionChipComponent(
+                      isLoading: state.isLoading,
+                      isAllSelected: areAllCoachSelected(state.coaches,
+                          state.parentDocumentListModel.data.coaches),
+                      title: "Coach",
+                      items: state.coaches,
+                      itemText: (coach) => coach.name,
+                      onAddPressed: () =>
+                          _showCoachSelectionBottomSheet(context, state),
+                      onRemove: (coach) {
+                        context.read<AddDocumentBloc>().add(
+                              RemoveSelectedCoachEvent(coach),
+                            );
+                      },
+                      isVisible: true,
+                    ),
+                  ],
+                ),
+
+              // Other selection components
+
+              if (showParentOptions) ...[
+                state.isLoading == false
+                    ? Column(
+                        children: [
+                          Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: <Widget>[
+                              state.termsProgramSessionPlayerModelData.data.term
+                                      .isNotEmpty
+                                  ? Row(
+                                      mainAxisAlignment: MainAxisAlignment.end,
+                                      children: <Widget>[
+                                        TextButton(
+                                          onPressed: () {
+                                            state
+                                                .termsProgramSessionPlayerModelData
+                                                .data
+                                                .term
+                                                .map((coach) => BlocProvider.of<
+                                                            AddDocumentBloc>(
+                                                        context)
+                                                    .add(AddDocumentEvent
+                                                        .setSelectedTerm(
+                                                            coach)))
+                                                .toList();
+                                            BlocProvider.of<AddDocumentBloc>(
+                                                    context)
+                                                .add(
+                                                    GetTermsSessionCoachingPlayerEvents(
+                                                        {}));
+                                          },
+                                          child: Text(
+                                            'Select All',
+                                            style: AppTextStyle.bold(
+                                                context.screenWidth * 0.035),
+                                          ),
+                                        ),
+                                      ],
+                                    )
+                                  : SizedBox(),
+                              SelectionChipComponent(
+                                isLoading: state.isLoading,
+                                isAllSelected: areAllTermsSelected(
+                                    state.terms,
+                                    state.termsProgramSessionPlayerModelData
+                                        .data.term),
+                                title: "Terms",
+                                items: state.terms,
+                                itemText: (term) => term.termName,
+                                onAddPressed: () =>
+                                    _showTermsSelectionBottomSheet(
+                                        context, state),
+                                onRemove: (term) {
+                                  context.read<AddDocumentBloc>().add(
+                                        RemoveSelectedTermsvent(term),
+                                      );
                                 },
-                                child: Padding(
-                                  padding: const EdgeInsets.only(
-                                      right: 8.0, top: 6.0),
-                                  child: Icon(
-                                    FontAwesomeIcons.chevronDown,
-                                    color: Colors.white.withOpacity(0.8),
-                                    size: context.screenWidth * 0.04,
-                                  ),
-                                ),
-                              )
+                                isVisible: true,
+                              ),
                             ],
                           ),
-                        ),
-                      ],
-                    )
-                  : SizedBox(),
+                          Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: <Widget>[
+                              state.termsProgramSessionPlayerModelData.data
+                                      .coachingProgram.isNotEmpty
+                                  ? Row(
+                                      mainAxisAlignment: MainAxisAlignment.end,
+                                      children: <Widget>[
+                                        TextButton(
+                                          onPressed: () {
+                                            state
+                                                .termsProgramSessionPlayerModelData
+                                                .data
+                                                .coachingProgram
+                                                .map((coach) => BlocProvider.of<
+                                                            AddDocumentBloc>(
+                                                        context)
+                                                    .add(
+                                                        setSelectedProgramDocumentEvent(
+                                                            coach)))
+                                                .toList();
+                                            BlocProvider.of<AddDocumentBloc>(
+                                                    context)
+                                                .add(
+                                                    GetTermsSessionCoachingPlayerEvents(
+                                                        {}));
+                                          },
+                                          child: Text(
+                                            'Select All',
+                                            style: AppTextStyle.bold(
+                                                context.screenWidth * 0.035),
+                                          ),
+                                        ),
+                                      ],
+                                    )
+                                  : SizedBox(),
+                              SelectionChipComponent(
+                                isLoading: state.isLoading,
+                                isAllSelected: areAllCoachingProgramSelected(
+                                    state.coachingProgram,
+                                    state.termsProgramSessionPlayerModelData
+                                        .data.coachingProgram),
+                                title: "Coaching Program",
+                                items: state.coachingProgram,
+                                itemText: (program) => program.name,
+                                onAddPressed: () =>
+                                    _showCoachinProgram(context, state),
+                                onRemove: (program) {
+                                  context.read<AddDocumentBloc>().add(
+                                        RemoveSelectedProgramvent(program),
+                                      );
+                                },
+                                isVisible: true,
+                              ),
+                            ],
+                          ),
+                          Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: <Widget>[
+                              state.termsProgramSessionPlayerModelData.data
+                                      .session.isNotEmpty
+                                  ? Row(
+                                      mainAxisAlignment: MainAxisAlignment.end,
+                                      children: <Widget>[
+                                        TextButton(
+                                          onPressed: () {
+                                            state
+                                                .termsProgramSessionPlayerModelData
+                                                .data
+                                                .session
+                                                .map((coach) => BlocProvider.of<
+                                                            AddDocumentBloc>(
+                                                        context)
+                                                    .add(
+                                                        setSelectedSessionDocumentEvent(
+                                                            coach)))
+                                                .toList();
+                                            BlocProvider.of<AddDocumentBloc>(
+                                                    context)
+                                                .add(
+                                                    GetTermsSessionCoachingPlayerEvents(
+                                                        {}));
+                                          },
+                                          child: Text(
+                                            'Select All',
+                                            style: AppTextStyle.bold(
+                                                context.screenWidth * 0.035),
+                                          ),
+                                        ),
+                                      ],
+                                    )
+                                  : SizedBox(),
+                              SelectionChipComponent(
+                                isLoading: state.isLoading,
+                                isAllSelected: areAllSessionSelected(
+                                    state.session,
+                                    state.termsProgramSessionPlayerModelData
+                                        .data.session),
+                                title: "Session",
+                                items: state.session,
+                                itemText: (session) => session.title,
+                                onAddPressed: () async {
+                                  _showSessionProgram(context, state);
+                                },
+                                onRemove: (session) {
+                                  context.read<AddDocumentBloc>().add(
+                                        RemoveSelectedSessionvent(session),
+                                      );
+                                },
+                                isVisible: true,
+                              ),
+                            ],
+                          ),
+                          Column(
+                            children: <Widget>[
+                              state.termsProgramSessionPlayerModelData.data
+                                      .player.isNotEmpty
+                                  ? Row(
+                                      mainAxisAlignment: MainAxisAlignment.end,
+                                      children: <Widget>[
+                                        TextButton(
+                                          onPressed: () {
+                                            state
+                                                .termsProgramSessionPlayerModelData
+                                                .data
+                                                .player
+                                                .map((coach) => BlocProvider.of<
+                                                            AddDocumentBloc>(
+                                                        context)
+                                                    .add(
+                                                        setSelectedPlayerDocumentEvent(
+                                                            coach)))
+                                                .toList();
+                                            BlocProvider.of<AddDocumentBloc>(
+                                                    context)
+                                                .add(
+                                                    GetTermsSessionCoachingPlayerEvents(
+                                                        {}));
+                                          },
+                                          child: Text(
+                                            'Select All',
+                                            style: AppTextStyle.bold(
+                                                context.screenWidth * 0.035),
+                                          ),
+                                        ),
+                                      ],
+                                    )
+                                  : SizedBox(),
+                              SelectionChipComponent(
+                                isLoading: state.isLoading,
+                                isAllSelected: areAllPlayerSelected(
+                                    state.player,
+                                    state.termsProgramSessionPlayerModelData
+                                        .data.player),
+                                title: "Player",
+                                items: state.player,
+                                itemText: (player) => player.childName,
+                                onAddPressed: () => _showPlayer(context, state),
+                                onRemove: (player) {
+                                  context.read<AddDocumentBloc>().add(
+                                        RemoveSelectedPlayervent(player),
+                                      );
+                                },
+                                isVisible: true,
+                              ),
+                            ],
+                          ),
+                        ],
+                      )
+                    : SizedBox()
+              ],
 
               const SizedBox(height: 12),
               CustomTextInputMobile(
@@ -721,7 +393,6 @@ class AddDocumentComponent extends StatelessWidget {
                 minLine: 6,
                 TextInputAction: TextInputAction.newline,
                 maxLines: 6,
-                // focusNode: descriptionFocusNode,
                 errorMessage: "",
                 onChanged: (value) {
                   context
@@ -752,6 +423,12 @@ class AddDocumentComponent extends StatelessWidget {
       backgroundColor: Colors.transparent,
       isScrollControlled: true,
       builder: (context) => TermsSelectionBottomSheet(
+        removeItem: (term) {
+          bloc.add(
+            RemoveSelectedTermsvent(term),
+          );
+        },
+        alreadySelectedTerms: bloc.state.terms ?? [],
         term: state.termsProgramSessionPlayerModelData.data.term,
         dateController: termsController,
         onCoachSelected: (coach) {
@@ -759,7 +436,10 @@ class AddDocumentComponent extends StatelessWidget {
           bloc.add(AddDocumentEvent.setSelectedTerm(coach));
         },
       ),
-    );
+    ).then((_) {
+      BlocProvider.of<AddDocumentBloc>(context)
+          .add(GetTermsSessionCoachingPlayerEvents({}));
+    });
   }
 
   void _showCoachSelectionBottomSheet(
@@ -774,10 +454,14 @@ class AddDocumentComponent extends StatelessWidget {
         dateController: coachController,
         onCoachSelected: (coach) {
           print("SELECTED COACH ID $coach");
+
           bloc.add(SetSelectedCoachIdParentDocumentEvent(coach));
         },
       ),
-    );
+    ).then((_) {
+      BlocProvider.of<AddDocumentBloc>(context)
+          .add(GetTermsSessionCoachingPlayerEvents({}));
+    });
   }
 
   void _showCoachinProgram(BuildContext context, AddDocumentState state) {
@@ -795,7 +479,10 @@ class AddDocumentComponent extends StatelessWidget {
           bloc.add(setSelectedProgramDocumentEvent(coach));
         },
       ),
-    );
+    ).then((_) {
+      BlocProvider.of<AddDocumentBloc>(context)
+          .add(GetTermsSessionCoachingPlayerEvents({}));
+    });
   }
 
   void _showSessionProgram(BuildContext context, AddDocumentState state) {
@@ -812,7 +499,10 @@ class AddDocumentComponent extends StatelessWidget {
           bloc.add(setSelectedSessionDocumentEvent(coach));
         },
       ),
-    );
+    ).then((_) {
+      BlocProvider.of<AddDocumentBloc>(context)
+          .add(GetTermsSessionCoachingPlayerEvents({}));
+    });
   }
 
   void _showPlayer(BuildContext context, AddDocumentState state) {
@@ -829,25 +519,42 @@ class AddDocumentComponent extends StatelessWidget {
           bloc.add(setSelectedPlayerDocumentEvent(coach));
         },
       ),
-    );
+    ).then((_) {
+      BlocProvider.of<AddDocumentBloc>(context)
+          .add(GetTermsSessionCoachingPlayerEvents({}));
+    });
+    ;
   }
 
-  Widget _buildRadioOption(
-      String text, value, int groupValue, Function(int?) onChanged) {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.start,
-      children: [
-        Radio<int>(
-          value: value,
-          groupValue: groupValue,
-          onChanged: onChanged,
-          activeColor: Colors.pinkAccent, // Pink color similar to the design
-        ),
-        Text(
-          text,
-          style: TextStyle(color: Colors.white, fontSize: 16),
-        ),
-      ],
-    );
+  bool areAllTermsSelected(List<Term> selectedTerms, List<Term> allTerms) {
+    // If the number of selected terms matches the total terms, then all terms are selected
+    return selectedTerms.length == allTerms.length &&
+        selectedTerms.every((term) => allTerms.contains(term));
+  }
+
+  bool areAllCoachingProgramSelected(
+      List<CoachingProgram> selectedTerms, List<CoachingProgram> allTerms) {
+    // If the number of selected terms matches the total terms, then all terms are selected
+    return selectedTerms.length == allTerms.length &&
+        selectedTerms.every((term) => allTerms.contains(term));
+  }
+
+  bool areAllSessionSelected(
+      List<Session> selectedTerms, List<Session> allTerms) {
+    // If the number of selected terms matches the total terms, then all terms are selected
+    return selectedTerms.length == allTerms.length &&
+        selectedTerms.every((term) => allTerms.contains(term));
+  }
+
+  bool areAllPlayerSelected(List<Player> selectedTerms, List<Player> allTerms) {
+    // If the number of selected terms matches the total terms, then all terms are selected
+    return selectedTerms.length == allTerms.length &&
+        selectedTerms.every((term) => allTerms.contains(term));
+  }
+
+  bool areAllCoachSelected(List<Coach> selectedTerms, List<Coach> allTerms) {
+    // If the number of selected terms matches the total terms, then all terms are selected
+    return selectedTerms.length == allTerms.length &&
+        selectedTerms.every((term) => allTerms.contains(term));
   }
 }

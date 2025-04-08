@@ -354,7 +354,7 @@ class OrderSummary extends StatelessWidget {
             (Route<dynamic> route) => false,
       );
 
-    });;
+    });
   }
 
   Future<void> handlePayment() async {
