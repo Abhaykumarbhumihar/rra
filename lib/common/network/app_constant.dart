@@ -52,7 +52,10 @@ class AppConstant {
   /*coach document terms session player coaching*/
 static String get getTermsSessionCoachingPlayer=>"term/coaching/session";
 
+/*attendance*/
 
+  static String get getAttendanceList=>"attendacnce/list";
+  static String get getAttendanceDetailOfPlayer=>"ttendacnce/detail";
 
 
 

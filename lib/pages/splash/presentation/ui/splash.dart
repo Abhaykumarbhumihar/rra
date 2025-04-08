@@ -12,6 +12,8 @@ import '../../../auth/login/presentation/bloc/login_event.dart';
 import '../../../auth/otpverification/data/entity/otp_verification_model.dart';
 import '../../../auth/otpverification/presentation/bloc/otpverification_bloc.dart';
 import '../../../auth/otpverification/presentation/bloc/otpverification_event.dart';
+import '../../../coach/coach_attendance/player_attendance_list/presentation/bloc/attendance_bloc.dart';
+import '../../../coach/coach_attendance/player_attendance_list/presentation/bloc/attendance_event.dart';
 import '../../../parents/document/add_view_document/presentation/bloc/add_document_event.dart';
 import '../../../parents/parent_order/parent_order_list/presentation/bloc/parent_order_bloc.dart';
 import '../../../parents/parent_order/parent_order_list/presentation/bloc/parent_order_event.dart';
@@ -58,6 +60,7 @@ class SplashPage extends StatelessWidget {
           // }
 
           if (state is SplashNavigateToHome) {
+            BlocProvider.of<AttendanceBloc>(context).add(GetAttendanceListEvent({"academy_id":36}));
             var userdata = await SharedPrefs.getModel<OtpVerificationModel>("user_model", (json) => OtpVerificationModel.fromJson(json));
             BlocProvider.of<AddDocumentBloc>(context).add(GetUploadedParentDocument({}));
             if(userdata?.data.role=="coach"){

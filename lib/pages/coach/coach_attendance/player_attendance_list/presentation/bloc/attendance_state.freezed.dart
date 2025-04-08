@@ -20,6 +20,8 @@ mixin _$AttendanceState {
   bool get isStatusUpdated => throw _privateConstructorUsedError;
   bool get isError => throw _privateConstructorUsedError;
   String get message => throw _privateConstructorUsedError;
+  AttendancePlayerListResponse get attendancePlayerListResponse =>
+      throw _privateConstructorUsedError;
 
   /// Create a copy of AttendanceState
   /// with the given fields replaced by the non-null parameter values.
@@ -35,7 +37,13 @@ abstract class $AttendanceStateCopyWith<$Res> {
       _$AttendanceStateCopyWithImpl<$Res, AttendanceState>;
   @useResult
   $Res call(
-      {bool isLoading, bool isStatusUpdated, bool isError, String message});
+      {bool isLoading,
+      bool isStatusUpdated,
+      bool isError,
+      String message,
+      AttendancePlayerListResponse attendancePlayerListResponse});
+
+  $AttendancePlayerListResponseCopyWith<$Res> get attendancePlayerListResponse;
 }
 
 /// @nodoc
@@ -57,6 +65,7 @@ class _$AttendanceStateCopyWithImpl<$Res, $Val extends AttendanceState>
     Object? isStatusUpdated = null,
     Object? isError = null,
     Object? message = null,
+    Object? attendancePlayerListResponse = null,
   }) {
     return _then(_value.copyWith(
       isLoading: null == isLoading
@@ -75,7 +84,23 @@ class _$AttendanceStateCopyWithImpl<$Res, $Val extends AttendanceState>
           ? _value.message
           : message // ignore: cast_nullable_to_non_nullable
               as String,
+      attendancePlayerListResponse: null == attendancePlayerListResponse
+          ? _value.attendancePlayerListResponse
+          : attendancePlayerListResponse // ignore: cast_nullable_to_non_nullable
+              as AttendancePlayerListResponse,
     ) as $Val);
+  }
+
+  /// Create a copy of AttendanceState
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $AttendancePlayerListResponseCopyWith<$Res> get attendancePlayerListResponse {
+    return $AttendancePlayerListResponseCopyWith<$Res>(
+        _value.attendancePlayerListResponse, (value) {
+      return _then(
+          _value.copyWith(attendancePlayerListResponse: value) as $Val);
+    });
   }
 }
 
@@ -88,7 +113,14 @@ abstract class _$$AttendanceStateImplCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {bool isLoading, bool isStatusUpdated, bool isError, String message});
+      {bool isLoading,
+      bool isStatusUpdated,
+      bool isError,
+      String message,
+      AttendancePlayerListResponse attendancePlayerListResponse});
+
+  @override
+  $AttendancePlayerListResponseCopyWith<$Res> get attendancePlayerListResponse;
 }
 
 /// @nodoc
@@ -108,6 +140,7 @@ class __$$AttendanceStateImplCopyWithImpl<$Res>
     Object? isStatusUpdated = null,
     Object? isError = null,
     Object? message = null,
+    Object? attendancePlayerListResponse = null,
   }) {
     return _then(_$AttendanceStateImpl(
       isLoading: null == isLoading
@@ -126,6 +159,10 @@ class __$$AttendanceStateImplCopyWithImpl<$Res>
           ? _value.message
           : message // ignore: cast_nullable_to_non_nullable
               as String,
+      attendancePlayerListResponse: null == attendancePlayerListResponse
+          ? _value.attendancePlayerListResponse
+          : attendancePlayerListResponse // ignore: cast_nullable_to_non_nullable
+              as AttendancePlayerListResponse,
     ));
   }
 }
@@ -137,7 +174,9 @@ class _$AttendanceStateImpl implements _AttendanceState {
       {this.isLoading = false,
       this.isStatusUpdated = false,
       this.isError = false,
-      this.message = ""});
+      this.message = "",
+      this.attendancePlayerListResponse =
+          const AttendancePlayerListResponse()});
 
   @override
   @JsonKey()
@@ -151,10 +190,13 @@ class _$AttendanceStateImpl implements _AttendanceState {
   @override
   @JsonKey()
   final String message;
+  @override
+  @JsonKey()
+  final AttendancePlayerListResponse attendancePlayerListResponse;
 
   @override
   String toString() {
-    return 'AttendanceState(isLoading: $isLoading, isStatusUpdated: $isStatusUpdated, isError: $isError, message: $message)';
+    return 'AttendanceState(isLoading: $isLoading, isStatusUpdated: $isStatusUpdated, isError: $isError, message: $message, attendancePlayerListResponse: $attendancePlayerListResponse)';
   }
 
   @override
@@ -167,12 +209,16 @@ class _$AttendanceStateImpl implements _AttendanceState {
             (identical(other.isStatusUpdated, isStatusUpdated) ||
                 other.isStatusUpdated == isStatusUpdated) &&
             (identical(other.isError, isError) || other.isError == isError) &&
-            (identical(other.message, message) || other.message == message));
+            (identical(other.message, message) || other.message == message) &&
+            (identical(other.attendancePlayerListResponse,
+                    attendancePlayerListResponse) ||
+                other.attendancePlayerListResponse ==
+                    attendancePlayerListResponse));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, isLoading, isStatusUpdated, isError, message);
+  int get hashCode => Object.hash(runtimeType, isLoading, isStatusUpdated,
+      isError, message, attendancePlayerListResponse);
 
   /// Create a copy of AttendanceState
   /// with the given fields replaced by the non-null parameter values.
@@ -186,10 +232,12 @@ class _$AttendanceStateImpl implements _AttendanceState {
 
 abstract class _AttendanceState implements AttendanceState {
   const factory _AttendanceState(
-      {final bool isLoading,
-      final bool isStatusUpdated,
-      final bool isError,
-      final String message}) = _$AttendanceStateImpl;
+          {final bool isLoading,
+          final bool isStatusUpdated,
+          final bool isError,
+          final String message,
+          final AttendancePlayerListResponse attendancePlayerListResponse}) =
+      _$AttendanceStateImpl;
 
   @override
   bool get isLoading;
@@ -199,6 +247,8 @@ abstract class _AttendanceState implements AttendanceState {
   bool get isError;
   @override
   String get message;
+  @override
+  AttendancePlayerListResponse get attendancePlayerListResponse;
 
   /// Create a copy of AttendanceState
   /// with the given fields replaced by the non-null parameter values.

@@ -65,7 +65,7 @@ class DashboardGrid extends StatelessWidget {
             } else if (item['title'] == "View Score") {
               Navigator.pushNamed(context, AppRoutes.PARENTPLAYERSCORELISTPAGE);
             } else if (item['title'] == "View Attendance") {
-              Navigator.pushNamed(context, AppRoutes.PARENTATTENDANCELISTPAGE);
+              Navigator.pushNamed(context, AppRoutes.COACHPLAYERATTENDANCELIST);
             } else if (item['title'] == "My Orders") {
               Navigator.pushNamed(context, AppRoutes.PARENTORDERLISTPAGE);
             } else if (item['title'] == "View Player") {

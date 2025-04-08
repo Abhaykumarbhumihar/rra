@@ -6,38 +6,35 @@ import 'package:rra/common/network/connectivity_extension.dart';
 
 import '../../../../../../common/local/SharedPrefs.dart';
 import '../../../../../../common/service_locator/setivelocator.dart';
+import '../../data/entity/player_list/attendance_player_list.dart';
 import '../../domain/usecase/playerAttendanceUsease.dart';
 import 'attendance_event.dart';
 import 'attendance_state.dart';
 
-
-
-
 class AttendanceBloc extends Bloc<AttendanceEvent, AttendanceState> {
-  final Playerattendanceusease _playerattendanceusease = getIt<Playerattendanceusease>();
+  final Playerattendanceusease _playerattendanceusease =
+      getIt<Playerattendanceusease>();
 
   AttendanceBloc() : super(AttendanceState.initial()) {
-
-
+    on<GetAttendanceListEvent>(_getChildAttendanceList);
   }
 
   Future<void> _getChildAttendanceList(
       GetAttendanceListEvent event, Emitter<AttendanceState> emit) async {
     try {
-      print("CLICKING HEREE ");
+      print("CLICKING HEREE_getChildAttendanceList_getChildAttendanceList ");
       emit(state.copyWith(
           isLoading: true,
           isError: false,
           isStatusUpdated: false,
+          attendancePlayerListResponse: AttendancePlayerListResponse(),
           message: ""));
-
-
 
       if (!(await Connectivity().isConnected)) {
         emit(state.copyWith(
           message:
-          'No internet connection. Please check your connection \nand try again.',
-          isLoading: true,
+              'No internet connection. Please check your connection \nand try again.',
+          isLoading: false,
           isError: false,
           isStatusUpdated: false,
         ));
@@ -45,29 +42,27 @@ class AttendanceBloc extends Bloc<AttendanceEvent, AttendanceState> {
       }
 
       var academyId = await SharedPrefs.getString("selected_academyid");
-      Map<String, dynamic> map = {
-
-
-      };
+      Map<String, dynamic> map = {"academy_id": academyId};
       emit(state.copyWith(
-        isLoading: true,
-        isError: false,
-      isStatusUpdated: false,
-        message: ""
-      ));
+          isLoading: true,
+          isError: false,
+          attendancePlayerListResponse: AttendancePlayerListResponse(),
+          isStatusUpdated: false,
+          message: ""));
 
       final response = await _playerattendanceusease.playerListExecute(map);
       response.fold((failure) {
         emit(state.copyWith(
             isLoading: false,
             isError: true,
+            attendancePlayerListResponse: AttendancePlayerListResponse(),
             isStatusUpdated: false,
             message: ""));
       }, (useResult) {
-
         emit(state.copyWith(
             isLoading: false,
             isError: false,
+            attendancePlayerListResponse:useResult,
             isStatusUpdated: false,
             message: ""));
       });
@@ -86,12 +81,10 @@ class AttendanceBloc extends Bloc<AttendanceEvent, AttendanceState> {
           isStatusUpdated: false,
           message: ""));
 
-
-
       if (!(await Connectivity().isConnected)) {
         emit(state.copyWith(
           message:
-          'No internet connection. Please check your connection \nand try again.',
+              'No internet connection. Please check your connection \nand try again.',
           isLoading: true,
           isError: false,
           isStatusUpdated: false,
@@ -100,18 +93,15 @@ class AttendanceBloc extends Bloc<AttendanceEvent, AttendanceState> {
       }
 
       var academyId = await SharedPrefs.getString("selected_academyid");
-      Map<String, dynamic> map = {
-
-
-      };
+      Map<String, dynamic> map = {};
       emit(state.copyWith(
           isLoading: true,
           isError: false,
           isStatusUpdated: false,
-          message: ""
-      ));
+          message: ""));
 
-      final response = await _playerattendanceusease.filterPlayerAttendanceListExecute(map);
+      final response =
+          await _playerattendanceusease.filterPlayerAttendanceListExecute(map);
       response.fold((failure) {
         emit(state.copyWith(
             isLoading: false,
@@ -119,7 +109,6 @@ class AttendanceBloc extends Bloc<AttendanceEvent, AttendanceState> {
             isStatusUpdated: false,
             message: ""));
       }, (useResult) {
-
         emit(state.copyWith(
             isLoading: false,
             isError: false,
@@ -132,7 +121,8 @@ class AttendanceBloc extends Bloc<AttendanceEvent, AttendanceState> {
   }
 
   Future<void> _getSinglePlayerAttendanceDetailEvent(
-      GetDetailOfOneChildAttendanceEvent event, Emitter<AttendanceState> emit) async {
+      GetDetailOfOneChildAttendanceEvent event,
+      Emitter<AttendanceState> emit) async {
     try {
       print("CLICKING HEREE ");
       emit(state.copyWith(
@@ -141,12 +131,10 @@ class AttendanceBloc extends Bloc<AttendanceEvent, AttendanceState> {
           isStatusUpdated: false,
           message: ""));
 
-
-
       if (!(await Connectivity().isConnected)) {
         emit(state.copyWith(
           message:
-          'No internet connection. Please check your connection \nand try again.',
+              'No internet connection. Please check your connection \nand try again.',
           isLoading: true,
           isError: false,
           isStatusUpdated: false,
@@ -155,18 +143,15 @@ class AttendanceBloc extends Bloc<AttendanceEvent, AttendanceState> {
       }
 
       var academyId = await SharedPrefs.getString("selected_academyid");
-      Map<String, dynamic> map = {
-
-
-      };
+      Map<String, dynamic> map = {};
       emit(state.copyWith(
           isLoading: true,
           isError: false,
           isStatusUpdated: false,
-          message: ""
-      ));
+          message: ""));
 
-      final response = await _playerattendanceusease.playerAttendanceDetailExecute(map);
+      final response =
+          await _playerattendanceusease.playerAttendanceDetailExecute(map);
       response.fold((failure) {
         emit(state.copyWith(
             isLoading: false,
@@ -174,7 +159,6 @@ class AttendanceBloc extends Bloc<AttendanceEvent, AttendanceState> {
             isStatusUpdated: false,
             message: ""));
       }, (useResult) {
-
         emit(state.copyWith(
             isLoading: false,
             isError: false,
@@ -196,12 +180,10 @@ class AttendanceBloc extends Bloc<AttendanceEvent, AttendanceState> {
           isStatusUpdated: false,
           message: ""));
 
-
-
       if (!(await Connectivity().isConnected)) {
         emit(state.copyWith(
           message:
-          'No internet connection. Please check your connection \nand try again.',
+              'No internet connection. Please check your connection \nand try again.',
           isLoading: true,
           isError: false,
           isStatusUpdated: false,
@@ -210,18 +192,15 @@ class AttendanceBloc extends Bloc<AttendanceEvent, AttendanceState> {
       }
 
       var academyId = await SharedPrefs.getString("selected_academyid");
-      Map<String, dynamic> map = {
-
-
-      };
+      Map<String, dynamic> map = {};
       emit(state.copyWith(
           isLoading: true,
           isError: false,
           isStatusUpdated: false,
-          message: ""
-      ));
+          message: ""));
 
-      final response = await _playerattendanceusease.updateAttendanceStatusExecute(map);
+      final response =
+          await _playerattendanceusease.updateAttendanceStatusExecute(map);
       response.fold((failure) {
         emit(state.copyWith(
             isLoading: false,
@@ -229,7 +208,6 @@ class AttendanceBloc extends Bloc<AttendanceEvent, AttendanceState> {
             isStatusUpdated: false,
             message: ""));
       }, (useResult) {
-
         emit(state.copyWith(
             isLoading: false,
             isError: false,
@@ -240,6 +218,4 @@ class AttendanceBloc extends Bloc<AttendanceEvent, AttendanceState> {
       emit(state.copyWith(isLoading: false, message: error.toString()));
     }
   }
-
-
 }
