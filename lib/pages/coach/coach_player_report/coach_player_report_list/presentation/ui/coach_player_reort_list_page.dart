@@ -1,6 +1,10 @@
 import 'package:rra/common/values/values_exports.dart';
 import 'package:rra/common/component/component_export.dart';
 
+import '../../../../../../common/local/SharedPrefs.dart';
+import '../bloc/report_bloc.dart';
+import '../bloc/report_event.dart';
+import '../bloc/report_state.dart';
 import 'component/coach_player_report_list_item.dart';
 import 'component/player_record_filter_sheet.dart';
 
@@ -9,6 +13,12 @@ class CoachPlayerReortListAge extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    return BlocListener<ReportBloc, ReportState>(
+  listener: (context, state) {
+    // TODO: implement listener
+  },
+  child: BlocBuilder<ReportBloc, ReportState>(
+  builder: (context, state) {
     return CommonPageFormat(
       title: "Player Reports",
       onBackPress: () {
@@ -33,7 +43,10 @@ class CoachPlayerReortListAge extends StatelessWidget {
                       MediaQuery.of(context).size.width * 0.0373),
                 ),
                 InkWell(
-                  onTap: (){
+                  onTap: () async {
+                    var academyId = await SharedPrefs.getString("selected_academyid");
+                    BlocProvider.of<ReportBloc>(context).add(ReportEventGetTermsSessionCoachingPlayerEvents({"academy_id":academyId}));
+
                     showModalBottomSheet(
                       context: context,
                       shape: RoundedRectangleBorder(
@@ -59,5 +72,8 @@ class CoachPlayerReortListAge extends StatelessWidget {
         ),
       ),
     );
+  },
+),
+);
   }
 }

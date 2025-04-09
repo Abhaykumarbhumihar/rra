@@ -65,7 +65,7 @@ dependencies:
   flutter_animate: ^4.5.2
   flutter_credit_card:
   file_picker: ^10.0.0
-
+  flutter_xlider:
 dev_dependencies:
   flutter_test:
     sdk: flutter

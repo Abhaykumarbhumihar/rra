@@ -1,6 +1,7 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 import '../../../../../parents/document/add_view_document/data/entity/terms_program_session/terms_program_session_player_model.dart';
+import '../../data/entity/report_model.dart';
 
 part 'report_state.freezed.dart';
 
@@ -14,6 +15,7 @@ class ReportState with _$ReportState {
     @Default("") String message,
     @Default("") String selectedPlayerid,
     @Default(TermsProgramSessionPlayerModel()) TermsProgramSessionPlayerModel termsProgramSessionPlayerModelData,
+    @Default(PlayerReportModel()) PlayerReportModel playerReportModel,
 @Default(Term()) Term termsId,
     @Default(Session()) Session sessionId,
     @Default(CoachingProgram()) CoachingProgram coachingProgramId,
@@ -24,6 +26,7 @@ class ReportState with _$ReportState {
     isStatusUpdated:false,
     isError: false,
     message:"",
+      playerReportModel: PlayerReportModel(),
       termsId:Term(),sessionId:Session(),coachingProgramId:CoachingProgram()
   );
 }

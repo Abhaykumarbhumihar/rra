@@ -92,6 +92,9 @@ class PlayerRecordFilterSheet extends StatelessWidget {
                   text: "Apply Filters",
                   onPressed: () {
                     // context.read<ReportBloc>().add(ApplyFilters());
+                    print("APPLY FILTER CLICKK CKKDKDKKDKDKDKDKD");
+                    BlocProvider.of<ReportBloc>(context).add(GetReportChildListEvent({}));
+
                     Navigator.pop(context);
                   },
                 ),

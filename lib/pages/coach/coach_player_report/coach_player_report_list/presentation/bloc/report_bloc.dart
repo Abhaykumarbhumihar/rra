@@ -2,6 +2,7 @@ import 'package:bloc/bloc.dart';
 import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:meta/meta.dart';
 import 'package:rra/common/network/connectivity_extension.dart';
+import 'package:rra/pages/coach/coach_player_report/coach_player_report_list/data/entity/report_model.dart';
 import 'package:rra/pages/coach/coach_player_report/coach_player_report_list/presentation/bloc/report_event.dart';
 import 'package:rra/pages/coach/coach_player_report/coach_player_report_list/presentation/bloc/report_state.dart';
 
@@ -46,7 +47,7 @@ class ReportBloc extends Bloc<ReportEvent, ReportState> {
       ReportEventGetTermsSessionCoachingPlayerEvents event,
       Emitter<ReportState> emit) async {
     try {
-      print("CLICKING HEREE ");
+      print("CLICKING HEREE _getTermsSessioCoachingPlayer ");
       if (!(await Connectivity().isConnected)) {
         emit(state.copyWith(
           isLoading: false,
@@ -141,12 +142,23 @@ class ReportBloc extends Bloc<ReportEvent, ReportState> {
         ));
         return;
       }
+      final termIds = state.termsId;
+      final programIds = state.coachingProgramId;
+      final sessionIds = state.sessionId;
+
+
 
       var academyId = await SharedPrefs.getString("selected_academyid");
-      Map<String, dynamic> map = {"academy_id": academyId};
+      Map<String, dynamic> map = {
+        "academy_id": academyId,
+        "term_id":termIds.id,
+        "coaching_program_id":programIds.id,
+        "session_id":sessionIds.id
+      };
       emit(state.copyWith(
           isLoading: true,
           isError: false,
+          playerReportModel:PlayerReportModel(),
           isStatusUpdated: false,
           message: ""));
 
@@ -155,13 +167,14 @@ class ReportBloc extends Bloc<ReportEvent, ReportState> {
         emit(state.copyWith(
             isLoading: false,
             isError: true,
-            isStatusUpdated: false,
+            isStatusUpdated: false,playerReportModel:PlayerReportModel(),
             message: ""));
       }, (useResult) {
         emit(state.copyWith(
             isLoading: false,
             isError: false,
             isStatusUpdated: false,
+            playerReportModel: useResult,
             message: ""));
       });
     } catch (error) {

@@ -11,6 +11,7 @@ import '../../../../../../common/network/app_constant.dart';
 import '../../../../../../common/network/failure.dart';
 import '../../../../../../common/service_locator/setivelocator.dart';
 import '../../domain/repositery/report_repositer.dart';
+import '../entity/report_model.dart';
 
 
 class ReportRepositeryImpl implements ReportRepositer {
@@ -19,18 +20,18 @@ class ReportRepositeryImpl implements ReportRepositer {
 
 
   @override
-  Future<Either<Failure, dynamic>> getChildReportList(Map<String, dynamic> loginData)async {
+  Future<Either<Failure, PlayerReportModel>> getChildReportList(Map<String, dynamic> loginData)async {
     try {
 
       print(loginData);
       http.Response response =
-          await _apiServices.post(AppConstant.login, loginData);
+          await _apiServices.post(AppConstant.getViewReportList, loginData,useDefaultHeaders: true,isJson: true);
       print(response.body);
       if (response.statusCode == 200) {
         final Map<String, dynamic> responseData = jsonDecode(response.body);
         if(responseData['success']){
-
-          return Right(responseData);
+          PlayerReportModel playerReportModel=PlayerReportModel.fromJson(responseData);
+          return Right(playerReportModel);
         }else{
           return Left(Failure(responseData['success']));
         }

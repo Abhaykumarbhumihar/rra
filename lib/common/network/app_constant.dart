@@ -67,8 +67,8 @@ static String get getCollateralList=>"collaterals/list";
 /*manage team*/
   static String get getManageTeamlList=>"coaches/my-team";
 
-
-
+/*report listing*/
+  static String get getViewReportList=>"view/report";
 
 
 
