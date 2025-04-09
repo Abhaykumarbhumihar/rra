@@ -70,6 +70,7 @@ class SplashPage extends StatelessWidget {
           if (state is SplashNavigateToHome) {
             var academyId = await SharedPrefs.getString("selected_academyid");
 
+            BlocProvider.of<ManageTeamBloc>(context).add(ManageTeamReportEventGetTermsSessionCoachingPlayerEvents({"academy_id":academyId}));
 
             BlocProvider.of<ReportBloc>(context).add(ReportEventGetTermsSessionCoachingPlayerEvents({"academy_id":academyId}));
             BlocProvider.of<ManageTeamBloc>(context).add(GetTeamListEvent({"academy_id":academyId}));

@@ -14,9 +14,9 @@ class ReportState with _$ReportState {
     @Default(false) bool isError,
     @Default("") String message,
     @Default("") String selectedPlayerid,
-    @Default(TermsProgramSessionPlayerModel()) TermsProgramSessionPlayerModel termsProgramSessionPlayerModelData,
     @Default(PlayerReportModel()) PlayerReportModel playerReportModel,
-@Default(Term()) Term termsId,
+    @Default(TermsProgramSessionPlayerModel()) TermsProgramSessionPlayerModel termsProgramSessionPlayerModelData,
+    @Default(Term()) Term termsId,
     @Default(Session()) Session sessionId,
     @Default(CoachingProgram()) CoachingProgram coachingProgramId,
   }) = _ReportState;

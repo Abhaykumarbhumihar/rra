@@ -36,17 +36,17 @@ class Child with _$Child {
     @Default('') @JsonKey(name: 'parent_email') String parentEmail,
     @Default('') @JsonKey(name: 'parent_phone') String parentPhone,
     @Default('') @JsonKey(name: 'parent_gender') String parentGender,
-    @Default([]) @JsonKey(name: 'session_list') List<Session> sessionList,
+    @Default([]) @JsonKey(name: 'session_list') List<ManageListSession> sessionList,
   }) = _Child;
 
   factory Child.fromJson(Map<String, dynamic> json) => _$ChildFromJson(json);
 }
 
 @freezed
-class Session with _$Session {
-  const factory Session({
+class ManageListSession with _$ManageListSession {
+  const factory ManageListSession({
     @Default('') @JsonKey(name: 'date') String date,
-  }) = _Session;
+  }) = _ManageListSession;
 
-  factory Session.fromJson(Map<String, dynamic> json) => _$SessionFromJson(json);
+  factory ManageListSession.fromJson(Map<String, dynamic> json) => _$ManageListSessionFromJson(json);
 }

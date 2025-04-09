@@ -49,7 +49,8 @@ _$ChildImpl _$$ChildImplFromJson(Map<String, dynamic> json) => _$ChildImpl(
       parentPhone: json['parent_phone'] as String? ?? '',
       parentGender: json['parent_gender'] as String? ?? '',
       sessionList: (json['session_list'] as List<dynamic>?)
-              ?.map((e) => Session.fromJson(e as Map<String, dynamic>))
+              ?.map(
+                  (e) => ManageListSession.fromJson(e as Map<String, dynamic>))
               .toList() ??
           const [],
     );
@@ -66,12 +67,14 @@ Map<String, dynamic> _$$ChildImplToJson(_$ChildImpl instance) =>
       'session_list': instance.sessionList,
     };
 
-_$SessionImpl _$$SessionImplFromJson(Map<String, dynamic> json) =>
-    _$SessionImpl(
+_$ManageListSessionImpl _$$ManageListSessionImplFromJson(
+        Map<String, dynamic> json) =>
+    _$ManageListSessionImpl(
       date: json['date'] as String? ?? '',
     );
 
-Map<String, dynamic> _$$SessionImplToJson(_$SessionImpl instance) =>
+Map<String, dynamic> _$$ManageListSessionImplToJson(
+        _$ManageListSessionImpl instance) =>
     <String, dynamic>{
       'date': instance.date,
     };

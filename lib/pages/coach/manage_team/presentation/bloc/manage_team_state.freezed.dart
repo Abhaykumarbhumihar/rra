@@ -21,6 +21,11 @@ mixin _$ManageTeamState {
   bool get isError => throw _privateConstructorUsedError;
   String get message => throw _privateConstructorUsedError;
   String get selectedPlayerid => throw _privateConstructorUsedError;
+  TermsProgramSessionPlayerModel get termsProgramSessionPlayerModelData =>
+      throw _privateConstructorUsedError;
+  Term get termsId => throw _privateConstructorUsedError;
+  Session get sessionId => throw _privateConstructorUsedError;
+  CoachingProgram get coachingProgramId => throw _privateConstructorUsedError;
   ManageTeamListModel get manageTeamListModel =>
       throw _privateConstructorUsedError;
 
@@ -43,8 +48,17 @@ abstract class $ManageTeamStateCopyWith<$Res> {
       bool isError,
       String message,
       String selectedPlayerid,
+      TermsProgramSessionPlayerModel termsProgramSessionPlayerModelData,
+      Term termsId,
+      Session sessionId,
+      CoachingProgram coachingProgramId,
       ManageTeamListModel manageTeamListModel});
 
+  $TermsProgramSessionPlayerModelCopyWith<$Res>
+      get termsProgramSessionPlayerModelData;
+  $TermCopyWith<$Res> get termsId;
+  $SessionCopyWith<$Res> get sessionId;
+  $CoachingProgramCopyWith<$Res> get coachingProgramId;
   $ManageTeamListModelCopyWith<$Res> get manageTeamListModel;
 }
 
@@ -68,6 +82,10 @@ class _$ManageTeamStateCopyWithImpl<$Res, $Val extends ManageTeamState>
     Object? isError = null,
     Object? message = null,
     Object? selectedPlayerid = null,
+    Object? termsProgramSessionPlayerModelData = null,
+    Object? termsId = null,
+    Object? sessionId = null,
+    Object? coachingProgramId = null,
     Object? manageTeamListModel = null,
   }) {
     return _then(_value.copyWith(
@@ -91,11 +109,71 @@ class _$ManageTeamStateCopyWithImpl<$Res, $Val extends ManageTeamState>
           ? _value.selectedPlayerid
           : selectedPlayerid // ignore: cast_nullable_to_non_nullable
               as String,
+      termsProgramSessionPlayerModelData: null ==
+              termsProgramSessionPlayerModelData
+          ? _value.termsProgramSessionPlayerModelData
+          : termsProgramSessionPlayerModelData // ignore: cast_nullable_to_non_nullable
+              as TermsProgramSessionPlayerModel,
+      termsId: null == termsId
+          ? _value.termsId
+          : termsId // ignore: cast_nullable_to_non_nullable
+              as Term,
+      sessionId: null == sessionId
+          ? _value.sessionId
+          : sessionId // ignore: cast_nullable_to_non_nullable
+              as Session,
+      coachingProgramId: null == coachingProgramId
+          ? _value.coachingProgramId
+          : coachingProgramId // ignore: cast_nullable_to_non_nullable
+              as CoachingProgram,
       manageTeamListModel: null == manageTeamListModel
           ? _value.manageTeamListModel
           : manageTeamListModel // ignore: cast_nullable_to_non_nullable
               as ManageTeamListModel,
     ) as $Val);
+  }
+
+  /// Create a copy of ManageTeamState
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $TermsProgramSessionPlayerModelCopyWith<$Res>
+      get termsProgramSessionPlayerModelData {
+    return $TermsProgramSessionPlayerModelCopyWith<$Res>(
+        _value.termsProgramSessionPlayerModelData, (value) {
+      return _then(
+          _value.copyWith(termsProgramSessionPlayerModelData: value) as $Val);
+    });
+  }
+
+  /// Create a copy of ManageTeamState
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $TermCopyWith<$Res> get termsId {
+    return $TermCopyWith<$Res>(_value.termsId, (value) {
+      return _then(_value.copyWith(termsId: value) as $Val);
+    });
+  }
+
+  /// Create a copy of ManageTeamState
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $SessionCopyWith<$Res> get sessionId {
+    return $SessionCopyWith<$Res>(_value.sessionId, (value) {
+      return _then(_value.copyWith(sessionId: value) as $Val);
+    });
+  }
+
+  /// Create a copy of ManageTeamState
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $CoachingProgramCopyWith<$Res> get coachingProgramId {
+    return $CoachingProgramCopyWith<$Res>(_value.coachingProgramId, (value) {
+      return _then(_value.copyWith(coachingProgramId: value) as $Val);
+    });
   }
 
   /// Create a copy of ManageTeamState
@@ -124,8 +202,21 @@ abstract class _$$ManageTeamStateImplCopyWith<$Res>
       bool isError,
       String message,
       String selectedPlayerid,
+      TermsProgramSessionPlayerModel termsProgramSessionPlayerModelData,
+      Term termsId,
+      Session sessionId,
+      CoachingProgram coachingProgramId,
       ManageTeamListModel manageTeamListModel});
 
+  @override
+  $TermsProgramSessionPlayerModelCopyWith<$Res>
+      get termsProgramSessionPlayerModelData;
+  @override
+  $TermCopyWith<$Res> get termsId;
+  @override
+  $SessionCopyWith<$Res> get sessionId;
+  @override
+  $CoachingProgramCopyWith<$Res> get coachingProgramId;
   @override
   $ManageTeamListModelCopyWith<$Res> get manageTeamListModel;
 }
@@ -148,6 +239,10 @@ class __$$ManageTeamStateImplCopyWithImpl<$Res>
     Object? isError = null,
     Object? message = null,
     Object? selectedPlayerid = null,
+    Object? termsProgramSessionPlayerModelData = null,
+    Object? termsId = null,
+    Object? sessionId = null,
+    Object? coachingProgramId = null,
     Object? manageTeamListModel = null,
   }) {
     return _then(_$ManageTeamStateImpl(
@@ -171,6 +266,23 @@ class __$$ManageTeamStateImplCopyWithImpl<$Res>
           ? _value.selectedPlayerid
           : selectedPlayerid // ignore: cast_nullable_to_non_nullable
               as String,
+      termsProgramSessionPlayerModelData: null ==
+              termsProgramSessionPlayerModelData
+          ? _value.termsProgramSessionPlayerModelData
+          : termsProgramSessionPlayerModelData // ignore: cast_nullable_to_non_nullable
+              as TermsProgramSessionPlayerModel,
+      termsId: null == termsId
+          ? _value.termsId
+          : termsId // ignore: cast_nullable_to_non_nullable
+              as Term,
+      sessionId: null == sessionId
+          ? _value.sessionId
+          : sessionId // ignore: cast_nullable_to_non_nullable
+              as Session,
+      coachingProgramId: null == coachingProgramId
+          ? _value.coachingProgramId
+          : coachingProgramId // ignore: cast_nullable_to_non_nullable
+              as CoachingProgram,
       manageTeamListModel: null == manageTeamListModel
           ? _value.manageTeamListModel
           : manageTeamListModel // ignore: cast_nullable_to_non_nullable
@@ -188,6 +300,11 @@ class _$ManageTeamStateImpl implements _ManageTeamState {
       this.isError = false,
       this.message = "",
       this.selectedPlayerid = "",
+      this.termsProgramSessionPlayerModelData =
+          const TermsProgramSessionPlayerModel(),
+      this.termsId = const Term(),
+      this.sessionId = const Session(),
+      this.coachingProgramId = const CoachingProgram(),
       this.manageTeamListModel = const ManageTeamListModel()});
 
   @override
@@ -207,11 +324,23 @@ class _$ManageTeamStateImpl implements _ManageTeamState {
   final String selectedPlayerid;
   @override
   @JsonKey()
+  final TermsProgramSessionPlayerModel termsProgramSessionPlayerModelData;
+  @override
+  @JsonKey()
+  final Term termsId;
+  @override
+  @JsonKey()
+  final Session sessionId;
+  @override
+  @JsonKey()
+  final CoachingProgram coachingProgramId;
+  @override
+  @JsonKey()
   final ManageTeamListModel manageTeamListModel;
 
   @override
   String toString() {
-    return 'ManageTeamState(isLoading: $isLoading, isStatusUpdated: $isStatusUpdated, isError: $isError, message: $message, selectedPlayerid: $selectedPlayerid, manageTeamListModel: $manageTeamListModel)';
+    return 'ManageTeamState(isLoading: $isLoading, isStatusUpdated: $isStatusUpdated, isError: $isError, message: $message, selectedPlayerid: $selectedPlayerid, termsProgramSessionPlayerModelData: $termsProgramSessionPlayerModelData, termsId: $termsId, sessionId: $sessionId, coachingProgramId: $coachingProgramId, manageTeamListModel: $manageTeamListModel)';
   }
 
   @override
@@ -227,13 +356,32 @@ class _$ManageTeamStateImpl implements _ManageTeamState {
             (identical(other.message, message) || other.message == message) &&
             (identical(other.selectedPlayerid, selectedPlayerid) ||
                 other.selectedPlayerid == selectedPlayerid) &&
+            (identical(other.termsProgramSessionPlayerModelData,
+                    termsProgramSessionPlayerModelData) ||
+                other.termsProgramSessionPlayerModelData ==
+                    termsProgramSessionPlayerModelData) &&
+            (identical(other.termsId, termsId) || other.termsId == termsId) &&
+            (identical(other.sessionId, sessionId) ||
+                other.sessionId == sessionId) &&
+            (identical(other.coachingProgramId, coachingProgramId) ||
+                other.coachingProgramId == coachingProgramId) &&
             (identical(other.manageTeamListModel, manageTeamListModel) ||
                 other.manageTeamListModel == manageTeamListModel));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, isLoading, isStatusUpdated,
-      isError, message, selectedPlayerid, manageTeamListModel);
+  int get hashCode => Object.hash(
+      runtimeType,
+      isLoading,
+      isStatusUpdated,
+      isError,
+      message,
+      selectedPlayerid,
+      termsProgramSessionPlayerModelData,
+      termsId,
+      sessionId,
+      coachingProgramId,
+      manageTeamListModel);
 
   /// Create a copy of ManageTeamState
   /// with the given fields replaced by the non-null parameter values.
@@ -252,6 +400,10 @@ abstract class _ManageTeamState implements ManageTeamState {
       final bool isError,
       final String message,
       final String selectedPlayerid,
+      final TermsProgramSessionPlayerModel termsProgramSessionPlayerModelData,
+      final Term termsId,
+      final Session sessionId,
+      final CoachingProgram coachingProgramId,
       final ManageTeamListModel manageTeamListModel}) = _$ManageTeamStateImpl;
 
   @override
@@ -264,6 +416,14 @@ abstract class _ManageTeamState implements ManageTeamState {
   String get message;
   @override
   String get selectedPlayerid;
+  @override
+  TermsProgramSessionPlayerModel get termsProgramSessionPlayerModelData;
+  @override
+  Term get termsId;
+  @override
+  Session get sessionId;
+  @override
+  CoachingProgram get coachingProgramId;
   @override
   ManageTeamListModel get manageTeamListModel;
 

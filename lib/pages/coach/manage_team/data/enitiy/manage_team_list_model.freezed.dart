@@ -436,7 +436,7 @@ mixin _$Child {
   @JsonKey(name: 'parent_gender')
   String get parentGender => throw _privateConstructorUsedError;
   @JsonKey(name: 'session_list')
-  List<Session> get sessionList => throw _privateConstructorUsedError;
+  List<ManageListSession> get sessionList => throw _privateConstructorUsedError;
 
   /// Serializes this Child to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -460,7 +460,7 @@ abstract class $ChildCopyWith<$Res> {
       @JsonKey(name: 'parent_email') String parentEmail,
       @JsonKey(name: 'parent_phone') String parentPhone,
       @JsonKey(name: 'parent_gender') String parentGender,
-      @JsonKey(name: 'session_list') List<Session> sessionList});
+      @JsonKey(name: 'session_list') List<ManageListSession> sessionList});
 }
 
 /// @nodoc
@@ -519,7 +519,7 @@ class _$ChildCopyWithImpl<$Res, $Val extends Child>
       sessionList: null == sessionList
           ? _value.sessionList
           : sessionList // ignore: cast_nullable_to_non_nullable
-              as List<Session>,
+              as List<ManageListSession>,
     ) as $Val);
   }
 }
@@ -539,7 +539,7 @@ abstract class _$$ChildImplCopyWith<$Res> implements $ChildCopyWith<$Res> {
       @JsonKey(name: 'parent_email') String parentEmail,
       @JsonKey(name: 'parent_phone') String parentPhone,
       @JsonKey(name: 'parent_gender') String parentGender,
-      @JsonKey(name: 'session_list') List<Session> sessionList});
+      @JsonKey(name: 'session_list') List<ManageListSession> sessionList});
 }
 
 /// @nodoc
@@ -596,7 +596,7 @@ class __$$ChildImplCopyWithImpl<$Res>
       sessionList: null == sessionList
           ? _value._sessionList
           : sessionList // ignore: cast_nullable_to_non_nullable
-              as List<Session>,
+              as List<ManageListSession>,
     ));
   }
 }
@@ -614,7 +614,7 @@ class _$ChildImpl implements _Child {
       @JsonKey(name: 'parent_phone') this.parentPhone = '',
       @JsonKey(name: 'parent_gender') this.parentGender = '',
       @JsonKey(name: 'session_list')
-      final List<Session> sessionList = const []})
+      final List<ManageListSession> sessionList = const []})
       : _sessionList = sessionList;
 
   factory _$ChildImpl.fromJson(Map<String, dynamic> json) =>
@@ -641,10 +641,10 @@ class _$ChildImpl implements _Child {
   @override
   @JsonKey(name: 'parent_gender')
   final String parentGender;
-  final List<Session> _sessionList;
+  final List<ManageListSession> _sessionList;
   @override
   @JsonKey(name: 'session_list')
-  List<Session> get sessionList {
+  List<ManageListSession> get sessionList {
     if (_sessionList is EqualUnmodifiableListView) return _sessionList;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(_sessionList);
@@ -710,16 +710,16 @@ class _$ChildImpl implements _Child {
 
 abstract class _Child implements Child {
   const factory _Child(
-          {@JsonKey(name: 'childname') final String childname,
-          @JsonKey(name: 'isChildHasPhysicalIssue')
-          final bool isChildHasPhysicalIssue,
-          @JsonKey(name: 'child_age') final int childAge,
-          @JsonKey(name: 'parent_name') final String parentName,
-          @JsonKey(name: 'parent_email') final String parentEmail,
-          @JsonKey(name: 'parent_phone') final String parentPhone,
-          @JsonKey(name: 'parent_gender') final String parentGender,
-          @JsonKey(name: 'session_list') final List<Session> sessionList}) =
-      _$ChildImpl;
+      {@JsonKey(name: 'childname') final String childname,
+      @JsonKey(name: 'isChildHasPhysicalIssue')
+      final bool isChildHasPhysicalIssue,
+      @JsonKey(name: 'child_age') final int childAge,
+      @JsonKey(name: 'parent_name') final String parentName,
+      @JsonKey(name: 'parent_email') final String parentEmail,
+      @JsonKey(name: 'parent_phone') final String parentPhone,
+      @JsonKey(name: 'parent_gender') final String parentGender,
+      @JsonKey(name: 'session_list')
+      final List<ManageListSession> sessionList}) = _$ChildImpl;
 
   factory _Child.fromJson(Map<String, dynamic> json) = _$ChildImpl.fromJson;
 
@@ -746,7 +746,7 @@ abstract class _Child implements Child {
   String get parentGender;
   @override
   @JsonKey(name: 'session_list')
-  List<Session> get sessionList;
+  List<ManageListSession> get sessionList;
 
   /// Create a copy of Child
   /// with the given fields replaced by the non-null parameter values.
@@ -756,43 +756,45 @@ abstract class _Child implements Child {
       throw _privateConstructorUsedError;
 }
 
-Session _$SessionFromJson(Map<String, dynamic> json) {
-  return _Session.fromJson(json);
+ManageListSession _$ManageListSessionFromJson(Map<String, dynamic> json) {
+  return _ManageListSession.fromJson(json);
 }
 
 /// @nodoc
-mixin _$Session {
+mixin _$ManageListSession {
   @JsonKey(name: 'date')
   String get date => throw _privateConstructorUsedError;
 
-  /// Serializes this Session to a JSON map.
+  /// Serializes this ManageListSession to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
 
-  /// Create a copy of Session
+  /// Create a copy of ManageListSession
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
-  $SessionCopyWith<Session> get copyWith => throw _privateConstructorUsedError;
+  $ManageListSessionCopyWith<ManageListSession> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $SessionCopyWith<$Res> {
-  factory $SessionCopyWith(Session value, $Res Function(Session) then) =
-      _$SessionCopyWithImpl<$Res, Session>;
+abstract class $ManageListSessionCopyWith<$Res> {
+  factory $ManageListSessionCopyWith(
+          ManageListSession value, $Res Function(ManageListSession) then) =
+      _$ManageListSessionCopyWithImpl<$Res, ManageListSession>;
   @useResult
   $Res call({@JsonKey(name: 'date') String date});
 }
 
 /// @nodoc
-class _$SessionCopyWithImpl<$Res, $Val extends Session>
-    implements $SessionCopyWith<$Res> {
-  _$SessionCopyWithImpl(this._value, this._then);
+class _$ManageListSessionCopyWithImpl<$Res, $Val extends ManageListSession>
+    implements $ManageListSessionCopyWith<$Res> {
+  _$ManageListSessionCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
 
-  /// Create a copy of Session
+  /// Create a copy of ManageListSession
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
@@ -809,31 +811,32 @@ class _$SessionCopyWithImpl<$Res, $Val extends Session>
 }
 
 /// @nodoc
-abstract class _$$SessionImplCopyWith<$Res> implements $SessionCopyWith<$Res> {
-  factory _$$SessionImplCopyWith(
-          _$SessionImpl value, $Res Function(_$SessionImpl) then) =
-      __$$SessionImplCopyWithImpl<$Res>;
+abstract class _$$ManageListSessionImplCopyWith<$Res>
+    implements $ManageListSessionCopyWith<$Res> {
+  factory _$$ManageListSessionImplCopyWith(_$ManageListSessionImpl value,
+          $Res Function(_$ManageListSessionImpl) then) =
+      __$$ManageListSessionImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({@JsonKey(name: 'date') String date});
 }
 
 /// @nodoc
-class __$$SessionImplCopyWithImpl<$Res>
-    extends _$SessionCopyWithImpl<$Res, _$SessionImpl>
-    implements _$$SessionImplCopyWith<$Res> {
-  __$$SessionImplCopyWithImpl(
-      _$SessionImpl _value, $Res Function(_$SessionImpl) _then)
+class __$$ManageListSessionImplCopyWithImpl<$Res>
+    extends _$ManageListSessionCopyWithImpl<$Res, _$ManageListSessionImpl>
+    implements _$$ManageListSessionImplCopyWith<$Res> {
+  __$$ManageListSessionImplCopyWithImpl(_$ManageListSessionImpl _value,
+      $Res Function(_$ManageListSessionImpl) _then)
       : super(_value, _then);
 
-  /// Create a copy of Session
+  /// Create a copy of ManageListSession
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? date = null,
   }) {
-    return _then(_$SessionImpl(
+    return _then(_$ManageListSessionImpl(
       date: null == date
           ? _value.date
           : date // ignore: cast_nullable_to_non_nullable
@@ -844,11 +847,11 @@ class __$$SessionImplCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$SessionImpl implements _Session {
-  const _$SessionImpl({@JsonKey(name: 'date') this.date = ''});
+class _$ManageListSessionImpl implements _ManageListSession {
+  const _$ManageListSessionImpl({@JsonKey(name: 'date') this.date = ''});
 
-  factory _$SessionImpl.fromJson(Map<String, dynamic> json) =>
-      _$$SessionImplFromJson(json);
+  factory _$ManageListSessionImpl.fromJson(Map<String, dynamic> json) =>
+      _$$ManageListSessionImplFromJson(json);
 
   @override
   @JsonKey(name: 'date')
@@ -856,14 +859,14 @@ class _$SessionImpl implements _Session {
 
   @override
   String toString() {
-    return 'Session(date: $date)';
+    return 'ManageListSession(date: $date)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$SessionImpl &&
+            other is _$ManageListSessionImpl &&
             (identical(other.date, date) || other.date == date));
   }
 
@@ -871,36 +874,38 @@ class _$SessionImpl implements _Session {
   @override
   int get hashCode => Object.hash(runtimeType, date);
 
-  /// Create a copy of Session
+  /// Create a copy of ManageListSession
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
-  _$$SessionImplCopyWith<_$SessionImpl> get copyWith =>
-      __$$SessionImplCopyWithImpl<_$SessionImpl>(this, _$identity);
+  _$$ManageListSessionImplCopyWith<_$ManageListSessionImpl> get copyWith =>
+      __$$ManageListSessionImplCopyWithImpl<_$ManageListSessionImpl>(
+          this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$SessionImplToJson(
+    return _$$ManageListSessionImplToJson(
       this,
     );
   }
 }
 
-abstract class _Session implements Session {
-  const factory _Session({@JsonKey(name: 'date') final String date}) =
-      _$SessionImpl;
+abstract class _ManageListSession implements ManageListSession {
+  const factory _ManageListSession({@JsonKey(name: 'date') final String date}) =
+      _$ManageListSessionImpl;
 
-  factory _Session.fromJson(Map<String, dynamic> json) = _$SessionImpl.fromJson;
+  factory _ManageListSession.fromJson(Map<String, dynamic> json) =
+      _$ManageListSessionImpl.fromJson;
 
   @override
   @JsonKey(name: 'date')
   String get date;
 
-  /// Create a copy of Session
+  /// Create a copy of ManageListSession
   /// with the given fields replaced by the non-null parameter values.
   @override
   @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$SessionImplCopyWith<_$SessionImpl> get copyWith =>
+  _$$ManageListSessionImplCopyWith<_$ManageListSessionImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

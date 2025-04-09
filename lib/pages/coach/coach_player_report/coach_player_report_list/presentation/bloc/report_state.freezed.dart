@@ -21,9 +21,9 @@ mixin _$ReportState {
   bool get isError => throw _privateConstructorUsedError;
   String get message => throw _privateConstructorUsedError;
   String get selectedPlayerid => throw _privateConstructorUsedError;
+  PlayerReportModel get playerReportModel => throw _privateConstructorUsedError;
   TermsProgramSessionPlayerModel get termsProgramSessionPlayerModelData =>
       throw _privateConstructorUsedError;
-  PlayerReportModel get playerReportModel => throw _privateConstructorUsedError;
   Term get termsId => throw _privateConstructorUsedError;
   Session get sessionId => throw _privateConstructorUsedError;
   CoachingProgram get coachingProgramId => throw _privateConstructorUsedError;
@@ -47,15 +47,15 @@ abstract class $ReportStateCopyWith<$Res> {
       bool isError,
       String message,
       String selectedPlayerid,
-      TermsProgramSessionPlayerModel termsProgramSessionPlayerModelData,
       PlayerReportModel playerReportModel,
+      TermsProgramSessionPlayerModel termsProgramSessionPlayerModelData,
       Term termsId,
       Session sessionId,
       CoachingProgram coachingProgramId});
 
+  $PlayerReportModelCopyWith<$Res> get playerReportModel;
   $TermsProgramSessionPlayerModelCopyWith<$Res>
       get termsProgramSessionPlayerModelData;
-  $PlayerReportModelCopyWith<$Res> get playerReportModel;
   $TermCopyWith<$Res> get termsId;
   $SessionCopyWith<$Res> get sessionId;
   $CoachingProgramCopyWith<$Res> get coachingProgramId;
@@ -81,8 +81,8 @@ class _$ReportStateCopyWithImpl<$Res, $Val extends ReportState>
     Object? isError = null,
     Object? message = null,
     Object? selectedPlayerid = null,
-    Object? termsProgramSessionPlayerModelData = null,
     Object? playerReportModel = null,
+    Object? termsProgramSessionPlayerModelData = null,
     Object? termsId = null,
     Object? sessionId = null,
     Object? coachingProgramId = null,
@@ -108,15 +108,15 @@ class _$ReportStateCopyWithImpl<$Res, $Val extends ReportState>
           ? _value.selectedPlayerid
           : selectedPlayerid // ignore: cast_nullable_to_non_nullable
               as String,
+      playerReportModel: null == playerReportModel
+          ? _value.playerReportModel
+          : playerReportModel // ignore: cast_nullable_to_non_nullable
+              as PlayerReportModel,
       termsProgramSessionPlayerModelData: null ==
               termsProgramSessionPlayerModelData
           ? _value.termsProgramSessionPlayerModelData
           : termsProgramSessionPlayerModelData // ignore: cast_nullable_to_non_nullable
               as TermsProgramSessionPlayerModel,
-      playerReportModel: null == playerReportModel
-          ? _value.playerReportModel
-          : playerReportModel // ignore: cast_nullable_to_non_nullable
-              as PlayerReportModel,
       termsId: null == termsId
           ? _value.termsId
           : termsId // ignore: cast_nullable_to_non_nullable
@@ -136,12 +136,9 @@ class _$ReportStateCopyWithImpl<$Res, $Val extends ReportState>
   /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
-  $TermsProgramSessionPlayerModelCopyWith<$Res>
-      get termsProgramSessionPlayerModelData {
-    return $TermsProgramSessionPlayerModelCopyWith<$Res>(
-        _value.termsProgramSessionPlayerModelData, (value) {
-      return _then(
-          _value.copyWith(termsProgramSessionPlayerModelData: value) as $Val);
+  $PlayerReportModelCopyWith<$Res> get playerReportModel {
+    return $PlayerReportModelCopyWith<$Res>(_value.playerReportModel, (value) {
+      return _then(_value.copyWith(playerReportModel: value) as $Val);
     });
   }
 
@@ -149,9 +146,12 @@ class _$ReportStateCopyWithImpl<$Res, $Val extends ReportState>
   /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
-  $PlayerReportModelCopyWith<$Res> get playerReportModel {
-    return $PlayerReportModelCopyWith<$Res>(_value.playerReportModel, (value) {
-      return _then(_value.copyWith(playerReportModel: value) as $Val);
+  $TermsProgramSessionPlayerModelCopyWith<$Res>
+      get termsProgramSessionPlayerModelData {
+    return $TermsProgramSessionPlayerModelCopyWith<$Res>(
+        _value.termsProgramSessionPlayerModelData, (value) {
+      return _then(
+          _value.copyWith(termsProgramSessionPlayerModelData: value) as $Val);
     });
   }
 
@@ -200,17 +200,17 @@ abstract class _$$ReportStateImplCopyWith<$Res>
       bool isError,
       String message,
       String selectedPlayerid,
-      TermsProgramSessionPlayerModel termsProgramSessionPlayerModelData,
       PlayerReportModel playerReportModel,
+      TermsProgramSessionPlayerModel termsProgramSessionPlayerModelData,
       Term termsId,
       Session sessionId,
       CoachingProgram coachingProgramId});
 
   @override
+  $PlayerReportModelCopyWith<$Res> get playerReportModel;
+  @override
   $TermsProgramSessionPlayerModelCopyWith<$Res>
       get termsProgramSessionPlayerModelData;
-  @override
-  $PlayerReportModelCopyWith<$Res> get playerReportModel;
   @override
   $TermCopyWith<$Res> get termsId;
   @override
@@ -237,8 +237,8 @@ class __$$ReportStateImplCopyWithImpl<$Res>
     Object? isError = null,
     Object? message = null,
     Object? selectedPlayerid = null,
-    Object? termsProgramSessionPlayerModelData = null,
     Object? playerReportModel = null,
+    Object? termsProgramSessionPlayerModelData = null,
     Object? termsId = null,
     Object? sessionId = null,
     Object? coachingProgramId = null,
@@ -264,15 +264,15 @@ class __$$ReportStateImplCopyWithImpl<$Res>
           ? _value.selectedPlayerid
           : selectedPlayerid // ignore: cast_nullable_to_non_nullable
               as String,
+      playerReportModel: null == playerReportModel
+          ? _value.playerReportModel
+          : playerReportModel // ignore: cast_nullable_to_non_nullable
+              as PlayerReportModel,
       termsProgramSessionPlayerModelData: null ==
               termsProgramSessionPlayerModelData
           ? _value.termsProgramSessionPlayerModelData
           : termsProgramSessionPlayerModelData // ignore: cast_nullable_to_non_nullable
               as TermsProgramSessionPlayerModel,
-      playerReportModel: null == playerReportModel
-          ? _value.playerReportModel
-          : playerReportModel // ignore: cast_nullable_to_non_nullable
-              as PlayerReportModel,
       termsId: null == termsId
           ? _value.termsId
           : termsId // ignore: cast_nullable_to_non_nullable
@@ -298,9 +298,9 @@ class _$ReportStateImpl implements _ReportState {
       this.isError = false,
       this.message = "",
       this.selectedPlayerid = "",
+      this.playerReportModel = const PlayerReportModel(),
       this.termsProgramSessionPlayerModelData =
           const TermsProgramSessionPlayerModel(),
-      this.playerReportModel = const PlayerReportModel(),
       this.termsId = const Term(),
       this.sessionId = const Session(),
       this.coachingProgramId = const CoachingProgram()});
@@ -322,10 +322,10 @@ class _$ReportStateImpl implements _ReportState {
   final String selectedPlayerid;
   @override
   @JsonKey()
-  final TermsProgramSessionPlayerModel termsProgramSessionPlayerModelData;
+  final PlayerReportModel playerReportModel;
   @override
   @JsonKey()
-  final PlayerReportModel playerReportModel;
+  final TermsProgramSessionPlayerModel termsProgramSessionPlayerModelData;
   @override
   @JsonKey()
   final Term termsId;
@@ -338,7 +338,7 @@ class _$ReportStateImpl implements _ReportState {
 
   @override
   String toString() {
-    return 'ReportState(isLoading: $isLoading, isStatusUpdated: $isStatusUpdated, isError: $isError, message: $message, selectedPlayerid: $selectedPlayerid, termsProgramSessionPlayerModelData: $termsProgramSessionPlayerModelData, playerReportModel: $playerReportModel, termsId: $termsId, sessionId: $sessionId, coachingProgramId: $coachingProgramId)';
+    return 'ReportState(isLoading: $isLoading, isStatusUpdated: $isStatusUpdated, isError: $isError, message: $message, selectedPlayerid: $selectedPlayerid, playerReportModel: $playerReportModel, termsProgramSessionPlayerModelData: $termsProgramSessionPlayerModelData, termsId: $termsId, sessionId: $sessionId, coachingProgramId: $coachingProgramId)';
   }
 
   @override
@@ -354,12 +354,12 @@ class _$ReportStateImpl implements _ReportState {
             (identical(other.message, message) || other.message == message) &&
             (identical(other.selectedPlayerid, selectedPlayerid) ||
                 other.selectedPlayerid == selectedPlayerid) &&
+            (identical(other.playerReportModel, playerReportModel) ||
+                other.playerReportModel == playerReportModel) &&
             (identical(other.termsProgramSessionPlayerModelData,
                     termsProgramSessionPlayerModelData) ||
                 other.termsProgramSessionPlayerModelData ==
                     termsProgramSessionPlayerModelData) &&
-            (identical(other.playerReportModel, playerReportModel) ||
-                other.playerReportModel == playerReportModel) &&
             (identical(other.termsId, termsId) || other.termsId == termsId) &&
             (identical(other.sessionId, sessionId) ||
                 other.sessionId == sessionId) &&
@@ -375,8 +375,8 @@ class _$ReportStateImpl implements _ReportState {
       isError,
       message,
       selectedPlayerid,
-      termsProgramSessionPlayerModelData,
       playerReportModel,
+      termsProgramSessionPlayerModelData,
       termsId,
       sessionId,
       coachingProgramId);
@@ -397,8 +397,8 @@ abstract class _ReportState implements ReportState {
       final bool isError,
       final String message,
       final String selectedPlayerid,
-      final TermsProgramSessionPlayerModel termsProgramSessionPlayerModelData,
       final PlayerReportModel playerReportModel,
+      final TermsProgramSessionPlayerModel termsProgramSessionPlayerModelData,
       final Term termsId,
       final Session sessionId,
       final CoachingProgram coachingProgramId}) = _$ReportStateImpl;
@@ -414,9 +414,9 @@ abstract class _ReportState implements ReportState {
   @override
   String get selectedPlayerid;
   @override
-  TermsProgramSessionPlayerModel get termsProgramSessionPlayerModelData;
-  @override
   PlayerReportModel get playerReportModel;
+  @override
+  TermsProgramSessionPlayerModel get termsProgramSessionPlayerModelData;
   @override
   Term get termsId;
   @override

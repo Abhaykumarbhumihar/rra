@@ -94,4 +94,6 @@ static const WELCOMEPAGE="/welcom_page";
 
   static const CONTACT_US="/contact_us";
 
+  static const MANAGE_TEAM_DETAIL="/manage_team_detail";
+
 }
