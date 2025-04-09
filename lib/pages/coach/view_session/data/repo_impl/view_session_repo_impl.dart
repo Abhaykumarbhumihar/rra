@@ -26,8 +26,10 @@ class ViewSessionRepoImpl implements ViewSessionRepositey {
       await _apiServices.post(AppConstant.getBookedSessionList, playerData,useDefaultHeaders: true,isJson: true);
       print(response.body);
       if (response.statusCode == 200) {
+        print("getSessionList getSessionList getSessionList getSessionList getSessionList===\n\n${response.body}");
         final Map<String, dynamic> responseData = jsonDecode(response.body);
         if(responseData['success']){
+          
           BookedSessionList bookedSessionList=BookedSessionList.fromJson(responseData);
           return Right(bookedSessionList);
         }else{

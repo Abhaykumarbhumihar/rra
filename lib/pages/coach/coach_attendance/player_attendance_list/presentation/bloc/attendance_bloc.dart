@@ -20,8 +20,12 @@ class AttendanceBloc extends Bloc<AttendanceEvent, AttendanceState> {
     on<GetAttendanceListEvent>(_getChildAttendanceList);
     on<GetDetailOfOneChildAttendanceEvent>(_getSinglePlayerAttendanceDetailEvent);
     on<UpdateAttendanceEvent>(_updateStatusOfAttendanceEvent);
+    on<StoreTapUserId>(_storeTapUserId);
   }
 
+  Future<void>_storeTapUserId(StoreTapUserId event, Emitter<AttendanceState> emit)async{
+    emit(state.copyWith(selectedPlayerid: event.id));
+  }
   Future<void> _getChildAttendanceList(
       GetAttendanceListEvent event, Emitter<AttendanceState> emit) async {
     try {
@@ -30,7 +34,6 @@ class AttendanceBloc extends Bloc<AttendanceEvent, AttendanceState> {
           isLoading: false,
           isError: false,
           isStatusUpdated: false,
-          selectedPlayerid: "",
           attendancePlayerListResponse: AttendancePlayerListResponse(),
           singlePlayerAttendanceDetailModel: SinglePlayerAttendanceDetailModel(),
           message: ""));
@@ -41,7 +44,6 @@ class AttendanceBloc extends Bloc<AttendanceEvent, AttendanceState> {
               'No internet connection. Please check your connection \nand try again.',
           isLoading: false,
           isError: false,
-          selectedPlayerid: "",
           isStatusUpdated: false,
         ));
         return;
@@ -50,7 +52,6 @@ class AttendanceBloc extends Bloc<AttendanceEvent, AttendanceState> {
       var academyId = await SharedPrefs.getString("selected_academyid");
       Map<String, dynamic> map = {"academy_id": academyId};
       emit(state.copyWith(
-          selectedPlayerid: "",
           isLoading: true,
           isError: false,
           singlePlayerAttendanceDetailModel: SinglePlayerAttendanceDetailModel(),
@@ -61,7 +62,6 @@ class AttendanceBloc extends Bloc<AttendanceEvent, AttendanceState> {
       final response = await _playerattendanceusease.playerListExecute(map);
       response.fold((failure) {
         emit(state.copyWith(
-            selectedPlayerid: "",
             isLoading: false,
             singlePlayerAttendanceDetailModel: SinglePlayerAttendanceDetailModel(),
             isError: true,
@@ -71,7 +71,6 @@ class AttendanceBloc extends Bloc<AttendanceEvent, AttendanceState> {
       }, (useResult) {
         emit(state.copyWith(
             isLoading: false,
-            selectedPlayerid: "",
             singlePlayerAttendanceDetailModel: SinglePlayerAttendanceDetailModel(),
             isError: false,
             attendancePlayerListResponse:useResult,
@@ -141,7 +140,6 @@ class AttendanceBloc extends Bloc<AttendanceEvent, AttendanceState> {
       print("CLICKING HEREE ");
       emit(state.copyWith(
           isLoading: false,
-          selectedPlayerid: "",
           isError: false,
           isStatusUpdated: false,
           singlePlayerAttendanceDetailModel: SinglePlayerAttendanceDetailModel(),
@@ -154,7 +152,6 @@ class AttendanceBloc extends Bloc<AttendanceEvent, AttendanceState> {
           isLoading: false,
           isError: false,
           isStatusUpdated: false,
-          selectedPlayerid: "",
           singlePlayerAttendanceDetailModel: SinglePlayerAttendanceDetailModel(),
         ));
         return;
@@ -162,7 +159,6 @@ class AttendanceBloc extends Bloc<AttendanceEvent, AttendanceState> {
 
 
       emit(state.copyWith(
-          selectedPlayerid: "",
           isLoading: true,
           isError: false,
           isStatusUpdated: false,
@@ -183,7 +179,6 @@ class AttendanceBloc extends Bloc<AttendanceEvent, AttendanceState> {
             isLoading: false,
             singlePlayerAttendanceDetailModel: useResult,
             isError: false,
-            selectedPlayerid:"${useResult.data?.id}",
             isStatusUpdated: false,
             message: ""));
       });
@@ -235,12 +230,12 @@ class AttendanceBloc extends Bloc<AttendanceEvent, AttendanceState> {
             isError: false,
             isStatusUpdated: false,
             message: ""));
-        var childId=state.selectedPlayerid;
+
 
         var academyId = await SharedPrefs.getString("selected_academyid");
         Map<String,dynamic>mapForGetDetail={
           "academy_id": academyId,
-          "player_id":childId
+          "player_id":state.selectedPlayerid
         };
         Map<String, dynamic> map = {"academy_id": academyId};
         add(GetDetailOfOneChildAttendanceEvent(mapForGetDetail));

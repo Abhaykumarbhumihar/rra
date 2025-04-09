@@ -80,6 +80,7 @@ class PlayerAttendanceList extends StatelessWidget {
                                   "player_id": data.id
                                 };
                                 BlocProvider.of<AttendanceBloc>(context).add(GetDetailOfOneChildAttendanceEvent(map));
+                                BlocProvider.of<AttendanceBloc>(context).add(StoreTapUserId("${data.id}"));
                                 Map<String, String> arguments = {
                                   "childName": data.name,
                                 };

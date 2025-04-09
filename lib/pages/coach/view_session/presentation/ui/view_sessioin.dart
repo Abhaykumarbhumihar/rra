@@ -1,3 +1,4 @@
+import 'package:rra/common/component/loading_indicator.dart';
 import 'package:rra/common/values/values_exports.dart';
 import 'package:rra/common/component/component_export.dart';
 
@@ -33,53 +34,59 @@ class CoachViewSessioin extends StatelessWidget {
                   height: height,
                   padding: EdgeInsets.zero,
                   decoration: CommonBackground.decoration,
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
+                  child: Stack(
                     children: [
-                      CustomHeader(
-                        title: "View Session",
-                        onBackPress: () {
-                          Navigator.pop(context);
-                        },
-                      ),
-                      SizedBox(
-                        height: 24,
-                      ),
-                      Padding(
-                        padding: EdgeInsets.only(
-                          left: context.screenWidth * 0.052,
-                          right: context.screenWidth * 0.052,
-                        ),
-                        child: CustomTextInputMobile(
-                          controller: daysController,
-                          title: "Select Days",
-                          isPass: false,
-                          isSuffix: true,
-                          isShowTitle: false,
-                          isPrefix: false,
-                          hint: 'Select Days',
-                          readOnly: true,
-                          keyBoardType: TextInputType.phone,
-                          // focusNode: phoneNoFocusNode,
-                          maxLength: 13,
-                          errorMessage: "",
-                          onTap: () async {
-                            final selectedDay = await showDayListBottomSheet(context);
-                            if (selectedDay != null) {
-                              // Do something with the selected day
-                              daysController.text=selectedDay;
-                            }
-                          },
-                          onChanged: (value) {
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          CustomHeader(
+                            title: "View Session",
+                            onBackPress: () {
+                              Navigator.pop(context);
+                            },
+                          ),
+                          SizedBox(
+                            height: 24,
+                          ),
+                          Padding(
+                            padding: EdgeInsets.only(
+                              left: context.screenWidth * 0.052,
+                              right: context.screenWidth * 0.052,
+                            ),
+                            child: CustomTextInputMobile(
+                              controller: daysController,
+                              title: "Select Days",
+                              isPass: false,
+                              isSuffix: true,
+                              isShowTitle: false,
+                              isPrefix: false,
+                              hint: 'Select Days',
+                              readOnly: true,
+                              keyBoardType: TextInputType.phone,
+                              // focusNode: phoneNoFocusNode,
+                              maxLength: 13,
+                              errorMessage: "",
+                              onTap: () async {
+                                final selectedDay = await showDayListBottomSheet(context);
+                                if (selectedDay != null) {
+                                  // Do something with the selected day
+                                  daysController.text=selectedDay;
+                                }
+                              },
+                              onChanged: (value) {
 
 
-                          },
-                        ),
-                      ),
-                      SizedBox(height: 10,),
-                      Expanded(child: ViewSessionItem()),
-                      SizedBox(height: 10,),
+                              },
+                            ),
+                          ),
+                          SizedBox(height: 10,),
+                          Expanded(child: ViewSessionItem()),
+                          SizedBox(height: 10,),
 
+                        ],
+                      ),
+                      if(state.isLoading)
+                        LoadingIndicator()
                     ],
                   ),
                 );

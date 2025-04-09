@@ -8,4 +8,5 @@ sealed class AttendanceEvent with _$AttendanceEvent {
   const factory AttendanceEvent.getAttenDanceListData(Map<String,dynamic>data) = GetAttendanceListEvent;
   const factory AttendanceEvent.getDetailOfChildAttendance(Map<String,dynamic>data) = GetDetailOfOneChildAttendanceEvent;
   const factory AttendanceEvent.updateAttendanceStatus(Map<String,dynamic>data) = UpdateAttendanceEvent;
+  const factory AttendanceEvent.storeTapUserId(String id) = StoreTapUserId;
 }

@@ -16,7 +16,6 @@ final _privateConstructorUsedError = UnsupportedError(
 
 /// @nodoc
 mixin _$AttendanceEvent {
-  Map<String, dynamic> get data => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(Map<String, dynamic> data) filterAttendaceList,
@@ -24,6 +23,7 @@ mixin _$AttendanceEvent {
     required TResult Function(Map<String, dynamic> data)
         getDetailOfChildAttendance,
     required TResult Function(Map<String, dynamic> data) updateAttendanceStatus,
+    required TResult Function(String id) storeTapUserId,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -32,6 +32,7 @@ mixin _$AttendanceEvent {
     TResult? Function(Map<String, dynamic> data)? getAttenDanceListData,
     TResult? Function(Map<String, dynamic> data)? getDetailOfChildAttendance,
     TResult? Function(Map<String, dynamic> data)? updateAttendanceStatus,
+    TResult? Function(String id)? storeTapUserId,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -40,6 +41,7 @@ mixin _$AttendanceEvent {
     TResult Function(Map<String, dynamic> data)? getAttenDanceListData,
     TResult Function(Map<String, dynamic> data)? getDetailOfChildAttendance,
     TResult Function(Map<String, dynamic> data)? updateAttendanceStatus,
+    TResult Function(String id)? storeTapUserId,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -53,6 +55,7 @@ mixin _$AttendanceEvent {
         getDetailOfChildAttendance,
     required TResult Function(UpdateAttendanceEvent value)
         updateAttendanceStatus,
+    required TResult Function(StoreTapUserId value) storeTapUserId,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -62,6 +65,7 @@ mixin _$AttendanceEvent {
     TResult? Function(GetDetailOfOneChildAttendanceEvent value)?
         getDetailOfChildAttendance,
     TResult? Function(UpdateAttendanceEvent value)? updateAttendanceStatus,
+    TResult? Function(StoreTapUserId value)? storeTapUserId,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -71,14 +75,9 @@ mixin _$AttendanceEvent {
     TResult Function(GetDetailOfOneChildAttendanceEvent value)?
         getDetailOfChildAttendance,
     TResult Function(UpdateAttendanceEvent value)? updateAttendanceStatus,
+    TResult Function(StoreTapUserId value)? storeTapUserId,
     required TResult orElse(),
   }) =>
-      throw _privateConstructorUsedError;
-
-  /// Create a copy of AttendanceEvent
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  $AttendanceEventCopyWith<AttendanceEvent> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -87,8 +86,6 @@ abstract class $AttendanceEventCopyWith<$Res> {
   factory $AttendanceEventCopyWith(
           AttendanceEvent value, $Res Function(AttendanceEvent) then) =
       _$AttendanceEventCopyWithImpl<$Res, AttendanceEvent>;
-  @useResult
-  $Res call({Map<String, dynamic> data});
 }
 
 /// @nodoc
@@ -103,28 +100,14 @@ class _$AttendanceEventCopyWithImpl<$Res, $Val extends AttendanceEvent>
 
   /// Create a copy of AttendanceEvent
   /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? data = null,
-  }) {
-    return _then(_value.copyWith(
-      data: null == data
-          ? _value.data
-          : data // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>,
-    ) as $Val);
-  }
 }
 
 /// @nodoc
-abstract class _$$FilterAttendanceListEventImplCopyWith<$Res>
-    implements $AttendanceEventCopyWith<$Res> {
+abstract class _$$FilterAttendanceListEventImplCopyWith<$Res> {
   factory _$$FilterAttendanceListEventImplCopyWith(
           _$FilterAttendanceListEventImpl value,
           $Res Function(_$FilterAttendanceListEventImpl) then) =
       __$$FilterAttendanceListEventImplCopyWithImpl<$Res>;
-  @override
   @useResult
   $Res call({Map<String, dynamic> data});
 }
@@ -202,6 +185,7 @@ class _$FilterAttendanceListEventImpl implements FilterAttendanceListEvent {
     required TResult Function(Map<String, dynamic> data)
         getDetailOfChildAttendance,
     required TResult Function(Map<String, dynamic> data) updateAttendanceStatus,
+    required TResult Function(String id) storeTapUserId,
   }) {
     return filterAttendaceList(data);
   }
@@ -213,6 +197,7 @@ class _$FilterAttendanceListEventImpl implements FilterAttendanceListEvent {
     TResult? Function(Map<String, dynamic> data)? getAttenDanceListData,
     TResult? Function(Map<String, dynamic> data)? getDetailOfChildAttendance,
     TResult? Function(Map<String, dynamic> data)? updateAttendanceStatus,
+    TResult? Function(String id)? storeTapUserId,
   }) {
     return filterAttendaceList?.call(data);
   }
@@ -224,6 +209,7 @@ class _$FilterAttendanceListEventImpl implements FilterAttendanceListEvent {
     TResult Function(Map<String, dynamic> data)? getAttenDanceListData,
     TResult Function(Map<String, dynamic> data)? getDetailOfChildAttendance,
     TResult Function(Map<String, dynamic> data)? updateAttendanceStatus,
+    TResult Function(String id)? storeTapUserId,
     required TResult orElse(),
   }) {
     if (filterAttendaceList != null) {
@@ -243,6 +229,7 @@ class _$FilterAttendanceListEventImpl implements FilterAttendanceListEvent {
         getDetailOfChildAttendance,
     required TResult Function(UpdateAttendanceEvent value)
         updateAttendanceStatus,
+    required TResult Function(StoreTapUserId value) storeTapUserId,
   }) {
     return filterAttendaceList(this);
   }
@@ -255,6 +242,7 @@ class _$FilterAttendanceListEventImpl implements FilterAttendanceListEvent {
     TResult? Function(GetDetailOfOneChildAttendanceEvent value)?
         getDetailOfChildAttendance,
     TResult? Function(UpdateAttendanceEvent value)? updateAttendanceStatus,
+    TResult? Function(StoreTapUserId value)? storeTapUserId,
   }) {
     return filterAttendaceList?.call(this);
   }
@@ -267,6 +255,7 @@ class _$FilterAttendanceListEventImpl implements FilterAttendanceListEvent {
     TResult Function(GetDetailOfOneChildAttendanceEvent value)?
         getDetailOfChildAttendance,
     TResult Function(UpdateAttendanceEvent value)? updateAttendanceStatus,
+    TResult Function(StoreTapUserId value)? storeTapUserId,
     required TResult orElse(),
   }) {
     if (filterAttendaceList != null) {
@@ -280,25 +269,21 @@ abstract class FilterAttendanceListEvent implements AttendanceEvent {
   const factory FilterAttendanceListEvent(final Map<String, dynamic> data) =
       _$FilterAttendanceListEventImpl;
 
-  @override
   Map<String, dynamic> get data;
 
   /// Create a copy of AttendanceEvent
   /// with the given fields replaced by the non-null parameter values.
-  @override
   @JsonKey(includeFromJson: false, includeToJson: false)
   _$$FilterAttendanceListEventImplCopyWith<_$FilterAttendanceListEventImpl>
       get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$GetAttendanceListEventImplCopyWith<$Res>
-    implements $AttendanceEventCopyWith<$Res> {
+abstract class _$$GetAttendanceListEventImplCopyWith<$Res> {
   factory _$$GetAttendanceListEventImplCopyWith(
           _$GetAttendanceListEventImpl value,
           $Res Function(_$GetAttendanceListEventImpl) then) =
       __$$GetAttendanceListEventImplCopyWithImpl<$Res>;
-  @override
   @useResult
   $Res call({Map<String, dynamic> data});
 }
@@ -376,6 +361,7 @@ class _$GetAttendanceListEventImpl implements GetAttendanceListEvent {
     required TResult Function(Map<String, dynamic> data)
         getDetailOfChildAttendance,
     required TResult Function(Map<String, dynamic> data) updateAttendanceStatus,
+    required TResult Function(String id) storeTapUserId,
   }) {
     return getAttenDanceListData(data);
   }
@@ -387,6 +373,7 @@ class _$GetAttendanceListEventImpl implements GetAttendanceListEvent {
     TResult? Function(Map<String, dynamic> data)? getAttenDanceListData,
     TResult? Function(Map<String, dynamic> data)? getDetailOfChildAttendance,
     TResult? Function(Map<String, dynamic> data)? updateAttendanceStatus,
+    TResult? Function(String id)? storeTapUserId,
   }) {
     return getAttenDanceListData?.call(data);
   }
@@ -398,6 +385,7 @@ class _$GetAttendanceListEventImpl implements GetAttendanceListEvent {
     TResult Function(Map<String, dynamic> data)? getAttenDanceListData,
     TResult Function(Map<String, dynamic> data)? getDetailOfChildAttendance,
     TResult Function(Map<String, dynamic> data)? updateAttendanceStatus,
+    TResult Function(String id)? storeTapUserId,
     required TResult orElse(),
   }) {
     if (getAttenDanceListData != null) {
@@ -417,6 +405,7 @@ class _$GetAttendanceListEventImpl implements GetAttendanceListEvent {
         getDetailOfChildAttendance,
     required TResult Function(UpdateAttendanceEvent value)
         updateAttendanceStatus,
+    required TResult Function(StoreTapUserId value) storeTapUserId,
   }) {
     return getAttenDanceListData(this);
   }
@@ -429,6 +418,7 @@ class _$GetAttendanceListEventImpl implements GetAttendanceListEvent {
     TResult? Function(GetDetailOfOneChildAttendanceEvent value)?
         getDetailOfChildAttendance,
     TResult? Function(UpdateAttendanceEvent value)? updateAttendanceStatus,
+    TResult? Function(StoreTapUserId value)? storeTapUserId,
   }) {
     return getAttenDanceListData?.call(this);
   }
@@ -441,6 +431,7 @@ class _$GetAttendanceListEventImpl implements GetAttendanceListEvent {
     TResult Function(GetDetailOfOneChildAttendanceEvent value)?
         getDetailOfChildAttendance,
     TResult Function(UpdateAttendanceEvent value)? updateAttendanceStatus,
+    TResult Function(StoreTapUserId value)? storeTapUserId,
     required TResult orElse(),
   }) {
     if (getAttenDanceListData != null) {
@@ -454,25 +445,21 @@ abstract class GetAttendanceListEvent implements AttendanceEvent {
   const factory GetAttendanceListEvent(final Map<String, dynamic> data) =
       _$GetAttendanceListEventImpl;
 
-  @override
   Map<String, dynamic> get data;
 
   /// Create a copy of AttendanceEvent
   /// with the given fields replaced by the non-null parameter values.
-  @override
   @JsonKey(includeFromJson: false, includeToJson: false)
   _$$GetAttendanceListEventImplCopyWith<_$GetAttendanceListEventImpl>
       get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$GetDetailOfOneChildAttendanceEventImplCopyWith<$Res>
-    implements $AttendanceEventCopyWith<$Res> {
+abstract class _$$GetDetailOfOneChildAttendanceEventImplCopyWith<$Res> {
   factory _$$GetDetailOfOneChildAttendanceEventImplCopyWith(
           _$GetDetailOfOneChildAttendanceEventImpl value,
           $Res Function(_$GetDetailOfOneChildAttendanceEventImpl) then) =
       __$$GetDetailOfOneChildAttendanceEventImplCopyWithImpl<$Res>;
-  @override
   @useResult
   $Res call({Map<String, dynamic> data});
 }
@@ -554,6 +541,7 @@ class _$GetDetailOfOneChildAttendanceEventImpl
     required TResult Function(Map<String, dynamic> data)
         getDetailOfChildAttendance,
     required TResult Function(Map<String, dynamic> data) updateAttendanceStatus,
+    required TResult Function(String id) storeTapUserId,
   }) {
     return getDetailOfChildAttendance(data);
   }
@@ -565,6 +553,7 @@ class _$GetDetailOfOneChildAttendanceEventImpl
     TResult? Function(Map<String, dynamic> data)? getAttenDanceListData,
     TResult? Function(Map<String, dynamic> data)? getDetailOfChildAttendance,
     TResult? Function(Map<String, dynamic> data)? updateAttendanceStatus,
+    TResult? Function(String id)? storeTapUserId,
   }) {
     return getDetailOfChildAttendance?.call(data);
   }
@@ -576,6 +565,7 @@ class _$GetDetailOfOneChildAttendanceEventImpl
     TResult Function(Map<String, dynamic> data)? getAttenDanceListData,
     TResult Function(Map<String, dynamic> data)? getDetailOfChildAttendance,
     TResult Function(Map<String, dynamic> data)? updateAttendanceStatus,
+    TResult Function(String id)? storeTapUserId,
     required TResult orElse(),
   }) {
     if (getDetailOfChildAttendance != null) {
@@ -595,6 +585,7 @@ class _$GetDetailOfOneChildAttendanceEventImpl
         getDetailOfChildAttendance,
     required TResult Function(UpdateAttendanceEvent value)
         updateAttendanceStatus,
+    required TResult Function(StoreTapUserId value) storeTapUserId,
   }) {
     return getDetailOfChildAttendance(this);
   }
@@ -607,6 +598,7 @@ class _$GetDetailOfOneChildAttendanceEventImpl
     TResult? Function(GetDetailOfOneChildAttendanceEvent value)?
         getDetailOfChildAttendance,
     TResult? Function(UpdateAttendanceEvent value)? updateAttendanceStatus,
+    TResult? Function(StoreTapUserId value)? storeTapUserId,
   }) {
     return getDetailOfChildAttendance?.call(this);
   }
@@ -619,6 +611,7 @@ class _$GetDetailOfOneChildAttendanceEventImpl
     TResult Function(GetDetailOfOneChildAttendanceEvent value)?
         getDetailOfChildAttendance,
     TResult Function(UpdateAttendanceEvent value)? updateAttendanceStatus,
+    TResult Function(StoreTapUserId value)? storeTapUserId,
     required TResult orElse(),
   }) {
     if (getDetailOfChildAttendance != null) {
@@ -633,12 +626,10 @@ abstract class GetDetailOfOneChildAttendanceEvent implements AttendanceEvent {
           final Map<String, dynamic> data) =
       _$GetDetailOfOneChildAttendanceEventImpl;
 
-  @override
   Map<String, dynamic> get data;
 
   /// Create a copy of AttendanceEvent
   /// with the given fields replaced by the non-null parameter values.
-  @override
   @JsonKey(includeFromJson: false, includeToJson: false)
   _$$GetDetailOfOneChildAttendanceEventImplCopyWith<
           _$GetDetailOfOneChildAttendanceEventImpl>
@@ -646,13 +637,11 @@ abstract class GetDetailOfOneChildAttendanceEvent implements AttendanceEvent {
 }
 
 /// @nodoc
-abstract class _$$UpdateAttendanceEventImplCopyWith<$Res>
-    implements $AttendanceEventCopyWith<$Res> {
+abstract class _$$UpdateAttendanceEventImplCopyWith<$Res> {
   factory _$$UpdateAttendanceEventImplCopyWith(
           _$UpdateAttendanceEventImpl value,
           $Res Function(_$UpdateAttendanceEventImpl) then) =
       __$$UpdateAttendanceEventImplCopyWithImpl<$Res>;
-  @override
   @useResult
   $Res call({Map<String, dynamic> data});
 }
@@ -729,6 +718,7 @@ class _$UpdateAttendanceEventImpl implements UpdateAttendanceEvent {
     required TResult Function(Map<String, dynamic> data)
         getDetailOfChildAttendance,
     required TResult Function(Map<String, dynamic> data) updateAttendanceStatus,
+    required TResult Function(String id) storeTapUserId,
   }) {
     return updateAttendanceStatus(data);
   }
@@ -740,6 +730,7 @@ class _$UpdateAttendanceEventImpl implements UpdateAttendanceEvent {
     TResult? Function(Map<String, dynamic> data)? getAttenDanceListData,
     TResult? Function(Map<String, dynamic> data)? getDetailOfChildAttendance,
     TResult? Function(Map<String, dynamic> data)? updateAttendanceStatus,
+    TResult? Function(String id)? storeTapUserId,
   }) {
     return updateAttendanceStatus?.call(data);
   }
@@ -751,6 +742,7 @@ class _$UpdateAttendanceEventImpl implements UpdateAttendanceEvent {
     TResult Function(Map<String, dynamic> data)? getAttenDanceListData,
     TResult Function(Map<String, dynamic> data)? getDetailOfChildAttendance,
     TResult Function(Map<String, dynamic> data)? updateAttendanceStatus,
+    TResult Function(String id)? storeTapUserId,
     required TResult orElse(),
   }) {
     if (updateAttendanceStatus != null) {
@@ -770,6 +762,7 @@ class _$UpdateAttendanceEventImpl implements UpdateAttendanceEvent {
         getDetailOfChildAttendance,
     required TResult Function(UpdateAttendanceEvent value)
         updateAttendanceStatus,
+    required TResult Function(StoreTapUserId value) storeTapUserId,
   }) {
     return updateAttendanceStatus(this);
   }
@@ -782,6 +775,7 @@ class _$UpdateAttendanceEventImpl implements UpdateAttendanceEvent {
     TResult? Function(GetDetailOfOneChildAttendanceEvent value)?
         getDetailOfChildAttendance,
     TResult? Function(UpdateAttendanceEvent value)? updateAttendanceStatus,
+    TResult? Function(StoreTapUserId value)? storeTapUserId,
   }) {
     return updateAttendanceStatus?.call(this);
   }
@@ -794,6 +788,7 @@ class _$UpdateAttendanceEventImpl implements UpdateAttendanceEvent {
     TResult Function(GetDetailOfOneChildAttendanceEvent value)?
         getDetailOfChildAttendance,
     TResult Function(UpdateAttendanceEvent value)? updateAttendanceStatus,
+    TResult Function(StoreTapUserId value)? storeTapUserId,
     required TResult orElse(),
   }) {
     if (updateAttendanceStatus != null) {
@@ -807,13 +802,177 @@ abstract class UpdateAttendanceEvent implements AttendanceEvent {
   const factory UpdateAttendanceEvent(final Map<String, dynamic> data) =
       _$UpdateAttendanceEventImpl;
 
-  @override
   Map<String, dynamic> get data;
 
   /// Create a copy of AttendanceEvent
   /// with the given fields replaced by the non-null parameter values.
-  @override
   @JsonKey(includeFromJson: false, includeToJson: false)
   _$$UpdateAttendanceEventImplCopyWith<_$UpdateAttendanceEventImpl>
       get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$StoreTapUserIdImplCopyWith<$Res> {
+  factory _$$StoreTapUserIdImplCopyWith(_$StoreTapUserIdImpl value,
+          $Res Function(_$StoreTapUserIdImpl) then) =
+      __$$StoreTapUserIdImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String id});
+}
+
+/// @nodoc
+class __$$StoreTapUserIdImplCopyWithImpl<$Res>
+    extends _$AttendanceEventCopyWithImpl<$Res, _$StoreTapUserIdImpl>
+    implements _$$StoreTapUserIdImplCopyWith<$Res> {
+  __$$StoreTapUserIdImplCopyWithImpl(
+      _$StoreTapUserIdImpl _value, $Res Function(_$StoreTapUserIdImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of AttendanceEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? id = null,
+  }) {
+    return _then(_$StoreTapUserIdImpl(
+      null == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$StoreTapUserIdImpl implements StoreTapUserId {
+  const _$StoreTapUserIdImpl(this.id);
+
+  @override
+  final String id;
+
+  @override
+  String toString() {
+    return 'AttendanceEvent.storeTapUserId(id: $id)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$StoreTapUserIdImpl &&
+            (identical(other.id, id) || other.id == id));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, id);
+
+  /// Create a copy of AttendanceEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$StoreTapUserIdImplCopyWith<_$StoreTapUserIdImpl> get copyWith =>
+      __$$StoreTapUserIdImplCopyWithImpl<_$StoreTapUserIdImpl>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(Map<String, dynamic> data) filterAttendaceList,
+    required TResult Function(Map<String, dynamic> data) getAttenDanceListData,
+    required TResult Function(Map<String, dynamic> data)
+        getDetailOfChildAttendance,
+    required TResult Function(Map<String, dynamic> data) updateAttendanceStatus,
+    required TResult Function(String id) storeTapUserId,
+  }) {
+    return storeTapUserId(id);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(Map<String, dynamic> data)? filterAttendaceList,
+    TResult? Function(Map<String, dynamic> data)? getAttenDanceListData,
+    TResult? Function(Map<String, dynamic> data)? getDetailOfChildAttendance,
+    TResult? Function(Map<String, dynamic> data)? updateAttendanceStatus,
+    TResult? Function(String id)? storeTapUserId,
+  }) {
+    return storeTapUserId?.call(id);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(Map<String, dynamic> data)? filterAttendaceList,
+    TResult Function(Map<String, dynamic> data)? getAttenDanceListData,
+    TResult Function(Map<String, dynamic> data)? getDetailOfChildAttendance,
+    TResult Function(Map<String, dynamic> data)? updateAttendanceStatus,
+    TResult Function(String id)? storeTapUserId,
+    required TResult orElse(),
+  }) {
+    if (storeTapUserId != null) {
+      return storeTapUserId(id);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(FilterAttendanceListEvent value)
+        filterAttendaceList,
+    required TResult Function(GetAttendanceListEvent value)
+        getAttenDanceListData,
+    required TResult Function(GetDetailOfOneChildAttendanceEvent value)
+        getDetailOfChildAttendance,
+    required TResult Function(UpdateAttendanceEvent value)
+        updateAttendanceStatus,
+    required TResult Function(StoreTapUserId value) storeTapUserId,
+  }) {
+    return storeTapUserId(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(FilterAttendanceListEvent value)? filterAttendaceList,
+    TResult? Function(GetAttendanceListEvent value)? getAttenDanceListData,
+    TResult? Function(GetDetailOfOneChildAttendanceEvent value)?
+        getDetailOfChildAttendance,
+    TResult? Function(UpdateAttendanceEvent value)? updateAttendanceStatus,
+    TResult? Function(StoreTapUserId value)? storeTapUserId,
+  }) {
+    return storeTapUserId?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(FilterAttendanceListEvent value)? filterAttendaceList,
+    TResult Function(GetAttendanceListEvent value)? getAttenDanceListData,
+    TResult Function(GetDetailOfOneChildAttendanceEvent value)?
+        getDetailOfChildAttendance,
+    TResult Function(UpdateAttendanceEvent value)? updateAttendanceStatus,
+    TResult Function(StoreTapUserId value)? storeTapUserId,
+    required TResult orElse(),
+  }) {
+    if (storeTapUserId != null) {
+      return storeTapUserId(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class StoreTapUserId implements AttendanceEvent {
+  const factory StoreTapUserId(final String id) = _$StoreTapUserIdImpl;
+
+  String get id;
+
+  /// Create a copy of AttendanceEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$StoreTapUserIdImplCopyWith<_$StoreTapUserIdImpl> get copyWith =>
+      throw _privateConstructorUsedError;
 }

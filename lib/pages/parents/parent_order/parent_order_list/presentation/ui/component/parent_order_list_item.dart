@@ -37,7 +37,7 @@ class ParentOrderListItem extends StatelessWidget {
                     ),
                     InfoRow(
                       label: "Order# :",
-                      value: " ${myOrder.orderId}",
+                      value: " RRA_${myOrder.orderId}",
                     ),
                     SizedBox(
                       height: 6.0,
@@ -72,7 +72,7 @@ class ParentOrderListItem extends StatelessWidget {
                     ),
                     InfoRow(
                       label: "Amount :",
-                      value: "  \$${myOrder.amount}",
+                      value: "  ${myOrder.amount}",
                     ),
                   ],
                 ),
@@ -107,13 +107,13 @@ class ParentOrderListItem extends StatelessWidget {
                   SizedBox(
                     height: 4.0,
                   ),
-                  CommonSmallElevatedButton(
-                    padding:
-                        EdgeInsets.symmetric(horizontal: 14.0, vertical: 6.0),
-                    label: "Invoice",
-                    onPressed: () {},
-                    color: AppColor.appButtonColor,
-                  ),
+                  // CommonSmallElevatedButton(
+                  //   padding:
+                  //       EdgeInsets.symmetric(horizontal: 14.0, vertical: 6.0),
+                  //   label: "Invoice",
+                  //   onPressed: () {},
+                  //   color: AppColor.appButtonColor,
+                  // ),
                 ],
               )
             ],

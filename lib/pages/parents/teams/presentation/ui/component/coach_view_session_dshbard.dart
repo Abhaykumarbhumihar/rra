@@ -1,6 +1,7 @@
 import 'package:rra/common/values/values_exports.dart';
 
 import '../../../../../../common/routes/routes.dart';
+import '../../../../../coach/view_session/presentation/bloc/view_session_bloc.dart';
 class CoachViewSessionDshbard extends StatelessWidget {
   const CoachViewSessionDshbard({super.key});
 
@@ -84,7 +85,7 @@ class CoachViewSessionDshbard extends StatelessWidget {
                           padding: const EdgeInsets.symmetric(
                               horizontal: 12.0, vertical: 6.0),
                           child: Text(
-                            "My Sessions : 123",
+                            "My Sessions : ${BlocProvider.of<ViewSessionBloc>(context).state.bookedSession.data.sessions.length}",
                             style: TextStyle(
                               fontSize: context.screenWidth * 0.0373,
                               color: AppColor.appWhiteColor,

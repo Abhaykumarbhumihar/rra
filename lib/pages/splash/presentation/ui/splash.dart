@@ -72,10 +72,14 @@ class SplashPage extends StatelessWidget {
             if(userdata?.data.role=="coach"){
               BlocProvider.of<AddDocumentBloc>(context).add(GetTermsSessionCoachingPlayerEvents({"academy_id":academyId}));
               BlocProvider.of<CollateralBloc>(context).add(GetCollateralListEvent({"academy_id":academyId}));
+              BlocProvider.of<ViewSessionBloc>(context).add(GetBookedSessionListEvent({"academy_id":academyId}));
+
             }else{
               BlocProvider.of<CoachingProgramsBloc>(context).add(GroupCoachProgramsListEvent());
               BlocProvider.of<CoachingProgramsBloc>(context).add(PrivateCoachingProgramsList());
               BlocProvider.of<AddViewPlayerBloc>(context).add(AddViewPlayerGetChildListEvent());
+              BlocProvider.of<ViewSessionBloc>(context).add(GetBookedSessionListEvent({"academy_id":academyId}));
+
               BlocProvider.of<ParentOrderBloc>(context).add(ParentMyOrderListEvent({}));
 
             }

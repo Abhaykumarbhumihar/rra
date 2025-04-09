@@ -2,6 +2,8 @@ import 'package:rra/common/component/component_export.dart';
 import 'package:rra/common/values/values_exports.dart';
 
 import '../../../../../../../common/local/SharedPrefs.dart';
+import '../../../../../../auth/otpverification/data/entity/otp_verification_model.dart';
+import '../../../../../../parents/document/add_view_document/presentation/bloc/add_document_bloc.dart';
 import '../../../../player_attendance_list/presentation/bloc/attendance_bloc.dart';
 import '../../../../player_attendance_list/presentation/bloc/attendance_event.dart';
 import '../../../../player_attendance_list/presentation/bloc/attendance_state.dart';
@@ -69,55 +71,59 @@ class PlayerAttendanceRecord extends StatelessWidget {
                             AttendanceCommonSmallElevatedButton(
                               label: "${data?.attendanceStatus}",
                               onPressed: () async {
-                                final selectedStatus = await showModalBottomSheet<String>(
-                                  context: context,
-                                  backgroundColor: Colors.transparent, // Makes the rounded corners visible
-                                  builder: (context) {
-                                    return Container(
-                                      decoration: const BoxDecoration(
-                                        color: Colors.white,
-                                        borderRadius: BorderRadius.only(
-                                          topLeft: Radius.circular(20),
-                                          topRight: Radius.circular(20),
+                                var userdata = await SharedPrefs.getModel<OtpVerificationModel>("user_model", (json) => OtpVerificationModel.fromJson(json));
+                                if(userdata?.data.role=="coach"){
+                                  final selectedStatus = await showModalBottomSheet<String>(
+                                    context: context,
+                                    backgroundColor: Colors.transparent, // Makes the rounded corners visible
+                                    builder: (context) {
+                                      return Container(
+                                        decoration: const BoxDecoration(
+                                          color: Colors.white,
+                                          borderRadius: BorderRadius.only(
+                                            topLeft: Radius.circular(20),
+                                            topRight: Radius.circular(20),
+                                          ),
                                         ),
-                                      ),
-                                      child: Column(
-                                        mainAxisSize: MainAxisSize.min,
-                                        children: [
-                                          const Padding(
-                                            padding: EdgeInsets.only(top: 16, bottom: 8),
-                                            child: Text(
-                                              'Select Attendance Status',
-                                              style: TextStyle(
-                                                fontSize: 18,
-                                                fontWeight: FontWeight.bold,
-                                                color: Colors.black87,
+                                        child: Column(
+                                          mainAxisSize: MainAxisSize.min,
+                                          children: [
+                                            const Padding(
+                                              padding: EdgeInsets.only(top: 16, bottom: 8),
+                                              child: Text(
+                                                'Select Attendance Status',
+                                                style: TextStyle(
+                                                  fontSize: 18,
+                                                  fontWeight: FontWeight.bold,
+                                                  color: Colors.black87,
+                                                ),
                                               ),
                                             ),
-                                          ),
-                                          const Divider(height: 1, thickness: 1),
-                                          _buildStatusItem(context, 'Present', Icons.check_circle, Colors.green),
-                                          _buildStatusItem(context, 'Absent', Icons.cancel, Colors.red),
-                                          _buildStatusItem(context, 'Cancel', Icons.block, Colors.orange),
-                                          _buildStatusItem(context, 'Not Marked', Icons.help_outline, Colors.grey),
-                                          const SizedBox(height: 8),
-                                        ],
-                                      ),
-                                    );
-                                  },
-                                );
+                                            const Divider(height: 1, thickness: 1),
+                                            _buildStatusItem(context, 'Present', Icons.check_circle, Colors.green),
+                                            _buildStatusItem(context, 'Absent', Icons.cancel, Colors.red),
+                                            _buildStatusItem(context, 'Cancel', Icons.block, Colors.orange),
+                                            _buildStatusItem(context, 'Not Marked', Icons.help_outline, Colors.grey),
+                                            const SizedBox(height: 8),
+                                          ],
+                                        ),
+                                      );
+                                    },
+                                  );
 
-                                if (selectedStatus != null) {
-                                  var academyId = await SharedPrefs.getString("selected_academyid");
-                                  Map<String, dynamic> map = {
-                                    "player_id": state.singlePlayerAttendanceDetailModel.data?.id,
-                                    "session_id": data?.sessionId,
-                                    "academy_id": academyId,
-                                    "date": data?.date,
-                                    "status": selectedStatus,
-                                  };
-                                  BlocProvider.of<AttendanceBloc>(context).add(UpdateAttendanceEvent(map));
+                                  if (selectedStatus != null) {
+                                    var academyId = await SharedPrefs.getString("selected_academyid");
+                                    Map<String, dynamic> map = {
+                                      "player_id": state.singlePlayerAttendanceDetailModel.data?.id,
+                                      "session_id": data?.sessionId,
+                                      "academy_id": academyId,
+                                      "date": data?.date,
+                                      "status": selectedStatus,
+                                    };
+                                    BlocProvider.of<AttendanceBloc>(context).add(UpdateAttendanceEvent(map));
+                                  }
                                 }
+
                               },
                               color: AttendanceButtonUtils.getButtonColor(data?.attendanceStatus),
                               textColor: AttendanceButtonUtils.getTextColor(data?.attendanceStatus),
