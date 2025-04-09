@@ -1,5 +1,7 @@
 import '../../pages/coach/coach_attendance/player_attendance_list/presentation/bloc/attendance_bloc.dart';
+import '../../pages/coach/coach_player_report/coach_player_report_list/presentation/bloc/report_bloc.dart';
 import '../../pages/coach/collaterals/collaterals_list/presentation/bloc/collateral_bloc.dart';
+import '../../pages/coach/manage_team/presentation/bloc/manage_team_bloc.dart';
 import '../../pages/coach/view_session/presentation/bloc/view_session_bloc.dart';
 import '../../pages/parents/document/add_view_document/presentation/ui/document_detail.dart';
 import '../../pages/parents/parent_order/parent_order_detail/presentation/bloc/parent_myorder_detail_bloc.dart';
@@ -129,6 +131,7 @@ class AppPages {
       PageEntitiy(
         route: AppRoutes.COACHMANAGETEAMLIST,
         page: ManageTeamList(),
+        bloc: BlocProvider(create: (_) => ManageTeamBloc()),
       ),
 
       PageEntitiy(
@@ -145,6 +148,7 @@ class AppPages {
       PageEntitiy(
         route: AppRoutes.COACHPLAYERREPOORTLISTPAGE,
         page: CoachPlayerReortListAge(),
+        bloc: BlocProvider(create: (_) => ReportBloc()),
       ),
 
       PageEntitiy(

@@ -14,8 +14,12 @@ import '../../../auth/otpverification/presentation/bloc/otpverification_bloc.dar
 import '../../../auth/otpverification/presentation/bloc/otpverification_event.dart';
 import '../../../coach/coach_attendance/player_attendance_list/presentation/bloc/attendance_bloc.dart';
 import '../../../coach/coach_attendance/player_attendance_list/presentation/bloc/attendance_event.dart';
+import '../../../coach/coach_player_report/coach_player_report_list/presentation/bloc/report_bloc.dart';
+import '../../../coach/coach_player_report/coach_player_report_list/presentation/bloc/report_event.dart';
 import '../../../coach/collaterals/collaterals_list/presentation/bloc/collateral_bloc.dart';
 import '../../../coach/collaterals/collaterals_list/presentation/bloc/collateral_event.dart';
+import '../../../coach/manage_team/presentation/bloc/manage_team_bloc.dart';
+import '../../../coach/manage_team/presentation/bloc/manage_team_event.dart';
 import '../../../coach/view_session/presentation/bloc/view_session_bloc.dart';
 import '../../../coach/view_session/presentation/bloc/view_session_event.dart';
 import '../../../parents/document/add_view_document/presentation/bloc/add_document_event.dart';
@@ -65,6 +69,10 @@ class SplashPage extends StatelessWidget {
 
           if (state is SplashNavigateToHome) {
             var academyId = await SharedPrefs.getString("selected_academyid");
+
+
+            BlocProvider.of<ReportBloc>(context).add(ReportEventGetTermsSessionCoachingPlayerEvents({"academy_id":academyId}));
+            BlocProvider.of<ManageTeamBloc>(context).add(GetTeamListEvent({"academy_id":academyId}));
             BlocProvider.of<AttendanceBloc>(context).add(GetAttendanceListEvent({"academy_id":academyId}));
             BlocProvider.of<ViewSessionBloc>(context).add(GetBookedSessionListEvent({"academy_id":academyId}));
             var userdata = await SharedPrefs.getModel<OtpVerificationModel>("user_model", (json) => OtpVerificationModel.fromJson(json));

@@ -38,10 +38,10 @@ class Session with _$Session {
     @JsonKey(name: 'session_day') @Default('') String sessionDay,
     @JsonKey(name: 'start_date') @Default('') String startDate,
     @JsonKey(name: 'end_date') @Default('') String endDate,
-    @JsonKey(name: 'date') String? date,
-    @JsonKey(name: 'amount') String? amount,
-    @JsonKey(name: 'status') String? status,
-    @JsonKey(name: 'cancelable') bool? cancelable,
+    @JsonKey(name: 'date') @Default("") String date,
+    @JsonKey(name: 'amount') @Default("\$0.0")String amount,
+    @JsonKey(name: 'status')  @Default("") String status,
+    @JsonKey(name: 'cancelable') @Default(false)bool cancelable,
   }) = _Session;
 
   factory Session.fromJson(Map<String, dynamic> json) => _$SessionFromJson(json);

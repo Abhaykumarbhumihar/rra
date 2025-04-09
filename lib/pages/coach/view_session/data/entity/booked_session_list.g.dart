@@ -56,10 +56,10 @@ _$SessionImpl _$$SessionImplFromJson(Map<String, dynamic> json) =>
       sessionDay: json['session_day'] as String? ?? '',
       startDate: json['start_date'] as String? ?? '',
       endDate: json['end_date'] as String? ?? '',
-      date: json['date'] as String?,
-      amount: json['amount'] as String?,
-      status: json['status'] as String?,
-      cancelable: json['cancelable'] as bool?,
+      date: json['date'] as String? ?? "",
+      amount: json['amount'] as String? ?? "\$0.0",
+      status: json['status'] as String? ?? "",
+      cancelable: json['cancelable'] as bool? ?? false,
     );
 
 Map<String, dynamic> _$$SessionImplToJson(_$SessionImpl instance) =>

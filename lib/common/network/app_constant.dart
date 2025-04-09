@@ -64,7 +64,8 @@ static String get getBookedSessionList =>"booked-session-list";
 /*collater*/
 static String get getCollateralList=>"collaterals/list";
 
-
+/*manage team*/
+  static String get getManageTeamlList=>"coaches/my-team";
 
 
 

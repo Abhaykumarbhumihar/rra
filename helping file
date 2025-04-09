@@ -23,3 +23,6 @@ For Older Phones (Pre-2020)
 For Emulators & Special Cases
 👉 Use app-x86_64-release.apk ✅
 ⏩ Only needed for Android emulators or x86 tablets.
+
+
+please make model class using freezed and please use @Default and give default value of every keys. and also use @Json key with everys keys.default  value will be based on data type

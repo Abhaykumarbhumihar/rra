@@ -478,13 +478,13 @@ mixin _$Session {
   @JsonKey(name: 'end_date')
   String get endDate => throw _privateConstructorUsedError;
   @JsonKey(name: 'date')
-  String? get date => throw _privateConstructorUsedError;
+  String get date => throw _privateConstructorUsedError;
   @JsonKey(name: 'amount')
-  String? get amount => throw _privateConstructorUsedError;
+  String get amount => throw _privateConstructorUsedError;
   @JsonKey(name: 'status')
-  String? get status => throw _privateConstructorUsedError;
+  String get status => throw _privateConstructorUsedError;
   @JsonKey(name: 'cancelable')
-  bool? get cancelable => throw _privateConstructorUsedError;
+  bool get cancelable => throw _privateConstructorUsedError;
 
   /// Serializes this Session to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -509,10 +509,10 @@ abstract class $SessionCopyWith<$Res> {
       @JsonKey(name: 'session_day') String sessionDay,
       @JsonKey(name: 'start_date') String startDate,
       @JsonKey(name: 'end_date') String endDate,
-      @JsonKey(name: 'date') String? date,
-      @JsonKey(name: 'amount') String? amount,
-      @JsonKey(name: 'status') String? status,
-      @JsonKey(name: 'cancelable') bool? cancelable});
+      @JsonKey(name: 'date') String date,
+      @JsonKey(name: 'amount') String amount,
+      @JsonKey(name: 'status') String status,
+      @JsonKey(name: 'cancelable') bool cancelable});
 }
 
 /// @nodoc
@@ -538,10 +538,10 @@ class _$SessionCopyWithImpl<$Res, $Val extends Session>
     Object? sessionDay = null,
     Object? startDate = null,
     Object? endDate = null,
-    Object? date = freezed,
-    Object? amount = freezed,
-    Object? status = freezed,
-    Object? cancelable = freezed,
+    Object? date = null,
+    Object? amount = null,
+    Object? status = null,
+    Object? cancelable = null,
   }) {
     return _then(_value.copyWith(
       id: null == id
@@ -576,22 +576,22 @@ class _$SessionCopyWithImpl<$Res, $Val extends Session>
           ? _value.endDate
           : endDate // ignore: cast_nullable_to_non_nullable
               as String,
-      date: freezed == date
+      date: null == date
           ? _value.date
           : date // ignore: cast_nullable_to_non_nullable
-              as String?,
-      amount: freezed == amount
+              as String,
+      amount: null == amount
           ? _value.amount
           : amount // ignore: cast_nullable_to_non_nullable
-              as String?,
-      status: freezed == status
+              as String,
+      status: null == status
           ? _value.status
           : status // ignore: cast_nullable_to_non_nullable
-              as String?,
-      cancelable: freezed == cancelable
+              as String,
+      cancelable: null == cancelable
           ? _value.cancelable
           : cancelable // ignore: cast_nullable_to_non_nullable
-              as bool?,
+              as bool,
     ) as $Val);
   }
 }
@@ -612,10 +612,10 @@ abstract class _$$SessionImplCopyWith<$Res> implements $SessionCopyWith<$Res> {
       @JsonKey(name: 'session_day') String sessionDay,
       @JsonKey(name: 'start_date') String startDate,
       @JsonKey(name: 'end_date') String endDate,
-      @JsonKey(name: 'date') String? date,
-      @JsonKey(name: 'amount') String? amount,
-      @JsonKey(name: 'status') String? status,
-      @JsonKey(name: 'cancelable') bool? cancelable});
+      @JsonKey(name: 'date') String date,
+      @JsonKey(name: 'amount') String amount,
+      @JsonKey(name: 'status') String status,
+      @JsonKey(name: 'cancelable') bool cancelable});
 }
 
 /// @nodoc
@@ -639,10 +639,10 @@ class __$$SessionImplCopyWithImpl<$Res>
     Object? sessionDay = null,
     Object? startDate = null,
     Object? endDate = null,
-    Object? date = freezed,
-    Object? amount = freezed,
-    Object? status = freezed,
-    Object? cancelable = freezed,
+    Object? date = null,
+    Object? amount = null,
+    Object? status = null,
+    Object? cancelable = null,
   }) {
     return _then(_$SessionImpl(
       id: null == id
@@ -677,22 +677,22 @@ class __$$SessionImplCopyWithImpl<$Res>
           ? _value.endDate
           : endDate // ignore: cast_nullable_to_non_nullable
               as String,
-      date: freezed == date
+      date: null == date
           ? _value.date
           : date // ignore: cast_nullable_to_non_nullable
-              as String?,
-      amount: freezed == amount
+              as String,
+      amount: null == amount
           ? _value.amount
           : amount // ignore: cast_nullable_to_non_nullable
-              as String?,
-      status: freezed == status
+              as String,
+      status: null == status
           ? _value.status
           : status // ignore: cast_nullable_to_non_nullable
-              as String?,
-      cancelable: freezed == cancelable
+              as String,
+      cancelable: null == cancelable
           ? _value.cancelable
           : cancelable // ignore: cast_nullable_to_non_nullable
-              as bool?,
+              as bool,
     ));
   }
 }
@@ -709,10 +709,10 @@ class _$SessionImpl implements _Session {
       @JsonKey(name: 'session_day') this.sessionDay = '',
       @JsonKey(name: 'start_date') this.startDate = '',
       @JsonKey(name: 'end_date') this.endDate = '',
-      @JsonKey(name: 'date') this.date,
-      @JsonKey(name: 'amount') this.amount,
-      @JsonKey(name: 'status') this.status,
-      @JsonKey(name: 'cancelable') this.cancelable});
+      @JsonKey(name: 'date') this.date = "",
+      @JsonKey(name: 'amount') this.amount = "\$0.0",
+      @JsonKey(name: 'status') this.status = "",
+      @JsonKey(name: 'cancelable') this.cancelable = false});
 
   factory _$SessionImpl.fromJson(Map<String, dynamic> json) =>
       _$$SessionImplFromJson(json);
@@ -743,16 +743,16 @@ class _$SessionImpl implements _Session {
   final String endDate;
   @override
   @JsonKey(name: 'date')
-  final String? date;
+  final String date;
   @override
   @JsonKey(name: 'amount')
-  final String? amount;
+  final String amount;
   @override
   @JsonKey(name: 'status')
-  final String? status;
+  final String status;
   @override
   @JsonKey(name: 'cancelable')
-  final bool? cancelable;
+  final bool cancelable;
 
   @override
   String toString() {
@@ -826,10 +826,10 @@ abstract class _Session implements Session {
       @JsonKey(name: 'session_day') final String sessionDay,
       @JsonKey(name: 'start_date') final String startDate,
       @JsonKey(name: 'end_date') final String endDate,
-      @JsonKey(name: 'date') final String? date,
-      @JsonKey(name: 'amount') final String? amount,
-      @JsonKey(name: 'status') final String? status,
-      @JsonKey(name: 'cancelable') final bool? cancelable}) = _$SessionImpl;
+      @JsonKey(name: 'date') final String date,
+      @JsonKey(name: 'amount') final String amount,
+      @JsonKey(name: 'status') final String status,
+      @JsonKey(name: 'cancelable') final bool cancelable}) = _$SessionImpl;
 
   factory _Session.fromJson(Map<String, dynamic> json) = _$SessionImpl.fromJson;
 
@@ -859,16 +859,16 @@ abstract class _Session implements Session {
   String get endDate;
   @override
   @JsonKey(name: 'date')
-  String? get date;
+  String get date;
   @override
   @JsonKey(name: 'amount')
-  String? get amount;
+  String get amount;
   @override
   @JsonKey(name: 'status')
-  String? get status;
+  String get status;
   @override
   @JsonKey(name: 'cancelable')
-  bool? get cancelable;
+  bool get cancelable;
 
   /// Create a copy of Session
   /// with the given fields replaced by the non-null parameter values.

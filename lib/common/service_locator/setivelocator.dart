@@ -1,9 +1,15 @@
 import '../../pages/coach/coach_attendance/player_attendance_list/data/repo_impl/player_attendance_repo_impl.dart';
 import '../../pages/coach/coach_attendance/player_attendance_list/domain/repositery/player_attendance_repositey.dart';
 import '../../pages/coach/coach_attendance/player_attendance_list/domain/usecase/playerAttendanceUsease.dart';
+import '../../pages/coach/coach_player_report/coach_player_report_list/data/repoimpl/report_repositery_impl.dart';
+import '../../pages/coach/coach_player_report/coach_player_report_list/domain/repositery/report_repositer.dart';
+import '../../pages/coach/coach_player_report/coach_player_report_list/domain/usecase/report_usecase.dart';
 import '../../pages/coach/collaterals/collaterals_list/data/repo_impl/collateral_repo_impl.dart';
 import '../../pages/coach/collaterals/collaterals_list/domain/repositery/collateral_repositery.dart';
 import '../../pages/coach/collaterals/collaterals_list/domain/usecase/collateral_usease.dart';
+import '../../pages/coach/manage_team/data/repoimpl/manage_team_repositery_impl.dart';
+import '../../pages/coach/manage_team/domain/repositery/manage_team_repositer.dart';
+import '../../pages/coach/manage_team/domain/usecase/manage_team_usecase.dart';
 import '../../pages/coach/view_session/data/repo_impl/view_session_repo_impl.dart';
 import '../../pages/coach/view_session/domain/repositery/view_session_repositey.dart';
 import '../../pages/coach/view_session/domain/usecase/view_session_Usease.dart';
@@ -129,4 +135,18 @@ void serviceLocator() {
           () => CollateralRepoImpl());
   getIt.registerLazySingleton<CollateralUsease>(
           () => CollateralUsease(getIt<CollateralRepositery>()));
+
+
+  /*mark reports*/
+  getIt.registerLazySingleton<ReportRepositer>(
+          () => ReportRepositeryImpl());
+  getIt.registerLazySingleton<ReportUsecase>(
+          () => ReportUsecase(getIt<ReportRepositer>()));
+
+  /*manage teams*/
+  getIt.registerLazySingleton<ManageTeamRepositer>(
+          () => ManageTeamRepositeryImpl());
+  getIt.registerLazySingleton<ManageTeamUsecase>(
+          () => ManageTeamUsecase(getIt<ManageTeamRepositer>()));
+
 }

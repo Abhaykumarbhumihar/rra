@@ -2,6 +2,8 @@ import 'package:rra/common/values/values_exports.dart';
 import 'package:rra/common/component/component_export.dart';
 
 import '../../../../../common/component/common_dropdown_bottomsheet.dart';
+import '../bloc/manage_team_bloc.dart';
+import '../bloc/manage_team_state.dart';
 import 'component/manage_team_list_item.dart';
 
 class ManageTeamList extends StatelessWidget {
@@ -14,7 +16,13 @@ class ManageTeamList extends StatelessWidget {
       onBackPress: () {
         Navigator.pop(context);
       },
-      child: Padding(
+      child: BlocListener<ManageTeamBloc, ManageTeamState>(
+  listener: (context, state) {
+    // TODO: implement listener
+  },
+  child: BlocBuilder<ManageTeamBloc, ManageTeamState>(
+  builder: (context, state) {
+    return Padding(
         padding: EdgeInsets.only(
           left: context.screenWidth * 0.052,
           right: context.screenWidth * 0.052,
@@ -58,14 +66,14 @@ class ManageTeamList extends StatelessWidget {
             SizedBox(
               height: 6,
             ),
-            ManageTeamListItem(),
-            SizedBox(
-              height: 6,
-            ),
-            ManageTeamListItem(),
+
+
           ],
         ),
-      ),
+      );
+  },
+),
+),
     );
   }
 }
