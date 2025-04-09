@@ -3,6 +3,7 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 
+import '../../../otpverification/data/entity/otp_verification_model.dart';
 import '../../data/enitiy/create_user_model.dart';
 
 part 'create_account_state.freezed.dart';
@@ -21,7 +22,7 @@ class CreateAccountState with _$CreateAccountState {
     @Default('') String errorMessage,
     @Default(false) bool isServerError,
     @Default('') String successMessage,
-    @Default(UserPojo()) UserPojo userdata,
+    @Default(OtpVerificationModel()) OtpVerificationModel userdata,
     @Default("") String selectedAcademiId,
   }) = _CreateAccountState;
 

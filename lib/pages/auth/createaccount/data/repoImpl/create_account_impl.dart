@@ -9,6 +9,7 @@ import '../../../../../common/network/api_services.dart';
 import '../../../../../common/network/app_constant.dart';
 import '../../../../../common/network/failure.dart';
 import '../../../../../common/service_locator/setivelocator.dart';
+import '../../../otpverification/data/entity/otp_verification_model.dart';
 import '../../domain/repositery/create_account_repo.dart';
 import '../enitiy/create_user_model.dart';
 
@@ -18,7 +19,7 @@ class CreateAccountImpl implements CreateAccountRepositery {
   CreateAccountImpl();
 
   @override
-  Future<Either<Failure, UserPojo>> createAccount(Map<String, String> userData,
+  Future<Either<Failure, OtpVerificationModel>> createAccount(Map<String, String> userData,
       {File? file}) async {
     try {
       http.Response response =
@@ -26,7 +27,7 @@ class CreateAccountImpl implements CreateAccountRepositery {
       if (response.statusCode == 200) {
         final Map<String, dynamic> responseData = jsonDecode(response.body);
         if(responseData['success']){
-          final UserPojo user = UserPojo.fromJson(responseData);
+          final OtpVerificationModel user = OtpVerificationModel.fromJson(responseData);
           return Right(user);
         }else{
           return Left(Failure(responseData['success']));

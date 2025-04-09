@@ -6,6 +6,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 import '../../../../../common/local/SharedPrefs.dart';
 import '../../../../../common/service_locator/setivelocator.dart';
 
+import '../../../otpverification/data/entity/otp_verification_model.dart';
 import '../../data/enitiy/create_user_model.dart';
 import '../../domain/usecase/create_account_usecase.dart';
 import 'create_account_event.dart';
@@ -95,7 +96,7 @@ class CreateAccountBloc extends Bloc<CreateAccountEvent, CreateAccountState> {
         isSuccess: false,
         isServerError: false,
       successMessage: '',
-      userdata: UserPojo(),
+      userdata: OtpVerificationModel(),
         ));
 
     // Check if any fields are empty
@@ -104,7 +105,7 @@ class CreateAccountBloc extends Bloc<CreateAccountEvent, CreateAccountState> {
           errorMessage: 'Please enter your first name',
           isSuccess: false,
           successMessage: '',
-          userdata: UserPojo(),
+          userdata: OtpVerificationModel(),
           isServerError: false));
       return;
     }
@@ -113,7 +114,7 @@ class CreateAccountBloc extends Bloc<CreateAccountEvent, CreateAccountState> {
       emit(state.copyWith(
           isSuccess: false,
           successMessage: '',
-          userdata: UserPojo(),
+          userdata: OtpVerificationModel(),
           errorMessage: 'Please enter your email', isServerError: false));
       return;
     }
@@ -121,7 +122,7 @@ class CreateAccountBloc extends Bloc<CreateAccountEvent, CreateAccountState> {
     if (state.password.toString().trim().isEmpty) {
       emit(state.copyWith(
           successMessage: '',
-          userdata: UserPojo(),
+          userdata: OtpVerificationModel(),
           errorMessage: 'Please enter your password', isServerError: false));
       return;
     }
@@ -169,7 +170,7 @@ class CreateAccountBloc extends Bloc<CreateAccountEvent, CreateAccountState> {
           errorMessage: '',
           successMessage: '',
           isSuccess: false,
-          userdata: UserPojo(),
+          userdata: OtpVerificationModel(),
           isServerError: false));
       final response =
           await _createAccountUseCase.createAccount(userRegistrationMap);

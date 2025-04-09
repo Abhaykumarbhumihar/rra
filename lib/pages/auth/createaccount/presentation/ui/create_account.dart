@@ -22,7 +22,22 @@ import '../../../../../common/image/camera_file_utility.dart';
 import '../../../../../common/local/SharedPrefs.dart';
 import '../../../../../common/routes/routes.dart';
 
+import '../../../../coach/coach_attendance/player_attendance_list/presentation/bloc/attendance_bloc.dart';
+import '../../../../coach/coach_attendance/player_attendance_list/presentation/bloc/attendance_event.dart';
+import '../../../../coach/collaterals/collaterals_list/presentation/bloc/collateral_bloc.dart';
+import '../../../../coach/collaterals/collaterals_list/presentation/bloc/collateral_event.dart';
+import '../../../../coach/view_session/presentation/bloc/view_session_bloc.dart';
+import '../../../../coach/view_session/presentation/bloc/view_session_event.dart';
+import '../../../../parents/application/presentatioin/bloc/app_bloc.dart';
+import '../../../../parents/document/add_view_document/presentation/bloc/add_document_bloc.dart';
+import '../../../../parents/document/add_view_document/presentation/bloc/add_document_event.dart';
+import '../../../../parents/parent_order/parent_order_list/presentation/bloc/parent_order_bloc.dart';
+import '../../../../parents/parent_order/parent_order_list/presentation/bloc/parent_order_event.dart';
+import '../../../../parents/session/add_detail/presentation/bloc/add_view_player_bloc.dart';
+import '../../../../parents/session/add_detail/presentation/bloc/add_view_player_event.dart';
+import '../../../../parents/session/coachprograms/presentation/bloc/coach_programs_bloc.dart';
 import '../../../login/presentation/ui/component/academic_list_bottomsheet.dart';
+import '../../../otpverification/data/entity/otp_verification_model.dart';
 import '../../data/enitiy/create_user_model.dart';
 import '../bloc/create_account_bloc.dart';
 import 'dart:math' as math;
@@ -69,6 +84,30 @@ class CreateAccount extends StatelessWidget {
             BlocProvider.of<CreateAccountBloc>(context).add(MakeInitial());
           }
           if (state.isSuccess == true && state.isSuccess != '') {
+            await SharedPrefs.setModel("user_model", state.userdata);
+            await SharedPrefs.setString("token", state.userdata.token);
+            var academyId = await SharedPrefs.getString("selected_academyid");
+            BlocProvider.of<AttendanceBloc>(context).add(GetAttendanceListEvent({"academy_id":academyId}));
+            BlocProvider.of<ViewSessionBloc>(context).add(GetBookedSessionListEvent({"academy_id":academyId}));
+            var userdata = await SharedPrefs.getModel<OtpVerificationModel>("user_model", (json) => OtpVerificationModel.fromJson(json));
+            BlocProvider.of<AddDocumentBloc>(context).add(GetUploadedParentDocument({}));
+            BlocProvider.of<AppBloc>(context)
+                .add(TriggerAppEvent(0));
+
+            if(userdata?.data.role=="coach"){
+              BlocProvider.of<AddDocumentBloc>(context).add(GetTermsSessionCoachingPlayerEvents({"academy_id":academyId}));
+              BlocProvider.of<CollateralBloc>(context).add(GetCollateralListEvent({"academy_id":academyId}));
+              BlocProvider.of<ViewSessionBloc>(context).add(GetBookedSessionListEvent({"academy_id":academyId}));
+
+            }else{
+              BlocProvider.of<CoachingProgramsBloc>(context).add(GroupCoachProgramsListEvent());
+              BlocProvider.of<CoachingProgramsBloc>(context).add(PrivateCoachingProgramsList());
+              BlocProvider.of<AddViewPlayerBloc>(context).add(AddViewPlayerGetChildListEvent());
+              BlocProvider.of<ViewSessionBloc>(context).add(GetBookedSessionListEvent({"academy_id":academyId}));
+
+              BlocProvider.of<ParentOrderBloc>(context).add(ParentMyOrderListEvent({}));
+
+            }
             context.showCustomSnackbar(state.successMessage,
                 backgroundColor: AppColor.appcolor);
             Map<String, dynamic> arguments = {
@@ -76,7 +115,8 @@ class CreateAccount extends StatelessWidget {
               "isFromCreateAccount": true,
             };
 
-            Navigator.pushNamed(context, AppRoutes.OTPVERIFICATION,
+
+            Navigator.pushNamed(context, AppRoutes.APPLICATION,
                 arguments: arguments);
           }
           BlocProvider.of<CreateAccountBloc>(context)

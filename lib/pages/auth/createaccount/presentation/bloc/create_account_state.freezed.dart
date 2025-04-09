@@ -27,7 +27,7 @@ mixin _$CreateAccountState {
   String get errorMessage => throw _privateConstructorUsedError;
   bool get isServerError => throw _privateConstructorUsedError;
   String get successMessage => throw _privateConstructorUsedError;
-  UserPojo get userdata => throw _privateConstructorUsedError;
+  OtpVerificationModel get userdata => throw _privateConstructorUsedError;
   String get selectedAcademiId => throw _privateConstructorUsedError;
 
   /// Create a copy of CreateAccountState
@@ -55,10 +55,10 @@ abstract class $CreateAccountStateCopyWith<$Res> {
       String errorMessage,
       bool isServerError,
       String successMessage,
-      UserPojo userdata,
+      OtpVerificationModel userdata,
       String selectedAcademiId});
 
-  $UserPojoCopyWith<$Res> get userdata;
+  $OtpVerificationModelCopyWith<$Res> get userdata;
 }
 
 /// @nodoc
@@ -138,7 +138,7 @@ class _$CreateAccountStateCopyWithImpl<$Res, $Val extends CreateAccountState>
       userdata: null == userdata
           ? _value.userdata
           : userdata // ignore: cast_nullable_to_non_nullable
-              as UserPojo,
+              as OtpVerificationModel,
       selectedAcademiId: null == selectedAcademiId
           ? _value.selectedAcademiId
           : selectedAcademiId // ignore: cast_nullable_to_non_nullable
@@ -150,8 +150,8 @@ class _$CreateAccountStateCopyWithImpl<$Res, $Val extends CreateAccountState>
   /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
-  $UserPojoCopyWith<$Res> get userdata {
-    return $UserPojoCopyWith<$Res>(_value.userdata, (value) {
+  $OtpVerificationModelCopyWith<$Res> get userdata {
+    return $OtpVerificationModelCopyWith<$Res>(_value.userdata, (value) {
       return _then(_value.copyWith(userdata: value) as $Val);
     });
   }
@@ -177,11 +177,11 @@ abstract class _$$CreateAccountStateImplCopyWith<$Res>
       String errorMessage,
       bool isServerError,
       String successMessage,
-      UserPojo userdata,
+      OtpVerificationModel userdata,
       String selectedAcademiId});
 
   @override
-  $UserPojoCopyWith<$Res> get userdata;
+  $OtpVerificationModelCopyWith<$Res> get userdata;
 }
 
 /// @nodoc
@@ -259,7 +259,7 @@ class __$$CreateAccountStateImplCopyWithImpl<$Res>
       userdata: null == userdata
           ? _value.userdata
           : userdata // ignore: cast_nullable_to_non_nullable
-              as UserPojo,
+              as OtpVerificationModel,
       selectedAcademiId: null == selectedAcademiId
           ? _value.selectedAcademiId
           : selectedAcademiId // ignore: cast_nullable_to_non_nullable
@@ -283,7 +283,7 @@ class _$CreateAccountStateImpl implements _CreateAccountState {
       this.errorMessage = '',
       this.isServerError = false,
       this.successMessage = '',
-      this.userdata = const UserPojo(),
+      this.userdata = const OtpVerificationModel(),
       this.selectedAcademiId = ""});
 
   @override
@@ -321,7 +321,7 @@ class _$CreateAccountStateImpl implements _CreateAccountState {
   final String successMessage;
   @override
   @JsonKey()
-  final UserPojo userdata;
+  final OtpVerificationModel userdata;
   @override
   @JsonKey()
   final String selectedAcademiId;
@@ -402,7 +402,7 @@ abstract class _CreateAccountState implements CreateAccountState {
       final String errorMessage,
       final bool isServerError,
       final String successMessage,
-      final UserPojo userdata,
+      final OtpVerificationModel userdata,
       final String selectedAcademiId}) = _$CreateAccountStateImpl;
 
   @override
@@ -428,7 +428,7 @@ abstract class _CreateAccountState implements CreateAccountState {
   @override
   String get successMessage;
   @override
-  UserPojo get userdata;
+  OtpVerificationModel get userdata;
   @override
   String get selectedAcademiId;
 
