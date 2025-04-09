@@ -80,8 +80,11 @@ class PlayerAttendanceList extends StatelessWidget {
                                   "player_id": data.id
                                 };
                                 BlocProvider.of<AttendanceBloc>(context).add(GetDetailOfOneChildAttendanceEvent(map));
-                                // Navigator.pushNamed(
-                                //     context, AppRoutes.COACHSINGLEPLAYERATTENDANCE);
+                                Map<String, String> arguments = {
+                                  "childName": data.name,
+                                };
+                                 Navigator.pushNamed(
+                                     context, AppRoutes.COACHSINGLEPLAYERATTENDANCE,arguments: arguments);
                               },
                               color: AppColor.appButtonColor,
                             )

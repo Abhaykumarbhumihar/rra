@@ -38,3 +38,43 @@ class CommonSmallElevatedButton extends StatelessWidget {
 }
 
 
+
+
+class AttendanceCommonSmallElevatedButton extends StatelessWidget {
+  final String label;
+  final VoidCallback onPressed;
+  final Color color;
+  final Color textColor; // New parameter for text color
+  final EdgeInsetsGeometry? padding;
+
+  const AttendanceCommonSmallElevatedButton({
+    Key? key,
+    required this.label,
+    required this.onPressed,
+    this.color = AppColor.appButtonColor,
+    this.textColor = Colors.white, // Default text color set to white
+    this.padding,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return InkWell(
+      onTap: onPressed,
+      child: Container(
+        padding: padding ?? const EdgeInsets.symmetric(horizontal: 20, vertical: 6.0),
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(20),
+          color: color,
+        ),
+        child: Text(
+          label,
+          style: TextStyle(
+            color: textColor, // Using the dynamic text color
+            fontSize: context.screenWidth * 0.03,
+            fontFamily: AppFont.interSemiBold,
+          ),
+        ),
+      ),
+    );
+  }
+}

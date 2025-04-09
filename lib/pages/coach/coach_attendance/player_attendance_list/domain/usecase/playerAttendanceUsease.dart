@@ -3,6 +3,7 @@ import 'package:either_dart/either.dart';
 
 import '../../../../../../common/network/failure.dart';
 import '../../data/entity/player_list/attendance_player_list.dart';
+import '../../data/entity/singple_player_attendance_detail/single_player_attendance_detail_model.dart';
 import '../repositery/player_attendance_repositey.dart';
 
 
@@ -16,7 +17,7 @@ class Playerattendanceusease {
   }
 
 
-  Future<Either<Failure, dynamic>> playerAttendanceDetailExecute(
+  Future<Either<Failure, SinglePlayerAttendanceDetailModel>> playerAttendanceDetailExecute(
       Map<String, dynamic> playerData) async {
     return _playerAttendanceRepositey.playerAttendanceDetail(playerData);
   }

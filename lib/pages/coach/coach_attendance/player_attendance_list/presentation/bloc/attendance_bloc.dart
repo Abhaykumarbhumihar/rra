@@ -7,6 +7,7 @@ import 'package:rra/common/network/connectivity_extension.dart';
 import '../../../../../../common/local/SharedPrefs.dart';
 import '../../../../../../common/service_locator/setivelocator.dart';
 import '../../data/entity/player_list/attendance_player_list.dart';
+import '../../data/entity/singple_player_attendance_detail/single_player_attendance_detail_model.dart';
 import '../../domain/usecase/playerAttendanceUsease.dart';
 import 'attendance_event.dart';
 import 'attendance_state.dart';
@@ -18,6 +19,7 @@ class AttendanceBloc extends Bloc<AttendanceEvent, AttendanceState> {
   AttendanceBloc() : super(AttendanceState.initial()) {
     on<GetAttendanceListEvent>(_getChildAttendanceList);
     on<GetDetailOfOneChildAttendanceEvent>(_getSinglePlayerAttendanceDetailEvent);
+    on<UpdateAttendanceEvent>(_updateStatusOfAttendanceEvent);
   }
 
   Future<void> _getChildAttendanceList(
@@ -25,10 +27,12 @@ class AttendanceBloc extends Bloc<AttendanceEvent, AttendanceState> {
     try {
       print("CLICKING HEREE_getChildAttendanceList_getChildAttendanceList ");
       emit(state.copyWith(
-          isLoading: true,
+          isLoading: false,
           isError: false,
           isStatusUpdated: false,
+          selectedPlayerid: "",
           attendancePlayerListResponse: AttendancePlayerListResponse(),
+          singlePlayerAttendanceDetailModel: SinglePlayerAttendanceDetailModel(),
           message: ""));
 
       if (!(await Connectivity().isConnected)) {
@@ -37,6 +41,7 @@ class AttendanceBloc extends Bloc<AttendanceEvent, AttendanceState> {
               'No internet connection. Please check your connection \nand try again.',
           isLoading: false,
           isError: false,
+          selectedPlayerid: "",
           isStatusUpdated: false,
         ));
         return;
@@ -45,8 +50,10 @@ class AttendanceBloc extends Bloc<AttendanceEvent, AttendanceState> {
       var academyId = await SharedPrefs.getString("selected_academyid");
       Map<String, dynamic> map = {"academy_id": academyId};
       emit(state.copyWith(
+          selectedPlayerid: "",
           isLoading: true,
           isError: false,
+          singlePlayerAttendanceDetailModel: SinglePlayerAttendanceDetailModel(),
           attendancePlayerListResponse: AttendancePlayerListResponse(),
           isStatusUpdated: false,
           message: ""));
@@ -54,7 +61,9 @@ class AttendanceBloc extends Bloc<AttendanceEvent, AttendanceState> {
       final response = await _playerattendanceusease.playerListExecute(map);
       response.fold((failure) {
         emit(state.copyWith(
+            selectedPlayerid: "",
             isLoading: false,
+            singlePlayerAttendanceDetailModel: SinglePlayerAttendanceDetailModel(),
             isError: true,
             attendancePlayerListResponse: AttendancePlayerListResponse(),
             isStatusUpdated: false,
@@ -62,6 +71,8 @@ class AttendanceBloc extends Bloc<AttendanceEvent, AttendanceState> {
       }, (useResult) {
         emit(state.copyWith(
             isLoading: false,
+            selectedPlayerid: "",
+            singlePlayerAttendanceDetailModel: SinglePlayerAttendanceDetailModel(),
             isError: false,
             attendancePlayerListResponse:useResult,
             isStatusUpdated: false,
@@ -106,6 +117,7 @@ class AttendanceBloc extends Bloc<AttendanceEvent, AttendanceState> {
       response.fold((failure) {
         emit(state.copyWith(
             isLoading: false,
+            singlePlayerAttendanceDetailModel: SinglePlayerAttendanceDetailModel(),
             isError: true,
             isStatusUpdated: false,
             message: ""));
@@ -113,6 +125,7 @@ class AttendanceBloc extends Bloc<AttendanceEvent, AttendanceState> {
         emit(state.copyWith(
             isLoading: false,
             isError: false,
+            singlePlayerAttendanceDetailModel: SinglePlayerAttendanceDetailModel(),
             isStatusUpdated: false,
             message: ""));
       });
@@ -127,34 +140,40 @@ class AttendanceBloc extends Bloc<AttendanceEvent, AttendanceState> {
     try {
       print("CLICKING HEREE ");
       emit(state.copyWith(
-          isLoading: true,
+          isLoading: false,
+          selectedPlayerid: "",
           isError: false,
           isStatusUpdated: false,
+          singlePlayerAttendanceDetailModel: SinglePlayerAttendanceDetailModel(),
           message: ""));
 
       if (!(await Connectivity().isConnected)) {
         emit(state.copyWith(
           message:
               'No internet connection. Please check your connection \nand try again.',
-          isLoading: true,
+          isLoading: false,
           isError: false,
           isStatusUpdated: false,
+          selectedPlayerid: "",
+          singlePlayerAttendanceDetailModel: SinglePlayerAttendanceDetailModel(),
         ));
         return;
       }
 
-      var academyId = await SharedPrefs.getString("selected_academyid");
 
       emit(state.copyWith(
+          selectedPlayerid: "",
           isLoading: true,
           isError: false,
           isStatusUpdated: false,
+          singlePlayerAttendanceDetailModel: SinglePlayerAttendanceDetailModel(),
           message: ""));
 
       final response =
           await _playerattendanceusease.playerAttendanceDetailExecute(event.data);
       response.fold((failure) {
         emit(state.copyWith(
+            singlePlayerAttendanceDetailModel: SinglePlayerAttendanceDetailModel(),
             isLoading: false,
             isError: true,
             isStatusUpdated: false,
@@ -162,7 +181,9 @@ class AttendanceBloc extends Bloc<AttendanceEvent, AttendanceState> {
       }, (useResult) {
         emit(state.copyWith(
             isLoading: false,
+            singlePlayerAttendanceDetailModel: useResult,
             isError: false,
+            selectedPlayerid:"${useResult.data?.id}",
             isStatusUpdated: false,
             message: ""));
       });
@@ -192,8 +213,8 @@ class AttendanceBloc extends Bloc<AttendanceEvent, AttendanceState> {
         return;
       }
 
-      var academyId = await SharedPrefs.getString("selected_academyid");
-      Map<String, dynamic> map = {};
+
+
       emit(state.copyWith(
           isLoading: true,
           isError: false,
@@ -201,19 +222,31 @@ class AttendanceBloc extends Bloc<AttendanceEvent, AttendanceState> {
           message: ""));
 
       final response =
-          await _playerattendanceusease.updateAttendanceStatusExecute(map);
+          await _playerattendanceusease.updateAttendanceStatusExecute(event.data);
       response.fold((failure) {
         emit(state.copyWith(
             isLoading: false,
             isError: true,
             isStatusUpdated: false,
             message: ""));
-      }, (useResult) {
+      }, (useResult) async {
         emit(state.copyWith(
             isLoading: false,
             isError: false,
             isStatusUpdated: false,
             message: ""));
+        var childId=state.selectedPlayerid;
+
+        var academyId = await SharedPrefs.getString("selected_academyid");
+        Map<String,dynamic>mapForGetDetail={
+          "academy_id": academyId,
+          "player_id":childId
+        };
+        Map<String, dynamic> map = {"academy_id": academyId};
+        add(GetDetailOfOneChildAttendanceEvent(mapForGetDetail));
+        add(GetAttendanceListEvent(map));
+
+
       });
     } catch (error) {
       emit(state.copyWith(isLoading: false, message: error.toString()));

@@ -139,6 +139,7 @@ class AppPages {
       PageEntitiy(
         route: AppRoutes.COACHSINGLEPLAYERATTENDANCE,
         page: CoachSinglePlayerDetailPage(),
+        bloc: BlocProvider(create: (_) => AttendanceBloc()),
       ),
 
       PageEntitiy(

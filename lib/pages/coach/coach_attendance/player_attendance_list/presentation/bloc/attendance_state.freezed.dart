@@ -20,6 +20,9 @@ mixin _$AttendanceState {
   bool get isStatusUpdated => throw _privateConstructorUsedError;
   bool get isError => throw _privateConstructorUsedError;
   String get message => throw _privateConstructorUsedError;
+  String get selectedPlayerid => throw _privateConstructorUsedError;
+  SinglePlayerAttendanceDetailModel get singlePlayerAttendanceDetailModel =>
+      throw _privateConstructorUsedError;
   AttendancePlayerListResponse get attendancePlayerListResponse =>
       throw _privateConstructorUsedError;
 
@@ -41,8 +44,12 @@ abstract class $AttendanceStateCopyWith<$Res> {
       bool isStatusUpdated,
       bool isError,
       String message,
+      String selectedPlayerid,
+      SinglePlayerAttendanceDetailModel singlePlayerAttendanceDetailModel,
       AttendancePlayerListResponse attendancePlayerListResponse});
 
+  $SinglePlayerAttendanceDetailModelCopyWith<$Res>
+      get singlePlayerAttendanceDetailModel;
   $AttendancePlayerListResponseCopyWith<$Res> get attendancePlayerListResponse;
 }
 
@@ -65,6 +72,8 @@ class _$AttendanceStateCopyWithImpl<$Res, $Val extends AttendanceState>
     Object? isStatusUpdated = null,
     Object? isError = null,
     Object? message = null,
+    Object? selectedPlayerid = null,
+    Object? singlePlayerAttendanceDetailModel = null,
     Object? attendancePlayerListResponse = null,
   }) {
     return _then(_value.copyWith(
@@ -84,11 +93,33 @@ class _$AttendanceStateCopyWithImpl<$Res, $Val extends AttendanceState>
           ? _value.message
           : message // ignore: cast_nullable_to_non_nullable
               as String,
+      selectedPlayerid: null == selectedPlayerid
+          ? _value.selectedPlayerid
+          : selectedPlayerid // ignore: cast_nullable_to_non_nullable
+              as String,
+      singlePlayerAttendanceDetailModel: null ==
+              singlePlayerAttendanceDetailModel
+          ? _value.singlePlayerAttendanceDetailModel
+          : singlePlayerAttendanceDetailModel // ignore: cast_nullable_to_non_nullable
+              as SinglePlayerAttendanceDetailModel,
       attendancePlayerListResponse: null == attendancePlayerListResponse
           ? _value.attendancePlayerListResponse
           : attendancePlayerListResponse // ignore: cast_nullable_to_non_nullable
               as AttendancePlayerListResponse,
     ) as $Val);
+  }
+
+  /// Create a copy of AttendanceState
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $SinglePlayerAttendanceDetailModelCopyWith<$Res>
+      get singlePlayerAttendanceDetailModel {
+    return $SinglePlayerAttendanceDetailModelCopyWith<$Res>(
+        _value.singlePlayerAttendanceDetailModel, (value) {
+      return _then(
+          _value.copyWith(singlePlayerAttendanceDetailModel: value) as $Val);
+    });
   }
 
   /// Create a copy of AttendanceState
@@ -117,8 +148,13 @@ abstract class _$$AttendanceStateImplCopyWith<$Res>
       bool isStatusUpdated,
       bool isError,
       String message,
+      String selectedPlayerid,
+      SinglePlayerAttendanceDetailModel singlePlayerAttendanceDetailModel,
       AttendancePlayerListResponse attendancePlayerListResponse});
 
+  @override
+  $SinglePlayerAttendanceDetailModelCopyWith<$Res>
+      get singlePlayerAttendanceDetailModel;
   @override
   $AttendancePlayerListResponseCopyWith<$Res> get attendancePlayerListResponse;
 }
@@ -140,6 +176,8 @@ class __$$AttendanceStateImplCopyWithImpl<$Res>
     Object? isStatusUpdated = null,
     Object? isError = null,
     Object? message = null,
+    Object? selectedPlayerid = null,
+    Object? singlePlayerAttendanceDetailModel = null,
     Object? attendancePlayerListResponse = null,
   }) {
     return _then(_$AttendanceStateImpl(
@@ -159,6 +197,15 @@ class __$$AttendanceStateImplCopyWithImpl<$Res>
           ? _value.message
           : message // ignore: cast_nullable_to_non_nullable
               as String,
+      selectedPlayerid: null == selectedPlayerid
+          ? _value.selectedPlayerid
+          : selectedPlayerid // ignore: cast_nullable_to_non_nullable
+              as String,
+      singlePlayerAttendanceDetailModel: null ==
+              singlePlayerAttendanceDetailModel
+          ? _value.singlePlayerAttendanceDetailModel
+          : singlePlayerAttendanceDetailModel // ignore: cast_nullable_to_non_nullable
+              as SinglePlayerAttendanceDetailModel,
       attendancePlayerListResponse: null == attendancePlayerListResponse
           ? _value.attendancePlayerListResponse
           : attendancePlayerListResponse // ignore: cast_nullable_to_non_nullable
@@ -175,6 +222,9 @@ class _$AttendanceStateImpl implements _AttendanceState {
       this.isStatusUpdated = false,
       this.isError = false,
       this.message = "",
+      this.selectedPlayerid = "",
+      this.singlePlayerAttendanceDetailModel =
+          const SinglePlayerAttendanceDetailModel(),
       this.attendancePlayerListResponse =
           const AttendancePlayerListResponse()});
 
@@ -192,11 +242,17 @@ class _$AttendanceStateImpl implements _AttendanceState {
   final String message;
   @override
   @JsonKey()
+  final String selectedPlayerid;
+  @override
+  @JsonKey()
+  final SinglePlayerAttendanceDetailModel singlePlayerAttendanceDetailModel;
+  @override
+  @JsonKey()
   final AttendancePlayerListResponse attendancePlayerListResponse;
 
   @override
   String toString() {
-    return 'AttendanceState(isLoading: $isLoading, isStatusUpdated: $isStatusUpdated, isError: $isError, message: $message, attendancePlayerListResponse: $attendancePlayerListResponse)';
+    return 'AttendanceState(isLoading: $isLoading, isStatusUpdated: $isStatusUpdated, isError: $isError, message: $message, selectedPlayerid: $selectedPlayerid, singlePlayerAttendanceDetailModel: $singlePlayerAttendanceDetailModel, attendancePlayerListResponse: $attendancePlayerListResponse)';
   }
 
   @override
@@ -210,6 +266,12 @@ class _$AttendanceStateImpl implements _AttendanceState {
                 other.isStatusUpdated == isStatusUpdated) &&
             (identical(other.isError, isError) || other.isError == isError) &&
             (identical(other.message, message) || other.message == message) &&
+            (identical(other.selectedPlayerid, selectedPlayerid) ||
+                other.selectedPlayerid == selectedPlayerid) &&
+            (identical(other.singlePlayerAttendanceDetailModel,
+                    singlePlayerAttendanceDetailModel) ||
+                other.singlePlayerAttendanceDetailModel ==
+                    singlePlayerAttendanceDetailModel) &&
             (identical(other.attendancePlayerListResponse,
                     attendancePlayerListResponse) ||
                 other.attendancePlayerListResponse ==
@@ -217,8 +279,15 @@ class _$AttendanceStateImpl implements _AttendanceState {
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, isLoading, isStatusUpdated,
-      isError, message, attendancePlayerListResponse);
+  int get hashCode => Object.hash(
+      runtimeType,
+      isLoading,
+      isStatusUpdated,
+      isError,
+      message,
+      selectedPlayerid,
+      singlePlayerAttendanceDetailModel,
+      attendancePlayerListResponse);
 
   /// Create a copy of AttendanceState
   /// with the given fields replaced by the non-null parameter values.
@@ -232,12 +301,14 @@ class _$AttendanceStateImpl implements _AttendanceState {
 
 abstract class _AttendanceState implements AttendanceState {
   const factory _AttendanceState(
-          {final bool isLoading,
-          final bool isStatusUpdated,
-          final bool isError,
-          final String message,
-          final AttendancePlayerListResponse attendancePlayerListResponse}) =
-      _$AttendanceStateImpl;
+      {final bool isLoading,
+      final bool isStatusUpdated,
+      final bool isError,
+      final String message,
+      final String selectedPlayerid,
+      final SinglePlayerAttendanceDetailModel singlePlayerAttendanceDetailModel,
+      final AttendancePlayerListResponse
+          attendancePlayerListResponse}) = _$AttendanceStateImpl;
 
   @override
   bool get isLoading;
@@ -247,6 +318,10 @@ abstract class _AttendanceState implements AttendanceState {
   bool get isError;
   @override
   String get message;
+  @override
+  String get selectedPlayerid;
+  @override
+  SinglePlayerAttendanceDetailModel get singlePlayerAttendanceDetailModel;
   @override
   AttendancePlayerListResponse get attendancePlayerListResponse;
 

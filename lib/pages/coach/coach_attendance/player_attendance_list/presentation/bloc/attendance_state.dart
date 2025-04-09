@@ -1,6 +1,7 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 import '../../data/entity/player_list/attendance_player_list.dart';
+import '../../data/entity/singple_player_attendance_detail/single_player_attendance_detail_model.dart';
 
 part 'attendance_state.freezed.dart';
 
@@ -12,6 +13,8 @@ class AttendanceState with _$AttendanceState {
     @Default(false) bool isStatusUpdated,
     @Default(false) bool isError,
     @Default("") String message,
+    @Default("") String selectedPlayerid,
+    @Default(SinglePlayerAttendanceDetailModel()) SinglePlayerAttendanceDetailModel singlePlayerAttendanceDetailModel,
     @Default(AttendancePlayerListResponse()) AttendancePlayerListResponse attendancePlayerListResponse,
   }) = _AttendanceState;
 

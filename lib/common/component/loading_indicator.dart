@@ -1,7 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:rra/common/values/values_exports.dart';
 
-
 class LoadingIndicator extends StatelessWidget {
   final double radius;
   final Color color;
@@ -22,10 +21,19 @@ class LoadingIndicator extends StatelessWidget {
           width: context.screenWidth,
           height: context.screenHeight,
           child: Center(
-            child: CupertinoActivityIndicator(
-              animating: true,
-              radius: radius,
-              color: color,
+            child: Container(
+              width: 104,
+              height: 84,
+              decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(12), color: Colors.white),
+              child: Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: CupertinoActivityIndicator(
+                  animating: true,
+                  radius: radius,
+                  color: Colors.black,
+                ),
+              ),
             ),
           ),
         ),
