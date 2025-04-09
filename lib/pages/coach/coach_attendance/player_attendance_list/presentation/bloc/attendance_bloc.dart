@@ -144,7 +144,7 @@ class AttendanceBloc extends Bloc<AttendanceEvent, AttendanceState> {
       }
 
       var academyId = await SharedPrefs.getString("selected_academyid");
-      Map<String, dynamic> map = {};
+
       emit(state.copyWith(
           isLoading: true,
           isError: false,
@@ -152,7 +152,7 @@ class AttendanceBloc extends Bloc<AttendanceEvent, AttendanceState> {
           message: ""));
 
       final response =
-          await _playerattendanceusease.playerAttendanceDetailExecute(map);
+          await _playerattendanceusease.playerAttendanceDetailExecute(event.data);
       response.fold((failure) {
         emit(state.copyWith(
             isLoading: false,

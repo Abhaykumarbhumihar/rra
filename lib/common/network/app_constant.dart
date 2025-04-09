@@ -55,7 +55,7 @@ static String get getTermsSessionCoachingPlayer=>"term/coaching/session";
 /*attendance*/
 
   static String get getAttendanceList=>"attendacnce/list";
-  static String get getAttendanceDetailOfPlayer=>"ttendacnce/detail";
+  static String get getAttendanceDetailOfPlayer=>"attendacnce/detail";
 
 /*booked session list*/
 static String get getBookedSessionList =>"booked-session-list";
