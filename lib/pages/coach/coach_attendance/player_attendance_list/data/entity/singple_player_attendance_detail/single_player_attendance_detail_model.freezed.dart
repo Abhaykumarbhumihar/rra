@@ -312,6 +312,12 @@ mixin _$SinglePlayerAttendanceData {
   String get createdAt => throw _privateConstructorUsedError;
   @JsonKey(name: 'updated_at')
   String get updatedAt => throw _privateConstructorUsedError;
+  @JsonKey(name: 'parent_name')
+  String get parentsName => throw _privateConstructorUsedError;
+  @JsonKey(name: 'parent_email')
+  String get parentsEmail => throw _privateConstructorUsedError;
+  @JsonKey(name: 'parent_mobile')
+  String get parentsMobile => throw _privateConstructorUsedError;
   @JsonKey(name: 'attendance_record')
   List<AttendanceRecord> get attendanceRecord =>
       throw _privateConstructorUsedError;
@@ -351,6 +357,9 @@ abstract class $SinglePlayerAttendanceDataCopyWith<$Res> {
       @JsonKey(name: 'status') int status,
       @JsonKey(name: 'created_at') String createdAt,
       @JsonKey(name: 'updated_at') String updatedAt,
+      @JsonKey(name: 'parent_name') String parentsName,
+      @JsonKey(name: 'parent_email') String parentsEmail,
+      @JsonKey(name: 'parent_mobile') String parentsMobile,
       @JsonKey(name: 'attendance_record')
       List<AttendanceRecord> attendanceRecord});
 }
@@ -387,6 +396,9 @@ class _$SinglePlayerAttendanceDataCopyWithImpl<$Res,
     Object? status = null,
     Object? createdAt = null,
     Object? updatedAt = null,
+    Object? parentsName = null,
+    Object? parentsEmail = null,
+    Object? parentsMobile = null,
     Object? attendanceRecord = null,
   }) {
     return _then(_value.copyWith(
@@ -454,6 +466,18 @@ class _$SinglePlayerAttendanceDataCopyWithImpl<$Res,
           ? _value.updatedAt
           : updatedAt // ignore: cast_nullable_to_non_nullable
               as String,
+      parentsName: null == parentsName
+          ? _value.parentsName
+          : parentsName // ignore: cast_nullable_to_non_nullable
+              as String,
+      parentsEmail: null == parentsEmail
+          ? _value.parentsEmail
+          : parentsEmail // ignore: cast_nullable_to_non_nullable
+              as String,
+      parentsMobile: null == parentsMobile
+          ? _value.parentsMobile
+          : parentsMobile // ignore: cast_nullable_to_non_nullable
+              as String,
       attendanceRecord: null == attendanceRecord
           ? _value.attendanceRecord
           : attendanceRecord // ignore: cast_nullable_to_non_nullable
@@ -489,6 +513,9 @@ abstract class _$$SinglePlayerAttendanceDataImplCopyWith<$Res>
       @JsonKey(name: 'status') int status,
       @JsonKey(name: 'created_at') String createdAt,
       @JsonKey(name: 'updated_at') String updatedAt,
+      @JsonKey(name: 'parent_name') String parentsName,
+      @JsonKey(name: 'parent_email') String parentsEmail,
+      @JsonKey(name: 'parent_mobile') String parentsMobile,
       @JsonKey(name: 'attendance_record')
       List<AttendanceRecord> attendanceRecord});
 }
@@ -524,6 +551,9 @@ class __$$SinglePlayerAttendanceDataImplCopyWithImpl<$Res>
     Object? status = null,
     Object? createdAt = null,
     Object? updatedAt = null,
+    Object? parentsName = null,
+    Object? parentsEmail = null,
+    Object? parentsMobile = null,
     Object? attendanceRecord = null,
   }) {
     return _then(_$SinglePlayerAttendanceDataImpl(
@@ -591,6 +621,18 @@ class __$$SinglePlayerAttendanceDataImplCopyWithImpl<$Res>
           ? _value.updatedAt
           : updatedAt // ignore: cast_nullable_to_non_nullable
               as String,
+      parentsName: null == parentsName
+          ? _value.parentsName
+          : parentsName // ignore: cast_nullable_to_non_nullable
+              as String,
+      parentsEmail: null == parentsEmail
+          ? _value.parentsEmail
+          : parentsEmail // ignore: cast_nullable_to_non_nullable
+              as String,
+      parentsMobile: null == parentsMobile
+          ? _value.parentsMobile
+          : parentsMobile // ignore: cast_nullable_to_non_nullable
+              as String,
       attendanceRecord: null == attendanceRecord
           ? _value._attendanceRecord
           : attendanceRecord // ignore: cast_nullable_to_non_nullable
@@ -620,6 +662,9 @@ class _$SinglePlayerAttendanceDataImpl implements _SinglePlayerAttendanceData {
       @JsonKey(name: 'status') this.status = 0,
       @JsonKey(name: 'created_at') this.createdAt = '',
       @JsonKey(name: 'updated_at') this.updatedAt = '',
+      @JsonKey(name: 'parent_name') this.parentsName = '',
+      @JsonKey(name: 'parent_email') this.parentsEmail = '',
+      @JsonKey(name: 'parent_mobile') this.parentsMobile = '',
       @JsonKey(name: 'attendance_record')
       final List<AttendanceRecord> attendanceRecord =
           const <AttendanceRecord>[]})
@@ -677,6 +722,15 @@ class _$SinglePlayerAttendanceDataImpl implements _SinglePlayerAttendanceData {
   @override
   @JsonKey(name: 'updated_at')
   final String updatedAt;
+  @override
+  @JsonKey(name: 'parent_name')
+  final String parentsName;
+  @override
+  @JsonKey(name: 'parent_email')
+  final String parentsEmail;
+  @override
+  @JsonKey(name: 'parent_mobile')
+  final String parentsMobile;
   final List<AttendanceRecord> _attendanceRecord;
   @override
   @JsonKey(name: 'attendance_record')
@@ -689,7 +743,7 @@ class _$SinglePlayerAttendanceDataImpl implements _SinglePlayerAttendanceData {
 
   @override
   String toString() {
-    return 'SinglePlayerAttendanceData(id: $id, image: $image, parentId: $parentId, academyId: $academyId, childName: $childName, childDob: $childDob, childAge: $childAge, childSchool: $childSchool, childClub: $childClub, childMedicalCondition: $childMedicalCondition, childAddress: $childAddress, childPhotoSocialWebsite: $childPhotoSocialWebsite, childPermissions: $childPermissions, status: $status, createdAt: $createdAt, updatedAt: $updatedAt, attendanceRecord: $attendanceRecord)';
+    return 'SinglePlayerAttendanceData(id: $id, image: $image, parentId: $parentId, academyId: $academyId, childName: $childName, childDob: $childDob, childAge: $childAge, childSchool: $childSchool, childClub: $childClub, childMedicalCondition: $childMedicalCondition, childAddress: $childAddress, childPhotoSocialWebsite: $childPhotoSocialWebsite, childPermissions: $childPermissions, status: $status, createdAt: $createdAt, updatedAt: $updatedAt, parentsName: $parentsName, parentsEmail: $parentsEmail, parentsMobile: $parentsMobile, attendanceRecord: $attendanceRecord)';
   }
 
   @override
@@ -727,31 +781,41 @@ class _$SinglePlayerAttendanceDataImpl implements _SinglePlayerAttendanceData {
                 other.createdAt == createdAt) &&
             (identical(other.updatedAt, updatedAt) ||
                 other.updatedAt == updatedAt) &&
+            (identical(other.parentsName, parentsName) ||
+                other.parentsName == parentsName) &&
+            (identical(other.parentsEmail, parentsEmail) ||
+                other.parentsEmail == parentsEmail) &&
+            (identical(other.parentsMobile, parentsMobile) ||
+                other.parentsMobile == parentsMobile) &&
             const DeepCollectionEquality()
                 .equals(other._attendanceRecord, _attendanceRecord));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      id,
-      image,
-      parentId,
-      academyId,
-      childName,
-      childDob,
-      childAge,
-      childSchool,
-      childClub,
-      childMedicalCondition,
-      childAddress,
-      childPhotoSocialWebsite,
-      childPermissions,
-      status,
-      createdAt,
-      updatedAt,
-      const DeepCollectionEquality().hash(_attendanceRecord));
+  int get hashCode => Object.hashAll([
+        runtimeType,
+        id,
+        image,
+        parentId,
+        academyId,
+        childName,
+        childDob,
+        childAge,
+        childSchool,
+        childClub,
+        childMedicalCondition,
+        childAddress,
+        childPhotoSocialWebsite,
+        childPermissions,
+        status,
+        createdAt,
+        updatedAt,
+        parentsName,
+        parentsEmail,
+        parentsMobile,
+        const DeepCollectionEquality().hash(_attendanceRecord)
+      ]);
 
   /// Create a copy of SinglePlayerAttendanceData
   /// with the given fields replaced by the non-null parameter values.
@@ -791,6 +855,9 @@ abstract class _SinglePlayerAttendanceData
           @JsonKey(name: 'status') final int status,
           @JsonKey(name: 'created_at') final String createdAt,
           @JsonKey(name: 'updated_at') final String updatedAt,
+          @JsonKey(name: 'parent_name') final String parentsName,
+          @JsonKey(name: 'parent_email') final String parentsEmail,
+          @JsonKey(name: 'parent_mobile') final String parentsMobile,
           @JsonKey(name: 'attendance_record')
           final List<AttendanceRecord> attendanceRecord}) =
       _$SinglePlayerAttendanceDataImpl;
@@ -846,6 +913,15 @@ abstract class _SinglePlayerAttendanceData
   @override
   @JsonKey(name: 'updated_at')
   String get updatedAt;
+  @override
+  @JsonKey(name: 'parent_name')
+  String get parentsName;
+  @override
+  @JsonKey(name: 'parent_email')
+  String get parentsEmail;
+  @override
+  @JsonKey(name: 'parent_mobile')
+  String get parentsMobile;
   @override
   @JsonKey(name: 'attendance_record')
   List<AttendanceRecord> get attendanceRecord;

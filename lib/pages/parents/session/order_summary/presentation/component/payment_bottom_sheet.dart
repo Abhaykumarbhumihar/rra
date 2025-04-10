@@ -29,6 +29,7 @@ class PaymentBottomSheet extends StatelessWidget {
         },
         child: BlocBuilder<OrderSummaryBloc, OrderSummaryState>(
           builder: (context, state) {
+           print(state.getTotalRespone.data.total_payable);
             return ListView(
               padding: EdgeInsets.only(left: 10, right: 10, top: 6, bottom: 6),
               shrinkWrap: true,
@@ -42,12 +43,12 @@ class PaymentBottomSheet extends StatelessWidget {
                 const SizedBox(height: 24),
                 PaymentSummaryRow(title: "Total", value: "${state.getTotalRespone.data.total}"),
                 PaymentSummaryRow(title: "Discount", value: "${state.getTotalRespone.data.total_session_discount}"),
-                PaymentSummaryRow(title: "Coupon Discount", value: "\$100"),
+              //  PaymentSummaryRow(title: "Coupon Discount", value: "\$100"),
                 const SizedBox(height: 8),
                 const Divider(),
                 const SizedBox(height: 8),
                 PaymentSummaryRow(
-                    title: "Total Amount", value: "${state.getTotalRespone.data.total_payable}", isBold: true),
+                    title: "Total Amount ", value: state.getTotalRespone.data.total_payable, isBold: true),
                 const SizedBox(height: 16),
                 CustomButton(
                   text: "Proceed To Checkout",

@@ -6,6 +6,9 @@ import '../../../../../../common/routes/routes.dart';
 
 import 'package:flutter_animate/flutter_animate.dart';
 
+import '../../../../../coach/coach_player_report/coach_player_report_list/presentation/bloc/report_bloc.dart';
+import '../../../../../coach/coach_player_report/coach_player_report_list/presentation/bloc/report_event.dart';
+
 class DashboardGrid extends StatelessWidget {
   DashboardGrid({super.key});
 
@@ -63,7 +66,9 @@ class DashboardGrid extends StatelessWidget {
             if (item['title'] == "Upload Documents") {
               Navigator.pushNamed(context, AppRoutes.ADDVIEWDOCUMENT);
             } else if (item['title'] == "View Score") {
-              Navigator.pushNamed(context, AppRoutes.PARENTPLAYERSCORELISTPAGE);
+              BlocProvider.of<ReportBloc>(context).add(ReportEventGetTermsSessionCoachingPlayerEvents({}));
+
+              Navigator.pushNamed(context, AppRoutes.COACHPLAYERREPOORTLISTPAGE);
             } else if (item['title'] == "View Attendance") {
               Navigator.pushNamed(context, AppRoutes.COACHPLAYERATTENDANCELIST);
             } else if (item['title'] == "My Orders") {

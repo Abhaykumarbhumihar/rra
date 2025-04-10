@@ -1,4 +1,5 @@
 import '../../pages/coach/coach_attendance/player_attendance_list/presentation/bloc/attendance_bloc.dart';
+import '../../pages/coach/coach_player_report/coach_player_report_detail/presentation/ui/report_webview.dart';
 import '../../pages/coach/coach_player_report/coach_player_report_list/presentation/bloc/report_bloc.dart';
 import '../../pages/coach/collaterals/collaterals_list/presentation/bloc/collateral_bloc.dart';
 import '../../pages/coach/manage_team/presentation/bloc/manage_team_bloc.dart';
@@ -161,6 +162,10 @@ class AppPages {
         route: AppRoutes.COACHPLAYERREPOORTDETAILPAGE,
         page: CoachPlayerReportDetailPage(),
       ),
+      PageEntitiy(
+        route: AppRoutes.COACHPLAYERREPOORTWEBVIEWPAGE,
+        page: ReportWebview(),
+      ),
 
       PageEntitiy(
         route: AppRoutes.COACHPLAYERREPOORTGRAPHPAGE,
@@ -171,6 +176,7 @@ class AppPages {
         route: AppRoutes.PARENTPLAYERSCORELISTPAGE,
         page: ParentPlayerScoreListPage(),
       ),
+
       PageEntitiy(
         route: AppRoutes.PARENTATTENDANCELISTPAGE,
         page: ParentAttendanceListAge(),

@@ -40,7 +40,7 @@ class ParentMyorderDetailBloc extends Bloc<ParentMyorderDetailEvent, ParentMyord
       emit(state.copyWith(
           isLoading: true,
           isError: false,
-          parentMyOrderDetailModel: ParentMyOrderDetailModel()));
+          parentMyOrderDetailModel: OrderDetailModel()));
 
       final response = await _parentMyOrderDetailUsecase.getParentMyOrderDetailExecute(event.data);
       response.fold((failure) {

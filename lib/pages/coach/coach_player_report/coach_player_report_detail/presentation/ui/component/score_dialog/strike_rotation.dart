@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_xlider/flutter_xlider.dart';
 import 'package:rra/common/values/fonts.dart';
+import 'package:rra/pages/coach/coach_player_report/coach_player_report_list/data/entity/report_model.dart';
 
 class SliderConfig {
   final String title;
@@ -13,11 +14,12 @@ class SliderConfig {
 }
 
 class StrikeRotationDialogPage extends StatefulWidget {
-  final List<SliderConfig> sliderConfigs;
+  final List<Score> sliderConfigs;
   final String? initialComment;
-
-  const StrikeRotationDialogPage({
+  PerformanceElement performanceData;
+  StrikeRotationDialogPage({
     super.key,
+    required this.performanceData,
     required this.sliderConfigs,
     this.initialComment,
   });
@@ -35,14 +37,8 @@ class _StrikeRotationDialogPageState extends State<StrikeRotationDialogPage> {
   void initState() {
     super.initState();
     _sliderValues =
-        widget.sliderConfigs.map((config) => config.initialValue).toList();
-    _commentController.text = widget.initialComment ?? '';
-  }
-
-  Color _getSliderColor(double value) {
-    if (value >= 7) return Colors.green; // 7-10: Green
-    if (value >= 4) return Colors.blue; // 4-6: Blue
-    return Colors.red; // 1-3: Orange
+        widget.sliderConfigs.map((config) => config.score.toDouble()).toList();
+    _commentController.text = widget.performanceData.addScore?.comment ?? '';
   }
 
   void _submitAssessment() {
@@ -51,7 +47,7 @@ class _StrikeRotationDialogPageState extends State<StrikeRotationDialogPage> {
     };
 
     for (int i = 0; i < widget.sliderConfigs.length; i++) {
-      results[widget.sliderConfigs[i].title] = _sliderValues[i].toInt();
+      results[widget.sliderConfigs[i].name] = _sliderValues[i].toInt();
     }
 
     Navigator.of(context).pop(results);
@@ -71,8 +67,12 @@ class _StrikeRotationDialogPageState extends State<StrikeRotationDialogPage> {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                const Text(
-                  'ABHAY Strike Rotation',
+                Text(
+                  '${widget?.performanceData.addScore?.childName}',
+                  style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                ),
+                Text(
+                  '${widget?.performanceData.addScore?.performanceData}',
                   style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
                 ),
                 IconButton(
@@ -89,7 +89,7 @@ class _StrikeRotationDialogPageState extends State<StrikeRotationDialogPage> {
             // Dynamic Sliders
             for (int i = 0; i < widget.sliderConfigs.length; i++) ...[
               _buildSlider(
-                title: widget.sliderConfigs[i].title,
+                title: widget.sliderConfigs[i].name,
                 value: _sliderValues[i],
                 onChanged: (value) => setState(() => _sliderValues[i] = value),
               ),
@@ -126,25 +126,92 @@ class _StrikeRotationDialogPageState extends State<StrikeRotationDialogPage> {
   }
 
   Widget _buildColorIndicator() {
+    final scoreCriteria = widget.performanceData?.addScore?.scoreCriteria ?? [];
+
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        const Text(
-          'Strike Rotation',
+        Text(
+          widget.performanceData?.addScore?.performanceData ?? 'Performance',
           style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
         ),
         const SizedBox(height: 8),
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            _buildRangeIndicator('7-10 Striving', Colors.green),
-            _buildRangeIndicator('4-6 Learning', Colors.blue),
-            _buildRangeIndicator('1-3 Coping', Colors.red),
-          ],
+          children: scoreCriteria.map((criteria) {
+            return _buildRangeIndicator(
+              '${criteria.range} ${criteria.name}',
+              _getColorFromString(criteria.color),
+            );
+          }).toList(),
         ),
       ],
     );
   }
+
+  Color _getColorFromString(String colorName) {
+    switch (colorName.toLowerCase()) {
+      case 'green':
+        return Colors.green;
+      case 'blue':
+        return Colors.blue;
+      case 'red':
+        return Colors.red;
+      case 'orange':
+        return Colors.orange;
+      case 'yellow':
+        return Colors.yellow;
+      default:
+        return Colors.grey;
+    }
+  }
+
+  Color _getSliderColor(double value) {
+    final scoreCriteria = widget.performanceData?.addScore?.scoreCriteria ?? [];
+
+    // Sort criteria by range (assuming format like "1-3", "4-6", "7-10")
+    final sortedCriteria = scoreCriteria.toList()
+      ..sort((a, b) {
+        final aMin = int.tryParse(a.range.split('-').first) ?? 0;
+        final bMin = int.tryParse(b.range.split('-').first) ?? 0;
+        return aMin.compareTo(bMin);
+      });
+
+    for (final criteria in sortedCriteria) {
+      final rangeParts = criteria.range.split('-');
+      if (rangeParts.length == 2) {
+        final min = int.tryParse(rangeParts[0]) ?? 0;
+        final max = int.tryParse(rangeParts[1]) ?? 0;
+        if (value >= min && value <= max) {
+          return _getColorFromString(criteria.color);
+        }
+      }
+    }
+
+    return Colors.grey; // default color if no range matches
+  }
+
+  // Widget _buildColorIndicator() {
+  //   return Column(
+  //     crossAxisAlignment: CrossAxisAlignment.start,
+  //     children: [
+  //       const Text(
+  //         'Strike Rotation',
+  //         style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+  //       ),
+  //       const SizedBox(height: 8),
+  //       Row(
+  //         mainAxisAlignment: MainAxisAlignment.spaceBetween,
+  //         children: [
+  //           _buildRangeIndicator('7-10 Striving', Colors.green),
+  //           _buildRangeIndicator('4-6 Learning', Colors.blue),
+  //           _buildRangeIndicator('1-3 Coping', Colors.red),
+  //         ],
+  //       ),
+  //     ],
+  //   );
+  // }
+  //
 
   Widget _buildRangeIndicator(String text, Color color) {
     return Column(
@@ -183,7 +250,6 @@ class _StrikeRotationDialogPageState extends State<StrikeRotationDialogPage> {
         SliderTheme(
           data: SliderTheme.of(context).copyWith(
             trackHeight: 6.0,
-            padding: EdgeInsets.zero,
             inactiveTrackColor: Colors.grey[400],
             activeTrackColor: _getSliderColor(value),
             thumbColor: _getSliderColor(value),

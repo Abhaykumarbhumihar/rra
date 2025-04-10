@@ -1,5 +1,6 @@
 import 'package:bloc/bloc.dart';
 import 'package:meta/meta.dart';
+import 'package:rra/pages/parents/session/order_summary/data/entity/get_total/get_total_model.dart';
 
 import '../../../../../../common/local/SharedPrefs.dart';
 import '../../../../../../common/service_locator/setivelocator.dart';
@@ -220,6 +221,7 @@ orderId: "",
           error: failure.message,
           isOrderPlaceError: false,
           isOrderPlaceSuccess: false,
+          getTotalRespone: GetTotalModel(),
           paymentID: ""));
     }, (orderSummaryData) {
       print("==_getTotalPrice=_getTotalPrice========\n\n");
@@ -233,6 +235,7 @@ orderId: "",
           error: "",
           isOrderPlaceError: false,
           isOrderPlaceSuccess: false,
+          getTotalRespone:orderSummaryData,
           paymentID: ""));
     });
   }

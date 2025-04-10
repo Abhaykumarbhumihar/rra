@@ -210,6 +210,7 @@ class AddDocumentComponent extends StatelessWidget {
                               ),
                             ],
                           ),
+                          SizedBox(height: 6,),
                           Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: <Widget>[
@@ -266,6 +267,7 @@ class AddDocumentComponent extends StatelessWidget {
                               ),
                             ],
                           ),
+                          SizedBox(height: 6,),
                           Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: <Widget>[
@@ -323,6 +325,7 @@ class AddDocumentComponent extends StatelessWidget {
                               ),
                             ],
                           ),
+                          SizedBox(height: 6,),
                           Column(
                             children: <Widget>[
                               state.termsProgramSessionPlayerModelData.data

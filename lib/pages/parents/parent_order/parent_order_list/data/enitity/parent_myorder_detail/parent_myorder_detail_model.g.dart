@@ -6,19 +6,19 @@ part of 'parent_myorder_detail_model.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$ParentMyOrderDetailModelImpl _$$ParentMyOrderDetailModelImplFromJson(
+_$OrderDetailModelImpl _$$OrderDetailModelImplFromJson(
         Map<String, dynamic> json) =>
-    _$ParentMyOrderDetailModelImpl(
+    _$OrderDetailModelImpl(
       code: (json['code'] as num?)?.toInt() ?? 0,
       success: json['success'] as bool? ?? false,
       message: json['message'] as String? ?? '',
       data: json['data'] == null
-          ? const OrderDetailData()
-          : OrderDetailData.fromJson(json['data'] as Map<String, dynamic>),
+          ? const OrderData()
+          : OrderData.fromJson(json['data'] as Map<String, dynamic>),
     );
 
-Map<String, dynamic> _$$ParentMyOrderDetailModelImplToJson(
-        _$ParentMyOrderDetailModelImpl instance) =>
+Map<String, dynamic> _$$OrderDetailModelImplToJson(
+        _$OrderDetailModelImpl instance) =>
     <String, dynamic>{
       'code': instance.code,
       'success': instance.success,
@@ -26,121 +26,43 @@ Map<String, dynamic> _$$ParentMyOrderDetailModelImplToJson(
       'data': instance.data,
     };
 
-_$OrderDetailDataImpl _$$OrderDetailDataImplFromJson(
-        Map<String, dynamic> json) =>
-    _$OrderDetailDataImpl(
-      orderId: json['order_id'] as String? ?? '',
-      sessionAmount: json['sessionamount'] as String? ?? '0.00',
-      orderfees: json['orderfees'] as List<dynamic>? ?? const [],
-      promoCode: json['promocode'],
-      sessiondiscount: json['sessiondiscount'] as List<dynamic>? ?? const [],
-      totalDiscount: (json['totaldiscount'] as num?)?.toInt() ?? 0,
-      order: json['order'] == null
-          ? const OrderSummary()
-          : OrderSummary.fromJson(json['order'] as Map<String, dynamic>),
-      settings: json['settings'] == null
-          ? const OrderSettings()
-          : OrderSettings.fromJson(json['settings'] as Map<String, dynamic>),
-      coach: json['coach'] as String? ?? '',
-      details: (json['details'] as List<dynamic>?)
-              ?.map((e) => OrderDetail.fromJson(e as Map<String, dynamic>))
+_$OrderDataImpl _$$OrderDataImplFromJson(Map<String, dynamic> json) =>
+    _$OrderDataImpl(
+      childName: json['childname'] as String? ?? '',
+      sessionName: json['session_name'] as String? ?? '',
+      coachingProgram: json['coaching_program'] as String? ?? '',
+      terms: json['terms'] as String? ?? '',
+      coachedName: json['coached_name'] as String? ?? '',
+      sessionList: (json['session_list'] as List<dynamic>?)
+              ?.map((e) => SessionItem.fromJson(e as Map<String, dynamic>))
               .toList() ??
           const [],
     );
 
-Map<String, dynamic> _$$OrderDetailDataImplToJson(
-        _$OrderDetailDataImpl instance) =>
+Map<String, dynamic> _$$OrderDataImplToJson(_$OrderDataImpl instance) =>
     <String, dynamic>{
-      'order_id': instance.orderId,
-      'sessionamount': instance.sessionAmount,
-      'orderfees': instance.orderfees,
-      'promocode': instance.promoCode,
-      'sessiondiscount': instance.sessiondiscount,
-      'totaldiscount': instance.totalDiscount,
-      'order': instance.order,
-      'settings': instance.settings,
-      'coach': instance.coach,
-      'details': instance.details,
+      'childname': instance.childName,
+      'session_name': instance.sessionName,
+      'coaching_program': instance.coachingProgram,
+      'terms': instance.terms,
+      'coached_name': instance.coachedName,
+      'session_list': instance.sessionList,
     };
 
-_$OrderSummaryImpl _$$OrderSummaryImplFromJson(Map<String, dynamic> json) =>
-    _$OrderSummaryImpl(
-      total: json['total'] as String? ?? '0.00',
-      tax: json['tax'] as String? ?? '0.00',
+_$SessionItemImpl _$$SessionItemImplFromJson(Map<String, dynamic> json) =>
+    _$SessionItemImpl(
+      sessionName: json['session_name'] as String? ?? '',
+      date: json['date'] as String? ?? '',
+      timing: json['timing'] as String? ?? '',
+      duration: json['duration'] as String? ?? '',
+      price: json['price'] as String? ?? '0.00',
     );
 
-Map<String, dynamic> _$$OrderSummaryImplToJson(_$OrderSummaryImpl instance) =>
+Map<String, dynamic> _$$SessionItemImplToJson(_$SessionItemImpl instance) =>
     <String, dynamic>{
-      'total': instance.total,
-      'tax': instance.tax,
-    };
-
-_$OrderSettingsImpl _$$OrderSettingsImplFromJson(Map<String, dynamic> json) =>
-    _$OrderSettingsImpl(
-      currency: json['currency'] as String? ?? '',
-    );
-
-Map<String, dynamic> _$$OrderSettingsImplToJson(_$OrderSettingsImpl instance) =>
-    <String, dynamic>{
-      'currency': instance.currency,
-    };
-
-_$OrderDetailImpl _$$OrderDetailImplFromJson(Map<String, dynamic> json) =>
-    _$OrderDetailImpl(
-      playerName: json['player_name'] as String? ?? '',
-      sessionTitle: json['session_title'] as String? ?? '',
-      coachingDetails: json['coaching_details'] == null
-          ? const CoachingDetails()
-          : CoachingDetails.fromJson(
-              json['coaching_details'] as Map<String, dynamic>),
-      coach: json['coach'] as String? ?? '',
-      sessions: (json['sessions'] as List<dynamic>?)
-              ?.map((e) => SessionDetail.fromJson(e as Map<String, dynamic>))
-              .toList() ??
-          const [],
-    );
-
-Map<String, dynamic> _$$OrderDetailImplToJson(_$OrderDetailImpl instance) =>
-    <String, dynamic>{
-      'player_name': instance.playerName,
-      'session_title': instance.sessionTitle,
-      'coaching_details': instance.coachingDetails,
-      'coach': instance.coach,
-      'sessions': instance.sessions,
-    };
-
-_$CoachingDetailsImpl _$$CoachingDetailsImplFromJson(
-        Map<String, dynamic> json) =>
-    _$CoachingDetailsImpl(
-      name: json['name'] as String? ?? '',
-      termName: json['term_name'] as String? ?? '',
-      locationName: json['location_name'],
-    );
-
-Map<String, dynamic> _$$CoachingDetailsImplToJson(
-        _$CoachingDetailsImpl instance) =>
-    <String, dynamic>{
-      'name': instance.name,
-      'term_name': instance.termName,
-      'location_name': instance.locationName,
-    };
-
-_$SessionDetailImpl _$$SessionDetailImplFromJson(Map<String, dynamic> json) =>
-    _$SessionDetailImpl(
-      sessionTitle: json['session_title'] as String? ?? '',
-      bookingDate: json['booking_date'] as String? ?? '',
-      startTime: json['start_time'] as String? ?? '',
-      endTime: json['end_time'] as String? ?? '',
-      estimatedTime: json['estimated_time'] as String? ?? '',
-      totalCost: json['total_cost'] as String? ?? '0.00',
-    );
-
-Map<String, dynamic> _$$SessionDetailImplToJson(_$SessionDetailImpl instance) =>
-    <String, dynamic>{
-      'session_title': instance.sessionTitle,
-      'booking_date': instance.bookingDate,
-      'start_time': instance.startTime,
-      'end_time': instance.endTime,
-      'estimated_time': instance.estimatedTime,
-      'total_cost': instance.totalCost,
+      'session_name': instance.sessionName,
+      'date': instance.date,
+      'timing': instance.timing,
+      'duration': instance.duration,
+      'price': instance.price,
     };

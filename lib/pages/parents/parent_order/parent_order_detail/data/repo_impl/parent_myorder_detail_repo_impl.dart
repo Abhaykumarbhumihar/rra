@@ -31,7 +31,7 @@ class ParentMyorderDetailRepoImpl implements ParentMyorderDetailRepositery {
   }
 
   @override
-  Future<Either<Failure,ParentMyOrderDetailModel>> getParentMyOrderDetail(Map<String, dynamic> getParentMyOrderDetail) async {
+  Future<Either<Failure,OrderDetailModel>> getParentMyOrderDetail(Map<String, dynamic> getParentMyOrderDetail) async {
     try {
       print("code is running here");
 
@@ -42,7 +42,7 @@ class ParentMyorderDetailRepoImpl implements ParentMyorderDetailRepositery {
       print(response.body);
       if (response.statusCode == 200) {
         final Map<String, dynamic> responseData = jsonDecode(response.body);
-        ParentMyOrderDetailModel parentMyOrderDetailModel = ParentMyOrderDetailModel
+        OrderDetailModel parentMyOrderDetailModel = OrderDetailModel
             .fromJson(responseData);
         return Right(parentMyOrderDetailModel);
       } else {

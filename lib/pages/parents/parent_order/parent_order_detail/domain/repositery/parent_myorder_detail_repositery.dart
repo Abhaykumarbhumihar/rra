@@ -11,5 +11,5 @@ import '../../../parent_order_list/data/enitity/parent_myorder_detail/parent_myo
 
 abstract class ParentMyorderDetailRepositery{
 
-  Future<Either<Failure,ParentMyOrderDetailModel>> getParentMyOrderDetail(Map<String, dynamic> parentData);
+  Future<Either<Failure,OrderDetailModel>> getParentMyOrderDetail(Map<String, dynamic> parentData);
 }

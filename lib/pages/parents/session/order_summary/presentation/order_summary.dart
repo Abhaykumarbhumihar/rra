@@ -216,6 +216,7 @@ class OrderSummary extends StatelessWidget {
                                       child: CustomButton(
                                         text: "Submit",
                                         onPressed: () {
+
                                           showPaymentBottomSheet(context,
                                               checkOutAction: () async {
                                             Navigator.pop(context);

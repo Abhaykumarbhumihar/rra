@@ -8,8 +8,8 @@ part of 'get_total_model.dart';
 
 _$GetTotalModelImpl _$$GetTotalModelImplFromJson(Map<String, dynamic> json) =>
     _$GetTotalModelImpl(
-      code: (json['code'] as num?)?.toInt() ?? 0,
-      success: json['success'] as bool? ?? false,
+      code: (json['code'] as num?)?.toInt() ?? 200,
+      success: json['success'] as bool? ?? true,
       message: json['message'] as String? ?? '',
       data: json['data'] == null
           ? const GetTotalData()
@@ -26,31 +26,57 @@ Map<String, dynamic> _$$GetTotalModelImplToJson(_$GetTotalModelImpl instance) =>
 
 _$GetTotalDataImpl _$$GetTotalDataImplFromJson(Map<String, dynamic> json) =>
     _$GetTotalDataImpl(
-      vat: json['vat'] as String? ?? '\$0.00',
-      total: json['total'] as String? ?? '\$0.00',
+      vat: json['vat'] as String? ?? '',
+      total: json['total'] as String? ?? '',
+      registration_total: json['registration_total'] as String? ?? '',
+      registrationFees: (json['registration_fees'] as List<dynamic>?)
+              ?.map((e) => RegistrationFee.fromJson(e as Map<String, dynamic>))
+              .toList() ??
+          const [],
       total_session_discount: json['total_session_discount'] as String? ?? '',
-      promocodeDetails: json['promocodeDetails'],
-      total_payable: json['total_payable'] as String? ?? '\$0.00',
+      promocodeDetails: json['promocodeDetails'] ?? null,
+      total_payable: json['total_payable'] as String? ?? '',
+      bulkDiscounts: json['bulk_discounts'] as List<dynamic>? ?? const [],
       settings: json['settings'] == null
-          ? const GetTotalSettings()
-          : GetTotalSettings.fromJson(json['settings'] as Map<String, dynamic>),
-      is_private: (json['is_private'] as num?)?.toInt() ?? 0,
+          ? const Settings()
+          : Settings.fromJson(json['settings'] as Map<String, dynamic>),
+      is_private: json['is_private'] as String? ?? '',
     );
 
 Map<String, dynamic> _$$GetTotalDataImplToJson(_$GetTotalDataImpl instance) =>
     <String, dynamic>{
       'vat': instance.vat,
       'total': instance.total,
+      'registration_total': instance.registration_total,
+      'registration_fees': instance.registrationFees,
       'total_session_discount': instance.total_session_discount,
       'promocodeDetails': instance.promocodeDetails,
       'total_payable': instance.total_payable,
+      'bulk_discounts': instance.bulkDiscounts,
       'settings': instance.settings,
       'is_private': instance.is_private,
     };
 
-_$GetTotalSettingsImpl _$$GetTotalSettingsImplFromJson(
+_$RegistrationFeeImpl _$$RegistrationFeeImplFromJson(
         Map<String, dynamic> json) =>
-    _$GetTotalSettingsImpl(
+    _$RegistrationFeeImpl(
+      fee_level: json['fee_level'] as String? ?? '',
+      player_id: (json['player_id'] as num?)?.toInt() ?? 0,
+      fee: (json['fee'] as num?)?.toInt() ?? 0,
+      formatted_fee: json['formatted_fee'] as String? ?? '',
+    );
+
+Map<String, dynamic> _$$RegistrationFeeImplToJson(
+        _$RegistrationFeeImpl instance) =>
+    <String, dynamic>{
+      'fee_level': instance.fee_level,
+      'player_id': instance.player_id,
+      'fee': instance.fee,
+      'formatted_fee': instance.formatted_fee,
+    };
+
+_$SettingsImpl _$$SettingsImplFromJson(Map<String, dynamic> json) =>
+    _$SettingsImpl(
       id: (json['id'] as num?)?.toInt() ?? 0,
       academy_id: (json['academy_id'] as num?)?.toInt() ?? 0,
       timezone: json['timezone'] as String? ?? '',
@@ -68,17 +94,16 @@ _$GetTotalSettingsImpl _$$GetTotalSettingsImplFromJson(
       cancellation_days: (json['cancellation_days'] as num?)?.toInt() ?? 0,
       tax_invoice: json['tax_invoice'] as String? ?? '',
       smtp: json['smtp'] as String? ?? '',
-      twitterLink: json['twitterLink'] as String? ?? '',
+      twitterLink: json['twitterLink'] ?? null,
       facebookLink: json['facebookLink'] as String? ?? '',
       InstaLink: json['InstaLink'] as String? ?? '',
-      YoutubeLink: json['YoutubeLink'] as String? ?? '',
+      YoutubeLink: json['YoutubeLink'] ?? null,
       created_at: json['created_at'] as String? ?? '',
       updated_at: json['updated_at'] as String? ?? '',
       iframe: json['iframe'] as String? ?? '',
     );
 
-Map<String, dynamic> _$$GetTotalSettingsImplToJson(
-        _$GetTotalSettingsImpl instance) =>
+Map<String, dynamic> _$$SettingsImplToJson(_$SettingsImpl instance) =>
     <String, dynamic>{
       'id': instance.id,
       'academy_id': instance.academy_id,

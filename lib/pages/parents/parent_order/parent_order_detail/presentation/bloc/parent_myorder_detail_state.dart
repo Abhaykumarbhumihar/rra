@@ -10,7 +10,7 @@ class ParentMyorderDetailState with _$ParentMyorderDetailState {
     @Default(false) bool isError,
     @Default(false) bool isLoading,
     @Default(false) bool isSuccess,
-    @Default(ParentMyOrderDetailModel()) ParentMyOrderDetailModel parentMyOrderDetailModel,
+    @Default(OrderDetailModel()) OrderDetailModel parentMyOrderDetailModel,
   }) = _ParentMyorderDetailState;
 
   factory ParentMyorderDetailState.initial() => const ParentMyorderDetailState();

@@ -6,10 +6,10 @@ part 'get_total_model.g.dart';
 @freezed
 class GetTotalModel with _$GetTotalModel {
   const factory GetTotalModel({
-    @Default(0) int code,
-    @Default(false) bool success,
+    @Default(200) int code,
+    @Default(true) bool success,
     @Default('') String message,
-    @Default(GetTotalData()) GetTotalData data,
+    @JsonKey(name: 'data') @Default(GetTotalData()) GetTotalData data,
   }) = _GetTotalModel;
 
   factory GetTotalModel.fromJson(Map<String, dynamic> json) =>
@@ -19,14 +19,18 @@ class GetTotalModel with _$GetTotalModel {
 @freezed
 class GetTotalData with _$GetTotalData {
   const factory GetTotalData({
-    @Default('\$0.00') String vat,
-    @Default('\$0.00') String total,
+    @Default('') String vat,
+    @Default('') String total,
+    @Default('') String registration_total,
+    @JsonKey(name: 'registration_fees')
+    @Default([])
+    List<RegistrationFee> registrationFees,
     @Default('') String total_session_discount,
-    @JsonKey(name: 'promocodeDetails') dynamic promocodeDetails,
-
-    @Default('\$0.00') String total_payable,
-    @Default(GetTotalSettings()) GetTotalSettings settings,
-    @Default(0) int is_private,
+    @Default(null) dynamic promocodeDetails,
+    @Default('') String total_payable,
+    @JsonKey(name: 'bulk_discounts') @Default([]) List<dynamic> bulkDiscounts,
+    @JsonKey(name: 'settings') @Default(Settings()) Settings settings,
+    @Default('') String is_private,
   }) = _GetTotalData;
 
   factory GetTotalData.fromJson(Map<String, dynamic> json) =>
@@ -34,8 +38,21 @@ class GetTotalData with _$GetTotalData {
 }
 
 @freezed
-class GetTotalSettings with _$GetTotalSettings {
-  const factory GetTotalSettings({
+class RegistrationFee with _$RegistrationFee {
+  const factory RegistrationFee({
+    @Default('') String fee_level,
+    @Default(0) int player_id,
+    @Default(0) int fee,
+    @Default('') String formatted_fee,
+  }) = _RegistrationFee;
+
+  factory RegistrationFee.fromJson(Map<String, dynamic> json) =>
+      _$RegistrationFeeFromJson(json);
+}
+
+@freezed
+class Settings with _$Settings {
+  const factory Settings({
     @Default(0) int id,
     @Default(0) int academy_id,
     @Default('') String timezone,
@@ -52,15 +69,15 @@ class GetTotalSettings with _$GetTotalSettings {
     @Default(0) int cancellation_days,
     @Default('') String tax_invoice,
     @Default('') String smtp,
-    @Default('') String? twitterLink,
-    @Default('') String? facebookLink,
-    @Default('') String? InstaLink,
-    @Default('') String? YoutubeLink,
+    @Default(null) dynamic twitterLink,
+    @Default('') String facebookLink,
+    @Default('') String InstaLink,
+    @Default(null) dynamic YoutubeLink,
     @Default('') String created_at,
     @Default('') String updated_at,
     @Default('') String iframe,
-  }) = _GetTotalSettings;
+  }) = _Settings;
 
-  factory GetTotalSettings.fromJson(Map<String, dynamic> json) =>
-      _$GetTotalSettingsFromJson(json);
+  factory Settings.fromJson(Map<String, dynamic> json) =>
+      _$SettingsFromJson(json);
 }

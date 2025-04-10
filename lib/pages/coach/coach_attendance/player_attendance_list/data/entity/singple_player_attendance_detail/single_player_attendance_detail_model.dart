@@ -35,6 +35,9 @@ class SinglePlayerAttendanceData with _$SinglePlayerAttendanceData {
     @JsonKey(name: 'status') @Default(0) int status,
     @JsonKey(name: 'created_at') @Default('') String createdAt,
     @JsonKey(name: 'updated_at') @Default('') String updatedAt,
+    @JsonKey(name: 'parent_name') @Default('') String parentsName,
+    @JsonKey(name: 'parent_email') @Default('') String parentsEmail,
+    @JsonKey(name: 'parent_mobile') @Default('') String parentsMobile,
     @JsonKey(name: 'attendance_record')
     @Default(<AttendanceRecord>[]) List<AttendanceRecord> attendanceRecord,
   }) = _SinglePlayerAttendanceData;

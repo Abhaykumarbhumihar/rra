@@ -1,47 +1,64 @@
+import 'package:rra/common/component/loading_indicator.dart';
 import 'package:rra/common/values/values_exports.dart';
 import 'package:rra/common/component/component_export.dart';
 
+import '../bloc/parent_myorder_detail_bloc.dart';
+import '../bloc/parent_myorder_detail_state.dart';
 import 'component/parent_order_detail_item.dart';
 
 class ParentOrderDetail extends StatelessWidget {
   ParentOrderDetail({super.key});
-
-  final TextEditingController daysController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
     var width = context.screenWidth;
     var height = context.screenHeight;
 
-    return CommonPageFormat(
-      title: "Booking Details",
-      onBackPress: () {
-        Navigator.pop(context);
+    return BlocListener<ParentMyorderDetailBloc, ParentMyorderDetailState>(
+      listener: (context, state) {
+        // TODO: implement listener
       },
-      child: Padding(
-        padding: EdgeInsets.only(
-          left: context.screenWidth * 0.052,
-          right: context.screenWidth * 0.052,
-        ),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            SizedBox(
-              height: 16,
+      child: BlocBuilder<ParentMyorderDetailBloc, ParentMyorderDetailState>(
+        builder: (context, state) {
+          return CommonPageFormat(
+            title: "Booking Details",
+            onBackPress: () {
+              Navigator.pop(context);
+            },
+            child: Padding(
+              padding: EdgeInsets.only(
+                left: context.screenWidth * 0.052,
+                right: context.screenWidth * 0.052,
+              ),
+              child: Stack(
+                children: [
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      SizedBox(
+                        height: 16,
+                      ),
+                      // "Jr. Rahul > U17 > Group Coaching U17 >2025 > Coach: BHAVIN SAVALIYA, VISHAL PATEL, HIREN KUMAR PATEL",
+                      state.isLoading == false
+                          ? Text(
+                              "${state.parentMyOrderDetailModel.data.coachedName} > ${state.parentMyOrderDetailModel.data.coachingProgram} > ${state.parentMyOrderDetailModel.data.terms} > ${state.parentMyOrderDetailModel.data.childName}",
+                              style: AppTextStyle.semiBold(
+                                  MediaQuery.of(context).size.width * 0.04266),
+                            )
+                          : SizedBox(),
+                      SizedBox(
+                        height: 8.0,
+                      ),
+                      ParentOrderDetailItem()
+                    ],
+                  ),
+                  if (state.isLoading) LoadingIndicator()
+                ],
+              ),
             ),
-            Text(
-              "Jr. Rahul > U17 > Group Coaching U17 >2025 > Coach: BHAVIN SAVALIYA, VISHAL PATEL, HIREN KUMAR PATEL",
-              style: AppTextStyle.semiBold(
-                  MediaQuery.of(context).size.width * 0.04266),
-            ),
-            SizedBox(
-              height: 8.0,
-            ),
-            ParentOrderDetailItem()
-          ],
-        ),
+          );
+        },
       ),
-    )
-    ;
+    );
   }
 }
