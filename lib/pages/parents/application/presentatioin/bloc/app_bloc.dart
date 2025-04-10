@@ -25,6 +25,7 @@ class AppBloc extends Bloc<AppEvent, AppState> {
     on<TriggerAppEvent>(triggerAppEvet);
     on<HandleBackPressEvent>(handleBackPressEvent);
     on<UserDataUpdate>(updateUserData);
+    on<SetSessionCountEvent>(sessionCount);
     add(UserDataUpdate());
   }
 
@@ -62,6 +63,14 @@ class AppBloc extends Bloc<AppEvent, AppState> {
         errorMessage: "",
       ));
     }
+  }
+
+  Future<void> sessionCount(
+      SetSessionCountEvent event, Emitter<AppState> emit) async {
+    emit(state.copyWith(
+      bookedSessionCount: event.sessionCount.toString(),
+      isLoadingreport: false,
+    ));
   }
 
   Future<void> triggerAppEvet(

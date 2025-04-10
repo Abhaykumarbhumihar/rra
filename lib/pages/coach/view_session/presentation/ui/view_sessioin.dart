@@ -1,4 +1,5 @@
 import 'package:rra/common/component/loading_indicator.dart';
+import 'package:rra/common/routes/exports.dart';
 import 'package:rra/common/values/values_exports.dart';
 import 'package:rra/common/component/component_export.dart';
 
@@ -25,7 +26,9 @@ class CoachViewSessioin extends StatelessWidget {
           body: BlocListener<ViewSessionBloc, ViewSessionState>(
             listener: (context, state) {
            print("SDF SD DS FDS D D DKLFDKFKDFKDFKLDKLFDKFKDFDKLFKDLFKDLF");
-              print(state);
+             if(state.bookedSession.data.sessions.isNotEmpty){
+               BlocProvider.of<AppBloc>(context).add(SetSessionCountEvent(state.bookedSession.data.sessions.length.toString()));
+             }
             },
             child: BlocBuilder<ViewSessionBloc, ViewSessionState>(
               builder: (context, state) {

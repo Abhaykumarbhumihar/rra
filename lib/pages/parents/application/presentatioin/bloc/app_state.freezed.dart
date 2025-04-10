@@ -23,6 +23,7 @@ mixin _$AppState {
   String get errorMessage => throw _privateConstructorUsedError;
   String get error => throw _privateConstructorUsedError;
   bool get isLoading => throw _privateConstructorUsedError;
+  String get bookedSessionCount => throw _privateConstructorUsedError;
   bool get isLoadingreport => throw _privateConstructorUsedError;
 
   /// Create a copy of AppState
@@ -45,6 +46,7 @@ abstract class $AppStateCopyWith<$Res> {
       String errorMessage,
       String error,
       bool isLoading,
+      String bookedSessionCount,
       bool isLoadingreport});
 
   $OtpVerificationModelCopyWith<$Res> get userdata;
@@ -72,6 +74,7 @@ class _$AppStateCopyWithImpl<$Res, $Val extends AppState>
     Object? errorMessage = null,
     Object? error = null,
     Object? isLoading = null,
+    Object? bookedSessionCount = null,
     Object? isLoadingreport = null,
   }) {
     return _then(_value.copyWith(
@@ -103,6 +106,10 @@ class _$AppStateCopyWithImpl<$Res, $Val extends AppState>
           ? _value.isLoading
           : isLoading // ignore: cast_nullable_to_non_nullable
               as bool,
+      bookedSessionCount: null == bookedSessionCount
+          ? _value.bookedSessionCount
+          : bookedSessionCount // ignore: cast_nullable_to_non_nullable
+              as String,
       isLoadingreport: null == isLoadingreport
           ? _value.isLoadingreport
           : isLoadingreport // ignore: cast_nullable_to_non_nullable
@@ -137,6 +144,7 @@ abstract class _$$AppStateImplCopyWith<$Res>
       String errorMessage,
       String error,
       bool isLoading,
+      String bookedSessionCount,
       bool isLoadingreport});
 
   @override
@@ -163,6 +171,7 @@ class __$$AppStateImplCopyWithImpl<$Res>
     Object? errorMessage = null,
     Object? error = null,
     Object? isLoading = null,
+    Object? bookedSessionCount = null,
     Object? isLoadingreport = null,
   }) {
     return _then(_$AppStateImpl(
@@ -194,6 +203,10 @@ class __$$AppStateImplCopyWithImpl<$Res>
           ? _value.isLoading
           : isLoading // ignore: cast_nullable_to_non_nullable
               as bool,
+      bookedSessionCount: null == bookedSessionCount
+          ? _value.bookedSessionCount
+          : bookedSessionCount // ignore: cast_nullable_to_non_nullable
+              as String,
       isLoadingreport: null == isLoadingreport
           ? _value.isLoadingreport
           : isLoadingreport // ignore: cast_nullable_to_non_nullable
@@ -213,6 +226,7 @@ class _$AppStateImpl implements _AppState {
       this.errorMessage = '',
       this.error = '',
       this.isLoading = false,
+      this.bookedSessionCount = '',
       this.isLoadingreport = false});
 
   @override
@@ -237,11 +251,14 @@ class _$AppStateImpl implements _AppState {
   final bool isLoading;
   @override
   @JsonKey()
+  final String bookedSessionCount;
+  @override
+  @JsonKey()
   final bool isLoadingreport;
 
   @override
   String toString() {
-    return 'AppState(index: $index, lastBackPressTime: $lastBackPressTime, userdata: $userdata, isError: $isError, errorMessage: $errorMessage, error: $error, isLoading: $isLoading, isLoadingreport: $isLoadingreport)';
+    return 'AppState(index: $index, lastBackPressTime: $lastBackPressTime, userdata: $userdata, isError: $isError, errorMessage: $errorMessage, error: $error, isLoading: $isLoading, bookedSessionCount: $bookedSessionCount, isLoadingreport: $isLoadingreport)';
   }
 
   @override
@@ -260,13 +277,24 @@ class _$AppStateImpl implements _AppState {
             (identical(other.error, error) || other.error == error) &&
             (identical(other.isLoading, isLoading) ||
                 other.isLoading == isLoading) &&
+            (identical(other.bookedSessionCount, bookedSessionCount) ||
+                other.bookedSessionCount == bookedSessionCount) &&
             (identical(other.isLoadingreport, isLoadingreport) ||
                 other.isLoadingreport == isLoadingreport));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, index, lastBackPressTime,
-      userdata, isError, errorMessage, error, isLoading, isLoadingreport);
+  int get hashCode => Object.hash(
+      runtimeType,
+      index,
+      lastBackPressTime,
+      userdata,
+      isError,
+      errorMessage,
+      error,
+      isLoading,
+      bookedSessionCount,
+      isLoadingreport);
 
   /// Create a copy of AppState
   /// with the given fields replaced by the non-null parameter values.
@@ -286,6 +314,7 @@ abstract class _AppState implements AppState {
       final String errorMessage,
       final String error,
       final bool isLoading,
+      final String bookedSessionCount,
       final bool isLoadingreport}) = _$AppStateImpl;
 
   @override
@@ -302,6 +331,8 @@ abstract class _AppState implements AppState {
   String get error;
   @override
   bool get isLoading;
+  @override
+  String get bookedSessionCount;
   @override
   bool get isLoadingreport;
 

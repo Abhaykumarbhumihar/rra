@@ -57,10 +57,7 @@ class CoachPlayerReortListAge extends StatelessWidget {
                       builder: (context) => PlayerRecordFilterSheet(),
                     );
                   },
-                  child: Icon(
-                    Icons.short_text,
-                    color: Colors.white,
-                  ),
+                  child:Image.asset('assets/images/filter_icon.png',width: 22,height: 22,)
                 ),
               ],
             ),
