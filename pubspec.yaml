@@ -66,6 +66,7 @@ dependencies:
   flutter_credit_card:
   file_picker: ^10.0.0
   flutter_xlider:
+  webview_flutter:
 dev_dependencies:
   flutter_test:
     sdk: flutter

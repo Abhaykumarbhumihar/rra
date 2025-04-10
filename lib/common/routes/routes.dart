@@ -50,6 +50,7 @@ static const WELCOMEPAGE="/welcom_page";
   static const COACHSINGLEPLAYERATTENDANCE="/coach_single_player_attendance";
   static const COACHPLAYERREPOORTLISTPAGE="/coach_player_reprt_list_page";
   static const COACHPLAYERREPOORTDETAILPAGE="/coach_player_reprt_detail_page";
+  static const COACHPLAYERREPOORTWEBVIEWPAGE="/coach_player_reprt_webview_page";
   static const COACHPLAYERREPOORTGRAPHPAGE="/coach_player_reprt_grah_page";
 
 

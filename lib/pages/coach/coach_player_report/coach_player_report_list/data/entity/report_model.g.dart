@@ -35,34 +35,18 @@ _$PlayerReportDataImpl _$$PlayerReportDataImplFromJson(
       isChildHasPhysicalIssue:
           json['isChildHasPhysicalIssue'] as bool? ?? false,
       childAge: json['child_age'] as String? ?? '',
+      webviewLink: json['webview_link'] as String? ?? '',
       parentName: json['parent_name'] as String? ?? '',
       parentEmail: json['parent_email'] as String? ?? '',
       parentPhone: json['parent_phone'] as String? ?? '',
       parentGender: json['parent_gender'] as String? ?? '',
       term: json['term'] as String? ?? '',
       session: json['session'] as String? ?? '',
-      basicBatting: json['basic_batting'] == null
-          ? const BasicBatting()
-          : BasicBatting.fromJson(
-              json['basic_batting'] as Map<String, dynamic>),
-      strikeRotation: json['strike_rotation'] == null
-          ? const StrikeRotation()
-          : StrikeRotation.fromJson(
-              json['strike_rotation'] as Map<String, dynamic>),
-      boundaryHitting: json['boundary_hitting'] == null
-          ? const BoundaryHitting()
-          : BoundaryHitting.fromJson(
-              json['boundary_hitting'] as Map<String, dynamic>),
-      basicBowling: json['basic_bowling'] == null
-          ? const BasicBowling()
-          : BasicBowling.fromJson(
-              json['basic_bowling'] as Map<String, dynamic>),
-      fielding: json['fielding'] == null
-          ? const Fielding()
-          : Fielding.fromJson(json['fielding'] as Map<String, dynamic>),
-      behaviours: json['behaviours'] == null
-          ? const Behaviours()
-          : Behaviours.fromJson(json['behaviours'] as Map<String, dynamic>),
+      performanceElements: (json['performance_element'] as List<dynamic>?)
+              ?.map(
+                  (e) => PerformanceElement.fromJson(e as Map<String, dynamic>))
+              .toList() ??
+          const [],
     );
 
 Map<String, dynamic> _$$PlayerReportDataImplToJson(
@@ -72,115 +56,100 @@ Map<String, dynamic> _$$PlayerReportDataImplToJson(
       'child_name': instance.childName,
       'isChildHasPhysicalIssue': instance.isChildHasPhysicalIssue,
       'child_age': instance.childAge,
+      'webview_link': instance.webviewLink,
       'parent_name': instance.parentName,
       'parent_email': instance.parentEmail,
       'parent_phone': instance.parentPhone,
       'parent_gender': instance.parentGender,
       'term': instance.term,
       'session': instance.session,
-      'basic_batting': instance.basicBatting,
-      'strike_rotation': instance.strikeRotation,
-      'boundary_hitting': instance.boundaryHitting,
-      'basic_bowling': instance.basicBowling,
-      'fielding': instance.fielding,
-      'behaviours': instance.behaviours,
+      'performance_element': instance.performanceElements,
     };
 
-_$BasicBattingImpl _$$BasicBattingImplFromJson(Map<String, dynamic> json) =>
-    _$BasicBattingImpl(
-      marks: (json['marks'] as num?)?.toInt() ?? 0,
-      totalMarks: (json['total_marks'] as num?)?.toInt() ?? 0,
-      sessionId: (json['session_id'] as num?)?.toInt() ?? 0,
-      playerId: (json['player_id'] as num?)?.toInt() ?? 0,
-    );
-
-Map<String, dynamic> _$$BasicBattingImplToJson(_$BasicBattingImpl instance) =>
-    <String, dynamic>{
-      'marks': instance.marks,
-      'total_marks': instance.totalMarks,
-      'session_id': instance.sessionId,
-      'player_id': instance.playerId,
-    };
-
-_$StrikeRotationImpl _$$StrikeRotationImplFromJson(Map<String, dynamic> json) =>
-    _$StrikeRotationImpl(
-      marks: (json['marks'] as num?)?.toInt() ?? 0,
-      totalMarks: (json['total_marks'] as num?)?.toInt() ?? 0,
-      sessionId: (json['session_id'] as num?)?.toInt() ?? 0,
-      playerId: (json['player_id'] as num?)?.toInt() ?? 0,
-    );
-
-Map<String, dynamic> _$$StrikeRotationImplToJson(
-        _$StrikeRotationImpl instance) =>
-    <String, dynamic>{
-      'marks': instance.marks,
-      'total_marks': instance.totalMarks,
-      'session_id': instance.sessionId,
-      'player_id': instance.playerId,
-    };
-
-_$BoundaryHittingImpl _$$BoundaryHittingImplFromJson(
+_$PerformanceElementImpl _$$PerformanceElementImplFromJson(
         Map<String, dynamic> json) =>
-    _$BoundaryHittingImpl(
+    _$PerformanceElementImpl(
+      performanceElementId:
+          (json['performance_element_id'] as num?)?.toInt() ?? 0,
+      performanceElementTitle:
+          json['performance_element_title'] as String? ?? '',
       marks: (json['marks'] as num?)?.toInt() ?? 0,
       totalMarks: (json['total_marks'] as num?)?.toInt() ?? 0,
       sessionId: (json['session_id'] as num?)?.toInt() ?? 0,
       playerId: (json['player_id'] as num?)?.toInt() ?? 0,
+      coachingProgramId: (json['coaching_program_id'] as num?)?.toInt() ?? 0,
+      addScore: json['add_score'] == null
+          ? null
+          : AddScore.fromJson(json['add_score'] as Map<String, dynamic>),
     );
 
-Map<String, dynamic> _$$BoundaryHittingImplToJson(
-        _$BoundaryHittingImpl instance) =>
+Map<String, dynamic> _$$PerformanceElementImplToJson(
+        _$PerformanceElementImpl instance) =>
     <String, dynamic>{
+      'performance_element_id': instance.performanceElementId,
+      'performance_element_title': instance.performanceElementTitle,
       'marks': instance.marks,
       'total_marks': instance.totalMarks,
       'session_id': instance.sessionId,
       'player_id': instance.playerId,
+      'coaching_program_id': instance.coachingProgramId,
+      'add_score': instance.addScore,
     };
 
-_$BasicBowlingImpl _$$BasicBowlingImplFromJson(Map<String, dynamic> json) =>
-    _$BasicBowlingImpl(
-      marks: (json['marks'] as num?)?.toInt() ?? 0,
-      totalMarks: (json['total_marks'] as num?)?.toInt() ?? 0,
-      sessionId: (json['session_id'] as num?)?.toInt() ?? 0,
-      playerId: (json['player_id'] as num?)?.toInt() ?? 0,
+_$AddScoreImpl _$$AddScoreImplFromJson(Map<String, dynamic> json) =>
+    _$AddScoreImpl(
+      childName: json['child_name'] as String? ?? '',
+      performanceData: json['performance_data'] as String? ?? '',
+      scoreCriteria: (json['score_criteria'] as List<dynamic>?)
+              ?.map((e) => ScoreCriteria.fromJson(e as Map<String, dynamic>))
+              .toList() ??
+          const [],
+      scores: (json['scores'] as List<dynamic>?)
+              ?.map((e) => Score.fromJson(e as Map<String, dynamic>))
+              .toList() ??
+          const [],
+      unmatchedElements:
+          json['unmatched_elements'] as List<dynamic>? ?? const [],
+      scoreMasterId: (json['score_master_id'] as num?)?.toInt() ?? 0,
+      comment: json['comment'] as String? ?? '',
     );
 
-Map<String, dynamic> _$$BasicBowlingImplToJson(_$BasicBowlingImpl instance) =>
+Map<String, dynamic> _$$AddScoreImplToJson(_$AddScoreImpl instance) =>
     <String, dynamic>{
-      'marks': instance.marks,
-      'total_marks': instance.totalMarks,
-      'session_id': instance.sessionId,
-      'player_id': instance.playerId,
+      'child_name': instance.childName,
+      'performance_data': instance.performanceData,
+      'score_criteria': instance.scoreCriteria,
+      'scores': instance.scores,
+      'unmatched_elements': instance.unmatchedElements,
+      'score_master_id': instance.scoreMasterId,
+      'comment': instance.comment,
     };
 
-_$FieldingImpl _$$FieldingImplFromJson(Map<String, dynamic> json) =>
-    _$FieldingImpl(
-      marks: (json['marks'] as num?)?.toInt() ?? 0,
-      totalMarks: (json['total_marks'] as num?)?.toInt() ?? 0,
-      sessionId: (json['session_id'] as num?)?.toInt() ?? 0,
-      playerId: (json['player_id'] as num?)?.toInt() ?? 0,
+_$ScoreCriteriaImpl _$$ScoreCriteriaImplFromJson(Map<String, dynamic> json) =>
+    _$ScoreCriteriaImpl(
+      code: json['code'] as String? ?? '',
+      color: json['color'] as String? ?? '',
+      range: json['range'] as String? ?? '',
+      name: json['name'] as String? ?? '',
     );
 
-Map<String, dynamic> _$$FieldingImplToJson(_$FieldingImpl instance) =>
+Map<String, dynamic> _$$ScoreCriteriaImplToJson(_$ScoreCriteriaImpl instance) =>
     <String, dynamic>{
-      'marks': instance.marks,
-      'total_marks': instance.totalMarks,
-      'session_id': instance.sessionId,
-      'player_id': instance.playerId,
+      'code': instance.code,
+      'color': instance.color,
+      'range': instance.range,
+      'name': instance.name,
     };
 
-_$BehavioursImpl _$$BehavioursImplFromJson(Map<String, dynamic> json) =>
-    _$BehavioursImpl(
-      marks: (json['marks'] as num?)?.toInt() ?? 0,
-      totalMarks: (json['total_marks'] as num?)?.toInt() ?? 0,
-      sessionId: (json['session_id'] as num?)?.toInt() ?? 0,
-      playerId: (json['player_id'] as num?)?.toInt() ?? 0,
+_$ScoreImpl _$$ScoreImplFromJson(Map<String, dynamic> json) => _$ScoreImpl(
+      id: (json['id'] as num?)?.toInt() ?? 0,
+      name: json['name'] as String? ?? '',
+      score: (json['score'] as num?)?.toInt() ?? 0,
     );
 
-Map<String, dynamic> _$$BehavioursImplToJson(_$BehavioursImpl instance) =>
+Map<String, dynamic> _$$ScoreImplToJson(_$ScoreImpl instance) =>
     <String, dynamic>{
-      'marks': instance.marks,
-      'total_marks': instance.totalMarks,
-      'session_id': instance.sessionId,
-      'player_id': instance.playerId,
+      'id': instance.id,
+      'name': instance.name,
+      'score': instance.score,
     };

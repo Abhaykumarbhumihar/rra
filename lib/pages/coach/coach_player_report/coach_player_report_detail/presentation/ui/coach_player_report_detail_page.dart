@@ -14,7 +14,8 @@ class CoachPlayerReportDetailPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final args = ModalRoute.of(context)!.settings.arguments as Map<String, PlayerReportData>;
+    final args = ModalRoute.of(context)!.settings.arguments
+        as Map<String, PlayerReportData>;
     final reportData = args['childReportData']!;
 
     return BlocListener<ReportBloc, ReportState>(
@@ -34,11 +35,30 @@ class CoachPlayerReportDetailPage extends StatelessWidget {
                   PlayerInfoCard(
                     reportData: reportData,
                     onViewReport: () {
-                      // Handle view report action
+                      Map<String, PlayerReportData> arguments = {
+                        "childReportData": reportData,
+
+                      };
+                     Navigator.pushNamed(context, AppRoutes.COACHPLAYERREPOORTWEBVIEWPAGE,arguments: arguments);
                     },
                   ),
                   const SizedBox(height: 10),
-                  _buildScoreCards(reportData,context),
+                  ListView.builder(
+                      itemCount: reportData.performanceElements.length,
+                      shrinkWrap: true,
+                      physics: BouncingScrollPhysics(),
+                      padding: EdgeInsets.zero,
+                      itemBuilder: (context, index) {
+                        var data = reportData.performanceElements[index];
+                        return ScoreCard(
+                          title: "${data.performanceElementTitle}",
+                          marks: data.marks,
+                          totalMarks: data.totalMarks,
+                          onAddScore: () =>
+                              _handleAddScore(context,data.addScore,data),
+                        );
+                      }),
+                  //  _buildScoreCards(reportData,context),
                 ],
               ),
             ),
@@ -48,62 +68,15 @@ class CoachPlayerReportDetailPage extends StatelessWidget {
     );
   }
 
-  Widget _buildScoreCards(PlayerReportData reportData,BuildContext context) {
-    return Column(
-      children: [
-        ScoreCard(
-          title: "Basic Batting",
-          marks: reportData.basicBatting.marks,
-          totalMarks: reportData.basicBatting.totalMarks,
-          onAddScore: () => _handleAddScore(context, 'basicBatting'),
-        ),
-        ScoreCard(
-          title: "Strike Rotation",
-          marks: reportData.strikeRotation.marks,
-          totalMarks: reportData.strikeRotation.totalMarks,
-          onAddScore: () => _handleAddScore(context, 'strikeRotation'),
-        ),
-        ScoreCard(
-          title: "Boundary Hitting",
-          marks: reportData.boundaryHitting.marks,
-          totalMarks: reportData.boundaryHitting.totalMarks,
-          onAddScore: () => _handleAddScore(context, 'boundaryHitting'),
-        ),
-        ScoreCard(
-          title: "Basic Bowling",
-          marks: reportData.basicBowling.marks,
-          totalMarks: reportData.basicBowling.totalMarks,
-          onAddScore: () => _handleAddScore(context, 'basicBowling'),
-        ),
-        ScoreCard(
-          title: "Fielding",
-          marks: reportData.fielding.marks,
-          totalMarks: reportData.fielding.totalMarks,
-          onAddScore: () => _handleAddScore(context, 'fielding'),
-        ),
-        ScoreCard(
-          title: "Behaviours",
-          marks: reportData.behaviours.marks,
-          totalMarks: reportData.behaviours.totalMarks,
-          onAddScore: () => _handleAddScore(context, 'behaviours'),
-        ),
-      ],
-    );
-  }
 
-  Future<void> _handleAddScore(BuildContext context, String scoreType) async {
+
+
+  Future<void> _handleAddScore(BuildContext context,  AddScore? addScore, PerformanceElement performanceData,) async {
     // Call the dialog with dynamic sliders
     final result = await showStrikeRotationDialog(
       context: context,
-      sliderConfigs: [
-        SliderConfig(title: 'Can judge a single', initialValue: 5.0),
-        SliderConfig(title: 'Strike rotation - Off-side', initialValue: 2.0),
-        SliderConfig(title: 'Strike rotation - On-side', initialValue: 4.0),
-        SliderConfig(title: 'Scoring awareness', initialValue: 2.0),
-        SliderConfig(title: 'Strike rotation - On-side', initialValue: 4.0),
-        SliderConfig(title: 'Scoring awareness', initialValue: 2.0),
-
-      ],
+      sliderConfigs: addScore?.scores??[],
+      performanceData: performanceData,
       initialComment: 'Initial comment if any',
     );
 
@@ -119,7 +92,8 @@ class CoachPlayerReportDetailPage extends StatelessWidget {
 // Helper function to show the dialog with dynamic configuration
   Future<Map<String, dynamic>?> showStrikeRotationDialog({
     required BuildContext context,
-    required List<SliderConfig> sliderConfigs,
+    required List<Score> sliderConfigs,
+    required PerformanceElement performanceData,
     String? initialComment,
   }) {
     return showDialog<Map<String, dynamic>>(
@@ -127,8 +101,8 @@ class CoachPlayerReportDetailPage extends StatelessWidget {
       builder: (context) => StrikeRotationDialogPage(
         sliderConfigs: sliderConfigs,
         initialComment: initialComment,
+        performanceData: performanceData,
       ),
     );
   }
 }
-

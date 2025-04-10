@@ -23,18 +23,15 @@ class PlayerReportData with _$PlayerReportData {
     @JsonKey(name: 'child_name') @Default('') String childName,
     @JsonKey(name: 'isChildHasPhysicalIssue') @Default(false) bool isChildHasPhysicalIssue,
     @JsonKey(name: 'child_age') @Default('') String childAge,
+    @JsonKey(name: 'webview_link') @Default('') String webviewLink,
     @JsonKey(name: 'parent_name') @Default('') String parentName,
     @JsonKey(name: 'parent_email') @Default('') String parentEmail,
     @JsonKey(name: 'parent_phone') @Default('') String parentPhone,
     @JsonKey(name: 'parent_gender') @Default('') String parentGender,
     @JsonKey(name: 'term') @Default('') String term,
     @JsonKey(name: 'session') @Default('') String session,
-    @JsonKey(name: 'basic_batting') @Default(BasicBatting()) BasicBatting basicBatting,
-    @JsonKey(name: 'strike_rotation') @Default(StrikeRotation()) StrikeRotation strikeRotation,
-    @JsonKey(name: 'boundary_hitting') @Default(BoundaryHitting()) BoundaryHitting boundaryHitting,
-    @JsonKey(name: 'basic_bowling') @Default(BasicBowling()) BasicBowling basicBowling,
-    @JsonKey(name: 'fielding') @Default(Fielding()) Fielding fielding,
-    @JsonKey(name: 'behaviours') @Default(Behaviours()) Behaviours behaviours,
+    @JsonKey(name: 'performance_element')
+    @Default([]) List<PerformanceElement> performanceElements,
   }) = _PlayerReportData;
 
   factory PlayerReportData.fromJson(Map<String, dynamic> json) =>
@@ -42,79 +39,59 @@ class PlayerReportData with _$PlayerReportData {
 }
 
 @freezed
-class BasicBatting with _$BasicBatting {
-  const factory BasicBatting({
+class PerformanceElement with _$PerformanceElement {
+  const factory PerformanceElement({
+    @JsonKey(name: 'performance_element_id') @Default(0) int performanceElementId,
+    @JsonKey(name: 'performance_element_title') @Default('') String performanceElementTitle,
     @JsonKey(name: 'marks') @Default(0) int marks,
     @JsonKey(name: 'total_marks') @Default(0) int totalMarks,
     @JsonKey(name: 'session_id') @Default(0) int sessionId,
     @JsonKey(name: 'player_id') @Default(0) int playerId,
-  }) = _BasicBatting;
+    @JsonKey(name: 'coaching_program_id') @Default(0) int coachingProgramId,
+    @JsonKey(name: 'add_score') AddScore? addScore,
+  }) = _PerformanceElement;
 
-  factory BasicBatting.fromJson(Map<String, dynamic> json) =>
-      _$BasicBattingFromJson(json);
+  factory PerformanceElement.fromJson(Map<String, dynamic> json) =>
+      _$PerformanceElementFromJson(json);
 }
 
 @freezed
-class StrikeRotation with _$StrikeRotation {
-  const factory StrikeRotation({
-    @JsonKey(name: 'marks') @Default(0) int marks,
-    @JsonKey(name: 'total_marks') @Default(0) int totalMarks,
-    @JsonKey(name: 'session_id') @Default(0) int sessionId,
-    @JsonKey(name: 'player_id') @Default(0) int playerId,
-  }) = _StrikeRotation;
+class AddScore with _$AddScore {
+  const factory AddScore({
+    @JsonKey(name: 'child_name') @Default('') String childName,
+    @JsonKey(name: 'performance_data') @Default('') String performanceData,
+    @JsonKey(name: 'score_criteria') @Default([]) List<ScoreCriteria> scoreCriteria,
+    @JsonKey(name: 'scores') @Default([]) List<Score> scores,
+    @JsonKey(name: 'unmatched_elements') @Default([]) List<dynamic> unmatchedElements,
+    @JsonKey(name: 'score_master_id') @Default(0) int scoreMasterId,
+    @JsonKey(name: 'comment') @Default('') String comment,
+  }) = _AddScore;
 
-  factory StrikeRotation.fromJson(Map<String, dynamic> json) =>
-      _$StrikeRotationFromJson(json);
+  factory AddScore.fromJson(Map<String, dynamic> json) =>
+      _$AddScoreFromJson(json);
 }
 
 @freezed
-class BoundaryHitting with _$BoundaryHitting {
-  const factory BoundaryHitting({
-    @JsonKey(name: 'marks') @Default(0) int marks,
-    @JsonKey(name: 'total_marks') @Default(0) int totalMarks,
-    @JsonKey(name: 'session_id') @Default(0) int sessionId,
-    @JsonKey(name: 'player_id') @Default(0) int playerId,
-  }) = _BoundaryHitting;
+class ScoreCriteria with _$ScoreCriteria {
+  const factory ScoreCriteria({
+    @JsonKey(name: 'code') @Default('') String code,
+    @JsonKey(name: 'color') @Default('') String color,
+    @JsonKey(name: 'range') @Default('') String range,
+    @JsonKey(name: 'name') @Default('') String name,
+  }) = _ScoreCriteria;
 
-  factory BoundaryHitting.fromJson(Map<String, dynamic> json) =>
-      _$BoundaryHittingFromJson(json);
+  factory ScoreCriteria.fromJson(Map<String, dynamic> json) =>
+      _$ScoreCriteriaFromJson(json);
 }
 
 @freezed
-class BasicBowling with _$BasicBowling {
-  const factory BasicBowling({
-    @JsonKey(name: 'marks') @Default(0) int marks,
-    @JsonKey(name: 'total_marks') @Default(0) int totalMarks,
-    @JsonKey(name: 'session_id') @Default(0) int sessionId,
-    @JsonKey(name: 'player_id') @Default(0) int playerId,
-  }) = _BasicBowling;
+class Score with _$Score {
+  const factory Score({
+    @JsonKey(name: 'id') @Default(0) int id,
+    @JsonKey(name: 'name') @Default('') String name,
+    @JsonKey(name: 'score') @Default(0) int score,
+  }) = _Score;
 
-  factory BasicBowling.fromJson(Map<String, dynamic> json) =>
-      _$BasicBowlingFromJson(json);
-}
-
-@freezed
-class Fielding with _$Fielding {
-  const factory Fielding({
-    @JsonKey(name: 'marks') @Default(0) int marks,
-    @JsonKey(name: 'total_marks') @Default(0) int totalMarks,
-    @JsonKey(name: 'session_id') @Default(0) int sessionId,
-    @JsonKey(name: 'player_id') @Default(0) int playerId,
-  }) = _Fielding;
-
-  factory Fielding.fromJson(Map<String, dynamic> json) =>
-      _$FieldingFromJson(json);
-}
-
-@freezed
-class Behaviours with _$Behaviours {
-  const factory Behaviours({
-    @JsonKey(name: 'marks') @Default(0) int marks,
-    @JsonKey(name: 'total_marks') @Default(0) int totalMarks,
-    @JsonKey(name: 'session_id') @Default(0) int sessionId,
-    @JsonKey(name: 'player_id') @Default(0) int playerId,
-  }) = _Behaviours;
-
-  factory Behaviours.fromJson(Map<String, dynamic> json) =>
-      _$BehavioursFromJson(json);
+  factory Score.fromJson(Map<String, dynamic> json) =>
+      _$ScoreFromJson(json);
 }
