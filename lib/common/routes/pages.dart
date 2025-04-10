@@ -171,6 +171,7 @@ class AppPages {
         route: AppRoutes.PARENTPLAYERSCORELISTPAGE,
         page: ParentPlayerScoreListPage(),
       ),
+
       PageEntitiy(
         route: AppRoutes.PARENTATTENDANCELISTPAGE,
         page: ParentAttendanceListAge(),

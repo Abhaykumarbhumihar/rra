@@ -20,28 +20,22 @@ class PlayerDetail extends StatelessWidget {
             children: <Widget>[
               InfoRow(
                 label: "Name :",
-                value: " ${state.singlePlayerAttendanceDetailModel.data?.childName.toString()}",
+                value: " ${state.singlePlayerAttendanceDetailModel.data?.parentsName.toString()}",
               ),
               InfoRow(
                 label: "Email :",
-                value: " demouser@gmail.com",
+                value: " ${state.singlePlayerAttendanceDetailModel.data?.parentsEmail.toString()}",
               ),
               InfoRow(
                 label: "Phone :",
-                value: " ",
+                value: " ${state.singlePlayerAttendanceDetailModel.data?.parentsMobile.toString()}",
               ),
               InfoRow(
                 label: "Date of Birth :",
                 value: " ${state.singlePlayerAttendanceDetailModel.data?.childDob.toString()}",
               ),
-              InfoRow(
-                label: "Player Name :",
-                value: " ${state.singlePlayerAttendanceDetailModel.data?.childName.toString()}",
-              ),
-              InfoRow(
-                label: "Gender :",
-                value: " Female",
-              ),
+
+
             ],
           );
         },

@@ -152,6 +152,7 @@ class OrderSummaryRepoImpl implements OrderSummaryRepositery {
 
 
         if(responseData['success']){
+        print("==s=s=s=s=s=s=s=s=s=s=s=s=s=s=s=s== ${  responseData['data']['total_payable']}");
           print("getTotalPrice $responseData");//here my code is running
           GetTotalModel getTotalModel=GetTotalModel.fromJson(responseData);
           Utils.LogPrint(responseData);

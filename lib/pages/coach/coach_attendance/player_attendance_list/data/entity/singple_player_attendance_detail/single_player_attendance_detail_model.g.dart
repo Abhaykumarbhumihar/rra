@@ -48,6 +48,9 @@ _$SinglePlayerAttendanceDataImpl _$$SinglePlayerAttendanceDataImplFromJson(
       status: (json['status'] as num?)?.toInt() ?? 0,
       createdAt: json['created_at'] as String? ?? '',
       updatedAt: json['updated_at'] as String? ?? '',
+      parentsName: json['parent_name'] as String? ?? '',
+      parentsEmail: json['parent_email'] as String? ?? '',
+      parentsMobile: json['parent_mobile'] as String? ?? '',
       attendanceRecord: (json['attendance_record'] as List<dynamic>?)
               ?.map((e) => AttendanceRecord.fromJson(e as Map<String, dynamic>))
               .toList() ??
@@ -73,6 +76,9 @@ Map<String, dynamic> _$$SinglePlayerAttendanceDataImplToJson(
       'status': instance.status,
       'created_at': instance.createdAt,
       'updated_at': instance.updatedAt,
+      'parent_name': instance.parentsName,
+      'parent_email': instance.parentsEmail,
+      'parent_mobile': instance.parentsMobile,
       'attendance_record': instance.attendanceRecord,
     };
 

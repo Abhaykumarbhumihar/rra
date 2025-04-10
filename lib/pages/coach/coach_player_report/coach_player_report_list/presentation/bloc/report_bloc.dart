@@ -56,6 +56,11 @@ class ReportBloc extends Bloc<ReportEvent, ReportState> {
         ));
         return;
       }
+      emit(state.copyWith(
+        isLoading: true,
+        isError: false,
+        message: "No internet connection.",
+      ));
       var academyId = await SharedPrefs.getString("selected_academyid");
 
       Map<String, dynamic> map = {
@@ -80,7 +85,7 @@ class ReportBloc extends Bloc<ReportEvent, ReportState> {
       } catch (e) {}
 
       emit(state.copyWith(
-          isLoading: true,
+          isLoading: false,
           isError: false,
           message: "",
           termsProgramSessionPlayerModelData:

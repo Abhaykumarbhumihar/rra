@@ -1,3 +1,4 @@
+import 'package:rra/common/component/loading_indicator.dart';
 import 'package:rra/common/values/values_exports.dart';
 import 'package:rra/common/component/component_export.dart';
 
@@ -30,52 +31,58 @@ class ManageTeamList extends StatelessWidget {
           left: context.screenWidth * 0.052,
           right: context.screenWidth * 0.052,
         ),
-        child: Column(
+        child: Stack(
           children: [
-            SizedBox(
-              height: 24,
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: <Widget>[
-                Text(
-                  "Manage Team",
-                  style: AppTextStyle.semiBold(
-                      MediaQuery.of(context).size.width * 0.0373),
+            Column(
+              children: [
+                SizedBox(
+                  height: 24,
                 ),
-                InkWell(
-                  onTap: () async {
-                    var academyId = await SharedPrefs.getString("selected_academyid");
-                    BlocProvider.of<ManageTeamBloc>(context).add(ManageTeamReportEventGetTermsSessionCoachingPlayerEvents({"academy_id":academyId}));
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: <Widget>[
+                    Text(
+                      "Manage Team",
+                      style: AppTextStyle.semiBold(
+                          MediaQuery.of(context).size.width * 0.0373),
+                    ),
+                    InkWell(
+                      onTap: () async {
+                        var academyId = await SharedPrefs.getString("selected_academyid");
+                        BlocProvider.of<ManageTeamBloc>(context).add(ManageTeamReportEventGetTermsSessionCoachingPlayerEvents({"academy_id":academyId}));
 
-                    showModalBottomSheet(
-                      context: context,
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
+                        showModalBottomSheet(
+                          context: context,
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
+                          ),
+                          backgroundColor: Colors.white,
+                          isScrollControlled: true,
+                          builder: (context) => ManagegTeamFilterSheet(),
+                        );
+
+
+                      },
+                      child: Icon(
+                        Icons.short_text,
+                        color: Colors.white,
                       ),
-                      backgroundColor: Colors.white,
-                      isScrollControlled: true,
-                      builder: (context) => ManagegTeamFilterSheet(),
-                    );
-
-
-                  },
-                  child: Icon(
-                    Icons.short_text,
-                    color: Colors.white,
-                  ),
+                    ),
+                  ],
                 ),
+                SizedBox(
+                  height: 10,
+                ),
+                ManageTeamListItem(),
+                SizedBox(
+                  height: 6,
+                ),
+
+
               ],
             ),
-            SizedBox(
-              height: 10,
-            ),
-            ManageTeamListItem(),
-            SizedBox(
-              height: 6,
-            ),
-
-
+            if(state.isLoading)
+              LoadingIndicator()
           ],
         ),
       );

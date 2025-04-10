@@ -23,6 +23,7 @@ mixin _$GetTotalModel {
   int get code => throw _privateConstructorUsedError;
   bool get success => throw _privateConstructorUsedError;
   String get message => throw _privateConstructorUsedError;
+  @JsonKey(name: 'data')
   GetTotalData get data => throw _privateConstructorUsedError;
 
   /// Serializes this GetTotalModel to a JSON map.
@@ -41,7 +42,11 @@ abstract class $GetTotalModelCopyWith<$Res> {
           GetTotalModel value, $Res Function(GetTotalModel) then) =
       _$GetTotalModelCopyWithImpl<$Res, GetTotalModel>;
   @useResult
-  $Res call({int code, bool success, String message, GetTotalData data});
+  $Res call(
+      {int code,
+      bool success,
+      String message,
+      @JsonKey(name: 'data') GetTotalData data});
 
   $GetTotalDataCopyWith<$Res> get data;
 }
@@ -105,7 +110,11 @@ abstract class _$$GetTotalModelImplCopyWith<$Res>
       __$$GetTotalModelImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({int code, bool success, String message, GetTotalData data});
+  $Res call(
+      {int code,
+      bool success,
+      String message,
+      @JsonKey(name: 'data') GetTotalData data});
 
   @override
   $GetTotalDataCopyWith<$Res> get data;
@@ -154,10 +163,10 @@ class __$$GetTotalModelImplCopyWithImpl<$Res>
 @JsonSerializable()
 class _$GetTotalModelImpl implements _GetTotalModel {
   const _$GetTotalModelImpl(
-      {this.code = 0,
-      this.success = false,
+      {this.code = 200,
+      this.success = true,
       this.message = '',
-      this.data = const GetTotalData()});
+      @JsonKey(name: 'data') this.data = const GetTotalData()});
 
   factory _$GetTotalModelImpl.fromJson(Map<String, dynamic> json) =>
       _$$GetTotalModelImplFromJson(json);
@@ -172,7 +181,7 @@ class _$GetTotalModelImpl implements _GetTotalModel {
   @JsonKey()
   final String message;
   @override
-  @JsonKey()
+  @JsonKey(name: 'data')
   final GetTotalData data;
 
   @override
@@ -216,7 +225,7 @@ abstract class _GetTotalModel implements GetTotalModel {
       {final int code,
       final bool success,
       final String message,
-      final GetTotalData data}) = _$GetTotalModelImpl;
+      @JsonKey(name: 'data') final GetTotalData data}) = _$GetTotalModelImpl;
 
   factory _GetTotalModel.fromJson(Map<String, dynamic> json) =
       _$GetTotalModelImpl.fromJson;
@@ -228,6 +237,7 @@ abstract class _GetTotalModel implements GetTotalModel {
   @override
   String get message;
   @override
+  @JsonKey(name: 'data')
   GetTotalData get data;
 
   /// Create a copy of GetTotalModel
@@ -246,12 +256,18 @@ GetTotalData _$GetTotalDataFromJson(Map<String, dynamic> json) {
 mixin _$GetTotalData {
   String get vat => throw _privateConstructorUsedError;
   String get total => throw _privateConstructorUsedError;
+  String get registration_total => throw _privateConstructorUsedError;
+  @JsonKey(name: 'registration_fees')
+  List<RegistrationFee> get registrationFees =>
+      throw _privateConstructorUsedError;
   String get total_session_discount => throw _privateConstructorUsedError;
-  @JsonKey(name: 'promocodeDetails')
   dynamic get promocodeDetails => throw _privateConstructorUsedError;
   String get total_payable => throw _privateConstructorUsedError;
-  GetTotalSettings get settings => throw _privateConstructorUsedError;
-  int get is_private => throw _privateConstructorUsedError;
+  @JsonKey(name: 'bulk_discounts')
+  List<dynamic> get bulkDiscounts => throw _privateConstructorUsedError;
+  @JsonKey(name: 'settings')
+  Settings get settings => throw _privateConstructorUsedError;
+  String get is_private => throw _privateConstructorUsedError;
 
   /// Serializes this GetTotalData to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -272,13 +288,17 @@ abstract class $GetTotalDataCopyWith<$Res> {
   $Res call(
       {String vat,
       String total,
+      String registration_total,
+      @JsonKey(name: 'registration_fees')
+      List<RegistrationFee> registrationFees,
       String total_session_discount,
-      @JsonKey(name: 'promocodeDetails') dynamic promocodeDetails,
+      dynamic promocodeDetails,
       String total_payable,
-      GetTotalSettings settings,
-      int is_private});
+      @JsonKey(name: 'bulk_discounts') List<dynamic> bulkDiscounts,
+      @JsonKey(name: 'settings') Settings settings,
+      String is_private});
 
-  $GetTotalSettingsCopyWith<$Res> get settings;
+  $SettingsCopyWith<$Res> get settings;
 }
 
 /// @nodoc
@@ -298,9 +318,12 @@ class _$GetTotalDataCopyWithImpl<$Res, $Val extends GetTotalData>
   $Res call({
     Object? vat = null,
     Object? total = null,
+    Object? registration_total = null,
+    Object? registrationFees = null,
     Object? total_session_discount = null,
     Object? promocodeDetails = freezed,
     Object? total_payable = null,
+    Object? bulkDiscounts = null,
     Object? settings = null,
     Object? is_private = null,
   }) {
@@ -313,6 +336,14 @@ class _$GetTotalDataCopyWithImpl<$Res, $Val extends GetTotalData>
           ? _value.total
           : total // ignore: cast_nullable_to_non_nullable
               as String,
+      registration_total: null == registration_total
+          ? _value.registration_total
+          : registration_total // ignore: cast_nullable_to_non_nullable
+              as String,
+      registrationFees: null == registrationFees
+          ? _value.registrationFees
+          : registrationFees // ignore: cast_nullable_to_non_nullable
+              as List<RegistrationFee>,
       total_session_discount: null == total_session_discount
           ? _value.total_session_discount
           : total_session_discount // ignore: cast_nullable_to_non_nullable
@@ -325,14 +356,18 @@ class _$GetTotalDataCopyWithImpl<$Res, $Val extends GetTotalData>
           ? _value.total_payable
           : total_payable // ignore: cast_nullable_to_non_nullable
               as String,
+      bulkDiscounts: null == bulkDiscounts
+          ? _value.bulkDiscounts
+          : bulkDiscounts // ignore: cast_nullable_to_non_nullable
+              as List<dynamic>,
       settings: null == settings
           ? _value.settings
           : settings // ignore: cast_nullable_to_non_nullable
-              as GetTotalSettings,
+              as Settings,
       is_private: null == is_private
           ? _value.is_private
           : is_private // ignore: cast_nullable_to_non_nullable
-              as int,
+              as String,
     ) as $Val);
   }
 
@@ -340,8 +375,8 @@ class _$GetTotalDataCopyWithImpl<$Res, $Val extends GetTotalData>
   /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
-  $GetTotalSettingsCopyWith<$Res> get settings {
-    return $GetTotalSettingsCopyWith<$Res>(_value.settings, (value) {
+  $SettingsCopyWith<$Res> get settings {
+    return $SettingsCopyWith<$Res>(_value.settings, (value) {
       return _then(_value.copyWith(settings: value) as $Val);
     });
   }
@@ -358,14 +393,18 @@ abstract class _$$GetTotalDataImplCopyWith<$Res>
   $Res call(
       {String vat,
       String total,
+      String registration_total,
+      @JsonKey(name: 'registration_fees')
+      List<RegistrationFee> registrationFees,
       String total_session_discount,
-      @JsonKey(name: 'promocodeDetails') dynamic promocodeDetails,
+      dynamic promocodeDetails,
       String total_payable,
-      GetTotalSettings settings,
-      int is_private});
+      @JsonKey(name: 'bulk_discounts') List<dynamic> bulkDiscounts,
+      @JsonKey(name: 'settings') Settings settings,
+      String is_private});
 
   @override
-  $GetTotalSettingsCopyWith<$Res> get settings;
+  $SettingsCopyWith<$Res> get settings;
 }
 
 /// @nodoc
@@ -383,9 +422,12 @@ class __$$GetTotalDataImplCopyWithImpl<$Res>
   $Res call({
     Object? vat = null,
     Object? total = null,
+    Object? registration_total = null,
+    Object? registrationFees = null,
     Object? total_session_discount = null,
     Object? promocodeDetails = freezed,
     Object? total_payable = null,
+    Object? bulkDiscounts = null,
     Object? settings = null,
     Object? is_private = null,
   }) {
@@ -398,6 +440,14 @@ class __$$GetTotalDataImplCopyWithImpl<$Res>
           ? _value.total
           : total // ignore: cast_nullable_to_non_nullable
               as String,
+      registration_total: null == registration_total
+          ? _value.registration_total
+          : registration_total // ignore: cast_nullable_to_non_nullable
+              as String,
+      registrationFees: null == registrationFees
+          ? _value._registrationFees
+          : registrationFees // ignore: cast_nullable_to_non_nullable
+              as List<RegistrationFee>,
       total_session_discount: null == total_session_discount
           ? _value.total_session_discount
           : total_session_discount // ignore: cast_nullable_to_non_nullable
@@ -410,14 +460,18 @@ class __$$GetTotalDataImplCopyWithImpl<$Res>
           ? _value.total_payable
           : total_payable // ignore: cast_nullable_to_non_nullable
               as String,
+      bulkDiscounts: null == bulkDiscounts
+          ? _value._bulkDiscounts
+          : bulkDiscounts // ignore: cast_nullable_to_non_nullable
+              as List<dynamic>,
       settings: null == settings
           ? _value.settings
           : settings // ignore: cast_nullable_to_non_nullable
-              as GetTotalSettings,
+              as Settings,
       is_private: null == is_private
           ? _value.is_private
           : is_private // ignore: cast_nullable_to_non_nullable
-              as int,
+              as String,
     ));
   }
 }
@@ -426,13 +480,20 @@ class __$$GetTotalDataImplCopyWithImpl<$Res>
 @JsonSerializable()
 class _$GetTotalDataImpl implements _GetTotalData {
   const _$GetTotalDataImpl(
-      {this.vat = '\$0.00',
-      this.total = '\$0.00',
+      {this.vat = '',
+      this.total = '',
+      this.registration_total = '',
+      @JsonKey(name: 'registration_fees')
+      final List<RegistrationFee> registrationFees = const [],
       this.total_session_discount = '',
-      @JsonKey(name: 'promocodeDetails') this.promocodeDetails,
-      this.total_payable = '\$0.00',
-      this.settings = const GetTotalSettings(),
-      this.is_private = 0});
+      this.promocodeDetails = null,
+      this.total_payable = '',
+      @JsonKey(name: 'bulk_discounts')
+      final List<dynamic> bulkDiscounts = const [],
+      @JsonKey(name: 'settings') this.settings = const Settings(),
+      this.is_private = ''})
+      : _registrationFees = registrationFees,
+        _bulkDiscounts = bulkDiscounts;
 
   factory _$GetTotalDataImpl.fromJson(Map<String, dynamic> json) =>
       _$$GetTotalDataImplFromJson(json);
@@ -445,23 +506,45 @@ class _$GetTotalDataImpl implements _GetTotalData {
   final String total;
   @override
   @JsonKey()
+  final String registration_total;
+  final List<RegistrationFee> _registrationFees;
+  @override
+  @JsonKey(name: 'registration_fees')
+  List<RegistrationFee> get registrationFees {
+    if (_registrationFees is EqualUnmodifiableListView)
+      return _registrationFees;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_registrationFees);
+  }
+
+  @override
+  @JsonKey()
   final String total_session_discount;
   @override
-  @JsonKey(name: 'promocodeDetails')
+  @JsonKey()
   final dynamic promocodeDetails;
   @override
   @JsonKey()
   final String total_payable;
+  final List<dynamic> _bulkDiscounts;
+  @override
+  @JsonKey(name: 'bulk_discounts')
+  List<dynamic> get bulkDiscounts {
+    if (_bulkDiscounts is EqualUnmodifiableListView) return _bulkDiscounts;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_bulkDiscounts);
+  }
+
+  @override
+  @JsonKey(name: 'settings')
+  final Settings settings;
   @override
   @JsonKey()
-  final GetTotalSettings settings;
-  @override
-  @JsonKey()
-  final int is_private;
+  final String is_private;
 
   @override
   String toString() {
-    return 'GetTotalData(vat: $vat, total: $total, total_session_discount: $total_session_discount, promocodeDetails: $promocodeDetails, total_payable: $total_payable, settings: $settings, is_private: $is_private)';
+    return 'GetTotalData(vat: $vat, total: $total, registration_total: $registration_total, registrationFees: $registrationFees, total_session_discount: $total_session_discount, promocodeDetails: $promocodeDetails, total_payable: $total_payable, bulkDiscounts: $bulkDiscounts, settings: $settings, is_private: $is_private)';
   }
 
   @override
@@ -471,12 +554,18 @@ class _$GetTotalDataImpl implements _GetTotalData {
             other is _$GetTotalDataImpl &&
             (identical(other.vat, vat) || other.vat == vat) &&
             (identical(other.total, total) || other.total == total) &&
+            (identical(other.registration_total, registration_total) ||
+                other.registration_total == registration_total) &&
+            const DeepCollectionEquality()
+                .equals(other._registrationFees, _registrationFees) &&
             (identical(other.total_session_discount, total_session_discount) ||
                 other.total_session_discount == total_session_discount) &&
             const DeepCollectionEquality()
                 .equals(other.promocodeDetails, promocodeDetails) &&
             (identical(other.total_payable, total_payable) ||
                 other.total_payable == total_payable) &&
+            const DeepCollectionEquality()
+                .equals(other._bulkDiscounts, _bulkDiscounts) &&
             (identical(other.settings, settings) ||
                 other.settings == settings) &&
             (identical(other.is_private, is_private) ||
@@ -489,9 +578,12 @@ class _$GetTotalDataImpl implements _GetTotalData {
       runtimeType,
       vat,
       total,
+      registration_total,
+      const DeepCollectionEquality().hash(_registrationFees),
       total_session_discount,
       const DeepCollectionEquality().hash(promocodeDetails),
       total_payable,
+      const DeepCollectionEquality().hash(_bulkDiscounts),
       settings,
       is_private);
 
@@ -515,11 +607,15 @@ abstract class _GetTotalData implements GetTotalData {
   const factory _GetTotalData(
       {final String vat,
       final String total,
+      final String registration_total,
+      @JsonKey(name: 'registration_fees')
+      final List<RegistrationFee> registrationFees,
       final String total_session_discount,
-      @JsonKey(name: 'promocodeDetails') final dynamic promocodeDetails,
+      final dynamic promocodeDetails,
       final String total_payable,
-      final GetTotalSettings settings,
-      final int is_private}) = _$GetTotalDataImpl;
+      @JsonKey(name: 'bulk_discounts') final List<dynamic> bulkDiscounts,
+      @JsonKey(name: 'settings') final Settings settings,
+      final String is_private}) = _$GetTotalDataImpl;
 
   factory _GetTotalData.fromJson(Map<String, dynamic> json) =
       _$GetTotalDataImpl.fromJson;
@@ -529,16 +625,24 @@ abstract class _GetTotalData implements GetTotalData {
   @override
   String get total;
   @override
+  String get registration_total;
+  @override
+  @JsonKey(name: 'registration_fees')
+  List<RegistrationFee> get registrationFees;
+  @override
   String get total_session_discount;
   @override
-  @JsonKey(name: 'promocodeDetails')
   dynamic get promocodeDetails;
   @override
   String get total_payable;
   @override
-  GetTotalSettings get settings;
+  @JsonKey(name: 'bulk_discounts')
+  List<dynamic> get bulkDiscounts;
   @override
-  int get is_private;
+  @JsonKey(name: 'settings')
+  Settings get settings;
+  @override
+  String get is_private;
 
   /// Create a copy of GetTotalData
   /// with the given fields replaced by the non-null parameter values.
@@ -548,12 +652,226 @@ abstract class _GetTotalData implements GetTotalData {
       throw _privateConstructorUsedError;
 }
 
-GetTotalSettings _$GetTotalSettingsFromJson(Map<String, dynamic> json) {
-  return _GetTotalSettings.fromJson(json);
+RegistrationFee _$RegistrationFeeFromJson(Map<String, dynamic> json) {
+  return _RegistrationFee.fromJson(json);
 }
 
 /// @nodoc
-mixin _$GetTotalSettings {
+mixin _$RegistrationFee {
+  String get fee_level => throw _privateConstructorUsedError;
+  int get player_id => throw _privateConstructorUsedError;
+  int get fee => throw _privateConstructorUsedError;
+  String get formatted_fee => throw _privateConstructorUsedError;
+
+  /// Serializes this RegistrationFee to a JSON map.
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+
+  /// Create a copy of RegistrationFee
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  $RegistrationFeeCopyWith<RegistrationFee> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $RegistrationFeeCopyWith<$Res> {
+  factory $RegistrationFeeCopyWith(
+          RegistrationFee value, $Res Function(RegistrationFee) then) =
+      _$RegistrationFeeCopyWithImpl<$Res, RegistrationFee>;
+  @useResult
+  $Res call({String fee_level, int player_id, int fee, String formatted_fee});
+}
+
+/// @nodoc
+class _$RegistrationFeeCopyWithImpl<$Res, $Val extends RegistrationFee>
+    implements $RegistrationFeeCopyWith<$Res> {
+  _$RegistrationFeeCopyWithImpl(this._value, this._then);
+
+  // ignore: unused_field
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
+
+  /// Create a copy of RegistrationFee
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? fee_level = null,
+    Object? player_id = null,
+    Object? fee = null,
+    Object? formatted_fee = null,
+  }) {
+    return _then(_value.copyWith(
+      fee_level: null == fee_level
+          ? _value.fee_level
+          : fee_level // ignore: cast_nullable_to_non_nullable
+              as String,
+      player_id: null == player_id
+          ? _value.player_id
+          : player_id // ignore: cast_nullable_to_non_nullable
+              as int,
+      fee: null == fee
+          ? _value.fee
+          : fee // ignore: cast_nullable_to_non_nullable
+              as int,
+      formatted_fee: null == formatted_fee
+          ? _value.formatted_fee
+          : formatted_fee // ignore: cast_nullable_to_non_nullable
+              as String,
+    ) as $Val);
+  }
+}
+
+/// @nodoc
+abstract class _$$RegistrationFeeImplCopyWith<$Res>
+    implements $RegistrationFeeCopyWith<$Res> {
+  factory _$$RegistrationFeeImplCopyWith(_$RegistrationFeeImpl value,
+          $Res Function(_$RegistrationFeeImpl) then) =
+      __$$RegistrationFeeImplCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call({String fee_level, int player_id, int fee, String formatted_fee});
+}
+
+/// @nodoc
+class __$$RegistrationFeeImplCopyWithImpl<$Res>
+    extends _$RegistrationFeeCopyWithImpl<$Res, _$RegistrationFeeImpl>
+    implements _$$RegistrationFeeImplCopyWith<$Res> {
+  __$$RegistrationFeeImplCopyWithImpl(
+      _$RegistrationFeeImpl _value, $Res Function(_$RegistrationFeeImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of RegistrationFee
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? fee_level = null,
+    Object? player_id = null,
+    Object? fee = null,
+    Object? formatted_fee = null,
+  }) {
+    return _then(_$RegistrationFeeImpl(
+      fee_level: null == fee_level
+          ? _value.fee_level
+          : fee_level // ignore: cast_nullable_to_non_nullable
+              as String,
+      player_id: null == player_id
+          ? _value.player_id
+          : player_id // ignore: cast_nullable_to_non_nullable
+              as int,
+      fee: null == fee
+          ? _value.fee
+          : fee // ignore: cast_nullable_to_non_nullable
+              as int,
+      formatted_fee: null == formatted_fee
+          ? _value.formatted_fee
+          : formatted_fee // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+@JsonSerializable()
+class _$RegistrationFeeImpl implements _RegistrationFee {
+  const _$RegistrationFeeImpl(
+      {this.fee_level = '',
+      this.player_id = 0,
+      this.fee = 0,
+      this.formatted_fee = ''});
+
+  factory _$RegistrationFeeImpl.fromJson(Map<String, dynamic> json) =>
+      _$$RegistrationFeeImplFromJson(json);
+
+  @override
+  @JsonKey()
+  final String fee_level;
+  @override
+  @JsonKey()
+  final int player_id;
+  @override
+  @JsonKey()
+  final int fee;
+  @override
+  @JsonKey()
+  final String formatted_fee;
+
+  @override
+  String toString() {
+    return 'RegistrationFee(fee_level: $fee_level, player_id: $player_id, fee: $fee, formatted_fee: $formatted_fee)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$RegistrationFeeImpl &&
+            (identical(other.fee_level, fee_level) ||
+                other.fee_level == fee_level) &&
+            (identical(other.player_id, player_id) ||
+                other.player_id == player_id) &&
+            (identical(other.fee, fee) || other.fee == fee) &&
+            (identical(other.formatted_fee, formatted_fee) ||
+                other.formatted_fee == formatted_fee));
+  }
+
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  int get hashCode =>
+      Object.hash(runtimeType, fee_level, player_id, fee, formatted_fee);
+
+  /// Create a copy of RegistrationFee
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$RegistrationFeeImplCopyWith<_$RegistrationFeeImpl> get copyWith =>
+      __$$RegistrationFeeImplCopyWithImpl<_$RegistrationFeeImpl>(
+          this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$RegistrationFeeImplToJson(
+      this,
+    );
+  }
+}
+
+abstract class _RegistrationFee implements RegistrationFee {
+  const factory _RegistrationFee(
+      {final String fee_level,
+      final int player_id,
+      final int fee,
+      final String formatted_fee}) = _$RegistrationFeeImpl;
+
+  factory _RegistrationFee.fromJson(Map<String, dynamic> json) =
+      _$RegistrationFeeImpl.fromJson;
+
+  @override
+  String get fee_level;
+  @override
+  int get player_id;
+  @override
+  int get fee;
+  @override
+  String get formatted_fee;
+
+  /// Create a copy of RegistrationFee
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$RegistrationFeeImplCopyWith<_$RegistrationFeeImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+Settings _$SettingsFromJson(Map<String, dynamic> json) {
+  return _Settings.fromJson(json);
+}
+
+/// @nodoc
+mixin _$Settings {
   int get id => throw _privateConstructorUsedError;
   int get academy_id => throw _privateConstructorUsedError;
   String get timezone => throw _privateConstructorUsedError;
@@ -571,29 +889,28 @@ mixin _$GetTotalSettings {
   int get cancellation_days => throw _privateConstructorUsedError;
   String get tax_invoice => throw _privateConstructorUsedError;
   String get smtp => throw _privateConstructorUsedError;
-  String? get twitterLink => throw _privateConstructorUsedError;
-  String? get facebookLink => throw _privateConstructorUsedError;
-  String? get InstaLink => throw _privateConstructorUsedError;
-  String? get YoutubeLink => throw _privateConstructorUsedError;
+  dynamic get twitterLink => throw _privateConstructorUsedError;
+  String get facebookLink => throw _privateConstructorUsedError;
+  String get InstaLink => throw _privateConstructorUsedError;
+  dynamic get YoutubeLink => throw _privateConstructorUsedError;
   String get created_at => throw _privateConstructorUsedError;
   String get updated_at => throw _privateConstructorUsedError;
   String get iframe => throw _privateConstructorUsedError;
 
-  /// Serializes this GetTotalSettings to a JSON map.
+  /// Serializes this Settings to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
 
-  /// Create a copy of GetTotalSettings
+  /// Create a copy of Settings
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
-  $GetTotalSettingsCopyWith<GetTotalSettings> get copyWith =>
+  $SettingsCopyWith<Settings> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $GetTotalSettingsCopyWith<$Res> {
-  factory $GetTotalSettingsCopyWith(
-          GetTotalSettings value, $Res Function(GetTotalSettings) then) =
-      _$GetTotalSettingsCopyWithImpl<$Res, GetTotalSettings>;
+abstract class $SettingsCopyWith<$Res> {
+  factory $SettingsCopyWith(Settings value, $Res Function(Settings) then) =
+      _$SettingsCopyWithImpl<$Res, Settings>;
   @useResult
   $Res call(
       {int id,
@@ -612,26 +929,26 @@ abstract class $GetTotalSettingsCopyWith<$Res> {
       int cancellation_days,
       String tax_invoice,
       String smtp,
-      String? twitterLink,
-      String? facebookLink,
-      String? InstaLink,
-      String? YoutubeLink,
+      dynamic twitterLink,
+      String facebookLink,
+      String InstaLink,
+      dynamic YoutubeLink,
       String created_at,
       String updated_at,
       String iframe});
 }
 
 /// @nodoc
-class _$GetTotalSettingsCopyWithImpl<$Res, $Val extends GetTotalSettings>
-    implements $GetTotalSettingsCopyWith<$Res> {
-  _$GetTotalSettingsCopyWithImpl(this._value, this._then);
+class _$SettingsCopyWithImpl<$Res, $Val extends Settings>
+    implements $SettingsCopyWith<$Res> {
+  _$SettingsCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
 
-  /// Create a copy of GetTotalSettings
+  /// Create a copy of Settings
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
@@ -653,8 +970,8 @@ class _$GetTotalSettingsCopyWithImpl<$Res, $Val extends GetTotalSettings>
     Object? tax_invoice = null,
     Object? smtp = null,
     Object? twitterLink = freezed,
-    Object? facebookLink = freezed,
-    Object? InstaLink = freezed,
+    Object? facebookLink = null,
+    Object? InstaLink = null,
     Object? YoutubeLink = freezed,
     Object? created_at = null,
     Object? updated_at = null,
@@ -728,19 +1045,19 @@ class _$GetTotalSettingsCopyWithImpl<$Res, $Val extends GetTotalSettings>
       twitterLink: freezed == twitterLink
           ? _value.twitterLink
           : twitterLink // ignore: cast_nullable_to_non_nullable
-              as String?,
-      facebookLink: freezed == facebookLink
+              as dynamic,
+      facebookLink: null == facebookLink
           ? _value.facebookLink
           : facebookLink // ignore: cast_nullable_to_non_nullable
-              as String?,
-      InstaLink: freezed == InstaLink
+              as String,
+      InstaLink: null == InstaLink
           ? _value.InstaLink
           : InstaLink // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as String,
       YoutubeLink: freezed == YoutubeLink
           ? _value.YoutubeLink
           : YoutubeLink // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as dynamic,
       created_at: null == created_at
           ? _value.created_at
           : created_at // ignore: cast_nullable_to_non_nullable
@@ -758,11 +1075,11 @@ class _$GetTotalSettingsCopyWithImpl<$Res, $Val extends GetTotalSettings>
 }
 
 /// @nodoc
-abstract class _$$GetTotalSettingsImplCopyWith<$Res>
-    implements $GetTotalSettingsCopyWith<$Res> {
-  factory _$$GetTotalSettingsImplCopyWith(_$GetTotalSettingsImpl value,
-          $Res Function(_$GetTotalSettingsImpl) then) =
-      __$$GetTotalSettingsImplCopyWithImpl<$Res>;
+abstract class _$$SettingsImplCopyWith<$Res>
+    implements $SettingsCopyWith<$Res> {
+  factory _$$SettingsImplCopyWith(
+          _$SettingsImpl value, $Res Function(_$SettingsImpl) then) =
+      __$$SettingsImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -782,24 +1099,24 @@ abstract class _$$GetTotalSettingsImplCopyWith<$Res>
       int cancellation_days,
       String tax_invoice,
       String smtp,
-      String? twitterLink,
-      String? facebookLink,
-      String? InstaLink,
-      String? YoutubeLink,
+      dynamic twitterLink,
+      String facebookLink,
+      String InstaLink,
+      dynamic YoutubeLink,
       String created_at,
       String updated_at,
       String iframe});
 }
 
 /// @nodoc
-class __$$GetTotalSettingsImplCopyWithImpl<$Res>
-    extends _$GetTotalSettingsCopyWithImpl<$Res, _$GetTotalSettingsImpl>
-    implements _$$GetTotalSettingsImplCopyWith<$Res> {
-  __$$GetTotalSettingsImplCopyWithImpl(_$GetTotalSettingsImpl _value,
-      $Res Function(_$GetTotalSettingsImpl) _then)
+class __$$SettingsImplCopyWithImpl<$Res>
+    extends _$SettingsCopyWithImpl<$Res, _$SettingsImpl>
+    implements _$$SettingsImplCopyWith<$Res> {
+  __$$SettingsImplCopyWithImpl(
+      _$SettingsImpl _value, $Res Function(_$SettingsImpl) _then)
       : super(_value, _then);
 
-  /// Create a copy of GetTotalSettings
+  /// Create a copy of Settings
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
@@ -821,14 +1138,14 @@ class __$$GetTotalSettingsImplCopyWithImpl<$Res>
     Object? tax_invoice = null,
     Object? smtp = null,
     Object? twitterLink = freezed,
-    Object? facebookLink = freezed,
-    Object? InstaLink = freezed,
+    Object? facebookLink = null,
+    Object? InstaLink = null,
     Object? YoutubeLink = freezed,
     Object? created_at = null,
     Object? updated_at = null,
     Object? iframe = null,
   }) {
-    return _then(_$GetTotalSettingsImpl(
+    return _then(_$SettingsImpl(
       id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
@@ -896,19 +1213,19 @@ class __$$GetTotalSettingsImplCopyWithImpl<$Res>
       twitterLink: freezed == twitterLink
           ? _value.twitterLink
           : twitterLink // ignore: cast_nullable_to_non_nullable
-              as String?,
-      facebookLink: freezed == facebookLink
+              as dynamic,
+      facebookLink: null == facebookLink
           ? _value.facebookLink
           : facebookLink // ignore: cast_nullable_to_non_nullable
-              as String?,
-      InstaLink: freezed == InstaLink
+              as String,
+      InstaLink: null == InstaLink
           ? _value.InstaLink
           : InstaLink // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as String,
       YoutubeLink: freezed == YoutubeLink
           ? _value.YoutubeLink
           : YoutubeLink // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as dynamic,
       created_at: null == created_at
           ? _value.created_at
           : created_at // ignore: cast_nullable_to_non_nullable
@@ -927,8 +1244,8 @@ class __$$GetTotalSettingsImplCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$GetTotalSettingsImpl implements _GetTotalSettings {
-  const _$GetTotalSettingsImpl(
+class _$SettingsImpl implements _Settings {
+  const _$SettingsImpl(
       {this.id = 0,
       this.academy_id = 0,
       this.timezone = '',
@@ -945,16 +1262,16 @@ class _$GetTotalSettingsImpl implements _GetTotalSettings {
       this.cancellation_days = 0,
       this.tax_invoice = '',
       this.smtp = '',
-      this.twitterLink = '',
+      this.twitterLink = null,
       this.facebookLink = '',
       this.InstaLink = '',
-      this.YoutubeLink = '',
+      this.YoutubeLink = null,
       this.created_at = '',
       this.updated_at = '',
       this.iframe = ''});
 
-  factory _$GetTotalSettingsImpl.fromJson(Map<String, dynamic> json) =>
-      _$$GetTotalSettingsImplFromJson(json);
+  factory _$SettingsImpl.fromJson(Map<String, dynamic> json) =>
+      _$$SettingsImplFromJson(json);
 
   @override
   @JsonKey()
@@ -1006,16 +1323,16 @@ class _$GetTotalSettingsImpl implements _GetTotalSettings {
   final String smtp;
   @override
   @JsonKey()
-  final String? twitterLink;
+  final dynamic twitterLink;
   @override
   @JsonKey()
-  final String? facebookLink;
+  final String facebookLink;
   @override
   @JsonKey()
-  final String? InstaLink;
+  final String InstaLink;
   @override
   @JsonKey()
-  final String? YoutubeLink;
+  final dynamic YoutubeLink;
   @override
   @JsonKey()
   final String created_at;
@@ -1028,14 +1345,14 @@ class _$GetTotalSettingsImpl implements _GetTotalSettings {
 
   @override
   String toString() {
-    return 'GetTotalSettings(id: $id, academy_id: $academy_id, timezone: $timezone, date_format: $date_format, currency: $currency, currency_symbol: $currency_symbol, currency_position: $currency_position, term_reminders: $term_reminders, registration_fees: $registration_fees, home_section_status: $home_section_status, misc_fees: $misc_fees, sibling_discount: $sibling_discount, coaching_program_outside_link: $coaching_program_outside_link, cancellation_days: $cancellation_days, tax_invoice: $tax_invoice, smtp: $smtp, twitterLink: $twitterLink, facebookLink: $facebookLink, InstaLink: $InstaLink, YoutubeLink: $YoutubeLink, created_at: $created_at, updated_at: $updated_at, iframe: $iframe)';
+    return 'Settings(id: $id, academy_id: $academy_id, timezone: $timezone, date_format: $date_format, currency: $currency, currency_symbol: $currency_symbol, currency_position: $currency_position, term_reminders: $term_reminders, registration_fees: $registration_fees, home_section_status: $home_section_status, misc_fees: $misc_fees, sibling_discount: $sibling_discount, coaching_program_outside_link: $coaching_program_outside_link, cancellation_days: $cancellation_days, tax_invoice: $tax_invoice, smtp: $smtp, twitterLink: $twitterLink, facebookLink: $facebookLink, InstaLink: $InstaLink, YoutubeLink: $YoutubeLink, created_at: $created_at, updated_at: $updated_at, iframe: $iframe)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$GetTotalSettingsImpl &&
+            other is _$SettingsImpl &&
             (identical(other.id, id) || other.id == id) &&
             (identical(other.academy_id, academy_id) ||
                 other.academy_id == academy_id) &&
@@ -1068,14 +1385,14 @@ class _$GetTotalSettingsImpl implements _GetTotalSettings {
             (identical(other.tax_invoice, tax_invoice) ||
                 other.tax_invoice == tax_invoice) &&
             (identical(other.smtp, smtp) || other.smtp == smtp) &&
-            (identical(other.twitterLink, twitterLink) ||
-                other.twitterLink == twitterLink) &&
+            const DeepCollectionEquality()
+                .equals(other.twitterLink, twitterLink) &&
             (identical(other.facebookLink, facebookLink) ||
                 other.facebookLink == facebookLink) &&
             (identical(other.InstaLink, InstaLink) ||
                 other.InstaLink == InstaLink) &&
-            (identical(other.YoutubeLink, YoutubeLink) ||
-                other.YoutubeLink == YoutubeLink) &&
+            const DeepCollectionEquality()
+                .equals(other.YoutubeLink, YoutubeLink) &&
             (identical(other.created_at, created_at) ||
                 other.created_at == created_at) &&
             (identical(other.updated_at, updated_at) ||
@@ -1103,34 +1420,33 @@ class _$GetTotalSettingsImpl implements _GetTotalSettings {
         cancellation_days,
         tax_invoice,
         smtp,
-        twitterLink,
+        const DeepCollectionEquality().hash(twitterLink),
         facebookLink,
         InstaLink,
-        YoutubeLink,
+        const DeepCollectionEquality().hash(YoutubeLink),
         created_at,
         updated_at,
         iframe
       ]);
 
-  /// Create a copy of GetTotalSettings
+  /// Create a copy of Settings
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
-  _$$GetTotalSettingsImplCopyWith<_$GetTotalSettingsImpl> get copyWith =>
-      __$$GetTotalSettingsImplCopyWithImpl<_$GetTotalSettingsImpl>(
-          this, _$identity);
+  _$$SettingsImplCopyWith<_$SettingsImpl> get copyWith =>
+      __$$SettingsImplCopyWithImpl<_$SettingsImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$GetTotalSettingsImplToJson(
+    return _$$SettingsImplToJson(
       this,
     );
   }
 }
 
-abstract class _GetTotalSettings implements GetTotalSettings {
-  const factory _GetTotalSettings(
+abstract class _Settings implements Settings {
+  const factory _Settings(
       {final int id,
       final int academy_id,
       final String timezone,
@@ -1147,16 +1463,16 @@ abstract class _GetTotalSettings implements GetTotalSettings {
       final int cancellation_days,
       final String tax_invoice,
       final String smtp,
-      final String? twitterLink,
-      final String? facebookLink,
-      final String? InstaLink,
-      final String? YoutubeLink,
+      final dynamic twitterLink,
+      final String facebookLink,
+      final String InstaLink,
+      final dynamic YoutubeLink,
       final String created_at,
       final String updated_at,
-      final String iframe}) = _$GetTotalSettingsImpl;
+      final String iframe}) = _$SettingsImpl;
 
-  factory _GetTotalSettings.fromJson(Map<String, dynamic> json) =
-      _$GetTotalSettingsImpl.fromJson;
+  factory _Settings.fromJson(Map<String, dynamic> json) =
+      _$SettingsImpl.fromJson;
 
   @override
   int get id;
@@ -1191,13 +1507,13 @@ abstract class _GetTotalSettings implements GetTotalSettings {
   @override
   String get smtp;
   @override
-  String? get twitterLink;
+  dynamic get twitterLink;
   @override
-  String? get facebookLink;
+  String get facebookLink;
   @override
-  String? get InstaLink;
+  String get InstaLink;
   @override
-  String? get YoutubeLink;
+  dynamic get YoutubeLink;
   @override
   String get created_at;
   @override
@@ -1205,10 +1521,10 @@ abstract class _GetTotalSettings implements GetTotalSettings {
   @override
   String get iframe;
 
-  /// Create a copy of GetTotalSettings
+  /// Create a copy of Settings
   /// with the given fields replaced by the non-null parameter values.
   @override
   @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$GetTotalSettingsImplCopyWith<_$GetTotalSettingsImpl> get copyWith =>
+  _$$SettingsImplCopyWith<_$SettingsImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

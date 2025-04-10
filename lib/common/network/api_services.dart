@@ -40,6 +40,7 @@ class ApiServices {
           ||url==AppConstant.getRemoveDiscount
           ||url==AppConstant.getParentUploadDocument
           ||url==AppConstant.getTotal
+          ||url==AppConstant.getOrderPlace
 
       ) {
         print("YYYYYSY${url}YSYSYSYSYSYSYSYSYSSYSYSYSYSYSYSYSYSYSYSYSYSYYSYSYSY");

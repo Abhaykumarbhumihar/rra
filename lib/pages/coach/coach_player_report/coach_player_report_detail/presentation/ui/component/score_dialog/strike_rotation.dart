@@ -183,7 +183,6 @@ class _StrikeRotationDialogPageState extends State<StrikeRotationDialogPage> {
         SliderTheme(
           data: SliderTheme.of(context).copyWith(
             trackHeight: 6.0,
-            padding: EdgeInsets.zero,
             inactiveTrackColor: Colors.grey[400],
             activeTrackColor: _getSliderColor(value),
             thumbColor: _getSliderColor(value),

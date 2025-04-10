@@ -19,7 +19,7 @@ mixin _$ParentMyorderDetailState {
   bool get isError => throw _privateConstructorUsedError;
   bool get isLoading => throw _privateConstructorUsedError;
   bool get isSuccess => throw _privateConstructorUsedError;
-  ParentMyOrderDetailModel get parentMyOrderDetailModel =>
+  OrderDetailModel get parentMyOrderDetailModel =>
       throw _privateConstructorUsedError;
 
   /// Create a copy of ParentMyorderDetailState
@@ -39,9 +39,9 @@ abstract class $ParentMyorderDetailStateCopyWith<$Res> {
       {bool isError,
       bool isLoading,
       bool isSuccess,
-      ParentMyOrderDetailModel parentMyOrderDetailModel});
+      OrderDetailModel parentMyOrderDetailModel});
 
-  $ParentMyOrderDetailModelCopyWith<$Res> get parentMyOrderDetailModel;
+  $OrderDetailModelCopyWith<$Res> get parentMyOrderDetailModel;
 }
 
 /// @nodoc
@@ -81,7 +81,7 @@ class _$ParentMyorderDetailStateCopyWithImpl<$Res,
       parentMyOrderDetailModel: null == parentMyOrderDetailModel
           ? _value.parentMyOrderDetailModel
           : parentMyOrderDetailModel // ignore: cast_nullable_to_non_nullable
-              as ParentMyOrderDetailModel,
+              as OrderDetailModel,
     ) as $Val);
   }
 
@@ -89,9 +89,9 @@ class _$ParentMyorderDetailStateCopyWithImpl<$Res,
   /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
-  $ParentMyOrderDetailModelCopyWith<$Res> get parentMyOrderDetailModel {
-    return $ParentMyOrderDetailModelCopyWith<$Res>(
-        _value.parentMyOrderDetailModel, (value) {
+  $OrderDetailModelCopyWith<$Res> get parentMyOrderDetailModel {
+    return $OrderDetailModelCopyWith<$Res>(_value.parentMyOrderDetailModel,
+        (value) {
       return _then(_value.copyWith(parentMyOrderDetailModel: value) as $Val);
     });
   }
@@ -110,10 +110,10 @@ abstract class _$$ParentMyorderDetailStateImplCopyWith<$Res>
       {bool isError,
       bool isLoading,
       bool isSuccess,
-      ParentMyOrderDetailModel parentMyOrderDetailModel});
+      OrderDetailModel parentMyOrderDetailModel});
 
   @override
-  $ParentMyOrderDetailModelCopyWith<$Res> get parentMyOrderDetailModel;
+  $OrderDetailModelCopyWith<$Res> get parentMyOrderDetailModel;
 }
 
 /// @nodoc
@@ -152,7 +152,7 @@ class __$$ParentMyorderDetailStateImplCopyWithImpl<$Res>
       parentMyOrderDetailModel: null == parentMyOrderDetailModel
           ? _value.parentMyOrderDetailModel
           : parentMyOrderDetailModel // ignore: cast_nullable_to_non_nullable
-              as ParentMyOrderDetailModel,
+              as OrderDetailModel,
     ));
   }
 }
@@ -164,7 +164,7 @@ class _$ParentMyorderDetailStateImpl implements _ParentMyorderDetailState {
       {this.isError = false,
       this.isLoading = false,
       this.isSuccess = false,
-      this.parentMyOrderDetailModel = const ParentMyOrderDetailModel()});
+      this.parentMyOrderDetailModel = const OrderDetailModel()});
 
   @override
   @JsonKey()
@@ -177,7 +177,7 @@ class _$ParentMyorderDetailStateImpl implements _ParentMyorderDetailState {
   final bool isSuccess;
   @override
   @JsonKey()
-  final ParentMyOrderDetailModel parentMyOrderDetailModel;
+  final OrderDetailModel parentMyOrderDetailModel;
 
   @override
   String toString() {
@@ -218,7 +218,7 @@ abstract class _ParentMyorderDetailState implements ParentMyorderDetailState {
           {final bool isError,
           final bool isLoading,
           final bool isSuccess,
-          final ParentMyOrderDetailModel parentMyOrderDetailModel}) =
+          final OrderDetailModel parentMyOrderDetailModel}) =
       _$ParentMyorderDetailStateImpl;
 
   @override
@@ -228,7 +228,7 @@ abstract class _ParentMyorderDetailState implements ParentMyorderDetailState {
   @override
   bool get isSuccess;
   @override
-  ParentMyOrderDetailModel get parentMyOrderDetailModel;
+  OrderDetailModel get parentMyOrderDetailModel;
 
   /// Create a copy of ParentMyorderDetailState
   /// with the given fields replaced by the non-null parameter values.

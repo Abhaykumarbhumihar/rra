@@ -10,7 +10,7 @@ class ParentMyOrderDetailUsecase {
   ParentMyOrderDetailUsecase(this._myorderRepositery);
 
 
-  Future<Either<Failure, ParentMyOrderDetailModel>>
+  Future<Either<Failure, OrderDetailModel>>
       getParentMyOrderDetailExecute(Map<String, dynamic> orderData) async {
     return _myorderRepositery.getParentMyOrderDetail(orderData);
   }
