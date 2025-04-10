@@ -25,6 +25,7 @@ class GroupCoachingProgramList extends StatelessWidget {
                   coachingProgramResponse:
                       state.groupCoachProgramList.data[index],
                   onPressed: () {
+                    BlocProvider.of<CoachingDetailBloc>(context).add(ResetCoachingDetailEvent());
                     BlocProvider.of<CoachingProgramsBloc>(context).add(
                         StoreCoachingNameAndId(
                             state.groupCoachProgramList.data[index].name

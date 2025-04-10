@@ -24,6 +24,7 @@ class AppState with _$AppState {
     @Default(OtpVerificationModel()) OtpVerificationModel userdata,
     @Default(false) bool isError,
     @Default('') String errorMessage,
+    @Default('0') String bookedSessionCount,
     @Default('') String error,
     @Default(false) bool isLoading,
     @Default(false) bool isLoadingreport,

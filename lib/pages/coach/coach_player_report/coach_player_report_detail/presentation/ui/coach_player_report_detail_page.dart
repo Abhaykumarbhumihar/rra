@@ -32,6 +32,7 @@ class CoachPlayerReportDetailPage extends StatelessWidget {
               child: Column(
                 children: [
                   const SizedBox(height: 24),
+
                   PlayerInfoCard(
                     reportData: reportData,
                     onViewReport: () {
@@ -39,9 +40,12 @@ class CoachPlayerReportDetailPage extends StatelessWidget {
                         "childReportData": reportData,
 
                       };
-                     Navigator.pushNamed(context, AppRoutes.COACHPLAYERREPOORTWEBVIEWPAGE,arguments: arguments);
+                   //  Navigator.pushNamed(context, AppRoutes.COACHPLAYERREPOORTWEBVIEWPAGE,arguments: arguments);
                     },
                   ),
+
+
+
                   const SizedBox(height: 10),
                   ListView.builder(
                       itemCount: reportData.performanceElements.length,

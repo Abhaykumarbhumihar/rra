@@ -28,7 +28,7 @@ class PrivateCoachingProgramList extends StatelessWidget {
                   coachingProgramResponse:
                   state.privateCoachProgramList.data[index],
                   onPressed: () {
-
+                    BlocProvider.of<CoachingDetailBloc>(context).add(ResetCoachingDetailEvent());
                     BlocProvider.of<CoachingProgramsBloc>(context).add(StoreCoachingNameAndId(state.privateCoachProgramList.data[index].name.toString(),
                         state.privateCoachProgramList.data[index].id.toString(),
                         state.privateCoachProgramList.data[index].minCountOfBookings

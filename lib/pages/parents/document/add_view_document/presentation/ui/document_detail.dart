@@ -19,6 +19,7 @@ import '../bloc/add_document_event.dart';
 import '../bloc/add_document_state.dart';
 import 'component/add_document_component.dart';
 import 'component/document_item.dart';
+import 'component/image_dialog.dart';
 
 class DocumentDetail extends StatelessWidget {
   DocumentDetail({super.key});
@@ -102,7 +103,13 @@ class DocumentDetail extends StatelessWidget {
                             ),
                             InkWell(
                               onTap: (){
-                                print(uploadedDocument.imageUrl);
+                                showDialog(
+                                  context: context,
+                                  builder: (context) => ImageDialog(
+                                    imageUrl: '${uploadedDocument.imageUrl}',
+                                    onClose: () => Navigator.of(context).pop(),
+                                  ),
+                                );
                               },
                               child: InfoRowWithOnlyIcon(
                                 label: "Document",

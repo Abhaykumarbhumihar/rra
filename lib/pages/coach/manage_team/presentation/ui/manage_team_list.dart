@@ -16,6 +16,7 @@ class ManageTeamList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return CommonPageFormat(
+      isScrollable: false,
       title: "Manage Team",
       onBackPress: () {
         Navigator.pop(context);
@@ -63,17 +64,15 @@ class ManageTeamList extends StatelessWidget {
 
 
                       },
-                      child: Icon(
-                        Icons.short_text,
-                        color: Colors.white,
-                      ),
+                      child: Image.asset('assets/images/filter_icon.png',width: 22,height: 22,)
+
                     ),
                   ],
                 ),
                 SizedBox(
                   height: 10,
                 ),
-                ManageTeamListItem(),
+                Expanded(child: ManageTeamListItem()),
                 SizedBox(
                   height: 6,
                 ),

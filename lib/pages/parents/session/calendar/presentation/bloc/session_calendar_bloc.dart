@@ -35,6 +35,12 @@ class SessionCalendarBloc
     on<RemoveSessionByDateEvent>(_removeSessionByDate);
     on<GetSelectedSessionEvent>(_getSelectedSession);
     on<GetDayCountSessionEvent>(setCountBottomSheetType);
+    on<ResetCalendarEvent>(resetBlocEvent);
+  }
+
+  Future<void> resetBlocEvent(ResetCalendarEvent event,
+      Emitter<SessionCalendarState> emit) async {
+    emit(SessionCalendarState.initial());
   }
 
   Future<void> setCountBottomSheetType(GetDayCountSessionEvent event,

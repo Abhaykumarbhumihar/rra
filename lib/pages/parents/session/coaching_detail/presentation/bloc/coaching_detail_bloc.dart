@@ -16,6 +16,11 @@ class CoachingDetailBloc  extends Bloc<CoachingDetailEvent, CoachingDetailState>
   CoachingDetailBloc() : super(CoachingDetailState.initial()) {
     on<CoachingDetail>(_coachingProgramDetail);
     on<SelectedCoachIdEvent>(_storeSelectedCoachId);
+    on<ResetCoachingDetailEvent>(_resetState);
+  }
+  Future<void> _resetState(
+      ResetCoachingDetailEvent event, Emitter<CoachingDetailState> emit) async {
+    emit(CoachingDetailState.initial());
   }
   Future<void>_storeSelectedCoachId(SelectedCoachIdEvent event, Emitter<CoachingDetailState> emit)async{
     emit(state.copyWith(selectedCoachId: event.coach_id));

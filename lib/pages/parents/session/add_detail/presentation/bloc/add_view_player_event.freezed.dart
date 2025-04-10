@@ -30,6 +30,7 @@ mixin _$AddViewPlayerEvent {
     required TResult Function() submitButtonPress,
     required TResult Function() getChildListEvent,
     required TResult Function(int index) childSelectionToggle,
+    required TResult Function() resetAddViewPlayerEvent,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -46,6 +47,7 @@ mixin _$AddViewPlayerEvent {
     TResult? Function()? submitButtonPress,
     TResult? Function()? getChildListEvent,
     TResult? Function(int index)? childSelectionToggle,
+    TResult? Function()? resetAddViewPlayerEvent,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -62,6 +64,7 @@ mixin _$AddViewPlayerEvent {
     TResult Function()? submitButtonPress,
     TResult Function()? getChildListEvent,
     TResult Function(int index)? childSelectionToggle,
+    TResult Function()? resetAddViewPlayerEvent,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -85,6 +88,7 @@ mixin _$AddViewPlayerEvent {
         getChildListEvent,
     required TResult Function(AddViewPlayerChildSelectionToggleEvent value)
         childSelectionToggle,
+    required TResult Function(ResetAddViewEvent value) resetAddViewPlayerEvent,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -106,6 +110,7 @@ mixin _$AddViewPlayerEvent {
     TResult? Function(AddViewPlayerGetChildListEvent value)? getChildListEvent,
     TResult? Function(AddViewPlayerChildSelectionToggleEvent value)?
         childSelectionToggle,
+    TResult? Function(ResetAddViewEvent value)? resetAddViewPlayerEvent,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -127,6 +132,7 @@ mixin _$AddViewPlayerEvent {
     TResult Function(AddViewPlayerGetChildListEvent value)? getChildListEvent,
     TResult Function(AddViewPlayerChildSelectionToggleEvent value)?
         childSelectionToggle,
+    TResult Function(ResetAddViewEvent value)? resetAddViewPlayerEvent,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -239,6 +245,7 @@ class _$AddViewPlayerSelectedTabEventImpl
     required TResult Function() submitButtonPress,
     required TResult Function() getChildListEvent,
     required TResult Function(int index) childSelectionToggle,
+    required TResult Function() resetAddViewPlayerEvent,
   }) {
     return selectedTab(tabno);
   }
@@ -258,6 +265,7 @@ class _$AddViewPlayerSelectedTabEventImpl
     TResult? Function()? submitButtonPress,
     TResult? Function()? getChildListEvent,
     TResult? Function(int index)? childSelectionToggle,
+    TResult? Function()? resetAddViewPlayerEvent,
   }) {
     return selectedTab?.call(tabno);
   }
@@ -277,6 +285,7 @@ class _$AddViewPlayerSelectedTabEventImpl
     TResult Function()? submitButtonPress,
     TResult Function()? getChildListEvent,
     TResult Function(int index)? childSelectionToggle,
+    TResult Function()? resetAddViewPlayerEvent,
     required TResult orElse(),
   }) {
     if (selectedTab != null) {
@@ -306,6 +315,7 @@ class _$AddViewPlayerSelectedTabEventImpl
         getChildListEvent,
     required TResult Function(AddViewPlayerChildSelectionToggleEvent value)
         childSelectionToggle,
+    required TResult Function(ResetAddViewEvent value) resetAddViewPlayerEvent,
   }) {
     return selectedTab(this);
   }
@@ -330,6 +340,7 @@ class _$AddViewPlayerSelectedTabEventImpl
     TResult? Function(AddViewPlayerGetChildListEvent value)? getChildListEvent,
     TResult? Function(AddViewPlayerChildSelectionToggleEvent value)?
         childSelectionToggle,
+    TResult? Function(ResetAddViewEvent value)? resetAddViewPlayerEvent,
   }) {
     return selectedTab?.call(this);
   }
@@ -354,6 +365,7 @@ class _$AddViewPlayerSelectedTabEventImpl
     TResult Function(AddViewPlayerGetChildListEvent value)? getChildListEvent,
     TResult Function(AddViewPlayerChildSelectionToggleEvent value)?
         childSelectionToggle,
+    TResult Function(ResetAddViewEvent value)? resetAddViewPlayerEvent,
     required TResult orElse(),
   }) {
     if (selectedTab != null) {
@@ -464,6 +476,7 @@ class _$AddViewPlayerChiclPhotoConsentEventImpl
     required TResult Function() submitButtonPress,
     required TResult Function() getChildListEvent,
     required TResult Function(int index) childSelectionToggle,
+    required TResult Function() resetAddViewPlayerEvent,
   }) {
     return childPhotoConsent(consentStatus);
   }
@@ -483,6 +496,7 @@ class _$AddViewPlayerChiclPhotoConsentEventImpl
     TResult? Function()? submitButtonPress,
     TResult? Function()? getChildListEvent,
     TResult? Function(int index)? childSelectionToggle,
+    TResult? Function()? resetAddViewPlayerEvent,
   }) {
     return childPhotoConsent?.call(consentStatus);
   }
@@ -502,6 +516,7 @@ class _$AddViewPlayerChiclPhotoConsentEventImpl
     TResult Function()? submitButtonPress,
     TResult Function()? getChildListEvent,
     TResult Function(int index)? childSelectionToggle,
+    TResult Function()? resetAddViewPlayerEvent,
     required TResult orElse(),
   }) {
     if (childPhotoConsent != null) {
@@ -531,6 +546,7 @@ class _$AddViewPlayerChiclPhotoConsentEventImpl
         getChildListEvent,
     required TResult Function(AddViewPlayerChildSelectionToggleEvent value)
         childSelectionToggle,
+    required TResult Function(ResetAddViewEvent value) resetAddViewPlayerEvent,
   }) {
     return childPhotoConsent(this);
   }
@@ -555,6 +571,7 @@ class _$AddViewPlayerChiclPhotoConsentEventImpl
     TResult? Function(AddViewPlayerGetChildListEvent value)? getChildListEvent,
     TResult? Function(AddViewPlayerChildSelectionToggleEvent value)?
         childSelectionToggle,
+    TResult? Function(ResetAddViewEvent value)? resetAddViewPlayerEvent,
   }) {
     return childPhotoConsent?.call(this);
   }
@@ -579,6 +596,7 @@ class _$AddViewPlayerChiclPhotoConsentEventImpl
     TResult Function(AddViewPlayerGetChildListEvent value)? getChildListEvent,
     TResult Function(AddViewPlayerChildSelectionToggleEvent value)?
         childSelectionToggle,
+    TResult Function(ResetAddViewEvent value)? resetAddViewPlayerEvent,
     required TResult orElse(),
   }) {
     if (childPhotoConsent != null) {
@@ -691,6 +709,7 @@ class _$AddViewPlayeAdministratorFirstAidEventImpl
     required TResult Function() submitButtonPress,
     required TResult Function() getChildListEvent,
     required TResult Function(int index) childSelectionToggle,
+    required TResult Function() resetAddViewPlayerEvent,
   }) {
     return administratorFirstAid(firstAidStatus);
   }
@@ -710,6 +729,7 @@ class _$AddViewPlayeAdministratorFirstAidEventImpl
     TResult? Function()? submitButtonPress,
     TResult? Function()? getChildListEvent,
     TResult? Function(int index)? childSelectionToggle,
+    TResult? Function()? resetAddViewPlayerEvent,
   }) {
     return administratorFirstAid?.call(firstAidStatus);
   }
@@ -729,6 +749,7 @@ class _$AddViewPlayeAdministratorFirstAidEventImpl
     TResult Function()? submitButtonPress,
     TResult Function()? getChildListEvent,
     TResult Function(int index)? childSelectionToggle,
+    TResult Function()? resetAddViewPlayerEvent,
     required TResult orElse(),
   }) {
     if (administratorFirstAid != null) {
@@ -758,6 +779,7 @@ class _$AddViewPlayeAdministratorFirstAidEventImpl
         getChildListEvent,
     required TResult Function(AddViewPlayerChildSelectionToggleEvent value)
         childSelectionToggle,
+    required TResult Function(ResetAddViewEvent value) resetAddViewPlayerEvent,
   }) {
     return administratorFirstAid(this);
   }
@@ -782,6 +804,7 @@ class _$AddViewPlayeAdministratorFirstAidEventImpl
     TResult? Function(AddViewPlayerGetChildListEvent value)? getChildListEvent,
     TResult? Function(AddViewPlayerChildSelectionToggleEvent value)?
         childSelectionToggle,
+    TResult? Function(ResetAddViewEvent value)? resetAddViewPlayerEvent,
   }) {
     return administratorFirstAid?.call(this);
   }
@@ -806,6 +829,7 @@ class _$AddViewPlayeAdministratorFirstAidEventImpl
     TResult Function(AddViewPlayerGetChildListEvent value)? getChildListEvent,
     TResult Function(AddViewPlayerChildSelectionToggleEvent value)?
         childSelectionToggle,
+    TResult Function(ResetAddViewEvent value)? resetAddViewPlayerEvent,
     required TResult orElse(),
   }) {
     if (administratorFirstAid != null) {
@@ -915,6 +939,7 @@ class _$AddViewPlayerChildNameEventImpl implements AddViewPlayerChildNameEvent {
     required TResult Function() submitButtonPress,
     required TResult Function() getChildListEvent,
     required TResult Function(int index) childSelectionToggle,
+    required TResult Function() resetAddViewPlayerEvent,
   }) {
     return childName(this.childName);
   }
@@ -934,6 +959,7 @@ class _$AddViewPlayerChildNameEventImpl implements AddViewPlayerChildNameEvent {
     TResult? Function()? submitButtonPress,
     TResult? Function()? getChildListEvent,
     TResult? Function(int index)? childSelectionToggle,
+    TResult? Function()? resetAddViewPlayerEvent,
   }) {
     return childName?.call(this.childName);
   }
@@ -953,6 +979,7 @@ class _$AddViewPlayerChildNameEventImpl implements AddViewPlayerChildNameEvent {
     TResult Function()? submitButtonPress,
     TResult Function()? getChildListEvent,
     TResult Function(int index)? childSelectionToggle,
+    TResult Function()? resetAddViewPlayerEvent,
     required TResult orElse(),
   }) {
     if (childName != null) {
@@ -982,6 +1009,7 @@ class _$AddViewPlayerChildNameEventImpl implements AddViewPlayerChildNameEvent {
         getChildListEvent,
     required TResult Function(AddViewPlayerChildSelectionToggleEvent value)
         childSelectionToggle,
+    required TResult Function(ResetAddViewEvent value) resetAddViewPlayerEvent,
   }) {
     return childName(this);
   }
@@ -1006,6 +1034,7 @@ class _$AddViewPlayerChildNameEventImpl implements AddViewPlayerChildNameEvent {
     TResult? Function(AddViewPlayerGetChildListEvent value)? getChildListEvent,
     TResult? Function(AddViewPlayerChildSelectionToggleEvent value)?
         childSelectionToggle,
+    TResult? Function(ResetAddViewEvent value)? resetAddViewPlayerEvent,
   }) {
     return childName?.call(this);
   }
@@ -1030,6 +1059,7 @@ class _$AddViewPlayerChildNameEventImpl implements AddViewPlayerChildNameEvent {
     TResult Function(AddViewPlayerGetChildListEvent value)? getChildListEvent,
     TResult Function(AddViewPlayerChildSelectionToggleEvent value)?
         childSelectionToggle,
+    TResult Function(ResetAddViewEvent value)? resetAddViewPlayerEvent,
     required TResult orElse(),
   }) {
     if (childName != null) {
@@ -1136,6 +1166,7 @@ class _$AddViewPlayerChildAgeEventImpl implements AddViewPlayerChildAgeEvent {
     required TResult Function() submitButtonPress,
     required TResult Function() getChildListEvent,
     required TResult Function(int index) childSelectionToggle,
+    required TResult Function() resetAddViewPlayerEvent,
   }) {
     return childAge(age);
   }
@@ -1155,6 +1186,7 @@ class _$AddViewPlayerChildAgeEventImpl implements AddViewPlayerChildAgeEvent {
     TResult? Function()? submitButtonPress,
     TResult? Function()? getChildListEvent,
     TResult? Function(int index)? childSelectionToggle,
+    TResult? Function()? resetAddViewPlayerEvent,
   }) {
     return childAge?.call(age);
   }
@@ -1174,6 +1206,7 @@ class _$AddViewPlayerChildAgeEventImpl implements AddViewPlayerChildAgeEvent {
     TResult Function()? submitButtonPress,
     TResult Function()? getChildListEvent,
     TResult Function(int index)? childSelectionToggle,
+    TResult Function()? resetAddViewPlayerEvent,
     required TResult orElse(),
   }) {
     if (childAge != null) {
@@ -1203,6 +1236,7 @@ class _$AddViewPlayerChildAgeEventImpl implements AddViewPlayerChildAgeEvent {
         getChildListEvent,
     required TResult Function(AddViewPlayerChildSelectionToggleEvent value)
         childSelectionToggle,
+    required TResult Function(ResetAddViewEvent value) resetAddViewPlayerEvent,
   }) {
     return childAge(this);
   }
@@ -1227,6 +1261,7 @@ class _$AddViewPlayerChildAgeEventImpl implements AddViewPlayerChildAgeEvent {
     TResult? Function(AddViewPlayerGetChildListEvent value)? getChildListEvent,
     TResult? Function(AddViewPlayerChildSelectionToggleEvent value)?
         childSelectionToggle,
+    TResult? Function(ResetAddViewEvent value)? resetAddViewPlayerEvent,
   }) {
     return childAge?.call(this);
   }
@@ -1251,6 +1286,7 @@ class _$AddViewPlayerChildAgeEventImpl implements AddViewPlayerChildAgeEvent {
     TResult Function(AddViewPlayerGetChildListEvent value)? getChildListEvent,
     TResult Function(AddViewPlayerChildSelectionToggleEvent value)?
         childSelectionToggle,
+    TResult Function(ResetAddViewEvent value)? resetAddViewPlayerEvent,
     required TResult orElse(),
   }) {
     if (childAge != null) {
@@ -1357,6 +1393,7 @@ class _$AddViewPlayerChildDobEventImpl implements AddViewPlayerChildDobEvent {
     required TResult Function() submitButtonPress,
     required TResult Function() getChildListEvent,
     required TResult Function(int index) childSelectionToggle,
+    required TResult Function() resetAddViewPlayerEvent,
   }) {
     return childDob(dob);
   }
@@ -1376,6 +1413,7 @@ class _$AddViewPlayerChildDobEventImpl implements AddViewPlayerChildDobEvent {
     TResult? Function()? submitButtonPress,
     TResult? Function()? getChildListEvent,
     TResult? Function(int index)? childSelectionToggle,
+    TResult? Function()? resetAddViewPlayerEvent,
   }) {
     return childDob?.call(dob);
   }
@@ -1395,6 +1433,7 @@ class _$AddViewPlayerChildDobEventImpl implements AddViewPlayerChildDobEvent {
     TResult Function()? submitButtonPress,
     TResult Function()? getChildListEvent,
     TResult Function(int index)? childSelectionToggle,
+    TResult Function()? resetAddViewPlayerEvent,
     required TResult orElse(),
   }) {
     if (childDob != null) {
@@ -1424,6 +1463,7 @@ class _$AddViewPlayerChildDobEventImpl implements AddViewPlayerChildDobEvent {
         getChildListEvent,
     required TResult Function(AddViewPlayerChildSelectionToggleEvent value)
         childSelectionToggle,
+    required TResult Function(ResetAddViewEvent value) resetAddViewPlayerEvent,
   }) {
     return childDob(this);
   }
@@ -1448,6 +1488,7 @@ class _$AddViewPlayerChildDobEventImpl implements AddViewPlayerChildDobEvent {
     TResult? Function(AddViewPlayerGetChildListEvent value)? getChildListEvent,
     TResult? Function(AddViewPlayerChildSelectionToggleEvent value)?
         childSelectionToggle,
+    TResult? Function(ResetAddViewEvent value)? resetAddViewPlayerEvent,
   }) {
     return childDob?.call(this);
   }
@@ -1472,6 +1513,7 @@ class _$AddViewPlayerChildDobEventImpl implements AddViewPlayerChildDobEvent {
     TResult Function(AddViewPlayerGetChildListEvent value)? getChildListEvent,
     TResult Function(AddViewPlayerChildSelectionToggleEvent value)?
         childSelectionToggle,
+    TResult Function(ResetAddViewEvent value)? resetAddViewPlayerEvent,
     required TResult orElse(),
   }) {
     if (childDob != null) {
@@ -1581,6 +1623,7 @@ class _$AddViewPlayerSchoolNameEventImpl
     required TResult Function() submitButtonPress,
     required TResult Function() getChildListEvent,
     required TResult Function(int index) childSelectionToggle,
+    required TResult Function() resetAddViewPlayerEvent,
   }) {
     return schoolName(this.schoolName);
   }
@@ -1600,6 +1643,7 @@ class _$AddViewPlayerSchoolNameEventImpl
     TResult? Function()? submitButtonPress,
     TResult? Function()? getChildListEvent,
     TResult? Function(int index)? childSelectionToggle,
+    TResult? Function()? resetAddViewPlayerEvent,
   }) {
     return schoolName?.call(this.schoolName);
   }
@@ -1619,6 +1663,7 @@ class _$AddViewPlayerSchoolNameEventImpl
     TResult Function()? submitButtonPress,
     TResult Function()? getChildListEvent,
     TResult Function(int index)? childSelectionToggle,
+    TResult Function()? resetAddViewPlayerEvent,
     required TResult orElse(),
   }) {
     if (schoolName != null) {
@@ -1648,6 +1693,7 @@ class _$AddViewPlayerSchoolNameEventImpl
         getChildListEvent,
     required TResult Function(AddViewPlayerChildSelectionToggleEvent value)
         childSelectionToggle,
+    required TResult Function(ResetAddViewEvent value) resetAddViewPlayerEvent,
   }) {
     return schoolName(this);
   }
@@ -1672,6 +1718,7 @@ class _$AddViewPlayerSchoolNameEventImpl
     TResult? Function(AddViewPlayerGetChildListEvent value)? getChildListEvent,
     TResult? Function(AddViewPlayerChildSelectionToggleEvent value)?
         childSelectionToggle,
+    TResult? Function(ResetAddViewEvent value)? resetAddViewPlayerEvent,
   }) {
     return schoolName?.call(this);
   }
@@ -1696,6 +1743,7 @@ class _$AddViewPlayerSchoolNameEventImpl
     TResult Function(AddViewPlayerGetChildListEvent value)? getChildListEvent,
     TResult Function(AddViewPlayerChildSelectionToggleEvent value)?
         childSelectionToggle,
+    TResult Function(ResetAddViewEvent value)? resetAddViewPlayerEvent,
     required TResult orElse(),
   }) {
     if (schoolName != null) {
@@ -1804,6 +1852,7 @@ class _$AddViewPlayerClubNameEventImpl implements AddViewPlayerClubNameEvent {
     required TResult Function() submitButtonPress,
     required TResult Function() getChildListEvent,
     required TResult Function(int index) childSelectionToggle,
+    required TResult Function() resetAddViewPlayerEvent,
   }) {
     return clubName(this.clubName);
   }
@@ -1823,6 +1872,7 @@ class _$AddViewPlayerClubNameEventImpl implements AddViewPlayerClubNameEvent {
     TResult? Function()? submitButtonPress,
     TResult? Function()? getChildListEvent,
     TResult? Function(int index)? childSelectionToggle,
+    TResult? Function()? resetAddViewPlayerEvent,
   }) {
     return clubName?.call(this.clubName);
   }
@@ -1842,6 +1892,7 @@ class _$AddViewPlayerClubNameEventImpl implements AddViewPlayerClubNameEvent {
     TResult Function()? submitButtonPress,
     TResult Function()? getChildListEvent,
     TResult Function(int index)? childSelectionToggle,
+    TResult Function()? resetAddViewPlayerEvent,
     required TResult orElse(),
   }) {
     if (clubName != null) {
@@ -1871,6 +1922,7 @@ class _$AddViewPlayerClubNameEventImpl implements AddViewPlayerClubNameEvent {
         getChildListEvent,
     required TResult Function(AddViewPlayerChildSelectionToggleEvent value)
         childSelectionToggle,
+    required TResult Function(ResetAddViewEvent value) resetAddViewPlayerEvent,
   }) {
     return clubName(this);
   }
@@ -1895,6 +1947,7 @@ class _$AddViewPlayerClubNameEventImpl implements AddViewPlayerClubNameEvent {
     TResult? Function(AddViewPlayerGetChildListEvent value)? getChildListEvent,
     TResult? Function(AddViewPlayerChildSelectionToggleEvent value)?
         childSelectionToggle,
+    TResult? Function(ResetAddViewEvent value)? resetAddViewPlayerEvent,
   }) {
     return clubName?.call(this);
   }
@@ -1919,6 +1972,7 @@ class _$AddViewPlayerClubNameEventImpl implements AddViewPlayerClubNameEvent {
     TResult Function(AddViewPlayerGetChildListEvent value)? getChildListEvent,
     TResult Function(AddViewPlayerChildSelectionToggleEvent value)?
         childSelectionToggle,
+    TResult Function(ResetAddViewEvent value)? resetAddViewPlayerEvent,
     required TResult orElse(),
   }) {
     if (clubName != null) {
@@ -2029,6 +2083,7 @@ class _$AddViewPlayerTessUsMedicalConditionEventImpl
     required TResult Function() submitButtonPress,
     required TResult Function() getChildListEvent,
     required TResult Function(int index) childSelectionToggle,
+    required TResult Function() resetAddViewPlayerEvent,
   }) {
     return medicalCondition(this.medicalCondition);
   }
@@ -2048,6 +2103,7 @@ class _$AddViewPlayerTessUsMedicalConditionEventImpl
     TResult? Function()? submitButtonPress,
     TResult? Function()? getChildListEvent,
     TResult? Function(int index)? childSelectionToggle,
+    TResult? Function()? resetAddViewPlayerEvent,
   }) {
     return medicalCondition?.call(this.medicalCondition);
   }
@@ -2067,6 +2123,7 @@ class _$AddViewPlayerTessUsMedicalConditionEventImpl
     TResult Function()? submitButtonPress,
     TResult Function()? getChildListEvent,
     TResult Function(int index)? childSelectionToggle,
+    TResult Function()? resetAddViewPlayerEvent,
     required TResult orElse(),
   }) {
     if (medicalCondition != null) {
@@ -2096,6 +2153,7 @@ class _$AddViewPlayerTessUsMedicalConditionEventImpl
         getChildListEvent,
     required TResult Function(AddViewPlayerChildSelectionToggleEvent value)
         childSelectionToggle,
+    required TResult Function(ResetAddViewEvent value) resetAddViewPlayerEvent,
   }) {
     return medicalCondition(this);
   }
@@ -2120,6 +2178,7 @@ class _$AddViewPlayerTessUsMedicalConditionEventImpl
     TResult? Function(AddViewPlayerGetChildListEvent value)? getChildListEvent,
     TResult? Function(AddViewPlayerChildSelectionToggleEvent value)?
         childSelectionToggle,
+    TResult? Function(ResetAddViewEvent value)? resetAddViewPlayerEvent,
   }) {
     return medicalCondition?.call(this);
   }
@@ -2144,6 +2203,7 @@ class _$AddViewPlayerTessUsMedicalConditionEventImpl
     TResult Function(AddViewPlayerGetChildListEvent value)? getChildListEvent,
     TResult Function(AddViewPlayerChildSelectionToggleEvent value)?
         childSelectionToggle,
+    TResult Function(ResetAddViewEvent value)? resetAddViewPlayerEvent,
     required TResult orElse(),
   }) {
     if (medicalCondition != null) {
@@ -2227,6 +2287,7 @@ class _$AddViewPlayerSubmitButtonPressEventImpl
     required TResult Function() submitButtonPress,
     required TResult Function() getChildListEvent,
     required TResult Function(int index) childSelectionToggle,
+    required TResult Function() resetAddViewPlayerEvent,
   }) {
     return submitButtonPress();
   }
@@ -2246,6 +2307,7 @@ class _$AddViewPlayerSubmitButtonPressEventImpl
     TResult? Function()? submitButtonPress,
     TResult? Function()? getChildListEvent,
     TResult? Function(int index)? childSelectionToggle,
+    TResult? Function()? resetAddViewPlayerEvent,
   }) {
     return submitButtonPress?.call();
   }
@@ -2265,6 +2327,7 @@ class _$AddViewPlayerSubmitButtonPressEventImpl
     TResult Function()? submitButtonPress,
     TResult Function()? getChildListEvent,
     TResult Function(int index)? childSelectionToggle,
+    TResult Function()? resetAddViewPlayerEvent,
     required TResult orElse(),
   }) {
     if (submitButtonPress != null) {
@@ -2294,6 +2357,7 @@ class _$AddViewPlayerSubmitButtonPressEventImpl
         getChildListEvent,
     required TResult Function(AddViewPlayerChildSelectionToggleEvent value)
         childSelectionToggle,
+    required TResult Function(ResetAddViewEvent value) resetAddViewPlayerEvent,
   }) {
     return submitButtonPress(this);
   }
@@ -2318,6 +2382,7 @@ class _$AddViewPlayerSubmitButtonPressEventImpl
     TResult? Function(AddViewPlayerGetChildListEvent value)? getChildListEvent,
     TResult? Function(AddViewPlayerChildSelectionToggleEvent value)?
         childSelectionToggle,
+    TResult? Function(ResetAddViewEvent value)? resetAddViewPlayerEvent,
   }) {
     return submitButtonPress?.call(this);
   }
@@ -2342,6 +2407,7 @@ class _$AddViewPlayerSubmitButtonPressEventImpl
     TResult Function(AddViewPlayerGetChildListEvent value)? getChildListEvent,
     TResult Function(AddViewPlayerChildSelectionToggleEvent value)?
         childSelectionToggle,
+    TResult Function(ResetAddViewEvent value)? resetAddViewPlayerEvent,
     required TResult orElse(),
   }) {
     if (submitButtonPress != null) {
@@ -2415,6 +2481,7 @@ class _$AddViewPlayerGetChildListEventImpl
     required TResult Function() submitButtonPress,
     required TResult Function() getChildListEvent,
     required TResult Function(int index) childSelectionToggle,
+    required TResult Function() resetAddViewPlayerEvent,
   }) {
     return getChildListEvent();
   }
@@ -2434,6 +2501,7 @@ class _$AddViewPlayerGetChildListEventImpl
     TResult? Function()? submitButtonPress,
     TResult? Function()? getChildListEvent,
     TResult? Function(int index)? childSelectionToggle,
+    TResult? Function()? resetAddViewPlayerEvent,
   }) {
     return getChildListEvent?.call();
   }
@@ -2453,6 +2521,7 @@ class _$AddViewPlayerGetChildListEventImpl
     TResult Function()? submitButtonPress,
     TResult Function()? getChildListEvent,
     TResult Function(int index)? childSelectionToggle,
+    TResult Function()? resetAddViewPlayerEvent,
     required TResult orElse(),
   }) {
     if (getChildListEvent != null) {
@@ -2482,6 +2551,7 @@ class _$AddViewPlayerGetChildListEventImpl
         getChildListEvent,
     required TResult Function(AddViewPlayerChildSelectionToggleEvent value)
         childSelectionToggle,
+    required TResult Function(ResetAddViewEvent value) resetAddViewPlayerEvent,
   }) {
     return getChildListEvent(this);
   }
@@ -2506,6 +2576,7 @@ class _$AddViewPlayerGetChildListEventImpl
     TResult? Function(AddViewPlayerGetChildListEvent value)? getChildListEvent,
     TResult? Function(AddViewPlayerChildSelectionToggleEvent value)?
         childSelectionToggle,
+    TResult? Function(ResetAddViewEvent value)? resetAddViewPlayerEvent,
   }) {
     return getChildListEvent?.call(this);
   }
@@ -2530,6 +2601,7 @@ class _$AddViewPlayerGetChildListEventImpl
     TResult Function(AddViewPlayerGetChildListEvent value)? getChildListEvent,
     TResult Function(AddViewPlayerChildSelectionToggleEvent value)?
         childSelectionToggle,
+    TResult Function(ResetAddViewEvent value)? resetAddViewPlayerEvent,
     required TResult orElse(),
   }) {
     if (getChildListEvent != null) {
@@ -2631,6 +2703,7 @@ class _$AddViewPlayerChildSelectionToggleEventImpl
     required TResult Function() submitButtonPress,
     required TResult Function() getChildListEvent,
     required TResult Function(int index) childSelectionToggle,
+    required TResult Function() resetAddViewPlayerEvent,
   }) {
     return childSelectionToggle(index);
   }
@@ -2650,6 +2723,7 @@ class _$AddViewPlayerChildSelectionToggleEventImpl
     TResult? Function()? submitButtonPress,
     TResult? Function()? getChildListEvent,
     TResult? Function(int index)? childSelectionToggle,
+    TResult? Function()? resetAddViewPlayerEvent,
   }) {
     return childSelectionToggle?.call(index);
   }
@@ -2669,6 +2743,7 @@ class _$AddViewPlayerChildSelectionToggleEventImpl
     TResult Function()? submitButtonPress,
     TResult Function()? getChildListEvent,
     TResult Function(int index)? childSelectionToggle,
+    TResult Function()? resetAddViewPlayerEvent,
     required TResult orElse(),
   }) {
     if (childSelectionToggle != null) {
@@ -2698,6 +2773,7 @@ class _$AddViewPlayerChildSelectionToggleEventImpl
         getChildListEvent,
     required TResult Function(AddViewPlayerChildSelectionToggleEvent value)
         childSelectionToggle,
+    required TResult Function(ResetAddViewEvent value) resetAddViewPlayerEvent,
   }) {
     return childSelectionToggle(this);
   }
@@ -2722,6 +2798,7 @@ class _$AddViewPlayerChildSelectionToggleEventImpl
     TResult? Function(AddViewPlayerGetChildListEvent value)? getChildListEvent,
     TResult? Function(AddViewPlayerChildSelectionToggleEvent value)?
         childSelectionToggle,
+    TResult? Function(ResetAddViewEvent value)? resetAddViewPlayerEvent,
   }) {
     return childSelectionToggle?.call(this);
   }
@@ -2746,6 +2823,7 @@ class _$AddViewPlayerChildSelectionToggleEventImpl
     TResult Function(AddViewPlayerGetChildListEvent value)? getChildListEvent,
     TResult Function(AddViewPlayerChildSelectionToggleEvent value)?
         childSelectionToggle,
+    TResult Function(ResetAddViewEvent value)? resetAddViewPlayerEvent,
     required TResult orElse(),
   }) {
     if (childSelectionToggle != null) {
@@ -2768,4 +2846,191 @@ abstract class AddViewPlayerChildSelectionToggleEvent
   _$$AddViewPlayerChildSelectionToggleEventImplCopyWith<
           _$AddViewPlayerChildSelectionToggleEventImpl>
       get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$ResetAddViewEventImplCopyWith<$Res> {
+  factory _$$ResetAddViewEventImplCopyWith(_$ResetAddViewEventImpl value,
+          $Res Function(_$ResetAddViewEventImpl) then) =
+      __$$ResetAddViewEventImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$ResetAddViewEventImplCopyWithImpl<$Res>
+    extends _$AddViewPlayerEventCopyWithImpl<$Res, _$ResetAddViewEventImpl>
+    implements _$$ResetAddViewEventImplCopyWith<$Res> {
+  __$$ResetAddViewEventImplCopyWithImpl(_$ResetAddViewEventImpl _value,
+      $Res Function(_$ResetAddViewEventImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of AddViewPlayerEvent
+  /// with the given fields replaced by the non-null parameter values.
+}
+
+/// @nodoc
+
+class _$ResetAddViewEventImpl implements ResetAddViewEvent {
+  const _$ResetAddViewEventImpl();
+
+  @override
+  String toString() {
+    return 'AddViewPlayerEvent.resetAddViewPlayerEvent()';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$ResetAddViewEventImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(int tabno) selectedTab,
+    required TResult Function(int consentStatus) childPhotoConsent,
+    required TResult Function(int firstAidStatus) administratorFirstAid,
+    required TResult Function(String childName) childName,
+    required TResult Function(String age) childAge,
+    required TResult Function(String dob) childDob,
+    required TResult Function(String schoolName) schoolName,
+    required TResult Function(String clubName) clubName,
+    required TResult Function(String medicalCondition) medicalCondition,
+    required TResult Function() submitButtonPress,
+    required TResult Function() getChildListEvent,
+    required TResult Function(int index) childSelectionToggle,
+    required TResult Function() resetAddViewPlayerEvent,
+  }) {
+    return resetAddViewPlayerEvent();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(int tabno)? selectedTab,
+    TResult? Function(int consentStatus)? childPhotoConsent,
+    TResult? Function(int firstAidStatus)? administratorFirstAid,
+    TResult? Function(String childName)? childName,
+    TResult? Function(String age)? childAge,
+    TResult? Function(String dob)? childDob,
+    TResult? Function(String schoolName)? schoolName,
+    TResult? Function(String clubName)? clubName,
+    TResult? Function(String medicalCondition)? medicalCondition,
+    TResult? Function()? submitButtonPress,
+    TResult? Function()? getChildListEvent,
+    TResult? Function(int index)? childSelectionToggle,
+    TResult? Function()? resetAddViewPlayerEvent,
+  }) {
+    return resetAddViewPlayerEvent?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(int tabno)? selectedTab,
+    TResult Function(int consentStatus)? childPhotoConsent,
+    TResult Function(int firstAidStatus)? administratorFirstAid,
+    TResult Function(String childName)? childName,
+    TResult Function(String age)? childAge,
+    TResult Function(String dob)? childDob,
+    TResult Function(String schoolName)? schoolName,
+    TResult Function(String clubName)? clubName,
+    TResult Function(String medicalCondition)? medicalCondition,
+    TResult Function()? submitButtonPress,
+    TResult Function()? getChildListEvent,
+    TResult Function(int index)? childSelectionToggle,
+    TResult Function()? resetAddViewPlayerEvent,
+    required TResult orElse(),
+  }) {
+    if (resetAddViewPlayerEvent != null) {
+      return resetAddViewPlayerEvent();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(AddViewPlayerSelectedTabEvent value) selectedTab,
+    required TResult Function(AddViewPlayerChiclPhotoConsentEvent value)
+        childPhotoConsent,
+    required TResult Function(AddViewPlayeAdministratorFirstAidEvent value)
+        administratorFirstAid,
+    required TResult Function(AddViewPlayerChildNameEvent value) childName,
+    required TResult Function(AddViewPlayerChildAgeEvent value) childAge,
+    required TResult Function(AddViewPlayerChildDobEvent value) childDob,
+    required TResult Function(AddViewPlayerSchoolNameEvent value) schoolName,
+    required TResult Function(AddViewPlayerClubNameEvent value) clubName,
+    required TResult Function(AddViewPlayerTessUsMedicalConditionEvent value)
+        medicalCondition,
+    required TResult Function(AddViewPlayerSubmitButtonPressEvent value)
+        submitButtonPress,
+    required TResult Function(AddViewPlayerGetChildListEvent value)
+        getChildListEvent,
+    required TResult Function(AddViewPlayerChildSelectionToggleEvent value)
+        childSelectionToggle,
+    required TResult Function(ResetAddViewEvent value) resetAddViewPlayerEvent,
+  }) {
+    return resetAddViewPlayerEvent(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(AddViewPlayerSelectedTabEvent value)? selectedTab,
+    TResult? Function(AddViewPlayerChiclPhotoConsentEvent value)?
+        childPhotoConsent,
+    TResult? Function(AddViewPlayeAdministratorFirstAidEvent value)?
+        administratorFirstAid,
+    TResult? Function(AddViewPlayerChildNameEvent value)? childName,
+    TResult? Function(AddViewPlayerChildAgeEvent value)? childAge,
+    TResult? Function(AddViewPlayerChildDobEvent value)? childDob,
+    TResult? Function(AddViewPlayerSchoolNameEvent value)? schoolName,
+    TResult? Function(AddViewPlayerClubNameEvent value)? clubName,
+    TResult? Function(AddViewPlayerTessUsMedicalConditionEvent value)?
+        medicalCondition,
+    TResult? Function(AddViewPlayerSubmitButtonPressEvent value)?
+        submitButtonPress,
+    TResult? Function(AddViewPlayerGetChildListEvent value)? getChildListEvent,
+    TResult? Function(AddViewPlayerChildSelectionToggleEvent value)?
+        childSelectionToggle,
+    TResult? Function(ResetAddViewEvent value)? resetAddViewPlayerEvent,
+  }) {
+    return resetAddViewPlayerEvent?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(AddViewPlayerSelectedTabEvent value)? selectedTab,
+    TResult Function(AddViewPlayerChiclPhotoConsentEvent value)?
+        childPhotoConsent,
+    TResult Function(AddViewPlayeAdministratorFirstAidEvent value)?
+        administratorFirstAid,
+    TResult Function(AddViewPlayerChildNameEvent value)? childName,
+    TResult Function(AddViewPlayerChildAgeEvent value)? childAge,
+    TResult Function(AddViewPlayerChildDobEvent value)? childDob,
+    TResult Function(AddViewPlayerSchoolNameEvent value)? schoolName,
+    TResult Function(AddViewPlayerClubNameEvent value)? clubName,
+    TResult Function(AddViewPlayerTessUsMedicalConditionEvent value)?
+        medicalCondition,
+    TResult Function(AddViewPlayerSubmitButtonPressEvent value)?
+        submitButtonPress,
+    TResult Function(AddViewPlayerGetChildListEvent value)? getChildListEvent,
+    TResult Function(AddViewPlayerChildSelectionToggleEvent value)?
+        childSelectionToggle,
+    TResult Function(ResetAddViewEvent value)? resetAddViewPlayerEvent,
+    required TResult orElse(),
+  }) {
+    if (resetAddViewPlayerEvent != null) {
+      return resetAddViewPlayerEvent(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class ResetAddViewEvent implements AddViewPlayerEvent {
+  const factory ResetAddViewEvent() = _$ResetAddViewEventImpl;
 }

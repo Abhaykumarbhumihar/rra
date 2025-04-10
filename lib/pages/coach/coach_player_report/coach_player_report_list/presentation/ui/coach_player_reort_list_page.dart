@@ -21,6 +21,7 @@ class CoachPlayerReortListAge extends StatelessWidget {
   child: BlocBuilder<ReportBloc, ReportState>(
   builder: (context, state) {
     return CommonPageFormat(
+      isScrollable: false,
       title: "Player Reports",
       onBackPress: () {
         Navigator.pop(context);
@@ -60,17 +61,14 @@ class CoachPlayerReortListAge extends StatelessWidget {
                           builder: (context) => PlayerRecordFilterSheet(),
                         );
                       },
-                      child: Icon(
-                        Icons.short_text,
-                        color: Colors.white,
-                      ),
+                      child:Image.asset('assets/images/filter_icon.png',width: 22,height: 22,)
                     ),
                   ],
                 ),
                 SizedBox(
                   height: 10,
                 ),
-                CoachPlayerReportListItem()
+                Expanded(child: CoachPlayerReportListItem())
               ],
             ),
             if(state.isLoading)

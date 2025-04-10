@@ -51,10 +51,7 @@ class CoachSinglePlayerDetailPage extends StatelessWidget {
                             style: AppTextStyle.semiBold(
                                 MediaQuery.of(context).size.width * 0.0373),
                           ),
-                          Icon(
-                            Icons.short_text,
-                            color: Colors.white,
-                          ),
+                     //     Image.asset('assets/images/filter_icon.png',width: 22,height: 22,)
                         ],
                       ),
                       SizedBox(

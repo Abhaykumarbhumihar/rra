@@ -66,11 +66,11 @@ final bool fullimage;
         errorWidget: (context, url, error) {
           // Show custom placeholder image in case of an error
           return AssetImageWidget(
-            placeHolder ?? 'assets/images/app_icon_launcher.png',
+            placeHolder ?? 'assets/images/applogo.png',
             radiusAll: radiusAll,
             imageHeight: imageHeight,
             imageWidth: imageWidth,
-            imageFitType: BoxFit.fill,
+            imageFitType: BoxFit.contain,
           );
         },
       ),

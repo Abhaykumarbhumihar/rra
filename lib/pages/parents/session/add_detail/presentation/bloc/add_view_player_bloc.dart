@@ -23,6 +23,10 @@ class AddViewPlayerBloc extends Bloc<AddViewPlayerEvent, AddViewPlayerState> {
     on<AddViewPlayerSubmitButtonPressEvent>(_addChildEvent);
     on<AddViewPlayerGetChildListEvent>(_getChildListEvent);
     on<AddViewPlayerChildSelectionToggleEvent>(_childSelectionToggle);
+    on<ResetAddViewEvent>(resetEvent);
+  }
+  Future<void>resetEvent(ResetAddViewEvent event,Emitter<AddViewPlayerState> emit)async{
+    emit(AddViewPlayerState.initial());
   }
   // Handle toggling the selection of a child
   Future<void> _childSelectionToggle(

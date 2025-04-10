@@ -27,7 +27,12 @@ class UserDataUpdate extends AppEvent {
 }
 
 
-
+class BookedSessionCountEvent extends AppEvent {
+  String count;
+  BookedSessionCountEvent(this.count);
+  @override
+  List<Object?> get props => [count];
+}
 
 
 

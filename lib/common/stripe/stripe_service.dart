@@ -27,7 +27,7 @@ class StripeService {
   /// **Normal One-time Payment**
   Future<Map<String, String>?> makePayment(int price) async {
     try {
-      String? clientSecret = await createPaymentIntent(1800, "usd");
+      String? clientSecret = await createPaymentIntent(price, "usd");
 
       if (clientSecret != null) {
         debugPrint("Initializing Payment Sheet...");

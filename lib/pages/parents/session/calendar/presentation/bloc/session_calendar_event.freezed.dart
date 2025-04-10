@@ -32,6 +32,7 @@ mixin _$SessionCalendarEvent {
         removeSessionByDate,
     required TResult Function() getSeletedSessionEvent,
     required TResult Function(int count) getDayCountSessionEvent,
+    required TResult Function() resetCalendarEvent,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -50,6 +51,7 @@ mixin _$SessionCalendarEvent {
         removeSessionByDate,
     TResult? Function()? getSeletedSessionEvent,
     TResult? Function(int count)? getDayCountSessionEvent,
+    TResult? Function()? resetCalendarEvent,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -68,6 +70,7 @@ mixin _$SessionCalendarEvent {
         removeSessionByDate,
     TResult Function()? getSeletedSessionEvent,
     TResult Function(int count)? getDayCountSessionEvent,
+    TResult Function()? resetCalendarEvent,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -89,6 +92,7 @@ mixin _$SessionCalendarEvent {
         getSeletedSessionEvent,
     required TResult Function(GetDayCountSessionEvent value)
         getDayCountSessionEvent,
+    required TResult Function(ResetCalendarEvent value) resetCalendarEvent,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -105,6 +109,7 @@ mixin _$SessionCalendarEvent {
     TResult? Function(RemoveSessionByDateEvent value)? removeSessionByDate,
     TResult? Function(GetSelectedSessionEvent value)? getSeletedSessionEvent,
     TResult? Function(GetDayCountSessionEvent value)? getDayCountSessionEvent,
+    TResult? Function(ResetCalendarEvent value)? resetCalendarEvent,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -121,6 +126,7 @@ mixin _$SessionCalendarEvent {
     TResult Function(RemoveSessionByDateEvent value)? removeSessionByDate,
     TResult Function(GetSelectedSessionEvent value)? getSeletedSessionEvent,
     TResult Function(GetDayCountSessionEvent value)? getDayCountSessionEvent,
+    TResult Function(ResetCalendarEvent value)? resetCalendarEvent,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -249,6 +255,7 @@ class _$CalendarDateEventsImpl implements CalendarDateEvents {
         removeSessionByDate,
     required TResult Function() getSeletedSessionEvent,
     required TResult Function(int count) getDayCountSessionEvent,
+    required TResult Function() resetCalendarEvent,
   }) {
     return getCalenDarDateEvents(data, isPrivate);
   }
@@ -270,6 +277,7 @@ class _$CalendarDateEventsImpl implements CalendarDateEvents {
         removeSessionByDate,
     TResult? Function()? getSeletedSessionEvent,
     TResult? Function(int count)? getDayCountSessionEvent,
+    TResult? Function()? resetCalendarEvent,
   }) {
     return getCalenDarDateEvents?.call(data, isPrivate);
   }
@@ -291,6 +299,7 @@ class _$CalendarDateEventsImpl implements CalendarDateEvents {
         removeSessionByDate,
     TResult Function()? getSeletedSessionEvent,
     TResult Function(int count)? getDayCountSessionEvent,
+    TResult Function()? resetCalendarEvent,
     required TResult orElse(),
   }) {
     if (getCalenDarDateEvents != null) {
@@ -318,6 +327,7 @@ class _$CalendarDateEventsImpl implements CalendarDateEvents {
         getSeletedSessionEvent,
     required TResult Function(GetDayCountSessionEvent value)
         getDayCountSessionEvent,
+    required TResult Function(ResetCalendarEvent value) resetCalendarEvent,
   }) {
     return getCalenDarDateEvents(this);
   }
@@ -337,6 +347,7 @@ class _$CalendarDateEventsImpl implements CalendarDateEvents {
     TResult? Function(RemoveSessionByDateEvent value)? removeSessionByDate,
     TResult? Function(GetSelectedSessionEvent value)? getSeletedSessionEvent,
     TResult? Function(GetDayCountSessionEvent value)? getDayCountSessionEvent,
+    TResult? Function(ResetCalendarEvent value)? resetCalendarEvent,
   }) {
     return getCalenDarDateEvents?.call(this);
   }
@@ -356,6 +367,7 @@ class _$CalendarDateEventsImpl implements CalendarDateEvents {
     TResult Function(RemoveSessionByDateEvent value)? removeSessionByDate,
     TResult Function(GetSelectedSessionEvent value)? getSeletedSessionEvent,
     TResult Function(GetDayCountSessionEvent value)? getDayCountSessionEvent,
+    TResult Function(ResetCalendarEvent value)? resetCalendarEvent,
     required TResult orElse(),
   }) {
     if (getCalenDarDateEvents != null) {
@@ -470,6 +482,7 @@ class _$AvilableDateEventsImpl implements AvilableDateEvents {
         removeSessionByDate,
     required TResult Function() getSeletedSessionEvent,
     required TResult Function(int count) getDayCountSessionEvent,
+    required TResult Function() resetCalendarEvent,
   }) {
     return getAvilableDates(data);
   }
@@ -491,6 +504,7 @@ class _$AvilableDateEventsImpl implements AvilableDateEvents {
         removeSessionByDate,
     TResult? Function()? getSeletedSessionEvent,
     TResult? Function(int count)? getDayCountSessionEvent,
+    TResult? Function()? resetCalendarEvent,
   }) {
     return getAvilableDates?.call(data);
   }
@@ -512,6 +526,7 @@ class _$AvilableDateEventsImpl implements AvilableDateEvents {
         removeSessionByDate,
     TResult Function()? getSeletedSessionEvent,
     TResult Function(int count)? getDayCountSessionEvent,
+    TResult Function()? resetCalendarEvent,
     required TResult orElse(),
   }) {
     if (getAvilableDates != null) {
@@ -539,6 +554,7 @@ class _$AvilableDateEventsImpl implements AvilableDateEvents {
         getSeletedSessionEvent,
     required TResult Function(GetDayCountSessionEvent value)
         getDayCountSessionEvent,
+    required TResult Function(ResetCalendarEvent value) resetCalendarEvent,
   }) {
     return getAvilableDates(this);
   }
@@ -558,6 +574,7 @@ class _$AvilableDateEventsImpl implements AvilableDateEvents {
     TResult? Function(RemoveSessionByDateEvent value)? removeSessionByDate,
     TResult? Function(GetSelectedSessionEvent value)? getSeletedSessionEvent,
     TResult? Function(GetDayCountSessionEvent value)? getDayCountSessionEvent,
+    TResult? Function(ResetCalendarEvent value)? resetCalendarEvent,
   }) {
     return getAvilableDates?.call(this);
   }
@@ -577,6 +594,7 @@ class _$AvilableDateEventsImpl implements AvilableDateEvents {
     TResult Function(RemoveSessionByDateEvent value)? removeSessionByDate,
     TResult Function(GetSelectedSessionEvent value)? getSeletedSessionEvent,
     TResult Function(GetDayCountSessionEvent value)? getDayCountSessionEvent,
+    TResult Function(ResetCalendarEvent value)? resetCalendarEvent,
     required TResult orElse(),
   }) {
     if (getAvilableDates != null) {
@@ -690,6 +708,7 @@ class _$CurrentDateEventImpl implements CurrentDateEvent {
         removeSessionByDate,
     required TResult Function() getSeletedSessionEvent,
     required TResult Function(int count) getDayCountSessionEvent,
+    required TResult Function() resetCalendarEvent,
   }) {
     return setCurrentDate(data, dayname);
   }
@@ -711,6 +730,7 @@ class _$CurrentDateEventImpl implements CurrentDateEvent {
         removeSessionByDate,
     TResult? Function()? getSeletedSessionEvent,
     TResult? Function(int count)? getDayCountSessionEvent,
+    TResult? Function()? resetCalendarEvent,
   }) {
     return setCurrentDate?.call(data, dayname);
   }
@@ -732,6 +752,7 @@ class _$CurrentDateEventImpl implements CurrentDateEvent {
         removeSessionByDate,
     TResult Function()? getSeletedSessionEvent,
     TResult Function(int count)? getDayCountSessionEvent,
+    TResult Function()? resetCalendarEvent,
     required TResult orElse(),
   }) {
     if (setCurrentDate != null) {
@@ -759,6 +780,7 @@ class _$CurrentDateEventImpl implements CurrentDateEvent {
         getSeletedSessionEvent,
     required TResult Function(GetDayCountSessionEvent value)
         getDayCountSessionEvent,
+    required TResult Function(ResetCalendarEvent value) resetCalendarEvent,
   }) {
     return setCurrentDate(this);
   }
@@ -778,6 +800,7 @@ class _$CurrentDateEventImpl implements CurrentDateEvent {
     TResult? Function(RemoveSessionByDateEvent value)? removeSessionByDate,
     TResult? Function(GetSelectedSessionEvent value)? getSeletedSessionEvent,
     TResult? Function(GetDayCountSessionEvent value)? getDayCountSessionEvent,
+    TResult? Function(ResetCalendarEvent value)? resetCalendarEvent,
   }) {
     return setCurrentDate?.call(this);
   }
@@ -797,6 +820,7 @@ class _$CurrentDateEventImpl implements CurrentDateEvent {
     TResult Function(RemoveSessionByDateEvent value)? removeSessionByDate,
     TResult Function(GetSelectedSessionEvent value)? getSeletedSessionEvent,
     TResult Function(GetDayCountSessionEvent value)? getDayCountSessionEvent,
+    TResult Function(ResetCalendarEvent value)? resetCalendarEvent,
     required TResult orElse(),
   }) {
     if (setCurrentDate != null) {
@@ -924,6 +948,7 @@ class _$SetSelectedDateDayNameImpl implements SetSelectedDateDayName {
         removeSessionByDate,
     required TResult Function() getSeletedSessionEvent,
     required TResult Function(int count) getDayCountSessionEvent,
+    required TResult Function() resetCalendarEvent,
   }) {
     return setSelectDateDayName(data, sessionId, fromTime);
   }
@@ -945,6 +970,7 @@ class _$SetSelectedDateDayNameImpl implements SetSelectedDateDayName {
         removeSessionByDate,
     TResult? Function()? getSeletedSessionEvent,
     TResult? Function(int count)? getDayCountSessionEvent,
+    TResult? Function()? resetCalendarEvent,
   }) {
     return setSelectDateDayName?.call(data, sessionId, fromTime);
   }
@@ -966,6 +992,7 @@ class _$SetSelectedDateDayNameImpl implements SetSelectedDateDayName {
         removeSessionByDate,
     TResult Function()? getSeletedSessionEvent,
     TResult Function(int count)? getDayCountSessionEvent,
+    TResult Function()? resetCalendarEvent,
     required TResult orElse(),
   }) {
     if (setSelectDateDayName != null) {
@@ -993,6 +1020,7 @@ class _$SetSelectedDateDayNameImpl implements SetSelectedDateDayName {
         getSeletedSessionEvent,
     required TResult Function(GetDayCountSessionEvent value)
         getDayCountSessionEvent,
+    required TResult Function(ResetCalendarEvent value) resetCalendarEvent,
   }) {
     return setSelectDateDayName(this);
   }
@@ -1012,6 +1040,7 @@ class _$SetSelectedDateDayNameImpl implements SetSelectedDateDayName {
     TResult? Function(RemoveSessionByDateEvent value)? removeSessionByDate,
     TResult? Function(GetSelectedSessionEvent value)? getSeletedSessionEvent,
     TResult? Function(GetDayCountSessionEvent value)? getDayCountSessionEvent,
+    TResult? Function(ResetCalendarEvent value)? resetCalendarEvent,
   }) {
     return setSelectDateDayName?.call(this);
   }
@@ -1031,6 +1060,7 @@ class _$SetSelectedDateDayNameImpl implements SetSelectedDateDayName {
     TResult Function(RemoveSessionByDateEvent value)? removeSessionByDate,
     TResult Function(GetSelectedSessionEvent value)? getSeletedSessionEvent,
     TResult Function(GetDayCountSessionEvent value)? getDayCountSessionEvent,
+    TResult Function(ResetCalendarEvent value)? resetCalendarEvent,
     required TResult orElse(),
   }) {
     if (setSelectDateDayName != null) {
@@ -1142,6 +1172,7 @@ class _$SetSlotForBookingEventImpl implements SetSlotForBookingEvent {
         removeSessionByDate,
     required TResult Function() getSeletedSessionEvent,
     required TResult Function(int count) getDayCountSessionEvent,
+    required TResult Function() resetCalendarEvent,
   }) {
     return setSlotFOrBooking(data);
   }
@@ -1163,6 +1194,7 @@ class _$SetSlotForBookingEventImpl implements SetSlotForBookingEvent {
         removeSessionByDate,
     TResult? Function()? getSeletedSessionEvent,
     TResult? Function(int count)? getDayCountSessionEvent,
+    TResult? Function()? resetCalendarEvent,
   }) {
     return setSlotFOrBooking?.call(data);
   }
@@ -1184,6 +1216,7 @@ class _$SetSlotForBookingEventImpl implements SetSlotForBookingEvent {
         removeSessionByDate,
     TResult Function()? getSeletedSessionEvent,
     TResult Function(int count)? getDayCountSessionEvent,
+    TResult Function()? resetCalendarEvent,
     required TResult orElse(),
   }) {
     if (setSlotFOrBooking != null) {
@@ -1211,6 +1244,7 @@ class _$SetSlotForBookingEventImpl implements SetSlotForBookingEvent {
         getSeletedSessionEvent,
     required TResult Function(GetDayCountSessionEvent value)
         getDayCountSessionEvent,
+    required TResult Function(ResetCalendarEvent value) resetCalendarEvent,
   }) {
     return setSlotFOrBooking(this);
   }
@@ -1230,6 +1264,7 @@ class _$SetSlotForBookingEventImpl implements SetSlotForBookingEvent {
     TResult? Function(RemoveSessionByDateEvent value)? removeSessionByDate,
     TResult? Function(GetSelectedSessionEvent value)? getSeletedSessionEvent,
     TResult? Function(GetDayCountSessionEvent value)? getDayCountSessionEvent,
+    TResult? Function(ResetCalendarEvent value)? resetCalendarEvent,
   }) {
     return setSlotFOrBooking?.call(this);
   }
@@ -1249,6 +1284,7 @@ class _$SetSlotForBookingEventImpl implements SetSlotForBookingEvent {
     TResult Function(RemoveSessionByDateEvent value)? removeSessionByDate,
     TResult Function(GetSelectedSessionEvent value)? getSeletedSessionEvent,
     TResult Function(GetDayCountSessionEvent value)? getDayCountSessionEvent,
+    TResult Function(ResetCalendarEvent value)? resetCalendarEvent,
     required TResult orElse(),
   }) {
     if (setSlotFOrBooking != null) {
@@ -1360,6 +1396,7 @@ class _$SetSlotBookingImpl implements SetSlotBooking {
         removeSessionByDate,
     required TResult Function() getSeletedSessionEvent,
     required TResult Function(int count) getDayCountSessionEvent,
+    required TResult Function() resetCalendarEvent,
   }) {
     return setSlotBooking(data);
   }
@@ -1381,6 +1418,7 @@ class _$SetSlotBookingImpl implements SetSlotBooking {
         removeSessionByDate,
     TResult? Function()? getSeletedSessionEvent,
     TResult? Function(int count)? getDayCountSessionEvent,
+    TResult? Function()? resetCalendarEvent,
   }) {
     return setSlotBooking?.call(data);
   }
@@ -1402,6 +1440,7 @@ class _$SetSlotBookingImpl implements SetSlotBooking {
         removeSessionByDate,
     TResult Function()? getSeletedSessionEvent,
     TResult Function(int count)? getDayCountSessionEvent,
+    TResult Function()? resetCalendarEvent,
     required TResult orElse(),
   }) {
     if (setSlotBooking != null) {
@@ -1429,6 +1468,7 @@ class _$SetSlotBookingImpl implements SetSlotBooking {
         getSeletedSessionEvent,
     required TResult Function(GetDayCountSessionEvent value)
         getDayCountSessionEvent,
+    required TResult Function(ResetCalendarEvent value) resetCalendarEvent,
   }) {
     return setSlotBooking(this);
   }
@@ -1448,6 +1488,7 @@ class _$SetSlotBookingImpl implements SetSlotBooking {
     TResult? Function(RemoveSessionByDateEvent value)? removeSessionByDate,
     TResult? Function(GetSelectedSessionEvent value)? getSeletedSessionEvent,
     TResult? Function(GetDayCountSessionEvent value)? getDayCountSessionEvent,
+    TResult? Function(ResetCalendarEvent value)? resetCalendarEvent,
   }) {
     return setSlotBooking?.call(this);
   }
@@ -1467,6 +1508,7 @@ class _$SetSlotBookingImpl implements SetSlotBooking {
     TResult Function(RemoveSessionByDateEvent value)? removeSessionByDate,
     TResult Function(GetSelectedSessionEvent value)? getSeletedSessionEvent,
     TResult Function(GetDayCountSessionEvent value)? getDayCountSessionEvent,
+    TResult Function(ResetCalendarEvent value)? resetCalendarEvent,
     required TResult orElse(),
   }) {
     if (setSlotBooking != null) {
@@ -1577,6 +1619,7 @@ class _$SetSelectTypeBottomSheetEventImpl
         removeSessionByDate,
     required TResult Function() getSeletedSessionEvent,
     required TResult Function(int count) getDayCountSessionEvent,
+    required TResult Function() resetCalendarEvent,
   }) {
     return setSeletTypeBottomSheet(type);
   }
@@ -1598,6 +1641,7 @@ class _$SetSelectTypeBottomSheetEventImpl
         removeSessionByDate,
     TResult? Function()? getSeletedSessionEvent,
     TResult? Function(int count)? getDayCountSessionEvent,
+    TResult? Function()? resetCalendarEvent,
   }) {
     return setSeletTypeBottomSheet?.call(type);
   }
@@ -1619,6 +1663,7 @@ class _$SetSelectTypeBottomSheetEventImpl
         removeSessionByDate,
     TResult Function()? getSeletedSessionEvent,
     TResult Function(int count)? getDayCountSessionEvent,
+    TResult Function()? resetCalendarEvent,
     required TResult orElse(),
   }) {
     if (setSeletTypeBottomSheet != null) {
@@ -1646,6 +1691,7 @@ class _$SetSelectTypeBottomSheetEventImpl
         getSeletedSessionEvent,
     required TResult Function(GetDayCountSessionEvent value)
         getDayCountSessionEvent,
+    required TResult Function(ResetCalendarEvent value) resetCalendarEvent,
   }) {
     return setSeletTypeBottomSheet(this);
   }
@@ -1665,6 +1711,7 @@ class _$SetSelectTypeBottomSheetEventImpl
     TResult? Function(RemoveSessionByDateEvent value)? removeSessionByDate,
     TResult? Function(GetSelectedSessionEvent value)? getSeletedSessionEvent,
     TResult? Function(GetDayCountSessionEvent value)? getDayCountSessionEvent,
+    TResult? Function(ResetCalendarEvent value)? resetCalendarEvent,
   }) {
     return setSeletTypeBottomSheet?.call(this);
   }
@@ -1684,6 +1731,7 @@ class _$SetSelectTypeBottomSheetEventImpl
     TResult Function(RemoveSessionByDateEvent value)? removeSessionByDate,
     TResult Function(GetSelectedSessionEvent value)? getSeletedSessionEvent,
     TResult Function(GetDayCountSessionEvent value)? getDayCountSessionEvent,
+    TResult Function(ResetCalendarEvent value)? resetCalendarEvent,
     required TResult orElse(),
   }) {
     if (setSeletTypeBottomSheet != null) {
@@ -1797,6 +1845,7 @@ class _$SetRecurringSessionImpl implements SetRecurringSession {
         removeSessionByDate,
     required TResult Function() getSeletedSessionEvent,
     required TResult Function(int count) getDayCountSessionEvent,
+    required TResult Function() resetCalendarEvent,
   }) {
     return setRecurringSession(data);
   }
@@ -1818,6 +1867,7 @@ class _$SetRecurringSessionImpl implements SetRecurringSession {
         removeSessionByDate,
     TResult? Function()? getSeletedSessionEvent,
     TResult? Function(int count)? getDayCountSessionEvent,
+    TResult? Function()? resetCalendarEvent,
   }) {
     return setRecurringSession?.call(data);
   }
@@ -1839,6 +1889,7 @@ class _$SetRecurringSessionImpl implements SetRecurringSession {
         removeSessionByDate,
     TResult Function()? getSeletedSessionEvent,
     TResult Function(int count)? getDayCountSessionEvent,
+    TResult Function()? resetCalendarEvent,
     required TResult orElse(),
   }) {
     if (setRecurringSession != null) {
@@ -1866,6 +1917,7 @@ class _$SetRecurringSessionImpl implements SetRecurringSession {
         getSeletedSessionEvent,
     required TResult Function(GetDayCountSessionEvent value)
         getDayCountSessionEvent,
+    required TResult Function(ResetCalendarEvent value) resetCalendarEvent,
   }) {
     return setRecurringSession(this);
   }
@@ -1885,6 +1937,7 @@ class _$SetRecurringSessionImpl implements SetRecurringSession {
     TResult? Function(RemoveSessionByDateEvent value)? removeSessionByDate,
     TResult? Function(GetSelectedSessionEvent value)? getSeletedSessionEvent,
     TResult? Function(GetDayCountSessionEvent value)? getDayCountSessionEvent,
+    TResult? Function(ResetCalendarEvent value)? resetCalendarEvent,
   }) {
     return setRecurringSession?.call(this);
   }
@@ -1904,6 +1957,7 @@ class _$SetRecurringSessionImpl implements SetRecurringSession {
     TResult Function(RemoveSessionByDateEvent value)? removeSessionByDate,
     TResult Function(GetSelectedSessionEvent value)? getSeletedSessionEvent,
     TResult Function(GetDayCountSessionEvent value)? getDayCountSessionEvent,
+    TResult Function(ResetCalendarEvent value)? resetCalendarEvent,
     required TResult orElse(),
   }) {
     if (setRecurringSession != null) {
@@ -2028,6 +2082,7 @@ class _$RemoveSessionByDateEventImpl implements RemoveSessionByDateEvent {
         removeSessionByDate,
     required TResult Function() getSeletedSessionEvent,
     required TResult Function(int count) getDayCountSessionEvent,
+    required TResult Function() resetCalendarEvent,
   }) {
     return removeSessionByDate(data, index);
   }
@@ -2049,6 +2104,7 @@ class _$RemoveSessionByDateEventImpl implements RemoveSessionByDateEvent {
         removeSessionByDate,
     TResult? Function()? getSeletedSessionEvent,
     TResult? Function(int count)? getDayCountSessionEvent,
+    TResult? Function()? resetCalendarEvent,
   }) {
     return removeSessionByDate?.call(data, index);
   }
@@ -2070,6 +2126,7 @@ class _$RemoveSessionByDateEventImpl implements RemoveSessionByDateEvent {
         removeSessionByDate,
     TResult Function()? getSeletedSessionEvent,
     TResult Function(int count)? getDayCountSessionEvent,
+    TResult Function()? resetCalendarEvent,
     required TResult orElse(),
   }) {
     if (removeSessionByDate != null) {
@@ -2097,6 +2154,7 @@ class _$RemoveSessionByDateEventImpl implements RemoveSessionByDateEvent {
         getSeletedSessionEvent,
     required TResult Function(GetDayCountSessionEvent value)
         getDayCountSessionEvent,
+    required TResult Function(ResetCalendarEvent value) resetCalendarEvent,
   }) {
     return removeSessionByDate(this);
   }
@@ -2116,6 +2174,7 @@ class _$RemoveSessionByDateEventImpl implements RemoveSessionByDateEvent {
     TResult? Function(RemoveSessionByDateEvent value)? removeSessionByDate,
     TResult? Function(GetSelectedSessionEvent value)? getSeletedSessionEvent,
     TResult? Function(GetDayCountSessionEvent value)? getDayCountSessionEvent,
+    TResult? Function(ResetCalendarEvent value)? resetCalendarEvent,
   }) {
     return removeSessionByDate?.call(this);
   }
@@ -2135,6 +2194,7 @@ class _$RemoveSessionByDateEventImpl implements RemoveSessionByDateEvent {
     TResult Function(RemoveSessionByDateEvent value)? removeSessionByDate,
     TResult Function(GetSelectedSessionEvent value)? getSeletedSessionEvent,
     TResult Function(GetDayCountSessionEvent value)? getDayCountSessionEvent,
+    TResult Function(ResetCalendarEvent value)? resetCalendarEvent,
     required TResult orElse(),
   }) {
     if (removeSessionByDate != null) {
@@ -2218,6 +2278,7 @@ class _$GetSelectedSessionEventImpl implements GetSelectedSessionEvent {
         removeSessionByDate,
     required TResult Function() getSeletedSessionEvent,
     required TResult Function(int count) getDayCountSessionEvent,
+    required TResult Function() resetCalendarEvent,
   }) {
     return getSeletedSessionEvent();
   }
@@ -2239,6 +2300,7 @@ class _$GetSelectedSessionEventImpl implements GetSelectedSessionEvent {
         removeSessionByDate,
     TResult? Function()? getSeletedSessionEvent,
     TResult? Function(int count)? getDayCountSessionEvent,
+    TResult? Function()? resetCalendarEvent,
   }) {
     return getSeletedSessionEvent?.call();
   }
@@ -2260,6 +2322,7 @@ class _$GetSelectedSessionEventImpl implements GetSelectedSessionEvent {
         removeSessionByDate,
     TResult Function()? getSeletedSessionEvent,
     TResult Function(int count)? getDayCountSessionEvent,
+    TResult Function()? resetCalendarEvent,
     required TResult orElse(),
   }) {
     if (getSeletedSessionEvent != null) {
@@ -2287,6 +2350,7 @@ class _$GetSelectedSessionEventImpl implements GetSelectedSessionEvent {
         getSeletedSessionEvent,
     required TResult Function(GetDayCountSessionEvent value)
         getDayCountSessionEvent,
+    required TResult Function(ResetCalendarEvent value) resetCalendarEvent,
   }) {
     return getSeletedSessionEvent(this);
   }
@@ -2306,6 +2370,7 @@ class _$GetSelectedSessionEventImpl implements GetSelectedSessionEvent {
     TResult? Function(RemoveSessionByDateEvent value)? removeSessionByDate,
     TResult? Function(GetSelectedSessionEvent value)? getSeletedSessionEvent,
     TResult? Function(GetDayCountSessionEvent value)? getDayCountSessionEvent,
+    TResult? Function(ResetCalendarEvent value)? resetCalendarEvent,
   }) {
     return getSeletedSessionEvent?.call(this);
   }
@@ -2325,6 +2390,7 @@ class _$GetSelectedSessionEventImpl implements GetSelectedSessionEvent {
     TResult Function(RemoveSessionByDateEvent value)? removeSessionByDate,
     TResult Function(GetSelectedSessionEvent value)? getSeletedSessionEvent,
     TResult Function(GetDayCountSessionEvent value)? getDayCountSessionEvent,
+    TResult Function(ResetCalendarEvent value)? resetCalendarEvent,
     required TResult orElse(),
   }) {
     if (getSeletedSessionEvent != null) {
@@ -2424,6 +2490,7 @@ class _$GetDayCountSessionEventImpl implements GetDayCountSessionEvent {
         removeSessionByDate,
     required TResult Function() getSeletedSessionEvent,
     required TResult Function(int count) getDayCountSessionEvent,
+    required TResult Function() resetCalendarEvent,
   }) {
     return getDayCountSessionEvent(count);
   }
@@ -2445,6 +2512,7 @@ class _$GetDayCountSessionEventImpl implements GetDayCountSessionEvent {
         removeSessionByDate,
     TResult? Function()? getSeletedSessionEvent,
     TResult? Function(int count)? getDayCountSessionEvent,
+    TResult? Function()? resetCalendarEvent,
   }) {
     return getDayCountSessionEvent?.call(count);
   }
@@ -2466,6 +2534,7 @@ class _$GetDayCountSessionEventImpl implements GetDayCountSessionEvent {
         removeSessionByDate,
     TResult Function()? getSeletedSessionEvent,
     TResult Function(int count)? getDayCountSessionEvent,
+    TResult Function()? resetCalendarEvent,
     required TResult orElse(),
   }) {
     if (getDayCountSessionEvent != null) {
@@ -2493,6 +2562,7 @@ class _$GetDayCountSessionEventImpl implements GetDayCountSessionEvent {
         getSeletedSessionEvent,
     required TResult Function(GetDayCountSessionEvent value)
         getDayCountSessionEvent,
+    required TResult Function(ResetCalendarEvent value) resetCalendarEvent,
   }) {
     return getDayCountSessionEvent(this);
   }
@@ -2512,6 +2582,7 @@ class _$GetDayCountSessionEventImpl implements GetDayCountSessionEvent {
     TResult? Function(RemoveSessionByDateEvent value)? removeSessionByDate,
     TResult? Function(GetSelectedSessionEvent value)? getSeletedSessionEvent,
     TResult? Function(GetDayCountSessionEvent value)? getDayCountSessionEvent,
+    TResult? Function(ResetCalendarEvent value)? resetCalendarEvent,
   }) {
     return getDayCountSessionEvent?.call(this);
   }
@@ -2531,6 +2602,7 @@ class _$GetDayCountSessionEventImpl implements GetDayCountSessionEvent {
     TResult Function(RemoveSessionByDateEvent value)? removeSessionByDate,
     TResult Function(GetSelectedSessionEvent value)? getSeletedSessionEvent,
     TResult Function(GetDayCountSessionEvent value)? getDayCountSessionEvent,
+    TResult Function(ResetCalendarEvent value)? resetCalendarEvent,
     required TResult orElse(),
   }) {
     if (getDayCountSessionEvent != null) {
@@ -2551,4 +2623,185 @@ abstract class GetDayCountSessionEvent implements SessionCalendarEvent {
   @JsonKey(includeFromJson: false, includeToJson: false)
   _$$GetDayCountSessionEventImplCopyWith<_$GetDayCountSessionEventImpl>
       get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$ResetCalendarEventImplCopyWith<$Res> {
+  factory _$$ResetCalendarEventImplCopyWith(_$ResetCalendarEventImpl value,
+          $Res Function(_$ResetCalendarEventImpl) then) =
+      __$$ResetCalendarEventImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$ResetCalendarEventImplCopyWithImpl<$Res>
+    extends _$SessionCalendarEventCopyWithImpl<$Res, _$ResetCalendarEventImpl>
+    implements _$$ResetCalendarEventImplCopyWith<$Res> {
+  __$$ResetCalendarEventImplCopyWithImpl(_$ResetCalendarEventImpl _value,
+      $Res Function(_$ResetCalendarEventImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of SessionCalendarEvent
+  /// with the given fields replaced by the non-null parameter values.
+}
+
+/// @nodoc
+
+class _$ResetCalendarEventImpl implements ResetCalendarEvent {
+  const _$ResetCalendarEventImpl();
+
+  @override
+  String toString() {
+    return 'SessionCalendarEvent.resetCalendarEvent()';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$ResetCalendarEventImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(Map<String, dynamic> data, bool isPrivate)
+        getCalenDarDateEvents,
+    required TResult Function(Map<String, dynamic> data) getAvilableDates,
+    required TResult Function(DateTime data, String dayname) setCurrentDate,
+    required TResult Function(String data, String sessionId, String fromTime)
+        setSelectDateDayName,
+    required TResult Function(String data) setSlotFOrBooking,
+    required TResult Function(Map<String, dynamic> data) setSlotBooking,
+    required TResult Function(String type) setSeletTypeBottomSheet,
+    required TResult Function(Map<String, dynamic> data) setRecurringSession,
+    required TResult Function(Map<String, dynamic> data, dynamic index)
+        removeSessionByDate,
+    required TResult Function() getSeletedSessionEvent,
+    required TResult Function(int count) getDayCountSessionEvent,
+    required TResult Function() resetCalendarEvent,
+  }) {
+    return resetCalendarEvent();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(Map<String, dynamic> data, bool isPrivate)?
+        getCalenDarDateEvents,
+    TResult? Function(Map<String, dynamic> data)? getAvilableDates,
+    TResult? Function(DateTime data, String dayname)? setCurrentDate,
+    TResult? Function(String data, String sessionId, String fromTime)?
+        setSelectDateDayName,
+    TResult? Function(String data)? setSlotFOrBooking,
+    TResult? Function(Map<String, dynamic> data)? setSlotBooking,
+    TResult? Function(String type)? setSeletTypeBottomSheet,
+    TResult? Function(Map<String, dynamic> data)? setRecurringSession,
+    TResult? Function(Map<String, dynamic> data, dynamic index)?
+        removeSessionByDate,
+    TResult? Function()? getSeletedSessionEvent,
+    TResult? Function(int count)? getDayCountSessionEvent,
+    TResult? Function()? resetCalendarEvent,
+  }) {
+    return resetCalendarEvent?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(Map<String, dynamic> data, bool isPrivate)?
+        getCalenDarDateEvents,
+    TResult Function(Map<String, dynamic> data)? getAvilableDates,
+    TResult Function(DateTime data, String dayname)? setCurrentDate,
+    TResult Function(String data, String sessionId, String fromTime)?
+        setSelectDateDayName,
+    TResult Function(String data)? setSlotFOrBooking,
+    TResult Function(Map<String, dynamic> data)? setSlotBooking,
+    TResult Function(String type)? setSeletTypeBottomSheet,
+    TResult Function(Map<String, dynamic> data)? setRecurringSession,
+    TResult Function(Map<String, dynamic> data, dynamic index)?
+        removeSessionByDate,
+    TResult Function()? getSeletedSessionEvent,
+    TResult Function(int count)? getDayCountSessionEvent,
+    TResult Function()? resetCalendarEvent,
+    required TResult orElse(),
+  }) {
+    if (resetCalendarEvent != null) {
+      return resetCalendarEvent();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(CalendarDateEvents value) getCalenDarDateEvents,
+    required TResult Function(AvilableDateEvents value) getAvilableDates,
+    required TResult Function(CurrentDateEvent value) setCurrentDate,
+    required TResult Function(SetSelectedDateDayName value)
+        setSelectDateDayName,
+    required TResult Function(SetSlotForBookingEvent value) setSlotFOrBooking,
+    required TResult Function(SetSlotBooking value) setSlotBooking,
+    required TResult Function(SetSelectTypeBottomSheetEvent value)
+        setSeletTypeBottomSheet,
+    required TResult Function(SetRecurringSession value) setRecurringSession,
+    required TResult Function(RemoveSessionByDateEvent value)
+        removeSessionByDate,
+    required TResult Function(GetSelectedSessionEvent value)
+        getSeletedSessionEvent,
+    required TResult Function(GetDayCountSessionEvent value)
+        getDayCountSessionEvent,
+    required TResult Function(ResetCalendarEvent value) resetCalendarEvent,
+  }) {
+    return resetCalendarEvent(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(CalendarDateEvents value)? getCalenDarDateEvents,
+    TResult? Function(AvilableDateEvents value)? getAvilableDates,
+    TResult? Function(CurrentDateEvent value)? setCurrentDate,
+    TResult? Function(SetSelectedDateDayName value)? setSelectDateDayName,
+    TResult? Function(SetSlotForBookingEvent value)? setSlotFOrBooking,
+    TResult? Function(SetSlotBooking value)? setSlotBooking,
+    TResult? Function(SetSelectTypeBottomSheetEvent value)?
+        setSeletTypeBottomSheet,
+    TResult? Function(SetRecurringSession value)? setRecurringSession,
+    TResult? Function(RemoveSessionByDateEvent value)? removeSessionByDate,
+    TResult? Function(GetSelectedSessionEvent value)? getSeletedSessionEvent,
+    TResult? Function(GetDayCountSessionEvent value)? getDayCountSessionEvent,
+    TResult? Function(ResetCalendarEvent value)? resetCalendarEvent,
+  }) {
+    return resetCalendarEvent?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(CalendarDateEvents value)? getCalenDarDateEvents,
+    TResult Function(AvilableDateEvents value)? getAvilableDates,
+    TResult Function(CurrentDateEvent value)? setCurrentDate,
+    TResult Function(SetSelectedDateDayName value)? setSelectDateDayName,
+    TResult Function(SetSlotForBookingEvent value)? setSlotFOrBooking,
+    TResult Function(SetSlotBooking value)? setSlotBooking,
+    TResult Function(SetSelectTypeBottomSheetEvent value)?
+        setSeletTypeBottomSheet,
+    TResult Function(SetRecurringSession value)? setRecurringSession,
+    TResult Function(RemoveSessionByDateEvent value)? removeSessionByDate,
+    TResult Function(GetSelectedSessionEvent value)? getSeletedSessionEvent,
+    TResult Function(GetDayCountSessionEvent value)? getDayCountSessionEvent,
+    TResult Function(ResetCalendarEvent value)? resetCalendarEvent,
+    required TResult orElse(),
+  }) {
+    if (resetCalendarEvent != null) {
+      return resetCalendarEvent(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class ResetCalendarEvent implements SessionCalendarEvent {
+  const factory ResetCalendarEvent() = _$ResetCalendarEventImpl;
 }

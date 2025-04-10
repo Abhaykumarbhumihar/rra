@@ -3,6 +3,8 @@ import 'package:flutter_xlider/flutter_xlider.dart';
 import 'package:rra/common/values/fonts.dart';
 import 'package:rra/pages/coach/coach_player_report/coach_player_report_list/data/entity/report_model.dart';
 
+import '../../../../../../../../common/component/custom_app_button.dart';
+
 class SliderConfig {
   final String title;
   final double initialValue;
@@ -85,7 +87,7 @@ class _StrikeRotationDialogPageState extends State<StrikeRotationDialogPage> {
 
             // Static Color Indicator
             _buildColorIndicator(),
-
+SizedBox(height: 10,),
             // Dynamic Sliders
             for (int i = 0; i < widget.sliderConfigs.length; i++) ...[
               _buildSlider(
@@ -112,13 +114,12 @@ class _StrikeRotationDialogPageState extends State<StrikeRotationDialogPage> {
             ),
 
             const SizedBox(height: 20),
-            SizedBox(
-              width: double.infinity,
-              child: ElevatedButton(
-                onPressed: _submitAssessment,
-                child: const Text('Submit'),
-              ),
-            ),
+            CustomButton(
+              text: "Submit Score",
+              onPressed: () {
+                Navigator.pop(context);
+              },
+            )
           ],
         ),
       ),
@@ -191,28 +192,6 @@ class _StrikeRotationDialogPageState extends State<StrikeRotationDialogPage> {
     return Colors.grey; // default color if no range matches
   }
 
-  // Widget _buildColorIndicator() {
-  //   return Column(
-  //     crossAxisAlignment: CrossAxisAlignment.start,
-  //     children: [
-  //       const Text(
-  //         'Strike Rotation',
-  //         style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
-  //       ),
-  //       const SizedBox(height: 8),
-  //       Row(
-  //         mainAxisAlignment: MainAxisAlignment.spaceBetween,
-  //         children: [
-  //           _buildRangeIndicator('7-10 Striving', Colors.green),
-  //           _buildRangeIndicator('4-6 Learning', Colors.blue),
-  //           _buildRangeIndicator('1-3 Coping', Colors.red),
-  //         ],
-  //       ),
-  //     ],
-  //   );
-  // }
-  //
-
   Widget _buildRangeIndicator(String text, Color color) {
     return Column(
       children: [
@@ -244,26 +223,28 @@ class _StrikeRotationDialogPageState extends State<StrikeRotationDialogPage> {
                 fontSize: 16,
                 color: Colors.black,
                 fontFamily: AppFont.interMedium)),
-        SizedBox(
-          height: 6,
-        ),
-        SliderTheme(
-          data: SliderTheme.of(context).copyWith(
-            trackHeight: 6.0,
-            inactiveTrackColor: Colors.grey[400],
-            activeTrackColor: _getSliderColor(value),
-            thumbColor: _getSliderColor(value),
-            overlayColor: _getSliderColor(value).withOpacity(0.2),
-            valueIndicatorColor: _getSliderColor(value),
-            showValueIndicator: ShowValueIndicator.always,
-          ),
-          child: Slider(
-            value: value,
-            min: 1,
-            max: 10,
-            divisions: 9,
-            label: value.round().toString(),
-            onChanged: onChanged,
+
+        Padding(
+          padding: const EdgeInsets.only(left: 6.0,top: 4),
+          child: SliderTheme(
+            data: SliderTheme.of(context).copyWith(
+              trackHeight: 6.0,
+              padding: EdgeInsets.zero,
+              inactiveTrackColor: Colors.grey[400],
+              activeTrackColor: _getSliderColor(value),
+              thumbColor: _getSliderColor(value),
+              overlayColor: _getSliderColor(value).withOpacity(0.2),
+              valueIndicatorColor: _getSliderColor(value),
+              showValueIndicator: ShowValueIndicator.always,
+            ),
+            child: Slider(
+              value: value,
+              min: 1,
+              max: 10,
+              divisions: 9,
+              label: value.round().toString(),
+              onChanged: onChanged,
+            ),
           ),
         ),
       ],
@@ -277,28 +258,4 @@ class _StrikeRotationDialogPageState extends State<StrikeRotationDialogPage> {
   }
 }
 
-class DottedLinePainter extends CustomPainter {
-  @override
-  void paint(Canvas canvas, Size size) {
-    final paint = Paint()
-      ..color = Colors.white
-      ..strokeWidth = 3
-      ..strokeCap = StrokeCap.round;
 
-    const dashWidth = 5.0; // Increase this to make dots wider
-    const dashSpace = 8.0;
-    double startX = 0;
-
-    while (startX < size.width) {
-      canvas.drawLine(
-        Offset(startX, size.height / 2),
-        Offset(startX + dashWidth, size.height / 2),
-        paint,
-      );
-      startX += dashWidth + dashSpace;
-    }
-  }
-
-  @override
-  bool shouldRepaint(CustomPainter oldDelegate) => false;
-}

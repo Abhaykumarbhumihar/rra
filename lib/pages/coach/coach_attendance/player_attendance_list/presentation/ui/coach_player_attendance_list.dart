@@ -40,24 +40,21 @@ class CoachPlayerAttendanceList extends StatelessWidget {
                         style: AppTextStyle.semiBold(
                             MediaQuery.of(context).size.width * 0.0373),
                       ),
-                      InkWell(
-                        onTap: () {
-                          showModalBottomSheet(
-                            context: context,
-                            shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.vertical(
-                                  top: Radius.circular(20)),
-                            ),
-                            backgroundColor: Colors.white,
-                            isScrollControlled: true,
-                            builder: (context) => PlayerAttendanceFilterSheet(),
-                          );
-                        },
-                        child: Icon(
-                          Icons.short_text,
-                          color: Colors.white,
-                        ),
-                      ),
+                      // InkWell(
+                      //   onTap: () {
+                      //     showModalBottomSheet(
+                      //       context: context,
+                      //       shape: RoundedRectangleBorder(
+                      //         borderRadius: BorderRadius.vertical(
+                      //             top: Radius.circular(20)),
+                      //       ),
+                      //       backgroundColor: Colors.white,
+                      //       isScrollControlled: true,
+                      //       builder: (context) => PlayerAttendanceFilterSheet(),
+                      //     );
+                      //   },
+                      //   child: Image.asset('assets/images/filter_icon.png',width: 22,height: 22,)
+                      // ),
                     ],
                   ),
                   SizedBox(

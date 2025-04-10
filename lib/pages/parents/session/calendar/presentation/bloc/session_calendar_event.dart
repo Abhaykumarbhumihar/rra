@@ -16,5 +16,6 @@ class SessionCalendarEvent with _$SessionCalendarEvent {
   const factory SessionCalendarEvent.removeSessionByDate( Map<String, dynamic> data,index) = RemoveSessionByDateEvent;
   const factory SessionCalendarEvent.getSeletedSessionEvent() = GetSelectedSessionEvent;
   const factory SessionCalendarEvent.getDayCountSessionEvent(int count) = GetDayCountSessionEvent;
+  const factory SessionCalendarEvent.resetCalendarEvent() = ResetCalendarEvent;
 
 }

@@ -11,6 +11,8 @@ import '../../../../../../common/component/custom_app_button.dart';
 import '../../../../../../common/component/loading_indicator.dart';
 import '../../../../../../common/local/SharedPrefs.dart';
 import '../../../../../../common/routes/routes.dart';
+import '../../../add_detail/presentation/bloc/add_view_player_bloc.dart';
+import '../../../add_detail/presentation/bloc/add_view_player_event.dart';
 import '../../../calendar/presentation/bloc/session_calendar_bloc.dart';
 import '../../../calendar/presentation/bloc/session_calendar_event.dart';
 import '../../../coachprograms/data/entity/parent_coaching_program_list.dart';
@@ -150,6 +152,9 @@ class CoachingDetailScreen extends StatelessWidget {
                                 context.showCustomSnackbar("Please select a coach.");
                               } else {
                                 // Proceed with the code if conditions are not met
+                                BlocProvider.of<SessionCalendarBloc>(context).add(ResetCalendarEvent());
+                                BlocProvider.of<AddViewPlayerBloc>(context).add(ResetAddViewEvent());
+                                BlocProvider.of<AddViewPlayerBloc>(context).add(AddViewPlayerGetChildListEvent());
                                 var academyId = await SharedPrefs.getString("selected_academyid");
 
                                 Map<String, dynamic> map = {

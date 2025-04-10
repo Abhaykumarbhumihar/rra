@@ -75,12 +75,10 @@ class PlayerAttendanceList extends StatelessWidget {
                               onPressed: () async {
                                 print(data.id);
                                 var academyId = await SharedPrefs.getString("selected_academyid");
-                                Map<String,dynamic>map={
-                                  "academy_id": academyId,
-                                  "player_id": data.id
-                                };
-                                BlocProvider.of<AttendanceBloc>(context).add(GetDetailOfOneChildAttendanceEvent(map));
+
                                 BlocProvider.of<AttendanceBloc>(context).add(StoreTapUserId("${data.id}"));
+                                BlocProvider.of<AttendanceBloc>(context).add(GetDetailOfOneChildAttendanceEvent({}));
+
                                 Map<String, String> arguments = {
                                   "childName": data.name,
                                 };

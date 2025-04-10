@@ -49,34 +49,51 @@ class OrderSummary extends StatelessWidget {
 
         if (state.isOrderPlaceSuccess) {
           print("CHECK HERE PAYMENT PRICE ${state.orderPayment}");
-          StripeService.instance.setPublishableKey();
-          var amountInCents = (double.parse(state.orderPayment) * 100).toInt();
-
-          print("Final Payment Amount in Cents: $amountInCents"); // Debugging
-
-          var payMentData =
-          await StripeService.instance.makePayment(amountInCents);
-          if (payMentData != null && payMentData.containsKey("client_secret")) {
-            print("========================================");
-            print("Client Secret: ${payMentData["client_secret"]}");
-            print("ORDER ID IS ${state.orderId}");
+          var totalPrice=double.parse(state.orderPayment);
+          final price = double.tryParse(state.orderPayment) ?? -1;
+          if (price < 1) {
             var academyId = await SharedPrefs.getString("selected_academyid");
-
             Map<String, dynamic> paymentStatusUpdate = {
               "academy_id": academyId,
               "order_id": "${state.orderId}",
               "payment_response": {
-                "id": "${payMentData["client_secret"]}",
+                "id": "_0payment",
                 "status": "succeeded"
               }
             };
             BlocProvider.of<OrderSummaryBloc>(context)
                 .add(OrderPlaceMentWithPaymentIdEvent(paymentStatusUpdate));
+          }else{
+            StripeService.instance.setPublishableKey();
+            var amountInCents = (double.parse(state.orderPayment) * 100).toInt();
 
-            print("========================================");
-          } else {
-            print("Client Secret not found!");
+            print("Final Payment Amount in Cents: $amountInCents"); // Debugging
+
+            var payMentData =
+            await StripeService.instance.makePayment(amountInCents);
+            if (payMentData != null && payMentData.containsKey("client_secret")) {
+              print("========================================");
+              print("Client Secret: ${payMentData["client_secret"]}");
+              print("ORDER ID IS ${state.orderId}");
+              var academyId = await SharedPrefs.getString("selected_academyid");
+
+              Map<String, dynamic> paymentStatusUpdate = {
+                "academy_id": academyId,
+                "order_id": "${state.orderId}",
+                "payment_response": {
+                  "id": "${payMentData["client_secret"]}",
+                  "status": "succeeded"
+                }
+              };
+              BlocProvider.of<OrderSummaryBloc>(context)
+                  .add(OrderPlaceMentWithPaymentIdEvent(paymentStatusUpdate));
+
+              print("========================================");
+            } else {
+              print("Client Secret not found!");
+            }
           }
+
         }
 
         if (state.finalPaymentDone) {
@@ -237,11 +254,11 @@ class OrderSummary extends StatelessWidget {
 // Future.delayed(Duration(milliseconds: 300), () {
 //   showCreditCardDialog(context); // Show Dialog after BottomSheet is closed
 // });
-                                            // await StripeService.instance
-                                            //     .setPublishableKey();
-                                            // await handlePayment();
-                                            // StripeService.instance.setPublishableKey();
-                                            // StripeService.instance.makePayment(18);
+//                                             await StripeService.instance
+//                                                 .setPublishableKey();
+//                                             await handlePayment();
+//                                             StripeService.instance.setPublishableKey();
+//                                             StripeService.instance.makePayment(18);
                                             print(
                                                 "PAYMENT BUTTON PRESSED PAYMENT BUTTON PRESSED");
                                           }, couponApplyAction: () async {

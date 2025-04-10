@@ -21,6 +21,7 @@ mixin _$AppState {
   OtpVerificationModel get userdata => throw _privateConstructorUsedError;
   bool get isError => throw _privateConstructorUsedError;
   String get errorMessage => throw _privateConstructorUsedError;
+  String get bookedSessionCount => throw _privateConstructorUsedError;
   String get error => throw _privateConstructorUsedError;
   bool get isLoading => throw _privateConstructorUsedError;
   bool get isLoadingreport => throw _privateConstructorUsedError;
@@ -43,6 +44,7 @@ abstract class $AppStateCopyWith<$Res> {
       OtpVerificationModel userdata,
       bool isError,
       String errorMessage,
+      String bookedSessionCount,
       String error,
       bool isLoading,
       bool isLoadingreport});
@@ -70,6 +72,7 @@ class _$AppStateCopyWithImpl<$Res, $Val extends AppState>
     Object? userdata = null,
     Object? isError = null,
     Object? errorMessage = null,
+    Object? bookedSessionCount = null,
     Object? error = null,
     Object? isLoading = null,
     Object? isLoadingreport = null,
@@ -94,6 +97,10 @@ class _$AppStateCopyWithImpl<$Res, $Val extends AppState>
       errorMessage: null == errorMessage
           ? _value.errorMessage
           : errorMessage // ignore: cast_nullable_to_non_nullable
+              as String,
+      bookedSessionCount: null == bookedSessionCount
+          ? _value.bookedSessionCount
+          : bookedSessionCount // ignore: cast_nullable_to_non_nullable
               as String,
       error: null == error
           ? _value.error
@@ -135,6 +142,7 @@ abstract class _$$AppStateImplCopyWith<$Res>
       OtpVerificationModel userdata,
       bool isError,
       String errorMessage,
+      String bookedSessionCount,
       String error,
       bool isLoading,
       bool isLoadingreport});
@@ -161,6 +169,7 @@ class __$$AppStateImplCopyWithImpl<$Res>
     Object? userdata = null,
     Object? isError = null,
     Object? errorMessage = null,
+    Object? bookedSessionCount = null,
     Object? error = null,
     Object? isLoading = null,
     Object? isLoadingreport = null,
@@ -185,6 +194,10 @@ class __$$AppStateImplCopyWithImpl<$Res>
       errorMessage: null == errorMessage
           ? _value.errorMessage
           : errorMessage // ignore: cast_nullable_to_non_nullable
+              as String,
+      bookedSessionCount: null == bookedSessionCount
+          ? _value.bookedSessionCount
+          : bookedSessionCount // ignore: cast_nullable_to_non_nullable
               as String,
       error: null == error
           ? _value.error
@@ -211,6 +224,7 @@ class _$AppStateImpl implements _AppState {
       this.userdata = const OtpVerificationModel(),
       this.isError = false,
       this.errorMessage = '',
+      this.bookedSessionCount = '0',
       this.error = '',
       this.isLoading = false,
       this.isLoadingreport = false});
@@ -231,6 +245,9 @@ class _$AppStateImpl implements _AppState {
   final String errorMessage;
   @override
   @JsonKey()
+  final String bookedSessionCount;
+  @override
+  @JsonKey()
   final String error;
   @override
   @JsonKey()
@@ -241,7 +258,7 @@ class _$AppStateImpl implements _AppState {
 
   @override
   String toString() {
-    return 'AppState(index: $index, lastBackPressTime: $lastBackPressTime, userdata: $userdata, isError: $isError, errorMessage: $errorMessage, error: $error, isLoading: $isLoading, isLoadingreport: $isLoadingreport)';
+    return 'AppState(index: $index, lastBackPressTime: $lastBackPressTime, userdata: $userdata, isError: $isError, errorMessage: $errorMessage, bookedSessionCount: $bookedSessionCount, error: $error, isLoading: $isLoading, isLoadingreport: $isLoadingreport)';
   }
 
   @override
@@ -257,6 +274,8 @@ class _$AppStateImpl implements _AppState {
             (identical(other.isError, isError) || other.isError == isError) &&
             (identical(other.errorMessage, errorMessage) ||
                 other.errorMessage == errorMessage) &&
+            (identical(other.bookedSessionCount, bookedSessionCount) ||
+                other.bookedSessionCount == bookedSessionCount) &&
             (identical(other.error, error) || other.error == error) &&
             (identical(other.isLoading, isLoading) ||
                 other.isLoading == isLoading) &&
@@ -265,8 +284,17 @@ class _$AppStateImpl implements _AppState {
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, index, lastBackPressTime,
-      userdata, isError, errorMessage, error, isLoading, isLoadingreport);
+  int get hashCode => Object.hash(
+      runtimeType,
+      index,
+      lastBackPressTime,
+      userdata,
+      isError,
+      errorMessage,
+      bookedSessionCount,
+      error,
+      isLoading,
+      isLoadingreport);
 
   /// Create a copy of AppState
   /// with the given fields replaced by the non-null parameter values.
@@ -284,6 +312,7 @@ abstract class _AppState implements AppState {
       final OtpVerificationModel userdata,
       final bool isError,
       final String errorMessage,
+      final String bookedSessionCount,
       final String error,
       final bool isLoading,
       final bool isLoadingreport}) = _$AppStateImpl;
@@ -298,6 +327,8 @@ abstract class _AppState implements AppState {
   bool get isError;
   @override
   String get errorMessage;
+  @override
+  String get bookedSessionCount;
   @override
   String get error;
   @override

@@ -34,7 +34,7 @@ class CustomHeader extends StatelessWidget {
             child: CommonBackground.BackButtonImage(context), // Back Button
           ):Container(),
           Padding(
-            padding: EdgeInsets.only(top: MediaQuery.of(context).size.height * 0.052),
+            padding: EdgeInsets.only(top: MediaQuery.of(context).size.height * 0.052,right: 14),
             child: Text(
               title,
               style: TextStyle(
