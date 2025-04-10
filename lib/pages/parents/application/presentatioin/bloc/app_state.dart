@@ -26,7 +26,6 @@ class AppState with _$AppState {
     @Default('') String errorMessage,
     @Default('') String error,
     @Default(false) bool isLoading,
-    @Default('') String bookedSessionCount,
     @Default(false) bool isLoadingreport,
 
 

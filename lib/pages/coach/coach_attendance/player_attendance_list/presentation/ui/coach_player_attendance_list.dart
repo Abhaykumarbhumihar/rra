@@ -53,7 +53,10 @@ class CoachPlayerAttendanceList extends StatelessWidget {
                             builder: (context) => PlayerAttendanceFilterSheet(),
                           );
                         },
-                        child: Image.asset('assets/images/filter_icon.png',width: 22,height: 22,)
+                        child: Icon(
+                          Icons.short_text,
+                          color: Colors.white,
+                        ),
                       ),
                     ],
                   ),

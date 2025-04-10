@@ -21,7 +21,6 @@ class ManageTeamDetail extends StatelessWidget {
       child: BlocBuilder<ManageTeamBloc, ManageTeamState>(
         builder: (context, state) {
           return CommonPageFormat(
-            isScrollable: false,
             title: reportData.childname,
             onBackPress: () => Navigator.pop(context),
             child: Padding(
@@ -48,24 +47,18 @@ color: AppColor.appWhiteColor,fontFamily: AppFont.interBold,fontSize: context.sc
                     label: "Parents Phone no :",
                     value: " ${reportData.parentPhone}",
                   ),
-                  SizedBox(height: 8.0,),
-                  Text("Session Booking",style: TextStyle(
-                      color: AppColor.appWhiteColor,fontFamily: AppFont.interBold,fontSize: context.screenWidth*0.0366
-                  ),),
-                  const SizedBox(height: 6),
-                  Expanded(
-                    child: ListView.builder(
-                      shrinkWrap: true,
-                        padding: EdgeInsets.zero,
-                        physics: BouncingScrollPhysics(),
-                        itemCount: reportData.sessionList.length,
-                        itemBuilder: (context,index){
-                      return TeamSessionView(
-                                  title: "${reportData.sessionList[index].date}",
-                                  onAddScore: (){},
-                                );
-                    }),
-                  )
+                  const SizedBox(height: 10),
+                  ListView.builder(
+                    shrinkWrap: true,
+                      padding: EdgeInsets.zero,
+                      physics: BouncingScrollPhysics(),
+                      itemCount: reportData.sessionList.length,
+                      itemBuilder: (context,index){
+                    return TeamSessionView(
+                                title: "${reportData.sessionList[index].date}",
+                                onAddScore: (){},
+                              );
+                  })
                   //_buildScoreCards(reportData,context),
                 ],
               ),
