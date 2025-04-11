@@ -25,16 +25,18 @@ class ReportWebview extends StatelessWidget {
             onBackPress: () => Navigator.pop(context),
             child: Padding(
               padding: EdgeInsets.symmetric(
-                horizontal: context.screenWidth * 0.052,
+                horizontal: 0,
               ),
               child: Column(
                 children: [
                   const SizedBox(height: 24),
                   Expanded(
                     child: WebViewWidget(
+                      
                       controller: WebViewController()
-                        ..setJavaScriptMode(JavaScriptMode.unrestricted)
-                        ..loadRequest(Uri.parse(reportUrl)),
+                        ..setJavaScriptMode(JavaScriptMode.unrestricted)..enableZoom(false)
+..enableZoom(false)
+                        ..loadRequest(Uri.parse(reportUrl),),
                     ),
                   ),
                 ],

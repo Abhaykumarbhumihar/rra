@@ -40,7 +40,7 @@ class CoachPlayerReportDetailPage extends StatelessWidget {
                         "childReportData": reportData,
 
                       };
-                   //  Navigator.pushNamed(context, AppRoutes.COACHPLAYERREPOORTWEBVIEWPAGE,arguments: arguments);
+                   Navigator.pushNamed(context, AppRoutes.COACHPLAYERREPOORTWEBVIEWPAGE,arguments: arguments);
                     },
                   ),
 
