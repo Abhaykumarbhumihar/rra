@@ -67,7 +67,7 @@ class _StrikeRotationDialogPageState extends State<StrikeRotationDialogPage> {
     };
 print(results);
 BlocProvider.of<ReportBloc>(context).add(AddScoreEvent(results));
-    //Navigator.of(context).pop(results);
+    Navigator.of(context).pop(results);
   }
 
   @override
@@ -137,13 +137,12 @@ BlocProvider.of<ReportBloc>(context).add(AddScoreEvent(results));
             ),
 
             const SizedBox(height: 20),
-            SizedBox(
-              width: double.infinity,
-              child: ElevatedButton(
-                onPressed: _submitAssessment,
-                child: const Text("Submit Score"),
-              ),
-            )
+            CustomButton(
+              text: "Submit Score",
+              onPressed: _submitAssessment,
+            ),
+
+
           ],
         ),
       ),

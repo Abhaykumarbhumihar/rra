@@ -29,6 +29,7 @@ class AddViewDocumenPage extends StatelessWidget {
   final TextEditingController sessionController = TextEditingController();
   final TextEditingController playerController = TextEditingController();
   final descriptionFocusNode = FocusNode();
+
   @override
   Widget build(BuildContext context) {
     var width = context.screenWidth;
@@ -87,6 +88,9 @@ class AddViewDocumenPage extends StatelessWidget {
                             'Receive\nDocument'
                           ],
                           onTabChanged: (index) {
+
+                              BlocProvider.of<AddDocumentBloc>(context)
+                                  .add(ResetAfterDocumentUploadEvent());
 
                             BlocProvider.of<AddDocumentBloc>(context)
                                 .add(AddDocumentEvent.selectTabEvent(index));
@@ -165,43 +169,45 @@ class AddViewDocumenPage extends StatelessWidget {
                                               /*set terms*/
                                               if (data.termId != null) {
                                                 BlocProvider.of<
-                                                    AddDocumentBloc>(
-                                                    context)
+                                                            AddDocumentBloc>(
+                                                        context)
                                                     .add(
-                                                    setSelectedTermDocumentEvent(
-                                                        data.termId!));
+                                                        setSelectedTermDocumentEvent(
+                                                            data.termId!));
                                               }
                                               /*set coaching program*/
-                                              if (data.coachingProgramId != null) {
+                                              if (data.coachingProgramId !=
+                                                  null) {
                                                 BlocProvider.of<
-                                                    AddDocumentBloc>(
-                                                    context)
-                                                    .add(
-                                                    setSelectedProgramDocumentEvent(
+                                                            AddDocumentBloc>(
+                                                        context)
+                                                    .add(setSelectedProgramDocumentEvent(
                                                         data.coachingProgramId!));
                                               }
 
                                               /*set session*/
                                               if (data.sessionId != null) {
                                                 BlocProvider.of<
-                                                    AddDocumentBloc>(
-                                                    context)
+                                                            AddDocumentBloc>(
+                                                        context)
                                                     .add(
-                                                    setSelectedSessionDocumentEvent(
-                                                        data.sessionId!));
+                                                        setSelectedSessionDocumentEvent(
+                                                            data.sessionId!));
                                               }
                                               /*set parent id*/
                                               if (data.parentId != null) {
                                                 BlocProvider.of<
-                                                    AddDocumentBloc>(
-                                                    context)
+                                                            AddDocumentBloc>(
+                                                        context)
                                                     .add(
-                                                    setSelectedPlayerDocumentEvent(
-                                                        data.parentId!));
+                                                        setSelectedPlayerDocumentEvent(
+                                                            data.parentId!));
                                               }
 
-                                              BlocProvider.of<AddDocumentBloc>(context)
-                                                  .add(AddDocumentEvent.selectTabEvent(0));
+                                              BlocProvider.of<AddDocumentBloc>(
+                                                      context)
+                                                  .add(AddDocumentEvent
+                                                      .selectTabEvent(0));
                                             },
                                             isUploadedDocument: true,
                                             coaches: state
@@ -322,17 +328,7 @@ class AddViewDocumenPage extends StatelessWidget {
     }
   }
 
-  Session _getSessionWithId(int coachingProgramId, List<Session> sessionList) {
-    try {
-      final sessionData = sessionList.firstWhere(
-        (session) => session.id.toString() == coachingProgramId.toString(),
-        orElse: () => Session(),
-      );
-      return sessionData;
-    } catch (e) {
-      return Session();
-    }
-  }
+
 
   Future<void> _handlePickFile(context) async {
     var bloc = BlocProvider.of<AddDocumentBloc>(context);

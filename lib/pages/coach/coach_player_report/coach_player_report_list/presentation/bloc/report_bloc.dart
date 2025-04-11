@@ -29,7 +29,10 @@ class ReportBloc extends Bloc<ReportEvent, ReportState> {
 
   Future<void> _termSelected(
       TermSelected event, Emitter<ReportState> emit) async {
-    emit(state.copyWith(termsId: event.term));
+    emit(state.copyWith(termsId: event.term,
+    sessionId: Session(),
+      coachingProgramId: CoachingProgram()
+    ));
   }
 
   Future<void> _sessionSelected(
@@ -40,7 +43,7 @@ class ReportBloc extends Bloc<ReportEvent, ReportState> {
 
   Future<void> _programSelected(
       ProgramSelected event, Emitter<ReportState> emit) async {
-    emit(state.copyWith(coachingProgramId: event.program));
+    emit(state.copyWith(coachingProgramId: event.program, sessionId: Session(),));
     ReportEventGetTermsSessionCoachingPlayerEvents({});
   }
 
@@ -86,7 +89,7 @@ class ReportBloc extends Bloc<ReportEvent, ReportState> {
       } catch (e) {}
 
       emit(state.copyWith(
-          isLoading: false,
+          isLoading: true,
           isError: false,
           message: "",
           termsProgramSessionPlayerModelData:
@@ -225,10 +228,11 @@ class ReportBloc extends Bloc<ReportEvent, ReportState> {
             message: ""));
       }, (useResult) {
         emit(state.copyWith(
-            isLoading: false,
+            isLoading: true,
             isError: false,
             isStatusUpdated: false,
             message: ""));
+        add(GetReportChildListEvent({}));
       });
     } catch (error) {
       emit(state.copyWith(isLoading: false, message: error.toString()));

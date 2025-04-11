@@ -26,7 +26,9 @@ class ManageTeamBloc extends Bloc<ManageTeamEvent, ManageTeamState> {
 
   Future<void> _termSelected(
       ManageTeamTermSelected event, Emitter<ManageTeamState> emit) async {
-    emit(state.copyWith(termsId: event.term));
+    emit(state.copyWith(termsId: event.term,
+        sessionId: Session(),
+        coachingProgramId: CoachingProgram()));
   }
 
   Future<void> _sessionSelected(
@@ -36,7 +38,8 @@ class ManageTeamBloc extends Bloc<ManageTeamEvent, ManageTeamState> {
 
   Future<void> _programSelected(
       ManageTeamProgramSelected event, Emitter<ManageTeamState> emit) async {
-    emit(state.copyWith(coachingProgramId: event.program));
+    emit(state.copyWith(coachingProgramId: event.program,
+        sessionId: Session()));
   }
 
   Future<void> _getTermsSessioCoachingPlayer(

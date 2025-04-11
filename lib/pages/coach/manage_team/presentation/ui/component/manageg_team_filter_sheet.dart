@@ -4,6 +4,7 @@ import 'package:rra/common/component/component_export.dart';
 import 'package:rra/common/values/app_color.dart';
 import 'package:rra/common/values/values_exports.dart';
 
+import '../../../../../../common/component/loading_indicator.dart';
 import '../../../../../parents/document/add_view_document/data/entity/terms_program_session/terms_program_session_player_model.dart';
 import '../../bloc/manage_team_bloc.dart';
 import '../../bloc/manage_team_event.dart';
@@ -27,80 +28,91 @@ class ManagegTeamFilterSheet extends StatelessWidget {
             // Get the data from state
             print("S SS S R R R RR R R R R R ${state.termsProgramSessionPlayerModelData?.data?.term}");
 
-            return Column(
-              mainAxisSize: MainAxisSize.min,
-              children: [
-                Text(
-                  "Manage Reports",
-                  style: TextStyle(
-                    color: AppColor.appBlack,
-                    fontFamily: AppFont.interMedium,
-                    fontSize: context.screenWidth * 0.048,
+            return SizedBox(
+              width: double.infinity,
+              height: state.isLoading?context.screenHeight*0.35:null,
+
+              child: Stack(
+                children: [
+                  Column(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      Text(
+                        "Manage Team",
+                        style: TextStyle(
+                          color: AppColor.appBlack,
+                          fontFamily: AppFont.interMedium,
+                          fontSize: context.screenWidth * 0.048,
+                        ),
+                      ),
+                      Divider(
+                        color: AppColor.greycolor1.withOpacity(0.1),
+                      ),
+                      const SizedBox(height: 16),
+                      _buildDropdown<Term>(
+                        context,
+                        "Select Term",
+                        state.termsProgramSessionPlayerModelData.data?.term ?? [],
+                            (selectedTerm) {
+                          context.read<ManageTeamBloc>().add(ManageTeamTermSelected(selectedTerm));
+                          BlocProvider.of<ManageTeamBloc>(context).add(ManageTeamReportEventGetTermsSessionCoachingPlayerEvents({}));
+                        },
+                            (term) => term.termName,
+                        selectedItem: state.termsId,
+                        isEmpty: (term) => term.termName.isEmpty,
+                      ),
+
+                      const SizedBox(height: 12),
+                      // Programs Dropdown
+                      _buildDropdown<CoachingProgram>(
+                        context,
+                        "Select Program",
+                        state.termsProgramSessionPlayerModelData.data
+                            ?.coachingProgram ??
+                            [],
+                            (selectedProgram) {
+                          context
+                              .read<ManageTeamBloc>()
+                              .add(ManageTeamProgramSelected(selectedProgram));
+                          BlocProvider.of<ManageTeamBloc>(context).add(ManageTeamReportEventGetTermsSessionCoachingPlayerEvents({}));
+                        },
+                            (program) => program.name,
+                        selectedItem: state.coachingProgramId,
+                        isEmpty: (program) => program.name.isEmpty,
+                      ),
+
+                      const SizedBox(height: 12),
+                      // Sessions Dropdown
+                      _buildDropdown<Session>(
+                        context, "Select Session",
+                        state.termsProgramSessionPlayerModelData.data?.session ?? [],
+                            (selectedSession) {
+                          context
+                              .read<ManageTeamBloc>()
+                              .add(ManageTeamSessionSelected(selectedSession));
+                          BlocProvider.of<ManageTeamBloc>(context).add(ManageTeamReportEventGetTermsSessionCoachingPlayerEvents({}));
+                        },
+                            (session) => session.title, // Changed from title to name
+                        selectedItem: state.sessionId,
+                        isEmpty: (session) => session.title.isEmpty,
+                      ),
+                      const SizedBox(height: 20),
+                      CustomButton(
+                        text: "Apply Filters",
+                        onPressed: () {
+                          // context.read<ReportBloc>().add(ApplyFilters());
+                          print("APPLY FILTER CLICKK CKKDKDKKDKDKDKDKD");
+                          BlocProvider.of<ManageTeamBloc>(context).add(GetTeamListEvent({}));
+
+                          Navigator.pop(context);
+                        },
+                      ),
+                    ],
                   ),
-                ),
-                Divider(
-                  color: AppColor.greycolor1.withOpacity(0.1),
-                ),
-                const SizedBox(height: 16),
-                _buildDropdown<Term>(
-                  context,
-                  "Select Term",
-                  state.termsProgramSessionPlayerModelData.data?.term ?? [],
-                      (selectedTerm) {
-                    context.read<ManageTeamBloc>().add(ManageTeamTermSelected(selectedTerm));
-                    BlocProvider.of<ManageTeamBloc>(context).add(ManageTeamReportEventGetTermsSessionCoachingPlayerEvents({}));
-                  },
-                      (term) => term.termName,
-                  selectedItem: state.termsId,
-                  isEmpty: (term) => term.termName.isEmpty,
-                ),
-
-                const SizedBox(height: 12),
-                // Programs Dropdown
-                _buildDropdown<CoachingProgram>(
-                  context,
-                  "Select Program",
-                  state.termsProgramSessionPlayerModelData.data
-                      ?.coachingProgram ??
-                      [],
-                      (selectedProgram) {
-                    context
-                        .read<ManageTeamBloc>()
-                        .add(ManageTeamProgramSelected(selectedProgram));
-                    BlocProvider.of<ManageTeamBloc>(context).add(ManageTeamReportEventGetTermsSessionCoachingPlayerEvents({}));
-                  },
-                      (program) => program.name,
-                  selectedItem: state.coachingProgramId,
-                  isEmpty: (program) => program.name.isEmpty,
-                ),
-
-                const SizedBox(height: 12),
-                // Sessions Dropdown
-                _buildDropdown<Session>(
-                  context, "Select Session",
-                  state.termsProgramSessionPlayerModelData.data?.session ?? [],
-                      (selectedSession) {
-                    context
-                        .read<ManageTeamBloc>()
-                        .add(ManageTeamSessionSelected(selectedSession));
-                    BlocProvider.of<ManageTeamBloc>(context).add(ManageTeamReportEventGetTermsSessionCoachingPlayerEvents({}));
-                  },
-                      (session) => session.title, // Changed from title to name
-                  selectedItem: state.sessionId,
-                  isEmpty: (session) => session.title.isEmpty,
-                ),
-                const SizedBox(height: 20),
-                CustomButton(
-                  text: "Apply Filters",
-                  onPressed: () {
-                    // context.read<ReportBloc>().add(ApplyFilters());
-                    print("APPLY FILTER CLICKK CKKDKDKKDKDKDKDKD");
-                    BlocProvider.of<ManageTeamBloc>(context).add(GetTeamListEvent({}));
-
-                    Navigator.pop(context);
-                  },
-                ),
-              ],
+                  if(state.isLoading)
+                    LoadingIndicator()
+                ],
+              ),
             );
           },
         ),

@@ -59,7 +59,7 @@ class ViewSessionItem extends StatelessWidget {
                                           title: 'Cancel Session!',
                                           description:
                                               'Are you sure you want to cancel this session?',
-                                          confirmButtonText: 'Logout',
+                                          confirmButtonText: 'Yes',
                                           // Optional - defaults to "Confirm"
                                           onCancel: () {
                                             // Handle cancel action
