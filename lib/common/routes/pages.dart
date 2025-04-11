@@ -55,7 +55,7 @@ class AppPages {
 
       PageEntitiy(
         route: AppRoutes.APPLICATION,
-        page: const ApplicationPage(),
+        page:  ApplicationPage(),
         bloc: BlocProvider(create: (_) => AppBloc()),
       ),
 

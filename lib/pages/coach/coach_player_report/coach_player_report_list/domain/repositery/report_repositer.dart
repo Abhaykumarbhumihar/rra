@@ -9,6 +9,7 @@ import '../../data/entity/report_model.dart';
 
 abstract class ReportRepositer{
   Future<Either<Failure,PlayerReportModel>> getChildReportList(Map<String, dynamic> childData);
+  Future<Either<Failure,dynamic>> addScore(Map<String, dynamic> childData);
 
 
 }

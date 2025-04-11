@@ -44,27 +44,30 @@ class Term with _$Term {
 class CoachingProgram with _$CoachingProgram {
   const factory CoachingProgram({
     @Default(0) int id,
-    @Default('') String name,
+    @Default('') @Default('') String name,
     @Default('') @JsonKey(name: 'location_name') String locationName,
     @Default('') @JsonKey(name: 'image_with_url') String imageWithUrl,
-    @Default('') String location,
+     dynamic? location,
   }) = _CoachingProgram;
 
   factory CoachingProgram.fromJson(Map<String, dynamic> json) =>
       _$CoachingProgramFromJson(json);
 }
 
+
+
+
 @freezed
 class Session with _$Session {
   const factory Session({
     @Default(0) int id,
-    @Default('') String title,
+    @Default('')  String title,
     @Default('') @JsonKey(name: 'session_day') String sessionDay,
     @Default('') @JsonKey(name: 'to_time') String toTime,
     @Default('') @JsonKey(name: 'from_time') String fromTime,
     @JsonKey(name: 'coaching_program') dynamic coachingProgram,
-    dynamic location,
-    dynamic term,
+    dynamic? location,
+    dynamic? term,
   }) = _Session;
 
   factory Session.fromJson(Map<String, dynamic> json) => _$SessionFromJson(json);

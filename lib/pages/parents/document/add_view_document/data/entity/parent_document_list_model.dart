@@ -1,4 +1,5 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:rra/pages/parents/document/add_view_document/data/entity/terms_program_session/terms_program_session_player_model.dart';
 
 part 'parent_document_list_model.freezed.dart';
 part 'parent_document_list_model.g.dart';
@@ -34,13 +35,15 @@ class UploadedDocument with _$UploadedDocument {
     @Default(0) int id,
     @Default(0) int academy_id,
     @Default('') String title,
-    @JsonKey(name: 'coaching_program_id') int? coachingProgramId,
-    @JsonKey(name: 'term_id') int? termId,
-    @JsonKey(name: 'session_id') int? sessionId,
-    @JsonKey(name: 'parent_id') @Default(0) int parentId,
+    @JsonKey(name: 'coaching_program_id') CoachingProgram? coachingProgramId,
+    @JsonKey(name: 'term_id') Term? termId,
+    @JsonKey(name: 'session_id') Session? sessionId,
+    @JsonKey(name: 'parent_id') Player?  parentId,
+
+
     @JsonKey(name: 'document_image') @Default('') String documentImage,
-    @Default('') String Comments,
-    @JsonKey(name: 'coach_id') @Default(0) int coachId,
+    @Default('') String? Comments,
+    @JsonKey(name: 'coach_id') Coach? coachId,
     @Default(0) int status,
     @Default('') String type,
     @JsonKey(name: 'created_at') @Default('') String createdAt,

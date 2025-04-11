@@ -70,6 +70,7 @@ static String get getCollateralList=>"collaterals/list";
 
 /*report listing*/
   static String get getViewReportList=>"view/report";
+  static String get getAddReport=>"add/score";
 
 
 

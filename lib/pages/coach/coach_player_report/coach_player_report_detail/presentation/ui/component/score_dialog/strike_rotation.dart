@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_xlider/flutter_xlider.dart';
 import 'package:rra/common/values/fonts.dart';
 import 'package:rra/pages/coach/coach_player_report/coach_player_report_list/data/entity/report_model.dart';
 
 import '../../../../../../../../common/component/custom_app_button.dart';
 import '../../../../../../../../common/local/SharedPrefs.dart';
+import '../../../../../coach_player_report_list/presentation/bloc/report_bloc.dart';
+import '../../../../../coach_player_report_list/presentation/bloc/report_event.dart';
 
 
 
@@ -63,6 +66,7 @@ class _StrikeRotationDialogPageState extends State<StrikeRotationDialogPage> {
       }).toList(),
     };
 print(results);
+BlocProvider.of<ReportBloc>(context).add(AddScoreEvent(results));
     //Navigator.of(context).pop(results);
   }
 
@@ -257,7 +261,7 @@ print(results);
             ),
             child: Slider(
               value: value,
-              min: 1,
+              min: 0,
               max: 10,
               divisions: 9,
               label: value.round().toString(),

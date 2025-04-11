@@ -475,18 +475,18 @@ mixin _$UploadedDocument {
   int get academy_id => throw _privateConstructorUsedError;
   String get title => throw _privateConstructorUsedError;
   @JsonKey(name: 'coaching_program_id')
-  int? get coachingProgramId => throw _privateConstructorUsedError;
+  CoachingProgram? get coachingProgramId => throw _privateConstructorUsedError;
   @JsonKey(name: 'term_id')
-  int? get termId => throw _privateConstructorUsedError;
+  Term? get termId => throw _privateConstructorUsedError;
   @JsonKey(name: 'session_id')
-  int? get sessionId => throw _privateConstructorUsedError;
+  Session? get sessionId => throw _privateConstructorUsedError;
   @JsonKey(name: 'parent_id')
-  int get parentId => throw _privateConstructorUsedError;
+  Player? get parentId => throw _privateConstructorUsedError;
   @JsonKey(name: 'document_image')
   String get documentImage => throw _privateConstructorUsedError;
-  String get Comments => throw _privateConstructorUsedError;
+  String? get Comments => throw _privateConstructorUsedError;
   @JsonKey(name: 'coach_id')
-  int get coachId => throw _privateConstructorUsedError;
+  Coach? get coachId => throw _privateConstructorUsedError;
   int get status => throw _privateConstructorUsedError;
   String get type => throw _privateConstructorUsedError;
   @JsonKey(name: 'created_at')
@@ -516,18 +516,24 @@ abstract class $UploadedDocumentCopyWith<$Res> {
       {int id,
       int academy_id,
       String title,
-      @JsonKey(name: 'coaching_program_id') int? coachingProgramId,
-      @JsonKey(name: 'term_id') int? termId,
-      @JsonKey(name: 'session_id') int? sessionId,
-      @JsonKey(name: 'parent_id') int parentId,
+      @JsonKey(name: 'coaching_program_id') CoachingProgram? coachingProgramId,
+      @JsonKey(name: 'term_id') Term? termId,
+      @JsonKey(name: 'session_id') Session? sessionId,
+      @JsonKey(name: 'parent_id') Player? parentId,
       @JsonKey(name: 'document_image') String documentImage,
-      String Comments,
-      @JsonKey(name: 'coach_id') int coachId,
+      String? Comments,
+      @JsonKey(name: 'coach_id') Coach? coachId,
       int status,
       String type,
       @JsonKey(name: 'created_at') String createdAt,
       @JsonKey(name: 'updated_at') String updatedAt,
       @JsonKey(name: 'image_url') String imageUrl});
+
+  $CoachingProgramCopyWith<$Res>? get coachingProgramId;
+  $TermCopyWith<$Res>? get termId;
+  $SessionCopyWith<$Res>? get sessionId;
+  $PlayerCopyWith<$Res>? get parentId;
+  $CoachCopyWith<$Res>? get coachId;
 }
 
 /// @nodoc
@@ -551,10 +557,10 @@ class _$UploadedDocumentCopyWithImpl<$Res, $Val extends UploadedDocument>
     Object? coachingProgramId = freezed,
     Object? termId = freezed,
     Object? sessionId = freezed,
-    Object? parentId = null,
+    Object? parentId = freezed,
     Object? documentImage = null,
-    Object? Comments = null,
-    Object? coachId = null,
+    Object? Comments = freezed,
+    Object? coachId = freezed,
     Object? status = null,
     Object? type = null,
     Object? createdAt = null,
@@ -577,31 +583,31 @@ class _$UploadedDocumentCopyWithImpl<$Res, $Val extends UploadedDocument>
       coachingProgramId: freezed == coachingProgramId
           ? _value.coachingProgramId
           : coachingProgramId // ignore: cast_nullable_to_non_nullable
-              as int?,
+              as CoachingProgram?,
       termId: freezed == termId
           ? _value.termId
           : termId // ignore: cast_nullable_to_non_nullable
-              as int?,
+              as Term?,
       sessionId: freezed == sessionId
           ? _value.sessionId
           : sessionId // ignore: cast_nullable_to_non_nullable
-              as int?,
-      parentId: null == parentId
+              as Session?,
+      parentId: freezed == parentId
           ? _value.parentId
           : parentId // ignore: cast_nullable_to_non_nullable
-              as int,
+              as Player?,
       documentImage: null == documentImage
           ? _value.documentImage
           : documentImage // ignore: cast_nullable_to_non_nullable
               as String,
-      Comments: null == Comments
+      Comments: freezed == Comments
           ? _value.Comments
           : Comments // ignore: cast_nullable_to_non_nullable
-              as String,
-      coachId: null == coachId
+              as String?,
+      coachId: freezed == coachId
           ? _value.coachId
           : coachId // ignore: cast_nullable_to_non_nullable
-              as int,
+              as Coach?,
       status: null == status
           ? _value.status
           : status // ignore: cast_nullable_to_non_nullable
@@ -624,6 +630,76 @@ class _$UploadedDocumentCopyWithImpl<$Res, $Val extends UploadedDocument>
               as String,
     ) as $Val);
   }
+
+  /// Create a copy of UploadedDocument
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $CoachingProgramCopyWith<$Res>? get coachingProgramId {
+    if (_value.coachingProgramId == null) {
+      return null;
+    }
+
+    return $CoachingProgramCopyWith<$Res>(_value.coachingProgramId!, (value) {
+      return _then(_value.copyWith(coachingProgramId: value) as $Val);
+    });
+  }
+
+  /// Create a copy of UploadedDocument
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $TermCopyWith<$Res>? get termId {
+    if (_value.termId == null) {
+      return null;
+    }
+
+    return $TermCopyWith<$Res>(_value.termId!, (value) {
+      return _then(_value.copyWith(termId: value) as $Val);
+    });
+  }
+
+  /// Create a copy of UploadedDocument
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $SessionCopyWith<$Res>? get sessionId {
+    if (_value.sessionId == null) {
+      return null;
+    }
+
+    return $SessionCopyWith<$Res>(_value.sessionId!, (value) {
+      return _then(_value.copyWith(sessionId: value) as $Val);
+    });
+  }
+
+  /// Create a copy of UploadedDocument
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $PlayerCopyWith<$Res>? get parentId {
+    if (_value.parentId == null) {
+      return null;
+    }
+
+    return $PlayerCopyWith<$Res>(_value.parentId!, (value) {
+      return _then(_value.copyWith(parentId: value) as $Val);
+    });
+  }
+
+  /// Create a copy of UploadedDocument
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $CoachCopyWith<$Res>? get coachId {
+    if (_value.coachId == null) {
+      return null;
+    }
+
+    return $CoachCopyWith<$Res>(_value.coachId!, (value) {
+      return _then(_value.copyWith(coachId: value) as $Val);
+    });
+  }
 }
 
 /// @nodoc
@@ -638,18 +714,29 @@ abstract class _$$UploadedDocumentImplCopyWith<$Res>
       {int id,
       int academy_id,
       String title,
-      @JsonKey(name: 'coaching_program_id') int? coachingProgramId,
-      @JsonKey(name: 'term_id') int? termId,
-      @JsonKey(name: 'session_id') int? sessionId,
-      @JsonKey(name: 'parent_id') int parentId,
+      @JsonKey(name: 'coaching_program_id') CoachingProgram? coachingProgramId,
+      @JsonKey(name: 'term_id') Term? termId,
+      @JsonKey(name: 'session_id') Session? sessionId,
+      @JsonKey(name: 'parent_id') Player? parentId,
       @JsonKey(name: 'document_image') String documentImage,
-      String Comments,
-      @JsonKey(name: 'coach_id') int coachId,
+      String? Comments,
+      @JsonKey(name: 'coach_id') Coach? coachId,
       int status,
       String type,
       @JsonKey(name: 'created_at') String createdAt,
       @JsonKey(name: 'updated_at') String updatedAt,
       @JsonKey(name: 'image_url') String imageUrl});
+
+  @override
+  $CoachingProgramCopyWith<$Res>? get coachingProgramId;
+  @override
+  $TermCopyWith<$Res>? get termId;
+  @override
+  $SessionCopyWith<$Res>? get sessionId;
+  @override
+  $PlayerCopyWith<$Res>? get parentId;
+  @override
+  $CoachCopyWith<$Res>? get coachId;
 }
 
 /// @nodoc
@@ -671,10 +758,10 @@ class __$$UploadedDocumentImplCopyWithImpl<$Res>
     Object? coachingProgramId = freezed,
     Object? termId = freezed,
     Object? sessionId = freezed,
-    Object? parentId = null,
+    Object? parentId = freezed,
     Object? documentImage = null,
-    Object? Comments = null,
-    Object? coachId = null,
+    Object? Comments = freezed,
+    Object? coachId = freezed,
     Object? status = null,
     Object? type = null,
     Object? createdAt = null,
@@ -697,31 +784,31 @@ class __$$UploadedDocumentImplCopyWithImpl<$Res>
       coachingProgramId: freezed == coachingProgramId
           ? _value.coachingProgramId
           : coachingProgramId // ignore: cast_nullable_to_non_nullable
-              as int?,
+              as CoachingProgram?,
       termId: freezed == termId
           ? _value.termId
           : termId // ignore: cast_nullable_to_non_nullable
-              as int?,
+              as Term?,
       sessionId: freezed == sessionId
           ? _value.sessionId
           : sessionId // ignore: cast_nullable_to_non_nullable
-              as int?,
-      parentId: null == parentId
+              as Session?,
+      parentId: freezed == parentId
           ? _value.parentId
           : parentId // ignore: cast_nullable_to_non_nullable
-              as int,
+              as Player?,
       documentImage: null == documentImage
           ? _value.documentImage
           : documentImage // ignore: cast_nullable_to_non_nullable
               as String,
-      Comments: null == Comments
+      Comments: freezed == Comments
           ? _value.Comments
           : Comments // ignore: cast_nullable_to_non_nullable
-              as String,
-      coachId: null == coachId
+              as String?,
+      coachId: freezed == coachId
           ? _value.coachId
           : coachId // ignore: cast_nullable_to_non_nullable
-              as int,
+              as Coach?,
       status: null == status
           ? _value.status
           : status // ignore: cast_nullable_to_non_nullable
@@ -756,10 +843,10 @@ class _$UploadedDocumentImpl implements _UploadedDocument {
       @JsonKey(name: 'coaching_program_id') this.coachingProgramId,
       @JsonKey(name: 'term_id') this.termId,
       @JsonKey(name: 'session_id') this.sessionId,
-      @JsonKey(name: 'parent_id') this.parentId = 0,
+      @JsonKey(name: 'parent_id') this.parentId,
       @JsonKey(name: 'document_image') this.documentImage = '',
       this.Comments = '',
-      @JsonKey(name: 'coach_id') this.coachId = 0,
+      @JsonKey(name: 'coach_id') this.coachId,
       this.status = 0,
       this.type = '',
       @JsonKey(name: 'created_at') this.createdAt = '',
@@ -780,25 +867,25 @@ class _$UploadedDocumentImpl implements _UploadedDocument {
   final String title;
   @override
   @JsonKey(name: 'coaching_program_id')
-  final int? coachingProgramId;
+  final CoachingProgram? coachingProgramId;
   @override
   @JsonKey(name: 'term_id')
-  final int? termId;
+  final Term? termId;
   @override
   @JsonKey(name: 'session_id')
-  final int? sessionId;
+  final Session? sessionId;
   @override
   @JsonKey(name: 'parent_id')
-  final int parentId;
+  final Player? parentId;
   @override
   @JsonKey(name: 'document_image')
   final String documentImage;
   @override
   @JsonKey()
-  final String Comments;
+  final String? Comments;
   @override
   @JsonKey(name: 'coach_id')
-  final int coachId;
+  final Coach? coachId;
   @override
   @JsonKey()
   final int status;
@@ -893,13 +980,14 @@ abstract class _UploadedDocument implements UploadedDocument {
           {final int id,
           final int academy_id,
           final String title,
-          @JsonKey(name: 'coaching_program_id') final int? coachingProgramId,
-          @JsonKey(name: 'term_id') final int? termId,
-          @JsonKey(name: 'session_id') final int? sessionId,
-          @JsonKey(name: 'parent_id') final int parentId,
+          @JsonKey(name: 'coaching_program_id')
+          final CoachingProgram? coachingProgramId,
+          @JsonKey(name: 'term_id') final Term? termId,
+          @JsonKey(name: 'session_id') final Session? sessionId,
+          @JsonKey(name: 'parent_id') final Player? parentId,
           @JsonKey(name: 'document_image') final String documentImage,
-          final String Comments,
-          @JsonKey(name: 'coach_id') final int coachId,
+          final String? Comments,
+          @JsonKey(name: 'coach_id') final Coach? coachId,
           final int status,
           final String type,
           @JsonKey(name: 'created_at') final String createdAt,
@@ -918,24 +1006,24 @@ abstract class _UploadedDocument implements UploadedDocument {
   String get title;
   @override
   @JsonKey(name: 'coaching_program_id')
-  int? get coachingProgramId;
+  CoachingProgram? get coachingProgramId;
   @override
   @JsonKey(name: 'term_id')
-  int? get termId;
+  Term? get termId;
   @override
   @JsonKey(name: 'session_id')
-  int? get sessionId;
+  Session? get sessionId;
   @override
   @JsonKey(name: 'parent_id')
-  int get parentId;
+  Player? get parentId;
   @override
   @JsonKey(name: 'document_image')
   String get documentImage;
   @override
-  String get Comments;
+  String? get Comments;
   @override
   @JsonKey(name: 'coach_id')
-  int get coachId;
+  Coach? get coachId;
   @override
   int get status;
   @override

@@ -76,7 +76,7 @@ _$CoachingProgramImpl _$$CoachingProgramImplFromJson(
       name: json['name'] as String? ?? '',
       locationName: json['location_name'] as String? ?? '',
       imageWithUrl: json['image_with_url'] as String? ?? '',
-      location: json['location'] as String? ?? '',
+      location: json['location'],
     );
 
 Map<String, dynamic> _$$CoachingProgramImplToJson(

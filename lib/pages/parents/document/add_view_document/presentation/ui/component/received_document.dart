@@ -41,6 +41,7 @@ class ReceivedDocument extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.start,
             children: <Widget>[
               InfoRowWithIcon(
+                isShowEditIcon: false,
                 label: "Dates",
                 value: " 08-03-2025",
                 iconPath: "assets/images/edit_icon.png",
@@ -52,7 +53,7 @@ class ReceivedDocument extends StatelessWidget {
               ),
               InfoRow(
                 label: "Coach :",
-                value:  " ${_getCoachName(uploadedDocument.coachId)}",
+                value:  " ${uploadedDocument.coachId!.name??""}",
               ),
               // InfoRow(
               //   label: "Comments :",
@@ -68,7 +69,7 @@ class ReceivedDocument extends StatelessWidget {
                   ),
                   Flexible(
                     child: Text(
-                      uploadedDocument.Comments,
+                      uploadedDocument.Comments!,
                       style: AppTextStyle.regular(MediaQuery.of(context).size.width * 0.0373),
                     ),
                   ),

@@ -45,6 +45,7 @@ class AddDocumentComponent extends StatelessWidget {
     required this.sessionController,
     required this.playerController,
     this.selectParentCoach = 1,
+
     required this.onPickFile,
   });
 
@@ -63,347 +64,349 @@ class AddDocumentComponent extends StatelessWidget {
                   "coach";
           final showParentOptions = isCoach && state.parent_coach_radio == 1;
 
-          return Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: <Widget>[
-              CustomTextInputMobile(
-                controller: titleController,
-                title: "Title",
-                isShowTitle: true,
-                isPass: false,
-                isSuffix: false,
-                isPrefix: false,
-                hint: 'Enter Title',
-                keyBoardType: TextInputType.name,
-                errorMessage: "",
-                onChanged: (value) {
-                  context
-                      .read<AddDocumentBloc>()
-                      .add(SetTitleParentDocumentEvent(value));
-                },
-              ),
-
-              FileChooserComponent(
-                onPickFile: onPickFile,
-                selectedFileName: state.selectedFileName,
-              ),
-
-              if (isCoach)
-                RoleRadioOptions(
-                  selectedValue: selectParentCoach,
-                  onChanged: (v) {
-                    context.read<AddDocumentBloc>().add(
-                          SelectParentCoachEvent(v!),
-                        );
+          return SingleChildScrollView(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: <Widget>[
+                CustomTextInputMobile(
+                  controller: titleController,
+                  title: "Title",
+                  isShowTitle: true,
+                  isPass: false,
+                  isSuffix: false,
+                  isPrefix: false,
+                  hint: 'Enter Title',
+                  keyBoardType: TextInputType.name,
+                  errorMessage: "",
+                  onChanged: (value) {
+                    context
+                        .read<AddDocumentBloc>()
+                        .add(SetTitleParentDocumentEvent(value));
                   },
                 ),
-
-              // Coach selection (visible for parent or when coach selects coach option)
-              if (!isCoach || state.parent_coach_radio == 0)
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: <Widget>[
-                    state.parentDocumentListModel.data.coaches.isNotEmpty
-                        ? Row(
-                            mainAxisAlignment: MainAxisAlignment.end,
-                            children: <Widget>[
-                              TextButton(
-                                onPressed: () {
-                                  state.parentDocumentListModel.data.coaches
-                                      .map((coach) => BlocProvider.of<
-                                              AddDocumentBloc>(context)
-                                          .add(
-                                              SetSelectedCoachIdParentDocumentEvent(
-                                                  coach)))
-                                      .toList();
-                                  BlocProvider.of<AddDocumentBloc>(context).add(
-                                      GetTermsSessionCoachingPlayerEvents({}));
-                                },
-                                child: Text(
-                                  'Select All',
-                                  style: AppTextStyle.bold(
-                                      context.screenWidth * 0.035),
-                                ),
-                              ),
-                            ],
-                          )
-                        : SizedBox(),
-                    SelectionChipComponent(
-                      isLoading: state.isLoading,
-                      isAllSelected: areAllCoachSelected(state.coaches,
-                          state.parentDocumentListModel.data.coaches),
-                      title: "Coach",
-                      items: state.coaches,
-                      itemText: (coach) => coach.name,
-                      onAddPressed: () =>
-                          _showCoachSelectionBottomSheet(context, state),
-                      onRemove: (coach) {
-                        context.read<AddDocumentBloc>().add(
-                              RemoveSelectedCoachEvent(coach),
-                            );
-                      },
-                      isVisible: true,
-                    ),
-                  ],
+            
+                FileChooserComponent(
+                  onPickFile: onPickFile,
+                  selectedFileName: state.selectedFileName,
                 ),
-
-              // Other selection components
-
-              if (showParentOptions) ...[
-                state.isLoading == false
-                    ? Column(
-                        children: [
-                          Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: <Widget>[
-                              state.termsProgramSessionPlayerModelData.data.term
-                                      .isNotEmpty
-                                  ? Row(
-                                      mainAxisAlignment: MainAxisAlignment.end,
-                                      children: <Widget>[
-                                        TextButton(
-                                          onPressed: () {
-                                            state
-                                                .termsProgramSessionPlayerModelData
-                                                .data
-                                                .term
-                                                .map((coach) => BlocProvider.of<
-                                                            AddDocumentBloc>(
-                                                        context)
-                                                    .add(AddDocumentEvent
-                                                        .setSelectedTerm(
-                                                            coach)))
-                                                .toList();
-                                            BlocProvider.of<AddDocumentBloc>(
-                                                    context)
-                                                .add(
-                                                    GetTermsSessionCoachingPlayerEvents(
-                                                        {}));
-                                          },
-                                          child: Text(
-                                            'Select All',
-                                            style: AppTextStyle.bold(
-                                                context.screenWidth * 0.035),
+            
+                if (isCoach)
+                  RoleRadioOptions(
+                    selectedValue: selectParentCoach,
+                    onChanged: (v) {
+                      context.read<AddDocumentBloc>().add(
+                            SelectParentCoachEvent(v!),
+                          );
+                    },
+                  ),
+            
+                // Coach selection (visible for parent or when coach selects coach option)
+                if (!isCoach || state.parent_coach_radio == 0)
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: <Widget>[
+                      state.parentDocumentListModel.data.coaches.isNotEmpty
+                          ? Row(
+                              mainAxisAlignment: MainAxisAlignment.end,
+                              children: <Widget>[
+                                TextButton(
+                                  onPressed: () {
+                                    state.parentDocumentListModel.data.coaches
+                                        .map((coach) => BlocProvider.of<
+                                                AddDocumentBloc>(context)
+                                            .add(
+                                                SetSelectedCoachIdParentDocumentEvent(
+                                                    coach)))
+                                        .toList();
+                                    BlocProvider.of<AddDocumentBloc>(context).add(
+                                        GetTermsSessionCoachingPlayerEvents({}));
+                                  },
+                                  child: Text(
+                                    'Select All',
+                                    style: AppTextStyle.bold(
+                                        context.screenWidth * 0.035),
+                                  ),
+                                ),
+                              ],
+                            )
+                          : SizedBox(),
+                      SelectionChipComponent(
+                        isLoading: state.isLoading,
+                        isAllSelected: areAllCoachSelected(state.coaches,
+                            state.parentDocumentListModel.data.coaches),
+                        title: "Coach",
+                        items: state.coaches,
+                        itemText: (coach) => coach.name,
+                        onAddPressed: () =>
+                            _showCoachSelectionBottomSheet(context, state),
+                        onRemove: (coach) {
+                          context.read<AddDocumentBloc>().add(
+                                RemoveSelectedCoachEvent(coach),
+                              );
+                        },
+                        isVisible: true,
+                      ),
+                    ],
+                  ),
+            
+                // Other selection components
+            
+                if (showParentOptions) ...[
+                  state.isLoading == false
+                      ? Column(
+                          children: [
+                            Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: <Widget>[
+                                state.termsProgramSessionPlayerModelData.data.term
+                                        .isNotEmpty
+                                    ? Row(
+                                        mainAxisAlignment: MainAxisAlignment.end,
+                                        children: <Widget>[
+                                          TextButton(
+                                            onPressed: () {
+                                              state
+                                                  .termsProgramSessionPlayerModelData
+                                                  .data
+                                                  .term
+                                                  .map((coach) => BlocProvider.of<
+                                                              AddDocumentBloc>(
+                                                          context)
+                                                      .add(AddDocumentEvent
+                                                          .setSelectedTerm(
+                                                              coach)))
+                                                  .toList();
+                                              BlocProvider.of<AddDocumentBloc>(
+                                                      context)
+                                                  .add(
+                                                      GetTermsSessionCoachingPlayerEvents(
+                                                          {}));
+                                            },
+                                            child: Text(
+                                              'Select All',
+                                              style: AppTextStyle.bold(
+                                                  context.screenWidth * 0.035),
+                                            ),
                                           ),
-                                        ),
-                                      ],
-                                    )
-                                  : SizedBox(),
-                              SelectionChipComponent(
-                                isLoading: state.isLoading,
-                                isAllSelected: areAllTermsSelected(
-                                    state.terms,
-                                    state.termsProgramSessionPlayerModelData
-                                        .data.term),
-                                title: "Terms",
-                                items: state.terms,
-                                itemText: (term) => term.termName,
-                                onAddPressed: () =>
-                                    _showTermsSelectionBottomSheet(
-                                        context, state),
-                                onRemove: (term) {
-                                  context.read<AddDocumentBloc>().add(
-                                        RemoveSelectedTermsvent(term),
-                                      );
-                                },
-                                isVisible: true,
-                              ),
-                            ],
-                          ),
-                          SizedBox(height: 6,),
-                          Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: <Widget>[
-                              state.termsProgramSessionPlayerModelData.data
-                                      .coachingProgram.isNotEmpty
-                                  ? Row(
-                                      mainAxisAlignment: MainAxisAlignment.end,
-                                      children: <Widget>[
-                                        TextButton(
-                                          onPressed: () {
-                                            state
-                                                .termsProgramSessionPlayerModelData
-                                                .data
-                                                .coachingProgram
-                                                .map((coach) => BlocProvider.of<
-                                                            AddDocumentBloc>(
-                                                        context)
-                                                    .add(
-                                                        setSelectedProgramDocumentEvent(
-                                                            coach)))
-                                                .toList();
-                                            BlocProvider.of<AddDocumentBloc>(
-                                                    context)
-                                                .add(
-                                                    GetTermsSessionCoachingPlayerEvents(
-                                                        {}));
-                                          },
-                                          child: Text(
-                                            'Select All',
-                                            style: AppTextStyle.bold(
-                                                context.screenWidth * 0.035),
+                                        ],
+                                      )
+                                    : SizedBox(),
+                                SelectionChipComponent(
+                                  isLoading: state.isLoading,
+                                  isAllSelected: areAllTermsSelected(
+                                      state.terms,
+                                      state.termsProgramSessionPlayerModelData
+                                          .data.term),
+                                  title: "Terms",
+                                  items: state.terms,
+                                  itemText: (term) => term.termName,
+                                  onAddPressed: () =>
+                                      _showTermsSelectionBottomSheet(
+                                          context, state),
+                                  onRemove: (term) {
+                                    context.read<AddDocumentBloc>().add(
+                                          RemoveSelectedTermsvent(term),
+                                        );
+                                  },
+                                  isVisible: true,
+                                ),
+                              ],
+                            ),
+                            SizedBox(height: 6,),
+                            Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: <Widget>[
+                                state.termsProgramSessionPlayerModelData.data
+                                        .coachingProgram.isNotEmpty
+                                    ? Row(
+                                        mainAxisAlignment: MainAxisAlignment.end,
+                                        children: <Widget>[
+                                          TextButton(
+                                            onPressed: () {
+                                              state
+                                                  .termsProgramSessionPlayerModelData
+                                                  .data
+                                                  .coachingProgram
+                                                  .map((coach) => BlocProvider.of<
+                                                              AddDocumentBloc>(
+                                                          context)
+                                                      .add(
+                                                          setSelectedProgramDocumentEvent(
+                                                              coach)))
+                                                  .toList();
+                                              BlocProvider.of<AddDocumentBloc>(
+                                                      context)
+                                                  .add(
+                                                      GetTermsSessionCoachingPlayerEvents(
+                                                          {}));
+                                            },
+                                            child: Text(
+                                              'Select All',
+                                              style: AppTextStyle.bold(
+                                                  context.screenWidth * 0.035),
+                                            ),
                                           ),
-                                        ),
-                                      ],
-                                    )
-                                  : SizedBox(),
-                              SelectionChipComponent(
-                                isLoading: state.isLoading,
-                                isAllSelected: areAllCoachingProgramSelected(
-                                    state.coachingProgram,
-                                    state.termsProgramSessionPlayerModelData
-                                        .data.coachingProgram),
-                                title: "Coaching Program",
-                                items: state.coachingProgram,
-                                itemText: (program) => program.name,
-                                onAddPressed: () =>
-                                    _showCoachinProgram(context, state),
-                                onRemove: (program) {
-                                  context.read<AddDocumentBloc>().add(
-                                        RemoveSelectedProgramvent(program),
-                                      );
-                                },
-                                isVisible: true,
-                              ),
-                            ],
-                          ),
-                          SizedBox(height: 6,),
-                          Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: <Widget>[
-                              state.termsProgramSessionPlayerModelData.data
-                                      .session.isNotEmpty
-                                  ? Row(
-                                      mainAxisAlignment: MainAxisAlignment.end,
-                                      children: <Widget>[
-                                        TextButton(
-                                          onPressed: () {
-                                            state
-                                                .termsProgramSessionPlayerModelData
-                                                .data
-                                                .session
-                                                .map((coach) => BlocProvider.of<
-                                                            AddDocumentBloc>(
-                                                        context)
-                                                    .add(
-                                                        setSelectedSessionDocumentEvent(
-                                                            coach)))
-                                                .toList();
-                                            BlocProvider.of<AddDocumentBloc>(
-                                                    context)
-                                                .add(
-                                                    GetTermsSessionCoachingPlayerEvents(
-                                                        {}));
-                                          },
-                                          child: Text(
-                                            'Select All',
-                                            style: AppTextStyle.bold(
-                                                context.screenWidth * 0.035),
+                                        ],
+                                      )
+                                    : SizedBox(),
+                                SelectionChipComponent(
+                                  isLoading: state.isLoading,
+                                  isAllSelected: areAllCoachingProgramSelected(
+                                      state.coachingProgram,
+                                      state.termsProgramSessionPlayerModelData
+                                          .data.coachingProgram),
+                                  title: "Coaching Program",
+                                  items: state.coachingProgram,
+                                  itemText: (program) => program.name,
+                                  onAddPressed: () =>
+                                      _showCoachinProgram(context, state),
+                                  onRemove: (program) {
+                                    context.read<AddDocumentBloc>().add(
+                                          RemoveSelectedProgramvent(program),
+                                        );
+                                  },
+                                  isVisible: true,
+                                ),
+                              ],
+                            ),
+                            SizedBox(height: 6,),
+                            Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: <Widget>[
+                                state.termsProgramSessionPlayerModelData.data
+                                        .session.isNotEmpty
+                                    ? Row(
+                                        mainAxisAlignment: MainAxisAlignment.end,
+                                        children: <Widget>[
+                                          TextButton(
+                                            onPressed: () {
+                                              state
+                                                  .termsProgramSessionPlayerModelData
+                                                  .data
+                                                  .session
+                                                  .map((coach) => BlocProvider.of<
+                                                              AddDocumentBloc>(
+                                                          context)
+                                                      .add(
+                                                          setSelectedSessionDocumentEvent(
+                                                              coach)))
+                                                  .toList();
+                                              BlocProvider.of<AddDocumentBloc>(
+                                                      context)
+                                                  .add(
+                                                      GetTermsSessionCoachingPlayerEvents(
+                                                          {}));
+                                            },
+                                            child: Text(
+                                              'Select All',
+                                              style: AppTextStyle.bold(
+                                                  context.screenWidth * 0.035),
+                                            ),
                                           ),
-                                        ),
-                                      ],
-                                    )
-                                  : SizedBox(),
-                              SelectionChipComponent(
-                                isLoading: state.isLoading,
-                                isAllSelected: areAllSessionSelected(
-                                    state.session,
-                                    state.termsProgramSessionPlayerModelData
-                                        .data.session),
-                                title: "Session",
-                                items: state.session,
-                                itemText: (session) => session.title,
-                                onAddPressed: () async {
-                                  _showSessionProgram(context, state);
-                                },
-                                onRemove: (session) {
-                                  context.read<AddDocumentBloc>().add(
-                                        RemoveSelectedSessionvent(session),
-                                      );
-                                },
-                                isVisible: true,
-                              ),
-                            ],
-                          ),
-                          SizedBox(height: 6,),
-                          Column(
-                            children: <Widget>[
-                              state.termsProgramSessionPlayerModelData.data
-                                      .player.isNotEmpty
-                                  ? Row(
-                                      mainAxisAlignment: MainAxisAlignment.end,
-                                      children: <Widget>[
-                                        TextButton(
-                                          onPressed: () {
-                                            state
-                                                .termsProgramSessionPlayerModelData
-                                                .data
-                                                .player
-                                                .map((coach) => BlocProvider.of<
-                                                            AddDocumentBloc>(
-                                                        context)
-                                                    .add(
-                                                        setSelectedPlayerDocumentEvent(
-                                                            coach)))
-                                                .toList();
-                                            BlocProvider.of<AddDocumentBloc>(
-                                                    context)
-                                                .add(
-                                                    GetTermsSessionCoachingPlayerEvents(
-                                                        {}));
-                                          },
-                                          child: Text(
-                                            'Select All',
-                                            style: AppTextStyle.bold(
-                                                context.screenWidth * 0.035),
+                                        ],
+                                      )
+                                    : SizedBox(),
+                                SelectionChipComponent(
+                                  isLoading: state.isLoading,
+                                  isAllSelected: areAllSessionSelected(
+                                      state.session,
+                                      state.termsProgramSessionPlayerModelData
+                                          .data.session),
+                                  title: "Session",
+                                  items: state.session,
+                                  itemText: (session) => session.title,
+                                  onAddPressed: () async {
+                                    _showSessionProgram(context, state);
+                                  },
+                                  onRemove: (session) {
+                                    context.read<AddDocumentBloc>().add(
+                                          RemoveSelectedSessionvent(session),
+                                        );
+                                  },
+                                  isVisible: true,
+                                ),
+                              ],
+                            ),
+                            SizedBox(height: 6,),
+                            Column(
+                              children: <Widget>[
+                                state.termsProgramSessionPlayerModelData.data
+                                        .player.isNotEmpty
+                                    ? Row(
+                                        mainAxisAlignment: MainAxisAlignment.end,
+                                        children: <Widget>[
+                                          TextButton(
+                                            onPressed: () {
+                                              state
+                                                  .termsProgramSessionPlayerModelData
+                                                  .data
+                                                  .player
+                                                  .map((coach) => BlocProvider.of<
+                                                              AddDocumentBloc>(
+                                                          context)
+                                                      .add(
+                                                          setSelectedPlayerDocumentEvent(
+                                                              coach)))
+                                                  .toList();
+                                              BlocProvider.of<AddDocumentBloc>(
+                                                      context)
+                                                  .add(
+                                                      GetTermsSessionCoachingPlayerEvents(
+                                                          {}));
+                                            },
+                                            child: Text(
+                                              'Select All',
+                                              style: AppTextStyle.bold(
+                                                  context.screenWidth * 0.035),
+                                            ),
                                           ),
-                                        ),
-                                      ],
-                                    )
-                                  : SizedBox(),
-                              SelectionChipComponent(
-                                isLoading: state.isLoading,
-                                isAllSelected: areAllPlayerSelected(
-                                    state.player,
-                                    state.termsProgramSessionPlayerModelData
-                                        .data.player),
-                                title: "Player",
-                                items: state.player,
-                                itemText: (player) => player.childName,
-                                onAddPressed: () => _showPlayer(context, state),
-                                onRemove: (player) {
-                                  context.read<AddDocumentBloc>().add(
-                                        RemoveSelectedPlayervent(player),
-                                      );
-                                },
-                                isVisible: true,
-                              ),
-                            ],
-                          ),
-                        ],
-                      )
-                    : SizedBox()
+                                        ],
+                                      )
+                                    : SizedBox(),
+                                SelectionChipComponent(
+                                  isLoading: state.isLoading,
+                                  isAllSelected: areAllPlayerSelected(
+                                      state.player,
+                                      state.termsProgramSessionPlayerModelData
+                                          .data.player),
+                                  title: "Player",
+                                  items: state.player,
+                                  itemText: (player) => player.childName,
+                                  onAddPressed: () => _showPlayer(context, state),
+                                  onRemove: (player) {
+                                    context.read<AddDocumentBloc>().add(
+                                          RemoveSelectedPlayervent(player),
+                                        );
+                                  },
+                                  isVisible: true,
+                                ),
+                              ],
+                            ),
+                          ],
+                        )
+                      : SizedBox()
+                ],
+            
+                const SizedBox(height: 12),
+                CustomTextInputMobile(
+                  controller: commentController,
+                  title: "Message",
+                  isPrefix: false,
+                  isPass: false,
+                  isSuffix: false,
+                  hint: "Message",
+                  minLine: 6,
+                  TextInputAction: TextInputAction.newline,
+                  maxLines: 6,
+                  errorMessage: "",
+                  onChanged: (value) {
+                    context
+                        .read<AddDocumentBloc>()
+                        .add(SetMessageParentDocumentEvent(value));
+                  },
+                ),
               ],
-
-              const SizedBox(height: 12),
-              CustomTextInputMobile(
-                controller: commentController,
-                title: "Message",
-                isPrefix: false,
-                isPass: false,
-                isSuffix: false,
-                hint: "Message",
-                minLine: 6,
-                TextInputAction: TextInputAction.newline,
-                maxLines: 6,
-                errorMessage: "",
-                onChanged: (value) {
-                  context
-                      .read<AddDocumentBloc>()
-                      .add(SetMessageParentDocumentEvent(value));
-                },
-              ),
-            ],
+            ),
           );
         },
       ),

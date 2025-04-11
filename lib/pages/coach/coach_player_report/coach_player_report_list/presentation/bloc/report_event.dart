@@ -11,6 +11,7 @@ part 'report_event.freezed.dart';
 sealed class ReportEvent with _$ReportEvent {
 
   const factory ReportEvent.getReportChildList(Map<String,dynamic>data) = GetReportChildListEvent;
+  const factory ReportEvent.getAddScore(Map<String,dynamic>data) =AddScoreEvent;
   const factory ReportEvent.getReportEventReportChildList(Map<String,dynamic>filterData) = ReportEventGetTermsSessionCoachingPlayerEvents;
   const factory ReportEvent.getTermSelected(Term term) = TermSelected;
   const factory ReportEvent.getProgramSelected(CoachingProgram program) = ProgramSelected;

@@ -57,13 +57,24 @@ _$UploadedDocumentImpl _$$UploadedDocumentImplFromJson(
       id: (json['id'] as num?)?.toInt() ?? 0,
       academy_id: (json['academy_id'] as num?)?.toInt() ?? 0,
       title: json['title'] as String? ?? '',
-      coachingProgramId: (json['coaching_program_id'] as num?)?.toInt(),
-      termId: (json['term_id'] as num?)?.toInt(),
-      sessionId: (json['session_id'] as num?)?.toInt(),
-      parentId: (json['parent_id'] as num?)?.toInt() ?? 0,
+      coachingProgramId: json['coaching_program_id'] == null
+          ? null
+          : CoachingProgram.fromJson(
+              json['coaching_program_id'] as Map<String, dynamic>),
+      termId: json['term_id'] == null
+          ? null
+          : Term.fromJson(json['term_id'] as Map<String, dynamic>),
+      sessionId: json['session_id'] == null
+          ? null
+          : Session.fromJson(json['session_id'] as Map<String, dynamic>),
+      parentId: json['parent_id'] == null
+          ? null
+          : Player.fromJson(json['parent_id'] as Map<String, dynamic>),
       documentImage: json['document_image'] as String? ?? '',
       Comments: json['Comments'] as String? ?? '',
-      coachId: (json['coach_id'] as num?)?.toInt() ?? 0,
+      coachId: json['coach_id'] == null
+          ? null
+          : Coach.fromJson(json['coach_id'] as Map<String, dynamic>),
       status: (json['status'] as num?)?.toInt() ?? 0,
       type: json['type'] as String? ?? '',
       createdAt: json['created_at'] as String? ?? '',

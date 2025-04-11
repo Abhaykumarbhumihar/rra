@@ -10,9 +10,9 @@ import '../../../teams/presentation/ui/teams.dart';
 
 Widget buildPage(int index) {
   List<Widget> _widget = [
-     Teams(),
-     Teams(),
-     SettingPage(),
+    Teams(),
+    Teams(),
+    // Remove SettingsPage from here since we'll handle it with a dialog
   ];
 
   return _widget[index];
@@ -46,16 +46,16 @@ extension BottomTabsExtension on List<BottomNavigationBarItem> {
         ),
       ),
       BottomNavigationBarItem(
-        label: "Settings",
+        label: "Logout",
         icon: SizedBox(
-          width: width * 0.11,
-          height: height * 0.048,
-          child: Image.asset("assets/images/settings.png"),
+          width: width * 0.10,
+          height: height * 0.028,
+          child: Image.asset("assets/images/logout.png",color: Colors.white,),
         ),
         activeIcon: SizedBox(
-          width: width * 0.13,
-          height: height * 0.059,
-          child: Image.asset("assets/images/settings.png"),
+          width: width * 0.10,
+          height: height * 0.028,
+          child: Image.asset("assets/images/logout.png",color: Colors.white,),
         ),
       ),
     ];

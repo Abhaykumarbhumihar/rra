@@ -22,6 +22,7 @@ class ReportBloc extends Bloc<ReportEvent, ReportState> {
     on<TermSelected>(_termSelected);
     on<SessionSelected>(_sessionSelected);
     on<ProgramSelected>(_programSelected);
+    on<AddScoreEvent>(_addScore);
     on<ReportEventGetTermsSessionCoachingPlayerEvents>(
         _getTermsSessioCoachingPlayer);
   }
@@ -180,6 +181,53 @@ class ReportBloc extends Bloc<ReportEvent, ReportState> {
             isError: false,
             isStatusUpdated: false,
             playerReportModel: useResult,
+            message: ""));
+      });
+    } catch (error) {
+      emit(state.copyWith(isLoading: false, message: error.toString()));
+    }
+  }
+
+
+  Future<void> _addScore(
+      AddScoreEvent event, Emitter<ReportState> emit) async {
+    try {
+      print("CLICKING HEREE_getChildAttendanceList_getChildAttendanceList ");
+      emit(state.copyWith(
+          isLoading: false,
+          isError: false,
+          isStatusUpdated: false,
+          message: ""));
+
+      if (!(await Connectivity().isConnected)) {
+        emit(state.copyWith(
+          message:
+          'No internet connection. Please check your connection \nand try again.',
+          isLoading: false,
+          isError: false,
+          isStatusUpdated: false,
+        ));
+        return;
+      }
+
+      emit(state.copyWith(
+          isLoading: true,
+          isError: false,
+          playerReportModel:PlayerReportModel(),
+          isStatusUpdated: false,
+          message: ""));
+
+      final response = await _reportUsecase.addScoreExecute(event.data);
+      response.fold((failure) {
+        emit(state.copyWith(
+            isLoading: false,
+            isError: true,
+            message: ""));
+      }, (useResult) {
+        emit(state.copyWith(
+            isLoading: false,
+            isError: false,
+            isStatusUpdated: false,
             message: ""));
       });
     } catch (error) {

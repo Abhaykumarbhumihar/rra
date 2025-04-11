@@ -711,7 +711,7 @@ mixin _$CoachingProgram {
   String get locationName => throw _privateConstructorUsedError;
   @JsonKey(name: 'image_with_url')
   String get imageWithUrl => throw _privateConstructorUsedError;
-  String get location => throw _privateConstructorUsedError;
+  dynamic? get location => throw _privateConstructorUsedError;
 
   /// Serializes this CoachingProgram to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -734,7 +734,7 @@ abstract class $CoachingProgramCopyWith<$Res> {
       String name,
       @JsonKey(name: 'location_name') String locationName,
       @JsonKey(name: 'image_with_url') String imageWithUrl,
-      String location});
+      dynamic? location});
 }
 
 /// @nodoc
@@ -756,7 +756,7 @@ class _$CoachingProgramCopyWithImpl<$Res, $Val extends CoachingProgram>
     Object? name = null,
     Object? locationName = null,
     Object? imageWithUrl = null,
-    Object? location = null,
+    Object? location = freezed,
   }) {
     return _then(_value.copyWith(
       id: null == id
@@ -775,10 +775,10 @@ class _$CoachingProgramCopyWithImpl<$Res, $Val extends CoachingProgram>
           ? _value.imageWithUrl
           : imageWithUrl // ignore: cast_nullable_to_non_nullable
               as String,
-      location: null == location
+      location: freezed == location
           ? _value.location
           : location // ignore: cast_nullable_to_non_nullable
-              as String,
+              as dynamic?,
     ) as $Val);
   }
 }
@@ -796,7 +796,7 @@ abstract class _$$CoachingProgramImplCopyWith<$Res>
       String name,
       @JsonKey(name: 'location_name') String locationName,
       @JsonKey(name: 'image_with_url') String imageWithUrl,
-      String location});
+      dynamic? location});
 }
 
 /// @nodoc
@@ -816,7 +816,7 @@ class __$$CoachingProgramImplCopyWithImpl<$Res>
     Object? name = null,
     Object? locationName = null,
     Object? imageWithUrl = null,
-    Object? location = null,
+    Object? location = freezed,
   }) {
     return _then(_$CoachingProgramImpl(
       id: null == id
@@ -835,10 +835,10 @@ class __$$CoachingProgramImplCopyWithImpl<$Res>
           ? _value.imageWithUrl
           : imageWithUrl // ignore: cast_nullable_to_non_nullable
               as String,
-      location: null == location
+      location: freezed == location
           ? _value.location
           : location // ignore: cast_nullable_to_non_nullable
-              as String,
+              as dynamic?,
     ));
   }
 }
@@ -851,7 +851,7 @@ class _$CoachingProgramImpl implements _CoachingProgram {
       this.name = '',
       @JsonKey(name: 'location_name') this.locationName = '',
       @JsonKey(name: 'image_with_url') this.imageWithUrl = '',
-      this.location = ''});
+      this.location});
 
   factory _$CoachingProgramImpl.fromJson(Map<String, dynamic> json) =>
       _$$CoachingProgramImplFromJson(json);
@@ -869,8 +869,7 @@ class _$CoachingProgramImpl implements _CoachingProgram {
   @JsonKey(name: 'image_with_url')
   final String imageWithUrl;
   @override
-  @JsonKey()
-  final String location;
+  final dynamic? location;
 
   @override
   String toString() {
@@ -888,14 +887,13 @@ class _$CoachingProgramImpl implements _CoachingProgram {
                 other.locationName == locationName) &&
             (identical(other.imageWithUrl, imageWithUrl) ||
                 other.imageWithUrl == imageWithUrl) &&
-            (identical(other.location, location) ||
-                other.location == location));
+            const DeepCollectionEquality().equals(other.location, location));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, id, name, locationName, imageWithUrl, location);
+  int get hashCode => Object.hash(runtimeType, id, name, locationName,
+      imageWithUrl, const DeepCollectionEquality().hash(location));
 
   /// Create a copy of CoachingProgram
   /// with the given fields replaced by the non-null parameter values.
@@ -920,7 +918,7 @@ abstract class _CoachingProgram implements CoachingProgram {
       final String name,
       @JsonKey(name: 'location_name') final String locationName,
       @JsonKey(name: 'image_with_url') final String imageWithUrl,
-      final String location}) = _$CoachingProgramImpl;
+      final dynamic? location}) = _$CoachingProgramImpl;
 
   factory _CoachingProgram.fromJson(Map<String, dynamic> json) =
       _$CoachingProgramImpl.fromJson;
@@ -936,7 +934,7 @@ abstract class _CoachingProgram implements CoachingProgram {
   @JsonKey(name: 'image_with_url')
   String get imageWithUrl;
   @override
-  String get location;
+  dynamic? get location;
 
   /// Create a copy of CoachingProgram
   /// with the given fields replaced by the non-null parameter values.
@@ -962,8 +960,8 @@ mixin _$Session {
   String get fromTime => throw _privateConstructorUsedError;
   @JsonKey(name: 'coaching_program')
   dynamic get coachingProgram => throw _privateConstructorUsedError;
-  dynamic get location => throw _privateConstructorUsedError;
-  dynamic get term => throw _privateConstructorUsedError;
+  dynamic? get location => throw _privateConstructorUsedError;
+  dynamic? get term => throw _privateConstructorUsedError;
 
   /// Serializes this Session to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -986,8 +984,8 @@ abstract class $SessionCopyWith<$Res> {
       @JsonKey(name: 'to_time') String toTime,
       @JsonKey(name: 'from_time') String fromTime,
       @JsonKey(name: 'coaching_program') dynamic coachingProgram,
-      dynamic location,
-      dynamic term});
+      dynamic? location,
+      dynamic? term});
 }
 
 /// @nodoc
@@ -1042,11 +1040,11 @@ class _$SessionCopyWithImpl<$Res, $Val extends Session>
       location: freezed == location
           ? _value.location
           : location // ignore: cast_nullable_to_non_nullable
-              as dynamic,
+              as dynamic?,
       term: freezed == term
           ? _value.term
           : term // ignore: cast_nullable_to_non_nullable
-              as dynamic,
+              as dynamic?,
     ) as $Val);
   }
 }
@@ -1065,8 +1063,8 @@ abstract class _$$SessionImplCopyWith<$Res> implements $SessionCopyWith<$Res> {
       @JsonKey(name: 'to_time') String toTime,
       @JsonKey(name: 'from_time') String fromTime,
       @JsonKey(name: 'coaching_program') dynamic coachingProgram,
-      dynamic location,
-      dynamic term});
+      dynamic? location,
+      dynamic? term});
 }
 
 /// @nodoc
@@ -1119,11 +1117,11 @@ class __$$SessionImplCopyWithImpl<$Res>
       location: freezed == location
           ? _value.location
           : location // ignore: cast_nullable_to_non_nullable
-              as dynamic,
+              as dynamic?,
       term: freezed == term
           ? _value.term
           : term // ignore: cast_nullable_to_non_nullable
-              as dynamic,
+              as dynamic?,
     ));
   }
 }
@@ -1163,9 +1161,9 @@ class _$SessionImpl implements _Session {
   @JsonKey(name: 'coaching_program')
   final dynamic coachingProgram;
   @override
-  final dynamic location;
+  final dynamic? location;
   @override
-  final dynamic term;
+  final dynamic? term;
 
   @override
   String toString() {
@@ -1227,8 +1225,8 @@ abstract class _Session implements Session {
       @JsonKey(name: 'to_time') final String toTime,
       @JsonKey(name: 'from_time') final String fromTime,
       @JsonKey(name: 'coaching_program') final dynamic coachingProgram,
-      final dynamic location,
-      final dynamic term}) = _$SessionImpl;
+      final dynamic? location,
+      final dynamic? term}) = _$SessionImpl;
 
   factory _Session.fromJson(Map<String, dynamic> json) = _$SessionImpl.fromJson;
 
@@ -1249,9 +1247,9 @@ abstract class _Session implements Session {
   @JsonKey(name: 'coaching_program')
   dynamic get coachingProgram;
   @override
-  dynamic get location;
+  dynamic? get location;
   @override
-  dynamic get term;
+  dynamic? get term;
 
   /// Create a copy of Session
   /// with the given fields replaced by the non-null parameter values.

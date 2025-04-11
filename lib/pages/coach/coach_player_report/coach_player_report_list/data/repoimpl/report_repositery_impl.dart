@@ -46,6 +46,31 @@ class ReportRepositeryImpl implements ReportRepositer {
   }
 
 
+  @override
+  Future<Either<Failure, dynamic>> addScore(Map<String, dynamic> scorData)async {
+    try {
+
+      print(scorData);
+      http.Response response =
+      await _apiServices.post(AppConstant.getAddReport, scorData,useDefaultHeaders: true,isJson: true);
+      print(response.body);
+      if (response.statusCode == 200) {
+        final Map<String, dynamic> responseData = jsonDecode(response.body);
+        if(responseData['success']){
+          return Right(responseData);
+        }else{
+          return Left(Failure(responseData['success']));
+        }
+
+      } else {
+        final errorMessage = _extractErrorMessage(response.body);
+        return Left(Failure(errorMessage));
+      }
+    } catch (e) {
+      return Left(Failure("$e"));
+    }
+  }
+
   String _extractErrorMessage(String responseBody) {
     try {
       final Map<String, dynamic> errorData = jsonDecode(responseBody);

@@ -13,4 +13,9 @@ class ReportUsecase {
     return _reportRepositer.getChildReportList(userData);
   }
 
+  Future<Either<Failure, dynamic>> addScoreExecute(
+      Map<String, dynamic> scoreData) async {
+    return _reportRepositer.addScore(scoreData);
+  }
+
 }

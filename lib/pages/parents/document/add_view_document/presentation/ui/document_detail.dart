@@ -80,7 +80,7 @@ class DocumentDetail extends StatelessWidget {
                             ),
                             InfoRow(
                               label: "Coach :",
-                              value: " ${_getCoachName(uploadedDocument.coachId,coachList)}",
+                              value: " ${uploadedDocument.coachId!.name??""}",
                             ),
                             Row(
                               crossAxisAlignment: CrossAxisAlignment.start,

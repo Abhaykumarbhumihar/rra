@@ -7,10 +7,13 @@ import 'package:rra/pages/parents/document/add_view_document/data/entity/parent_
 class DocumentItem extends StatelessWidget {
   final UploadedDocument uploadedDocument;
   final List<Coach> coaches; // Add coaches list as parameter
-
+  final bool isUploadedDocument;
+  final VoidCallback? onIconPress;
   const DocumentItem({
     super.key,
+    this.isUploadedDocument=false,
     required this.uploadedDocument,
+    this.onIconPress,
     required this.coaches, // Require coaches list
   });
 
@@ -51,6 +54,8 @@ class DocumentItem extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.start,
               children: <Widget>[
                 InfoRowWithIcon(
+                  onIconPress: onIconPress,
+                  isShowEditIcon:isUploadedDocument ,
                   label: "Dates",
                   value: " 08-03-2025",
                   iconPath: "assets/images/edit_icon.png",
@@ -62,7 +67,7 @@ class DocumentItem extends StatelessWidget {
                 ),
                 InfoRow(
                   label: "Coach :",
-                  value: " ${_getCoachName(uploadedDocument.coachId)}",
+                  value: " ${uploadedDocument.coachId!.name??""}",
                 ),
                 // InfoRow(
                 //   label: "Comments :",
@@ -79,7 +84,7 @@ class DocumentItem extends StatelessWidget {
                     ),
                     Flexible(
                       child: Text(
-                        uploadedDocument.Comments,
+                        uploadedDocument?.Comments??"",
                         style: AppTextStyle.regular(
                             MediaQuery.of(context).size.width * 0.0373),
                       ),

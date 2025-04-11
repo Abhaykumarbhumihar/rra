@@ -62,9 +62,8 @@ class ParentDocumentRepoImpl implements ParentDocumentRepositery {
           AppConstant.getParentUploadDocumentList, documentData,
           useDefaultHeaders: true,isJson: true);
       print("getDocumentList == ${documentData}");
-      print(response.body);
       if (response.statusCode == 200) {
-        print("getDocumentList ERROR ERROR  == ${response.body}");
+        print("getDocumentList SUCCESS SUCCESSS  == ${response.body}");
         final Map<String, dynamic> responseData = jsonDecode(response.body);
         ParentDocumentListModel parentDocumentListModel = ParentDocumentListModel
             .fromJson(responseData);

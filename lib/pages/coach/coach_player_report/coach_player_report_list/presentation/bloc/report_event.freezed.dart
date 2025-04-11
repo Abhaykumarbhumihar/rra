@@ -19,6 +19,7 @@ mixin _$ReportEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(Map<String, dynamic> data) getReportChildList,
+    required TResult Function(Map<String, dynamic> data) getAddScore,
     required TResult Function(Map<String, dynamic> filterData)
         getReportEventReportChildList,
     required TResult Function(Term term) getTermSelected,
@@ -29,6 +30,7 @@ mixin _$ReportEvent {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(Map<String, dynamic> data)? getReportChildList,
+    TResult? Function(Map<String, dynamic> data)? getAddScore,
     TResult? Function(Map<String, dynamic> filterData)?
         getReportEventReportChildList,
     TResult? Function(Term term)? getTermSelected,
@@ -39,6 +41,7 @@ mixin _$ReportEvent {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(Map<String, dynamic> data)? getReportChildList,
+    TResult Function(Map<String, dynamic> data)? getAddScore,
     TResult Function(Map<String, dynamic> filterData)?
         getReportEventReportChildList,
     TResult Function(Term term)? getTermSelected,
@@ -50,6 +53,7 @@ mixin _$ReportEvent {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(GetReportChildListEvent value) getReportChildList,
+    required TResult Function(AddScoreEvent value) getAddScore,
     required TResult Function(
             ReportEventGetTermsSessionCoachingPlayerEvents value)
         getReportEventReportChildList,
@@ -61,6 +65,7 @@ mixin _$ReportEvent {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(GetReportChildListEvent value)? getReportChildList,
+    TResult? Function(AddScoreEvent value)? getAddScore,
     TResult? Function(ReportEventGetTermsSessionCoachingPlayerEvents value)?
         getReportEventReportChildList,
     TResult? Function(TermSelected value)? getTermSelected,
@@ -71,6 +76,7 @@ mixin _$ReportEvent {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(GetReportChildListEvent value)? getReportChildList,
+    TResult Function(AddScoreEvent value)? getAddScore,
     TResult Function(ReportEventGetTermsSessionCoachingPlayerEvents value)?
         getReportEventReportChildList,
     TResult Function(TermSelected value)? getTermSelected,
@@ -181,6 +187,7 @@ class _$GetReportChildListEventImpl implements GetReportChildListEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(Map<String, dynamic> data) getReportChildList,
+    required TResult Function(Map<String, dynamic> data) getAddScore,
     required TResult Function(Map<String, dynamic> filterData)
         getReportEventReportChildList,
     required TResult Function(Term term) getTermSelected,
@@ -194,6 +201,7 @@ class _$GetReportChildListEventImpl implements GetReportChildListEvent {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(Map<String, dynamic> data)? getReportChildList,
+    TResult? Function(Map<String, dynamic> data)? getAddScore,
     TResult? Function(Map<String, dynamic> filterData)?
         getReportEventReportChildList,
     TResult? Function(Term term)? getTermSelected,
@@ -207,6 +215,7 @@ class _$GetReportChildListEventImpl implements GetReportChildListEvent {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(Map<String, dynamic> data)? getReportChildList,
+    TResult Function(Map<String, dynamic> data)? getAddScore,
     TResult Function(Map<String, dynamic> filterData)?
         getReportEventReportChildList,
     TResult Function(Term term)? getTermSelected,
@@ -224,6 +233,7 @@ class _$GetReportChildListEventImpl implements GetReportChildListEvent {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(GetReportChildListEvent value) getReportChildList,
+    required TResult Function(AddScoreEvent value) getAddScore,
     required TResult Function(
             ReportEventGetTermsSessionCoachingPlayerEvents value)
         getReportEventReportChildList,
@@ -238,6 +248,7 @@ class _$GetReportChildListEventImpl implements GetReportChildListEvent {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(GetReportChildListEvent value)? getReportChildList,
+    TResult? Function(AddScoreEvent value)? getAddScore,
     TResult? Function(ReportEventGetTermsSessionCoachingPlayerEvents value)?
         getReportEventReportChildList,
     TResult? Function(TermSelected value)? getTermSelected,
@@ -251,6 +262,7 @@ class _$GetReportChildListEventImpl implements GetReportChildListEvent {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(GetReportChildListEvent value)? getReportChildList,
+    TResult Function(AddScoreEvent value)? getAddScore,
     TResult Function(ReportEventGetTermsSessionCoachingPlayerEvents value)?
         getReportEventReportChildList,
     TResult Function(TermSelected value)? getTermSelected,
@@ -276,6 +288,184 @@ abstract class GetReportChildListEvent implements ReportEvent {
   @JsonKey(includeFromJson: false, includeToJson: false)
   _$$GetReportChildListEventImplCopyWith<_$GetReportChildListEventImpl>
       get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$AddScoreEventImplCopyWith<$Res> {
+  factory _$$AddScoreEventImplCopyWith(
+          _$AddScoreEventImpl value, $Res Function(_$AddScoreEventImpl) then) =
+      __$$AddScoreEventImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({Map<String, dynamic> data});
+}
+
+/// @nodoc
+class __$$AddScoreEventImplCopyWithImpl<$Res>
+    extends _$ReportEventCopyWithImpl<$Res, _$AddScoreEventImpl>
+    implements _$$AddScoreEventImplCopyWith<$Res> {
+  __$$AddScoreEventImplCopyWithImpl(
+      _$AddScoreEventImpl _value, $Res Function(_$AddScoreEventImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of ReportEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? data = null,
+  }) {
+    return _then(_$AddScoreEventImpl(
+      null == data
+          ? _value._data
+          : data // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$AddScoreEventImpl implements AddScoreEvent {
+  const _$AddScoreEventImpl(final Map<String, dynamic> data) : _data = data;
+
+  final Map<String, dynamic> _data;
+  @override
+  Map<String, dynamic> get data {
+    if (_data is EqualUnmodifiableMapView) return _data;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableMapView(_data);
+  }
+
+  @override
+  String toString() {
+    return 'ReportEvent.getAddScore(data: $data)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$AddScoreEventImpl &&
+            const DeepCollectionEquality().equals(other._data, _data));
+  }
+
+  @override
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(_data));
+
+  /// Create a copy of ReportEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$AddScoreEventImplCopyWith<_$AddScoreEventImpl> get copyWith =>
+      __$$AddScoreEventImplCopyWithImpl<_$AddScoreEventImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(Map<String, dynamic> data) getReportChildList,
+    required TResult Function(Map<String, dynamic> data) getAddScore,
+    required TResult Function(Map<String, dynamic> filterData)
+        getReportEventReportChildList,
+    required TResult Function(Term term) getTermSelected,
+    required TResult Function(CoachingProgram program) getProgramSelected,
+    required TResult Function(Session session) getSessionSelected,
+  }) {
+    return getAddScore(data);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(Map<String, dynamic> data)? getReportChildList,
+    TResult? Function(Map<String, dynamic> data)? getAddScore,
+    TResult? Function(Map<String, dynamic> filterData)?
+        getReportEventReportChildList,
+    TResult? Function(Term term)? getTermSelected,
+    TResult? Function(CoachingProgram program)? getProgramSelected,
+    TResult? Function(Session session)? getSessionSelected,
+  }) {
+    return getAddScore?.call(data);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(Map<String, dynamic> data)? getReportChildList,
+    TResult Function(Map<String, dynamic> data)? getAddScore,
+    TResult Function(Map<String, dynamic> filterData)?
+        getReportEventReportChildList,
+    TResult Function(Term term)? getTermSelected,
+    TResult Function(CoachingProgram program)? getProgramSelected,
+    TResult Function(Session session)? getSessionSelected,
+    required TResult orElse(),
+  }) {
+    if (getAddScore != null) {
+      return getAddScore(data);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(GetReportChildListEvent value) getReportChildList,
+    required TResult Function(AddScoreEvent value) getAddScore,
+    required TResult Function(
+            ReportEventGetTermsSessionCoachingPlayerEvents value)
+        getReportEventReportChildList,
+    required TResult Function(TermSelected value) getTermSelected,
+    required TResult Function(ProgramSelected value) getProgramSelected,
+    required TResult Function(SessionSelected value) getSessionSelected,
+  }) {
+    return getAddScore(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(GetReportChildListEvent value)? getReportChildList,
+    TResult? Function(AddScoreEvent value)? getAddScore,
+    TResult? Function(ReportEventGetTermsSessionCoachingPlayerEvents value)?
+        getReportEventReportChildList,
+    TResult? Function(TermSelected value)? getTermSelected,
+    TResult? Function(ProgramSelected value)? getProgramSelected,
+    TResult? Function(SessionSelected value)? getSessionSelected,
+  }) {
+    return getAddScore?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(GetReportChildListEvent value)? getReportChildList,
+    TResult Function(AddScoreEvent value)? getAddScore,
+    TResult Function(ReportEventGetTermsSessionCoachingPlayerEvents value)?
+        getReportEventReportChildList,
+    TResult Function(TermSelected value)? getTermSelected,
+    TResult Function(ProgramSelected value)? getProgramSelected,
+    TResult Function(SessionSelected value)? getSessionSelected,
+    required TResult orElse(),
+  }) {
+    if (getAddScore != null) {
+      return getAddScore(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class AddScoreEvent implements ReportEvent {
+  const factory AddScoreEvent(final Map<String, dynamic> data) =
+      _$AddScoreEventImpl;
+
+  Map<String, dynamic> get data;
+
+  /// Create a copy of ReportEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$AddScoreEventImplCopyWith<_$AddScoreEventImpl> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -367,6 +557,7 @@ class _$ReportEventGetTermsSessionCoachingPlayerEventsImpl
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(Map<String, dynamic> data) getReportChildList,
+    required TResult Function(Map<String, dynamic> data) getAddScore,
     required TResult Function(Map<String, dynamic> filterData)
         getReportEventReportChildList,
     required TResult Function(Term term) getTermSelected,
@@ -380,6 +571,7 @@ class _$ReportEventGetTermsSessionCoachingPlayerEventsImpl
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(Map<String, dynamic> data)? getReportChildList,
+    TResult? Function(Map<String, dynamic> data)? getAddScore,
     TResult? Function(Map<String, dynamic> filterData)?
         getReportEventReportChildList,
     TResult? Function(Term term)? getTermSelected,
@@ -393,6 +585,7 @@ class _$ReportEventGetTermsSessionCoachingPlayerEventsImpl
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(Map<String, dynamic> data)? getReportChildList,
+    TResult Function(Map<String, dynamic> data)? getAddScore,
     TResult Function(Map<String, dynamic> filterData)?
         getReportEventReportChildList,
     TResult Function(Term term)? getTermSelected,
@@ -410,6 +603,7 @@ class _$ReportEventGetTermsSessionCoachingPlayerEventsImpl
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(GetReportChildListEvent value) getReportChildList,
+    required TResult Function(AddScoreEvent value) getAddScore,
     required TResult Function(
             ReportEventGetTermsSessionCoachingPlayerEvents value)
         getReportEventReportChildList,
@@ -424,6 +618,7 @@ class _$ReportEventGetTermsSessionCoachingPlayerEventsImpl
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(GetReportChildListEvent value)? getReportChildList,
+    TResult? Function(AddScoreEvent value)? getAddScore,
     TResult? Function(ReportEventGetTermsSessionCoachingPlayerEvents value)?
         getReportEventReportChildList,
     TResult? Function(TermSelected value)? getTermSelected,
@@ -437,6 +632,7 @@ class _$ReportEventGetTermsSessionCoachingPlayerEventsImpl
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(GetReportChildListEvent value)? getReportChildList,
+    TResult Function(AddScoreEvent value)? getAddScore,
     TResult Function(ReportEventGetTermsSessionCoachingPlayerEvents value)?
         getReportEventReportChildList,
     TResult Function(TermSelected value)? getTermSelected,
@@ -548,6 +744,7 @@ class _$TermSelectedImpl implements TermSelected {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(Map<String, dynamic> data) getReportChildList,
+    required TResult Function(Map<String, dynamic> data) getAddScore,
     required TResult Function(Map<String, dynamic> filterData)
         getReportEventReportChildList,
     required TResult Function(Term term) getTermSelected,
@@ -561,6 +758,7 @@ class _$TermSelectedImpl implements TermSelected {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(Map<String, dynamic> data)? getReportChildList,
+    TResult? Function(Map<String, dynamic> data)? getAddScore,
     TResult? Function(Map<String, dynamic> filterData)?
         getReportEventReportChildList,
     TResult? Function(Term term)? getTermSelected,
@@ -574,6 +772,7 @@ class _$TermSelectedImpl implements TermSelected {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(Map<String, dynamic> data)? getReportChildList,
+    TResult Function(Map<String, dynamic> data)? getAddScore,
     TResult Function(Map<String, dynamic> filterData)?
         getReportEventReportChildList,
     TResult Function(Term term)? getTermSelected,
@@ -591,6 +790,7 @@ class _$TermSelectedImpl implements TermSelected {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(GetReportChildListEvent value) getReportChildList,
+    required TResult Function(AddScoreEvent value) getAddScore,
     required TResult Function(
             ReportEventGetTermsSessionCoachingPlayerEvents value)
         getReportEventReportChildList,
@@ -605,6 +805,7 @@ class _$TermSelectedImpl implements TermSelected {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(GetReportChildListEvent value)? getReportChildList,
+    TResult? Function(AddScoreEvent value)? getAddScore,
     TResult? Function(ReportEventGetTermsSessionCoachingPlayerEvents value)?
         getReportEventReportChildList,
     TResult? Function(TermSelected value)? getTermSelected,
@@ -618,6 +819,7 @@ class _$TermSelectedImpl implements TermSelected {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(GetReportChildListEvent value)? getReportChildList,
+    TResult Function(AddScoreEvent value)? getAddScore,
     TResult Function(ReportEventGetTermsSessionCoachingPlayerEvents value)?
         getReportEventReportChildList,
     TResult Function(TermSelected value)? getTermSelected,
@@ -726,6 +928,7 @@ class _$ProgramSelectedImpl implements ProgramSelected {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(Map<String, dynamic> data) getReportChildList,
+    required TResult Function(Map<String, dynamic> data) getAddScore,
     required TResult Function(Map<String, dynamic> filterData)
         getReportEventReportChildList,
     required TResult Function(Term term) getTermSelected,
@@ -739,6 +942,7 @@ class _$ProgramSelectedImpl implements ProgramSelected {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(Map<String, dynamic> data)? getReportChildList,
+    TResult? Function(Map<String, dynamic> data)? getAddScore,
     TResult? Function(Map<String, dynamic> filterData)?
         getReportEventReportChildList,
     TResult? Function(Term term)? getTermSelected,
@@ -752,6 +956,7 @@ class _$ProgramSelectedImpl implements ProgramSelected {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(Map<String, dynamic> data)? getReportChildList,
+    TResult Function(Map<String, dynamic> data)? getAddScore,
     TResult Function(Map<String, dynamic> filterData)?
         getReportEventReportChildList,
     TResult Function(Term term)? getTermSelected,
@@ -769,6 +974,7 @@ class _$ProgramSelectedImpl implements ProgramSelected {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(GetReportChildListEvent value) getReportChildList,
+    required TResult Function(AddScoreEvent value) getAddScore,
     required TResult Function(
             ReportEventGetTermsSessionCoachingPlayerEvents value)
         getReportEventReportChildList,
@@ -783,6 +989,7 @@ class _$ProgramSelectedImpl implements ProgramSelected {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(GetReportChildListEvent value)? getReportChildList,
+    TResult? Function(AddScoreEvent value)? getAddScore,
     TResult? Function(ReportEventGetTermsSessionCoachingPlayerEvents value)?
         getReportEventReportChildList,
     TResult? Function(TermSelected value)? getTermSelected,
@@ -796,6 +1003,7 @@ class _$ProgramSelectedImpl implements ProgramSelected {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(GetReportChildListEvent value)? getReportChildList,
+    TResult Function(AddScoreEvent value)? getAddScore,
     TResult Function(ReportEventGetTermsSessionCoachingPlayerEvents value)?
         getReportEventReportChildList,
     TResult Function(TermSelected value)? getTermSelected,
@@ -905,6 +1113,7 @@ class _$SessionSelectedImpl implements SessionSelected {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(Map<String, dynamic> data) getReportChildList,
+    required TResult Function(Map<String, dynamic> data) getAddScore,
     required TResult Function(Map<String, dynamic> filterData)
         getReportEventReportChildList,
     required TResult Function(Term term) getTermSelected,
@@ -918,6 +1127,7 @@ class _$SessionSelectedImpl implements SessionSelected {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(Map<String, dynamic> data)? getReportChildList,
+    TResult? Function(Map<String, dynamic> data)? getAddScore,
     TResult? Function(Map<String, dynamic> filterData)?
         getReportEventReportChildList,
     TResult? Function(Term term)? getTermSelected,
@@ -931,6 +1141,7 @@ class _$SessionSelectedImpl implements SessionSelected {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(Map<String, dynamic> data)? getReportChildList,
+    TResult Function(Map<String, dynamic> data)? getAddScore,
     TResult Function(Map<String, dynamic> filterData)?
         getReportEventReportChildList,
     TResult Function(Term term)? getTermSelected,
@@ -948,6 +1159,7 @@ class _$SessionSelectedImpl implements SessionSelected {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(GetReportChildListEvent value) getReportChildList,
+    required TResult Function(AddScoreEvent value) getAddScore,
     required TResult Function(
             ReportEventGetTermsSessionCoachingPlayerEvents value)
         getReportEventReportChildList,
@@ -962,6 +1174,7 @@ class _$SessionSelectedImpl implements SessionSelected {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(GetReportChildListEvent value)? getReportChildList,
+    TResult? Function(AddScoreEvent value)? getAddScore,
     TResult? Function(ReportEventGetTermsSessionCoachingPlayerEvents value)?
         getReportEventReportChildList,
     TResult? Function(TermSelected value)? getTermSelected,
@@ -975,6 +1188,7 @@ class _$SessionSelectedImpl implements SessionSelected {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(GetReportChildListEvent value)? getReportChildList,
+    TResult Function(AddScoreEvent value)? getAddScore,
     TResult Function(ReportEventGetTermsSessionCoachingPlayerEvents value)?
         getReportEventReportChildList,
     TResult Function(TermSelected value)? getTermSelected,
