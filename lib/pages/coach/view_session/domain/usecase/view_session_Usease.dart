@@ -13,4 +13,9 @@ class ViewSessionUsease {
     return _sessionRepositey.getSessionList(playerData);
   }
 
+  Future<Either<Failure, dynamic>> cancelBookingOrderExecute(
+      Map<String, dynamic> playerData) async {
+    return _sessionRepositey.cancelBookingOrder(playerData);
+  }
+
 }

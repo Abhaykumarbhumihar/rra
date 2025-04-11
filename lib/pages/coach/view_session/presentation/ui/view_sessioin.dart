@@ -21,16 +21,14 @@ class CoachViewSessioin extends StatelessWidget {
     return Container(
       decoration: CommonBackground.decoration,
       child: Scaffold(
-
           backgroundColor: Colors.transparent,
           body: BlocListener<ViewSessionBloc, ViewSessionState>(
             listener: (context, state) {
-           print("SDF SD DS FDS D D DKLFDKFKDFKDFKLDKLFDKFKDFDKLFKDLFKDLF");
               print(state);
-              if(state.bookedSession.data.sessions.isNotEmpty){
-                BlocProvider.of<AppBloc>(context).add(BookedSessionCountEvent("${state.bookedSession.data.sessions}"));
+              if (state.bookedSession.data.sessions.isNotEmpty) {
+                BlocProvider.of<AppBloc>(context).add(BookedSessionCountEvent(
+                    "${state.bookedSession.data.sessions}"));
               }
-
             },
             child: BlocBuilder<ViewSessionBloc, ViewSessionState>(
               builder: (context, state) {
@@ -72,35 +70,35 @@ class CoachViewSessioin extends StatelessWidget {
                               maxLength: 13,
                               errorMessage: "",
                               onTap: () async {
-                                final selectedDay = await showDayListBottomSheet(context);
+                                final selectedDay =
+                                    await showDayListBottomSheet(context);
                                 if (selectedDay != null) {
                                   // Do something with the selected day
-                                  daysController.text=selectedDay;
+                                  daysController.text = selectedDay;
                                 }
                               },
-                              onChanged: (value) {
-
-
-                              },
+                              onChanged: (value) {},
                             ),
                           ),
-                          SizedBox(height: 10,),
+                          SizedBox(
+                            height: 10,
+                          ),
                           Expanded(child: ViewSessionItem()),
-                          SizedBox(height: 10,),
-
+                          SizedBox(
+                            height: 10,
+                          ),
                         ],
                       ),
-                      if(state.isLoading)
-                        LoadingIndicator()
+                      if (state.isLoading) LoadingIndicator()
                     ],
                   ),
                 );
               },
             ),
-          )
-      ),
+          )),
     );
   }
+
   Future<String?> showDayListBottomSheet(BuildContext context) async {
     return await showModalBottomSheet<String>(
       context: context,
@@ -110,4 +108,5 @@ class CoachViewSessioin extends StatelessWidget {
         child: const SessionBottomSheet(),
       ),
     );
-  }}
+  }
+}

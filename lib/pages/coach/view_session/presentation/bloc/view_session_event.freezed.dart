@@ -22,18 +22,21 @@ mixin _$ViewSessionEvent {
     required TResult Function(Map<String, dynamic> data) getBookedSessionList,
     required TResult Function(Map<String, dynamic> data)
         getFilterBookedSessionList,
+    required TResult Function(Map<String, dynamic> data) getCancelBookedSession,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(Map<String, dynamic> data)? getBookedSessionList,
     TResult? Function(Map<String, dynamic> data)? getFilterBookedSessionList,
+    TResult? Function(Map<String, dynamic> data)? getCancelBookedSession,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(Map<String, dynamic> data)? getBookedSessionList,
     TResult Function(Map<String, dynamic> data)? getFilterBookedSessionList,
+    TResult Function(Map<String, dynamic> data)? getCancelBookedSession,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -43,6 +46,8 @@ mixin _$ViewSessionEvent {
         getBookedSessionList,
     required TResult Function(GetFilterBookedSessionListEvent value)
         getFilterBookedSessionList,
+    required TResult Function(CancelBookedSessionEvent value)
+        getCancelBookedSession,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -50,6 +55,7 @@ mixin _$ViewSessionEvent {
     TResult? Function(GetBookedSessionListEvent value)? getBookedSessionList,
     TResult? Function(GetFilterBookedSessionListEvent value)?
         getFilterBookedSessionList,
+    TResult? Function(CancelBookedSessionEvent value)? getCancelBookedSession,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -57,6 +63,7 @@ mixin _$ViewSessionEvent {
     TResult Function(GetBookedSessionListEvent value)? getBookedSessionList,
     TResult Function(GetFilterBookedSessionListEvent value)?
         getFilterBookedSessionList,
+    TResult Function(CancelBookedSessionEvent value)? getCancelBookedSession,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -187,6 +194,7 @@ class _$GetBookedSessionListEventImpl implements GetBookedSessionListEvent {
     required TResult Function(Map<String, dynamic> data) getBookedSessionList,
     required TResult Function(Map<String, dynamic> data)
         getFilterBookedSessionList,
+    required TResult Function(Map<String, dynamic> data) getCancelBookedSession,
   }) {
     return getBookedSessionList(data);
   }
@@ -196,6 +204,7 @@ class _$GetBookedSessionListEventImpl implements GetBookedSessionListEvent {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(Map<String, dynamic> data)? getBookedSessionList,
     TResult? Function(Map<String, dynamic> data)? getFilterBookedSessionList,
+    TResult? Function(Map<String, dynamic> data)? getCancelBookedSession,
   }) {
     return getBookedSessionList?.call(data);
   }
@@ -205,6 +214,7 @@ class _$GetBookedSessionListEventImpl implements GetBookedSessionListEvent {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(Map<String, dynamic> data)? getBookedSessionList,
     TResult Function(Map<String, dynamic> data)? getFilterBookedSessionList,
+    TResult Function(Map<String, dynamic> data)? getCancelBookedSession,
     required TResult orElse(),
   }) {
     if (getBookedSessionList != null) {
@@ -220,6 +230,8 @@ class _$GetBookedSessionListEventImpl implements GetBookedSessionListEvent {
         getBookedSessionList,
     required TResult Function(GetFilterBookedSessionListEvent value)
         getFilterBookedSessionList,
+    required TResult Function(CancelBookedSessionEvent value)
+        getCancelBookedSession,
   }) {
     return getBookedSessionList(this);
   }
@@ -230,6 +242,7 @@ class _$GetBookedSessionListEventImpl implements GetBookedSessionListEvent {
     TResult? Function(GetBookedSessionListEvent value)? getBookedSessionList,
     TResult? Function(GetFilterBookedSessionListEvent value)?
         getFilterBookedSessionList,
+    TResult? Function(CancelBookedSessionEvent value)? getCancelBookedSession,
   }) {
     return getBookedSessionList?.call(this);
   }
@@ -240,6 +253,7 @@ class _$GetBookedSessionListEventImpl implements GetBookedSessionListEvent {
     TResult Function(GetBookedSessionListEvent value)? getBookedSessionList,
     TResult Function(GetFilterBookedSessionListEvent value)?
         getFilterBookedSessionList,
+    TResult Function(CancelBookedSessionEvent value)? getCancelBookedSession,
     required TResult orElse(),
   }) {
     if (getBookedSessionList != null) {
@@ -350,6 +364,7 @@ class _$GetFilterBookedSessionListEventImpl
     required TResult Function(Map<String, dynamic> data) getBookedSessionList,
     required TResult Function(Map<String, dynamic> data)
         getFilterBookedSessionList,
+    required TResult Function(Map<String, dynamic> data) getCancelBookedSession,
   }) {
     return getFilterBookedSessionList(data);
   }
@@ -359,6 +374,7 @@ class _$GetFilterBookedSessionListEventImpl
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(Map<String, dynamic> data)? getBookedSessionList,
     TResult? Function(Map<String, dynamic> data)? getFilterBookedSessionList,
+    TResult? Function(Map<String, dynamic> data)? getCancelBookedSession,
   }) {
     return getFilterBookedSessionList?.call(data);
   }
@@ -368,6 +384,7 @@ class _$GetFilterBookedSessionListEventImpl
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(Map<String, dynamic> data)? getBookedSessionList,
     TResult Function(Map<String, dynamic> data)? getFilterBookedSessionList,
+    TResult Function(Map<String, dynamic> data)? getCancelBookedSession,
     required TResult orElse(),
   }) {
     if (getFilterBookedSessionList != null) {
@@ -383,6 +400,8 @@ class _$GetFilterBookedSessionListEventImpl
         getBookedSessionList,
     required TResult Function(GetFilterBookedSessionListEvent value)
         getFilterBookedSessionList,
+    required TResult Function(CancelBookedSessionEvent value)
+        getCancelBookedSession,
   }) {
     return getFilterBookedSessionList(this);
   }
@@ -393,6 +412,7 @@ class _$GetFilterBookedSessionListEventImpl
     TResult? Function(GetBookedSessionListEvent value)? getBookedSessionList,
     TResult? Function(GetFilterBookedSessionListEvent value)?
         getFilterBookedSessionList,
+    TResult? Function(CancelBookedSessionEvent value)? getCancelBookedSession,
   }) {
     return getFilterBookedSessionList?.call(this);
   }
@@ -403,6 +423,7 @@ class _$GetFilterBookedSessionListEventImpl
     TResult Function(GetBookedSessionListEvent value)? getBookedSessionList,
     TResult Function(GetFilterBookedSessionListEvent value)?
         getFilterBookedSessionList,
+    TResult Function(CancelBookedSessionEvent value)? getCancelBookedSession,
     required TResult orElse(),
   }) {
     if (getFilterBookedSessionList != null) {
@@ -425,5 +446,172 @@ abstract class GetFilterBookedSessionListEvent implements ViewSessionEvent {
   @JsonKey(includeFromJson: false, includeToJson: false)
   _$$GetFilterBookedSessionListEventImplCopyWith<
           _$GetFilterBookedSessionListEventImpl>
+      get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$CancelBookedSessionEventImplCopyWith<$Res>
+    implements $ViewSessionEventCopyWith<$Res> {
+  factory _$$CancelBookedSessionEventImplCopyWith(
+          _$CancelBookedSessionEventImpl value,
+          $Res Function(_$CancelBookedSessionEventImpl) then) =
+      __$$CancelBookedSessionEventImplCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call({Map<String, dynamic> data});
+}
+
+/// @nodoc
+class __$$CancelBookedSessionEventImplCopyWithImpl<$Res>
+    extends _$ViewSessionEventCopyWithImpl<$Res, _$CancelBookedSessionEventImpl>
+    implements _$$CancelBookedSessionEventImplCopyWith<$Res> {
+  __$$CancelBookedSessionEventImplCopyWithImpl(
+      _$CancelBookedSessionEventImpl _value,
+      $Res Function(_$CancelBookedSessionEventImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of ViewSessionEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? data = null,
+  }) {
+    return _then(_$CancelBookedSessionEventImpl(
+      null == data
+          ? _value._data
+          : data // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$CancelBookedSessionEventImpl implements CancelBookedSessionEvent {
+  const _$CancelBookedSessionEventImpl(final Map<String, dynamic> data)
+      : _data = data;
+
+  final Map<String, dynamic> _data;
+  @override
+  Map<String, dynamic> get data {
+    if (_data is EqualUnmodifiableMapView) return _data;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableMapView(_data);
+  }
+
+  @override
+  String toString() {
+    return 'ViewSessionEvent.getCancelBookedSession(data: $data)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$CancelBookedSessionEventImpl &&
+            const DeepCollectionEquality().equals(other._data, _data));
+  }
+
+  @override
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(_data));
+
+  /// Create a copy of ViewSessionEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$CancelBookedSessionEventImplCopyWith<_$CancelBookedSessionEventImpl>
+      get copyWith => __$$CancelBookedSessionEventImplCopyWithImpl<
+          _$CancelBookedSessionEventImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(Map<String, dynamic> data) getBookedSessionList,
+    required TResult Function(Map<String, dynamic> data)
+        getFilterBookedSessionList,
+    required TResult Function(Map<String, dynamic> data) getCancelBookedSession,
+  }) {
+    return getCancelBookedSession(data);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(Map<String, dynamic> data)? getBookedSessionList,
+    TResult? Function(Map<String, dynamic> data)? getFilterBookedSessionList,
+    TResult? Function(Map<String, dynamic> data)? getCancelBookedSession,
+  }) {
+    return getCancelBookedSession?.call(data);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(Map<String, dynamic> data)? getBookedSessionList,
+    TResult Function(Map<String, dynamic> data)? getFilterBookedSessionList,
+    TResult Function(Map<String, dynamic> data)? getCancelBookedSession,
+    required TResult orElse(),
+  }) {
+    if (getCancelBookedSession != null) {
+      return getCancelBookedSession(data);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(GetBookedSessionListEvent value)
+        getBookedSessionList,
+    required TResult Function(GetFilterBookedSessionListEvent value)
+        getFilterBookedSessionList,
+    required TResult Function(CancelBookedSessionEvent value)
+        getCancelBookedSession,
+  }) {
+    return getCancelBookedSession(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(GetBookedSessionListEvent value)? getBookedSessionList,
+    TResult? Function(GetFilterBookedSessionListEvent value)?
+        getFilterBookedSessionList,
+    TResult? Function(CancelBookedSessionEvent value)? getCancelBookedSession,
+  }) {
+    return getCancelBookedSession?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(GetBookedSessionListEvent value)? getBookedSessionList,
+    TResult Function(GetFilterBookedSessionListEvent value)?
+        getFilterBookedSessionList,
+    TResult Function(CancelBookedSessionEvent value)? getCancelBookedSession,
+    required TResult orElse(),
+  }) {
+    if (getCancelBookedSession != null) {
+      return getCancelBookedSession(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class CancelBookedSessionEvent implements ViewSessionEvent {
+  const factory CancelBookedSessionEvent(final Map<String, dynamic> data) =
+      _$CancelBookedSessionEventImpl;
+
+  @override
+  Map<String, dynamic> get data;
+
+  /// Create a copy of ViewSessionEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$CancelBookedSessionEventImplCopyWith<_$CancelBookedSessionEventImpl>
       get copyWith => throw _privateConstructorUsedError;
 }

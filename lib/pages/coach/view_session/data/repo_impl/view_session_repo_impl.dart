@@ -56,6 +56,33 @@ class ViewSessionRepoImpl implements ViewSessionRepositey {
     }
   }
 
+  @override
+  Future<Either<Failure, dynamic>> cancelBookingOrder(Map<String, dynamic> orderData)async {
+    try {
+
+      print(orderData);
+      http.Response response =
+          await _apiServices.post(AppConstant.getCacneclBookingSession, orderData,useDefaultHeaders: true,isJson: true);
+      print(response.body);
+      if (response.statusCode == 200) {
+        print("cancelBookingOrder cancelBookingOrder cancelBookingOrder cancelBookingOrder cancelBookingOrder===\n\n${response.body}");
+        final Map<String, dynamic> responseData = jsonDecode(response.body);
+        if(responseData['success']){
+
+          return Right(responseData);
+        }else{
+          return Left(Failure(responseData['success']));
+        }
+
+      } else {
+        final errorMessage = _extractErrorMessage(response.body);
+        return Left(Failure(errorMessage));
+      }
+    } catch (e) {
+      return Left(Failure("$e"));
+    }
+  }
+
 
 
 

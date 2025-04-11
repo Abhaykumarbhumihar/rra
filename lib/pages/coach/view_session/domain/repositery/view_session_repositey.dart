@@ -5,6 +5,7 @@ import '../../data/entity/booked_session_list.dart';
 
 abstract class ViewSessionRepositey{
   Future<Either<Failure,BookedSessionList>> getSessionList(Map<String, dynamic> sessionData);
+  Future<Either<Failure,dynamic>> cancelBookingOrder(Map<String, dynamic> orderData);
 
 
 

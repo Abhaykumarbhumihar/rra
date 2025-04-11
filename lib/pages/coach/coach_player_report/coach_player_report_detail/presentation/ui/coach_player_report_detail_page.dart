@@ -103,7 +103,7 @@ class CoachPlayerReportDetailPage extends StatelessWidget {
     return showDialog<Map<String, dynamic>>(
       context: context,
       builder: (context) => StrikeRotationDialogPage(
-        sliderConfigs: sliderConfigs,
+       // sliderConfigs: sliderConfigs,
         initialComment: initialComment,
         performanceData: performanceData,
       ),

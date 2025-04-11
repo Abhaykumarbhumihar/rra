@@ -15,6 +15,7 @@ class ViewSessionBloc extends Bloc<ViewSessionEvent, ViewSessionState> {
   getIt<ViewSessionUsease>();
   ViewSessionBloc() : super(ViewSessionState.initial()) {
     on<GetBookedSessionListEvent>(_getBookedSessionList);
+    on<CancelBookedSessionEvent>(_cancelBookedSession);
   }
   Future<void>_getBookedSessionList(GetBookedSessionListEvent event,Emitter<ViewSessionState> emit)async{
     if (!(await Connectivity().isConnected)) {
@@ -53,8 +54,48 @@ class ViewSessionBloc extends Bloc<ViewSessionEvent, ViewSessionState> {
         message: "",
         bookedSession: sessionList
       ));
+
     });
 
   }
 
+
+  Future<void>_cancelBookedSession(CancelBookedSessionEvent event,Emitter<ViewSessionState> emit)async{
+    if (!(await Connectivity().isConnected)) {
+      emit(state.copyWith(
+        isLoading: false,
+        isStatusUpdated: false,
+        isError: true,
+        message: "No internet connection.",
+      ));
+      return;
+    }
+    emit(state.copyWith(
+        isLoading: true,
+        isStatusUpdated: false,
+        isError: false,
+        // message: "",
+
+    ));
+    final academyId = await SharedPrefs.getString("selected_academyid");
+    final response = await _sessionUsease.cancelBookingOrderExecute(event.data);
+    response.fold((failure){
+      emit(state.copyWith(
+          isLoading: false,
+          isStatusUpdated: false,
+          isError: true,
+          message: failure.message.toString(),
+      ));
+    },(sessionList){
+      emit(state.copyWith(
+          isLoading: true,
+          isStatusUpdated: false,
+          isError: false,
+          message: "",
+
+      ));
+      add(GetBookedSessionListEvent({"academy_id":academyId}));
+    });
+
+  }
 }

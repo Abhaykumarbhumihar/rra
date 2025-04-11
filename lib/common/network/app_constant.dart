@@ -60,6 +60,7 @@ static String get getTermsSessionCoachingPlayer=>"term/coaching/session";
 
 /*booked session list*/
 static String get getBookedSessionList =>"booked-session-list";
+static String get getCacneclBookingSession =>"cancel/order";
 
 /*collater*/
 static String get getCollateralList=>"collaterals/list";
