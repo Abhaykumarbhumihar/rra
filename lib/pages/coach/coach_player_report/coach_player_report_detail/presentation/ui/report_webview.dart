@@ -35,7 +35,7 @@ class ReportWebview extends StatelessWidget {
                       
                       controller: WebViewController()
                         ..setJavaScriptMode(JavaScriptMode.unrestricted)..enableZoom(false)
-..enableZoom(false)
+                        ..enableZoom(false)
                         ..loadRequest(Uri.parse(reportUrl),),
                     ),
                   ),

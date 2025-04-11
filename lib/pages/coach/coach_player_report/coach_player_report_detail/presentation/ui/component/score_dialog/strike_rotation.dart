@@ -5,15 +5,8 @@ import 'package:rra/pages/coach/coach_player_report/coach_player_report_list/dat
 
 import '../../../../../../../../common/component/custom_app_button.dart';
 
-class SliderConfig {
-  final String title;
-  final double initialValue;
 
-  SliderConfig({
-    required this.title,
-    this.initialValue = 5.0,
-  });
-}
+
 
 class StrikeRotationDialogPage extends StatefulWidget {
   final List<Score> sliderConfigs;
@@ -117,7 +110,9 @@ SizedBox(height: 10,),
             CustomButton(
               text: "Submit Score",
               onPressed: () {
-                Navigator.pop(context);
+
+
+              //  Navigator.pop(context);
               },
             )
           ],
