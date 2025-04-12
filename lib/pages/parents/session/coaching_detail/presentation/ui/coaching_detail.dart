@@ -11,6 +11,7 @@ import '../../../../../../common/component/custom_app_button.dart';
 import '../../../../../../common/component/loading_indicator.dart';
 import '../../../../../../common/local/SharedPrefs.dart';
 import '../../../../../../common/routes/routes.dart';
+import '../../../../../../common/service_locator/setivelocator.dart';
 import '../../../add_detail/presentation/bloc/add_view_player_bloc.dart';
 import '../../../add_detail/presentation/bloc/add_view_player_event.dart';
 import '../../../calendar/presentation/bloc/session_calendar_bloc.dart';
@@ -155,7 +156,7 @@ class CoachingDetailScreen extends StatelessWidget {
                                 BlocProvider.of<SessionCalendarBloc>(context).add(ResetCalendarEvent());
                                 BlocProvider.of<AddViewPlayerBloc>(context).add(ResetAddViewEvent());
                                 BlocProvider.of<AddViewPlayerBloc>(context).add(AddViewPlayerGetChildListEvent());
-                                var academyId = await SharedPrefs.getString("selected_academyid");
+                                var academyId = await getIt<SharedPrefs>().getString("selected_academyid");
 
                                 Map<String, dynamic> map = {
                                   "coaching_program_id": data.id,

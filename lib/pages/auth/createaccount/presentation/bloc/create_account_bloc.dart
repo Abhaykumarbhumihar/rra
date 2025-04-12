@@ -158,7 +158,7 @@ class CreateAccountBloc extends Bloc<CreateAccountEvent, CreateAccountState> {
     }
 
     try {
-      var academyId = await SharedPrefs.getString("selected_academyid");
+      var academyId = await getIt<SharedPrefs>().getString("selected_academyid");
       Map<String, String> userRegistrationMap = {
         'name': state.firstName ?? "",
         'academy_id': academyId,

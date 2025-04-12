@@ -2,6 +2,7 @@ import 'package:rra/common/component/component_export.dart';
 import 'package:rra/common/values/values_exports.dart';
 
 import '../../../../../../../common/local/SharedPrefs.dart';
+import '../../../../../../../common/service_locator/setivelocator.dart';
 import '../../../../../../auth/otpverification/data/entity/otp_verification_model.dart';
 import '../../../../../../parents/document/add_view_document/presentation/bloc/add_document_bloc.dart';
 import '../../../../player_attendance_list/presentation/bloc/attendance_bloc.dart';
@@ -71,7 +72,7 @@ class PlayerAttendanceRecord extends StatelessWidget {
                             AttendanceCommonSmallElevatedButton(
                               label: "${data?.attendanceStatus}",
                               onPressed: () async {
-                                var userdata = await SharedPrefs.getModel<OtpVerificationModel>("user_model", (json) => OtpVerificationModel.fromJson(json));
+                                var userdata = await getIt<SharedPrefs>().getModel<OtpVerificationModel>("user_model", (json) => OtpVerificationModel.fromJson(json));
                                 if(userdata?.data.role=="coach"){
                                   final selectedStatus = await showModalBottomSheet<String>(
                                     context: context,
@@ -112,7 +113,7 @@ class PlayerAttendanceRecord extends StatelessWidget {
                                   );
 
                                   if (selectedStatus != null) {
-                                    var academyId = await SharedPrefs.getString("selected_academyid");
+                                    var academyId = await getIt<SharedPrefs>().getString("selected_academyid");
                                     Map<String, dynamic> map = {
                                       "player_id": state.singlePlayerAttendanceDetailModel.data?.id,
                                       "session_id": data?.sessionId,

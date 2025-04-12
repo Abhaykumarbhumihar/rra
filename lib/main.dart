@@ -17,10 +17,10 @@ final GlobalKey<NavigatorState> navigatorKey = GlobalKey<NavigatorState>();
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  serviceLocator();
+  await serviceLocator();
 
   HttpOverrides.global = CustomHttpOverrides();
-  await SharedPrefs.init();
+  //await SharedPrefs.init();
   runApp(const MyApp());
 }
 

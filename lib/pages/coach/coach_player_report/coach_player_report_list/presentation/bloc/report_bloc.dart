@@ -65,7 +65,7 @@ class ReportBloc extends Bloc<ReportEvent, ReportState> {
         isError: false,
         message: "No internet connection.",
       ));
-      var academyId = await SharedPrefs.getString("selected_academyid");
+      var academyId = await getIt<SharedPrefs>().getString("selected_academyid");
 
       Map<String, dynamic> map = {
         "academy_id": academyId,
@@ -157,7 +157,7 @@ class ReportBloc extends Bloc<ReportEvent, ReportState> {
 
 
 
-      var academyId = await SharedPrefs.getString("selected_academyid");
+      var academyId = await getIt<SharedPrefs>().getString("selected_academyid");
       Map<String, dynamic> map = {
         "academy_id": academyId,
         "term_id":termIds.id,

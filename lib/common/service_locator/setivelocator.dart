@@ -1,3 +1,5 @@
+import 'package:shared_preferences/shared_preferences.dart';
+
 import '../../pages/coach/coach_attendance/player_attendance_list/data/repo_impl/player_attendance_repo_impl.dart';
 import '../../pages/coach/coach_attendance/player_attendance_list/domain/repositery/player_attendance_repositey.dart';
 import '../../pages/coach/coach_attendance/player_attendance_list/domain/usecase/playerAttendanceUsease.dart';
@@ -19,10 +21,20 @@ import '../../pages/parents/parent_order/parent_order_detail/domain/usecase/pare
 import '../../pages/parents/parent_order/parent_order_list/data/repo_impl/parent_myorder_repo_impl.dart';
 import '../../pages/parents/parent_order/parent_order_list/domain/repositery/parent_myorder_repositery.dart';
 import '../../pages/parents/parent_order/parent_order_list/domain/usecase/parent_my_order_usecase.dart';
+import '../local/SharedPrefs.dart';
 import 'service_export.dart';
 
 final GetIt getIt = GetIt.instance;
-void serviceLocator() {
+Future<void> serviceLocator() async {
+// Initialize SharedPreferences first
+  final sharedPreferences = await SharedPreferences.getInstance();
+
+  // Register SharedPrefs with the initialized SharedPreferences
+  getIt.registerLazySingleton<SharedPrefs>(() => SharedPrefs(sharedPreferences));
+
+
+
+
   getIt.registerLazySingleton<ApiServices>(
       () => ApiServices(AppConstant.baseUrl));
 
@@ -144,9 +156,7 @@ void serviceLocator() {
           () => ReportUsecase(getIt<ReportRepositer>()));
 
   /*manage teams*/
-  getIt.registerLazySingleton<ManageTeamRepositer>(
-          () => ManageTeamRepositeryImpl());
-  getIt.registerLazySingleton<ManageTeamUsecase>(
-          () => ManageTeamUsecase(getIt<ManageTeamRepositer>()));
+  getIt.registerLazySingleton<ManageTeamRepositer>(() => ManageTeamRepositeryImpl());
+  getIt.registerLazySingleton<ManageTeamUsecase>(() => ManageTeamUsecase(getIt<ManageTeamRepositer>()));
 
 }

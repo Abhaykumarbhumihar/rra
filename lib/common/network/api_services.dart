@@ -1,3 +1,4 @@
+import '../service_locator/setivelocator.dart';
 import 'network_eport.dart';
 import 'package:http/http.dart' as http;
 import  'package:path/path.dart' as path;
@@ -44,7 +45,7 @@ class ApiServices {
 
       ) {
         print("YYYYYSY${url}YSYSYSYSYSYSYSYSYSSYSYSYSYSYSYSYSYSYSYSYSYSYYSYSYSY");
-        var cookie = await SharedPrefs.getString("cookie");
+        String cookie = getIt<SharedPrefs>().getString('cookie');
         headers['Cookie'] = "${cookie}";
       }else{
         print("YYYY${url}fffffffffffff");
@@ -311,7 +312,7 @@ class ApiServices {
   Future<Map<String, String>> _defaultHeaders() async {
     //var csrftoken = await SharedPrefs.getString("csrftoken");
 
-    var token = await SharedPrefs.getString("token");
+    var token = await getIt<SharedPrefs>().getString("token");
     //var token = userdata?.data?.token;
 
     Map<String, String> headers = {};

@@ -5,6 +5,7 @@ import 'package:rra/common/component/component_export.dart';
 import '../../../../common/local/SharedPrefs.dart';
 import '../../../../common/routes/exports.dart';
 import '../../../../common/routes/routes.dart';
+import '../../../../common/service_locator/setivelocator.dart';
 import '../../../academic/presentation/bloc/academic_bloc.dart';
 import '../../../academic/presentation/bloc/academic_event.dart';
 
@@ -32,11 +33,11 @@ class SettingPage extends StatelessWidget {
                         //  Navigator.pop(context);
                         },
                         onLogout: () async {
-                          await SharedPrefs.remove("user_model");
-                          await SharedPrefs.remove("selected_academyid");
-                          await SharedPrefs.remove("stripe_auth_key");
-                          await SharedPrefs.remove("stripe_publish_key");
-                          await SharedPrefs.clear();
+                          await getIt<SharedPrefs>().getString("user_model");
+                          await getIt<SharedPrefs>().getString("selected_academyid");
+                          await getIt<SharedPrefs>().getString("stripe_auth_key");
+                          await getIt<SharedPrefs>().getString("stripe_publish_key");
+                          await getIt<SharedPrefs>().clear();
 
                           BlocProvider.of<EditprofileBloc>(context)
                               .loadUserData();

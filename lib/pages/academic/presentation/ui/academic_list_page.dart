@@ -10,6 +10,7 @@ import 'package:rra/pages/academic/presentation/bloc/academic_state.dart';
 import '../../../../common/component/loading_indicator.dart';
 import '../../../../common/component/network_image.dart';
 import '../../../../common/local/SharedPrefs.dart';
+import '../../../../common/service_locator/setivelocator.dart';
 import '../../../../common/values/values_exports.dart';
 import '../bloc/academic_event.dart';
 import 'component/academiy_shimmer.dart';
@@ -43,14 +44,17 @@ class AcademicListPage extends StatelessWidget {
                       vertical: 10),
                   child: InkWell(
                     onTap: () async {
-                      await SharedPrefs.setString(
+                    await  getIt<SharedPrefs>().setString(
                           "selected_academyid", academy.id.toString());
 
-                      await SharedPrefs.setString(
+                    await getIt<SharedPrefs>().setString(
                           "stripe_auth_key", academy.payment_gateway_details?.auth_key.toString()??"");
 
-                      await SharedPrefs.setString(
+                    await  getIt<SharedPrefs>().setString(
                           "stripe_publish_key",academy.payment_gateway_details?.publish_key.toString()??"");
+                    await  getIt<SharedPrefs>().setString( "academy_name",academy.academy_name.toString()??"");
+
+                      getIt<SharedPrefs>().setString('key', 'value');
 
                       context
                           .read<AcademicBloc>()

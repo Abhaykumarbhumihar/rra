@@ -7,6 +7,7 @@ import 'package:rra/pages/splash/presentation/ui/splash_component.dart';
 
 import '../../../../common/local/SharedPrefs.dart';
 import '../../../../common/routes/routes.dart';
+import '../../../../common/service_locator/setivelocator.dart';
 import '../../../academic/presentation/bloc/academic_event.dart';
 import '../../../auth/login/presentation/bloc/login_event.dart';
 import '../../../auth/otpverification/data/entity/otp_verification_model.dart';
@@ -68,7 +69,7 @@ class SplashPage extends StatelessWidget {
           // }
 
           if (state is SplashNavigateToHome) {
-            var academyId = await SharedPrefs.getString("selected_academyid");
+            var academyId = getIt<SharedPrefs>().getString("selected_academyid");
 
             BlocProvider.of<ManageTeamBloc>(context).add(ManageTeamReportEventGetTermsSessionCoachingPlayerEvents({"academy_id":academyId}));
 
@@ -76,7 +77,7 @@ class SplashPage extends StatelessWidget {
             BlocProvider.of<ManageTeamBloc>(context).add(GetTeamListEvent({"academy_id":academyId}));
             BlocProvider.of<AttendanceBloc>(context).add(GetAttendanceListEvent({"academy_id":academyId}));
             BlocProvider.of<ViewSessionBloc>(context).add(GetBookedSessionListEvent({"academy_id":academyId}));
-            var userdata = await SharedPrefs.getModel<OtpVerificationModel>("user_model", (json) => OtpVerificationModel.fromJson(json));
+            var userdata = getIt<SharedPrefs>().getModel<OtpVerificationModel>("user_model", (json) => OtpVerificationModel.fromJson(json));
             BlocProvider.of<AddDocumentBloc>(context).add(GetUploadedParentDocument({}));
             if(userdata?.data.role=="coach"){
               BlocProvider.of<AddDocumentBloc>(context).add(GetTermsSessionCoachingPlayerEvents({"academy_id":academyId}));
@@ -92,7 +93,7 @@ class SplashPage extends StatelessWidget {
               BlocProvider.of<ParentOrderBloc>(context).add(ParentMyOrderListEvent({}));
 
             }
-            var publishKey = await SharedPrefs.getString("stripe_publish_key");
+            var publishKey = getIt<SharedPrefs>().getString("stripe_publish_key");
             Stripe.publishableKey = publishKey;
             Navigator.pushNamedAndRemoveUntil(
               context,

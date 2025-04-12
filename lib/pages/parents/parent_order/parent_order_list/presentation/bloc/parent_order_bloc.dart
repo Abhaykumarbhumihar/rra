@@ -30,7 +30,7 @@ class ParentOrderBloc extends Bloc<ParentOrderEvent, ParentOrderState> {
         return;
       }
 
-      var academyId = await SharedPrefs.getString("selected_academyid");
+      var academyId = await getIt<SharedPrefs>().getString("selected_academyid");
       Map<String, dynamic> map = {
         "academyid": academyId,
       };

@@ -4,6 +4,7 @@ import 'package:http/http.dart' as http;
 import 'dart:convert';
 
 import '../local/SharedPrefs.dart';
+import '../service_locator/setivelocator.dart';
 
 class StripeService {
   StripeService._();
@@ -14,7 +15,7 @@ class StripeService {
 
   /// Publishable Key ko SharedPrefs se Fetch karke Set Kare
   Future<void> setPublishableKey() async {
-    _publishableKey = await SharedPrefs.getString("stripe_publish_key");
+    _publishableKey = await getIt<SharedPrefs>().getString("stripe_publish_key");
 
     if (_publishableKey != null && _publishableKey!.isNotEmpty) {
       Stripe.publishableKey = _publishableKey!;
@@ -125,7 +126,7 @@ class StripeService {
   /// **Helper Function to Process Payment**
   Future<Map<String, String>?> _processPayment(String paymentIntentId) async {
     try {
-      var stripeSecretKey = await SharedPrefs.getString("stripe_auth_key");
+      var stripeSecretKey = getIt<SharedPrefs>().getString("stripe_auth_key");
       await Stripe.instance.presentPaymentSheet();
       debugPrint("Payment successful!");
 
@@ -156,7 +157,7 @@ class StripeService {
   /// **Create Payment Intent (For Immediate Payment)**
   Future<String?> createPaymentIntent(int amount, String currency) async {
     try {
-      var stripeSecretKey = await SharedPrefs.getString("stripe_auth_key");
+      var stripeSecretKey = getIt<SharedPrefs>().getString("stripe_auth_key");
 
       final response = await http.post(
         Uri.parse('https://api.stripe.com/v1/payment_intents'),

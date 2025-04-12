@@ -3,6 +3,7 @@ import 'package:rra/common/values/values_exports.dart';
 import 'package:rra/common/component/component_export.dart';
 
 import '../../../../../../common/local/SharedPrefs.dart';
+import '../../../../../../common/service_locator/setivelocator.dart';
 import '../bloc/report_bloc.dart';
 import '../bloc/report_event.dart';
 import '../bloc/report_state.dart';
@@ -48,7 +49,7 @@ class CoachPlayerReortListAge extends StatelessWidget {
                     ),
                     InkWell(
                       onTap: () async {
-                        var academyId = await SharedPrefs.getString("selected_academyid");
+                        var academyId = await getIt<SharedPrefs>().getString("selected_academyid");
                         BlocProvider.of<ReportBloc>(context).add(ReportEventGetTermsSessionCoachingPlayerEvents({"academy_id":academyId}));
 
                         showModalBottomSheet(

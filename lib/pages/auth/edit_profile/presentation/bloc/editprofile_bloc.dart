@@ -43,7 +43,7 @@ class EditprofileBloc extends Bloc<EditprofileEvent, EditprofileState> {
 
   Future<void> loadUserData() async {
     try {
-      var userdata = await SharedPrefs.getModel<OtpVerificationModel>(
+      var userdata = await getIt<SharedPrefs>().getModel<OtpVerificationModel>(
           "user_model", (json) => OtpVerificationModel.fromJson(json));
       print("checkin here data from loadUserData");
       print(userdata);
@@ -136,7 +136,7 @@ class EditprofileBloc extends Bloc<EditprofileEvent, EditprofileState> {
   Future<void> _onEditProfileSubmit(
       EditProfileSubmitted event, Emitter<EditprofileState> emit) async {
     print(state);
-    var dd = await SharedPrefs.getString("token");
+    var dd = await getIt<SharedPrefs>().getString("token");
     Utils.LogPrint(dd);
     print("printing csrftoken is ${dd}");
 
@@ -201,7 +201,7 @@ class EditprofileBloc extends Bloc<EditprofileEvent, EditprofileState> {
             isServerError: false,
             userdata: userData));
         // Update SharedPreferences
-        await SharedPrefs.setModel("user_model", userData);
+        await getIt<SharedPrefs>().setModel("user_model", userData);
         // Load updated user data into AppBloc
 
         // Ensure AppBloc is emitting the new user data state

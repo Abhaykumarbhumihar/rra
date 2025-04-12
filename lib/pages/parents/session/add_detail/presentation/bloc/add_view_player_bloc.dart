@@ -166,7 +166,7 @@ class AddViewPlayerBloc extends Bloc<AddViewPlayerEvent, AddViewPlayerState> {
         return;
       }
 
-      var academyId = await SharedPrefs.getString("selected_academyid");
+      var academyId = await getIt<SharedPrefs>().getString("selected_academyid");
       Map<String, dynamic> addChildMapData = {
         "academyId": academyId,
         "child_name": "${state.childName}",
@@ -244,7 +244,7 @@ class AddViewPlayerBloc extends Bloc<AddViewPlayerEvent, AddViewPlayerState> {
         return;
       }
 
-      var academyId = await SharedPrefs.getString("selected_academyid");
+      var academyId = await getIt<SharedPrefs>().getString("selected_academyid");
       Map<String, dynamic> getChildMapData = {
         "academyid": academyId,
       };

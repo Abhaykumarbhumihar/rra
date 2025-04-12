@@ -3,6 +3,7 @@ import 'package:rra/common/values/values_exports.dart';
 
 import '../../../../../../../common/local/SharedPrefs.dart';
 import '../../../../../../../common/routes/routes.dart';
+import '../../../../../../../common/service_locator/setivelocator.dart';
 import '../../bloc/attendance_bloc.dart';
 import '../../bloc/attendance_event.dart';
 import '../../bloc/attendance_state.dart';
@@ -74,7 +75,7 @@ class PlayerAttendanceList extends StatelessWidget {
                               label: "View",
                               onPressed: () async {
                                 print(data.id);
-                                var academyId = await SharedPrefs.getString("selected_academyid");
+                                var academyId = await getIt<SharedPrefs>().getString("selected_academyid");
 
                                 BlocProvider.of<AttendanceBloc>(context).add(StoreTapUserId("${data.id}"));
                                 BlocProvider.of<AttendanceBloc>(context).add(GetDetailOfOneChildAttendanceEvent({}));

@@ -5,6 +5,7 @@ import '../../../../../common/local/SharedPrefs.dart';
 import '../../../../../common/routes/exports.dart';
 import '../../../../../common/routes/routes.dart';
 import 'package:rra/common/values/values_exports.dart';
+import '../../../../../common/service_locator/setivelocator.dart';
 import '../../../../academic/presentation/bloc/academic_event.dart';
 import '../bloc/app_bloc.dart';
 import '../bloc/app_state.dart';
@@ -161,11 +162,11 @@ class ApplicationPage extends StatelessWidget {
       onConfirm: () async {
         _showDialogNotifier.value = false;
 
-        await SharedPrefs.remove("user_model");
-        await SharedPrefs.remove("selected_academyid");
-        await SharedPrefs.remove("stripe_auth_key");
-        await SharedPrefs.remove("stripe_publish_key");
-        await SharedPrefs.clear();
+        await getIt<SharedPrefs>().remove("user_model");
+        await getIt<SharedPrefs>().remove("selected_academyid");
+        await getIt<SharedPrefs>().remove("stripe_auth_key");
+        await getIt<SharedPrefs>().remove("stripe_publish_key");
+        await getIt<SharedPrefs>().clear();
 
         BlocProvider.of<EditprofileBloc>(context)
             .loadUserData();

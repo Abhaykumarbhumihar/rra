@@ -37,7 +37,7 @@ class CoachingDetailBloc  extends Bloc<CoachingDetailEvent, CoachingDetailState>
       selectedCoachId: "",
       coachingDetailResponse: CoachingDetailResponse(),
     ));
-    var academyId = await SharedPrefs.getString("selected_academyid");
+    var academyId = await getIt<SharedPrefs>().getString("selected_academyid");
     Map<String, dynamic> coachingProgramdata = {
       "academy_id": "$academyId",
       "coaching_program_id":event.coaching_program_id

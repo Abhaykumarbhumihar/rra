@@ -5,6 +5,7 @@ import 'package:rra/pages/auth/otpverification/data/entity/otp_verification_mode
 import 'package:rra/pages/splash/presentation/bloc/splash_state.dart';
 
 import '../../../../common/local/SharedPrefs.dart';
+import '../../../../common/service_locator/setivelocator.dart';
 part 'splash_event.dart';
 
 class SplashBloc extends Bloc<SplashEvent, SplashState> {
@@ -19,8 +20,8 @@ class SplashBloc extends Bloc<SplashEvent, SplashState> {
     print("Timer finished.");
 
     // Check if the user is logged in
-    var userdata = await SharedPrefs.getModel<OtpVerificationModel>("user_model", (json) => OtpVerificationModel.fromJson(json));
-    var token = await SharedPrefs.getString("token");
+    var userdata = getIt<SharedPrefs>().getModel<OtpVerificationModel>("user_model", (json) => OtpVerificationModel.fromJson(json));
+    var token =await getIt<SharedPrefs>().getString("token");
 
     print("token--------\n\n");
     Utils.LogPrint(token);

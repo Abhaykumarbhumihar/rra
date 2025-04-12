@@ -13,6 +13,7 @@ import '../../../../../../../common/component/screen_title.dart';
 import '../../../../../common/component/credit_card_input.dart';
 import '../../../../../common/local/SharedPrefs.dart';
 import '../../../../../common/routes/exports.dart';
+import '../../../../../common/service_locator/setivelocator.dart';
 import '../../../../../common/stripe/stripe_service.dart';
 import '../../add_detail/presentation/bloc/add_view_player_bloc.dart';
 import '../../calendar/presentation/bloc/session_calendar_bloc.dart';
@@ -52,7 +53,7 @@ class OrderSummary extends StatelessWidget {
           var totalPrice=double.parse(state.orderPayment);
           final price = double.tryParse(state.orderPayment) ?? -1;
           if (price < 1) {
-            var academyId = await SharedPrefs.getString("selected_academyid");
+            var academyId = await getIt<SharedPrefs>().getString("selected_academyid");
             Map<String, dynamic> paymentStatusUpdate = {
               "academy_id": academyId,
               "order_id": "${state.orderId}",
@@ -75,7 +76,7 @@ class OrderSummary extends StatelessWidget {
               print("========================================");
               print("Client Secret: ${payMentData["client_secret"]}");
               print("ORDER ID IS ${state.orderId}");
-              var academyId = await SharedPrefs.getString("selected_academyid");
+              var academyId = await getIt<SharedPrefs>().getString("selected_academyid");
 
               Map<String, dynamic> paymentStatusUpdate = {
                 "academy_id": academyId,
@@ -240,7 +241,7 @@ class OrderSummary extends StatelessWidget {
                                             print(
                                                 "SS S S S S S S S S S S S S S ");
                                             var academyId =
-                                                await SharedPrefs.getString(
+                                                await getIt<SharedPrefs>().getString(
                                                     "selected_academyid");
 
                                             Map<String, dynamic> map = {
@@ -266,7 +267,7 @@ class OrderSummary extends StatelessWidget {
                                             print(
                                                 "Entered Promo Code: ${promoCodeController.text}");
                                             var academyId =
-                                                await SharedPrefs.getString(
+                                                await getIt<SharedPrefs>().getString(
                                                     "selected_academyid");
 
                                             Map<String, dynamic> map = {

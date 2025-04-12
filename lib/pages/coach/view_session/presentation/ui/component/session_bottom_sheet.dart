@@ -3,6 +3,7 @@ import 'package:rra/common/values/screenUtils.dart';
 
 import '../../../../../../common/local/SharedPrefs.dart';
 import '../../../../../../common/routes/exports.dart';
+import '../../../../../../common/service_locator/setivelocator.dart';
 import '../../../../../../common/values/app_color.dart';
 import '../../../../../../common/values/values_exports.dart';
 import '../../bloc/view_session_bloc.dart';
@@ -65,7 +66,7 @@ class SessionBottomSheet extends StatelessWidget {
   }
 
   Future<void> _handleDaySelection(BuildContext context, String dayKey,String dayName) async {
-    final academyId = await SharedPrefs.getString("selected_academyid");
+    final academyId = await getIt<SharedPrefs>().getString("selected_academyid");
 
     BlocProvider.of<ViewSessionBloc>(context).add(
       GetBookedSessionListEvent({

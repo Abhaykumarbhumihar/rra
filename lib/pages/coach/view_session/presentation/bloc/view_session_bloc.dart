@@ -34,7 +34,7 @@ class ViewSessionBloc extends Bloc<ViewSessionEvent, ViewSessionState> {
      // message: "",
       bookedSession: BookedSessionList()
     ));
-    final academyId = await SharedPrefs.getString("selected_academyid");
+    final academyId = await getIt<SharedPrefs>().getString("selected_academyid");
 
     final response = await _sessionUsease.playerListExecute(event.data);
     response.fold((failure){
@@ -77,7 +77,7 @@ class ViewSessionBloc extends Bloc<ViewSessionEvent, ViewSessionState> {
         // message: "",
 
     ));
-    final academyId = await SharedPrefs.getString("selected_academyid");
+    final academyId = await getIt<SharedPrefs>().getString("selected_academyid");
     final response = await _sessionUsease.cancelBookingOrderExecute(event.data);
     response.fold((failure){
       emit(state.copyWith(

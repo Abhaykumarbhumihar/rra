@@ -48,7 +48,7 @@ class CoachingProgramsBloc
       ));
 
 
-    var academyId = await SharedPrefs.getString("selected_academyid");
+    var academyId = await getIt<SharedPrefs>().getString("selected_academyid");
     Map<String, dynamic> coachingProgramdata = {
       "academyid": "$academyId",
       "type": "group"
@@ -87,7 +87,7 @@ class CoachingProgramsBloc
       isLoginApiError: true,
       isError: true,
     ));
-    var academyId = await SharedPrefs.getString("selected_academyid");
+    var academyId = await getIt<SharedPrefs>().getString("selected_academyid");
     Map<String, dynamic> coachingProgramdata = {
       "academyid": academyId,
       "type": "private"

@@ -36,7 +36,7 @@ class CollateralBloc extends Bloc<CollateralEvent, CollateralState> {
         // message: "",
         collateralModel: CollateralModel()
     ));
-    final academyId = await SharedPrefs.getString("selected_academyid");
+    final academyId = await getIt<SharedPrefs>().getString("selected_academyid");
 
     final response = await _collateralUsease.getCollateralListExecute(event.data);
     response.fold((failure){

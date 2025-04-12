@@ -49,7 +49,7 @@ class AttendanceBloc extends Bloc<AttendanceEvent, AttendanceState> {
         return;
       }
 
-      var academyId = await SharedPrefs.getString("selected_academyid");
+      var academyId = await getIt<SharedPrefs>().getString("selected_academyid");
       Map<String, dynamic> map = {"academy_id": academyId};
       emit(state.copyWith(
           isLoading: true,
@@ -103,7 +103,7 @@ class AttendanceBloc extends Bloc<AttendanceEvent, AttendanceState> {
         return;
       }
 
-      var academyId = await SharedPrefs.getString("selected_academyid");
+      var academyId = await getIt<SharedPrefs>().getString("selected_academyid");
       Map<String, dynamic> map = {};
       emit(state.copyWith(
           isLoading: true,
@@ -164,7 +164,7 @@ class AttendanceBloc extends Bloc<AttendanceEvent, AttendanceState> {
           isStatusUpdated: false,
           singlePlayerAttendanceDetailModel: SinglePlayerAttendanceDetailModel(),
           message: ""));
-      var academyId = await SharedPrefs.getString("selected_academyid");
+      var academyId = await getIt<SharedPrefs>().getString("selected_academyid");
       Map<String,dynamic>map={
         "academy_id": academyId,
         "player_id": state.selectedPlayerid
@@ -236,7 +236,7 @@ class AttendanceBloc extends Bloc<AttendanceEvent, AttendanceState> {
             message: ""));
 
 
-        var academyId = await SharedPrefs.getString("selected_academyid");
+        var academyId = await getIt<SharedPrefs>().getString("selected_academyid");
         Map<String,dynamic>mapForGetDetail={
           "academy_id": academyId,
           "player_id":state.selectedPlayerid

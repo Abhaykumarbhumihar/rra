@@ -4,6 +4,7 @@ import 'package:rra/common/component/component_export.dart';
 
 import '../../../../../common/component/common_dropdown_bottomsheet.dart';
 import '../../../../../common/local/SharedPrefs.dart';
+import '../../../../../common/service_locator/setivelocator.dart';
 import '../bloc/manage_team_bloc.dart';
 import '../bloc/manage_team_event.dart';
 import '../bloc/manage_team_state.dart';
@@ -49,7 +50,7 @@ class ManageTeamList extends StatelessWidget {
                     ),
                     InkWell(
                       onTap: () async {
-                        var academyId = await SharedPrefs.getString("selected_academyid");
+                        var academyId = await getIt<SharedPrefs>().getString("selected_academyid");
                         BlocProvider.of<ManageTeamBloc>(context).add(ManageTeamReportEventGetTermsSessionCoachingPlayerEvents({"academy_id":academyId}));
 
                         showModalBottomSheet(

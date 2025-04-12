@@ -36,7 +36,7 @@ class AppBloc extends Bloc<AppEvent, AppState> {
 
   Future<void> updateUserData(
       UserDataUpdate event, Emitter<AppState> emit) async {
-    var userdata = await SharedPrefs.getModel<OtpVerificationModel>(
+    var userdata = await getIt<SharedPrefs>().getModel<OtpVerificationModel>(
         "user_model", (json) => OtpVerificationModel.fromJson(json));
 
     if (userdata != null) {
@@ -51,7 +51,7 @@ class AppBloc extends Bloc<AppEvent, AppState> {
 
   Future<void> loadUserData() async {
     try {
-      var userdata = await SharedPrefs.getModel<OtpVerificationModel>(
+      var userdata = await getIt<SharedPrefs>().getModel<OtpVerificationModel>(
           "user_model", (json) => OtpVerificationModel.fromJson(json));
       if (userdata != null) {
         emit(state.copyWith(userdata: userdata));

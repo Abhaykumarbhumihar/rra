@@ -12,6 +12,7 @@ import '../../../../../../common/component/custom_app_button.dart';
 import '../../../../../../common/component/screen_title.dart';
 import '../../../../../../common/local/SharedPrefs.dart';
 import '../../../../../../common/routes/routes.dart';
+import '../../../../../../common/service_locator/setivelocator.dart';
 import '../../../calendar/presentation/bloc/session_calendar_event.dart';
 import '../../../coachprograms/presentation/bloc/coach_programs_bloc.dart';
 import '../../../order_summary/presentation/bloc/order_summary_bloc.dart';
@@ -179,7 +180,7 @@ class AddDetail extends StatelessWidget {
                                   child: CustomButton(
                                     text: "Continue",
                                     onPressed: () async {
-                                      var academyId = await SharedPrefs.getString("selected_academyid");
+                                      var academyId = await getIt<SharedPrefs>().getString("selected_academyid");
                                       Map<String, dynamic> mapData = {
                                         "academy_id": academyId,
                                         "players": state.selectedChildId

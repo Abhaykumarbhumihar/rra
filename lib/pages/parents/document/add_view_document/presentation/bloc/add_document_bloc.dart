@@ -271,8 +271,8 @@ class AddDocumentBloc extends Bloc<AddDocumentEvent, AddDocumentState> {
       // Prepare the data for submission
       String? base64Image;
       base64Image = await convertFileToBase64(state.document!);
-      final academyId = await SharedPrefs.getString("selected_academyid");
-      var userdata = await SharedPrefs.getModel<OtpVerificationModel>(
+      final academyId = await getIt<SharedPrefs>().getString("selected_academyid");
+      var userdata = await getIt<SharedPrefs>().getModel<OtpVerificationModel>(
           "user_model", (json) => OtpVerificationModel.fromJson(json));
 
       final termIds = state.terms.map((t) => t.id).toList();
@@ -357,7 +357,7 @@ class AddDocumentBloc extends Bloc<AddDocumentEvent, AddDocumentState> {
         ));
         return;
       }
-      var academyId = await SharedPrefs.getString("selected_academyid");
+      var academyId = await getIt<SharedPrefs>().getString("selected_academyid");
 
       Map<String, dynamic> map = {
         "academy_id": academyId,
@@ -426,7 +426,7 @@ class AddDocumentBloc extends Bloc<AddDocumentEvent, AddDocumentState> {
         return;
       }
 
-      var academyId = await SharedPrefs.getString("selected_academyid");
+      var academyId = await getIt<SharedPrefs>().getString("selected_academyid");
       Map<String, dynamic> map = {
         "academy_id": academyId,
       };

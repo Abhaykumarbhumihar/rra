@@ -15,6 +15,7 @@ import '../../../../../common/component/signup_signin_richtext.dart';
 import '../../../../../common/component/sub_title.dart';
 import '../../../../../common/local/SharedPrefs.dart';
 import '../../../../../common/routes/routes.dart';
+import '../../../../../common/service_locator/setivelocator.dart';
 import '../../../../../common/stripe/stripe_service.dart';
 import '../../../../coach/coach_attendance/player_attendance_list/presentation/bloc/attendance_bloc.dart';
 import '../../../../coach/coach_attendance/player_attendance_list/presentation/bloc/attendance_event.dart';
@@ -66,14 +67,14 @@ class LoginScreen extends StatelessWidget {
                 backgroundColor: AppColor.appcolor);
           }
           if (state.success) {
-            await SharedPrefs.setModel("user_model", state.otpresponse);
-            await SharedPrefs.setString("token", state.otpresponse.token);
+            await getIt<SharedPrefs>().setModel("user_model", state.otpresponse);
+            await getIt<SharedPrefs>().setString("token", state.otpresponse.token);
 
             if (state.otpresponse.success) {
-              var academyId = await SharedPrefs.getString("selected_academyid");
+              var academyId = await getIt<SharedPrefs>().getString("selected_academyid");
               BlocProvider.of<AttendanceBloc>(context).add(GetAttendanceListEvent({"academy_id":academyId}));
               BlocProvider.of<ViewSessionBloc>(context).add(GetBookedSessionListEvent({"academy_id":academyId}));
-              var userdata = await SharedPrefs.getModel<OtpVerificationModel>("user_model", (json) => OtpVerificationModel.fromJson(json));
+              var userdata = await getIt<SharedPrefs>().getModel<OtpVerificationModel>("user_model", (json) => OtpVerificationModel.fromJson(json));
               BlocProvider.of<AddDocumentBloc>(context).add(GetUploadedParentDocument({}));
               BlocProvider.of<AppBloc>(context)
                   .add(TriggerAppEvent(0));
@@ -93,7 +94,7 @@ class LoginScreen extends StatelessWidget {
 
               }
 
-              var publishKey = await SharedPrefs.getString("stripe_publish_key");
+              var publishKey = await getIt<SharedPrefs>().getString("stripe_publish_key");
               Stripe.publishableKey = publishKey;
               BlocProvider.of<AddViewPlayerBloc>(
                   context)

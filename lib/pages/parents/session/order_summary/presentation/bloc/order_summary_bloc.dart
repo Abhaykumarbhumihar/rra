@@ -198,7 +198,7 @@ orderId: "",
           isOrderPlaceSuccess: false,
           paymentID: "",
           couponSuccessMessage: "Coupon apply successfully"));
-      var academyId = await SharedPrefs.getString("selected_academyid");
+      var academyId = await getIt<SharedPrefs>().getString("selected_academyid");
       Map<String, dynamic> map = {
         "academy_id": academyId,
       };
@@ -279,7 +279,7 @@ orderId: "",
           orderSummaryModel: orderSummaryData,
           selectedChildId: event.data,
           isLoading: false));
-      var academyId = await SharedPrefs.getString("selected_academyid");
+      var academyId = await getIt<SharedPrefs>().getString("selected_academyid");
       Map<String, dynamic> map = {
         "academy_id": academyId,
       };

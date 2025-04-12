@@ -9,6 +9,7 @@ import '../../../../../common/component/screen_title.dart';
 import '../../../../../common/component/sub_title.dart';
 import '../../../../../common/local/SharedPrefs.dart';
 import '../../../../../common/routes/routes.dart';
+import '../../../../../common/service_locator/setivelocator.dart';
 import '../../../../../common/values/utils.dart';
 import '../../../../parents/session/add_detail/presentation/bloc/add_view_player_bloc.dart';
 import '../../../../parents/session/add_detail/presentation/bloc/add_view_player_event.dart';
@@ -55,12 +56,12 @@ class OtpVerificaiton extends StatelessWidget {
             context.showCustomSnackbar(state.otpresponse.message,
                 backgroundColor: AppColor.appcolor);
             if (isFromCreateAccount!) {
-              await SharedPrefs.setModel("user_model", state.otpresponse);
-              await SharedPrefs.setString("token", state.otpresponse.token);
+              await getIt<SharedPrefs>().setModel("user_model", state.otpresponse);
+              await getIt<SharedPrefs>().setString("token", state.otpresponse.token);
               BlocProvider.of<CoachingProgramsBloc>(context).add(GroupCoachProgramsListEvent());
               BlocProvider.of<CoachingProgramsBloc>(context).add(PrivateCoachingProgramsList());
               BlocProvider.of<AddViewPlayerBloc>(context).add(AddViewPlayerGetChildListEvent());
-              var publishKey = await SharedPrefs.getString("stripe_publish_key");
+              var publishKey = await getIt<SharedPrefs>().getString("stripe_publish_key");
               Stripe.publishableKey = publishKey;
               Navigator.pushNamedAndRemoveUntil(
                 context,

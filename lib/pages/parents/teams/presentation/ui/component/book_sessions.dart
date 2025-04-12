@@ -3,6 +3,7 @@ import 'package:rra/common/values/values_exports.dart';
 
 import '../../../../../../common/local/SharedPrefs.dart';
 import '../../../../../../common/routes/routes.dart';
+import '../../../../../../common/service_locator/setivelocator.dart';
 import '../../../../../coach/view_session/presentation/bloc/view_session_bloc.dart';
 import '../../../../../coach/view_session/presentation/bloc/view_session_event.dart';
 
@@ -63,7 +64,7 @@ class BookSessions extends StatelessWidget {
                 children: <Widget>[
                   InkWell(
                     onTap: () async {
-                      var academyId = await SharedPrefs.getString("selected_academyid");
+                      var academyId = await getIt<SharedPrefs>().getString("selected_academyid");
 
                       BlocProvider.of<ViewSessionBloc>(context).add(GetBookedSessionListEvent({"academy_id":academyId}));
 
@@ -96,7 +97,7 @@ class BookSessions extends StatelessWidget {
                   InkWell(
                     onTap: () async {
                       print("===============\n\n");
-                      var token = await SharedPrefs.getString("token");
+                      var token = await getIt<SharedPrefs>().getString("token");
                       print("\n\n===============");
                       Utils.LogPrint(token);
                       Navigator.pushNamed(

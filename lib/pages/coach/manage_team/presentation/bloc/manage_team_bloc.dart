@@ -55,7 +55,7 @@ class ManageTeamBloc extends Bloc<ManageTeamEvent, ManageTeamState> {
         ));
         return;
       }
-      var academyId = await SharedPrefs.getString("selected_academyid");
+      var academyId = await getIt<SharedPrefs>().getString("selected_academyid");
 
       Map<String, dynamic> map = {
         "academy_id": academyId,
@@ -131,7 +131,7 @@ class ManageTeamBloc extends Bloc<ManageTeamEvent, ManageTeamState> {
         ));
         return;
       }
-      var academyId = await SharedPrefs.getString("selected_academyid");
+      var academyId = await getIt<SharedPrefs>().getString("selected_academyid");
 
       final termIds = state.termsId;
       final programIds = state.coachingProgramId;

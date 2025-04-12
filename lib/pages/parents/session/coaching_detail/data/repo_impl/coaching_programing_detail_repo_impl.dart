@@ -43,7 +43,7 @@ class CoachingProgramingDetailRepoImpl implements CoachingDetailRepositery {
             if(match!=null){
               String sessionCookie = match.group(1)!;
               print('Session Cookie: $sessionCookie');
-              await SharedPrefs.setString("cookie", sessionCookie);
+              await getIt<SharedPrefs>().setString("cookie", sessionCookie);
             }
 
           }

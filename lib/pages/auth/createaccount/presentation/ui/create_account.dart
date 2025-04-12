@@ -22,6 +22,7 @@ import '../../../../../common/image/camera_file_utility.dart';
 import '../../../../../common/local/SharedPrefs.dart';
 import '../../../../../common/routes/routes.dart';
 
+import '../../../../../common/service_locator/setivelocator.dart';
 import '../../../../coach/coach_attendance/player_attendance_list/presentation/bloc/attendance_bloc.dart';
 import '../../../../coach/coach_attendance/player_attendance_list/presentation/bloc/attendance_event.dart';
 import '../../../../coach/collaterals/collaterals_list/presentation/bloc/collateral_bloc.dart';
@@ -84,12 +85,12 @@ class CreateAccount extends StatelessWidget {
             BlocProvider.of<CreateAccountBloc>(context).add(MakeInitial());
           }
           if (state.isSuccess == true && state.isSuccess != '') {
-            await SharedPrefs.setModel("user_model", state.userdata);
-            await SharedPrefs.setString("token", state.userdata.token);
-            var academyId = await SharedPrefs.getString("selected_academyid");
+            await getIt<SharedPrefs>().setModel("user_model", state.userdata);
+            await getIt<SharedPrefs>().setString("token", state.userdata.token);
+            var academyId = await getIt<SharedPrefs>().getString("selected_academyid");
             BlocProvider.of<AttendanceBloc>(context).add(GetAttendanceListEvent({"academy_id":academyId}));
             BlocProvider.of<ViewSessionBloc>(context).add(GetBookedSessionListEvent({"academy_id":academyId}));
-            var userdata = await SharedPrefs.getModel<OtpVerificationModel>("user_model", (json) => OtpVerificationModel.fromJson(json));
+            var userdata = await getIt<SharedPrefs>().getModel<OtpVerificationModel>("user_model", (json) => OtpVerificationModel.fromJson(json));
             BlocProvider.of<AddDocumentBloc>(context).add(GetUploadedParentDocument({}));
             BlocProvider.of<AppBloc>(context)
                 .add(TriggerAppEvent(0));

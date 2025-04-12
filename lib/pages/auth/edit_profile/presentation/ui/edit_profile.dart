@@ -11,6 +11,7 @@ import '../../../../../common/image/camera_file_utility.dart';
 import '../../../../../common/image/camera_gallery_dialog.dart';
 import '../../../../../common/local/SharedPrefs.dart';
 import '../../../../../common/routes/routes.dart';
+import '../../../../../common/service_locator/setivelocator.dart';
 import '../../../../parents/session/add_detail/presentation/bloc/add_view_player_bloc.dart';
 import '../../../../parents/session/add_detail/presentation/bloc/add_view_player_event.dart';
 import '../../../otpverification/data/entity/otp_verification_model.dart';
@@ -46,12 +47,12 @@ class EditProfile extends StatelessWidget {
                 backgroundColor: AppColor.appcolor);
             print("CHECKING HERE USER DATA==\n\n");
             Utils.LogPrint(state.userdata);
-            await SharedPrefs.setModel("user_model", state.userdata);
-            await SharedPrefs.setModel("user_model", state.userdata);
-            var userdata = await SharedPrefs.getModel<OtpVerificationModel>("user_model", (json) => OtpVerificationModel.fromJson(json));
+            await getIt<SharedPrefs>().setModel("user_model", state.userdata);
+            await getIt<SharedPrefs>().setModel("user_model", state.userdata);
+            var userdata = await getIt<SharedPrefs>().getModel<OtpVerificationModel>("user_model", (json) => OtpVerificationModel.fromJson(json));
            print(userdata?.data?.mobile!);
            print(userdata?.data?.isProfileCompleted!);
-            var publishKey = await SharedPrefs.getString("stripe_publish_key");
+            var publishKey = await getIt<SharedPrefs>().getString("stripe_publish_key");
             BlocProvider.of<AddViewPlayerBloc>(context).add(AddViewPlayerGetChildListEvent());
             Stripe.publishableKey = publishKey;
             Navigator.pushNamedAndRemoveUntil(

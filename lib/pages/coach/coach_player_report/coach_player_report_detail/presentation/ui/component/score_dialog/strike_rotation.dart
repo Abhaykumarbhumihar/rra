@@ -6,6 +6,7 @@ import 'package:rra/pages/coach/coach_player_report/coach_player_report_list/dat
 
 import '../../../../../../../../common/component/custom_app_button.dart';
 import '../../../../../../../../common/local/SharedPrefs.dart';
+import '../../../../../../../../common/service_locator/setivelocator.dart';
 import '../../../../../coach_player_report_list/presentation/bloc/report_bloc.dart';
 import '../../../../../coach_player_report_list/presentation/bloc/report_event.dart';
 
@@ -46,7 +47,7 @@ class _StrikeRotationDialogPageState extends State<StrikeRotationDialogPage> {
     }
 
     // Create the result in the required format
-    var academyId = await SharedPrefs.getString("selected_academyid");
+    var academyId = await getIt<SharedPrefs>().getString("selected_academyid");
 
     final results = {
       "academy_id":academyId,

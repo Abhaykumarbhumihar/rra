@@ -111,7 +111,7 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
         return;
       }
 
-      var academyId = await SharedPrefs.getString("selected_academyid");
+      var academyId = await getIt<SharedPrefs>().getString("selected_academyid");
       Map<String, dynamic> userRegistrationMap = {
         'password': state.password ?? "",
         'email': state.email.toString().toLowerCase().trim(),
