@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'add_view_player_event.freezed.dart';
@@ -16,6 +18,7 @@ sealed class AddViewPlayerEvent with _$AddViewPlayerEvent {
   const factory AddViewPlayerEvent.submitButtonPress() = AddViewPlayerSubmitButtonPressEvent;
   const factory AddViewPlayerEvent.getChildListEvent() = AddViewPlayerGetChildListEvent;
   const factory AddViewPlayerEvent.childSelectionToggle(int index) = AddViewPlayerChildSelectionToggleEvent;
+  const factory AddViewPlayerEvent.setChileProfilePic(File file) = AddViewPlayerChildProfilePhotoEvent;
   const factory AddViewPlayerEvent.resetAddViewPlayerEvent() = ResetAddViewEvent;
 
 }

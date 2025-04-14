@@ -1,5 +1,6 @@
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:intl/intl.dart';
+import 'package:rra/common/routes/exports.dart';
 import 'package:rra/common/values/values_exports.dart';
 
 import '../../../../../../common/component/common_app_bar.dart';
@@ -9,6 +10,7 @@ import '../../../../../../common/component/loading_indicator.dart';
 import '../../../../../../common/component/screen_title.dart';
 
 import '../../../../../../common/routes/routes.dart';
+import '../../../add_detail/presentation/bloc/add_view_player_event.dart';
 import '../../../coaching_detail/presentation/bloc/coaching_detail_bloc.dart';
 import '../../../coachprograms/presentation/bloc/coach_programs_bloc.dart';
 import '../bloc/session_calendar_bloc.dart';
@@ -20,8 +22,15 @@ import 'component/recurring_dialog.dart';
 import 'component/time_added.dart';
 
 class CalendarPage extends StatelessWidget {
-  const CalendarPage({super.key});
-
+   CalendarPage({super.key});
+  final ScrollController _scrollController = ScrollController();
+   void _scrollToBottom() {
+     _scrollController.animateTo(
+       _scrollController.position.maxScrollExtent,
+       duration: Duration(milliseconds: 500),
+       curve: Curves.easeOut,
+     );
+   }
   @override
   Widget build(BuildContext context) {
     var width = MediaQuery.of(context).size.width;
@@ -30,7 +39,11 @@ class CalendarPage extends StatelessWidget {
     return Scaffold(
       backgroundColor: Colors.transparent,
       body: BlocListener<SessionCalendarBloc, SessionCalendarState>(
-        listener: (context, state) {},
+        listener: (context, state) {
+          if( state.isTimeAddedSuccess){
+            _scrollToBottom();
+          }
+        },
         child: BlocBuilder<SessionCalendarBloc, SessionCalendarState>(
           builder: (context, state) {
             return Container(
@@ -67,6 +80,7 @@ class CalendarPage extends StatelessWidget {
                       // 🔃 Scrollable content below this point
                       Expanded(
                         child: SingleChildScrollView(
+                          controller: _scrollController,
                           padding: EdgeInsets.only(
                               left: context.screenHeight * 0.02,
                               bottom: 20), // optional bottom padding
@@ -118,7 +132,7 @@ class CalendarPage extends StatelessWidget {
                               SizedBox(
                                 width: context.screenWidth,
                                 height: context.screenHeight * 0.28,
-                                child: Availablity(),
+                                child: Availablity(_scrollController),
                               ),
                               if (state.timeAddedModel.data.isNotEmpty)
                                 SizedBox(
@@ -126,7 +140,7 @@ class CalendarPage extends StatelessWidget {
                                   height: context.screenHeight * 0.24,
                                   child: TimeAddedView(),
                                 ),
-                              SizedBox(height: 20),
+                              SizedBox(height: 10),
                               Padding(
                                 padding: EdgeInsets.only(
                                     left: context.screenWidth * 0.04,
@@ -136,6 +150,11 @@ class CalendarPage extends StatelessWidget {
                                   onPressed: () async {
                                     int minimumCount = BlocProvider.of<CoachingProgramsBloc>(context).state.minimumCountOfBooking ?? 0;
                                     if (state.timeAddedModel.data.length >= minimumCount) {
+                                          if( BlocProvider.of<AddViewPlayerBloc>(context).state.childLisstModel.data.isEmpty){
+                                            BlocProvider.of<AddViewPlayerBloc>(context).add(AddViewPlayerSelectedTabEvent(1));
+                                          }else{
+                                            BlocProvider.of<AddViewPlayerBloc>(context).add(AddViewPlayerSelectedTabEvent(0));
+                                          }
                                       Navigator.pushNamed(context, AppRoutes.ADDDETAILS);
                                     } else {
                                       context.showCustomSnackbar("Please select at least $minimumCount time slots to proceed!");
@@ -145,7 +164,7 @@ class CalendarPage extends StatelessWidget {
                                     .fade(duration: 600.ms, delay: 500.ms)
                                     .scaleXY(begin: 0.8, end: 1.0, duration: 500.ms, curve: Curves.bounceOut),
                               ),
-                              SizedBox(height: 20),
+                              SizedBox(height: 60),
                             ],
                           ),
                         ),

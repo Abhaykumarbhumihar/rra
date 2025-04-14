@@ -144,7 +144,7 @@ class OrderSummaryRepoImpl implements OrderSummaryRepositery {
       print(getPriceData);
       http.Response response =
           await _apiServices.post(AppConstant.getTotal, getPriceData,useDefaultHeaders: true,isJson: false);
-      print("nvnvnvnv+++vnvnv++++++++\n\n");
+      print("sssssnvnvnvnv+++vnvnv++++++++\n\n${response.body}");
 
       print(response.body);
       if (response.statusCode == 200) {

@@ -46,7 +46,7 @@ class TimeAddedView extends StatelessWidget {
                   return Padding(
                     padding: const EdgeInsets.only(left: 4.0, right: 4.0),
                     child: Container(
-                      width: context.screenWidth * 0.46,
+                      width: context.screenWidth * 0.56,
                       padding: EdgeInsets.symmetric(
                         vertical: context.screenHeight * 0.012,
                         horizontal: context.screenWidth * 0.020,
@@ -60,14 +60,35 @@ class TimeAddedView extends StatelessWidget {
                       child: Row(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: <Widget>[
-                          Flexible(
-                            child: Padding(
-                              padding: const EdgeInsets.only(top: 10.0),
-                              child: TimeAdded(
-                                title: formatDate(data.date)+" at "+data.time, // Ensure this widget allows multiline text
-                              ),
-                            ),
-                          ),
+                         Column(
+                           crossAxisAlignment: CrossAxisAlignment.start,
+                           mainAxisSize: MainAxisSize.min,
+                           children: <Widget>[
+                             SizedBox(
+                               width: context.screenWidth*0.4,
+                               child: Padding(
+                                 padding: const EdgeInsets.only(top: 10.0),
+                                 child: TimeAdded(
+                                   title: formatDate(data.date)+" at "+data.time, // Ensure this widget allows multiline text
+                                 ),
+                               ),
+                             ),
+                             SizedBox(height: 5,),
+                             Container(
+                               decoration: BoxDecoration(
+                                 color: Colors.white54,
+                                 borderRadius: BorderRadius.circular(4.0),
+                               ),
+                               child: Padding(
+                                 padding: const EdgeInsets.symmetric(horizontal: 6.0,vertical: 6),
+                                 child: Text(
+                                   "Price: ${data.price}",
+                                   style: TextStyle(fontSize: 12, fontWeight: FontWeight.w500),
+                                 ),
+                               ),
+                             ),
+                           ],
+                         ),
                           SizedBox(width: context.screenWidth * 0.038),
                           InkWell(
                             onTap: (){

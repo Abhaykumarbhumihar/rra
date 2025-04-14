@@ -74,7 +74,7 @@ class ForgotPassword extends StatelessWidget {
                             SizedBox(height: 6.0),
                             ScreenSubTitle(
                               subtitle:
-                              "Enter your email below and we’ll send you a \nlink to reset your password",
+                              "Enter your email below. We will send you a verification code to reset your password.",
                             )
                                 .animate()
                                 .fadeIn(duration: 1.4.seconds)

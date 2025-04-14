@@ -51,7 +51,7 @@ class CoachingProgramItem extends StatelessWidget {
             placeHolder: "assets/images/football.png",
             imageHeight: 60,
             radiusAll:10,
-            imageFitType: BoxFit.fill,
+            imageFitType: BoxFit.fill
           ),
 
                     SizedBox(width: 8.0), // Space between Image & Text
@@ -71,18 +71,43 @@ class CoachingProgramItem extends StatelessWidget {
                                 fontFamily: AppFont.interRegular,
                               ),
                             ),
-                            HtmlWidget(
-                              coachingProgramResponse.description.length > 30
-
-                                  ? '${coachingProgramResponse.description.substring(0, 30)}...'
-                                  : coachingProgramResponse.description,
-                              textStyle: TextStyle(
-                                color: Colors.white,
-                                fontSize: context.screenWidth * 0.0373,
-                                fontFamily: AppFont.interRegular,
+                            // HtmlWidget(
+                            //   coachingProgramResponse.description.length > 30
+                            //
+                            //       ? '${coachingProgramResponse.description.substring(0, 30)}...'
+                            //       : coachingProgramResponse.description,
+                            //   textStyle: TextStyle(
+                            //     color: Colors.white,
+                            //     fontSize: context.screenWidth * 0.0373,
+                            //     fontFamily: AppFont.interRegular,
+                            //   ),
+                            // ),
+                            ConstrainedBox(
+                              constraints: BoxConstraints(
+                                maxWidth: context.screenWidth*0.55,
+                                maxHeight: 2 * (context.screenWidth * 0.07 * 1.2), // Approximate 3 lines height
                               ),
-                            ),
+                              child: HtmlWidget(
+                                coachingProgramResponse.description.length > 100
 
+                                    ? '${coachingProgramResponse.description.substring(0, 100)}...'
+                                    : coachingProgramResponse.description,
+                                textStyle: TextStyle(
+                                  color: Colors.white,
+                                  fontSize: context.screenWidth * 0.0373,
+                                  fontFamily: AppFont.interRegular,
+                                ),
+                                customStylesBuilder: (element) {
+                                  return {
+                                    'display': '-webkit-box',
+                                    '-webkit-line-clamp': '2',
+                                    '-webkit-box-orient': 'vertical',
+                                    'overflow': 'hidden',
+                                    'text-overflow': 'ellipsis',
+                                  };
+                                },
+                              ),
+                            )
 
                           ],
                         ),
@@ -98,7 +123,7 @@ class CoachingProgramItem extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     ElevatedButton(
-                      onPressed: null,
+                      onPressed: onPressed,
                       style: ElevatedButton.styleFrom(
                           backgroundColor: Colors.pinkAccent, // Button color
                           shape: RoundedRectangleBorder(

@@ -67,6 +67,7 @@ class AddDocumentComponent extends StatelessWidget {
           return SingleChildScrollView(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisAlignment: MainAxisAlignment.start,
               children: <Widget>[
                 CustomTextInputMobile(
                   controller: titleController,
@@ -84,7 +85,7 @@ class AddDocumentComponent extends StatelessWidget {
                         .add(SetTitleParentDocumentEvent(value));
                   },
                 ),
-            
+
                 FileChooserComponent(
                   onPickFile: onPickFile,
                   selectedFileName: state.selectedFileName,

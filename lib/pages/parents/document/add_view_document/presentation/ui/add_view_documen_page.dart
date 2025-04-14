@@ -67,14 +67,12 @@ class AddViewDocumenPage extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       CustomHeader(
-                        title: "Add Documents",
+                        title: "Documents",
                         onBackPress: () {
                           Navigator.pop(context);
                         },
                       ),
-                      SizedBox(
-                        height: 24,
-                      ),
+
                       Padding(
                         padding: EdgeInsets.symmetric(
                             horizontal: context.screenWidth * 0.03,
@@ -83,12 +81,12 @@ class AddViewDocumenPage extends StatelessWidget {
                           selectedTabIndex:
                               context.read<AddDocumentBloc>().state.selectedTab,
                           tabNames: [
-                            'Add\nDocument',
-                            'View\nDocument',
-                            'Receive\nDocument'
+                            'Upload\nDocument',
+                            'Uploaded\nDocuments',
+                            'Received\nDocuments'
                           ],
                           onTabChanged: (index) {
-
+                            BlocProvider.of<AddDocumentBloc>(context).add(GetUploadedParentDocument({}));
                               BlocProvider.of<AddDocumentBloc>(context)
                                   .add(ResetAfterDocumentUploadEvent());
 
@@ -99,9 +97,7 @@ class AddViewDocumenPage extends StatelessWidget {
                           },
                         ),
                       ),
-                      SizedBox(
-                        height: context.screenHeight * 0.05,
-                      ),
+
                       Expanded(
                         child: AnimatedSwitcher(
                           duration: const Duration(milliseconds: 300),
@@ -257,12 +253,12 @@ class AddViewDocumenPage extends StatelessWidget {
                         ),
                       ),
                       SizedBox(
-                        height: context.screenHeight * 0.05,
+                        height: context.screenHeight * 0.02,
                       ),
                       state.selectedTab == 0
                           ? Padding(
                               padding: EdgeInsets.symmetric(
-                                  horizontal: context.screenWidth * 0.05),
+                                  horizontal: context.screenWidth * 0.05,vertical: 0),
                               child: CustomButton(
                                 text: "Continue",
                                 onPressed: () async {
@@ -279,6 +275,7 @@ class AddViewDocumenPage extends StatelessWidget {
                               ),
                             )
                           : SizedBox(),
+                      SizedBox(height: 20,)
                     ],
                   ),
                   if (state.isLoading) LoadingIndicator()
@@ -291,48 +288,18 @@ class AddViewDocumenPage extends StatelessWidget {
     );
   }
 
-  Coach _getCoachWithId(int coachId, List<Coach> coaches) {
-    try {
-      final coach = coaches.firstWhere(
-        (coach) => coach.id.toString() == coachId.toString(),
-        orElse: () => Coach(),
-      );
-      return coach;
-    } catch (e) {
-      return Coach();
-    }
-  }
 
-  Term _getTermsWithId(int termId, List<Term> terms) {
-    try {
-      final term = terms.firstWhere(
-        (coach) => coach.id.toString() == termId.toString(),
-        orElse: () => Term(),
-      );
-      return term;
-    } catch (e) {
-      return Term();
-    }
-  }
 
-  CoachingProgram _getCoachingProgramWithId(
-      int coachingProgramId, List<CoachingProgram> coachingProgram) {
-    try {
-      final coachingProgramData = coachingProgram.firstWhere(
-        (coach) => coach.id.toString() == coachingProgramId.toString(),
-        orElse: () => CoachingProgram(),
-      );
-      return coachingProgramData;
-    } catch (e) {
-      return CoachingProgram();
-    }
-  }
+
 
 
 
   Future<void> _handlePickFile(context) async {
-    var bloc = BlocProvider.of<AddDocumentBloc>(context);
     CameraFileUtility utility = CameraFileUtility();
+
+    // final hasPermission = await utility.requestFilePermissions(context);
+    // if (!hasPermission) return;
+    var bloc = BlocProvider.of<AddDocumentBloc>(context);
     Map<String, dynamic>? result =
         await utility.pickDocumentWithFileName(context);
 

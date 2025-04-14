@@ -19,6 +19,24 @@ class ScreenTitle extends StatelessWidget {
     );
   }
 }
+class ScreenTitleaa extends StatelessWidget {
+  final String title;
+  const ScreenTitleaa({super.key, required this.title});
+
+  @override
+  Widget build(BuildContext context) {
+    var width = context.screenWidth;
+    return Text(
+      // textScaleFactor:  MediaQuery.of(context).textScaleFactor,
+      title, textAlign: TextAlign.center,
+      style: TextStyle(
+        color: AppColor.appWhiteColor,
+        fontFamily: AppFont.interMedium,
+        fontSize: width * 0.044,
+      ),
+    );
+  }
+}
 
 
 

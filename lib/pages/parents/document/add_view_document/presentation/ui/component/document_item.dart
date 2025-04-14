@@ -1,3 +1,4 @@
+import 'package:intl/intl.dart';
 import 'package:rra/common/routes/exports.dart';
 import 'package:rra/common/values/values_exports.dart';
 
@@ -29,9 +30,13 @@ class DocumentItem extends StatelessWidget {
       return 'No Coach';
     }
   }
-
+  String formatDate(String isoDate) {
+    DateTime dateTime = DateTime.parse(isoDate);
+    return DateFormat('dd-MM-yyyy').format(dateTime);
+  }
   @override
   Widget build(BuildContext context) {
+    print(uploadedDocument?.Comments);
     return Padding(
       padding: EdgeInsets.only(
           left: context.screenWidth * 0.052,
@@ -57,7 +62,7 @@ class DocumentItem extends StatelessWidget {
                   onIconPress: onIconPress,
                   isShowEditIcon:isUploadedDocument ,
                   label: "Dates",
-                  value: " 08-03-2025",
+                  value: " ${formatDate(uploadedDocument.createdAt)}",
                   iconPath: "assets/images/edit_icon.png",
                 ),
 

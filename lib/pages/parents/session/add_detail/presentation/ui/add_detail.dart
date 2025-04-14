@@ -43,6 +43,7 @@ class AddDetail extends StatelessWidget {
 
     return Scaffold(
       backgroundColor: AppColor.gradientMidColor,
+
       body: Container(
         width: width,
         height: height,
@@ -90,7 +91,7 @@ class AddDetail extends StatelessWidget {
                               padding: EdgeInsets.symmetric(horizontal: context.screenWidth * 0.03),
                               child: CustomToggleSwitch(
                                 selectedTabIndex: context.read<AddViewPlayerBloc>().state.selectedTab,
-                                tabNames: ['Select Child', 'Add Child'],
+                                tabNames: ['Select\nChild', 'Add\nChild'],
                                 onTabChanged: (index) {
                                   context.read<AddViewPlayerBloc>().add(AddViewPlayerSelectedTabEvent(index));
                                   if (index == 0) {
@@ -173,27 +174,34 @@ class AddDetail extends StatelessWidget {
                                     },
                                   ),
                                 ),
-
                               if (state.selectedTab == 0)
-                                Padding(
-                                  padding: const EdgeInsets.only(top: 38.0, left: 30, right: 30),
-                                  child: CustomButton(
-                                    text: "Continue",
-                                    onPressed: () async {
-                                      var academyId = await getIt<SharedPrefs>().getString("selected_academyid");
-                                      Map<String, dynamic> mapData = {
-                                        "academy_id": academyId,
-                                        "players": state.selectedChildId
-                                      };
-                                      BlocProvider.of<OrderSummaryBloc>(context).add(ResetStatusOfPaymentAndOrderAfterErrorEvent());
-                                      BlocProvider.of<OrderSummaryBloc>(context).add(GetOrderSummaryEvent(mapData));
-                                      Navigator.pushNamed(context, AppRoutes.ORDERSUMMARY);
-                                    },
-                                  ).animate().fade(duration: 500.ms).scaleXY(
-                                      begin: 0.8,
-                                      end: 1.0,
-                                      duration: 400.ms,
-                                      curve: Curves.bounceOut),
+
+                              Container(
+                                  child: isFromDashBoard==false?  Padding(
+                                    padding: const EdgeInsets.only(top: 38.0, left: 30, right: 30),
+                                    child: CustomButton(
+                                      text: "Continue",
+                                      onPressed: () async {
+                                        if(state.selectedChildId.isEmpty){
+                                          context.showCustomSnackbar("Please select minimum 1 child");
+                                        }else{
+                                          var academyId = await getIt<SharedPrefs>().getString("selected_academyid");
+                                          Map<String, dynamic> mapData = {
+                                            "academy_id": academyId,
+                                            "players": state.selectedChildId
+                                          };
+                                          BlocProvider.of<OrderSummaryBloc>(context).add(ResetStatusOfPaymentAndOrderAfterErrorEvent());
+                                          BlocProvider.of<OrderSummaryBloc>(context).add(GetOrderSummaryEvent(mapData));
+                                          Navigator.pushNamed(context, AppRoutes.ORDERSUMMARY);
+                                        }
+
+                                      },
+                                    ).animate().fade(duration: 500.ms).scaleXY(
+                                        begin: 0.8,
+                                        end: 1.0,
+                                        duration: 400.ms,
+                                        curve: Curves.bounceOut),
+                                  ):SizedBox()
                                 ),
 
                               SizedBox(height: 30),

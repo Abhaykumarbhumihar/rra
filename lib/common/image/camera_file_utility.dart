@@ -131,49 +131,6 @@ class CameraFileUtility {
   }
 
 
-  // Future<File?> generateThumbnailnewCode(String videoUrl) async {
-  //   try {
-  //     print("======= video url =========== video url");
-  //     print(videoUrl);
-  //
-  //     // Generate the thumbnail and get the path
-  //     final thumbnailPath = await VideoThumbnail.thumbnailFile(
-  //       video: AppConstant.fileBaseUrl + videoUrl,
-  //       thumbnailPath: (await getTemporaryDirectory()).path,
-  //       imageFormat: ImageFormat.JPEG,
-  //       maxHeight: 64, // specify the height, let the width auto-scale
-  //       quality: 75,
-  //     );
-  //
-  //     // Convert the path to a File and return
-  //     if (thumbnailPath != null) {
-  //       return File(thumbnailPath.path);
-  //     }
-  //   } catch (e) {
-  //     print("Error generating thumbnail: $e");
-  //   }
-  //
-  //   return null; // Return null in case of an error
-  // }
-
-
-  // Future<File?> openVideoPicker(BuildContext context) async {
-  //   final ImagePicker _picker = ImagePicker();
-  //   try {
-  //     final XFile? galleryVideo = await _picker.pickVideo(source: ImageSource.gallery,);
-  //    // var picture = await _picker.pickVideo(source: ImageSource.gallery);
-  //     if (galleryVideo != null) {
-  //       print(galleryVideo.path);
-  //       return File(galleryVideo.path);
-  //     }
-  //   } catch (err) {
-  //     print("openVideoPicker error is   $err");
-  //     //if (context.mounted) {
-  //     //  showPermissionDeniedDialog(context, "Gallery");
-  //     //}
-  //   }
-  // }
-
   Future<File?> openVideoPicker(BuildContext context) async {
     final ImagePicker _picker = ImagePicker();
 
@@ -183,34 +140,7 @@ class CameraFileUtility {
         print('Video selected from gallery: ${galleryVideo.path}');
         return File(galleryVideo.path);
       }
-      // if (Platform.isAndroid) {
-      //   // const platform = MethodChannel("com.underrated/video");
-      //   //
-      //   // try {
-      //   //   final String? videoPath = await platform.invokeMethod('pickVideo');
-      //   //   if (videoPath != null) {
-      //   //     print("Video selected: $videoPath");
-      //   //     return File(videoPath);
-      //   //   }
-      //   // } on PlatformException catch (e) {
-      //   //   print("Failed to pick video: ${e.message}");
-      //   // } catch (e) {
-      //   //   print("Unexpected error: $e");
-      //   // }
-      //   // return null;
-      //   final XFile? galleryVideo = await _picker.pickVideo(source: ImageSource.gallery);
-      //   if (galleryVideo != null) {
-      //     print('Video selected from gallery: ${galleryVideo.path}');
-      //     return File(galleryVideo.path);
-      //   }
-      // } else if (Platform.isIOS) {
-      //   // For iOS or other platforms, use the image_picker package directly
-      //   final XFile? galleryVideo = await _picker.pickVideo(source: ImageSource.gallery);
-      //   if (galleryVideo != null) {
-      //     print('Video selected from gallery: ${galleryVideo.path}');
-      //     return File(galleryVideo.path);
-      //   }
-      // }
+
     } catch (err) {
       print("openVideoPicker error is $err");
       // Handle permission denied or other errors
@@ -259,15 +189,7 @@ class CameraFileUtility {
         }
       }
 
-      // // Pick videos
-      // final XFile? videoFile = await _picker.pickVideo(
-      //   source: ImageSource.gallery,
-      // );
-      //
-      // // Add the selected video to the list, if any
-      // if (videoFile != null) {
-      //   selectedImages.add(File(videoFile.path));
-      // }
+
     } catch (err) {
       showPermissionDeniedDialog(context, "Gallery");
     }
@@ -316,22 +238,152 @@ class CameraFileUtility {
     }
     return null;
   }
+  static Future<bool> _checkAndRequestStoragePermission(BuildContext context) async {
+    try {
+      // Check current permission status
+      var status = await Permission.storage.status;
+
+      // If permanently denied, show settings dialog
+      if (status.isPermanentlyDenied) {
+        if (context.mounted) {
+          showPermissionDeniedDialog(context, "Storage");
+        }
+        return false;
+      }
+
+      // If not granted, request permission with rationale
+      if (!status.isGranted) {
+        // Show explanation dialog if first denial
+        if (status.isDenied && context.mounted) {
+          await showDialog(
+            context: context,
+            builder: (context) => AlertDialog(
+              title: Text("Permission Required"),
+              content: Text(
+                  "The app needs access to your storage to select files and images"),
+              actions: [
+                TextButton(
+                  onPressed: () => Navigator.pop(context),
+                  child: Text("Cancel"),
+                ),
+                TextButton(
+                  onPressed: () async {
+                    Navigator.pop(context);
+                    status = await Permission.storage.request();
+                  },
+                  child: Text("Allow"),
+                ),
+              ],
+            ),
+          );
+        } else {
+          status = await Permission.storage.request();
+        }
+      }
+
+      return status.isGranted;
+    } catch (e) {
+      print("Permission error: $e");
+      return false;
+    }
+  }
 
   Future<Map<String, dynamic>?> pickDocumentWithFileName(BuildContext context) async {
     try {
+      // Check and request permission first
+      final hasPermission = await _checkAndRequestStoragePermission(context);
+      if (!hasPermission) return null;
+
+      // Now proceed with file picking
       FilePickerResult? result = await FilePicker.platform.pickFiles(
-        type: FileType.custom,
-       /// allowedExtensions: ['pdf', 'doc', 'docx', 'xls', 'xlsx', 'ppt', 'pptx'],
+        type: FileType.any,
+        allowMultiple: false,
       );
-    //  FilePickerResult? result = await FilePicker.platform.pickFiles();
+
       if (result != null && result.files.single.path != null) {
         String fileName = result.files.single.name;
         File file = File(result.files.single.path!);
         return {'file': file, 'fileName': fileName};
       }
     } catch (err) {
-      showPermissionDeniedDialog(context, "File System");
+      print("File picker error: $err");
+      if (context.mounted) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(content: Text("Failed to pick file")),
+        );
+      }
     }
     return null;
   }
+
+  // Future<Map<String, dynamic>?> pickDocumentWithFileName(BuildContext context) async {
+  //   try {
+  //     // Check and request storage permission
+  //     final status = await Permission.storage.request();
+  //     if (!status.isGranted) {
+  //       if (context.mounted) {
+  //         showPermissionDeniedDialog(context, "Storage");
+  //       }
+  //       return null;
+  //     }
+  //     FilePickerResult? result = await FilePicker.platform.pickFiles(
+  //       type: FileType.custom,
+  //      /// allowedExtensions: ['pdf', 'doc', 'docx', 'xls', 'xlsx', 'ppt', 'pptx'],
+  //     );
+  //   //  FilePickerResult? result = await FilePicker.platform.pickFiles();
+  //     if (result != null && result.files.single.path != null) {
+  //       String fileName = result.files.single.name;
+  //       File file = File(result.files.single.path!);
+  //       return {'file': file, 'fileName': fileName};
+  //     }
+  //   } catch (err) {
+  //     showPermissionDeniedDialog(context, "File System");
+  //   }
+  //   return null;
+  // }
+  //
+  // Future<bool> requestFilePermissions(BuildContext context) async {
+  //   try {
+  //     // Check current status
+  //     var status = await Permission.storage.status;
+  //
+  //     // If permanently denied, show dialog to open settings
+  //     if (status.isPermanentlyDenied) {
+  //       if (context.mounted) {
+  //         showPermissionDeniedDialog(context, "Storage");
+  //       }
+  //       return false;
+  //     }
+  //
+  //     // If denied (but not permanently), show rationale
+  //     if (status.isDenied) {
+  //       // Show a dialog explaining why you need the permission
+  //       bool shouldRequest = await showDialog(
+  //         context: context,
+  //         builder: (context) => AlertDialog(
+  //           title: Text("Permission Needed"),
+  //           content: Text("We need storage permission to access files on your device"),
+  //           actions: [
+  //             TextButton(
+  //               onPressed: () => Navigator.pop(context, false),
+  //               child: Text("Cancel"),
+  //             ),
+  //             TextButton(
+  //               onPressed: () => Navigator.pop(context, true),
+  //               child: Text("Continue"),
+  //             ),
+  //           ],
+  //         ),
+  //       ) ?? false;
+  //
+  //       if (!shouldRequest) return false;
+  //     }
+  //
+  //     // Request the permission
+  //     status = await Permission.storage.request();
+  //     return status.isGranted;
+  //   } catch (e) {
+  //     return false;
+  //   }
+  // }
 }

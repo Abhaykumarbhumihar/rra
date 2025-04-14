@@ -18,7 +18,7 @@ class ForgotPasswordText extends StatelessWidget {
             ))
         ),
         child: Text(
-          'Forgot password',
+          'Forgot password?',
           style: TextStyle(
             fontSize: context.screenWidth * 0.032,
             fontFamily: AppFont.interMedium,

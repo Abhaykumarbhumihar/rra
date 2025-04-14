@@ -283,7 +283,10 @@ orderId: "",
       Map<String, dynamic> map = {
         "academy_id": academyId,
       };
-      add(GetTotalPriceEvent(map));
+      if(orderSummaryData.data.isNotEmpty){
+        add(GetTotalPriceEvent(map));
+      }
+
     });
   }
 

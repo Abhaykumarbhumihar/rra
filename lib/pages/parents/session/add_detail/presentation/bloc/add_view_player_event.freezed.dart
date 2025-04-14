@@ -30,6 +30,7 @@ mixin _$AddViewPlayerEvent {
     required TResult Function() submitButtonPress,
     required TResult Function() getChildListEvent,
     required TResult Function(int index) childSelectionToggle,
+    required TResult Function(File file) setChileProfilePic,
     required TResult Function() resetAddViewPlayerEvent,
   }) =>
       throw _privateConstructorUsedError;
@@ -47,6 +48,7 @@ mixin _$AddViewPlayerEvent {
     TResult? Function()? submitButtonPress,
     TResult? Function()? getChildListEvent,
     TResult? Function(int index)? childSelectionToggle,
+    TResult? Function(File file)? setChileProfilePic,
     TResult? Function()? resetAddViewPlayerEvent,
   }) =>
       throw _privateConstructorUsedError;
@@ -64,6 +66,7 @@ mixin _$AddViewPlayerEvent {
     TResult Function()? submitButtonPress,
     TResult Function()? getChildListEvent,
     TResult Function(int index)? childSelectionToggle,
+    TResult Function(File file)? setChileProfilePic,
     TResult Function()? resetAddViewPlayerEvent,
     required TResult orElse(),
   }) =>
@@ -88,6 +91,8 @@ mixin _$AddViewPlayerEvent {
         getChildListEvent,
     required TResult Function(AddViewPlayerChildSelectionToggleEvent value)
         childSelectionToggle,
+    required TResult Function(AddViewPlayerChildProfilePhotoEvent value)
+        setChileProfilePic,
     required TResult Function(ResetAddViewEvent value) resetAddViewPlayerEvent,
   }) =>
       throw _privateConstructorUsedError;
@@ -110,6 +115,8 @@ mixin _$AddViewPlayerEvent {
     TResult? Function(AddViewPlayerGetChildListEvent value)? getChildListEvent,
     TResult? Function(AddViewPlayerChildSelectionToggleEvent value)?
         childSelectionToggle,
+    TResult? Function(AddViewPlayerChildProfilePhotoEvent value)?
+        setChileProfilePic,
     TResult? Function(ResetAddViewEvent value)? resetAddViewPlayerEvent,
   }) =>
       throw _privateConstructorUsedError;
@@ -132,6 +139,8 @@ mixin _$AddViewPlayerEvent {
     TResult Function(AddViewPlayerGetChildListEvent value)? getChildListEvent,
     TResult Function(AddViewPlayerChildSelectionToggleEvent value)?
         childSelectionToggle,
+    TResult Function(AddViewPlayerChildProfilePhotoEvent value)?
+        setChileProfilePic,
     TResult Function(ResetAddViewEvent value)? resetAddViewPlayerEvent,
     required TResult orElse(),
   }) =>
@@ -245,6 +254,7 @@ class _$AddViewPlayerSelectedTabEventImpl
     required TResult Function() submitButtonPress,
     required TResult Function() getChildListEvent,
     required TResult Function(int index) childSelectionToggle,
+    required TResult Function(File file) setChileProfilePic,
     required TResult Function() resetAddViewPlayerEvent,
   }) {
     return selectedTab(tabno);
@@ -265,6 +275,7 @@ class _$AddViewPlayerSelectedTabEventImpl
     TResult? Function()? submitButtonPress,
     TResult? Function()? getChildListEvent,
     TResult? Function(int index)? childSelectionToggle,
+    TResult? Function(File file)? setChileProfilePic,
     TResult? Function()? resetAddViewPlayerEvent,
   }) {
     return selectedTab?.call(tabno);
@@ -285,6 +296,7 @@ class _$AddViewPlayerSelectedTabEventImpl
     TResult Function()? submitButtonPress,
     TResult Function()? getChildListEvent,
     TResult Function(int index)? childSelectionToggle,
+    TResult Function(File file)? setChileProfilePic,
     TResult Function()? resetAddViewPlayerEvent,
     required TResult orElse(),
   }) {
@@ -315,6 +327,8 @@ class _$AddViewPlayerSelectedTabEventImpl
         getChildListEvent,
     required TResult Function(AddViewPlayerChildSelectionToggleEvent value)
         childSelectionToggle,
+    required TResult Function(AddViewPlayerChildProfilePhotoEvent value)
+        setChileProfilePic,
     required TResult Function(ResetAddViewEvent value) resetAddViewPlayerEvent,
   }) {
     return selectedTab(this);
@@ -340,6 +354,8 @@ class _$AddViewPlayerSelectedTabEventImpl
     TResult? Function(AddViewPlayerGetChildListEvent value)? getChildListEvent,
     TResult? Function(AddViewPlayerChildSelectionToggleEvent value)?
         childSelectionToggle,
+    TResult? Function(AddViewPlayerChildProfilePhotoEvent value)?
+        setChileProfilePic,
     TResult? Function(ResetAddViewEvent value)? resetAddViewPlayerEvent,
   }) {
     return selectedTab?.call(this);
@@ -365,6 +381,8 @@ class _$AddViewPlayerSelectedTabEventImpl
     TResult Function(AddViewPlayerGetChildListEvent value)? getChildListEvent,
     TResult Function(AddViewPlayerChildSelectionToggleEvent value)?
         childSelectionToggle,
+    TResult Function(AddViewPlayerChildProfilePhotoEvent value)?
+        setChileProfilePic,
     TResult Function(ResetAddViewEvent value)? resetAddViewPlayerEvent,
     required TResult orElse(),
   }) {
@@ -476,6 +494,7 @@ class _$AddViewPlayerChiclPhotoConsentEventImpl
     required TResult Function() submitButtonPress,
     required TResult Function() getChildListEvent,
     required TResult Function(int index) childSelectionToggle,
+    required TResult Function(File file) setChileProfilePic,
     required TResult Function() resetAddViewPlayerEvent,
   }) {
     return childPhotoConsent(consentStatus);
@@ -496,6 +515,7 @@ class _$AddViewPlayerChiclPhotoConsentEventImpl
     TResult? Function()? submitButtonPress,
     TResult? Function()? getChildListEvent,
     TResult? Function(int index)? childSelectionToggle,
+    TResult? Function(File file)? setChileProfilePic,
     TResult? Function()? resetAddViewPlayerEvent,
   }) {
     return childPhotoConsent?.call(consentStatus);
@@ -516,6 +536,7 @@ class _$AddViewPlayerChiclPhotoConsentEventImpl
     TResult Function()? submitButtonPress,
     TResult Function()? getChildListEvent,
     TResult Function(int index)? childSelectionToggle,
+    TResult Function(File file)? setChileProfilePic,
     TResult Function()? resetAddViewPlayerEvent,
     required TResult orElse(),
   }) {
@@ -546,6 +567,8 @@ class _$AddViewPlayerChiclPhotoConsentEventImpl
         getChildListEvent,
     required TResult Function(AddViewPlayerChildSelectionToggleEvent value)
         childSelectionToggle,
+    required TResult Function(AddViewPlayerChildProfilePhotoEvent value)
+        setChileProfilePic,
     required TResult Function(ResetAddViewEvent value) resetAddViewPlayerEvent,
   }) {
     return childPhotoConsent(this);
@@ -571,6 +594,8 @@ class _$AddViewPlayerChiclPhotoConsentEventImpl
     TResult? Function(AddViewPlayerGetChildListEvent value)? getChildListEvent,
     TResult? Function(AddViewPlayerChildSelectionToggleEvent value)?
         childSelectionToggle,
+    TResult? Function(AddViewPlayerChildProfilePhotoEvent value)?
+        setChileProfilePic,
     TResult? Function(ResetAddViewEvent value)? resetAddViewPlayerEvent,
   }) {
     return childPhotoConsent?.call(this);
@@ -596,6 +621,8 @@ class _$AddViewPlayerChiclPhotoConsentEventImpl
     TResult Function(AddViewPlayerGetChildListEvent value)? getChildListEvent,
     TResult Function(AddViewPlayerChildSelectionToggleEvent value)?
         childSelectionToggle,
+    TResult Function(AddViewPlayerChildProfilePhotoEvent value)?
+        setChileProfilePic,
     TResult Function(ResetAddViewEvent value)? resetAddViewPlayerEvent,
     required TResult orElse(),
   }) {
@@ -709,6 +736,7 @@ class _$AddViewPlayeAdministratorFirstAidEventImpl
     required TResult Function() submitButtonPress,
     required TResult Function() getChildListEvent,
     required TResult Function(int index) childSelectionToggle,
+    required TResult Function(File file) setChileProfilePic,
     required TResult Function() resetAddViewPlayerEvent,
   }) {
     return administratorFirstAid(firstAidStatus);
@@ -729,6 +757,7 @@ class _$AddViewPlayeAdministratorFirstAidEventImpl
     TResult? Function()? submitButtonPress,
     TResult? Function()? getChildListEvent,
     TResult? Function(int index)? childSelectionToggle,
+    TResult? Function(File file)? setChileProfilePic,
     TResult? Function()? resetAddViewPlayerEvent,
   }) {
     return administratorFirstAid?.call(firstAidStatus);
@@ -749,6 +778,7 @@ class _$AddViewPlayeAdministratorFirstAidEventImpl
     TResult Function()? submitButtonPress,
     TResult Function()? getChildListEvent,
     TResult Function(int index)? childSelectionToggle,
+    TResult Function(File file)? setChileProfilePic,
     TResult Function()? resetAddViewPlayerEvent,
     required TResult orElse(),
   }) {
@@ -779,6 +809,8 @@ class _$AddViewPlayeAdministratorFirstAidEventImpl
         getChildListEvent,
     required TResult Function(AddViewPlayerChildSelectionToggleEvent value)
         childSelectionToggle,
+    required TResult Function(AddViewPlayerChildProfilePhotoEvent value)
+        setChileProfilePic,
     required TResult Function(ResetAddViewEvent value) resetAddViewPlayerEvent,
   }) {
     return administratorFirstAid(this);
@@ -804,6 +836,8 @@ class _$AddViewPlayeAdministratorFirstAidEventImpl
     TResult? Function(AddViewPlayerGetChildListEvent value)? getChildListEvent,
     TResult? Function(AddViewPlayerChildSelectionToggleEvent value)?
         childSelectionToggle,
+    TResult? Function(AddViewPlayerChildProfilePhotoEvent value)?
+        setChileProfilePic,
     TResult? Function(ResetAddViewEvent value)? resetAddViewPlayerEvent,
   }) {
     return administratorFirstAid?.call(this);
@@ -829,6 +863,8 @@ class _$AddViewPlayeAdministratorFirstAidEventImpl
     TResult Function(AddViewPlayerGetChildListEvent value)? getChildListEvent,
     TResult Function(AddViewPlayerChildSelectionToggleEvent value)?
         childSelectionToggle,
+    TResult Function(AddViewPlayerChildProfilePhotoEvent value)?
+        setChileProfilePic,
     TResult Function(ResetAddViewEvent value)? resetAddViewPlayerEvent,
     required TResult orElse(),
   }) {
@@ -939,6 +975,7 @@ class _$AddViewPlayerChildNameEventImpl implements AddViewPlayerChildNameEvent {
     required TResult Function() submitButtonPress,
     required TResult Function() getChildListEvent,
     required TResult Function(int index) childSelectionToggle,
+    required TResult Function(File file) setChileProfilePic,
     required TResult Function() resetAddViewPlayerEvent,
   }) {
     return childName(this.childName);
@@ -959,6 +996,7 @@ class _$AddViewPlayerChildNameEventImpl implements AddViewPlayerChildNameEvent {
     TResult? Function()? submitButtonPress,
     TResult? Function()? getChildListEvent,
     TResult? Function(int index)? childSelectionToggle,
+    TResult? Function(File file)? setChileProfilePic,
     TResult? Function()? resetAddViewPlayerEvent,
   }) {
     return childName?.call(this.childName);
@@ -979,6 +1017,7 @@ class _$AddViewPlayerChildNameEventImpl implements AddViewPlayerChildNameEvent {
     TResult Function()? submitButtonPress,
     TResult Function()? getChildListEvent,
     TResult Function(int index)? childSelectionToggle,
+    TResult Function(File file)? setChileProfilePic,
     TResult Function()? resetAddViewPlayerEvent,
     required TResult orElse(),
   }) {
@@ -1009,6 +1048,8 @@ class _$AddViewPlayerChildNameEventImpl implements AddViewPlayerChildNameEvent {
         getChildListEvent,
     required TResult Function(AddViewPlayerChildSelectionToggleEvent value)
         childSelectionToggle,
+    required TResult Function(AddViewPlayerChildProfilePhotoEvent value)
+        setChileProfilePic,
     required TResult Function(ResetAddViewEvent value) resetAddViewPlayerEvent,
   }) {
     return childName(this);
@@ -1034,6 +1075,8 @@ class _$AddViewPlayerChildNameEventImpl implements AddViewPlayerChildNameEvent {
     TResult? Function(AddViewPlayerGetChildListEvent value)? getChildListEvent,
     TResult? Function(AddViewPlayerChildSelectionToggleEvent value)?
         childSelectionToggle,
+    TResult? Function(AddViewPlayerChildProfilePhotoEvent value)?
+        setChileProfilePic,
     TResult? Function(ResetAddViewEvent value)? resetAddViewPlayerEvent,
   }) {
     return childName?.call(this);
@@ -1059,6 +1102,8 @@ class _$AddViewPlayerChildNameEventImpl implements AddViewPlayerChildNameEvent {
     TResult Function(AddViewPlayerGetChildListEvent value)? getChildListEvent,
     TResult Function(AddViewPlayerChildSelectionToggleEvent value)?
         childSelectionToggle,
+    TResult Function(AddViewPlayerChildProfilePhotoEvent value)?
+        setChileProfilePic,
     TResult Function(ResetAddViewEvent value)? resetAddViewPlayerEvent,
     required TResult orElse(),
   }) {
@@ -1166,6 +1211,7 @@ class _$AddViewPlayerChildAgeEventImpl implements AddViewPlayerChildAgeEvent {
     required TResult Function() submitButtonPress,
     required TResult Function() getChildListEvent,
     required TResult Function(int index) childSelectionToggle,
+    required TResult Function(File file) setChileProfilePic,
     required TResult Function() resetAddViewPlayerEvent,
   }) {
     return childAge(age);
@@ -1186,6 +1232,7 @@ class _$AddViewPlayerChildAgeEventImpl implements AddViewPlayerChildAgeEvent {
     TResult? Function()? submitButtonPress,
     TResult? Function()? getChildListEvent,
     TResult? Function(int index)? childSelectionToggle,
+    TResult? Function(File file)? setChileProfilePic,
     TResult? Function()? resetAddViewPlayerEvent,
   }) {
     return childAge?.call(age);
@@ -1206,6 +1253,7 @@ class _$AddViewPlayerChildAgeEventImpl implements AddViewPlayerChildAgeEvent {
     TResult Function()? submitButtonPress,
     TResult Function()? getChildListEvent,
     TResult Function(int index)? childSelectionToggle,
+    TResult Function(File file)? setChileProfilePic,
     TResult Function()? resetAddViewPlayerEvent,
     required TResult orElse(),
   }) {
@@ -1236,6 +1284,8 @@ class _$AddViewPlayerChildAgeEventImpl implements AddViewPlayerChildAgeEvent {
         getChildListEvent,
     required TResult Function(AddViewPlayerChildSelectionToggleEvent value)
         childSelectionToggle,
+    required TResult Function(AddViewPlayerChildProfilePhotoEvent value)
+        setChileProfilePic,
     required TResult Function(ResetAddViewEvent value) resetAddViewPlayerEvent,
   }) {
     return childAge(this);
@@ -1261,6 +1311,8 @@ class _$AddViewPlayerChildAgeEventImpl implements AddViewPlayerChildAgeEvent {
     TResult? Function(AddViewPlayerGetChildListEvent value)? getChildListEvent,
     TResult? Function(AddViewPlayerChildSelectionToggleEvent value)?
         childSelectionToggle,
+    TResult? Function(AddViewPlayerChildProfilePhotoEvent value)?
+        setChileProfilePic,
     TResult? Function(ResetAddViewEvent value)? resetAddViewPlayerEvent,
   }) {
     return childAge?.call(this);
@@ -1286,6 +1338,8 @@ class _$AddViewPlayerChildAgeEventImpl implements AddViewPlayerChildAgeEvent {
     TResult Function(AddViewPlayerGetChildListEvent value)? getChildListEvent,
     TResult Function(AddViewPlayerChildSelectionToggleEvent value)?
         childSelectionToggle,
+    TResult Function(AddViewPlayerChildProfilePhotoEvent value)?
+        setChileProfilePic,
     TResult Function(ResetAddViewEvent value)? resetAddViewPlayerEvent,
     required TResult orElse(),
   }) {
@@ -1393,6 +1447,7 @@ class _$AddViewPlayerChildDobEventImpl implements AddViewPlayerChildDobEvent {
     required TResult Function() submitButtonPress,
     required TResult Function() getChildListEvent,
     required TResult Function(int index) childSelectionToggle,
+    required TResult Function(File file) setChileProfilePic,
     required TResult Function() resetAddViewPlayerEvent,
   }) {
     return childDob(dob);
@@ -1413,6 +1468,7 @@ class _$AddViewPlayerChildDobEventImpl implements AddViewPlayerChildDobEvent {
     TResult? Function()? submitButtonPress,
     TResult? Function()? getChildListEvent,
     TResult? Function(int index)? childSelectionToggle,
+    TResult? Function(File file)? setChileProfilePic,
     TResult? Function()? resetAddViewPlayerEvent,
   }) {
     return childDob?.call(dob);
@@ -1433,6 +1489,7 @@ class _$AddViewPlayerChildDobEventImpl implements AddViewPlayerChildDobEvent {
     TResult Function()? submitButtonPress,
     TResult Function()? getChildListEvent,
     TResult Function(int index)? childSelectionToggle,
+    TResult Function(File file)? setChileProfilePic,
     TResult Function()? resetAddViewPlayerEvent,
     required TResult orElse(),
   }) {
@@ -1463,6 +1520,8 @@ class _$AddViewPlayerChildDobEventImpl implements AddViewPlayerChildDobEvent {
         getChildListEvent,
     required TResult Function(AddViewPlayerChildSelectionToggleEvent value)
         childSelectionToggle,
+    required TResult Function(AddViewPlayerChildProfilePhotoEvent value)
+        setChileProfilePic,
     required TResult Function(ResetAddViewEvent value) resetAddViewPlayerEvent,
   }) {
     return childDob(this);
@@ -1488,6 +1547,8 @@ class _$AddViewPlayerChildDobEventImpl implements AddViewPlayerChildDobEvent {
     TResult? Function(AddViewPlayerGetChildListEvent value)? getChildListEvent,
     TResult? Function(AddViewPlayerChildSelectionToggleEvent value)?
         childSelectionToggle,
+    TResult? Function(AddViewPlayerChildProfilePhotoEvent value)?
+        setChileProfilePic,
     TResult? Function(ResetAddViewEvent value)? resetAddViewPlayerEvent,
   }) {
     return childDob?.call(this);
@@ -1513,6 +1574,8 @@ class _$AddViewPlayerChildDobEventImpl implements AddViewPlayerChildDobEvent {
     TResult Function(AddViewPlayerGetChildListEvent value)? getChildListEvent,
     TResult Function(AddViewPlayerChildSelectionToggleEvent value)?
         childSelectionToggle,
+    TResult Function(AddViewPlayerChildProfilePhotoEvent value)?
+        setChileProfilePic,
     TResult Function(ResetAddViewEvent value)? resetAddViewPlayerEvent,
     required TResult orElse(),
   }) {
@@ -1623,6 +1686,7 @@ class _$AddViewPlayerSchoolNameEventImpl
     required TResult Function() submitButtonPress,
     required TResult Function() getChildListEvent,
     required TResult Function(int index) childSelectionToggle,
+    required TResult Function(File file) setChileProfilePic,
     required TResult Function() resetAddViewPlayerEvent,
   }) {
     return schoolName(this.schoolName);
@@ -1643,6 +1707,7 @@ class _$AddViewPlayerSchoolNameEventImpl
     TResult? Function()? submitButtonPress,
     TResult? Function()? getChildListEvent,
     TResult? Function(int index)? childSelectionToggle,
+    TResult? Function(File file)? setChileProfilePic,
     TResult? Function()? resetAddViewPlayerEvent,
   }) {
     return schoolName?.call(this.schoolName);
@@ -1663,6 +1728,7 @@ class _$AddViewPlayerSchoolNameEventImpl
     TResult Function()? submitButtonPress,
     TResult Function()? getChildListEvent,
     TResult Function(int index)? childSelectionToggle,
+    TResult Function(File file)? setChileProfilePic,
     TResult Function()? resetAddViewPlayerEvent,
     required TResult orElse(),
   }) {
@@ -1693,6 +1759,8 @@ class _$AddViewPlayerSchoolNameEventImpl
         getChildListEvent,
     required TResult Function(AddViewPlayerChildSelectionToggleEvent value)
         childSelectionToggle,
+    required TResult Function(AddViewPlayerChildProfilePhotoEvent value)
+        setChileProfilePic,
     required TResult Function(ResetAddViewEvent value) resetAddViewPlayerEvent,
   }) {
     return schoolName(this);
@@ -1718,6 +1786,8 @@ class _$AddViewPlayerSchoolNameEventImpl
     TResult? Function(AddViewPlayerGetChildListEvent value)? getChildListEvent,
     TResult? Function(AddViewPlayerChildSelectionToggleEvent value)?
         childSelectionToggle,
+    TResult? Function(AddViewPlayerChildProfilePhotoEvent value)?
+        setChileProfilePic,
     TResult? Function(ResetAddViewEvent value)? resetAddViewPlayerEvent,
   }) {
     return schoolName?.call(this);
@@ -1743,6 +1813,8 @@ class _$AddViewPlayerSchoolNameEventImpl
     TResult Function(AddViewPlayerGetChildListEvent value)? getChildListEvent,
     TResult Function(AddViewPlayerChildSelectionToggleEvent value)?
         childSelectionToggle,
+    TResult Function(AddViewPlayerChildProfilePhotoEvent value)?
+        setChileProfilePic,
     TResult Function(ResetAddViewEvent value)? resetAddViewPlayerEvent,
     required TResult orElse(),
   }) {
@@ -1852,6 +1924,7 @@ class _$AddViewPlayerClubNameEventImpl implements AddViewPlayerClubNameEvent {
     required TResult Function() submitButtonPress,
     required TResult Function() getChildListEvent,
     required TResult Function(int index) childSelectionToggle,
+    required TResult Function(File file) setChileProfilePic,
     required TResult Function() resetAddViewPlayerEvent,
   }) {
     return clubName(this.clubName);
@@ -1872,6 +1945,7 @@ class _$AddViewPlayerClubNameEventImpl implements AddViewPlayerClubNameEvent {
     TResult? Function()? submitButtonPress,
     TResult? Function()? getChildListEvent,
     TResult? Function(int index)? childSelectionToggle,
+    TResult? Function(File file)? setChileProfilePic,
     TResult? Function()? resetAddViewPlayerEvent,
   }) {
     return clubName?.call(this.clubName);
@@ -1892,6 +1966,7 @@ class _$AddViewPlayerClubNameEventImpl implements AddViewPlayerClubNameEvent {
     TResult Function()? submitButtonPress,
     TResult Function()? getChildListEvent,
     TResult Function(int index)? childSelectionToggle,
+    TResult Function(File file)? setChileProfilePic,
     TResult Function()? resetAddViewPlayerEvent,
     required TResult orElse(),
   }) {
@@ -1922,6 +1997,8 @@ class _$AddViewPlayerClubNameEventImpl implements AddViewPlayerClubNameEvent {
         getChildListEvent,
     required TResult Function(AddViewPlayerChildSelectionToggleEvent value)
         childSelectionToggle,
+    required TResult Function(AddViewPlayerChildProfilePhotoEvent value)
+        setChileProfilePic,
     required TResult Function(ResetAddViewEvent value) resetAddViewPlayerEvent,
   }) {
     return clubName(this);
@@ -1947,6 +2024,8 @@ class _$AddViewPlayerClubNameEventImpl implements AddViewPlayerClubNameEvent {
     TResult? Function(AddViewPlayerGetChildListEvent value)? getChildListEvent,
     TResult? Function(AddViewPlayerChildSelectionToggleEvent value)?
         childSelectionToggle,
+    TResult? Function(AddViewPlayerChildProfilePhotoEvent value)?
+        setChileProfilePic,
     TResult? Function(ResetAddViewEvent value)? resetAddViewPlayerEvent,
   }) {
     return clubName?.call(this);
@@ -1972,6 +2051,8 @@ class _$AddViewPlayerClubNameEventImpl implements AddViewPlayerClubNameEvent {
     TResult Function(AddViewPlayerGetChildListEvent value)? getChildListEvent,
     TResult Function(AddViewPlayerChildSelectionToggleEvent value)?
         childSelectionToggle,
+    TResult Function(AddViewPlayerChildProfilePhotoEvent value)?
+        setChileProfilePic,
     TResult Function(ResetAddViewEvent value)? resetAddViewPlayerEvent,
     required TResult orElse(),
   }) {
@@ -2083,6 +2164,7 @@ class _$AddViewPlayerTessUsMedicalConditionEventImpl
     required TResult Function() submitButtonPress,
     required TResult Function() getChildListEvent,
     required TResult Function(int index) childSelectionToggle,
+    required TResult Function(File file) setChileProfilePic,
     required TResult Function() resetAddViewPlayerEvent,
   }) {
     return medicalCondition(this.medicalCondition);
@@ -2103,6 +2185,7 @@ class _$AddViewPlayerTessUsMedicalConditionEventImpl
     TResult? Function()? submitButtonPress,
     TResult? Function()? getChildListEvent,
     TResult? Function(int index)? childSelectionToggle,
+    TResult? Function(File file)? setChileProfilePic,
     TResult? Function()? resetAddViewPlayerEvent,
   }) {
     return medicalCondition?.call(this.medicalCondition);
@@ -2123,6 +2206,7 @@ class _$AddViewPlayerTessUsMedicalConditionEventImpl
     TResult Function()? submitButtonPress,
     TResult Function()? getChildListEvent,
     TResult Function(int index)? childSelectionToggle,
+    TResult Function(File file)? setChileProfilePic,
     TResult Function()? resetAddViewPlayerEvent,
     required TResult orElse(),
   }) {
@@ -2153,6 +2237,8 @@ class _$AddViewPlayerTessUsMedicalConditionEventImpl
         getChildListEvent,
     required TResult Function(AddViewPlayerChildSelectionToggleEvent value)
         childSelectionToggle,
+    required TResult Function(AddViewPlayerChildProfilePhotoEvent value)
+        setChileProfilePic,
     required TResult Function(ResetAddViewEvent value) resetAddViewPlayerEvent,
   }) {
     return medicalCondition(this);
@@ -2178,6 +2264,8 @@ class _$AddViewPlayerTessUsMedicalConditionEventImpl
     TResult? Function(AddViewPlayerGetChildListEvent value)? getChildListEvent,
     TResult? Function(AddViewPlayerChildSelectionToggleEvent value)?
         childSelectionToggle,
+    TResult? Function(AddViewPlayerChildProfilePhotoEvent value)?
+        setChileProfilePic,
     TResult? Function(ResetAddViewEvent value)? resetAddViewPlayerEvent,
   }) {
     return medicalCondition?.call(this);
@@ -2203,6 +2291,8 @@ class _$AddViewPlayerTessUsMedicalConditionEventImpl
     TResult Function(AddViewPlayerGetChildListEvent value)? getChildListEvent,
     TResult Function(AddViewPlayerChildSelectionToggleEvent value)?
         childSelectionToggle,
+    TResult Function(AddViewPlayerChildProfilePhotoEvent value)?
+        setChileProfilePic,
     TResult Function(ResetAddViewEvent value)? resetAddViewPlayerEvent,
     required TResult orElse(),
   }) {
@@ -2287,6 +2377,7 @@ class _$AddViewPlayerSubmitButtonPressEventImpl
     required TResult Function() submitButtonPress,
     required TResult Function() getChildListEvent,
     required TResult Function(int index) childSelectionToggle,
+    required TResult Function(File file) setChileProfilePic,
     required TResult Function() resetAddViewPlayerEvent,
   }) {
     return submitButtonPress();
@@ -2307,6 +2398,7 @@ class _$AddViewPlayerSubmitButtonPressEventImpl
     TResult? Function()? submitButtonPress,
     TResult? Function()? getChildListEvent,
     TResult? Function(int index)? childSelectionToggle,
+    TResult? Function(File file)? setChileProfilePic,
     TResult? Function()? resetAddViewPlayerEvent,
   }) {
     return submitButtonPress?.call();
@@ -2327,6 +2419,7 @@ class _$AddViewPlayerSubmitButtonPressEventImpl
     TResult Function()? submitButtonPress,
     TResult Function()? getChildListEvent,
     TResult Function(int index)? childSelectionToggle,
+    TResult Function(File file)? setChileProfilePic,
     TResult Function()? resetAddViewPlayerEvent,
     required TResult orElse(),
   }) {
@@ -2357,6 +2450,8 @@ class _$AddViewPlayerSubmitButtonPressEventImpl
         getChildListEvent,
     required TResult Function(AddViewPlayerChildSelectionToggleEvent value)
         childSelectionToggle,
+    required TResult Function(AddViewPlayerChildProfilePhotoEvent value)
+        setChileProfilePic,
     required TResult Function(ResetAddViewEvent value) resetAddViewPlayerEvent,
   }) {
     return submitButtonPress(this);
@@ -2382,6 +2477,8 @@ class _$AddViewPlayerSubmitButtonPressEventImpl
     TResult? Function(AddViewPlayerGetChildListEvent value)? getChildListEvent,
     TResult? Function(AddViewPlayerChildSelectionToggleEvent value)?
         childSelectionToggle,
+    TResult? Function(AddViewPlayerChildProfilePhotoEvent value)?
+        setChileProfilePic,
     TResult? Function(ResetAddViewEvent value)? resetAddViewPlayerEvent,
   }) {
     return submitButtonPress?.call(this);
@@ -2407,6 +2504,8 @@ class _$AddViewPlayerSubmitButtonPressEventImpl
     TResult Function(AddViewPlayerGetChildListEvent value)? getChildListEvent,
     TResult Function(AddViewPlayerChildSelectionToggleEvent value)?
         childSelectionToggle,
+    TResult Function(AddViewPlayerChildProfilePhotoEvent value)?
+        setChileProfilePic,
     TResult Function(ResetAddViewEvent value)? resetAddViewPlayerEvent,
     required TResult orElse(),
   }) {
@@ -2481,6 +2580,7 @@ class _$AddViewPlayerGetChildListEventImpl
     required TResult Function() submitButtonPress,
     required TResult Function() getChildListEvent,
     required TResult Function(int index) childSelectionToggle,
+    required TResult Function(File file) setChileProfilePic,
     required TResult Function() resetAddViewPlayerEvent,
   }) {
     return getChildListEvent();
@@ -2501,6 +2601,7 @@ class _$AddViewPlayerGetChildListEventImpl
     TResult? Function()? submitButtonPress,
     TResult? Function()? getChildListEvent,
     TResult? Function(int index)? childSelectionToggle,
+    TResult? Function(File file)? setChileProfilePic,
     TResult? Function()? resetAddViewPlayerEvent,
   }) {
     return getChildListEvent?.call();
@@ -2521,6 +2622,7 @@ class _$AddViewPlayerGetChildListEventImpl
     TResult Function()? submitButtonPress,
     TResult Function()? getChildListEvent,
     TResult Function(int index)? childSelectionToggle,
+    TResult Function(File file)? setChileProfilePic,
     TResult Function()? resetAddViewPlayerEvent,
     required TResult orElse(),
   }) {
@@ -2551,6 +2653,8 @@ class _$AddViewPlayerGetChildListEventImpl
         getChildListEvent,
     required TResult Function(AddViewPlayerChildSelectionToggleEvent value)
         childSelectionToggle,
+    required TResult Function(AddViewPlayerChildProfilePhotoEvent value)
+        setChileProfilePic,
     required TResult Function(ResetAddViewEvent value) resetAddViewPlayerEvent,
   }) {
     return getChildListEvent(this);
@@ -2576,6 +2680,8 @@ class _$AddViewPlayerGetChildListEventImpl
     TResult? Function(AddViewPlayerGetChildListEvent value)? getChildListEvent,
     TResult? Function(AddViewPlayerChildSelectionToggleEvent value)?
         childSelectionToggle,
+    TResult? Function(AddViewPlayerChildProfilePhotoEvent value)?
+        setChileProfilePic,
     TResult? Function(ResetAddViewEvent value)? resetAddViewPlayerEvent,
   }) {
     return getChildListEvent?.call(this);
@@ -2601,6 +2707,8 @@ class _$AddViewPlayerGetChildListEventImpl
     TResult Function(AddViewPlayerGetChildListEvent value)? getChildListEvent,
     TResult Function(AddViewPlayerChildSelectionToggleEvent value)?
         childSelectionToggle,
+    TResult Function(AddViewPlayerChildProfilePhotoEvent value)?
+        setChileProfilePic,
     TResult Function(ResetAddViewEvent value)? resetAddViewPlayerEvent,
     required TResult orElse(),
   }) {
@@ -2703,6 +2811,7 @@ class _$AddViewPlayerChildSelectionToggleEventImpl
     required TResult Function() submitButtonPress,
     required TResult Function() getChildListEvent,
     required TResult Function(int index) childSelectionToggle,
+    required TResult Function(File file) setChileProfilePic,
     required TResult Function() resetAddViewPlayerEvent,
   }) {
     return childSelectionToggle(index);
@@ -2723,6 +2832,7 @@ class _$AddViewPlayerChildSelectionToggleEventImpl
     TResult? Function()? submitButtonPress,
     TResult? Function()? getChildListEvent,
     TResult? Function(int index)? childSelectionToggle,
+    TResult? Function(File file)? setChileProfilePic,
     TResult? Function()? resetAddViewPlayerEvent,
   }) {
     return childSelectionToggle?.call(index);
@@ -2743,6 +2853,7 @@ class _$AddViewPlayerChildSelectionToggleEventImpl
     TResult Function()? submitButtonPress,
     TResult Function()? getChildListEvent,
     TResult Function(int index)? childSelectionToggle,
+    TResult Function(File file)? setChileProfilePic,
     TResult Function()? resetAddViewPlayerEvent,
     required TResult orElse(),
   }) {
@@ -2773,6 +2884,8 @@ class _$AddViewPlayerChildSelectionToggleEventImpl
         getChildListEvent,
     required TResult Function(AddViewPlayerChildSelectionToggleEvent value)
         childSelectionToggle,
+    required TResult Function(AddViewPlayerChildProfilePhotoEvent value)
+        setChileProfilePic,
     required TResult Function(ResetAddViewEvent value) resetAddViewPlayerEvent,
   }) {
     return childSelectionToggle(this);
@@ -2798,6 +2911,8 @@ class _$AddViewPlayerChildSelectionToggleEventImpl
     TResult? Function(AddViewPlayerGetChildListEvent value)? getChildListEvent,
     TResult? Function(AddViewPlayerChildSelectionToggleEvent value)?
         childSelectionToggle,
+    TResult? Function(AddViewPlayerChildProfilePhotoEvent value)?
+        setChileProfilePic,
     TResult? Function(ResetAddViewEvent value)? resetAddViewPlayerEvent,
   }) {
     return childSelectionToggle?.call(this);
@@ -2823,6 +2938,8 @@ class _$AddViewPlayerChildSelectionToggleEventImpl
     TResult Function(AddViewPlayerGetChildListEvent value)? getChildListEvent,
     TResult Function(AddViewPlayerChildSelectionToggleEvent value)?
         childSelectionToggle,
+    TResult Function(AddViewPlayerChildProfilePhotoEvent value)?
+        setChileProfilePic,
     TResult Function(ResetAddViewEvent value)? resetAddViewPlayerEvent,
     required TResult orElse(),
   }) {
@@ -2845,6 +2962,246 @@ abstract class AddViewPlayerChildSelectionToggleEvent
   @JsonKey(includeFromJson: false, includeToJson: false)
   _$$AddViewPlayerChildSelectionToggleEventImplCopyWith<
           _$AddViewPlayerChildSelectionToggleEventImpl>
+      get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$AddViewPlayerChildProfilePhotoEventImplCopyWith<$Res> {
+  factory _$$AddViewPlayerChildProfilePhotoEventImplCopyWith(
+          _$AddViewPlayerChildProfilePhotoEventImpl value,
+          $Res Function(_$AddViewPlayerChildProfilePhotoEventImpl) then) =
+      __$$AddViewPlayerChildProfilePhotoEventImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({File file});
+}
+
+/// @nodoc
+class __$$AddViewPlayerChildProfilePhotoEventImplCopyWithImpl<$Res>
+    extends _$AddViewPlayerEventCopyWithImpl<$Res,
+        _$AddViewPlayerChildProfilePhotoEventImpl>
+    implements _$$AddViewPlayerChildProfilePhotoEventImplCopyWith<$Res> {
+  __$$AddViewPlayerChildProfilePhotoEventImplCopyWithImpl(
+      _$AddViewPlayerChildProfilePhotoEventImpl _value,
+      $Res Function(_$AddViewPlayerChildProfilePhotoEventImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of AddViewPlayerEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? file = null,
+  }) {
+    return _then(_$AddViewPlayerChildProfilePhotoEventImpl(
+      null == file
+          ? _value.file
+          : file // ignore: cast_nullable_to_non_nullable
+              as File,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$AddViewPlayerChildProfilePhotoEventImpl
+    implements AddViewPlayerChildProfilePhotoEvent {
+  const _$AddViewPlayerChildProfilePhotoEventImpl(this.file);
+
+  @override
+  final File file;
+
+  @override
+  String toString() {
+    return 'AddViewPlayerEvent.setChileProfilePic(file: $file)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$AddViewPlayerChildProfilePhotoEventImpl &&
+            (identical(other.file, file) || other.file == file));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, file);
+
+  /// Create a copy of AddViewPlayerEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$AddViewPlayerChildProfilePhotoEventImplCopyWith<
+          _$AddViewPlayerChildProfilePhotoEventImpl>
+      get copyWith => __$$AddViewPlayerChildProfilePhotoEventImplCopyWithImpl<
+          _$AddViewPlayerChildProfilePhotoEventImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(int tabno) selectedTab,
+    required TResult Function(int consentStatus) childPhotoConsent,
+    required TResult Function(int firstAidStatus) administratorFirstAid,
+    required TResult Function(String childName) childName,
+    required TResult Function(String age) childAge,
+    required TResult Function(String dob) childDob,
+    required TResult Function(String schoolName) schoolName,
+    required TResult Function(String clubName) clubName,
+    required TResult Function(String medicalCondition) medicalCondition,
+    required TResult Function() submitButtonPress,
+    required TResult Function() getChildListEvent,
+    required TResult Function(int index) childSelectionToggle,
+    required TResult Function(File file) setChileProfilePic,
+    required TResult Function() resetAddViewPlayerEvent,
+  }) {
+    return setChileProfilePic(file);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(int tabno)? selectedTab,
+    TResult? Function(int consentStatus)? childPhotoConsent,
+    TResult? Function(int firstAidStatus)? administratorFirstAid,
+    TResult? Function(String childName)? childName,
+    TResult? Function(String age)? childAge,
+    TResult? Function(String dob)? childDob,
+    TResult? Function(String schoolName)? schoolName,
+    TResult? Function(String clubName)? clubName,
+    TResult? Function(String medicalCondition)? medicalCondition,
+    TResult? Function()? submitButtonPress,
+    TResult? Function()? getChildListEvent,
+    TResult? Function(int index)? childSelectionToggle,
+    TResult? Function(File file)? setChileProfilePic,
+    TResult? Function()? resetAddViewPlayerEvent,
+  }) {
+    return setChileProfilePic?.call(file);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(int tabno)? selectedTab,
+    TResult Function(int consentStatus)? childPhotoConsent,
+    TResult Function(int firstAidStatus)? administratorFirstAid,
+    TResult Function(String childName)? childName,
+    TResult Function(String age)? childAge,
+    TResult Function(String dob)? childDob,
+    TResult Function(String schoolName)? schoolName,
+    TResult Function(String clubName)? clubName,
+    TResult Function(String medicalCondition)? medicalCondition,
+    TResult Function()? submitButtonPress,
+    TResult Function()? getChildListEvent,
+    TResult Function(int index)? childSelectionToggle,
+    TResult Function(File file)? setChileProfilePic,
+    TResult Function()? resetAddViewPlayerEvent,
+    required TResult orElse(),
+  }) {
+    if (setChileProfilePic != null) {
+      return setChileProfilePic(file);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(AddViewPlayerSelectedTabEvent value) selectedTab,
+    required TResult Function(AddViewPlayerChiclPhotoConsentEvent value)
+        childPhotoConsent,
+    required TResult Function(AddViewPlayeAdministratorFirstAidEvent value)
+        administratorFirstAid,
+    required TResult Function(AddViewPlayerChildNameEvent value) childName,
+    required TResult Function(AddViewPlayerChildAgeEvent value) childAge,
+    required TResult Function(AddViewPlayerChildDobEvent value) childDob,
+    required TResult Function(AddViewPlayerSchoolNameEvent value) schoolName,
+    required TResult Function(AddViewPlayerClubNameEvent value) clubName,
+    required TResult Function(AddViewPlayerTessUsMedicalConditionEvent value)
+        medicalCondition,
+    required TResult Function(AddViewPlayerSubmitButtonPressEvent value)
+        submitButtonPress,
+    required TResult Function(AddViewPlayerGetChildListEvent value)
+        getChildListEvent,
+    required TResult Function(AddViewPlayerChildSelectionToggleEvent value)
+        childSelectionToggle,
+    required TResult Function(AddViewPlayerChildProfilePhotoEvent value)
+        setChileProfilePic,
+    required TResult Function(ResetAddViewEvent value) resetAddViewPlayerEvent,
+  }) {
+    return setChileProfilePic(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(AddViewPlayerSelectedTabEvent value)? selectedTab,
+    TResult? Function(AddViewPlayerChiclPhotoConsentEvent value)?
+        childPhotoConsent,
+    TResult? Function(AddViewPlayeAdministratorFirstAidEvent value)?
+        administratorFirstAid,
+    TResult? Function(AddViewPlayerChildNameEvent value)? childName,
+    TResult? Function(AddViewPlayerChildAgeEvent value)? childAge,
+    TResult? Function(AddViewPlayerChildDobEvent value)? childDob,
+    TResult? Function(AddViewPlayerSchoolNameEvent value)? schoolName,
+    TResult? Function(AddViewPlayerClubNameEvent value)? clubName,
+    TResult? Function(AddViewPlayerTessUsMedicalConditionEvent value)?
+        medicalCondition,
+    TResult? Function(AddViewPlayerSubmitButtonPressEvent value)?
+        submitButtonPress,
+    TResult? Function(AddViewPlayerGetChildListEvent value)? getChildListEvent,
+    TResult? Function(AddViewPlayerChildSelectionToggleEvent value)?
+        childSelectionToggle,
+    TResult? Function(AddViewPlayerChildProfilePhotoEvent value)?
+        setChileProfilePic,
+    TResult? Function(ResetAddViewEvent value)? resetAddViewPlayerEvent,
+  }) {
+    return setChileProfilePic?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(AddViewPlayerSelectedTabEvent value)? selectedTab,
+    TResult Function(AddViewPlayerChiclPhotoConsentEvent value)?
+        childPhotoConsent,
+    TResult Function(AddViewPlayeAdministratorFirstAidEvent value)?
+        administratorFirstAid,
+    TResult Function(AddViewPlayerChildNameEvent value)? childName,
+    TResult Function(AddViewPlayerChildAgeEvent value)? childAge,
+    TResult Function(AddViewPlayerChildDobEvent value)? childDob,
+    TResult Function(AddViewPlayerSchoolNameEvent value)? schoolName,
+    TResult Function(AddViewPlayerClubNameEvent value)? clubName,
+    TResult Function(AddViewPlayerTessUsMedicalConditionEvent value)?
+        medicalCondition,
+    TResult Function(AddViewPlayerSubmitButtonPressEvent value)?
+        submitButtonPress,
+    TResult Function(AddViewPlayerGetChildListEvent value)? getChildListEvent,
+    TResult Function(AddViewPlayerChildSelectionToggleEvent value)?
+        childSelectionToggle,
+    TResult Function(AddViewPlayerChildProfilePhotoEvent value)?
+        setChileProfilePic,
+    TResult Function(ResetAddViewEvent value)? resetAddViewPlayerEvent,
+    required TResult orElse(),
+  }) {
+    if (setChileProfilePic != null) {
+      return setChileProfilePic(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class AddViewPlayerChildProfilePhotoEvent
+    implements AddViewPlayerEvent {
+  const factory AddViewPlayerChildProfilePhotoEvent(final File file) =
+      _$AddViewPlayerChildProfilePhotoEventImpl;
+
+  File get file;
+
+  /// Create a copy of AddViewPlayerEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$AddViewPlayerChildProfilePhotoEventImplCopyWith<
+          _$AddViewPlayerChildProfilePhotoEventImpl>
       get copyWith => throw _privateConstructorUsedError;
 }
 
@@ -2901,6 +3258,7 @@ class _$ResetAddViewEventImpl implements ResetAddViewEvent {
     required TResult Function() submitButtonPress,
     required TResult Function() getChildListEvent,
     required TResult Function(int index) childSelectionToggle,
+    required TResult Function(File file) setChileProfilePic,
     required TResult Function() resetAddViewPlayerEvent,
   }) {
     return resetAddViewPlayerEvent();
@@ -2921,6 +3279,7 @@ class _$ResetAddViewEventImpl implements ResetAddViewEvent {
     TResult? Function()? submitButtonPress,
     TResult? Function()? getChildListEvent,
     TResult? Function(int index)? childSelectionToggle,
+    TResult? Function(File file)? setChileProfilePic,
     TResult? Function()? resetAddViewPlayerEvent,
   }) {
     return resetAddViewPlayerEvent?.call();
@@ -2941,6 +3300,7 @@ class _$ResetAddViewEventImpl implements ResetAddViewEvent {
     TResult Function()? submitButtonPress,
     TResult Function()? getChildListEvent,
     TResult Function(int index)? childSelectionToggle,
+    TResult Function(File file)? setChileProfilePic,
     TResult Function()? resetAddViewPlayerEvent,
     required TResult orElse(),
   }) {
@@ -2971,6 +3331,8 @@ class _$ResetAddViewEventImpl implements ResetAddViewEvent {
         getChildListEvent,
     required TResult Function(AddViewPlayerChildSelectionToggleEvent value)
         childSelectionToggle,
+    required TResult Function(AddViewPlayerChildProfilePhotoEvent value)
+        setChileProfilePic,
     required TResult Function(ResetAddViewEvent value) resetAddViewPlayerEvent,
   }) {
     return resetAddViewPlayerEvent(this);
@@ -2996,6 +3358,8 @@ class _$ResetAddViewEventImpl implements ResetAddViewEvent {
     TResult? Function(AddViewPlayerGetChildListEvent value)? getChildListEvent,
     TResult? Function(AddViewPlayerChildSelectionToggleEvent value)?
         childSelectionToggle,
+    TResult? Function(AddViewPlayerChildProfilePhotoEvent value)?
+        setChileProfilePic,
     TResult? Function(ResetAddViewEvent value)? resetAddViewPlayerEvent,
   }) {
     return resetAddViewPlayerEvent?.call(this);
@@ -3021,6 +3385,8 @@ class _$ResetAddViewEventImpl implements ResetAddViewEvent {
     TResult Function(AddViewPlayerGetChildListEvent value)? getChildListEvent,
     TResult Function(AddViewPlayerChildSelectionToggleEvent value)?
         childSelectionToggle,
+    TResult Function(AddViewPlayerChildProfilePhotoEvent value)?
+        setChileProfilePic,
     TResult Function(ResetAddViewEvent value)? resetAddViewPlayerEvent,
     required TResult orElse(),
   }) {

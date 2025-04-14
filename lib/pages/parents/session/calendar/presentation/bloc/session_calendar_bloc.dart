@@ -136,6 +136,7 @@ class SessionCalendarBloc
       isAvailablityLoading: false,
       isLoading: true,
       isTimeAddedLoading: true,
+      isTimeAddedSuccess:false,
     ));
     print(stringifiedBody);
     final response =
@@ -172,6 +173,7 @@ class SessionCalendarBloc
     emit(state.copyWith(
       isAvailablityLoading: false,
       isLoading: true,
+      isTimeAddedSuccess:false,
       isTimeAddedLoading: true,
     ));
     print(stringifiedBody);
@@ -208,6 +210,7 @@ class SessionCalendarBloc
   Future<void> _setCurrentDate(
       CurrentDateEvent event, Emitter<SessionCalendarState> emit) async {
     emit(state.copyWith(
+        isTimeAddedSuccess:false,
         isLoading: false,
         isError: false,
         isLoginApiError: false,
@@ -231,6 +234,7 @@ class SessionCalendarBloc
       }
 
       emit(state.copyWith(
+        isTimeAddedSuccess:false,
         isLoading: true,
         isTimeAddedLoading: false,
         isAvailablityLoading: false,
@@ -306,6 +310,7 @@ class SessionCalendarBloc
           isLoginApiError: false,
           success: false,
           error: '',
+          isTimeAddedSuccess:false,
           avilableDatesResponse: AvailableDatesResponse()));
 
       final response =

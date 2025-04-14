@@ -46,6 +46,7 @@ import 'package:http/http.dart' as http;
 
 import '../bloc/create_account_event.dart';
 import '../bloc/create_account_state.dart';
+import 'component/terms_cehck.dart';
 
 class CreateAccount extends StatelessWidget {
   CreateAccount({super.key});
@@ -54,6 +55,7 @@ class CreateAccount extends StatelessWidget {
 
   // TextEditingControllers for email and password
   final TextEditingController emailController = TextEditingController();
+  final TextEditingController phoneController = TextEditingController();
   final TextEditingController firstNameController = TextEditingController();
   final TextEditingController lastNameController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
@@ -147,6 +149,11 @@ class CreateAccount extends StatelessWidget {
                                   alignment: WrapAlignment.center,
                                   crossAxisAlignment: WrapCrossAlignment.center,
                                   children: <Widget>[
+                                    ScreenTitleaa(title: getIt<SharedPrefs>().getString("academy_name"))
+                                        .animate()
+                                        .fadeIn(duration: 1.2.seconds)
+                                        .slideY(begin: -0.2, duration: 1.2.seconds),
+
                                     const ScreenTitle(title: "Create Account")
                                         .animate()
                                         .fade(duration: 1.5.seconds)
@@ -160,7 +167,7 @@ class CreateAccount extends StatelessWidget {
                                 Padding(
                                   padding: const EdgeInsets.only(left: 8.0, right: 8.0),
                                   child: ScreenSubTitle(
-                                    subtitle: "Fill your information below or register with your social account",
+                                    subtitle: "Fill your information below.",
                                   )
                                       .animate()
                                       .fadeIn(duration: 1.2.seconds)
@@ -221,6 +228,34 @@ class CreateAccount extends StatelessWidget {
                                     .slideX(begin: 0.2, duration: 1.3.seconds, curve: Curves.easeOut),
                                 SizedBox(height: 12),
                                 CustomTextInputMobile(
+                                  controller: phoneController,
+                                  title: "Phone no",
+                                  isPass: false,
+                                  isSuffix: false,
+                                  isPrefix: true,
+                                  keyBoardType: TextInputType.phone,
+                                  hint: 'Enter your phone no',
+                                  prefixIcon: Image.asset(
+                                    'assets/images/phone_no.png',
+                                    width: 12,
+                                    height: 12,
+                                    color: AppColor.appWhiteColor,
+                                  ),
+                                  focusNode: phoneNoFocusNode,
+                                  onChanged: (value) {
+                                    context.read<CreateAccountBloc>().add(PhoneChanged(value));
+                                  },
+                                  errorMessage: state.errorMessage == "Please enter your phone no" ||
+                                      state.errorMessage == "Please enter a valid phone no"
+                                      ? state.errorMessage
+                                      : null,
+                                )
+                                    .animate()
+                                    .fadeIn(duration: 1.3.seconds)
+                                    .slideX(begin: 0.2, duration: 1.3.seconds, curve: Curves.easeOut),
+                                SizedBox(height: 12),
+
+                                CustomTextInputMobile(
                                   isPrefix: false,
                                   controller: passwordController,
                                   title: "Password",
@@ -273,6 +308,12 @@ class CreateAccount extends StatelessWidget {
                                     .slideX(begin: 0.2, duration: 1.3.seconds, curve: Curves.easeOut),
 
                                 const SizedBox(height: 12),
+                                TermsCheckbox(
+                                  isChecked: state.acceptTerms,
+                                  onChanged: (value) {
+                                    context.read<CreateAccountBloc>().add(ToggleTermsEvent(value));
+                                  },
+                                ),
                                 SizedBox(height: height * 0.03),
                                 // Create Account Button
                                 CustomButton(

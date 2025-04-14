@@ -2,8 +2,11 @@ import 'package:intl/intl.dart';
 import 'package:rra/common/component/component_export.dart';
 import 'package:rra/common/values/values_exports.dart';
 
+import '../../../../../../../common/image/camera_file_utility.dart';
+import '../../../../../../../common/image/camera_gallery_dialog.dart';
 import '../../../../../../../common/routes/exports.dart';
 import '../../../../../../../common/routes/routes.dart';
+import '../../../../../../auth/edit_profile/presentation/ui/component/edit_profile_appbar.dart';
 import '../../bloc/add_view_player_bloc.dart';
 import '../../bloc/add_view_player_event.dart';
 import '../../bloc/add_view_player_state.dart';
@@ -40,6 +43,17 @@ class AddChild extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[
+        ChildProfileAppbar(
+          onBackPressed: () {
+            Navigator.pop(context);
+          },
+          editClcikAction: () {},
+          onCameraClick: () {
+            chooseImageFromGalleryOrCameraMobile(context);
+          },
+          title: "Edit Profile",
+          isShowEditClick: false,
+        ),
         CustomTextInputMobile(
           controller: firstNameController,
           title: "Child Name",
@@ -61,71 +75,44 @@ class AddChild extends StatelessWidget {
         const SizedBox(
           height: 12,
         ),
-        Row(
-          children: <Widget>[
-            Expanded(
-              flex: 1,
-              child: CustomTextInputMobile(
-                controller: dobController,
-                title: "Child Date Of Birth",
-                isShowTitle: true,
-                isPass: false,
-                isSuffix: false,
-                isPrefix: false,
-                readOnly: true,
-                hint: 'Enter Date Of Birth',
-                keyBoardType: TextInputType.name,
-                onChanged: (value) {
-                  context.read<AddViewPlayerBloc>().add(
-                      AddViewPlayerChildDobEvent(value));
-                },
-                onTap: () async {
-                  // Open the date picker when tapped
-                  DateTime? pickedDate = await showDatePicker(
-                    context: context,
-                    initialDate: DateTime.now(),
-                    firstDate: DateTime(1900),
-                    // Set a reasonable range for dates
-                    lastDate: DateTime.now(),
-                  );
+        CustomTextInputMobile(
+          controller: dobController,
+          title: "Child Date Of Birth",
+          isShowTitle: true,
+          isPass: false,
+          isSuffix: false,
+          isPrefix: false,
+          readOnly: true,
+          hint: 'Enter Date Of Birth',
+          keyBoardType: TextInputType.name,
+          onChanged: (value) {
+            context.read<AddViewPlayerBloc>().add(
+                AddViewPlayerChildDobEvent(value));
+          },
+          onTap: () async {
+            // Open the date picker when tapped
+            DateTime? pickedDate = await showDatePicker(
+              context: context,
+              initialDate: DateTime.now(),
+              firstDate: DateTime(1900),
+              // Set a reasonable range for dates
+              lastDate: DateTime.now(),
+            );
 
-                  if (pickedDate != null) {
-                    // Format the date as a string
-                    String formattedDate = DateFormat('yyyy-MM-dd')
-                        .format(pickedDate);
+            if (pickedDate != null) {
+              // Format the date as a string
+              String formattedDate = DateFormat('yyyy-MM-dd')
+                  .format(pickedDate);
 
-                    // Update the text field with the selected date
-                    dobController.text = formattedDate;
+              // Update the text field with the selected date
+              dobController.text = formattedDate;
 
-                    // Optionally dispatch an event to update the state
-                    context.read<AddViewPlayerBloc>().add(
-                        AddViewPlayerChildDobEvent(formattedDate));
-                  }
-                },
-                errorMessage: "",
-              ),
-            ),
-            SizedBox(width: context.screenWidth * 0.04),
-            Expanded(
-              flex: 1,
-              child: CustomTextInputMobile(
-                controller: ageController,
-                title: "Child Age Group",
-                isShowTitle: true,
-                isPass: false,
-                isSuffix: false,
-                isPrefix: false,
-                hint: 'Enter Age',
-
-                keyBoardType: TextInputType.number,
-                onChanged: (value) {
-                  context.read<AddViewPlayerBloc>().add(
-                      AddViewPlayerChildAgeEvent(value));
-                },
-                errorMessage: "",
-              ),
-            ),
-          ],
+              // Optionally dispatch an event to update the state
+              context.read<AddViewPlayerBloc>().add(
+                  AddViewPlayerChildDobEvent(formattedDate));
+            }
+          },
+          errorMessage: "",
         ),
         const SizedBox(
           height: 12,
@@ -305,4 +292,29 @@ class AddChild extends StatelessWidget {
       ],
     );
   }
+  void chooseImageFromGalleryOrCameraMobile(BuildContext context) async {
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return CameraGalleryDialogMobile(
+              () async {
+            var bloc = BlocProvider.of<AddViewPlayerBloc>(context);
+            var image = await CameraFileUtility().openCame(context);
+            if (image != null) {
+              bloc.add(AddViewPlayerChildProfilePhotoEvent(image));
+            }
+          },
+              () async {
+            var bloc = BlocProvider.of<AddViewPlayerBloc>(context);
+            var image = await CameraFileUtility().openGallery(context);
+            if (image != null) {
+              bloc.add(AddViewPlayerChildProfilePhotoEvent(image));
+            }
+          },
+          "Add Picture",
+        );
+      },
+    );
+  }
+
 }

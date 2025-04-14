@@ -22,7 +22,7 @@ extension BottomTabsExtension on List<BottomNavigationBarItem> {
   List<BottomNavigationBarItem> bottomTabs(double width, double height) {
     return [
       BottomNavigationBarItem(
-        label: "Teams",
+        label: "Programs",
         icon: SizedBox(
             width: width * 0.4,
             height: height * 0.0300,
@@ -34,7 +34,7 @@ extension BottomTabsExtension on List<BottomNavigationBarItem> {
         ),
       ),
       BottomNavigationBarItem(
-        label: "News",
+        label: "Camps",
         icon: SizedBox(
             width: width * 0.4,
             height: height * 0.0300,
@@ -49,7 +49,7 @@ extension BottomTabsExtension on List<BottomNavigationBarItem> {
         label: "Logout",
         icon: SizedBox(
           width: width * 0.10,
-          height: height * 0.028,
+          height: height * 0.02,
           child: Image.asset("assets/images/logout.png",color: Colors.white,),
         ),
         activeIcon: SizedBox(

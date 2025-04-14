@@ -20,6 +20,8 @@ mixin _$CreateAccountEvent {
   TResult when<TResult extends Object?>({
     required TResult Function(String firstName) firstNameChanged,
     required TResult Function(String email) emailChanged,
+    required TResult Function(String phone) phoneChanged,
+    required TResult Function(bool toggleStatus) toggleTerms,
     required TResult Function(String password) passwordChanged,
     required TResult Function(String password) confirmPasswordChanged,
     required TResult Function(String academicId) selectAcademicCreateAccount,
@@ -31,6 +33,8 @@ mixin _$CreateAccountEvent {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(String firstName)? firstNameChanged,
     TResult? Function(String email)? emailChanged,
+    TResult? Function(String phone)? phoneChanged,
+    TResult? Function(bool toggleStatus)? toggleTerms,
     TResult? Function(String password)? passwordChanged,
     TResult? Function(String password)? confirmPasswordChanged,
     TResult? Function(String academicId)? selectAcademicCreateAccount,
@@ -42,6 +46,8 @@ mixin _$CreateAccountEvent {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String firstName)? firstNameChanged,
     TResult Function(String email)? emailChanged,
+    TResult Function(String phone)? phoneChanged,
+    TResult Function(bool toggleStatus)? toggleTerms,
     TResult Function(String password)? passwordChanged,
     TResult Function(String password)? confirmPasswordChanged,
     TResult Function(String academicId)? selectAcademicCreateAccount,
@@ -54,6 +60,8 @@ mixin _$CreateAccountEvent {
   TResult map<TResult extends Object?>({
     required TResult Function(FirstNameChanged value) firstNameChanged,
     required TResult Function(EmailChanged value) emailChanged,
+    required TResult Function(PhoneChanged value) phoneChanged,
+    required TResult Function(ToggleTermsEvent value) toggleTerms,
     required TResult Function(PasswordChanged value) passwordChanged,
     required TResult Function(ConfirmPasswordChanged value)
         confirmPasswordChanged,
@@ -68,6 +76,8 @@ mixin _$CreateAccountEvent {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(FirstNameChanged value)? firstNameChanged,
     TResult? Function(EmailChanged value)? emailChanged,
+    TResult? Function(PhoneChanged value)? phoneChanged,
+    TResult? Function(ToggleTermsEvent value)? toggleTerms,
     TResult? Function(PasswordChanged value)? passwordChanged,
     TResult? Function(ConfirmPasswordChanged value)? confirmPasswordChanged,
     TResult? Function(SelectAcademicCreateAccount value)?
@@ -80,6 +90,8 @@ mixin _$CreateAccountEvent {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(FirstNameChanged value)? firstNameChanged,
     TResult Function(EmailChanged value)? emailChanged,
+    TResult Function(PhoneChanged value)? phoneChanged,
+    TResult Function(ToggleTermsEvent value)? toggleTerms,
     TResult Function(PasswordChanged value)? passwordChanged,
     TResult Function(ConfirmPasswordChanged value)? confirmPasswordChanged,
     TResult Function(SelectAcademicCreateAccount value)?
@@ -184,6 +196,8 @@ class _$FirstNameChangedImpl implements FirstNameChanged {
   TResult when<TResult extends Object?>({
     required TResult Function(String firstName) firstNameChanged,
     required TResult Function(String email) emailChanged,
+    required TResult Function(String phone) phoneChanged,
+    required TResult Function(bool toggleStatus) toggleTerms,
     required TResult Function(String password) passwordChanged,
     required TResult Function(String password) confirmPasswordChanged,
     required TResult Function(String academicId) selectAcademicCreateAccount,
@@ -198,6 +212,8 @@ class _$FirstNameChangedImpl implements FirstNameChanged {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(String firstName)? firstNameChanged,
     TResult? Function(String email)? emailChanged,
+    TResult? Function(String phone)? phoneChanged,
+    TResult? Function(bool toggleStatus)? toggleTerms,
     TResult? Function(String password)? passwordChanged,
     TResult? Function(String password)? confirmPasswordChanged,
     TResult? Function(String academicId)? selectAcademicCreateAccount,
@@ -212,6 +228,8 @@ class _$FirstNameChangedImpl implements FirstNameChanged {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String firstName)? firstNameChanged,
     TResult Function(String email)? emailChanged,
+    TResult Function(String phone)? phoneChanged,
+    TResult Function(bool toggleStatus)? toggleTerms,
     TResult Function(String password)? passwordChanged,
     TResult Function(String password)? confirmPasswordChanged,
     TResult Function(String academicId)? selectAcademicCreateAccount,
@@ -230,6 +248,8 @@ class _$FirstNameChangedImpl implements FirstNameChanged {
   TResult map<TResult extends Object?>({
     required TResult Function(FirstNameChanged value) firstNameChanged,
     required TResult Function(EmailChanged value) emailChanged,
+    required TResult Function(PhoneChanged value) phoneChanged,
+    required TResult Function(ToggleTermsEvent value) toggleTerms,
     required TResult Function(PasswordChanged value) passwordChanged,
     required TResult Function(ConfirmPasswordChanged value)
         confirmPasswordChanged,
@@ -247,6 +267,8 @@ class _$FirstNameChangedImpl implements FirstNameChanged {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(FirstNameChanged value)? firstNameChanged,
     TResult? Function(EmailChanged value)? emailChanged,
+    TResult? Function(PhoneChanged value)? phoneChanged,
+    TResult? Function(ToggleTermsEvent value)? toggleTerms,
     TResult? Function(PasswordChanged value)? passwordChanged,
     TResult? Function(ConfirmPasswordChanged value)? confirmPasswordChanged,
     TResult? Function(SelectAcademicCreateAccount value)?
@@ -262,6 +284,8 @@ class _$FirstNameChangedImpl implements FirstNameChanged {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(FirstNameChanged value)? firstNameChanged,
     TResult Function(EmailChanged value)? emailChanged,
+    TResult Function(PhoneChanged value)? phoneChanged,
+    TResult Function(ToggleTermsEvent value)? toggleTerms,
     TResult Function(PasswordChanged value)? passwordChanged,
     TResult Function(ConfirmPasswordChanged value)? confirmPasswordChanged,
     TResult Function(SelectAcademicCreateAccount value)?
@@ -360,6 +384,8 @@ class _$EmailChangedImpl implements EmailChanged {
   TResult when<TResult extends Object?>({
     required TResult Function(String firstName) firstNameChanged,
     required TResult Function(String email) emailChanged,
+    required TResult Function(String phone) phoneChanged,
+    required TResult Function(bool toggleStatus) toggleTerms,
     required TResult Function(String password) passwordChanged,
     required TResult Function(String password) confirmPasswordChanged,
     required TResult Function(String academicId) selectAcademicCreateAccount,
@@ -374,6 +400,8 @@ class _$EmailChangedImpl implements EmailChanged {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(String firstName)? firstNameChanged,
     TResult? Function(String email)? emailChanged,
+    TResult? Function(String phone)? phoneChanged,
+    TResult? Function(bool toggleStatus)? toggleTerms,
     TResult? Function(String password)? passwordChanged,
     TResult? Function(String password)? confirmPasswordChanged,
     TResult? Function(String academicId)? selectAcademicCreateAccount,
@@ -388,6 +416,8 @@ class _$EmailChangedImpl implements EmailChanged {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String firstName)? firstNameChanged,
     TResult Function(String email)? emailChanged,
+    TResult Function(String phone)? phoneChanged,
+    TResult Function(bool toggleStatus)? toggleTerms,
     TResult Function(String password)? passwordChanged,
     TResult Function(String password)? confirmPasswordChanged,
     TResult Function(String academicId)? selectAcademicCreateAccount,
@@ -406,6 +436,8 @@ class _$EmailChangedImpl implements EmailChanged {
   TResult map<TResult extends Object?>({
     required TResult Function(FirstNameChanged value) firstNameChanged,
     required TResult Function(EmailChanged value) emailChanged,
+    required TResult Function(PhoneChanged value) phoneChanged,
+    required TResult Function(ToggleTermsEvent value) toggleTerms,
     required TResult Function(PasswordChanged value) passwordChanged,
     required TResult Function(ConfirmPasswordChanged value)
         confirmPasswordChanged,
@@ -423,6 +455,8 @@ class _$EmailChangedImpl implements EmailChanged {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(FirstNameChanged value)? firstNameChanged,
     TResult? Function(EmailChanged value)? emailChanged,
+    TResult? Function(PhoneChanged value)? phoneChanged,
+    TResult? Function(ToggleTermsEvent value)? toggleTerms,
     TResult? Function(PasswordChanged value)? passwordChanged,
     TResult? Function(ConfirmPasswordChanged value)? confirmPasswordChanged,
     TResult? Function(SelectAcademicCreateAccount value)?
@@ -438,6 +472,8 @@ class _$EmailChangedImpl implements EmailChanged {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(FirstNameChanged value)? firstNameChanged,
     TResult Function(EmailChanged value)? emailChanged,
+    TResult Function(PhoneChanged value)? phoneChanged,
+    TResult Function(ToggleTermsEvent value)? toggleTerms,
     TResult Function(PasswordChanged value)? passwordChanged,
     TResult Function(ConfirmPasswordChanged value)? confirmPasswordChanged,
     TResult Function(SelectAcademicCreateAccount value)?
@@ -462,6 +498,383 @@ abstract class EmailChanged implements CreateAccountEvent {
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
   _$$EmailChangedImplCopyWith<_$EmailChangedImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$PhoneChangedImplCopyWith<$Res> {
+  factory _$$PhoneChangedImplCopyWith(
+          _$PhoneChangedImpl value, $Res Function(_$PhoneChangedImpl) then) =
+      __$$PhoneChangedImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String phone});
+}
+
+/// @nodoc
+class __$$PhoneChangedImplCopyWithImpl<$Res>
+    extends _$CreateAccountEventCopyWithImpl<$Res, _$PhoneChangedImpl>
+    implements _$$PhoneChangedImplCopyWith<$Res> {
+  __$$PhoneChangedImplCopyWithImpl(
+      _$PhoneChangedImpl _value, $Res Function(_$PhoneChangedImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of CreateAccountEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? phone = null,
+  }) {
+    return _then(_$PhoneChangedImpl(
+      null == phone
+          ? _value.phone
+          : phone // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$PhoneChangedImpl implements PhoneChanged {
+  const _$PhoneChangedImpl(this.phone);
+
+  @override
+  final String phone;
+
+  @override
+  String toString() {
+    return 'CreateAccountEvent.phoneChanged(phone: $phone)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$PhoneChangedImpl &&
+            (identical(other.phone, phone) || other.phone == phone));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, phone);
+
+  /// Create a copy of CreateAccountEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$PhoneChangedImplCopyWith<_$PhoneChangedImpl> get copyWith =>
+      __$$PhoneChangedImplCopyWithImpl<_$PhoneChangedImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(String firstName) firstNameChanged,
+    required TResult Function(String email) emailChanged,
+    required TResult Function(String phone) phoneChanged,
+    required TResult Function(bool toggleStatus) toggleTerms,
+    required TResult Function(String password) passwordChanged,
+    required TResult Function(String password) confirmPasswordChanged,
+    required TResult Function(String academicId) selectAcademicCreateAccount,
+    required TResult Function() createAccountSubmitted,
+    required TResult Function() makeInitial,
+  }) {
+    return phoneChanged(phone);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(String firstName)? firstNameChanged,
+    TResult? Function(String email)? emailChanged,
+    TResult? Function(String phone)? phoneChanged,
+    TResult? Function(bool toggleStatus)? toggleTerms,
+    TResult? Function(String password)? passwordChanged,
+    TResult? Function(String password)? confirmPasswordChanged,
+    TResult? Function(String academicId)? selectAcademicCreateAccount,
+    TResult? Function()? createAccountSubmitted,
+    TResult? Function()? makeInitial,
+  }) {
+    return phoneChanged?.call(phone);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String firstName)? firstNameChanged,
+    TResult Function(String email)? emailChanged,
+    TResult Function(String phone)? phoneChanged,
+    TResult Function(bool toggleStatus)? toggleTerms,
+    TResult Function(String password)? passwordChanged,
+    TResult Function(String password)? confirmPasswordChanged,
+    TResult Function(String academicId)? selectAcademicCreateAccount,
+    TResult Function()? createAccountSubmitted,
+    TResult Function()? makeInitial,
+    required TResult orElse(),
+  }) {
+    if (phoneChanged != null) {
+      return phoneChanged(phone);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(FirstNameChanged value) firstNameChanged,
+    required TResult Function(EmailChanged value) emailChanged,
+    required TResult Function(PhoneChanged value) phoneChanged,
+    required TResult Function(ToggleTermsEvent value) toggleTerms,
+    required TResult Function(PasswordChanged value) passwordChanged,
+    required TResult Function(ConfirmPasswordChanged value)
+        confirmPasswordChanged,
+    required TResult Function(SelectAcademicCreateAccount value)
+        selectAcademicCreateAccount,
+    required TResult Function(CreateAccountSubmitted value)
+        createAccountSubmitted,
+    required TResult Function(MakeInitial value) makeInitial,
+  }) {
+    return phoneChanged(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(FirstNameChanged value)? firstNameChanged,
+    TResult? Function(EmailChanged value)? emailChanged,
+    TResult? Function(PhoneChanged value)? phoneChanged,
+    TResult? Function(ToggleTermsEvent value)? toggleTerms,
+    TResult? Function(PasswordChanged value)? passwordChanged,
+    TResult? Function(ConfirmPasswordChanged value)? confirmPasswordChanged,
+    TResult? Function(SelectAcademicCreateAccount value)?
+        selectAcademicCreateAccount,
+    TResult? Function(CreateAccountSubmitted value)? createAccountSubmitted,
+    TResult? Function(MakeInitial value)? makeInitial,
+  }) {
+    return phoneChanged?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(FirstNameChanged value)? firstNameChanged,
+    TResult Function(EmailChanged value)? emailChanged,
+    TResult Function(PhoneChanged value)? phoneChanged,
+    TResult Function(ToggleTermsEvent value)? toggleTerms,
+    TResult Function(PasswordChanged value)? passwordChanged,
+    TResult Function(ConfirmPasswordChanged value)? confirmPasswordChanged,
+    TResult Function(SelectAcademicCreateAccount value)?
+        selectAcademicCreateAccount,
+    TResult Function(CreateAccountSubmitted value)? createAccountSubmitted,
+    TResult Function(MakeInitial value)? makeInitial,
+    required TResult orElse(),
+  }) {
+    if (phoneChanged != null) {
+      return phoneChanged(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class PhoneChanged implements CreateAccountEvent {
+  const factory PhoneChanged(final String phone) = _$PhoneChangedImpl;
+
+  String get phone;
+
+  /// Create a copy of CreateAccountEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$PhoneChangedImplCopyWith<_$PhoneChangedImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$ToggleTermsEventImplCopyWith<$Res> {
+  factory _$$ToggleTermsEventImplCopyWith(_$ToggleTermsEventImpl value,
+          $Res Function(_$ToggleTermsEventImpl) then) =
+      __$$ToggleTermsEventImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({bool toggleStatus});
+}
+
+/// @nodoc
+class __$$ToggleTermsEventImplCopyWithImpl<$Res>
+    extends _$CreateAccountEventCopyWithImpl<$Res, _$ToggleTermsEventImpl>
+    implements _$$ToggleTermsEventImplCopyWith<$Res> {
+  __$$ToggleTermsEventImplCopyWithImpl(_$ToggleTermsEventImpl _value,
+      $Res Function(_$ToggleTermsEventImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of CreateAccountEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? toggleStatus = null,
+  }) {
+    return _then(_$ToggleTermsEventImpl(
+      null == toggleStatus
+          ? _value.toggleStatus
+          : toggleStatus // ignore: cast_nullable_to_non_nullable
+              as bool,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$ToggleTermsEventImpl implements ToggleTermsEvent {
+  const _$ToggleTermsEventImpl(this.toggleStatus);
+
+  @override
+  final bool toggleStatus;
+
+  @override
+  String toString() {
+    return 'CreateAccountEvent.toggleTerms(toggleStatus: $toggleStatus)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$ToggleTermsEventImpl &&
+            (identical(other.toggleStatus, toggleStatus) ||
+                other.toggleStatus == toggleStatus));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, toggleStatus);
+
+  /// Create a copy of CreateAccountEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$ToggleTermsEventImplCopyWith<_$ToggleTermsEventImpl> get copyWith =>
+      __$$ToggleTermsEventImplCopyWithImpl<_$ToggleTermsEventImpl>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(String firstName) firstNameChanged,
+    required TResult Function(String email) emailChanged,
+    required TResult Function(String phone) phoneChanged,
+    required TResult Function(bool toggleStatus) toggleTerms,
+    required TResult Function(String password) passwordChanged,
+    required TResult Function(String password) confirmPasswordChanged,
+    required TResult Function(String academicId) selectAcademicCreateAccount,
+    required TResult Function() createAccountSubmitted,
+    required TResult Function() makeInitial,
+  }) {
+    return toggleTerms(toggleStatus);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(String firstName)? firstNameChanged,
+    TResult? Function(String email)? emailChanged,
+    TResult? Function(String phone)? phoneChanged,
+    TResult? Function(bool toggleStatus)? toggleTerms,
+    TResult? Function(String password)? passwordChanged,
+    TResult? Function(String password)? confirmPasswordChanged,
+    TResult? Function(String academicId)? selectAcademicCreateAccount,
+    TResult? Function()? createAccountSubmitted,
+    TResult? Function()? makeInitial,
+  }) {
+    return toggleTerms?.call(toggleStatus);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String firstName)? firstNameChanged,
+    TResult Function(String email)? emailChanged,
+    TResult Function(String phone)? phoneChanged,
+    TResult Function(bool toggleStatus)? toggleTerms,
+    TResult Function(String password)? passwordChanged,
+    TResult Function(String password)? confirmPasswordChanged,
+    TResult Function(String academicId)? selectAcademicCreateAccount,
+    TResult Function()? createAccountSubmitted,
+    TResult Function()? makeInitial,
+    required TResult orElse(),
+  }) {
+    if (toggleTerms != null) {
+      return toggleTerms(toggleStatus);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(FirstNameChanged value) firstNameChanged,
+    required TResult Function(EmailChanged value) emailChanged,
+    required TResult Function(PhoneChanged value) phoneChanged,
+    required TResult Function(ToggleTermsEvent value) toggleTerms,
+    required TResult Function(PasswordChanged value) passwordChanged,
+    required TResult Function(ConfirmPasswordChanged value)
+        confirmPasswordChanged,
+    required TResult Function(SelectAcademicCreateAccount value)
+        selectAcademicCreateAccount,
+    required TResult Function(CreateAccountSubmitted value)
+        createAccountSubmitted,
+    required TResult Function(MakeInitial value) makeInitial,
+  }) {
+    return toggleTerms(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(FirstNameChanged value)? firstNameChanged,
+    TResult? Function(EmailChanged value)? emailChanged,
+    TResult? Function(PhoneChanged value)? phoneChanged,
+    TResult? Function(ToggleTermsEvent value)? toggleTerms,
+    TResult? Function(PasswordChanged value)? passwordChanged,
+    TResult? Function(ConfirmPasswordChanged value)? confirmPasswordChanged,
+    TResult? Function(SelectAcademicCreateAccount value)?
+        selectAcademicCreateAccount,
+    TResult? Function(CreateAccountSubmitted value)? createAccountSubmitted,
+    TResult? Function(MakeInitial value)? makeInitial,
+  }) {
+    return toggleTerms?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(FirstNameChanged value)? firstNameChanged,
+    TResult Function(EmailChanged value)? emailChanged,
+    TResult Function(PhoneChanged value)? phoneChanged,
+    TResult Function(ToggleTermsEvent value)? toggleTerms,
+    TResult Function(PasswordChanged value)? passwordChanged,
+    TResult Function(ConfirmPasswordChanged value)? confirmPasswordChanged,
+    TResult Function(SelectAcademicCreateAccount value)?
+        selectAcademicCreateAccount,
+    TResult Function(CreateAccountSubmitted value)? createAccountSubmitted,
+    TResult Function(MakeInitial value)? makeInitial,
+    required TResult orElse(),
+  }) {
+    if (toggleTerms != null) {
+      return toggleTerms(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class ToggleTermsEvent implements CreateAccountEvent {
+  const factory ToggleTermsEvent(final bool toggleStatus) =
+      _$ToggleTermsEventImpl;
+
+  bool get toggleStatus;
+
+  /// Create a copy of CreateAccountEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$ToggleTermsEventImplCopyWith<_$ToggleTermsEventImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -537,6 +950,8 @@ class _$PasswordChangedImpl implements PasswordChanged {
   TResult when<TResult extends Object?>({
     required TResult Function(String firstName) firstNameChanged,
     required TResult Function(String email) emailChanged,
+    required TResult Function(String phone) phoneChanged,
+    required TResult Function(bool toggleStatus) toggleTerms,
     required TResult Function(String password) passwordChanged,
     required TResult Function(String password) confirmPasswordChanged,
     required TResult Function(String academicId) selectAcademicCreateAccount,
@@ -551,6 +966,8 @@ class _$PasswordChangedImpl implements PasswordChanged {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(String firstName)? firstNameChanged,
     TResult? Function(String email)? emailChanged,
+    TResult? Function(String phone)? phoneChanged,
+    TResult? Function(bool toggleStatus)? toggleTerms,
     TResult? Function(String password)? passwordChanged,
     TResult? Function(String password)? confirmPasswordChanged,
     TResult? Function(String academicId)? selectAcademicCreateAccount,
@@ -565,6 +982,8 @@ class _$PasswordChangedImpl implements PasswordChanged {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String firstName)? firstNameChanged,
     TResult Function(String email)? emailChanged,
+    TResult Function(String phone)? phoneChanged,
+    TResult Function(bool toggleStatus)? toggleTerms,
     TResult Function(String password)? passwordChanged,
     TResult Function(String password)? confirmPasswordChanged,
     TResult Function(String academicId)? selectAcademicCreateAccount,
@@ -583,6 +1002,8 @@ class _$PasswordChangedImpl implements PasswordChanged {
   TResult map<TResult extends Object?>({
     required TResult Function(FirstNameChanged value) firstNameChanged,
     required TResult Function(EmailChanged value) emailChanged,
+    required TResult Function(PhoneChanged value) phoneChanged,
+    required TResult Function(ToggleTermsEvent value) toggleTerms,
     required TResult Function(PasswordChanged value) passwordChanged,
     required TResult Function(ConfirmPasswordChanged value)
         confirmPasswordChanged,
@@ -600,6 +1021,8 @@ class _$PasswordChangedImpl implements PasswordChanged {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(FirstNameChanged value)? firstNameChanged,
     TResult? Function(EmailChanged value)? emailChanged,
+    TResult? Function(PhoneChanged value)? phoneChanged,
+    TResult? Function(ToggleTermsEvent value)? toggleTerms,
     TResult? Function(PasswordChanged value)? passwordChanged,
     TResult? Function(ConfirmPasswordChanged value)? confirmPasswordChanged,
     TResult? Function(SelectAcademicCreateAccount value)?
@@ -615,6 +1038,8 @@ class _$PasswordChangedImpl implements PasswordChanged {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(FirstNameChanged value)? firstNameChanged,
     TResult Function(EmailChanged value)? emailChanged,
+    TResult Function(PhoneChanged value)? phoneChanged,
+    TResult Function(ToggleTermsEvent value)? toggleTerms,
     TResult Function(PasswordChanged value)? passwordChanged,
     TResult Function(ConfirmPasswordChanged value)? confirmPasswordChanged,
     TResult Function(SelectAcademicCreateAccount value)?
@@ -716,6 +1141,8 @@ class _$ConfirmPasswordChangedImpl implements ConfirmPasswordChanged {
   TResult when<TResult extends Object?>({
     required TResult Function(String firstName) firstNameChanged,
     required TResult Function(String email) emailChanged,
+    required TResult Function(String phone) phoneChanged,
+    required TResult Function(bool toggleStatus) toggleTerms,
     required TResult Function(String password) passwordChanged,
     required TResult Function(String password) confirmPasswordChanged,
     required TResult Function(String academicId) selectAcademicCreateAccount,
@@ -730,6 +1157,8 @@ class _$ConfirmPasswordChangedImpl implements ConfirmPasswordChanged {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(String firstName)? firstNameChanged,
     TResult? Function(String email)? emailChanged,
+    TResult? Function(String phone)? phoneChanged,
+    TResult? Function(bool toggleStatus)? toggleTerms,
     TResult? Function(String password)? passwordChanged,
     TResult? Function(String password)? confirmPasswordChanged,
     TResult? Function(String academicId)? selectAcademicCreateAccount,
@@ -744,6 +1173,8 @@ class _$ConfirmPasswordChangedImpl implements ConfirmPasswordChanged {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String firstName)? firstNameChanged,
     TResult Function(String email)? emailChanged,
+    TResult Function(String phone)? phoneChanged,
+    TResult Function(bool toggleStatus)? toggleTerms,
     TResult Function(String password)? passwordChanged,
     TResult Function(String password)? confirmPasswordChanged,
     TResult Function(String academicId)? selectAcademicCreateAccount,
@@ -762,6 +1193,8 @@ class _$ConfirmPasswordChangedImpl implements ConfirmPasswordChanged {
   TResult map<TResult extends Object?>({
     required TResult Function(FirstNameChanged value) firstNameChanged,
     required TResult Function(EmailChanged value) emailChanged,
+    required TResult Function(PhoneChanged value) phoneChanged,
+    required TResult Function(ToggleTermsEvent value) toggleTerms,
     required TResult Function(PasswordChanged value) passwordChanged,
     required TResult Function(ConfirmPasswordChanged value)
         confirmPasswordChanged,
@@ -779,6 +1212,8 @@ class _$ConfirmPasswordChangedImpl implements ConfirmPasswordChanged {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(FirstNameChanged value)? firstNameChanged,
     TResult? Function(EmailChanged value)? emailChanged,
+    TResult? Function(PhoneChanged value)? phoneChanged,
+    TResult? Function(ToggleTermsEvent value)? toggleTerms,
     TResult? Function(PasswordChanged value)? passwordChanged,
     TResult? Function(ConfirmPasswordChanged value)? confirmPasswordChanged,
     TResult? Function(SelectAcademicCreateAccount value)?
@@ -794,6 +1229,8 @@ class _$ConfirmPasswordChangedImpl implements ConfirmPasswordChanged {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(FirstNameChanged value)? firstNameChanged,
     TResult Function(EmailChanged value)? emailChanged,
+    TResult Function(PhoneChanged value)? phoneChanged,
+    TResult Function(ToggleTermsEvent value)? toggleTerms,
     TResult Function(PasswordChanged value)? passwordChanged,
     TResult Function(ConfirmPasswordChanged value)? confirmPasswordChanged,
     TResult Function(SelectAcademicCreateAccount value)?
@@ -897,6 +1334,8 @@ class _$SelectAcademicCreateAccountImpl implements SelectAcademicCreateAccount {
   TResult when<TResult extends Object?>({
     required TResult Function(String firstName) firstNameChanged,
     required TResult Function(String email) emailChanged,
+    required TResult Function(String phone) phoneChanged,
+    required TResult Function(bool toggleStatus) toggleTerms,
     required TResult Function(String password) passwordChanged,
     required TResult Function(String password) confirmPasswordChanged,
     required TResult Function(String academicId) selectAcademicCreateAccount,
@@ -911,6 +1350,8 @@ class _$SelectAcademicCreateAccountImpl implements SelectAcademicCreateAccount {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(String firstName)? firstNameChanged,
     TResult? Function(String email)? emailChanged,
+    TResult? Function(String phone)? phoneChanged,
+    TResult? Function(bool toggleStatus)? toggleTerms,
     TResult? Function(String password)? passwordChanged,
     TResult? Function(String password)? confirmPasswordChanged,
     TResult? Function(String academicId)? selectAcademicCreateAccount,
@@ -925,6 +1366,8 @@ class _$SelectAcademicCreateAccountImpl implements SelectAcademicCreateAccount {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String firstName)? firstNameChanged,
     TResult Function(String email)? emailChanged,
+    TResult Function(String phone)? phoneChanged,
+    TResult Function(bool toggleStatus)? toggleTerms,
     TResult Function(String password)? passwordChanged,
     TResult Function(String password)? confirmPasswordChanged,
     TResult Function(String academicId)? selectAcademicCreateAccount,
@@ -943,6 +1386,8 @@ class _$SelectAcademicCreateAccountImpl implements SelectAcademicCreateAccount {
   TResult map<TResult extends Object?>({
     required TResult Function(FirstNameChanged value) firstNameChanged,
     required TResult Function(EmailChanged value) emailChanged,
+    required TResult Function(PhoneChanged value) phoneChanged,
+    required TResult Function(ToggleTermsEvent value) toggleTerms,
     required TResult Function(PasswordChanged value) passwordChanged,
     required TResult Function(ConfirmPasswordChanged value)
         confirmPasswordChanged,
@@ -960,6 +1405,8 @@ class _$SelectAcademicCreateAccountImpl implements SelectAcademicCreateAccount {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(FirstNameChanged value)? firstNameChanged,
     TResult? Function(EmailChanged value)? emailChanged,
+    TResult? Function(PhoneChanged value)? phoneChanged,
+    TResult? Function(ToggleTermsEvent value)? toggleTerms,
     TResult? Function(PasswordChanged value)? passwordChanged,
     TResult? Function(ConfirmPasswordChanged value)? confirmPasswordChanged,
     TResult? Function(SelectAcademicCreateAccount value)?
@@ -975,6 +1422,8 @@ class _$SelectAcademicCreateAccountImpl implements SelectAcademicCreateAccount {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(FirstNameChanged value)? firstNameChanged,
     TResult Function(EmailChanged value)? emailChanged,
+    TResult Function(PhoneChanged value)? phoneChanged,
+    TResult Function(ToggleTermsEvent value)? toggleTerms,
     TResult Function(PasswordChanged value)? passwordChanged,
     TResult Function(ConfirmPasswordChanged value)? confirmPasswordChanged,
     TResult Function(SelectAcademicCreateAccount value)?
@@ -1049,6 +1498,8 @@ class _$CreateAccountSubmittedImpl implements CreateAccountSubmitted {
   TResult when<TResult extends Object?>({
     required TResult Function(String firstName) firstNameChanged,
     required TResult Function(String email) emailChanged,
+    required TResult Function(String phone) phoneChanged,
+    required TResult Function(bool toggleStatus) toggleTerms,
     required TResult Function(String password) passwordChanged,
     required TResult Function(String password) confirmPasswordChanged,
     required TResult Function(String academicId) selectAcademicCreateAccount,
@@ -1063,6 +1514,8 @@ class _$CreateAccountSubmittedImpl implements CreateAccountSubmitted {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(String firstName)? firstNameChanged,
     TResult? Function(String email)? emailChanged,
+    TResult? Function(String phone)? phoneChanged,
+    TResult? Function(bool toggleStatus)? toggleTerms,
     TResult? Function(String password)? passwordChanged,
     TResult? Function(String password)? confirmPasswordChanged,
     TResult? Function(String academicId)? selectAcademicCreateAccount,
@@ -1077,6 +1530,8 @@ class _$CreateAccountSubmittedImpl implements CreateAccountSubmitted {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String firstName)? firstNameChanged,
     TResult Function(String email)? emailChanged,
+    TResult Function(String phone)? phoneChanged,
+    TResult Function(bool toggleStatus)? toggleTerms,
     TResult Function(String password)? passwordChanged,
     TResult Function(String password)? confirmPasswordChanged,
     TResult Function(String academicId)? selectAcademicCreateAccount,
@@ -1095,6 +1550,8 @@ class _$CreateAccountSubmittedImpl implements CreateAccountSubmitted {
   TResult map<TResult extends Object?>({
     required TResult Function(FirstNameChanged value) firstNameChanged,
     required TResult Function(EmailChanged value) emailChanged,
+    required TResult Function(PhoneChanged value) phoneChanged,
+    required TResult Function(ToggleTermsEvent value) toggleTerms,
     required TResult Function(PasswordChanged value) passwordChanged,
     required TResult Function(ConfirmPasswordChanged value)
         confirmPasswordChanged,
@@ -1112,6 +1569,8 @@ class _$CreateAccountSubmittedImpl implements CreateAccountSubmitted {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(FirstNameChanged value)? firstNameChanged,
     TResult? Function(EmailChanged value)? emailChanged,
+    TResult? Function(PhoneChanged value)? phoneChanged,
+    TResult? Function(ToggleTermsEvent value)? toggleTerms,
     TResult? Function(PasswordChanged value)? passwordChanged,
     TResult? Function(ConfirmPasswordChanged value)? confirmPasswordChanged,
     TResult? Function(SelectAcademicCreateAccount value)?
@@ -1127,6 +1586,8 @@ class _$CreateAccountSubmittedImpl implements CreateAccountSubmitted {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(FirstNameChanged value)? firstNameChanged,
     TResult Function(EmailChanged value)? emailChanged,
+    TResult Function(PhoneChanged value)? phoneChanged,
+    TResult Function(ToggleTermsEvent value)? toggleTerms,
     TResult Function(PasswordChanged value)? passwordChanged,
     TResult Function(ConfirmPasswordChanged value)? confirmPasswordChanged,
     TResult Function(SelectAcademicCreateAccount value)?
@@ -1189,6 +1650,8 @@ class _$MakeInitialImpl implements MakeInitial {
   TResult when<TResult extends Object?>({
     required TResult Function(String firstName) firstNameChanged,
     required TResult Function(String email) emailChanged,
+    required TResult Function(String phone) phoneChanged,
+    required TResult Function(bool toggleStatus) toggleTerms,
     required TResult Function(String password) passwordChanged,
     required TResult Function(String password) confirmPasswordChanged,
     required TResult Function(String academicId) selectAcademicCreateAccount,
@@ -1203,6 +1666,8 @@ class _$MakeInitialImpl implements MakeInitial {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(String firstName)? firstNameChanged,
     TResult? Function(String email)? emailChanged,
+    TResult? Function(String phone)? phoneChanged,
+    TResult? Function(bool toggleStatus)? toggleTerms,
     TResult? Function(String password)? passwordChanged,
     TResult? Function(String password)? confirmPasswordChanged,
     TResult? Function(String academicId)? selectAcademicCreateAccount,
@@ -1217,6 +1682,8 @@ class _$MakeInitialImpl implements MakeInitial {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String firstName)? firstNameChanged,
     TResult Function(String email)? emailChanged,
+    TResult Function(String phone)? phoneChanged,
+    TResult Function(bool toggleStatus)? toggleTerms,
     TResult Function(String password)? passwordChanged,
     TResult Function(String password)? confirmPasswordChanged,
     TResult Function(String academicId)? selectAcademicCreateAccount,
@@ -1235,6 +1702,8 @@ class _$MakeInitialImpl implements MakeInitial {
   TResult map<TResult extends Object?>({
     required TResult Function(FirstNameChanged value) firstNameChanged,
     required TResult Function(EmailChanged value) emailChanged,
+    required TResult Function(PhoneChanged value) phoneChanged,
+    required TResult Function(ToggleTermsEvent value) toggleTerms,
     required TResult Function(PasswordChanged value) passwordChanged,
     required TResult Function(ConfirmPasswordChanged value)
         confirmPasswordChanged,
@@ -1252,6 +1721,8 @@ class _$MakeInitialImpl implements MakeInitial {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(FirstNameChanged value)? firstNameChanged,
     TResult? Function(EmailChanged value)? emailChanged,
+    TResult? Function(PhoneChanged value)? phoneChanged,
+    TResult? Function(ToggleTermsEvent value)? toggleTerms,
     TResult? Function(PasswordChanged value)? passwordChanged,
     TResult? Function(ConfirmPasswordChanged value)? confirmPasswordChanged,
     TResult? Function(SelectAcademicCreateAccount value)?
@@ -1267,6 +1738,8 @@ class _$MakeInitialImpl implements MakeInitial {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(FirstNameChanged value)? firstNameChanged,
     TResult Function(EmailChanged value)? emailChanged,
+    TResult Function(PhoneChanged value)? phoneChanged,
+    TResult Function(ToggleTermsEvent value)? toggleTerms,
     TResult Function(PasswordChanged value)? passwordChanged,
     TResult Function(ConfirmPasswordChanged value)? confirmPasswordChanged,
     TResult Function(SelectAcademicCreateAccount value)?

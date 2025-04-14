@@ -30,8 +30,8 @@ class ParentDashbard extends StatelessWidget {
             children: <Widget>[
               CustomSessionCard(
                 sessionCount: "16",
-                sessionLabel: "Facility Booked",
-                buttonText1: "View Facility",
+                sessionLabel: "Facilities Booked",
+                buttonText1: "View Facilities",
                 buttonText2: "Book Facility",
                 onButtonClick1: () {
                   print("View Session clicked");
@@ -48,8 +48,8 @@ class ParentDashbard extends StatelessWidget {
               ),
               CustomSessionCard(
                 sessionCount: "16",
-                sessionLabel: "Camp Booked",
-                buttonText1: "View Camp",
+                sessionLabel: "Camps Booked",
+                buttonText1: "View Camps",
                 buttonText2: "Book Camp",
                 onButtonClick1: () {
                   print("View Session clicked");

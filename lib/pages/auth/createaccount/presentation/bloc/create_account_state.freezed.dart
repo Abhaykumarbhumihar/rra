@@ -23,6 +23,7 @@ mixin _$CreateAccountState {
   String get password => throw _privateConstructorUsedError;
   String get confirmPassword => throw _privateConstructorUsedError;
   bool get isLoading => throw _privateConstructorUsedError;
+  bool get acceptTerms => throw _privateConstructorUsedError;
   bool get isSuccess => throw _privateConstructorUsedError;
   String get errorMessage => throw _privateConstructorUsedError;
   bool get isServerError => throw _privateConstructorUsedError;
@@ -51,6 +52,7 @@ abstract class $CreateAccountStateCopyWith<$Res> {
       String password,
       String confirmPassword,
       bool isLoading,
+      bool acceptTerms,
       bool isSuccess,
       String errorMessage,
       bool isServerError,
@@ -83,6 +85,7 @@ class _$CreateAccountStateCopyWithImpl<$Res, $Val extends CreateAccountState>
     Object? password = null,
     Object? confirmPassword = null,
     Object? isLoading = null,
+    Object? acceptTerms = null,
     Object? isSuccess = null,
     Object? errorMessage = null,
     Object? isServerError = null,
@@ -118,6 +121,10 @@ class _$CreateAccountStateCopyWithImpl<$Res, $Val extends CreateAccountState>
       isLoading: null == isLoading
           ? _value.isLoading
           : isLoading // ignore: cast_nullable_to_non_nullable
+              as bool,
+      acceptTerms: null == acceptTerms
+          ? _value.acceptTerms
+          : acceptTerms // ignore: cast_nullable_to_non_nullable
               as bool,
       isSuccess: null == isSuccess
           ? _value.isSuccess
@@ -173,6 +180,7 @@ abstract class _$$CreateAccountStateImplCopyWith<$Res>
       String password,
       String confirmPassword,
       bool isLoading,
+      bool acceptTerms,
       bool isSuccess,
       String errorMessage,
       bool isServerError,
@@ -204,6 +212,7 @@ class __$$CreateAccountStateImplCopyWithImpl<$Res>
     Object? password = null,
     Object? confirmPassword = null,
     Object? isLoading = null,
+    Object? acceptTerms = null,
     Object? isSuccess = null,
     Object? errorMessage = null,
     Object? isServerError = null,
@@ -239,6 +248,10 @@ class __$$CreateAccountStateImplCopyWithImpl<$Res>
       isLoading: null == isLoading
           ? _value.isLoading
           : isLoading // ignore: cast_nullable_to_non_nullable
+              as bool,
+      acceptTerms: null == acceptTerms
+          ? _value.acceptTerms
+          : acceptTerms // ignore: cast_nullable_to_non_nullable
               as bool,
       isSuccess: null == isSuccess
           ? _value.isSuccess
@@ -279,6 +292,7 @@ class _$CreateAccountStateImpl implements _CreateAccountState {
       this.password = '',
       this.confirmPassword = '',
       this.isLoading = false,
+      this.acceptTerms = false,
       this.isSuccess = false,
       this.errorMessage = '',
       this.isServerError = false,
@@ -309,6 +323,9 @@ class _$CreateAccountStateImpl implements _CreateAccountState {
   final bool isLoading;
   @override
   @JsonKey()
+  final bool acceptTerms;
+  @override
+  @JsonKey()
   final bool isSuccess;
   @override
   @JsonKey()
@@ -328,7 +345,7 @@ class _$CreateAccountStateImpl implements _CreateAccountState {
 
   @override
   String toString() {
-    return 'CreateAccountState(firstName: $firstName, lastName: $lastName, email: $email, phoneNo: $phoneNo, password: $password, confirmPassword: $confirmPassword, isLoading: $isLoading, isSuccess: $isSuccess, errorMessage: $errorMessage, isServerError: $isServerError, successMessage: $successMessage, userdata: $userdata, selectedAcademiId: $selectedAcademiId)';
+    return 'CreateAccountState(firstName: $firstName, lastName: $lastName, email: $email, phoneNo: $phoneNo, password: $password, confirmPassword: $confirmPassword, isLoading: $isLoading, acceptTerms: $acceptTerms, isSuccess: $isSuccess, errorMessage: $errorMessage, isServerError: $isServerError, successMessage: $successMessage, userdata: $userdata, selectedAcademiId: $selectedAcademiId)';
   }
 
   @override
@@ -348,6 +365,8 @@ class _$CreateAccountStateImpl implements _CreateAccountState {
                 other.confirmPassword == confirmPassword) &&
             (identical(other.isLoading, isLoading) ||
                 other.isLoading == isLoading) &&
+            (identical(other.acceptTerms, acceptTerms) ||
+                other.acceptTerms == acceptTerms) &&
             (identical(other.isSuccess, isSuccess) ||
                 other.isSuccess == isSuccess) &&
             (identical(other.errorMessage, errorMessage) ||
@@ -372,6 +391,7 @@ class _$CreateAccountStateImpl implements _CreateAccountState {
       password,
       confirmPassword,
       isLoading,
+      acceptTerms,
       isSuccess,
       errorMessage,
       isServerError,
@@ -398,6 +418,7 @@ abstract class _CreateAccountState implements CreateAccountState {
       final String password,
       final String confirmPassword,
       final bool isLoading,
+      final bool acceptTerms,
       final bool isSuccess,
       final String errorMessage,
       final bool isServerError,
@@ -419,6 +440,8 @@ abstract class _CreateAccountState implements CreateAccountState {
   String get confirmPassword;
   @override
   bool get isLoading;
+  @override
+  bool get acceptTerms;
   @override
   bool get isSuccess;
   @override

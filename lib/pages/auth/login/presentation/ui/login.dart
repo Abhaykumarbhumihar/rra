@@ -128,6 +128,12 @@ class LoginScreen extends StatelessWidget {
                           padding: const EdgeInsets.symmetric(horizontal: 24),
                           child: Column(
                             children: [
+                              ScreenTitleaa(title: getIt<SharedPrefs>().getString("academy_name"))
+                                  .animate()
+                                  .fadeIn(duration: 1.2.seconds)
+                                  .slideY(begin: -0.2, duration: 1.2.seconds),
+
+
                               const ScreenTitle(title: "Sign In")
                                   .animate()
                                   .fadeIn(duration: 1.2.seconds)

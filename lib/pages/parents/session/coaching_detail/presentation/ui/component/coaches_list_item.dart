@@ -26,7 +26,7 @@ class CoachesListItem extends StatelessWidget {
       padding: const EdgeInsets.only(left: 8.0, right: 8.0),
       child: Container(
         decoration: BoxDecoration(
-          color: Colors.white,
+          color: Colors.transparent,
           borderRadius: BorderRadius.circular(12),
           //agr selectedid == currentItemId hai to border color kuchh aur select krna hai and width 2.0 rakhna hai
           border: Border.all(
@@ -36,7 +36,7 @@ class CoachesListItem extends StatelessWidget {
         ),
         child: Padding(
           padding: EdgeInsets.symmetric(
-            horizontal: context.screenWidth * 0.015,
+            horizontal: context.screenWidth * 0.01,
           ),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
@@ -61,7 +61,7 @@ class CoachesListItem extends StatelessWidget {
                 style: TextStyle(
                   fontSize: context.screenWidth * 0.032,
                   height: 1.0,
-                  color: AppColor.appBlack,
+                  color: AppColor.appWhiteColor,
                   fontFamily: AppFont.interSemiBold,
                 ),
               ),

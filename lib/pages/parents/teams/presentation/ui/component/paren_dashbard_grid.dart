@@ -19,30 +19,42 @@ class DashboardGrid extends StatelessWidget {
       "background": "assets/images/dashboard_bottom_border_background.png"
     },
     {
-      "title": "Upload Documents",
-      "image": "assets/images/upload_doc.png",
-      "background": "assets/images/dashboard_bottom_border_background.png"
-    },
-    {
-      "title": "League Booking",
-      "image": "assets/images/booking 1.png",
-      "background": "assets/images/dashbard_top_border_background.png"
-    },
-    {
-      "title": "My Orders",
-      "image": "assets/images/my_order.png",
-      "background": "assets/images/dashbard_top_border_background.png"
-    },
-    {
       "title": "View Score",
       "image": "assets/images/score_card.png",
       "background": "assets/images/dashboard_bottom_border_background.png"
     },
     {
-      "title": "View Player",
+      "title": "Documents",
+      "image": "assets/images/upload_doc.png",
+      "background": "assets/images/dashboard_bottom_border_background.png"
+    },
+    {
+      "title": "View Players",
       "image": "assets/images/score_card.png",
       "background": "assets/images/dashboard_bottom_border_background.png"
     },
+    {
+      "title": "My Profile",
+      "image": "assets/images/score_card.png",
+      "background": "assets/images/dashboard_bottom_border_background.png"
+    },
+    {
+      "title": "Change Password",
+      "image": "assets/images/score_card.png",
+      "background": "assets/images/dashboard_bottom_border_background.png"
+    },
+    // {
+    //   "title": "League Booking",
+    //   "image": "assets/images/booking 1.png",
+    //   "background": "assets/images/dashbard_top_border_background.png"
+    // },
+    {
+      "title": "My Orders",
+      "image": "assets/images/my_order.png",
+      "background": "assets/images/dashbard_top_border_background.png"
+    },
+
+
   ];
 
   @override
@@ -63,7 +75,7 @@ class DashboardGrid extends StatelessWidget {
 
         return GestureDetector(
           onTap: () {
-            if (item['title'] == "Upload Documents") {
+            if (item['title'] == "Documents") {
               Navigator.pushNamed(context, AppRoutes.ADDVIEWDOCUMENT);
             } else if (item['title'] == "View Score") {
               BlocProvider.of<ReportBloc>(context).add(ReportEventGetTermsSessionCoachingPlayerEvents({}));
@@ -73,7 +85,7 @@ class DashboardGrid extends StatelessWidget {
               Navigator.pushNamed(context, AppRoutes.COACHPLAYERATTENDANCELIST);
             } else if (item['title'] == "My Orders") {
               Navigator.pushNamed(context, AppRoutes.PARENTORDERLISTPAGE);
-            } else if (item['title'] == "View Player") {
+            } else if (item['title'] == "View Players") {
               Map<String, dynamic> arguments = {"isFromDashBoard": true};
               Navigator.pushNamed(context, AppRoutes.ADDDETAILS, arguments: arguments);
             }

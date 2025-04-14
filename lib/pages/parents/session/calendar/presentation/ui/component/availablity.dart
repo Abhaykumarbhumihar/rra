@@ -13,7 +13,8 @@ import 'availablity_shimmer.dart';
 import 'custom_bottomsheet.dart';
 
 class Availablity extends StatelessWidget {
-  const Availablity({super.key});
+  ScrollController _scrollController;
+   Availablity( this._scrollController, {super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -50,7 +51,7 @@ class Availablity extends StatelessWidget {
               ),
               Padding(
                 padding: const EdgeInsets.only(left: 5.0,top: 4,bottom: 4),
-                child: Text("Tap to add slot for the event.",
+                child: Text("Select the time slot you want to book.",
                   style: TextStyle(
                       color: AppColor.appWhiteColor,
                       fontFamily: AppFont.interRegular,
@@ -172,7 +173,13 @@ class Availablity extends StatelessWidget {
       ),
     );
   }
-
+  void _scrollToBottom() {
+    _scrollController.animateTo(
+      _scrollController.position.maxScrollExtent,
+      duration: Duration(milliseconds: 500),
+      curve: Curves.easeOut,
+    );
+  }
   void recurringDialog(BuildContext context, dayCount) async {
     var bloc = BlocProvider.of<SessionCalendarBloc>(context);
     showDialog(
@@ -192,6 +199,7 @@ class Availablity extends StatelessWidget {
         return RecurringDialog(dayList, dayCount,sessionId,);
       },
     );
+   // _scrollToBottom();
   }
 
   void _showCustomBottomSheet(
@@ -210,6 +218,7 @@ class Availablity extends StatelessWidget {
               bloc.add(SetSelectTypeBottomSheetEvent("Select and continue"));
               bloc.add(SetSlotBooking(body));
               Navigator.pushNamed(context, AppRoutes.ADDDETAILS);
+
               //  Navigator.pushNamed(context, AppRoutes.ADDDETAILS);
             }
             if (selectedOption == "Select and make recurring") {
@@ -226,6 +235,7 @@ class Availablity extends StatelessWidget {
                   SetSelectTypeBottomSheetEvent("Select and add another time"));
 
               bloc.add(SetSlotBooking(body));
+           //   _scrollToBottom();
             }
             print("User selected: $selectedOption");
           },

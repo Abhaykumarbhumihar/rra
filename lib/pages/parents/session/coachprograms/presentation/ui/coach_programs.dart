@@ -48,22 +48,23 @@ class CoachProgramsScreen extends StatelessWidget {
                         .read<CoachingProgramsBloc>()
                         .state
                         .selectedTab,
-                    tabNames: ['Private Coaching', 'Group Coaching'],
+                    tabNames: ['Group\nCoaching','Private\nCoaching'],
                     onTabChanged: (index) {
                       context
                           .read<CoachingProgramsBloc>()
                           .add(AllCoachProgramsSelectedTabEvent(index));
                       print(index);
                       if(index==0){
-                        BlocProvider.of<CoachingProgramsBloc>(context).add(PrivateCoachingProgramsList());
-                      }else{
                         BlocProvider.of<CoachingProgramsBloc>(context).add(GroupCoachProgramsListEvent());
+                      }else{
+                        BlocProvider.of<CoachingProgramsBloc>(context).add(PrivateCoachingProgramsList());
+
                       }
                     },
                   ),
                 ),
-                if (state.selectedTab == 0) state.isLoading?CoachingProgramListShimmer(): PrivateCoachingProgramList(),
-                if (state.selectedTab == 1)  state.isLoading?CoachingProgramListShimmer():GroupCoachingProgramList(),
+                if (state.selectedTab == 1) state.isLoading?CoachingProgramListShimmer(): PrivateCoachingProgramList(),
+                if (state.selectedTab == 0)  state.isLoading?CoachingProgramListShimmer():GroupCoachingProgramList(),
               ],
             );
           },

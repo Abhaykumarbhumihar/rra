@@ -226,7 +226,7 @@ class OrderSummary extends StatelessWidget {
                               ),
                               state.isLoading == true
                                   ? Container()
-                                  : Padding(
+                                  :  state.orderSummaryModel.data.isEmpty?SizedBox():Padding(
                                       padding: EdgeInsets.only(
                                           left: context.screenWidth * 0.05,
                                           right: context.screenWidth * 0.05,

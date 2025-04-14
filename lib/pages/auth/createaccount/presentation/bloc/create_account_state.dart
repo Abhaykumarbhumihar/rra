@@ -18,6 +18,7 @@ class CreateAccountState with _$CreateAccountState {
     @Default('') String password,
     @Default('') String confirmPassword,
     @Default(false) bool isLoading,
+    @Default(false) bool acceptTerms,
     @Default(false) bool isSuccess,
     @Default('') String errorMessage,
     @Default(false) bool isServerError,

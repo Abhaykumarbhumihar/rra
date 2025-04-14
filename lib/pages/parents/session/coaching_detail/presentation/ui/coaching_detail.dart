@@ -96,7 +96,7 @@ class CoachingDetailScreen extends StatelessWidget {
                         if (data.private == "1")
                           SizedBox(
                             width: context.screenWidth,
-                            height: height * 0.32,
+                            height: height * 0.28,
                             child: ListView.builder(
                               shrinkWrap: true,
                               padding: EdgeInsets.zero,

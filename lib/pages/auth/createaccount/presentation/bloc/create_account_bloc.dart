@@ -18,11 +18,13 @@ class CreateAccountBloc extends Bloc<CreateAccountEvent, CreateAccountState> {
   CreateAccountBloc() : super(CreateAccountState.initial()) {
     on<FirstNameChanged>(_onFirstNameChanged);
     on<EmailChanged>(_onEmailChanged);
+    on<PhoneChanged>(_onPhoneChanged);
     on<SelectAcademicCreateAccount>(_selectAcademic);
     on<PasswordChanged>(_onPasswordChanged);
     on<ConfirmPasswordChanged>(_onConfirmPasswordChanged);
     on<CreateAccountSubmitted>(_onCreateAccountSubmitted);
     on<MakeInitial>(_onMakeInitial);
+    on<ToggleTermsEvent>(_toggleStatus);
   }
 
   Future<void> _onMakeInitial(
@@ -33,7 +35,15 @@ class CreateAccountBloc extends Bloc<CreateAccountEvent, CreateAccountState> {
         isSuccess: false,
         isServerError: false));
   }
-
+  Future<void> _toggleStatus(
+      ToggleTermsEvent event, Emitter<CreateAccountState> emit) async {
+    emit(state.copyWith(
+        errorMessage: '',
+        successMessage: '',
+        isSuccess: false,
+        acceptTerms: event.toggleStatus,
+        isServerError: false));
+  }
   Future<void> _onFirstNameChanged(
       FirstNameChanged event, Emitter<CreateAccountState> emit) async {
     emit(state.copyWith(
@@ -54,6 +64,17 @@ class CreateAccountBloc extends Bloc<CreateAccountEvent, CreateAccountState> {
         isServerError: false
         ));
   }
+
+  Future<void> _onPhoneChanged(
+      PhoneChanged event, Emitter<CreateAccountState> emit) async {
+    emit(state.copyWith(
+        phoneNo: event.phone, errorMessage: '',
+        isSuccess: false,
+        successMessage: '',
+        isServerError: false
+    ));
+  }
+
   Future<void> _selectAcademic(
       SelectAcademicCreateAccount event, Emitter<CreateAccountState> emit) async {
     emit(state.copyWith(
@@ -136,10 +157,17 @@ class CreateAccountBloc extends Bloc<CreateAccountEvent, CreateAccountState> {
           isServerError: false));
       return;
     }
-
+    if (state.phoneNo != null && state.phoneNo!.trim().isNotEmpty) {
+      String trimmedPhoneNo = state.phoneNo!.trim();
+      if (trimmedPhoneNo.length < 8 || trimmedPhoneNo.length > 13) {
+        emit(state.copyWith(
+            errorMessage: 'Phone number must be between 8 and 13 digits'));
+        return;
+      }
+    }
     // Validate password length
     if (!RegExp(
-            r'^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{6,}$')
+            r'^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$')
         .hasMatch(state.password.trim())) {
       emit(state.copyWith(
           successMessage: '',
@@ -162,6 +190,7 @@ class CreateAccountBloc extends Bloc<CreateAccountEvent, CreateAccountState> {
       Map<String, String> userRegistrationMap = {
         'name': state.firstName ?? "",
         'academy_id': academyId,
+        'mobile': state.phoneNo,
         'email': state.email.toString().toLowerCase().trim(),
         'password': state.password,
       };

@@ -51,7 +51,7 @@ class CustomToggleSwitch extends StatelessWidget {
           onTabChanged(index); // Notify the parent about the tab change
         },
         child: AnimatedContainer(
-          height: 42,
+         // height: 42,
           duration: Duration(milliseconds: 400),
           padding: isActive ? EdgeInsets.all(1) : EdgeInsets.zero,
           // Padding only for active tab

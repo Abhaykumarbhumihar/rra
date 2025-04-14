@@ -83,7 +83,7 @@ class BookSessions extends StatelessWidget {
                         padding: const EdgeInsets.symmetric(
                             horizontal: 10.0, vertical: 6.0),
                         child: Text(
-                          "View Session",
+                          "View Sessions",
                           style: TextStyle(
                             fontSize: context.screenWidth * 0.032,
                             color: AppColor.appWhiteColor,

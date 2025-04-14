@@ -54,7 +54,6 @@ class AcademicListPage extends StatelessWidget {
                           "stripe_publish_key",academy.payment_gateway_details?.publish_key.toString()??"");
                     await  getIt<SharedPrefs>().setString( "academy_name",academy.academy_name.toString()??"");
 
-                      getIt<SharedPrefs>().setString('key', 'value');
 
                       context
                           .read<AcademicBloc>()

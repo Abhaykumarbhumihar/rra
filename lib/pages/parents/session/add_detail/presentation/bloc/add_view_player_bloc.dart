@@ -24,9 +24,15 @@ class AddViewPlayerBloc extends Bloc<AddViewPlayerEvent, AddViewPlayerState> {
     on<AddViewPlayerGetChildListEvent>(_getChildListEvent);
     on<AddViewPlayerChildSelectionToggleEvent>(_childSelectionToggle);
     on<ResetAddViewEvent>(resetEvent);
+    on<AddViewPlayerChildProfilePhotoEvent>(_handleChangeProfilePic);
   }
   Future<void>resetEvent(ResetAddViewEvent event,Emitter<AddViewPlayerState> emit)async{
     emit(AddViewPlayerState.initial());
+  }
+  void _handleChangeProfilePic(
+      AddViewPlayerChildProfilePhotoEvent event, Emitter<AddViewPlayerState> emit) {
+    emit(state.copyWith(
+        childProfilePhoto: event.file, isLoading: false, ));
   }
   // Handle toggling the selection of a child
   Future<void> _childSelectionToggle(

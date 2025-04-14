@@ -74,6 +74,7 @@ class CalendarView extends StatelessWidget {
                           fontFamily: AppFont.interRegular,
                         ),
                       ),
+
                      selectedDayPredicate: (day) => isSameDay(day, state.datetime??DateTime.now(),),
                       headerStyle: HeaderStyle(
                         titleCentered: true,

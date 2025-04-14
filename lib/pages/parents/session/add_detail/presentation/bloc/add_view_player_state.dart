@@ -1,6 +1,8 @@
 
 
 
+import 'dart:io';
+
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 import '../../data/entity/child_list_model.dart';
@@ -16,6 +18,7 @@ class AddViewPlayerState with _$AddViewPlayerState {
     dynamic success,
     @Default(false) bool isError,
     @Default(false) bool isLoginApiError,
+    File? childProfilePhoto,
 
     int? childPhotoUseOnSocialMedia,
     int? administratorFirstAidNeed,
