@@ -75,7 +75,7 @@ class CalendarView extends StatelessWidget {
                         ),
                       ),
 
-                     selectedDayPredicate: (day) => isSameDay(day, state.datetime??DateTime.now(),),
+                      selectedDayPredicate: (day) => false,
                       headerStyle: HeaderStyle(
                         titleCentered: true,
                         titleTextFormatter: (date, locale) =>
@@ -156,23 +156,23 @@ class CalendarView extends StatelessWidget {
                             }
                           }
 
-                          if (isSameDay(day, focusedDay)) {
-                            return Container(
-                              alignment: Alignment.center,
-                              decoration: BoxDecoration(
-                                shape: BoxShape.circle,
-                                color: Colors.blueAccent,
-                              ),
-                              child: Text(
-                                '${day.day}',
-                                style: TextStyle(
-                                  color: Colors.white,
-                                  fontSize: 18,
-                                  fontFamily: 'YourCustomFontFamily',
-                                ),
-                              ),
-                            );
-                          }
+                          // if (isSameDay(day, focusedDay)) {
+                          //   return Container(
+                          //     alignment: Alignment.center,
+                          //     decoration: BoxDecoration(
+                          //       shape: BoxShape.circle,
+                          //       color: Colors.transparent,
+                          //     ),
+                          //     child: Text(
+                          //       '${day.day}',
+                          //       style: TextStyle(
+                          //         color: Colors.white,
+                          //         fontSize: 18,
+                          //         fontFamily: 'YourCustomFontFamily',
+                          //       ),
+                          //     ),
+                          //   );
+                          // }
 
                           return null;
                         },

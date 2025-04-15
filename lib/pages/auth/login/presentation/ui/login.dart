@@ -1,5 +1,6 @@
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_stripe/flutter_stripe.dart';
+import 'package:rra/common/component/common_app_bar.dart';
 import 'package:rra/common/component/common_background.dart';
 import 'package:rra/common/routes/exports.dart';
 import 'package:rra/common/values/utils.dart';
@@ -123,7 +124,10 @@ class LoginScreen extends StatelessWidget {
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.stretch,
                       children: [
-                        SizedBox(height: height * 0.12),
+                        CustomHeader(title: "", onBackPress: (){
+                          Navigator.of(context).pop();
+                        }),
+                        SizedBox(height: height * 0.05),
                         Padding(
                           padding: const EdgeInsets.symmetric(horizontal: 24),
                           child: Column(
@@ -232,7 +236,7 @@ class LoginScreen extends StatelessWidget {
                                 nonActionText: 'Don’t have an account?',
                                 actionText: 'Sign Up',
                                 actionClick: () {
-                                  Navigator.pushReplacementNamed(context, AppRoutes.CREATEACCOUNT);
+                                  Navigator.pushNamed(context, AppRoutes.CREATEACCOUNT);
                                 },
                               )
                                   .animate()

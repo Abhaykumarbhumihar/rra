@@ -13,6 +13,7 @@ class ManageTeamState with _$ManageTeamState {
     @Default(false) bool isLoading,
     @Default(false) bool isStatusUpdated,
     @Default(false) bool isError,
+    @Default(false) bool showHideTermSelectionList,
     @Default("") String message,
     @Default("") String selectedPlayerid,
 

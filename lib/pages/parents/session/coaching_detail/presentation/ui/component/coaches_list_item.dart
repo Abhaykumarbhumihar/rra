@@ -49,9 +49,9 @@ class CoachesListItem extends StatelessWidget {
                 imageUrl: image,
                 imageWidth: context.screenWidth * 0.38,
                 placeHolder: "assets/images/football.png",
-                imageHeight: context.screenHeight * 0.20,
+                imageHeight: context.screenHeight * 0.2,
                 radiusAll: 15,
-                imageFitType: BoxFit.cover,
+                imageFitType: BoxFit.fill,
               ),
               SizedBox(
                 height: 4,

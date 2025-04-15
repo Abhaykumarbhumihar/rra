@@ -55,7 +55,7 @@ class CoachSelectionBottomSheet extends StatelessWidget {
                       ? IconButton(
                     icon: Icon(Icons.close, color: Colors.redAccent),
                     onPressed: () {
-                      BlocProvider.of<AddDocumentBloc>(context).add( SetSelectedCoachIdParentDocumentEvent(coach));
+                      BlocProvider.of<AddDocumentBloc>(context).add( RemoveSelectedCoachEvent(coach));
                       ///    removeItem(terms); // Call remove
                     },
                   ):null,

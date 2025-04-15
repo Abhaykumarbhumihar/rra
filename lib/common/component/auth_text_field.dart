@@ -292,6 +292,18 @@ class _CustomTextInputMobileState extends State<CustomTextInputMobile> {
         color: Colors.white.withOpacity(0.5),
         size: width * 0.04,
       );
+    }else if (widget.title ==  "Select Program") {
+      return Icon(
+        FontAwesomeIcons.chevronDown,
+        color: Colors.white.withOpacity(0.5),
+        size: width * 0.04,
+      );
+    }else if (widget.title ==  "Select Session") {
+      return Icon(
+        FontAwesomeIcons.chevronDown,
+        color: Colors.white.withOpacity(0.5),
+        size: width * 0.04,
+      );
     } else if (widget.title == "Duration") {
       return Icon(
         FontAwesomeIcons.chevronDown,
@@ -310,7 +322,15 @@ class _CustomTextInputMobileState extends State<CustomTextInputMobile> {
         color: Colors.white.withOpacity(0.5),
         size: width * 0.04,
       );
-    } else if (widget.title == "Court") {
+    }
+    else if (widget.title == "Select Term") {
+      return Icon(
+        FontAwesomeIcons.chevronDown,
+        color: Colors.white.withOpacity(0.5),
+        size: width * 0.04,
+      );
+    }
+    else if (widget.title == "Court") {
       return Icon(
         FontAwesomeIcons.chevronDown,
         color: Colors.white.withOpacity(0.5),

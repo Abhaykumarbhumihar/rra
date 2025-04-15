@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_xlider/flutter_xlider.dart';
+import 'package:rra/common/values/app_color.dart';
 import 'package:rra/common/values/fonts.dart';
 import 'package:rra/pages/coach/coach_player_report/coach_player_report_list/data/entity/report_model.dart';
 
@@ -85,28 +86,32 @@ BlocProvider.of<ReportBloc>(context).add(AddScoreEvent(results));
           mainAxisSize: MainAxisSize.min,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Expanded(
-                  child: Text(
-                    widget.performanceData.addScore?.childName ?? '',
-                    style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: <Widget>[
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Expanded(
+                    child: Text(
+                      widget.performanceData.addScore?.childName ?? '',
+                      style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                    ),
                   ),
-                ),
-                Expanded(
-                  child: Text(
-                    widget.performanceData.addScore?.performanceData ?? '',
-                    style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-                    textAlign: TextAlign.end,
+
+                  IconButton(
+                    icon: const Icon(Icons.close),
+                    onPressed: () => Navigator.of(context).pop(),
                   ),
-                ),
-                IconButton(
-                  icon: const Icon(Icons.close),
-                  onPressed: () => Navigator.of(context).pop(),
-                ),
-              ],
-            ),
+                ],
+              ),
+              Text(
+                widget.performanceData.addScore?.performanceData ?? '',
+                style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                textAlign: TextAlign.end,
+              ),
+            ],
+          ),
             const SizedBox(height: 10),
 
             // Color Indicator
@@ -154,11 +159,7 @@ BlocProvider.of<ReportBloc>(context).add(AddScoreEvent(results));
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text(
-          widget.performanceData.addScore?.performanceData ?? 'Performance',
-          style: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
-        ),
-        const SizedBox(height: 8),
+
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: scoreCriteria.map((criteria) {
@@ -179,33 +180,33 @@ BlocProvider.of<ReportBloc>(context).add(AddScoreEvent(results));
       case 'blue':
         return Colors.blue;
       case 'red':
-        return Colors.red;
+        return AppColor.red;
       case 'orange':
         return Colors.orange;
       case 'yellow':
         return Colors.yellow;
       default:
-        return Colors.grey;
+        return Colors.green;
     }
   }
-
   Color _getSliderColor(double value) {
     final scoreCriteria = widget.performanceData.addScore?.scoreCriteria ?? [];
 
-    // Sort criteria by range (assuming format like "1-3", "4-6", "7-10")
-    final sortedCriteria = scoreCriteria.toList()
-      ..sort((a, b) {
-        final aMin = int.tryParse(a.range.split('-').first) ?? 0;
-        final bMin = int.tryParse(b.range.split('-').first) ?? 0;
-        return aMin.compareTo(bMin);
-      });
+    // Convert value to integer for comparison
+    final intScore = value.round();
 
-    for (final criteria in sortedCriteria) {
+    for (final criteria in scoreCriteria) {
       final rangeParts = criteria.range.split('-');
       if (rangeParts.length == 2) {
         final min = int.tryParse(rangeParts[0]) ?? 0;
         final max = int.tryParse(rangeParts[1]) ?? 0;
-        if (value >= min && value <= max) {
+        if (intScore >= min && intScore <= max) {
+          return _getColorFromString(criteria.color);
+        }
+      } else if (rangeParts.length == 1) {
+        // Handle single number ranges (like "7" meaning exactly 7)
+        final exactValue = int.tryParse(rangeParts[0]) ?? 0;
+        if (intScore == exactValue) {
           return _getColorFromString(criteria.color);
         }
       }
@@ -213,6 +214,30 @@ BlocProvider.of<ReportBloc>(context).add(AddScoreEvent(results));
 
     return Colors.grey; // default color if no range matches
   }
+  // Color _getSliderColor(double value) {
+  //   final scoreCriteria = widget.performanceData.addScore?.scoreCriteria ?? [];
+  //
+  //   // Sort criteria by range (assuming format like "1-3", "4-6", "7-10")
+  //   final sortedCriteria = scoreCriteria.toList()
+  //     ..sort((a, b) {
+  //       final aMin = int.tryParse(a.range.split('-').first) ?? 0;
+  //       final bMin = int.tryParse(b.range.split('-').first) ?? 0;
+  //       return aMin.compareTo(bMin);
+  //     });
+  //
+  //   for (final criteria in sortedCriteria) {
+  //     final rangeParts = criteria.range.split('-');
+  //     if (rangeParts.length == 2) {
+  //       final min = int.tryParse(rangeParts[0]) ?? 0;
+  //       final max = int.tryParse(rangeParts[1]) ?? 0;
+  //       if (value >= min && value <= max) {
+  //         return _getColorFromString(criteria.color);
+  //       }
+  //     }
+  //   }
+  //
+  //   return Colors.grey; // default color if no range matches
+  // }
 
   Widget _buildRangeIndicator(String text, Color color) {
     return Column(
@@ -240,13 +265,40 @@ BlocProvider.of<ReportBloc>(context).add(AddScoreEvent(results));
       crossAxisAlignment: CrossAxisAlignment.start,
       mainAxisSize: MainAxisSize.min,
       children: [
-        Text(
-          title,
-          style: const TextStyle(
-            fontSize: 16,
-            color: Colors.black,
-          ),
-        ),
+       Row(
+         crossAxisAlignment: CrossAxisAlignment.start,
+         mainAxisAlignment: MainAxisAlignment.start,
+         children: <Widget>[
+           Flexible(
+             child: Text(
+               title,
+               style: const TextStyle(
+                 fontSize: 16,
+                 color: Colors.black,
+               ),
+             ),
+           ),
+           SizedBox(width: 10,),
+           Container(
+             width: 20,
+             height: 30,
+             padding: EdgeInsets.all(2.0),
+             decoration: BoxDecoration(
+               shape: BoxShape.circle,
+               color: Colors.grey
+             ),
+             child: Center(
+               child: Text(
+                 roundValue(value.toString()),
+                 style: const TextStyle(
+                   fontSize: 16,
+                   color: Colors.black,
+                 ),
+               ),
+             ),
+           )
+         ],
+       ),
         Padding(
           padding: const EdgeInsets.only(left: 6.0, top: 4),
           child: SliderTheme(
@@ -271,6 +323,11 @@ BlocProvider.of<ReportBloc>(context).add(AddScoreEvent(results));
         ),
       ],
     );
+  }
+  String roundValue(String value) {
+    double parsedValue = double.parse(value);
+    int roundedValue = parsedValue.round();
+    return roundedValue.toString();
   }
 
   @override

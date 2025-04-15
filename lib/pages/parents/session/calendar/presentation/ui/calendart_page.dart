@@ -36,150 +36,150 @@ class CalendarPage extends StatelessWidget {
     var width = MediaQuery.of(context).size.width;
     var height = MediaQuery.of(context).size.height;
 
+    return BlocListener<SessionCalendarBloc, SessionCalendarState>(
+  listener: (context, state) {
+    if( state.isTimeAddedSuccess){
+      _scrollToBottom();
+    }
+  },
+  child: BlocBuilder<SessionCalendarBloc, SessionCalendarState>(
+  builder: (context, state) {
     return Scaffold(
-      backgroundColor: Colors.transparent,
-      body: BlocListener<SessionCalendarBloc, SessionCalendarState>(
-        listener: (context, state) {
-          if( state.isTimeAddedSuccess){
-            _scrollToBottom();
-          }
-        },
-        child: BlocBuilder<SessionCalendarBloc, SessionCalendarState>(
-          builder: (context, state) {
-            return Container(
-              width: width,
-              height: height,
-              padding: EdgeInsets.zero,
-              decoration: CommonBackground.decoration,
-              child: Stack(
-                children: <Widget>[
-                  Column(
+      backgroundColor: AppColor.gradientMidColor,
+      bottomNavigationBar:  Padding(
+        padding: EdgeInsets.only(
+            left: context.screenWidth * 0.04,
+            right: context.screenWidth * 0.06,bottom: 15),
+        child: CustomButton(
+          text: "Continue",
+          onPressed: () async {
+            int minimumCount = BlocProvider.of<CoachingProgramsBloc>(context).state.minimumCountOfBooking ?? 0;
+            if (state.timeAddedModel.data.length >= minimumCount) {
+              if( BlocProvider.of<AddViewPlayerBloc>(context).state.childLisstModel.data.isEmpty){
+                BlocProvider.of<AddViewPlayerBloc>(context).add(AddViewPlayerSelectedTabEvent(1));
+              }else{
+                BlocProvider.of<AddViewPlayerBloc>(context).add(AddViewPlayerSelectedTabEvent(0));
+              }
+              Navigator.pushNamed(context, AppRoutes.ADDDETAILS);
+            } else {
+              context.showCustomSnackbar("Please select at least $minimumCount time slots to proceed!");
+            }
+          },
+        ).animate()
+            .fade(duration: 600.ms, delay: 500.ms)
+            .scaleXY(begin: 0.8, end: 1.0, duration: 500.ms, curve: Curves.bounceOut),
+      ),
+      body: Container(
+        width: width,
+        height: height,
+        padding: EdgeInsets.zero,
+        decoration: CommonBackground.decoration,
+        child: Stack(
+          children: <Widget>[
+            Column(
+              children: [
+                // 🧍 Static (non-scrollable) content
+                CustomHeader(
+                  title: "Coaching Programs",
+                  onBackPress: () {
+                    Navigator.pop(context);
+                  },
+                ),
+                Padding(
+                  padding:
+                  EdgeInsets.only(left: context.screenHeight * 0.02),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      // 🧍 Static (non-scrollable) content
-                      CustomHeader(
-                        title: "Coaching Programs",
-                        onBackPress: () {
-                          Navigator.pop(context);
-                        },
-                      ),
                       Padding(
-                        padding:
-                        EdgeInsets.only(left: context.screenHeight * 0.02),
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Padding(
-                              padding: const EdgeInsets.only(
-                                  left: 18.0, right: 18.0, top: 12.0),
-                              child:
-                              Image.asset("assets/images/tracker_one.png"),
-                            ),
-                          ],
-                        ),
-                      ),
-                      // 🔃 Scrollable content below this point
-                      Expanded(
-                        child: SingleChildScrollView(
-                          controller: _scrollController,
-                          padding: EdgeInsets.only(
-                              left: context.screenHeight * 0.02,
-                              bottom: 20), // optional bottom padding
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: <Widget>[
-                              SizedBox(height: context.screenHeight * 0.013),
-                              Padding(
-                                padding: const EdgeInsets.only(
-                                    left: 3.0, right: 6.0, bottom: 6.0),
-                                child: ScreenTitleForCalendar(
-                                  title: "${BlocProvider.of<CoachingProgramsBloc>(context).state.coachingName}",
-                                ),
-                              ),
-                              Padding(
-                                padding: EdgeInsets.only(
-                                    left: context.screenWidth * 0.02,
-                                    right: context.screenWidth * 0.05,
-                                    top: 2.0),
-                                child: Container(
-                                  padding: EdgeInsets.zero,
-                                  width: context.screenWidth,
-                                  height: 1.5,
-                                  decoration: BoxDecoration(
-                                      image: DecorationImage(
-                                          image: AssetImage("assets/images/line.png")
-                                      )
-                                  ),
-                                ),
-                              ),
-                              SizedBox(height: 10.0),
-                              Padding(
-                                padding: const EdgeInsets.only(left: 4.0, bottom: 2),
-                                child: Text(
-                                  "Green highlighted dates have events. Tap to check availability.",
-                                  style: TextStyle(
-                                      color: AppColor.appWhiteColor,
-                                      fontFamily: AppFont.interRegular,
-                                      fontSize: 10),
-                                ),
-                              ),
-                              Padding(
-                                padding: const EdgeInsets.only(right: 8.0, left: 3.0),
-                                child: CalendarView()
-                                    .animate()
-                                    .fade(duration: 900.ms)
-                                    .scaleXY(begin: 0.9, end: 1.0, duration: 800.ms, curve: Curves.easeOut),
-                              ),
-                              SizedBox(
-                                width: context.screenWidth,
-                                height: context.screenHeight * 0.28,
-                                child: Availablity(_scrollController),
-                              ),
-                              if (state.timeAddedModel.data.isNotEmpty)
-                                SizedBox(
-                                  width: context.screenWidth,
-                                  height: context.screenHeight * 0.24,
-                                  child: TimeAddedView(),
-                                ),
-                              SizedBox(height: 10),
-                              Padding(
-                                padding: EdgeInsets.only(
-                                    left: context.screenWidth * 0.04,
-                                    right: context.screenWidth * 0.06),
-                                child: CustomButton(
-                                  text: "Continue",
-                                  onPressed: () async {
-                                    int minimumCount = BlocProvider.of<CoachingProgramsBloc>(context).state.minimumCountOfBooking ?? 0;
-                                    if (state.timeAddedModel.data.length >= minimumCount) {
-                                          if( BlocProvider.of<AddViewPlayerBloc>(context).state.childLisstModel.data.isEmpty){
-                                            BlocProvider.of<AddViewPlayerBloc>(context).add(AddViewPlayerSelectedTabEvent(1));
-                                          }else{
-                                            BlocProvider.of<AddViewPlayerBloc>(context).add(AddViewPlayerSelectedTabEvent(0));
-                                          }
-                                      Navigator.pushNamed(context, AppRoutes.ADDDETAILS);
-                                    } else {
-                                      context.showCustomSnackbar("Please select at least $minimumCount time slots to proceed!");
-                                    }
-                                  },
-                                ).animate()
-                                    .fade(duration: 600.ms, delay: 500.ms)
-                                    .scaleXY(begin: 0.8, end: 1.0, duration: 500.ms, curve: Curves.bounceOut),
-                              ),
-                              SizedBox(height: 60),
-                            ],
-                          ),
-                        ),
+                        padding: const EdgeInsets.only(
+                            left: 18.0, right: 18.0, top: 12.0),
+                        child:
+                        Image.asset("assets/images/tracker_one.png"),
                       ),
                     ],
                   ),
-                  if (state.isLoading)
-                    InkWell(onTap: () {}, child: const LoadingIndicator())
-                ],
-              ),
-            );
-          },
+                ),
+                // 🔃 Scrollable content below this point
+                Expanded(
+                  child: SingleChildScrollView(
+                    controller: _scrollController,
+                    padding: EdgeInsets.only(
+                        left: context.screenHeight * 0.02,
+                        bottom: 20), // optional bottom padding
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: <Widget>[
+                        SizedBox(height: context.screenHeight * 0.013),
+                        Padding(
+                          padding: const EdgeInsets.only(
+                              left: 3.0, right: 6.0, bottom: 6.0),
+                          child: ScreenTitleForCalendar(
+                            title: "${BlocProvider.of<CoachingProgramsBloc>(context).state.coachingName}",
+                          ),
+                        ),
+                        Padding(
+                          padding: EdgeInsets.only(
+                              left: context.screenWidth * 0.02,
+                              right: context.screenWidth * 0.05,
+                              top: 2.0),
+                          child: Container(
+                            padding: EdgeInsets.zero,
+                            width: context.screenWidth,
+                            height: 1.5,
+                            decoration: BoxDecoration(
+                                image: DecorationImage(
+                                    image: AssetImage("assets/images/line.png")
+                                )
+                            ),
+                          ),
+                        ),
+                        SizedBox(height: 10.0),
+                        Padding(
+                          padding: const EdgeInsets.only(left: 4.0, bottom: 2),
+                          child: Text(
+                            "Green highlighted dates have events. Tap to check availability.",
+                            style: TextStyle(
+                                color: AppColor.appWhiteColor,
+                                fontFamily: AppFont.interRegular,
+                                fontSize: 10),
+                          ),
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.only(right: 8.0, left: 3.0),
+                          child: CalendarView()
+                              .animate()
+                              .fade(duration: 900.ms)
+                              .scaleXY(begin: 0.9, end: 1.0, duration: 800.ms, curve: Curves.easeOut),
+                        ),
+                        SizedBox(
+                          width: context.screenWidth,
+                          height: context.screenHeight * 0.28,
+                          child: Availablity(_scrollController),
+                        ),
+                        if (state.timeAddedModel.data.isNotEmpty)
+                          SizedBox(
+                            width: context.screenWidth,
+                            height: context.screenHeight * 0.28,
+                            child: TimeAddedView(),
+                          ),
+
+                        SizedBox(height: 20),
+                      ],
+                    ),
+                  ),
+                ),
+              ],
+            ),
+            if (state.isLoading)
+              InkWell(onTap: () {}, child: const LoadingIndicator())
+          ],
         ),
-      ),
+      )
     );
+  },
+),
+);
 
   }
 }

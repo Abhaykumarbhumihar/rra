@@ -19,6 +19,7 @@ mixin _$ManageTeamState {
   bool get isLoading => throw _privateConstructorUsedError;
   bool get isStatusUpdated => throw _privateConstructorUsedError;
   bool get isError => throw _privateConstructorUsedError;
+  bool get showHideTermSelectionList => throw _privateConstructorUsedError;
   String get message => throw _privateConstructorUsedError;
   String get selectedPlayerid => throw _privateConstructorUsedError;
   TermsProgramSessionPlayerModel get termsProgramSessionPlayerModelData =>
@@ -46,6 +47,7 @@ abstract class $ManageTeamStateCopyWith<$Res> {
       {bool isLoading,
       bool isStatusUpdated,
       bool isError,
+      bool showHideTermSelectionList,
       String message,
       String selectedPlayerid,
       TermsProgramSessionPlayerModel termsProgramSessionPlayerModelData,
@@ -80,6 +82,7 @@ class _$ManageTeamStateCopyWithImpl<$Res, $Val extends ManageTeamState>
     Object? isLoading = null,
     Object? isStatusUpdated = null,
     Object? isError = null,
+    Object? showHideTermSelectionList = null,
     Object? message = null,
     Object? selectedPlayerid = null,
     Object? termsProgramSessionPlayerModelData = null,
@@ -100,6 +103,10 @@ class _$ManageTeamStateCopyWithImpl<$Res, $Val extends ManageTeamState>
       isError: null == isError
           ? _value.isError
           : isError // ignore: cast_nullable_to_non_nullable
+              as bool,
+      showHideTermSelectionList: null == showHideTermSelectionList
+          ? _value.showHideTermSelectionList
+          : showHideTermSelectionList // ignore: cast_nullable_to_non_nullable
               as bool,
       message: null == message
           ? _value.message
@@ -200,6 +207,7 @@ abstract class _$$ManageTeamStateImplCopyWith<$Res>
       {bool isLoading,
       bool isStatusUpdated,
       bool isError,
+      bool showHideTermSelectionList,
       String message,
       String selectedPlayerid,
       TermsProgramSessionPlayerModel termsProgramSessionPlayerModelData,
@@ -237,6 +245,7 @@ class __$$ManageTeamStateImplCopyWithImpl<$Res>
     Object? isLoading = null,
     Object? isStatusUpdated = null,
     Object? isError = null,
+    Object? showHideTermSelectionList = null,
     Object? message = null,
     Object? selectedPlayerid = null,
     Object? termsProgramSessionPlayerModelData = null,
@@ -257,6 +266,10 @@ class __$$ManageTeamStateImplCopyWithImpl<$Res>
       isError: null == isError
           ? _value.isError
           : isError // ignore: cast_nullable_to_non_nullable
+              as bool,
+      showHideTermSelectionList: null == showHideTermSelectionList
+          ? _value.showHideTermSelectionList
+          : showHideTermSelectionList // ignore: cast_nullable_to_non_nullable
               as bool,
       message: null == message
           ? _value.message
@@ -298,6 +311,7 @@ class _$ManageTeamStateImpl implements _ManageTeamState {
       {this.isLoading = false,
       this.isStatusUpdated = false,
       this.isError = false,
+      this.showHideTermSelectionList = false,
       this.message = "",
       this.selectedPlayerid = "",
       this.termsProgramSessionPlayerModelData =
@@ -316,6 +330,9 @@ class _$ManageTeamStateImpl implements _ManageTeamState {
   @override
   @JsonKey()
   final bool isError;
+  @override
+  @JsonKey()
+  final bool showHideTermSelectionList;
   @override
   @JsonKey()
   final String message;
@@ -340,7 +357,7 @@ class _$ManageTeamStateImpl implements _ManageTeamState {
 
   @override
   String toString() {
-    return 'ManageTeamState(isLoading: $isLoading, isStatusUpdated: $isStatusUpdated, isError: $isError, message: $message, selectedPlayerid: $selectedPlayerid, termsProgramSessionPlayerModelData: $termsProgramSessionPlayerModelData, termsId: $termsId, sessionId: $sessionId, coachingProgramId: $coachingProgramId, manageTeamListModel: $manageTeamListModel)';
+    return 'ManageTeamState(isLoading: $isLoading, isStatusUpdated: $isStatusUpdated, isError: $isError, showHideTermSelectionList: $showHideTermSelectionList, message: $message, selectedPlayerid: $selectedPlayerid, termsProgramSessionPlayerModelData: $termsProgramSessionPlayerModelData, termsId: $termsId, sessionId: $sessionId, coachingProgramId: $coachingProgramId, manageTeamListModel: $manageTeamListModel)';
   }
 
   @override
@@ -353,6 +370,9 @@ class _$ManageTeamStateImpl implements _ManageTeamState {
             (identical(other.isStatusUpdated, isStatusUpdated) ||
                 other.isStatusUpdated == isStatusUpdated) &&
             (identical(other.isError, isError) || other.isError == isError) &&
+            (identical(other.showHideTermSelectionList,
+                    showHideTermSelectionList) ||
+                other.showHideTermSelectionList == showHideTermSelectionList) &&
             (identical(other.message, message) || other.message == message) &&
             (identical(other.selectedPlayerid, selectedPlayerid) ||
                 other.selectedPlayerid == selectedPlayerid) &&
@@ -375,6 +395,7 @@ class _$ManageTeamStateImpl implements _ManageTeamState {
       isLoading,
       isStatusUpdated,
       isError,
+      showHideTermSelectionList,
       message,
       selectedPlayerid,
       termsProgramSessionPlayerModelData,
@@ -398,6 +419,7 @@ abstract class _ManageTeamState implements ManageTeamState {
       {final bool isLoading,
       final bool isStatusUpdated,
       final bool isError,
+      final bool showHideTermSelectionList,
       final String message,
       final String selectedPlayerid,
       final TermsProgramSessionPlayerModel termsProgramSessionPlayerModelData,
@@ -412,6 +434,8 @@ abstract class _ManageTeamState implements ManageTeamState {
   bool get isStatusUpdated;
   @override
   bool get isError;
+  @override
+  bool get showHideTermSelectionList;
   @override
   String get message;
   @override

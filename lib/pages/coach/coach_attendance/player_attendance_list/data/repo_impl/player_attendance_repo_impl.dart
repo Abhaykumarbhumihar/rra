@@ -8,6 +8,7 @@ import '../../../../../../common/network/api_services.dart';
 import '../../../../../../common/network/app_constant.dart';
 import '../../../../../../common/network/failure.dart';
 import '../../../../../../common/service_locator/setivelocator.dart';
+import '../../../../../parents/document/add_view_document/data/entity/terms_program_session/terms_program_session_player_model.dart';
 import '../../domain/repositery/player_attendance_repositey.dart';
 import '../entity/player_list/attendance_player_list.dart';
 import '../entity/singple_player_attendance_detail/single_player_attendance_detail_model.dart';
@@ -49,19 +50,20 @@ class PlayerAttendanceRepoImpl implements PlayerAttendanceRepositey {
 
 
   @override
-  Future<Either<Failure, dynamic>> filterPlayerAttendanceList(Map<String, dynamic> playerData)async {
+  Future<Either<Failure, TermsProgramSessionPlayerModel>> filterPlayerAttendanceList(Map<String, dynamic> playerData)async {
 
     try {
 
       print(playerData);
       http.Response response =
-          await _apiServices.post(AppConstant.login, playerData);
+          await _apiServices.post(AppConstant.getTermsSessionCoachingPlayer, playerData, useDefaultHeaders: true,isJson: true);
       print(response.body);
       if (response.statusCode == 200) {
         final Map<String, dynamic> responseData = jsonDecode(response.body);
         if(responseData['success']){
-
-          return Right(responseData);
+          TermsProgramSessionPlayerModel termsProgramSessionPlayerModel = TermsProgramSessionPlayerModel
+              .fromJson(responseData);
+          return Right(termsProgramSessionPlayerModel);
         }else{
           return Left(Failure(responseData['success']));
         }

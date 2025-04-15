@@ -12,6 +12,7 @@ import 'package:rra/common/values/values_exports.dart';
 import 'package:connectivity_plus/connectivity_plus.dart';
 
 import '../../../../../common/component/auth_text_field.dart';
+import '../../../../../common/component/common_app_bar.dart';
 import '../../../../../common/component/common_background.dart';
 import '../../../../../common/component/custom_app_button.dart';
 import '../../../../../common/component/loading_indicator.dart';
@@ -138,7 +139,10 @@ class CreateAccount extends StatelessWidget {
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.stretch,
                       children: [
-                        SizedBox(height: height * 0.12),
+                        CustomHeader(title: "", onBackPress: (){
+                          Navigator.of(context).pop();
+                        }),
+                        SizedBox(height: height * 0.05),
                         Padding(
                           padding: const EdgeInsets.symmetric(horizontal: 16.0),
                           child: Form(

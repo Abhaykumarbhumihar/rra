@@ -47,7 +47,7 @@ class PlayerInfoCard extends StatelessWidget {
                     horizontal: 16.0, vertical: 6.0),
                 label: "View Report",
                 onPressed: onViewReport,
-                color: AppColor.appButtonColor,
+                color: Colors.blue,
               )
             ],
           )

@@ -33,7 +33,7 @@ class CoachingDetailScreen extends StatelessWidget {
         ModalRoute.of(context)?.settings.arguments as CoachingProgramData;
     //print(data);
     return CommonPageFormat(
-        isScrollable: true,
+        isScrollable: false,
         title: "Coaching Programs",
         onBackPress: () {
           Navigator.pop(context);
@@ -47,144 +47,124 @@ class CoachingDetailScreen extends StatelessWidget {
                 children: <Widget>[
                   Padding(
                     padding: EdgeInsets.all(14),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: <Widget>[
-                        NetworkImageWidget(
-                          imageUrl: data.image,
-                          imageWidth: double.infinity,
-                          placeHolder: "assets/images/football.png",
-                          imageHeight: height * 0.3,
-                          radiusAll: 15,
-                          imageFitType: BoxFit.cover,
-                        ).animate().fade(duration: 900.ms).scaleXY(
-                            begin: 0.9,
-                            end: 1.0,
-                            duration: 800.ms,
-                            curve: Curves.easeOut),
-                        SizedBox(height: height * 0.02),
-                        Text(
-                          "${data.name}",
-                          textAlign: TextAlign.start,
-                          style: AppTextStyle.commentReplyTextButtonStyle(
-                              context.screenWidth),
-                        )
-                            .animate()
-                            .fade(duration: 900.ms)
-                            .slideY(begin: 0.2, end: 0, duration: 800.ms),
-                        SizedBox(height: height * 0.02),
-                        Text(
-                          "${data.locationName}",
-                          textAlign: TextAlign.start,
-                          style:
-                              AppTextStyle.medium(context.screenWidth * 0.048),
-                        )
-                            .animate()
-                            .fade(duration: 900.ms, delay: 200.ms)
-                            .slideY(begin: 0.3, end: 0, duration: 800.ms),
-                        SizedBox(height: height * 0.02),
-                        if (data.private == "1")
+                    child: SingleChildScrollView(
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: <Widget>[
+                          NetworkImageWidget(
+                            imageUrl: data.image,
+                            imageWidth: double.infinity,
+                            placeHolder: "assets/images/football.png",
+                            imageHeight: height * 0.3,
+                            radiusAll: 15,
+                            imageFitType: BoxFit.cover,
+                          ).animate().fade(duration: 900.ms).scaleXY(
+                              begin: 0.9,
+                              end: 1.0,
+                              duration: 800.ms,
+                              curve: Curves.easeOut),
+                          SizedBox(height: height * 0.02),
                           Text(
-                            "Coaches",
+                            "${data.name}",
                             textAlign: TextAlign.start,
                             style: AppTextStyle.commentReplyTextButtonStyle(
                                 context.screenWidth),
                           )
                               .animate()
-                              .fade(duration: 900.ms, delay: 300.ms)
-                              .slideY(begin: 0.3, end: 0, duration: 800.ms),
-                        if (data.private == "1")
-                          SizedBox(
-                            width: context.screenWidth,
-                            height: height * 0.28,
-                            child: ListView.builder(
-                              shrinkWrap: true,
-                              padding: EdgeInsets.zero,
-                              scrollDirection: Axis.horizontal,
-                              itemCount: state
-                                  .coachingDetailResponse.data.coaches.length,
-                              itemBuilder: (context, index) {
-                                return CoachesListItem(
-                                  currentItemId: state.coachingDetailResponse
-                                      .data.coaches[index].id
-                                      .toString(),
-                                  selectedid: state.selectedCoachId ?? "",
-                                  image:
-                                      "${state.coachingDetailResponse.data.coaches[index].image}",
-                                  name:
-                                      "${state.coachingDetailResponse.data.coaches[index].name}",
-                                  buttonText1: "Book Training",
-                                  onButtonClick1: () {
-                                    context.read<CoachingDetailBloc>().add(SelectedCoachIdEvent(state.coachingDetailResponse
-                                        .data.coaches[index].id
-                                        .toString()));
-                                    print("BOOK BUTTON CLICKKK");
-                                  },
-                                )
-                                    .animate()
-                                    .fade(
-                                        duration: 900.ms,
-                                        delay: (index * 200).ms)
-                                    .slideX(
-                                        begin: 0.3, end: 0, duration: 800.ms);
-                              },
-                            ),
-                          ),
-                        SizedBox(height: 8),
-                        HtmlWidget(
-                          "${data.description}",
-                          textStyle: AppTextStyle.coachingProgramDetail(
-                              context.screenWidth * 0.0373),
-                        )
-                            .animate()
-                            .fade(duration: 500.ms, delay: 400.ms)
-                            .slideY(begin: 0.3, end: 0, duration: 500.ms),
-                        SizedBox(height: 24),
-
-                        Padding(
-                          padding: const EdgeInsets.only(
-                              left: 18.0, right: 18.0, top: 8.0, bottom: 14.0),
-                          child: CustomButton(
-                            text: "Book Training",
-                            onPressed: () async {
-
-                              if (data.private == "1" && state.selectedCoachId.isEmpty) {
-                                // If data.private is "1" and no coach is selected, print message
-                                context.showCustomSnackbar("Please select a coach.");
-                              } else {
-                                // Proceed with the code if conditions are not met
-                                BlocProvider.of<SessionCalendarBloc>(context).add(ResetCalendarEvent());
-                                BlocProvider.of<AddViewPlayerBloc>(context).add(ResetAddViewEvent());
-                                BlocProvider.of<AddViewPlayerBloc>(context).add(AddViewPlayerGetChildListEvent());
-                                var academyId = await getIt<SharedPrefs>().getString("selected_academyid");
-
-                                Map<String, dynamic> map = {
-                                  "coaching_program_id": data.id,
-                                  "academy_id": academyId,
-                                  "type": data.private == "1" ? "private" : "group",
-                                 if (data.private == "1") "coach_id": state.selectedCoachId,
-                                };
-
-                                bool isPrivate = data.private == "1" ? true : false;
-
-                                // Trigger the Bloc event and navigate to the calendar page
-                                BlocProvider.of<SessionCalendarBloc>(context).add(CalendarDateEvents(map, isPrivate));
-                                Navigator.pushNamed(context, AppRoutes.CALENDAR);
-                              }
-
-                            },
+                              .fade(duration: 900.ms)
+                              .slideY(begin: 0.2, end: 0, duration: 800.ms),
+                          SizedBox(height: height * 0.02),
+                          Text(
+                            "${data.locationName}",
+                            textAlign: TextAlign.start,
+                            style:
+                                AppTextStyle.medium(context.screenWidth * 0.048),
                           )
                               .animate()
-                              .fade(duration: 600.ms, delay: 500.ms)
-                              .scaleXY(
-                                  begin: 0.8,
-                                  end: 1.0,
-                                  duration: 500.ms,
-                                  curve: Curves.bounceOut),
-                        ),
+                              .fade(duration: 900.ms, delay: 200.ms)
+                              .slideY(begin: 0.3, end: 0, duration: 800.ms),
+                          SizedBox(height: height * 0.02),
+                          if (data.private == "1")
+                            Text(
+                              "Coaches",
+                              textAlign: TextAlign.start,
+                              style: AppTextStyle.commentReplyTextButtonStyle(
+                                  context.screenWidth),
+                            )
+                                .animate()
+                                .fade(duration: 900.ms, delay: 300.ms)
+                                .slideY(begin: 0.3, end: 0, duration: 800.ms),
+                          if (data.private == "1")
+                            SizedBox(
+                              width: context.screenWidth,
+                              height: height * 0.3,
+                              child: ListView.builder(
+                                shrinkWrap: true,
+                                padding: EdgeInsets.zero,
+                                scrollDirection: Axis.horizontal,
+                                itemCount: state
+                                    .coachingDetailResponse.data.coaches.length,
+                                itemBuilder: (context, index) {
+                                  return CoachesListItem(
+                                    currentItemId: state.coachingDetailResponse
+                                        .data.coaches[index].id
+                                        .toString(),
+                                    selectedid: state.selectedCoachId ?? "",
+                                    image:
+                                        "${state.coachingDetailResponse.data.coaches[index].image}",
+                                    name:
+                                        "${state.coachingDetailResponse.data.coaches[index].name}",
+                                    buttonText1: "Book Training",
+                                    onButtonClick1: () async {
+                                      context.read<CoachingDetailBloc>().add(SelectedCoachIdEvent(state.coachingDetailResponse
+                                          .data.coaches[index].id
+                                          .toString()));
+                                      // Proceed with the code if conditions are not met
+                                      BlocProvider.of<SessionCalendarBloc>(context).add(ResetCalendarEvent());
+                                      BlocProvider.of<AddViewPlayerBloc>(context).add(ResetAddViewEvent());
+                                      BlocProvider.of<AddViewPlayerBloc>(context).add(AddViewPlayerGetChildListEvent());
+                                      var academyId = await getIt<SharedPrefs>().getString("selected_academyid");
 
-                        SizedBox(height: 10),
-                      ],
+                                      Map<String, dynamic> map = {
+                                        "coaching_program_id": data.id,
+                                        "academy_id": academyId,
+                                        "type": data.private == "1" ? "private" : "group",
+                                        if (data.private == "1") "coach_id": state.selectedCoachId,
+                                      };
+
+                                      bool isPrivate = data.private == "1" ? true : false;
+
+                                      // Trigger the Bloc event and navigate to the calendar page
+                                      BlocProvider.of<SessionCalendarBloc>(context).add(CalendarDateEvents(map, isPrivate));
+                                      Navigator.pushNamed(context, AppRoutes.CALENDAR);
+                                      print("BOOK BUTTON CLICKKK");
+                                    },
+                                  )
+                                      .animate()
+                                      .fade(
+                                          duration: 900.ms,
+                                          delay: (index * 200).ms)
+                                      .slideX(
+                                          begin: 0.3, end: 0, duration: 800.ms);
+                                },
+                              ),
+                            ),
+                          SizedBox(height: 8),
+                          HtmlWidget(
+                            "${data.description}",
+                            textStyle: AppTextStyle.coachingProgramDetail(
+                                context.screenWidth * 0.0373),
+                          )
+                              .animate()
+                              .fade(duration: 500.ms, delay: 400.ms)
+                              .slideY(begin: 0.3, end: 0, duration: 500.ms),
+                          SizedBox(height: 150),
+                      
+                      
+                      
+                          SizedBox(height: 10),
+                        ],
+                      ),
                     ),
                   ),
                   if (state.isLoading)
@@ -195,6 +175,49 @@ class CoachingDetailScreen extends StatelessWidget {
                         .animate()
                         .fade(duration: 500.ms)
                         .scaleXY(begin: 0.8, end: 1.0, duration: 400.ms),
+                  if (data.private == "0")
+                  Align(alignment: Alignment.bottomCenter,
+                  child:   Padding(
+                    padding: const EdgeInsets.only(
+                        left: 18.0, right: 18.0, top: 8.0, bottom: 14.0),
+                    child: CustomButton(
+                      text: "Book Training",
+                      onPressed: () async {
+
+                        if (data.private == "1" && state.selectedCoachId.isEmpty) {
+                          // If data.private is "1" and no coach is selected, print message
+                          context.showCustomSnackbar("Please select a coach.");
+                        } else {
+                          // Proceed with the code if conditions are not met
+                          BlocProvider.of<SessionCalendarBloc>(context).add(ResetCalendarEvent());
+                          BlocProvider.of<AddViewPlayerBloc>(context).add(ResetAddViewEvent());
+                          BlocProvider.of<AddViewPlayerBloc>(context).add(AddViewPlayerGetChildListEvent());
+                          var academyId = await getIt<SharedPrefs>().getString("selected_academyid");
+
+                          Map<String, dynamic> map = {
+                            "coaching_program_id": data.id,
+                            "academy_id": academyId,
+                            "type": data.private == "1" ? "private" : "group",
+                            if (data.private == "1") "coach_id": state.selectedCoachId,
+                          };
+
+                          bool isPrivate = data.private == "1" ? true : false;
+
+                          // Trigger the Bloc event and navigate to the calendar page
+                          BlocProvider.of<SessionCalendarBloc>(context).add(CalendarDateEvents(map, isPrivate));
+                          Navigator.pushNamed(context, AppRoutes.CALENDAR);
+                        }
+
+                      },
+                    )
+                        .animate()
+                        .fade(duration: 600.ms, delay: 500.ms)
+                        .scaleXY(
+                        begin: 0.8,
+                        end: 1.0,
+                        duration: 500.ms,
+                        curve: Curves.bounceOut),
+                  ),)
                 ],
               );
 

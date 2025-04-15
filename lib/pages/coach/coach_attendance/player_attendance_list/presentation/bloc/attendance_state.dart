@@ -1,5 +1,6 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
+import '../../../../../parents/document/add_view_document/data/entity/terms_program_session/terms_program_session_player_model.dart';
 import '../../data/entity/player_list/attendance_player_list.dart';
 import '../../data/entity/singple_player_attendance_detail/single_player_attendance_detail_model.dart';
 
@@ -14,6 +15,10 @@ class AttendanceState with _$AttendanceState {
     @Default(false) bool isError,
     @Default("") String message,
     @Default("") String selectedPlayerid,
+    @Default(TermsProgramSessionPlayerModel()) TermsProgramSessionPlayerModel termsProgramSessionPlayerModelData,
+    @Default(Term()) Term termsId,
+    @Default(Session()) Session sessionId,
+    @Default(CoachingProgram()) CoachingProgram coachingProgramId,
     @Default(SinglePlayerAttendanceDetailModel()) SinglePlayerAttendanceDetailModel singlePlayerAttendanceDetailModel,
     @Default(AttendancePlayerListResponse()) AttendancePlayerListResponse attendancePlayerListResponse,
   }) = _AttendanceState;
@@ -23,6 +28,7 @@ class AttendanceState with _$AttendanceState {
     isStatusUpdated:false,
     isError: false,
     message:"",
+      termsId:Term(),sessionId:Session(),coachingProgramId:CoachingProgram()
   );
 }
 

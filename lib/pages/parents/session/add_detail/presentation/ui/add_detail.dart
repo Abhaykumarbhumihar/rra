@@ -1,6 +1,7 @@
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:intl/intl.dart';
 import 'package:rra/common/component/loading_indicator.dart';
+import 'package:rra/common/component/network_image.dart';
 import 'package:rra/common/values/values_exports.dart';
 import 'package:rra/pages/parents/session/calendar/presentation/bloc/session_calendar_bloc.dart';
 import '../../../../../../common/component/app_text_style.dart';
@@ -28,7 +29,8 @@ class AddDetail extends StatelessWidget {
   final TextEditingController firstNameController = TextEditingController();
   final TextEditingController schoolNameController = TextEditingController();
   final TextEditingController clubNameController = TextEditingController();
-  final TextEditingController medicalConditionController = TextEditingController();
+  final TextEditingController medicalConditionController =
+      TextEditingController();
   final TextEditingController ageController = TextEditingController();
   final TextEditingController dobController = TextEditingController();
 
@@ -37,30 +39,29 @@ class AddDetail extends StatelessWidget {
     var width = MediaQuery.of(context).size.width;
     var height = MediaQuery.of(context).size.height;
     final Map<String, dynamic>? arguments =
-    ModalRoute.of(context)?.settings.arguments as Map<String, dynamic>?;
+        ModalRoute.of(context)?.settings.arguments as Map<String, dynamic>?;
 
     bool? isFromDashBoard = arguments?['isFromDashBoard'] ?? false;
 
-    return Scaffold(
-      backgroundColor: AppColor.gradientMidColor,
-
-      body: Container(
-        width: width,
-        height: height,
-        padding: EdgeInsets.zero,
-        decoration: CommonBackground.decoration,
-        child: BlocListener<AddViewPlayerBloc, AddViewPlayerState>(
-          listener: (context, state) {
-            if (state.isCHildListSucces) {
-              print("all child list is ${state.childLisstModel.data.length}");
-            }
-            if(state.error!=""){
-              context.showCustomSnackbar(state.error.toString());
-            }
-          },
-          child: BlocBuilder<AddViewPlayerBloc, AddViewPlayerState>(
-            builder: (context, state) {
-              return Stack(
+    return BlocListener<AddViewPlayerBloc, AddViewPlayerState>(
+      listener: (context, state) {
+        if (state.isCHildListSucces) {
+          print("all child list is ${state.childLisstModel.data.length}");
+        }
+        if (state.error != "") {
+          context.showCustomSnackbar(state.error.toString());
+        }
+      },
+      child: BlocBuilder<AddViewPlayerBloc, AddViewPlayerState>(
+        builder: (context, state) {
+          return Scaffold(
+            backgroundColor: AppColor.gradientMidColor,
+            body: Container(
+              width: width,
+              height: height,
+              padding: EdgeInsets.zero,
+              decoration: CommonBackground.decoration,
+              child: Stack(
                 children: <Widget>[
                   Column(
                     children: [
@@ -69,8 +70,10 @@ class AddDetail extends StatelessWidget {
                         onBackPress: () {
                           Navigator.pop(context);
                         },
-                      ).animate().fade(duration: 500.ms).slideY(begin: -0.2, end: 0, duration: 600.ms),
-
+                      )
+                          .animate()
+                          .fade(duration: 500.ms)
+                          .slideY(begin: -0.2, end: 0, duration: 600.ms),
                       Padding(
                         padding: EdgeInsets.only(
                           left: context.screenHeight * 0.02,
@@ -81,135 +84,303 @@ class AddDetail extends StatelessWidget {
                           children: <Widget>[
                             if (!isFromDashBoard!)
                               Padding(
-                                padding: const EdgeInsets.only(left: 18.0, right: 18.0, top: 12.0),
-                                child: Image.asset("assets/images/tracer_two.png")
-                                    .animate()
-                                    .fade(duration: 500.ms)
-                                    .scaleXY(begin: 0.8, end: 1.0, duration: 400.ms),
+                                padding: const EdgeInsets.only(
+                                    left: 18.0, right: 18.0, top: 12.0),
+                                child:
+                                    Image.asset("assets/images/tracer_two.png")
+                                        .animate()
+                                        .fade(duration: 500.ms)
+                                        .scaleXY(
+                                            begin: 0.8,
+                                            end: 1.0,
+                                            duration: 400.ms),
                               ),
                             Padding(
-                              padding: EdgeInsets.symmetric(horizontal: context.screenWidth * 0.03),
+                              padding: EdgeInsets.symmetric(
+                                  horizontal: context.screenWidth * 0.03),
                               child: CustomToggleSwitch(
-                                selectedTabIndex: context.read<AddViewPlayerBloc>().state.selectedTab,
+                                selectedTabIndex: context
+                                    .read<AddViewPlayerBloc>()
+                                    .state
+                                    .selectedTab,
                                 tabNames: ['Select\nChild', 'Add\nChild'],
                                 onTabChanged: (index) {
-                                  context.read<AddViewPlayerBloc>().add(AddViewPlayerSelectedTabEvent(index));
+                                  context.read<AddViewPlayerBloc>().add(
+                                      AddViewPlayerSelectedTabEvent(index));
                                   if (index == 0) {
-                                    BlocProvider.of<AddViewPlayerBloc>(context).add(AddViewPlayerGetChildListEvent());
+                                    BlocProvider.of<AddViewPlayerBloc>(context)
+                                        .add(AddViewPlayerGetChildListEvent());
                                   }
                                 },
-                              ).animate().fade(duration: 600.ms).slideY(begin: 0.2, end: 0, duration: 500.ms),
+                              )
+                                  .animate()
+                                  .fade(duration: 600.ms)
+                                  .slideY(begin: 0.2, end: 0, duration: 500.ms),
                             ),
                           ],
                         ),
                       ),
-
                       Expanded(
                         child: SingleChildScrollView(
-                          padding: EdgeInsets.symmetric(horizontal: context.screenHeight * 0.02),
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              SizedBox(height: context.screenHeight * 0.013),
-                              if (!isFromDashBoard)
-                                Padding(
-                                  padding: const EdgeInsets.only(left: 3.0, right: 6.0, bottom: 6.0),
-                                  child: ScreenTitleForCalendar(
-                                    title: "${BlocProvider.of<CoachingProgramsBloc>(context).state.coachingName}",
-                                  ).animate().slideX(begin: -0.2, end: 0, duration: 500.ms).fade(duration: 500.ms),
-                                ),
-                              if (state.selectedTab == 1)
-                                AddChild(
-                                  firstNameController: firstNameController,
-                                  dobController: dobController,
-                                  ageController: ageController,
-                                  schoolNameController: schoolNameController,
-                                  clubNameController: clubNameController,
-                                  medicalConditionController: medicalConditionController,
-                                  photoConsent: state.childPhotoUseOnSocialMedia??2,
-                                  firstAidConsent: state.administratorFirstAidNeed??2,
-                                ).animate().fade(duration: 600.ms).slideX(begin: 0.3, end: 0, duration: 500.ms),
-
-                              if (state.selectedTab == 0)
-                                Container(
-                                  width: double.infinity,
-                                  child: ListView.builder(
-                                    shrinkWrap: true,
-                                    padding: EdgeInsets.zero,
-                                    physics: NeverScrollableScrollPhysics(),
-                                    itemCount: state.childLisstModel.data.length,
-                                    itemBuilder: (context, index) {
-                                      var data = state.childLisstModel.data[index];
-                                      return ListTile(
-                                        leading: Checkbox(
-                                          activeColor: AppColor.appButtonColor,
-                                          fillColor: MaterialStateProperty.resolveWith<Color>(
-                                                (Set<MaterialState> states) {
-                                              if (states.contains(MaterialState.selected)) {
-                                                return AppColor.appButtonColor;
-                                              }
-                                              return Colors.transparent;
-                                            },
-                                          ),
-                                          side: const BorderSide(color: Colors.white, width: 2),
-                                          checkColor: AppColor.appWhiteColor,
-                                          value: state.selectedChildren.length > index &&
-                                              state.selectedChildren[index],
-                                          onChanged: (bool? newValue) {
-                                            context.read<AddViewPlayerBloc>().add(
-                                              AddViewPlayerChildSelectionToggleEvent(index),
-                                            );
-                                          },
-                                        ),
-                                        title: Text(
-                                          "${data.childName}",
-                                          style: TextStyle(
-                                            color: AppColor.appWhiteColor,
-                                            fontFamily: AppFont.interSemiBold,
-                                            fontSize: context.screenWidth * 0.0426,
-                                          ),
-                                        ),
-                                      ).animate().fade(duration: 500.ms, delay: (index * 200).ms)
-                                          .slideY(begin: 0.2, end: 0, duration: 400.ms);
-                                    },
+                          padding: EdgeInsets.symmetric(
+                              horizontal: context.screenHeight * 0.02),
+                          child: Padding(
+                            padding: EdgeInsets.only(bottom: 45.0),
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                SizedBox(height: context.screenHeight * 0.013),
+                                if (!isFromDashBoard)
+                                  Padding(
+                                    padding: const EdgeInsets.only(
+                                        left: 3.0, right: 6.0, bottom: 6.0),
+                                    child: ScreenTitleForCalendar(
+                                      title:
+                                          "${BlocProvider.of<CoachingProgramsBloc>(context).state.coachingName}",
+                                    )
+                                        .animate()
+                                        .slideX(
+                                            begin: -0.2,
+                                            end: 0,
+                                            duration: 500.ms)
+                                        .fade(duration: 500.ms),
                                   ),
-                                ),
-                              if (state.selectedTab == 0)
+                                if (state.selectedTab == 1)
+                                  AddChild(
+                                    firstNameController: firstNameController,
+                                    dobController: dobController,
+                                    ageController: ageController,
+                                    schoolNameController: schoolNameController,
+                                    clubNameController: clubNameController,
+                                    medicalConditionController:
+                                        medicalConditionController,
+                                    photoConsent:
+                                        state.childPhotoUseOnSocialMedia ?? 2,
+                                    firstAidConsent:
+                                        state.administratorFirstAidNeed ?? 2,
+                                  ).animate().fade(duration: 600.ms).slideX(
+                                      begin: 0.3, end: 0, duration: 500.ms),
+                                if (state.selectedTab == 0)
+                                  Container(
+                                    width: double.infinity,
+                                    child: ListView.builder(
+                                      shrinkWrap: true,
+                                      padding: EdgeInsets.zero,
+                                      physics: NeverScrollableScrollPhysics(),
+                                      itemCount:
+                                          state.childLisstModel.data.length,
+                                      itemBuilder: (context, index) {
+                                        var data =
+                                            state.childLisstModel.data[index];
 
-                              Container(
-                                  child: isFromDashBoard==false?  Padding(
-                                    padding: const EdgeInsets.only(top: 38.0, left: 30, right: 30),
-                                    child: CustomButton(
-                                      text: "Continue",
-                                      onPressed: () async {
-                                        if(state.selectedChildId.isEmpty){
-                                          context.showCustomSnackbar("Please select minimum 1 child");
-                                        }else{
-                                          var academyId = await getIt<SharedPrefs>().getString("selected_academyid");
-                                          Map<String, dynamic> mapData = {
-                                            "academy_id": academyId,
-                                            "players": state.selectedChildId
-                                          };
-                                          BlocProvider.of<OrderSummaryBloc>(context).add(ResetStatusOfPaymentAndOrderAfterErrorEvent());
-                                          BlocProvider.of<OrderSummaryBloc>(context).add(GetOrderSummaryEvent(mapData));
-                                          Navigator.pushNamed(context, AppRoutes.ORDERSUMMARY);
-                                        }
+                                        return Card(
+                                          shape: RoundedRectangleBorder(
+                                            borderRadius: BorderRadius.circular(8),
+                                            side: BorderSide(color: Colors.pinkAccent, width: 0.5), // 👈 Border color & width
+                                          ),
+                                          color: Colors.transparent, // Optional: keep transparent background if needed
+                                          elevation: 4,
+                                          child: Padding(
+                                            padding:  EdgeInsets.only(top: 8.0,left: 4),
+                                            child: Expanded(
+                                              child: Row(
+                                                crossAxisAlignment: CrossAxisAlignment.start,
+                                                children: [
+                                                  if (!isFromDashBoard)
+                                                    Checkbox(
+                                                      activeColor: AppColor.appButtonColor,
+                                                      fillColor: MaterialStateProperty.resolveWith<Color>(
+                                                            (Set<MaterialState> states) {
+                                                          if (states.contains(MaterialState.selected)) {
+                                                            return AppColor.appButtonColor;
+                                                          }
+                                                          return Colors.transparent;
+                                                        },
+                                                      ),
+                                                      side: const BorderSide(color: Colors.white, width: 2),
+                                                      checkColor: AppColor.appWhiteColor,
+                                                      value: state.selectedChildren.length > index &&
+                                                          state.selectedChildren[index],
+                                                      onChanged: (bool? newValue) {
+                                                        context.read<AddViewPlayerBloc>().add(
+                                                          AddViewPlayerChildSelectionToggleEvent(index),
+                                                        );
+                                                      },
+                                                    ),
+                                                  SizedBox(width: 8),
+                                                  if (isFromDashBoard)
+                                                  NetworkImageWidget(
+                                                    imageUrl: data.image,
+                                                    imageHeight: 100,
+                                                    imageWidth: 100,
+                                                    radiusAll: 8.0,
+                                                  ),
+                                                  SizedBox(width: 8),
+                                                  // 👇 Let this expand and allow multiline text
+                                                  Expanded(
+                                                    child: Column(
+                                                      crossAxisAlignment: CrossAxisAlignment.start,
+                                                      children: [
+                                                        Text(
+                                                          "Name: ${data.childName}",
+                                                          style: TextStyle(
+                                                            color: AppColor.appWhiteColor,
+                                                            fontFamily: AppFont.interSemiBold,
+                                                            fontSize: context.screenWidth * 0.0375,
+                                                          ),
+                                                        ),
+                                                        Text(
+                                                          "Dob: ${data.childDob}",
+                                                          style: TextStyle(
+                                                            color: AppColor.appWhiteColor,
+                                                            fontFamily: AppFont.interSemiBold,
+                                                            fontSize: context.screenWidth * 0.0375,
+                                                          ),
+                                                        ),
+                                                        Text(
+                                                          "School: ${data.childSchool}",
+                                                          style: TextStyle(
+                                                            color: AppColor.appWhiteColor,
+                                                            fontFamily: AppFont.interSemiBold,
+                                                            fontSize: context.screenWidth * 0.0375,
+                                                          ),
+                                                          softWrap: true, // optional: forces wrapping
+                                                        ),
+                                                        if (isFromDashBoard)
+                                                        Row(
+                                                          mainAxisAlignment: MainAxisAlignment.end,
+                                                          children: <Widget>[
+                                                            ElevatedButton(
+                                                              onPressed: (){},
+                                                              style: ElevatedButton.styleFrom(
+                                                                  backgroundColor: Colors.pinkAccent, // Button color
+                                                                  shape: RoundedRectangleBorder(
+                                                                    borderRadius:
+                                                                    BorderRadius.circular(20), // Rounded Button
+                                                                  ),
+                                                                  minimumSize: Size(4, 30)
+                                                                //  padding: EdgeInsets.symmetric(horizontal: 12, vertical: 12),
+                                                              ),
+                                                              child: Text(
+                                                                'Delete',
+                                                                style: TextStyle(
+                                                                  color: Colors.white,
+                                                                  fontSize: context.screenWidth * 0.032,
+                                                                  fontFamily: AppFont.interMedium,
+                                                                ),
+                                                              ),
+                                                            ),
+                                                            SizedBox(width: 10,),
+                                                            ElevatedButton(
+                                                              onPressed: (){},
+                                                              style: ElevatedButton.styleFrom(
+                                                                  backgroundColor: Colors.pinkAccent, // Button color
+                                                                  shape: RoundedRectangleBorder(
+                                                                    borderRadius:
+                                                                    BorderRadius.circular(20), // Rounded Button
+                                                                  ),
+                                                                  minimumSize: Size(4, 30)
+                                                                //  padding: EdgeInsets.symmetric(horizontal: 12, vertical: 12),
+                                                              ),
+                                                              child: Text(
+                                                                'Update Info',
+                                                                style: TextStyle(
+                                                                  color: Colors.white,
+                                                                  fontSize: context.screenWidth * 0.032,
+                                                                  fontFamily: AppFont.interMedium,
+                                                                ),
+                                                              ),
+                                                            ),SizedBox(width: 8,)
+                                                          ],
+                                                        )
+                                                      ],
+                                                    ),
+                                                  )
+                                                ],
+                                              )
+                                                  .animate()
+                                                  .fade(duration: 500.ms, delay: (index * 200).ms)
+                                                  .slideY(begin: 0.2, end: 0, duration: 400.ms),
+                                            ),
+                                          ),
+                                        );
+
 
                                       },
-                                    ).animate().fade(duration: 500.ms).scaleXY(
-                                        begin: 0.8,
-                                        end: 1.0,
-                                        duration: 400.ms,
-                                        curve: Curves.bounceOut),
-                                  ):SizedBox()
-                                ),
-
-                              SizedBox(height: 30),
-                            ],
+                                    ),
+                                  ),
+                                SizedBox(height: 30),
+                              ],
+                            ),
                           ),
                         ),
                       ),
                     ],
+                  ),
+                  Align(
+                    alignment: Alignment.bottomCenter,
+                    child: state.selectedTab == 0
+                        ? Padding(
+                            padding: EdgeInsets.only(bottom: 18.0),
+                            child: Container(
+                                child: isFromDashBoard == false
+                                    ? Padding(
+                                        padding: const EdgeInsets.only(
+                                            top: 38.0, left: 30, right: 30),
+                                        child: CustomButton(
+                                          text: "Continue",
+                                          onPressed: () async {
+                                            if (BlocProvider.of<
+                                                            SessionCalendarBloc>(
+                                                        context)
+                                                    .state
+                                                    .timeAddedModel
+                                                    .data
+                                                    .isEmpty ==
+                                                true) {
+                                              Navigator.of(context).pop();
+                                            } else {
+                                              if (state
+                                                  .selectedChildId.isEmpty) {
+                                                context.showCustomSnackbar(
+                                                    "Please select minimum 1 child");
+                                              } else {
+                                                var academyId = await getIt<
+                                                        SharedPrefs>()
+                                                    .getString(
+                                                        "selected_academyid");
+                                                Map<String, dynamic> mapData = {
+                                                  "academy_id": academyId,
+                                                  "players":
+                                                      state.selectedChildId
+                                                };
+                                                BlocProvider.of<
+                                                            OrderSummaryBloc>(
+                                                        context)
+                                                    .add(
+                                                        ResetStatusOfPaymentAndOrderAfterErrorEvent());
+                                                BlocProvider.of<
+                                                            OrderSummaryBloc>(
+                                                        context)
+                                                    .add(GetOrderSummaryEvent(
+                                                        mapData));
+                                                Navigator.pushNamed(context,
+                                                    AppRoutes.ORDERSUMMARY);
+                                              }
+                                            }
+                                          },
+                                        )
+                                            .animate()
+                                            .fade(duration: 500.ms)
+                                            .scaleXY(
+                                                begin: 0.8,
+                                                end: 1.0,
+                                                duration: 400.ms,
+                                                curve: Curves.bounceOut),
+                                      )
+                                    : SizedBox()),
+                          )
+                        : SizedBox(),
                   ),
                   if (state.isLoading)
                     LoadingIndicator()
@@ -217,10 +388,10 @@ class AddDetail extends StatelessWidget {
                         .fade(duration: 300.ms)
                         .scaleXY(begin: 0.7, end: 1.0, duration: 400.ms),
                 ],
-              );
-            },
-          ),
-        ),
+              ),
+            ),
+          );
+        },
       ),
     );
   }

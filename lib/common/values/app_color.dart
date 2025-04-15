@@ -13,6 +13,8 @@ class AppColor {
   static const Color appgreen=Color(0xFF008000);
   static const Color dottedBorderColor=Color(0xFF269B77);
   static const Color appredColor=Color(0xFFFF0000);
+  static const Color red = const Color(0xFFFF0000);
+
   static const Color greyHome=Color(0xFF797979);
   static const Color focustexfield = Color(0xFF056981);
   static const Color userNameColor=Color(0xFF0B4DA1);

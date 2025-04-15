@@ -24,6 +24,9 @@ mixin _$AttendanceEvent {
         getDetailOfChildAttendance,
     required TResult Function(Map<String, dynamic> data) updateAttendanceStatus,
     required TResult Function(String id) storeTapUserId,
+    required TResult Function(Term term) getTermSelected,
+    required TResult Function(CoachingProgram program) getProgramSelected,
+    required TResult Function(Session session) getSessionSelected,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -33,6 +36,9 @@ mixin _$AttendanceEvent {
     TResult? Function(Map<String, dynamic> data)? getDetailOfChildAttendance,
     TResult? Function(Map<String, dynamic> data)? updateAttendanceStatus,
     TResult? Function(String id)? storeTapUserId,
+    TResult? Function(Term term)? getTermSelected,
+    TResult? Function(CoachingProgram program)? getProgramSelected,
+    TResult? Function(Session session)? getSessionSelected,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -42,6 +48,9 @@ mixin _$AttendanceEvent {
     TResult Function(Map<String, dynamic> data)? getDetailOfChildAttendance,
     TResult Function(Map<String, dynamic> data)? updateAttendanceStatus,
     TResult Function(String id)? storeTapUserId,
+    TResult Function(Term term)? getTermSelected,
+    TResult Function(CoachingProgram program)? getProgramSelected,
+    TResult Function(Session session)? getSessionSelected,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -56,6 +65,9 @@ mixin _$AttendanceEvent {
     required TResult Function(UpdateAttendanceEvent value)
         updateAttendanceStatus,
     required TResult Function(StoreTapUserId value) storeTapUserId,
+    required TResult Function(TermSelectedEvent value) getTermSelected,
+    required TResult Function(ProgramSelectedEvent value) getProgramSelected,
+    required TResult Function(SessionSelectedEvent value) getSessionSelected,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -66,6 +78,9 @@ mixin _$AttendanceEvent {
         getDetailOfChildAttendance,
     TResult? Function(UpdateAttendanceEvent value)? updateAttendanceStatus,
     TResult? Function(StoreTapUserId value)? storeTapUserId,
+    TResult? Function(TermSelectedEvent value)? getTermSelected,
+    TResult? Function(ProgramSelectedEvent value)? getProgramSelected,
+    TResult? Function(SessionSelectedEvent value)? getSessionSelected,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -76,6 +91,9 @@ mixin _$AttendanceEvent {
         getDetailOfChildAttendance,
     TResult Function(UpdateAttendanceEvent value)? updateAttendanceStatus,
     TResult Function(StoreTapUserId value)? storeTapUserId,
+    TResult Function(TermSelectedEvent value)? getTermSelected,
+    TResult Function(ProgramSelectedEvent value)? getProgramSelected,
+    TResult Function(SessionSelectedEvent value)? getSessionSelected,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -186,6 +204,9 @@ class _$FilterAttendanceListEventImpl implements FilterAttendanceListEvent {
         getDetailOfChildAttendance,
     required TResult Function(Map<String, dynamic> data) updateAttendanceStatus,
     required TResult Function(String id) storeTapUserId,
+    required TResult Function(Term term) getTermSelected,
+    required TResult Function(CoachingProgram program) getProgramSelected,
+    required TResult Function(Session session) getSessionSelected,
   }) {
     return filterAttendaceList(data);
   }
@@ -198,6 +219,9 @@ class _$FilterAttendanceListEventImpl implements FilterAttendanceListEvent {
     TResult? Function(Map<String, dynamic> data)? getDetailOfChildAttendance,
     TResult? Function(Map<String, dynamic> data)? updateAttendanceStatus,
     TResult? Function(String id)? storeTapUserId,
+    TResult? Function(Term term)? getTermSelected,
+    TResult? Function(CoachingProgram program)? getProgramSelected,
+    TResult? Function(Session session)? getSessionSelected,
   }) {
     return filterAttendaceList?.call(data);
   }
@@ -210,6 +234,9 @@ class _$FilterAttendanceListEventImpl implements FilterAttendanceListEvent {
     TResult Function(Map<String, dynamic> data)? getDetailOfChildAttendance,
     TResult Function(Map<String, dynamic> data)? updateAttendanceStatus,
     TResult Function(String id)? storeTapUserId,
+    TResult Function(Term term)? getTermSelected,
+    TResult Function(CoachingProgram program)? getProgramSelected,
+    TResult Function(Session session)? getSessionSelected,
     required TResult orElse(),
   }) {
     if (filterAttendaceList != null) {
@@ -230,6 +257,9 @@ class _$FilterAttendanceListEventImpl implements FilterAttendanceListEvent {
     required TResult Function(UpdateAttendanceEvent value)
         updateAttendanceStatus,
     required TResult Function(StoreTapUserId value) storeTapUserId,
+    required TResult Function(TermSelectedEvent value) getTermSelected,
+    required TResult Function(ProgramSelectedEvent value) getProgramSelected,
+    required TResult Function(SessionSelectedEvent value) getSessionSelected,
   }) {
     return filterAttendaceList(this);
   }
@@ -243,6 +273,9 @@ class _$FilterAttendanceListEventImpl implements FilterAttendanceListEvent {
         getDetailOfChildAttendance,
     TResult? Function(UpdateAttendanceEvent value)? updateAttendanceStatus,
     TResult? Function(StoreTapUserId value)? storeTapUserId,
+    TResult? Function(TermSelectedEvent value)? getTermSelected,
+    TResult? Function(ProgramSelectedEvent value)? getProgramSelected,
+    TResult? Function(SessionSelectedEvent value)? getSessionSelected,
   }) {
     return filterAttendaceList?.call(this);
   }
@@ -256,6 +289,9 @@ class _$FilterAttendanceListEventImpl implements FilterAttendanceListEvent {
         getDetailOfChildAttendance,
     TResult Function(UpdateAttendanceEvent value)? updateAttendanceStatus,
     TResult Function(StoreTapUserId value)? storeTapUserId,
+    TResult Function(TermSelectedEvent value)? getTermSelected,
+    TResult Function(ProgramSelectedEvent value)? getProgramSelected,
+    TResult Function(SessionSelectedEvent value)? getSessionSelected,
     required TResult orElse(),
   }) {
     if (filterAttendaceList != null) {
@@ -362,6 +398,9 @@ class _$GetAttendanceListEventImpl implements GetAttendanceListEvent {
         getDetailOfChildAttendance,
     required TResult Function(Map<String, dynamic> data) updateAttendanceStatus,
     required TResult Function(String id) storeTapUserId,
+    required TResult Function(Term term) getTermSelected,
+    required TResult Function(CoachingProgram program) getProgramSelected,
+    required TResult Function(Session session) getSessionSelected,
   }) {
     return getAttenDanceListData(data);
   }
@@ -374,6 +413,9 @@ class _$GetAttendanceListEventImpl implements GetAttendanceListEvent {
     TResult? Function(Map<String, dynamic> data)? getDetailOfChildAttendance,
     TResult? Function(Map<String, dynamic> data)? updateAttendanceStatus,
     TResult? Function(String id)? storeTapUserId,
+    TResult? Function(Term term)? getTermSelected,
+    TResult? Function(CoachingProgram program)? getProgramSelected,
+    TResult? Function(Session session)? getSessionSelected,
   }) {
     return getAttenDanceListData?.call(data);
   }
@@ -386,6 +428,9 @@ class _$GetAttendanceListEventImpl implements GetAttendanceListEvent {
     TResult Function(Map<String, dynamic> data)? getDetailOfChildAttendance,
     TResult Function(Map<String, dynamic> data)? updateAttendanceStatus,
     TResult Function(String id)? storeTapUserId,
+    TResult Function(Term term)? getTermSelected,
+    TResult Function(CoachingProgram program)? getProgramSelected,
+    TResult Function(Session session)? getSessionSelected,
     required TResult orElse(),
   }) {
     if (getAttenDanceListData != null) {
@@ -406,6 +451,9 @@ class _$GetAttendanceListEventImpl implements GetAttendanceListEvent {
     required TResult Function(UpdateAttendanceEvent value)
         updateAttendanceStatus,
     required TResult Function(StoreTapUserId value) storeTapUserId,
+    required TResult Function(TermSelectedEvent value) getTermSelected,
+    required TResult Function(ProgramSelectedEvent value) getProgramSelected,
+    required TResult Function(SessionSelectedEvent value) getSessionSelected,
   }) {
     return getAttenDanceListData(this);
   }
@@ -419,6 +467,9 @@ class _$GetAttendanceListEventImpl implements GetAttendanceListEvent {
         getDetailOfChildAttendance,
     TResult? Function(UpdateAttendanceEvent value)? updateAttendanceStatus,
     TResult? Function(StoreTapUserId value)? storeTapUserId,
+    TResult? Function(TermSelectedEvent value)? getTermSelected,
+    TResult? Function(ProgramSelectedEvent value)? getProgramSelected,
+    TResult? Function(SessionSelectedEvent value)? getSessionSelected,
   }) {
     return getAttenDanceListData?.call(this);
   }
@@ -432,6 +483,9 @@ class _$GetAttendanceListEventImpl implements GetAttendanceListEvent {
         getDetailOfChildAttendance,
     TResult Function(UpdateAttendanceEvent value)? updateAttendanceStatus,
     TResult Function(StoreTapUserId value)? storeTapUserId,
+    TResult Function(TermSelectedEvent value)? getTermSelected,
+    TResult Function(ProgramSelectedEvent value)? getProgramSelected,
+    TResult Function(SessionSelectedEvent value)? getSessionSelected,
     required TResult orElse(),
   }) {
     if (getAttenDanceListData != null) {
@@ -542,6 +596,9 @@ class _$GetDetailOfOneChildAttendanceEventImpl
         getDetailOfChildAttendance,
     required TResult Function(Map<String, dynamic> data) updateAttendanceStatus,
     required TResult Function(String id) storeTapUserId,
+    required TResult Function(Term term) getTermSelected,
+    required TResult Function(CoachingProgram program) getProgramSelected,
+    required TResult Function(Session session) getSessionSelected,
   }) {
     return getDetailOfChildAttendance(data);
   }
@@ -554,6 +611,9 @@ class _$GetDetailOfOneChildAttendanceEventImpl
     TResult? Function(Map<String, dynamic> data)? getDetailOfChildAttendance,
     TResult? Function(Map<String, dynamic> data)? updateAttendanceStatus,
     TResult? Function(String id)? storeTapUserId,
+    TResult? Function(Term term)? getTermSelected,
+    TResult? Function(CoachingProgram program)? getProgramSelected,
+    TResult? Function(Session session)? getSessionSelected,
   }) {
     return getDetailOfChildAttendance?.call(data);
   }
@@ -566,6 +626,9 @@ class _$GetDetailOfOneChildAttendanceEventImpl
     TResult Function(Map<String, dynamic> data)? getDetailOfChildAttendance,
     TResult Function(Map<String, dynamic> data)? updateAttendanceStatus,
     TResult Function(String id)? storeTapUserId,
+    TResult Function(Term term)? getTermSelected,
+    TResult Function(CoachingProgram program)? getProgramSelected,
+    TResult Function(Session session)? getSessionSelected,
     required TResult orElse(),
   }) {
     if (getDetailOfChildAttendance != null) {
@@ -586,6 +649,9 @@ class _$GetDetailOfOneChildAttendanceEventImpl
     required TResult Function(UpdateAttendanceEvent value)
         updateAttendanceStatus,
     required TResult Function(StoreTapUserId value) storeTapUserId,
+    required TResult Function(TermSelectedEvent value) getTermSelected,
+    required TResult Function(ProgramSelectedEvent value) getProgramSelected,
+    required TResult Function(SessionSelectedEvent value) getSessionSelected,
   }) {
     return getDetailOfChildAttendance(this);
   }
@@ -599,6 +665,9 @@ class _$GetDetailOfOneChildAttendanceEventImpl
         getDetailOfChildAttendance,
     TResult? Function(UpdateAttendanceEvent value)? updateAttendanceStatus,
     TResult? Function(StoreTapUserId value)? storeTapUserId,
+    TResult? Function(TermSelectedEvent value)? getTermSelected,
+    TResult? Function(ProgramSelectedEvent value)? getProgramSelected,
+    TResult? Function(SessionSelectedEvent value)? getSessionSelected,
   }) {
     return getDetailOfChildAttendance?.call(this);
   }
@@ -612,6 +681,9 @@ class _$GetDetailOfOneChildAttendanceEventImpl
         getDetailOfChildAttendance,
     TResult Function(UpdateAttendanceEvent value)? updateAttendanceStatus,
     TResult Function(StoreTapUserId value)? storeTapUserId,
+    TResult Function(TermSelectedEvent value)? getTermSelected,
+    TResult Function(ProgramSelectedEvent value)? getProgramSelected,
+    TResult Function(SessionSelectedEvent value)? getSessionSelected,
     required TResult orElse(),
   }) {
     if (getDetailOfChildAttendance != null) {
@@ -719,6 +791,9 @@ class _$UpdateAttendanceEventImpl implements UpdateAttendanceEvent {
         getDetailOfChildAttendance,
     required TResult Function(Map<String, dynamic> data) updateAttendanceStatus,
     required TResult Function(String id) storeTapUserId,
+    required TResult Function(Term term) getTermSelected,
+    required TResult Function(CoachingProgram program) getProgramSelected,
+    required TResult Function(Session session) getSessionSelected,
   }) {
     return updateAttendanceStatus(data);
   }
@@ -731,6 +806,9 @@ class _$UpdateAttendanceEventImpl implements UpdateAttendanceEvent {
     TResult? Function(Map<String, dynamic> data)? getDetailOfChildAttendance,
     TResult? Function(Map<String, dynamic> data)? updateAttendanceStatus,
     TResult? Function(String id)? storeTapUserId,
+    TResult? Function(Term term)? getTermSelected,
+    TResult? Function(CoachingProgram program)? getProgramSelected,
+    TResult? Function(Session session)? getSessionSelected,
   }) {
     return updateAttendanceStatus?.call(data);
   }
@@ -743,6 +821,9 @@ class _$UpdateAttendanceEventImpl implements UpdateAttendanceEvent {
     TResult Function(Map<String, dynamic> data)? getDetailOfChildAttendance,
     TResult Function(Map<String, dynamic> data)? updateAttendanceStatus,
     TResult Function(String id)? storeTapUserId,
+    TResult Function(Term term)? getTermSelected,
+    TResult Function(CoachingProgram program)? getProgramSelected,
+    TResult Function(Session session)? getSessionSelected,
     required TResult orElse(),
   }) {
     if (updateAttendanceStatus != null) {
@@ -763,6 +844,9 @@ class _$UpdateAttendanceEventImpl implements UpdateAttendanceEvent {
     required TResult Function(UpdateAttendanceEvent value)
         updateAttendanceStatus,
     required TResult Function(StoreTapUserId value) storeTapUserId,
+    required TResult Function(TermSelectedEvent value) getTermSelected,
+    required TResult Function(ProgramSelectedEvent value) getProgramSelected,
+    required TResult Function(SessionSelectedEvent value) getSessionSelected,
   }) {
     return updateAttendanceStatus(this);
   }
@@ -776,6 +860,9 @@ class _$UpdateAttendanceEventImpl implements UpdateAttendanceEvent {
         getDetailOfChildAttendance,
     TResult? Function(UpdateAttendanceEvent value)? updateAttendanceStatus,
     TResult? Function(StoreTapUserId value)? storeTapUserId,
+    TResult? Function(TermSelectedEvent value)? getTermSelected,
+    TResult? Function(ProgramSelectedEvent value)? getProgramSelected,
+    TResult? Function(SessionSelectedEvent value)? getSessionSelected,
   }) {
     return updateAttendanceStatus?.call(this);
   }
@@ -789,6 +876,9 @@ class _$UpdateAttendanceEventImpl implements UpdateAttendanceEvent {
         getDetailOfChildAttendance,
     TResult Function(UpdateAttendanceEvent value)? updateAttendanceStatus,
     TResult Function(StoreTapUserId value)? storeTapUserId,
+    TResult Function(TermSelectedEvent value)? getTermSelected,
+    TResult Function(ProgramSelectedEvent value)? getProgramSelected,
+    TResult Function(SessionSelectedEvent value)? getSessionSelected,
     required TResult orElse(),
   }) {
     if (updateAttendanceStatus != null) {
@@ -886,6 +976,9 @@ class _$StoreTapUserIdImpl implements StoreTapUserId {
         getDetailOfChildAttendance,
     required TResult Function(Map<String, dynamic> data) updateAttendanceStatus,
     required TResult Function(String id) storeTapUserId,
+    required TResult Function(Term term) getTermSelected,
+    required TResult Function(CoachingProgram program) getProgramSelected,
+    required TResult Function(Session session) getSessionSelected,
   }) {
     return storeTapUserId(id);
   }
@@ -898,6 +991,9 @@ class _$StoreTapUserIdImpl implements StoreTapUserId {
     TResult? Function(Map<String, dynamic> data)? getDetailOfChildAttendance,
     TResult? Function(Map<String, dynamic> data)? updateAttendanceStatus,
     TResult? Function(String id)? storeTapUserId,
+    TResult? Function(Term term)? getTermSelected,
+    TResult? Function(CoachingProgram program)? getProgramSelected,
+    TResult? Function(Session session)? getSessionSelected,
   }) {
     return storeTapUserId?.call(id);
   }
@@ -910,6 +1006,9 @@ class _$StoreTapUserIdImpl implements StoreTapUserId {
     TResult Function(Map<String, dynamic> data)? getDetailOfChildAttendance,
     TResult Function(Map<String, dynamic> data)? updateAttendanceStatus,
     TResult Function(String id)? storeTapUserId,
+    TResult Function(Term term)? getTermSelected,
+    TResult Function(CoachingProgram program)? getProgramSelected,
+    TResult Function(Session session)? getSessionSelected,
     required TResult orElse(),
   }) {
     if (storeTapUserId != null) {
@@ -930,6 +1029,9 @@ class _$StoreTapUserIdImpl implements StoreTapUserId {
     required TResult Function(UpdateAttendanceEvent value)
         updateAttendanceStatus,
     required TResult Function(StoreTapUserId value) storeTapUserId,
+    required TResult Function(TermSelectedEvent value) getTermSelected,
+    required TResult Function(ProgramSelectedEvent value) getProgramSelected,
+    required TResult Function(SessionSelectedEvent value) getSessionSelected,
   }) {
     return storeTapUserId(this);
   }
@@ -943,6 +1045,9 @@ class _$StoreTapUserIdImpl implements StoreTapUserId {
         getDetailOfChildAttendance,
     TResult? Function(UpdateAttendanceEvent value)? updateAttendanceStatus,
     TResult? Function(StoreTapUserId value)? storeTapUserId,
+    TResult? Function(TermSelectedEvent value)? getTermSelected,
+    TResult? Function(ProgramSelectedEvent value)? getProgramSelected,
+    TResult? Function(SessionSelectedEvent value)? getSessionSelected,
   }) {
     return storeTapUserId?.call(this);
   }
@@ -956,6 +1061,9 @@ class _$StoreTapUserIdImpl implements StoreTapUserId {
         getDetailOfChildAttendance,
     TResult Function(UpdateAttendanceEvent value)? updateAttendanceStatus,
     TResult Function(StoreTapUserId value)? storeTapUserId,
+    TResult Function(TermSelectedEvent value)? getTermSelected,
+    TResult Function(ProgramSelectedEvent value)? getProgramSelected,
+    TResult Function(SessionSelectedEvent value)? getSessionSelected,
     required TResult orElse(),
   }) {
     if (storeTapUserId != null) {
@@ -975,4 +1083,596 @@ abstract class StoreTapUserId implements AttendanceEvent {
   @JsonKey(includeFromJson: false, includeToJson: false)
   _$$StoreTapUserIdImplCopyWith<_$StoreTapUserIdImpl> get copyWith =>
       throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$TermSelectedEventImplCopyWith<$Res> {
+  factory _$$TermSelectedEventImplCopyWith(_$TermSelectedEventImpl value,
+          $Res Function(_$TermSelectedEventImpl) then) =
+      __$$TermSelectedEventImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({Term term});
+
+  $TermCopyWith<$Res> get term;
+}
+
+/// @nodoc
+class __$$TermSelectedEventImplCopyWithImpl<$Res>
+    extends _$AttendanceEventCopyWithImpl<$Res, _$TermSelectedEventImpl>
+    implements _$$TermSelectedEventImplCopyWith<$Res> {
+  __$$TermSelectedEventImplCopyWithImpl(_$TermSelectedEventImpl _value,
+      $Res Function(_$TermSelectedEventImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of AttendanceEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? term = null,
+  }) {
+    return _then(_$TermSelectedEventImpl(
+      null == term
+          ? _value.term
+          : term // ignore: cast_nullable_to_non_nullable
+              as Term,
+    ));
+  }
+
+  /// Create a copy of AttendanceEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $TermCopyWith<$Res> get term {
+    return $TermCopyWith<$Res>(_value.term, (value) {
+      return _then(_value.copyWith(term: value));
+    });
+  }
+}
+
+/// @nodoc
+
+class _$TermSelectedEventImpl implements TermSelectedEvent {
+  const _$TermSelectedEventImpl(this.term);
+
+  @override
+  final Term term;
+
+  @override
+  String toString() {
+    return 'AttendanceEvent.getTermSelected(term: $term)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$TermSelectedEventImpl &&
+            (identical(other.term, term) || other.term == term));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, term);
+
+  /// Create a copy of AttendanceEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$TermSelectedEventImplCopyWith<_$TermSelectedEventImpl> get copyWith =>
+      __$$TermSelectedEventImplCopyWithImpl<_$TermSelectedEventImpl>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(Map<String, dynamic> data) filterAttendaceList,
+    required TResult Function(Map<String, dynamic> data) getAttenDanceListData,
+    required TResult Function(Map<String, dynamic> data)
+        getDetailOfChildAttendance,
+    required TResult Function(Map<String, dynamic> data) updateAttendanceStatus,
+    required TResult Function(String id) storeTapUserId,
+    required TResult Function(Term term) getTermSelected,
+    required TResult Function(CoachingProgram program) getProgramSelected,
+    required TResult Function(Session session) getSessionSelected,
+  }) {
+    return getTermSelected(term);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(Map<String, dynamic> data)? filterAttendaceList,
+    TResult? Function(Map<String, dynamic> data)? getAttenDanceListData,
+    TResult? Function(Map<String, dynamic> data)? getDetailOfChildAttendance,
+    TResult? Function(Map<String, dynamic> data)? updateAttendanceStatus,
+    TResult? Function(String id)? storeTapUserId,
+    TResult? Function(Term term)? getTermSelected,
+    TResult? Function(CoachingProgram program)? getProgramSelected,
+    TResult? Function(Session session)? getSessionSelected,
+  }) {
+    return getTermSelected?.call(term);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(Map<String, dynamic> data)? filterAttendaceList,
+    TResult Function(Map<String, dynamic> data)? getAttenDanceListData,
+    TResult Function(Map<String, dynamic> data)? getDetailOfChildAttendance,
+    TResult Function(Map<String, dynamic> data)? updateAttendanceStatus,
+    TResult Function(String id)? storeTapUserId,
+    TResult Function(Term term)? getTermSelected,
+    TResult Function(CoachingProgram program)? getProgramSelected,
+    TResult Function(Session session)? getSessionSelected,
+    required TResult orElse(),
+  }) {
+    if (getTermSelected != null) {
+      return getTermSelected(term);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(FilterAttendanceListEvent value)
+        filterAttendaceList,
+    required TResult Function(GetAttendanceListEvent value)
+        getAttenDanceListData,
+    required TResult Function(GetDetailOfOneChildAttendanceEvent value)
+        getDetailOfChildAttendance,
+    required TResult Function(UpdateAttendanceEvent value)
+        updateAttendanceStatus,
+    required TResult Function(StoreTapUserId value) storeTapUserId,
+    required TResult Function(TermSelectedEvent value) getTermSelected,
+    required TResult Function(ProgramSelectedEvent value) getProgramSelected,
+    required TResult Function(SessionSelectedEvent value) getSessionSelected,
+  }) {
+    return getTermSelected(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(FilterAttendanceListEvent value)? filterAttendaceList,
+    TResult? Function(GetAttendanceListEvent value)? getAttenDanceListData,
+    TResult? Function(GetDetailOfOneChildAttendanceEvent value)?
+        getDetailOfChildAttendance,
+    TResult? Function(UpdateAttendanceEvent value)? updateAttendanceStatus,
+    TResult? Function(StoreTapUserId value)? storeTapUserId,
+    TResult? Function(TermSelectedEvent value)? getTermSelected,
+    TResult? Function(ProgramSelectedEvent value)? getProgramSelected,
+    TResult? Function(SessionSelectedEvent value)? getSessionSelected,
+  }) {
+    return getTermSelected?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(FilterAttendanceListEvent value)? filterAttendaceList,
+    TResult Function(GetAttendanceListEvent value)? getAttenDanceListData,
+    TResult Function(GetDetailOfOneChildAttendanceEvent value)?
+        getDetailOfChildAttendance,
+    TResult Function(UpdateAttendanceEvent value)? updateAttendanceStatus,
+    TResult Function(StoreTapUserId value)? storeTapUserId,
+    TResult Function(TermSelectedEvent value)? getTermSelected,
+    TResult Function(ProgramSelectedEvent value)? getProgramSelected,
+    TResult Function(SessionSelectedEvent value)? getSessionSelected,
+    required TResult orElse(),
+  }) {
+    if (getTermSelected != null) {
+      return getTermSelected(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class TermSelectedEvent implements AttendanceEvent {
+  const factory TermSelectedEvent(final Term term) = _$TermSelectedEventImpl;
+
+  Term get term;
+
+  /// Create a copy of AttendanceEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$TermSelectedEventImplCopyWith<_$TermSelectedEventImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$ProgramSelectedEventImplCopyWith<$Res> {
+  factory _$$ProgramSelectedEventImplCopyWith(_$ProgramSelectedEventImpl value,
+          $Res Function(_$ProgramSelectedEventImpl) then) =
+      __$$ProgramSelectedEventImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({CoachingProgram program});
+
+  $CoachingProgramCopyWith<$Res> get program;
+}
+
+/// @nodoc
+class __$$ProgramSelectedEventImplCopyWithImpl<$Res>
+    extends _$AttendanceEventCopyWithImpl<$Res, _$ProgramSelectedEventImpl>
+    implements _$$ProgramSelectedEventImplCopyWith<$Res> {
+  __$$ProgramSelectedEventImplCopyWithImpl(_$ProgramSelectedEventImpl _value,
+      $Res Function(_$ProgramSelectedEventImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of AttendanceEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? program = null,
+  }) {
+    return _then(_$ProgramSelectedEventImpl(
+      null == program
+          ? _value.program
+          : program // ignore: cast_nullable_to_non_nullable
+              as CoachingProgram,
+    ));
+  }
+
+  /// Create a copy of AttendanceEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $CoachingProgramCopyWith<$Res> get program {
+    return $CoachingProgramCopyWith<$Res>(_value.program, (value) {
+      return _then(_value.copyWith(program: value));
+    });
+  }
+}
+
+/// @nodoc
+
+class _$ProgramSelectedEventImpl implements ProgramSelectedEvent {
+  const _$ProgramSelectedEventImpl(this.program);
+
+  @override
+  final CoachingProgram program;
+
+  @override
+  String toString() {
+    return 'AttendanceEvent.getProgramSelected(program: $program)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$ProgramSelectedEventImpl &&
+            (identical(other.program, program) || other.program == program));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, program);
+
+  /// Create a copy of AttendanceEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$ProgramSelectedEventImplCopyWith<_$ProgramSelectedEventImpl>
+      get copyWith =>
+          __$$ProgramSelectedEventImplCopyWithImpl<_$ProgramSelectedEventImpl>(
+              this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(Map<String, dynamic> data) filterAttendaceList,
+    required TResult Function(Map<String, dynamic> data) getAttenDanceListData,
+    required TResult Function(Map<String, dynamic> data)
+        getDetailOfChildAttendance,
+    required TResult Function(Map<String, dynamic> data) updateAttendanceStatus,
+    required TResult Function(String id) storeTapUserId,
+    required TResult Function(Term term) getTermSelected,
+    required TResult Function(CoachingProgram program) getProgramSelected,
+    required TResult Function(Session session) getSessionSelected,
+  }) {
+    return getProgramSelected(program);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(Map<String, dynamic> data)? filterAttendaceList,
+    TResult? Function(Map<String, dynamic> data)? getAttenDanceListData,
+    TResult? Function(Map<String, dynamic> data)? getDetailOfChildAttendance,
+    TResult? Function(Map<String, dynamic> data)? updateAttendanceStatus,
+    TResult? Function(String id)? storeTapUserId,
+    TResult? Function(Term term)? getTermSelected,
+    TResult? Function(CoachingProgram program)? getProgramSelected,
+    TResult? Function(Session session)? getSessionSelected,
+  }) {
+    return getProgramSelected?.call(program);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(Map<String, dynamic> data)? filterAttendaceList,
+    TResult Function(Map<String, dynamic> data)? getAttenDanceListData,
+    TResult Function(Map<String, dynamic> data)? getDetailOfChildAttendance,
+    TResult Function(Map<String, dynamic> data)? updateAttendanceStatus,
+    TResult Function(String id)? storeTapUserId,
+    TResult Function(Term term)? getTermSelected,
+    TResult Function(CoachingProgram program)? getProgramSelected,
+    TResult Function(Session session)? getSessionSelected,
+    required TResult orElse(),
+  }) {
+    if (getProgramSelected != null) {
+      return getProgramSelected(program);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(FilterAttendanceListEvent value)
+        filterAttendaceList,
+    required TResult Function(GetAttendanceListEvent value)
+        getAttenDanceListData,
+    required TResult Function(GetDetailOfOneChildAttendanceEvent value)
+        getDetailOfChildAttendance,
+    required TResult Function(UpdateAttendanceEvent value)
+        updateAttendanceStatus,
+    required TResult Function(StoreTapUserId value) storeTapUserId,
+    required TResult Function(TermSelectedEvent value) getTermSelected,
+    required TResult Function(ProgramSelectedEvent value) getProgramSelected,
+    required TResult Function(SessionSelectedEvent value) getSessionSelected,
+  }) {
+    return getProgramSelected(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(FilterAttendanceListEvent value)? filterAttendaceList,
+    TResult? Function(GetAttendanceListEvent value)? getAttenDanceListData,
+    TResult? Function(GetDetailOfOneChildAttendanceEvent value)?
+        getDetailOfChildAttendance,
+    TResult? Function(UpdateAttendanceEvent value)? updateAttendanceStatus,
+    TResult? Function(StoreTapUserId value)? storeTapUserId,
+    TResult? Function(TermSelectedEvent value)? getTermSelected,
+    TResult? Function(ProgramSelectedEvent value)? getProgramSelected,
+    TResult? Function(SessionSelectedEvent value)? getSessionSelected,
+  }) {
+    return getProgramSelected?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(FilterAttendanceListEvent value)? filterAttendaceList,
+    TResult Function(GetAttendanceListEvent value)? getAttenDanceListData,
+    TResult Function(GetDetailOfOneChildAttendanceEvent value)?
+        getDetailOfChildAttendance,
+    TResult Function(UpdateAttendanceEvent value)? updateAttendanceStatus,
+    TResult Function(StoreTapUserId value)? storeTapUserId,
+    TResult Function(TermSelectedEvent value)? getTermSelected,
+    TResult Function(ProgramSelectedEvent value)? getProgramSelected,
+    TResult Function(SessionSelectedEvent value)? getSessionSelected,
+    required TResult orElse(),
+  }) {
+    if (getProgramSelected != null) {
+      return getProgramSelected(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class ProgramSelectedEvent implements AttendanceEvent {
+  const factory ProgramSelectedEvent(final CoachingProgram program) =
+      _$ProgramSelectedEventImpl;
+
+  CoachingProgram get program;
+
+  /// Create a copy of AttendanceEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$ProgramSelectedEventImplCopyWith<_$ProgramSelectedEventImpl>
+      get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$SessionSelectedEventImplCopyWith<$Res> {
+  factory _$$SessionSelectedEventImplCopyWith(_$SessionSelectedEventImpl value,
+          $Res Function(_$SessionSelectedEventImpl) then) =
+      __$$SessionSelectedEventImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({Session session});
+
+  $SessionCopyWith<$Res> get session;
+}
+
+/// @nodoc
+class __$$SessionSelectedEventImplCopyWithImpl<$Res>
+    extends _$AttendanceEventCopyWithImpl<$Res, _$SessionSelectedEventImpl>
+    implements _$$SessionSelectedEventImplCopyWith<$Res> {
+  __$$SessionSelectedEventImplCopyWithImpl(_$SessionSelectedEventImpl _value,
+      $Res Function(_$SessionSelectedEventImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of AttendanceEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? session = null,
+  }) {
+    return _then(_$SessionSelectedEventImpl(
+      null == session
+          ? _value.session
+          : session // ignore: cast_nullable_to_non_nullable
+              as Session,
+    ));
+  }
+
+  /// Create a copy of AttendanceEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $SessionCopyWith<$Res> get session {
+    return $SessionCopyWith<$Res>(_value.session, (value) {
+      return _then(_value.copyWith(session: value));
+    });
+  }
+}
+
+/// @nodoc
+
+class _$SessionSelectedEventImpl implements SessionSelectedEvent {
+  const _$SessionSelectedEventImpl(this.session);
+
+  @override
+  final Session session;
+
+  @override
+  String toString() {
+    return 'AttendanceEvent.getSessionSelected(session: $session)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$SessionSelectedEventImpl &&
+            (identical(other.session, session) || other.session == session));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, session);
+
+  /// Create a copy of AttendanceEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$SessionSelectedEventImplCopyWith<_$SessionSelectedEventImpl>
+      get copyWith =>
+          __$$SessionSelectedEventImplCopyWithImpl<_$SessionSelectedEventImpl>(
+              this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(Map<String, dynamic> data) filterAttendaceList,
+    required TResult Function(Map<String, dynamic> data) getAttenDanceListData,
+    required TResult Function(Map<String, dynamic> data)
+        getDetailOfChildAttendance,
+    required TResult Function(Map<String, dynamic> data) updateAttendanceStatus,
+    required TResult Function(String id) storeTapUserId,
+    required TResult Function(Term term) getTermSelected,
+    required TResult Function(CoachingProgram program) getProgramSelected,
+    required TResult Function(Session session) getSessionSelected,
+  }) {
+    return getSessionSelected(session);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(Map<String, dynamic> data)? filterAttendaceList,
+    TResult? Function(Map<String, dynamic> data)? getAttenDanceListData,
+    TResult? Function(Map<String, dynamic> data)? getDetailOfChildAttendance,
+    TResult? Function(Map<String, dynamic> data)? updateAttendanceStatus,
+    TResult? Function(String id)? storeTapUserId,
+    TResult? Function(Term term)? getTermSelected,
+    TResult? Function(CoachingProgram program)? getProgramSelected,
+    TResult? Function(Session session)? getSessionSelected,
+  }) {
+    return getSessionSelected?.call(session);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(Map<String, dynamic> data)? filterAttendaceList,
+    TResult Function(Map<String, dynamic> data)? getAttenDanceListData,
+    TResult Function(Map<String, dynamic> data)? getDetailOfChildAttendance,
+    TResult Function(Map<String, dynamic> data)? updateAttendanceStatus,
+    TResult Function(String id)? storeTapUserId,
+    TResult Function(Term term)? getTermSelected,
+    TResult Function(CoachingProgram program)? getProgramSelected,
+    TResult Function(Session session)? getSessionSelected,
+    required TResult orElse(),
+  }) {
+    if (getSessionSelected != null) {
+      return getSessionSelected(session);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(FilterAttendanceListEvent value)
+        filterAttendaceList,
+    required TResult Function(GetAttendanceListEvent value)
+        getAttenDanceListData,
+    required TResult Function(GetDetailOfOneChildAttendanceEvent value)
+        getDetailOfChildAttendance,
+    required TResult Function(UpdateAttendanceEvent value)
+        updateAttendanceStatus,
+    required TResult Function(StoreTapUserId value) storeTapUserId,
+    required TResult Function(TermSelectedEvent value) getTermSelected,
+    required TResult Function(ProgramSelectedEvent value) getProgramSelected,
+    required TResult Function(SessionSelectedEvent value) getSessionSelected,
+  }) {
+    return getSessionSelected(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(FilterAttendanceListEvent value)? filterAttendaceList,
+    TResult? Function(GetAttendanceListEvent value)? getAttenDanceListData,
+    TResult? Function(GetDetailOfOneChildAttendanceEvent value)?
+        getDetailOfChildAttendance,
+    TResult? Function(UpdateAttendanceEvent value)? updateAttendanceStatus,
+    TResult? Function(StoreTapUserId value)? storeTapUserId,
+    TResult? Function(TermSelectedEvent value)? getTermSelected,
+    TResult? Function(ProgramSelectedEvent value)? getProgramSelected,
+    TResult? Function(SessionSelectedEvent value)? getSessionSelected,
+  }) {
+    return getSessionSelected?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(FilterAttendanceListEvent value)? filterAttendaceList,
+    TResult Function(GetAttendanceListEvent value)? getAttenDanceListData,
+    TResult Function(GetDetailOfOneChildAttendanceEvent value)?
+        getDetailOfChildAttendance,
+    TResult Function(UpdateAttendanceEvent value)? updateAttendanceStatus,
+    TResult Function(StoreTapUserId value)? storeTapUserId,
+    TResult Function(TermSelectedEvent value)? getTermSelected,
+    TResult Function(ProgramSelectedEvent value)? getProgramSelected,
+    TResult Function(SessionSelectedEvent value)? getSessionSelected,
+    required TResult orElse(),
+  }) {
+    if (getSessionSelected != null) {
+      return getSessionSelected(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class SessionSelectedEvent implements AttendanceEvent {
+  const factory SessionSelectedEvent(final Session session) =
+      _$SessionSelectedEventImpl;
+
+  Session get session;
+
+  /// Create a copy of AttendanceEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$SessionSelectedEventImplCopyWith<_$SessionSelectedEventImpl>
+      get copyWith => throw _privateConstructorUsedError;
 }

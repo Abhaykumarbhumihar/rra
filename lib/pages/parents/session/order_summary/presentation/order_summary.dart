@@ -106,6 +106,15 @@ class OrderSummary extends StatelessWidget {
               backgroundColor: Colors.red);
         }
 
+        if(state.isLoading==false &&  state.orderSummaryModel.data.isEmpty){
+          BlocProvider.of<OrderSummaryBloc>(context)
+              .add(ResetStatusOfPaymentAndOrderAfterErrorEvent());
+          BlocProvider.of<SessionCalendarBloc>(context)
+              .add(GetSelectedSessionEvent());
+          Navigator.of(context).pop();
+        }
+
+
       },
       child: BlocBuilder<OrderSummaryBloc, OrderSummaryState>(
         builder: (context, state) {
@@ -122,175 +131,184 @@ class OrderSummary extends StatelessWidget {
               child: Scaffold(
                 resizeToAvoidBottomInset: true,
                 backgroundColor: Colors.transparent,
+
                 body: Container(
                   width: width,
                   height: height,
                   padding: EdgeInsets.zero,
                   decoration: CommonBackground.decoration,
-                  child: SingleChildScrollView(
-                    child: Column(
-                      children: <Widget>[
-                        CustomHeader(
-                          title: "Add Details",
-                          onBackPress: () {
-
-                            Navigator.pop(context);
-                            BlocProvider.of<OrderSummaryBloc>(context)
-                                .add(ResetStatusOfPaymentAndOrderAfterErrorEvent());
-                            BlocProvider.of<SessionCalendarBloc>(context)
-                                .add(GetSelectedSessionEvent());
-                          },
+                  child: Stack(
+                    children: [
+                      SingleChildScrollView(
+                        child: Column(
+                          children: <Widget>[
+                            CustomHeader(
+                              title: "Add Details",
+                              onBackPress: () {
+                                          
+                                Navigator.pop(context);
+                                BlocProvider.of<OrderSummaryBloc>(context)
+                                    .add(ResetStatusOfPaymentAndOrderAfterErrorEvent());
+                                BlocProvider.of<SessionCalendarBloc>(context)
+                                    .add(GetSelectedSessionEvent());
+                              },
+                            ),
+                            SizedBox(
+                              height: 10,
+                            ),
+                            Padding(
+                              padding: EdgeInsets.only(
+                                  left: context.screenHeight * 0.02,
+                                  right: context.screenHeight * 0.02),
+                              child: Column(
+                                mainAxisSize: MainAxisSize.min,
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: <Widget>[
+                                  Padding(
+                                    padding: const EdgeInsets.only(
+                                        left: 18.0, right: 18.0, top: 12.0),
+                                    child: Image.asset(
+                                        "assets/images/tracker_three.png"),
+                                  ),
+                                  SizedBox(
+                                    height: context.screenHeight * 0.013,
+                                  ),
+                                  Padding(
+                                    padding: const EdgeInsets.only(
+                                        left: 3.0, right: 6.0, bottom: 6.0),
+                                    child: ScreenTitleForCalendar(
+                                      title:
+                                          "${BlocProvider.of<CoachingProgramsBloc>(context).state.coachingName}",
+                                    ),
+                                  ),
+                                  state.isLoading == true
+                                      ? Container(
+                                          child: ListView.builder(
+                                              padding: EdgeInsets.zero,
+                                              itemCount: 3,
+                                              shrinkWrap: true,
+                                              physics:
+                                                  NeverScrollableScrollPhysics(),
+                                              itemBuilder: (context, index) {
+                                                return OrderSummaryShimmer();
+                                              }),
+                                        )
+                                      : SizedBox(
+                                          width: double.infinity,
+                                          child: ListView.builder(
+                                            physics: NeverScrollableScrollPhysics(),
+                                            padding: const EdgeInsets.symmetric(
+                                                horizontal: 0.0, vertical: 0),
+                                            itemCount:
+                                                state.orderSummaryModel.data.length,
+                                            shrinkWrap: true,
+                                            itemBuilder: (context, index) {
+                                              final session = state
+                                                  .orderSummaryModel.data[index];
+                                          
+                                              return AddedSlotListItem(
+                                                fromTime: session.fromTime,
+                                                toTime: session.toTime,
+                                                sessionID:
+                                                    session.sessionId.toString(),
+                                                childProgram:
+                                                    session.coachingProgram,
+                                                childCount: BlocProvider.of<
+                                                                AddViewPlayerBloc>(
+                                                            context)
+                                                        .state
+                                                        .selectedChildId
+                                                        .length ??
+                                                    0,
+                                                location: session.location,
+                                                slotLit: session.bookingDates,
+                                                title: session.playerNames,
+                                                dateTime: session.fromTime +
+                                                    " -" +
+                                                    session.toTime,
+                                                onClose: (data) {},
+                                                price: session.pricePerSession
+                                                    .toString(),
+                                              );
+                                            },
+                                          ),
+                                        ),
+                                  SizedBox(
+                                    height: 15,
+                                  ),
+                                          
+                                  SizedBox(
+                                    height: 20,
+                                  ),
+                                ],
+                              ),
+                            )
+                          ],
                         ),
-                        SizedBox(
-                          height: 10,
-                        ),
-                        Padding(
+                      ),
+                      Align(
+                        alignment: Alignment.bottomRight,
+                        child:state.isLoading == true
+                            ? Container()
+                            :  state.orderSummaryModel.data.isEmpty?SizedBox():Padding(
                           padding: EdgeInsets.only(
-                              left: context.screenHeight * 0.02,
-                              right: context.screenHeight * 0.02),
-                          child: Column(
-                            mainAxisSize: MainAxisSize.min,
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: <Widget>[
-                              Padding(
-                                padding: const EdgeInsets.only(
-                                    left: 18.0, right: 18.0, top: 12.0),
-                                child: Image.asset(
-                                    "assets/images/tracker_three.png"),
-                              ),
-                              SizedBox(
-                                height: context.screenHeight * 0.013,
-                              ),
-                              Padding(
-                                padding: const EdgeInsets.only(
-                                    left: 3.0, right: 6.0, bottom: 6.0),
-                                child: ScreenTitleForCalendar(
-                                  title:
-                                      "${BlocProvider.of<CoachingProgramsBloc>(context).state.coachingName}",
-                                ),
-                              ),
-                              state.isLoading == true
-                                  ? Container(
-                                      child: ListView.builder(
-                                          padding: EdgeInsets.zero,
-                                          itemCount: 3,
-                                          shrinkWrap: true,
-                                          physics:
-                                              NeverScrollableScrollPhysics(),
-                                          itemBuilder: (context, index) {
-                                            return OrderSummaryShimmer();
-                                          }),
-                                    )
-                                  : SizedBox(
-                                      width: double.infinity,
-                                      child: ListView.builder(
-                                        physics: NeverScrollableScrollPhysics(),
-                                        padding: const EdgeInsets.symmetric(
-                                            horizontal: 0.0, vertical: 0),
-                                        itemCount:
-                                            state.orderSummaryModel.data.length,
-                                        shrinkWrap: true,
-                                        itemBuilder: (context, index) {
-                                          final session = state
-                                              .orderSummaryModel.data[index];
-
-                                          return AddedSlotListItem(
-                                            fromTime: session.fromTime,
-                                            toTime: session.toTime,
-                                            sessionID:
-                                                session.sessionId.toString(),
-                                            childProgram:
-                                                session.coachingProgram,
-                                            childCount: BlocProvider.of<
-                                                            AddViewPlayerBloc>(
-                                                        context)
-                                                    .state
-                                                    .selectedChildId
-                                                    .length ??
-                                                0,
-                                            location: session.location,
-                                            slotLit: session.bookingDates,
-                                            title: session.playerNames,
-                                            dateTime: session.fromTime +
-                                                " -" +
-                                                session.toTime,
-                                            onClose: (data) {},
-                                            price: session.pricePerSession
-                                                .toString(),
-                                          );
-                                        },
-                                      ),
-                                    ),
-                              SizedBox(
-                                height: 15,
-                              ),
-                              state.isLoading == true
-                                  ? Container()
-                                  :  state.orderSummaryModel.data.isEmpty?SizedBox():Padding(
-                                      padding: EdgeInsets.only(
-                                          left: context.screenWidth * 0.05,
-                                          right: context.screenWidth * 0.05,
-                                          top: 10),
-                                      child: CustomButton(
-                                        text: "Submit",
-                                        onPressed: () {
-
-                                          showPaymentBottomSheet(context,
-                                              checkOutAction: () async {
-                                            Navigator.pop(context);
-                                            print(
-                                                "SS S S S S S S S S S S S S S ");
-                                            var academyId =
-                                                await getIt<SharedPrefs>().getString(
-                                                    "selected_academyid");
-
-                                            Map<String, dynamic> map = {
-                                              "academy_id": academyId,
-                                              "notes": "This is a test order"
-                                            };
-                                            BlocProvider.of<OrderSummaryBloc>(
-                                                    context)
-                                                .add(OrderPlaceEvent(map));
-// Navigator.pop(context); // Close BottomSheet first
-// Future.delayed(Duration(milliseconds: 300), () {
-//   showCreditCardDialog(context); // Show Dialog after BottomSheet is closed
-// });
-//                                             await StripeService.instance
-//                                                 .setPublishableKey();
-//                                             await handlePayment();
-//                                             StripeService.instance.setPublishableKey();
-//                                             StripeService.instance.makePayment(18);
-                                            print(
-                                                "PAYMENT BUTTON PRESSED PAYMENT BUTTON PRESSED");
-                                          }, couponApplyAction: () async {
-                                            FocusScope.of(context).unfocus();
-                                            print(
-                                                "Entered Promo Code: ${promoCodeController.text}");
-                                            var academyId =
-                                                await getIt<SharedPrefs>().getString(
-                                                    "selected_academyid");
-
-                                            Map<String, dynamic> map = {
-                                              "academy_id": academyId,
-                                              "promo_code": "${promoCodeController.text}"
-                                            };
-
-                                            BlocProvider.of<OrderSummaryBloc>(
-                                                    context)
-                                                .add(ApplyCoupon(map));
-                                          });
-                                          print("code is running here");
-                                        },
-                                      ),
-                                    ),
-                              SizedBox(
-                                height: 20,
-                              ),
-                            ],
+                              left: context.screenWidth * 0.05,
+                              right: context.screenWidth * 0.05,
+                              top: 10,bottom: 20),
+                          child: CustomButton(
+                            text: "Submit",
+                            onPressed: () {
+                  
+                              showPaymentBottomSheet(context,
+                                  checkOutAction: () async {
+                                    Navigator.pop(context);
+                                    print(
+                                        "SS S S S S S S S S S S S S S ");
+                                    var academyId =
+                                    await getIt<SharedPrefs>().getString(
+                                        "selected_academyid");
+                  
+                                    Map<String, dynamic> map = {
+                                      "academy_id": academyId,
+                                      "notes": "This is a test order"
+                                    };
+                                    BlocProvider.of<OrderSummaryBloc>(
+                                        context)
+                                        .add(OrderPlaceEvent(map));
+                  // Navigator.pop(context); // Close BottomSheet first
+                  // Future.delayed(Duration(milliseconds: 300), () {
+                  //   showCreditCardDialog(context); // Show Dialog after BottomSheet is closed
+                  // });
+                  //                                             await StripeService.instance
+                  //                                                 .setPublishableKey();
+                  //                                             await handlePayment();
+                  //                                             StripeService.instance.setPublishableKey();
+                  //                                             StripeService.instance.makePayment(18);
+                                    print(
+                                        "PAYMENT BUTTON PRESSED PAYMENT BUTTON PRESSED");
+                                  }, couponApplyAction: () async {
+                                    FocusScope.of(context).unfocus();
+                                    print(
+                                        "Entered Promo Code: ${promoCodeController.text}");
+                                    var academyId =
+                                    await getIt<SharedPrefs>().getString(
+                                        "selected_academyid");
+                  
+                                    Map<String, dynamic> map = {
+                                      "academy_id": academyId,
+                                      "promo_code": "${promoCodeController.text}"
+                                    };
+                  
+                                    BlocProvider.of<OrderSummaryBloc>(
+                                        context)
+                                        .add(ApplyCoupon(map));
+                                  });
+                              print("code is running here");
+                            },
                           ),
-                        )
-                      ],
-                    ),
+                        ),
+                      )
+                    ],
                   ),
                 ),
               ),

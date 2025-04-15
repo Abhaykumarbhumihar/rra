@@ -45,14 +45,15 @@ class CoachingProgramItem extends StatelessWidget {
                   // Aligns text to top
                   children: [
 
-          NetworkImageWidget(
-            imageUrl: coachingProgramResponse.image,
-            imageWidth:60,
-            placeHolder: "assets/images/football.png",
-            imageHeight: 60,
-            radiusAll:10,
-            imageFitType: BoxFit.fill
-          ),
+         FittedBox(child:  NetworkImageWidget(
+             imageUrl: coachingProgramResponse.image,
+             imageWidth:80,
+             placeHolder: "assets/images/football.png",
+             imageHeight: 80,
+             radiusAll:10,
+             imageFitType: BoxFit.cover,
+
+         ),),
 
                     SizedBox(width: 8.0), // Space between Image & Text
 

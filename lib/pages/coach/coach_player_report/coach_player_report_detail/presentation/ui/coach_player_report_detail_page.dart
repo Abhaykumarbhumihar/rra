@@ -23,7 +23,7 @@ class CoachPlayerReportDetailPage extends StatelessWidget {
       child: BlocBuilder<ReportBloc, ReportState>(
         builder: (context, state) {
           return CommonPageFormat(
-            title: reportData.childName,
+            title: reportData.session,
             onBackPress: () => Navigator.pop(context),
             child: Padding(
               padding: EdgeInsets.symmetric(
