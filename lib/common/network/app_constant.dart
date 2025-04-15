@@ -30,6 +30,8 @@ class AppConstant {
   static String get getRemoveDiscount=> "remove-discounts";
 
   static String get getAddChild=> "createplayer";
+  static String get getUpdateChild=> "editplayer";
+  static String get getDeleteChild=> "deleteplayer";
   static String get getParentsChildList=> "get_parentschild";
 
   static String get getOrderPlace=> "order/place";

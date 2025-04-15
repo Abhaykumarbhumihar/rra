@@ -19,6 +19,9 @@ sealed class AddViewPlayerEvent with _$AddViewPlayerEvent {
   const factory AddViewPlayerEvent.getChildListEvent() = AddViewPlayerGetChildListEvent;
   const factory AddViewPlayerEvent.childSelectionToggle(int index) = AddViewPlayerChildSelectionToggleEvent;
   const factory AddViewPlayerEvent.setChileProfilePic(File file) = AddViewPlayerChildProfilePhotoEvent;
+  const factory AddViewPlayerEvent.setNetWorkChildImage(String imageUrl) = AddViewPlayerChildNetworkImageEvent;
   const factory AddViewPlayerEvent.resetAddViewPlayerEvent() = ResetAddViewEvent;
+  const factory AddViewPlayerEvent.isForChildUpdate(String id) = AddViewPlayerChildForChildUpdateEvent;
+  const factory AddViewPlayerEvent.deleteChild(String id) = AddViewPlayerChildDelteEvent;
 
 }

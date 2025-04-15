@@ -31,7 +31,10 @@ mixin _$AddViewPlayerEvent {
     required TResult Function() getChildListEvent,
     required TResult Function(int index) childSelectionToggle,
     required TResult Function(File file) setChileProfilePic,
+    required TResult Function(String imageUrl) setNetWorkChildImage,
     required TResult Function() resetAddViewPlayerEvent,
+    required TResult Function(String id) isForChildUpdate,
+    required TResult Function(String id) deleteChild,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -49,7 +52,10 @@ mixin _$AddViewPlayerEvent {
     TResult? Function()? getChildListEvent,
     TResult? Function(int index)? childSelectionToggle,
     TResult? Function(File file)? setChileProfilePic,
+    TResult? Function(String imageUrl)? setNetWorkChildImage,
     TResult? Function()? resetAddViewPlayerEvent,
+    TResult? Function(String id)? isForChildUpdate,
+    TResult? Function(String id)? deleteChild,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -67,7 +73,10 @@ mixin _$AddViewPlayerEvent {
     TResult Function()? getChildListEvent,
     TResult Function(int index)? childSelectionToggle,
     TResult Function(File file)? setChileProfilePic,
+    TResult Function(String imageUrl)? setNetWorkChildImage,
     TResult Function()? resetAddViewPlayerEvent,
+    TResult Function(String id)? isForChildUpdate,
+    TResult Function(String id)? deleteChild,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -93,7 +102,12 @@ mixin _$AddViewPlayerEvent {
         childSelectionToggle,
     required TResult Function(AddViewPlayerChildProfilePhotoEvent value)
         setChileProfilePic,
+    required TResult Function(AddViewPlayerChildNetworkImageEvent value)
+        setNetWorkChildImage,
     required TResult Function(ResetAddViewEvent value) resetAddViewPlayerEvent,
+    required TResult Function(AddViewPlayerChildForChildUpdateEvent value)
+        isForChildUpdate,
+    required TResult Function(AddViewPlayerChildDelteEvent value) deleteChild,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -117,7 +131,12 @@ mixin _$AddViewPlayerEvent {
         childSelectionToggle,
     TResult? Function(AddViewPlayerChildProfilePhotoEvent value)?
         setChileProfilePic,
+    TResult? Function(AddViewPlayerChildNetworkImageEvent value)?
+        setNetWorkChildImage,
     TResult? Function(ResetAddViewEvent value)? resetAddViewPlayerEvent,
+    TResult? Function(AddViewPlayerChildForChildUpdateEvent value)?
+        isForChildUpdate,
+    TResult? Function(AddViewPlayerChildDelteEvent value)? deleteChild,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -141,7 +160,12 @@ mixin _$AddViewPlayerEvent {
         childSelectionToggle,
     TResult Function(AddViewPlayerChildProfilePhotoEvent value)?
         setChileProfilePic,
+    TResult Function(AddViewPlayerChildNetworkImageEvent value)?
+        setNetWorkChildImage,
     TResult Function(ResetAddViewEvent value)? resetAddViewPlayerEvent,
+    TResult Function(AddViewPlayerChildForChildUpdateEvent value)?
+        isForChildUpdate,
+    TResult Function(AddViewPlayerChildDelteEvent value)? deleteChild,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -255,7 +279,10 @@ class _$AddViewPlayerSelectedTabEventImpl
     required TResult Function() getChildListEvent,
     required TResult Function(int index) childSelectionToggle,
     required TResult Function(File file) setChileProfilePic,
+    required TResult Function(String imageUrl) setNetWorkChildImage,
     required TResult Function() resetAddViewPlayerEvent,
+    required TResult Function(String id) isForChildUpdate,
+    required TResult Function(String id) deleteChild,
   }) {
     return selectedTab(tabno);
   }
@@ -276,7 +303,10 @@ class _$AddViewPlayerSelectedTabEventImpl
     TResult? Function()? getChildListEvent,
     TResult? Function(int index)? childSelectionToggle,
     TResult? Function(File file)? setChileProfilePic,
+    TResult? Function(String imageUrl)? setNetWorkChildImage,
     TResult? Function()? resetAddViewPlayerEvent,
+    TResult? Function(String id)? isForChildUpdate,
+    TResult? Function(String id)? deleteChild,
   }) {
     return selectedTab?.call(tabno);
   }
@@ -297,7 +327,10 @@ class _$AddViewPlayerSelectedTabEventImpl
     TResult Function()? getChildListEvent,
     TResult Function(int index)? childSelectionToggle,
     TResult Function(File file)? setChileProfilePic,
+    TResult Function(String imageUrl)? setNetWorkChildImage,
     TResult Function()? resetAddViewPlayerEvent,
+    TResult Function(String id)? isForChildUpdate,
+    TResult Function(String id)? deleteChild,
     required TResult orElse(),
   }) {
     if (selectedTab != null) {
@@ -329,7 +362,12 @@ class _$AddViewPlayerSelectedTabEventImpl
         childSelectionToggle,
     required TResult Function(AddViewPlayerChildProfilePhotoEvent value)
         setChileProfilePic,
+    required TResult Function(AddViewPlayerChildNetworkImageEvent value)
+        setNetWorkChildImage,
     required TResult Function(ResetAddViewEvent value) resetAddViewPlayerEvent,
+    required TResult Function(AddViewPlayerChildForChildUpdateEvent value)
+        isForChildUpdate,
+    required TResult Function(AddViewPlayerChildDelteEvent value) deleteChild,
   }) {
     return selectedTab(this);
   }
@@ -356,7 +394,12 @@ class _$AddViewPlayerSelectedTabEventImpl
         childSelectionToggle,
     TResult? Function(AddViewPlayerChildProfilePhotoEvent value)?
         setChileProfilePic,
+    TResult? Function(AddViewPlayerChildNetworkImageEvent value)?
+        setNetWorkChildImage,
     TResult? Function(ResetAddViewEvent value)? resetAddViewPlayerEvent,
+    TResult? Function(AddViewPlayerChildForChildUpdateEvent value)?
+        isForChildUpdate,
+    TResult? Function(AddViewPlayerChildDelteEvent value)? deleteChild,
   }) {
     return selectedTab?.call(this);
   }
@@ -383,7 +426,12 @@ class _$AddViewPlayerSelectedTabEventImpl
         childSelectionToggle,
     TResult Function(AddViewPlayerChildProfilePhotoEvent value)?
         setChileProfilePic,
+    TResult Function(AddViewPlayerChildNetworkImageEvent value)?
+        setNetWorkChildImage,
     TResult Function(ResetAddViewEvent value)? resetAddViewPlayerEvent,
+    TResult Function(AddViewPlayerChildForChildUpdateEvent value)?
+        isForChildUpdate,
+    TResult Function(AddViewPlayerChildDelteEvent value)? deleteChild,
     required TResult orElse(),
   }) {
     if (selectedTab != null) {
@@ -495,7 +543,10 @@ class _$AddViewPlayerChiclPhotoConsentEventImpl
     required TResult Function() getChildListEvent,
     required TResult Function(int index) childSelectionToggle,
     required TResult Function(File file) setChileProfilePic,
+    required TResult Function(String imageUrl) setNetWorkChildImage,
     required TResult Function() resetAddViewPlayerEvent,
+    required TResult Function(String id) isForChildUpdate,
+    required TResult Function(String id) deleteChild,
   }) {
     return childPhotoConsent(consentStatus);
   }
@@ -516,7 +567,10 @@ class _$AddViewPlayerChiclPhotoConsentEventImpl
     TResult? Function()? getChildListEvent,
     TResult? Function(int index)? childSelectionToggle,
     TResult? Function(File file)? setChileProfilePic,
+    TResult? Function(String imageUrl)? setNetWorkChildImage,
     TResult? Function()? resetAddViewPlayerEvent,
+    TResult? Function(String id)? isForChildUpdate,
+    TResult? Function(String id)? deleteChild,
   }) {
     return childPhotoConsent?.call(consentStatus);
   }
@@ -537,7 +591,10 @@ class _$AddViewPlayerChiclPhotoConsentEventImpl
     TResult Function()? getChildListEvent,
     TResult Function(int index)? childSelectionToggle,
     TResult Function(File file)? setChileProfilePic,
+    TResult Function(String imageUrl)? setNetWorkChildImage,
     TResult Function()? resetAddViewPlayerEvent,
+    TResult Function(String id)? isForChildUpdate,
+    TResult Function(String id)? deleteChild,
     required TResult orElse(),
   }) {
     if (childPhotoConsent != null) {
@@ -569,7 +626,12 @@ class _$AddViewPlayerChiclPhotoConsentEventImpl
         childSelectionToggle,
     required TResult Function(AddViewPlayerChildProfilePhotoEvent value)
         setChileProfilePic,
+    required TResult Function(AddViewPlayerChildNetworkImageEvent value)
+        setNetWorkChildImage,
     required TResult Function(ResetAddViewEvent value) resetAddViewPlayerEvent,
+    required TResult Function(AddViewPlayerChildForChildUpdateEvent value)
+        isForChildUpdate,
+    required TResult Function(AddViewPlayerChildDelteEvent value) deleteChild,
   }) {
     return childPhotoConsent(this);
   }
@@ -596,7 +658,12 @@ class _$AddViewPlayerChiclPhotoConsentEventImpl
         childSelectionToggle,
     TResult? Function(AddViewPlayerChildProfilePhotoEvent value)?
         setChileProfilePic,
+    TResult? Function(AddViewPlayerChildNetworkImageEvent value)?
+        setNetWorkChildImage,
     TResult? Function(ResetAddViewEvent value)? resetAddViewPlayerEvent,
+    TResult? Function(AddViewPlayerChildForChildUpdateEvent value)?
+        isForChildUpdate,
+    TResult? Function(AddViewPlayerChildDelteEvent value)? deleteChild,
   }) {
     return childPhotoConsent?.call(this);
   }
@@ -623,7 +690,12 @@ class _$AddViewPlayerChiclPhotoConsentEventImpl
         childSelectionToggle,
     TResult Function(AddViewPlayerChildProfilePhotoEvent value)?
         setChileProfilePic,
+    TResult Function(AddViewPlayerChildNetworkImageEvent value)?
+        setNetWorkChildImage,
     TResult Function(ResetAddViewEvent value)? resetAddViewPlayerEvent,
+    TResult Function(AddViewPlayerChildForChildUpdateEvent value)?
+        isForChildUpdate,
+    TResult Function(AddViewPlayerChildDelteEvent value)? deleteChild,
     required TResult orElse(),
   }) {
     if (childPhotoConsent != null) {
@@ -737,7 +809,10 @@ class _$AddViewPlayeAdministratorFirstAidEventImpl
     required TResult Function() getChildListEvent,
     required TResult Function(int index) childSelectionToggle,
     required TResult Function(File file) setChileProfilePic,
+    required TResult Function(String imageUrl) setNetWorkChildImage,
     required TResult Function() resetAddViewPlayerEvent,
+    required TResult Function(String id) isForChildUpdate,
+    required TResult Function(String id) deleteChild,
   }) {
     return administratorFirstAid(firstAidStatus);
   }
@@ -758,7 +833,10 @@ class _$AddViewPlayeAdministratorFirstAidEventImpl
     TResult? Function()? getChildListEvent,
     TResult? Function(int index)? childSelectionToggle,
     TResult? Function(File file)? setChileProfilePic,
+    TResult? Function(String imageUrl)? setNetWorkChildImage,
     TResult? Function()? resetAddViewPlayerEvent,
+    TResult? Function(String id)? isForChildUpdate,
+    TResult? Function(String id)? deleteChild,
   }) {
     return administratorFirstAid?.call(firstAidStatus);
   }
@@ -779,7 +857,10 @@ class _$AddViewPlayeAdministratorFirstAidEventImpl
     TResult Function()? getChildListEvent,
     TResult Function(int index)? childSelectionToggle,
     TResult Function(File file)? setChileProfilePic,
+    TResult Function(String imageUrl)? setNetWorkChildImage,
     TResult Function()? resetAddViewPlayerEvent,
+    TResult Function(String id)? isForChildUpdate,
+    TResult Function(String id)? deleteChild,
     required TResult orElse(),
   }) {
     if (administratorFirstAid != null) {
@@ -811,7 +892,12 @@ class _$AddViewPlayeAdministratorFirstAidEventImpl
         childSelectionToggle,
     required TResult Function(AddViewPlayerChildProfilePhotoEvent value)
         setChileProfilePic,
+    required TResult Function(AddViewPlayerChildNetworkImageEvent value)
+        setNetWorkChildImage,
     required TResult Function(ResetAddViewEvent value) resetAddViewPlayerEvent,
+    required TResult Function(AddViewPlayerChildForChildUpdateEvent value)
+        isForChildUpdate,
+    required TResult Function(AddViewPlayerChildDelteEvent value) deleteChild,
   }) {
     return administratorFirstAid(this);
   }
@@ -838,7 +924,12 @@ class _$AddViewPlayeAdministratorFirstAidEventImpl
         childSelectionToggle,
     TResult? Function(AddViewPlayerChildProfilePhotoEvent value)?
         setChileProfilePic,
+    TResult? Function(AddViewPlayerChildNetworkImageEvent value)?
+        setNetWorkChildImage,
     TResult? Function(ResetAddViewEvent value)? resetAddViewPlayerEvent,
+    TResult? Function(AddViewPlayerChildForChildUpdateEvent value)?
+        isForChildUpdate,
+    TResult? Function(AddViewPlayerChildDelteEvent value)? deleteChild,
   }) {
     return administratorFirstAid?.call(this);
   }
@@ -865,7 +956,12 @@ class _$AddViewPlayeAdministratorFirstAidEventImpl
         childSelectionToggle,
     TResult Function(AddViewPlayerChildProfilePhotoEvent value)?
         setChileProfilePic,
+    TResult Function(AddViewPlayerChildNetworkImageEvent value)?
+        setNetWorkChildImage,
     TResult Function(ResetAddViewEvent value)? resetAddViewPlayerEvent,
+    TResult Function(AddViewPlayerChildForChildUpdateEvent value)?
+        isForChildUpdate,
+    TResult Function(AddViewPlayerChildDelteEvent value)? deleteChild,
     required TResult orElse(),
   }) {
     if (administratorFirstAid != null) {
@@ -976,7 +1072,10 @@ class _$AddViewPlayerChildNameEventImpl implements AddViewPlayerChildNameEvent {
     required TResult Function() getChildListEvent,
     required TResult Function(int index) childSelectionToggle,
     required TResult Function(File file) setChileProfilePic,
+    required TResult Function(String imageUrl) setNetWorkChildImage,
     required TResult Function() resetAddViewPlayerEvent,
+    required TResult Function(String id) isForChildUpdate,
+    required TResult Function(String id) deleteChild,
   }) {
     return childName(this.childName);
   }
@@ -997,7 +1096,10 @@ class _$AddViewPlayerChildNameEventImpl implements AddViewPlayerChildNameEvent {
     TResult? Function()? getChildListEvent,
     TResult? Function(int index)? childSelectionToggle,
     TResult? Function(File file)? setChileProfilePic,
+    TResult? Function(String imageUrl)? setNetWorkChildImage,
     TResult? Function()? resetAddViewPlayerEvent,
+    TResult? Function(String id)? isForChildUpdate,
+    TResult? Function(String id)? deleteChild,
   }) {
     return childName?.call(this.childName);
   }
@@ -1018,7 +1120,10 @@ class _$AddViewPlayerChildNameEventImpl implements AddViewPlayerChildNameEvent {
     TResult Function()? getChildListEvent,
     TResult Function(int index)? childSelectionToggle,
     TResult Function(File file)? setChileProfilePic,
+    TResult Function(String imageUrl)? setNetWorkChildImage,
     TResult Function()? resetAddViewPlayerEvent,
+    TResult Function(String id)? isForChildUpdate,
+    TResult Function(String id)? deleteChild,
     required TResult orElse(),
   }) {
     if (childName != null) {
@@ -1050,7 +1155,12 @@ class _$AddViewPlayerChildNameEventImpl implements AddViewPlayerChildNameEvent {
         childSelectionToggle,
     required TResult Function(AddViewPlayerChildProfilePhotoEvent value)
         setChileProfilePic,
+    required TResult Function(AddViewPlayerChildNetworkImageEvent value)
+        setNetWorkChildImage,
     required TResult Function(ResetAddViewEvent value) resetAddViewPlayerEvent,
+    required TResult Function(AddViewPlayerChildForChildUpdateEvent value)
+        isForChildUpdate,
+    required TResult Function(AddViewPlayerChildDelteEvent value) deleteChild,
   }) {
     return childName(this);
   }
@@ -1077,7 +1187,12 @@ class _$AddViewPlayerChildNameEventImpl implements AddViewPlayerChildNameEvent {
         childSelectionToggle,
     TResult? Function(AddViewPlayerChildProfilePhotoEvent value)?
         setChileProfilePic,
+    TResult? Function(AddViewPlayerChildNetworkImageEvent value)?
+        setNetWorkChildImage,
     TResult? Function(ResetAddViewEvent value)? resetAddViewPlayerEvent,
+    TResult? Function(AddViewPlayerChildForChildUpdateEvent value)?
+        isForChildUpdate,
+    TResult? Function(AddViewPlayerChildDelteEvent value)? deleteChild,
   }) {
     return childName?.call(this);
   }
@@ -1104,7 +1219,12 @@ class _$AddViewPlayerChildNameEventImpl implements AddViewPlayerChildNameEvent {
         childSelectionToggle,
     TResult Function(AddViewPlayerChildProfilePhotoEvent value)?
         setChileProfilePic,
+    TResult Function(AddViewPlayerChildNetworkImageEvent value)?
+        setNetWorkChildImage,
     TResult Function(ResetAddViewEvent value)? resetAddViewPlayerEvent,
+    TResult Function(AddViewPlayerChildForChildUpdateEvent value)?
+        isForChildUpdate,
+    TResult Function(AddViewPlayerChildDelteEvent value)? deleteChild,
     required TResult orElse(),
   }) {
     if (childName != null) {
@@ -1212,7 +1332,10 @@ class _$AddViewPlayerChildAgeEventImpl implements AddViewPlayerChildAgeEvent {
     required TResult Function() getChildListEvent,
     required TResult Function(int index) childSelectionToggle,
     required TResult Function(File file) setChileProfilePic,
+    required TResult Function(String imageUrl) setNetWorkChildImage,
     required TResult Function() resetAddViewPlayerEvent,
+    required TResult Function(String id) isForChildUpdate,
+    required TResult Function(String id) deleteChild,
   }) {
     return childAge(age);
   }
@@ -1233,7 +1356,10 @@ class _$AddViewPlayerChildAgeEventImpl implements AddViewPlayerChildAgeEvent {
     TResult? Function()? getChildListEvent,
     TResult? Function(int index)? childSelectionToggle,
     TResult? Function(File file)? setChileProfilePic,
+    TResult? Function(String imageUrl)? setNetWorkChildImage,
     TResult? Function()? resetAddViewPlayerEvent,
+    TResult? Function(String id)? isForChildUpdate,
+    TResult? Function(String id)? deleteChild,
   }) {
     return childAge?.call(age);
   }
@@ -1254,7 +1380,10 @@ class _$AddViewPlayerChildAgeEventImpl implements AddViewPlayerChildAgeEvent {
     TResult Function()? getChildListEvent,
     TResult Function(int index)? childSelectionToggle,
     TResult Function(File file)? setChileProfilePic,
+    TResult Function(String imageUrl)? setNetWorkChildImage,
     TResult Function()? resetAddViewPlayerEvent,
+    TResult Function(String id)? isForChildUpdate,
+    TResult Function(String id)? deleteChild,
     required TResult orElse(),
   }) {
     if (childAge != null) {
@@ -1286,7 +1415,12 @@ class _$AddViewPlayerChildAgeEventImpl implements AddViewPlayerChildAgeEvent {
         childSelectionToggle,
     required TResult Function(AddViewPlayerChildProfilePhotoEvent value)
         setChileProfilePic,
+    required TResult Function(AddViewPlayerChildNetworkImageEvent value)
+        setNetWorkChildImage,
     required TResult Function(ResetAddViewEvent value) resetAddViewPlayerEvent,
+    required TResult Function(AddViewPlayerChildForChildUpdateEvent value)
+        isForChildUpdate,
+    required TResult Function(AddViewPlayerChildDelteEvent value) deleteChild,
   }) {
     return childAge(this);
   }
@@ -1313,7 +1447,12 @@ class _$AddViewPlayerChildAgeEventImpl implements AddViewPlayerChildAgeEvent {
         childSelectionToggle,
     TResult? Function(AddViewPlayerChildProfilePhotoEvent value)?
         setChileProfilePic,
+    TResult? Function(AddViewPlayerChildNetworkImageEvent value)?
+        setNetWorkChildImage,
     TResult? Function(ResetAddViewEvent value)? resetAddViewPlayerEvent,
+    TResult? Function(AddViewPlayerChildForChildUpdateEvent value)?
+        isForChildUpdate,
+    TResult? Function(AddViewPlayerChildDelteEvent value)? deleteChild,
   }) {
     return childAge?.call(this);
   }
@@ -1340,7 +1479,12 @@ class _$AddViewPlayerChildAgeEventImpl implements AddViewPlayerChildAgeEvent {
         childSelectionToggle,
     TResult Function(AddViewPlayerChildProfilePhotoEvent value)?
         setChileProfilePic,
+    TResult Function(AddViewPlayerChildNetworkImageEvent value)?
+        setNetWorkChildImage,
     TResult Function(ResetAddViewEvent value)? resetAddViewPlayerEvent,
+    TResult Function(AddViewPlayerChildForChildUpdateEvent value)?
+        isForChildUpdate,
+    TResult Function(AddViewPlayerChildDelteEvent value)? deleteChild,
     required TResult orElse(),
   }) {
     if (childAge != null) {
@@ -1448,7 +1592,10 @@ class _$AddViewPlayerChildDobEventImpl implements AddViewPlayerChildDobEvent {
     required TResult Function() getChildListEvent,
     required TResult Function(int index) childSelectionToggle,
     required TResult Function(File file) setChileProfilePic,
+    required TResult Function(String imageUrl) setNetWorkChildImage,
     required TResult Function() resetAddViewPlayerEvent,
+    required TResult Function(String id) isForChildUpdate,
+    required TResult Function(String id) deleteChild,
   }) {
     return childDob(dob);
   }
@@ -1469,7 +1616,10 @@ class _$AddViewPlayerChildDobEventImpl implements AddViewPlayerChildDobEvent {
     TResult? Function()? getChildListEvent,
     TResult? Function(int index)? childSelectionToggle,
     TResult? Function(File file)? setChileProfilePic,
+    TResult? Function(String imageUrl)? setNetWorkChildImage,
     TResult? Function()? resetAddViewPlayerEvent,
+    TResult? Function(String id)? isForChildUpdate,
+    TResult? Function(String id)? deleteChild,
   }) {
     return childDob?.call(dob);
   }
@@ -1490,7 +1640,10 @@ class _$AddViewPlayerChildDobEventImpl implements AddViewPlayerChildDobEvent {
     TResult Function()? getChildListEvent,
     TResult Function(int index)? childSelectionToggle,
     TResult Function(File file)? setChileProfilePic,
+    TResult Function(String imageUrl)? setNetWorkChildImage,
     TResult Function()? resetAddViewPlayerEvent,
+    TResult Function(String id)? isForChildUpdate,
+    TResult Function(String id)? deleteChild,
     required TResult orElse(),
   }) {
     if (childDob != null) {
@@ -1522,7 +1675,12 @@ class _$AddViewPlayerChildDobEventImpl implements AddViewPlayerChildDobEvent {
         childSelectionToggle,
     required TResult Function(AddViewPlayerChildProfilePhotoEvent value)
         setChileProfilePic,
+    required TResult Function(AddViewPlayerChildNetworkImageEvent value)
+        setNetWorkChildImage,
     required TResult Function(ResetAddViewEvent value) resetAddViewPlayerEvent,
+    required TResult Function(AddViewPlayerChildForChildUpdateEvent value)
+        isForChildUpdate,
+    required TResult Function(AddViewPlayerChildDelteEvent value) deleteChild,
   }) {
     return childDob(this);
   }
@@ -1549,7 +1707,12 @@ class _$AddViewPlayerChildDobEventImpl implements AddViewPlayerChildDobEvent {
         childSelectionToggle,
     TResult? Function(AddViewPlayerChildProfilePhotoEvent value)?
         setChileProfilePic,
+    TResult? Function(AddViewPlayerChildNetworkImageEvent value)?
+        setNetWorkChildImage,
     TResult? Function(ResetAddViewEvent value)? resetAddViewPlayerEvent,
+    TResult? Function(AddViewPlayerChildForChildUpdateEvent value)?
+        isForChildUpdate,
+    TResult? Function(AddViewPlayerChildDelteEvent value)? deleteChild,
   }) {
     return childDob?.call(this);
   }
@@ -1576,7 +1739,12 @@ class _$AddViewPlayerChildDobEventImpl implements AddViewPlayerChildDobEvent {
         childSelectionToggle,
     TResult Function(AddViewPlayerChildProfilePhotoEvent value)?
         setChileProfilePic,
+    TResult Function(AddViewPlayerChildNetworkImageEvent value)?
+        setNetWorkChildImage,
     TResult Function(ResetAddViewEvent value)? resetAddViewPlayerEvent,
+    TResult Function(AddViewPlayerChildForChildUpdateEvent value)?
+        isForChildUpdate,
+    TResult Function(AddViewPlayerChildDelteEvent value)? deleteChild,
     required TResult orElse(),
   }) {
     if (childDob != null) {
@@ -1687,7 +1855,10 @@ class _$AddViewPlayerSchoolNameEventImpl
     required TResult Function() getChildListEvent,
     required TResult Function(int index) childSelectionToggle,
     required TResult Function(File file) setChileProfilePic,
+    required TResult Function(String imageUrl) setNetWorkChildImage,
     required TResult Function() resetAddViewPlayerEvent,
+    required TResult Function(String id) isForChildUpdate,
+    required TResult Function(String id) deleteChild,
   }) {
     return schoolName(this.schoolName);
   }
@@ -1708,7 +1879,10 @@ class _$AddViewPlayerSchoolNameEventImpl
     TResult? Function()? getChildListEvent,
     TResult? Function(int index)? childSelectionToggle,
     TResult? Function(File file)? setChileProfilePic,
+    TResult? Function(String imageUrl)? setNetWorkChildImage,
     TResult? Function()? resetAddViewPlayerEvent,
+    TResult? Function(String id)? isForChildUpdate,
+    TResult? Function(String id)? deleteChild,
   }) {
     return schoolName?.call(this.schoolName);
   }
@@ -1729,7 +1903,10 @@ class _$AddViewPlayerSchoolNameEventImpl
     TResult Function()? getChildListEvent,
     TResult Function(int index)? childSelectionToggle,
     TResult Function(File file)? setChileProfilePic,
+    TResult Function(String imageUrl)? setNetWorkChildImage,
     TResult Function()? resetAddViewPlayerEvent,
+    TResult Function(String id)? isForChildUpdate,
+    TResult Function(String id)? deleteChild,
     required TResult orElse(),
   }) {
     if (schoolName != null) {
@@ -1761,7 +1938,12 @@ class _$AddViewPlayerSchoolNameEventImpl
         childSelectionToggle,
     required TResult Function(AddViewPlayerChildProfilePhotoEvent value)
         setChileProfilePic,
+    required TResult Function(AddViewPlayerChildNetworkImageEvent value)
+        setNetWorkChildImage,
     required TResult Function(ResetAddViewEvent value) resetAddViewPlayerEvent,
+    required TResult Function(AddViewPlayerChildForChildUpdateEvent value)
+        isForChildUpdate,
+    required TResult Function(AddViewPlayerChildDelteEvent value) deleteChild,
   }) {
     return schoolName(this);
   }
@@ -1788,7 +1970,12 @@ class _$AddViewPlayerSchoolNameEventImpl
         childSelectionToggle,
     TResult? Function(AddViewPlayerChildProfilePhotoEvent value)?
         setChileProfilePic,
+    TResult? Function(AddViewPlayerChildNetworkImageEvent value)?
+        setNetWorkChildImage,
     TResult? Function(ResetAddViewEvent value)? resetAddViewPlayerEvent,
+    TResult? Function(AddViewPlayerChildForChildUpdateEvent value)?
+        isForChildUpdate,
+    TResult? Function(AddViewPlayerChildDelteEvent value)? deleteChild,
   }) {
     return schoolName?.call(this);
   }
@@ -1815,7 +2002,12 @@ class _$AddViewPlayerSchoolNameEventImpl
         childSelectionToggle,
     TResult Function(AddViewPlayerChildProfilePhotoEvent value)?
         setChileProfilePic,
+    TResult Function(AddViewPlayerChildNetworkImageEvent value)?
+        setNetWorkChildImage,
     TResult Function(ResetAddViewEvent value)? resetAddViewPlayerEvent,
+    TResult Function(AddViewPlayerChildForChildUpdateEvent value)?
+        isForChildUpdate,
+    TResult Function(AddViewPlayerChildDelteEvent value)? deleteChild,
     required TResult orElse(),
   }) {
     if (schoolName != null) {
@@ -1925,7 +2117,10 @@ class _$AddViewPlayerClubNameEventImpl implements AddViewPlayerClubNameEvent {
     required TResult Function() getChildListEvent,
     required TResult Function(int index) childSelectionToggle,
     required TResult Function(File file) setChileProfilePic,
+    required TResult Function(String imageUrl) setNetWorkChildImage,
     required TResult Function() resetAddViewPlayerEvent,
+    required TResult Function(String id) isForChildUpdate,
+    required TResult Function(String id) deleteChild,
   }) {
     return clubName(this.clubName);
   }
@@ -1946,7 +2141,10 @@ class _$AddViewPlayerClubNameEventImpl implements AddViewPlayerClubNameEvent {
     TResult? Function()? getChildListEvent,
     TResult? Function(int index)? childSelectionToggle,
     TResult? Function(File file)? setChileProfilePic,
+    TResult? Function(String imageUrl)? setNetWorkChildImage,
     TResult? Function()? resetAddViewPlayerEvent,
+    TResult? Function(String id)? isForChildUpdate,
+    TResult? Function(String id)? deleteChild,
   }) {
     return clubName?.call(this.clubName);
   }
@@ -1967,7 +2165,10 @@ class _$AddViewPlayerClubNameEventImpl implements AddViewPlayerClubNameEvent {
     TResult Function()? getChildListEvent,
     TResult Function(int index)? childSelectionToggle,
     TResult Function(File file)? setChileProfilePic,
+    TResult Function(String imageUrl)? setNetWorkChildImage,
     TResult Function()? resetAddViewPlayerEvent,
+    TResult Function(String id)? isForChildUpdate,
+    TResult Function(String id)? deleteChild,
     required TResult orElse(),
   }) {
     if (clubName != null) {
@@ -1999,7 +2200,12 @@ class _$AddViewPlayerClubNameEventImpl implements AddViewPlayerClubNameEvent {
         childSelectionToggle,
     required TResult Function(AddViewPlayerChildProfilePhotoEvent value)
         setChileProfilePic,
+    required TResult Function(AddViewPlayerChildNetworkImageEvent value)
+        setNetWorkChildImage,
     required TResult Function(ResetAddViewEvent value) resetAddViewPlayerEvent,
+    required TResult Function(AddViewPlayerChildForChildUpdateEvent value)
+        isForChildUpdate,
+    required TResult Function(AddViewPlayerChildDelteEvent value) deleteChild,
   }) {
     return clubName(this);
   }
@@ -2026,7 +2232,12 @@ class _$AddViewPlayerClubNameEventImpl implements AddViewPlayerClubNameEvent {
         childSelectionToggle,
     TResult? Function(AddViewPlayerChildProfilePhotoEvent value)?
         setChileProfilePic,
+    TResult? Function(AddViewPlayerChildNetworkImageEvent value)?
+        setNetWorkChildImage,
     TResult? Function(ResetAddViewEvent value)? resetAddViewPlayerEvent,
+    TResult? Function(AddViewPlayerChildForChildUpdateEvent value)?
+        isForChildUpdate,
+    TResult? Function(AddViewPlayerChildDelteEvent value)? deleteChild,
   }) {
     return clubName?.call(this);
   }
@@ -2053,7 +2264,12 @@ class _$AddViewPlayerClubNameEventImpl implements AddViewPlayerClubNameEvent {
         childSelectionToggle,
     TResult Function(AddViewPlayerChildProfilePhotoEvent value)?
         setChileProfilePic,
+    TResult Function(AddViewPlayerChildNetworkImageEvent value)?
+        setNetWorkChildImage,
     TResult Function(ResetAddViewEvent value)? resetAddViewPlayerEvent,
+    TResult Function(AddViewPlayerChildForChildUpdateEvent value)?
+        isForChildUpdate,
+    TResult Function(AddViewPlayerChildDelteEvent value)? deleteChild,
     required TResult orElse(),
   }) {
     if (clubName != null) {
@@ -2165,7 +2381,10 @@ class _$AddViewPlayerTessUsMedicalConditionEventImpl
     required TResult Function() getChildListEvent,
     required TResult Function(int index) childSelectionToggle,
     required TResult Function(File file) setChileProfilePic,
+    required TResult Function(String imageUrl) setNetWorkChildImage,
     required TResult Function() resetAddViewPlayerEvent,
+    required TResult Function(String id) isForChildUpdate,
+    required TResult Function(String id) deleteChild,
   }) {
     return medicalCondition(this.medicalCondition);
   }
@@ -2186,7 +2405,10 @@ class _$AddViewPlayerTessUsMedicalConditionEventImpl
     TResult? Function()? getChildListEvent,
     TResult? Function(int index)? childSelectionToggle,
     TResult? Function(File file)? setChileProfilePic,
+    TResult? Function(String imageUrl)? setNetWorkChildImage,
     TResult? Function()? resetAddViewPlayerEvent,
+    TResult? Function(String id)? isForChildUpdate,
+    TResult? Function(String id)? deleteChild,
   }) {
     return medicalCondition?.call(this.medicalCondition);
   }
@@ -2207,7 +2429,10 @@ class _$AddViewPlayerTessUsMedicalConditionEventImpl
     TResult Function()? getChildListEvent,
     TResult Function(int index)? childSelectionToggle,
     TResult Function(File file)? setChileProfilePic,
+    TResult Function(String imageUrl)? setNetWorkChildImage,
     TResult Function()? resetAddViewPlayerEvent,
+    TResult Function(String id)? isForChildUpdate,
+    TResult Function(String id)? deleteChild,
     required TResult orElse(),
   }) {
     if (medicalCondition != null) {
@@ -2239,7 +2464,12 @@ class _$AddViewPlayerTessUsMedicalConditionEventImpl
         childSelectionToggle,
     required TResult Function(AddViewPlayerChildProfilePhotoEvent value)
         setChileProfilePic,
+    required TResult Function(AddViewPlayerChildNetworkImageEvent value)
+        setNetWorkChildImage,
     required TResult Function(ResetAddViewEvent value) resetAddViewPlayerEvent,
+    required TResult Function(AddViewPlayerChildForChildUpdateEvent value)
+        isForChildUpdate,
+    required TResult Function(AddViewPlayerChildDelteEvent value) deleteChild,
   }) {
     return medicalCondition(this);
   }
@@ -2266,7 +2496,12 @@ class _$AddViewPlayerTessUsMedicalConditionEventImpl
         childSelectionToggle,
     TResult? Function(AddViewPlayerChildProfilePhotoEvent value)?
         setChileProfilePic,
+    TResult? Function(AddViewPlayerChildNetworkImageEvent value)?
+        setNetWorkChildImage,
     TResult? Function(ResetAddViewEvent value)? resetAddViewPlayerEvent,
+    TResult? Function(AddViewPlayerChildForChildUpdateEvent value)?
+        isForChildUpdate,
+    TResult? Function(AddViewPlayerChildDelteEvent value)? deleteChild,
   }) {
     return medicalCondition?.call(this);
   }
@@ -2293,7 +2528,12 @@ class _$AddViewPlayerTessUsMedicalConditionEventImpl
         childSelectionToggle,
     TResult Function(AddViewPlayerChildProfilePhotoEvent value)?
         setChileProfilePic,
+    TResult Function(AddViewPlayerChildNetworkImageEvent value)?
+        setNetWorkChildImage,
     TResult Function(ResetAddViewEvent value)? resetAddViewPlayerEvent,
+    TResult Function(AddViewPlayerChildForChildUpdateEvent value)?
+        isForChildUpdate,
+    TResult Function(AddViewPlayerChildDelteEvent value)? deleteChild,
     required TResult orElse(),
   }) {
     if (medicalCondition != null) {
@@ -2378,7 +2618,10 @@ class _$AddViewPlayerSubmitButtonPressEventImpl
     required TResult Function() getChildListEvent,
     required TResult Function(int index) childSelectionToggle,
     required TResult Function(File file) setChileProfilePic,
+    required TResult Function(String imageUrl) setNetWorkChildImage,
     required TResult Function() resetAddViewPlayerEvent,
+    required TResult Function(String id) isForChildUpdate,
+    required TResult Function(String id) deleteChild,
   }) {
     return submitButtonPress();
   }
@@ -2399,7 +2642,10 @@ class _$AddViewPlayerSubmitButtonPressEventImpl
     TResult? Function()? getChildListEvent,
     TResult? Function(int index)? childSelectionToggle,
     TResult? Function(File file)? setChileProfilePic,
+    TResult? Function(String imageUrl)? setNetWorkChildImage,
     TResult? Function()? resetAddViewPlayerEvent,
+    TResult? Function(String id)? isForChildUpdate,
+    TResult? Function(String id)? deleteChild,
   }) {
     return submitButtonPress?.call();
   }
@@ -2420,7 +2666,10 @@ class _$AddViewPlayerSubmitButtonPressEventImpl
     TResult Function()? getChildListEvent,
     TResult Function(int index)? childSelectionToggle,
     TResult Function(File file)? setChileProfilePic,
+    TResult Function(String imageUrl)? setNetWorkChildImage,
     TResult Function()? resetAddViewPlayerEvent,
+    TResult Function(String id)? isForChildUpdate,
+    TResult Function(String id)? deleteChild,
     required TResult orElse(),
   }) {
     if (submitButtonPress != null) {
@@ -2452,7 +2701,12 @@ class _$AddViewPlayerSubmitButtonPressEventImpl
         childSelectionToggle,
     required TResult Function(AddViewPlayerChildProfilePhotoEvent value)
         setChileProfilePic,
+    required TResult Function(AddViewPlayerChildNetworkImageEvent value)
+        setNetWorkChildImage,
     required TResult Function(ResetAddViewEvent value) resetAddViewPlayerEvent,
+    required TResult Function(AddViewPlayerChildForChildUpdateEvent value)
+        isForChildUpdate,
+    required TResult Function(AddViewPlayerChildDelteEvent value) deleteChild,
   }) {
     return submitButtonPress(this);
   }
@@ -2479,7 +2733,12 @@ class _$AddViewPlayerSubmitButtonPressEventImpl
         childSelectionToggle,
     TResult? Function(AddViewPlayerChildProfilePhotoEvent value)?
         setChileProfilePic,
+    TResult? Function(AddViewPlayerChildNetworkImageEvent value)?
+        setNetWorkChildImage,
     TResult? Function(ResetAddViewEvent value)? resetAddViewPlayerEvent,
+    TResult? Function(AddViewPlayerChildForChildUpdateEvent value)?
+        isForChildUpdate,
+    TResult? Function(AddViewPlayerChildDelteEvent value)? deleteChild,
   }) {
     return submitButtonPress?.call(this);
   }
@@ -2506,7 +2765,12 @@ class _$AddViewPlayerSubmitButtonPressEventImpl
         childSelectionToggle,
     TResult Function(AddViewPlayerChildProfilePhotoEvent value)?
         setChileProfilePic,
+    TResult Function(AddViewPlayerChildNetworkImageEvent value)?
+        setNetWorkChildImage,
     TResult Function(ResetAddViewEvent value)? resetAddViewPlayerEvent,
+    TResult Function(AddViewPlayerChildForChildUpdateEvent value)?
+        isForChildUpdate,
+    TResult Function(AddViewPlayerChildDelteEvent value)? deleteChild,
     required TResult orElse(),
   }) {
     if (submitButtonPress != null) {
@@ -2581,7 +2845,10 @@ class _$AddViewPlayerGetChildListEventImpl
     required TResult Function() getChildListEvent,
     required TResult Function(int index) childSelectionToggle,
     required TResult Function(File file) setChileProfilePic,
+    required TResult Function(String imageUrl) setNetWorkChildImage,
     required TResult Function() resetAddViewPlayerEvent,
+    required TResult Function(String id) isForChildUpdate,
+    required TResult Function(String id) deleteChild,
   }) {
     return getChildListEvent();
   }
@@ -2602,7 +2869,10 @@ class _$AddViewPlayerGetChildListEventImpl
     TResult? Function()? getChildListEvent,
     TResult? Function(int index)? childSelectionToggle,
     TResult? Function(File file)? setChileProfilePic,
+    TResult? Function(String imageUrl)? setNetWorkChildImage,
     TResult? Function()? resetAddViewPlayerEvent,
+    TResult? Function(String id)? isForChildUpdate,
+    TResult? Function(String id)? deleteChild,
   }) {
     return getChildListEvent?.call();
   }
@@ -2623,7 +2893,10 @@ class _$AddViewPlayerGetChildListEventImpl
     TResult Function()? getChildListEvent,
     TResult Function(int index)? childSelectionToggle,
     TResult Function(File file)? setChileProfilePic,
+    TResult Function(String imageUrl)? setNetWorkChildImage,
     TResult Function()? resetAddViewPlayerEvent,
+    TResult Function(String id)? isForChildUpdate,
+    TResult Function(String id)? deleteChild,
     required TResult orElse(),
   }) {
     if (getChildListEvent != null) {
@@ -2655,7 +2928,12 @@ class _$AddViewPlayerGetChildListEventImpl
         childSelectionToggle,
     required TResult Function(AddViewPlayerChildProfilePhotoEvent value)
         setChileProfilePic,
+    required TResult Function(AddViewPlayerChildNetworkImageEvent value)
+        setNetWorkChildImage,
     required TResult Function(ResetAddViewEvent value) resetAddViewPlayerEvent,
+    required TResult Function(AddViewPlayerChildForChildUpdateEvent value)
+        isForChildUpdate,
+    required TResult Function(AddViewPlayerChildDelteEvent value) deleteChild,
   }) {
     return getChildListEvent(this);
   }
@@ -2682,7 +2960,12 @@ class _$AddViewPlayerGetChildListEventImpl
         childSelectionToggle,
     TResult? Function(AddViewPlayerChildProfilePhotoEvent value)?
         setChileProfilePic,
+    TResult? Function(AddViewPlayerChildNetworkImageEvent value)?
+        setNetWorkChildImage,
     TResult? Function(ResetAddViewEvent value)? resetAddViewPlayerEvent,
+    TResult? Function(AddViewPlayerChildForChildUpdateEvent value)?
+        isForChildUpdate,
+    TResult? Function(AddViewPlayerChildDelteEvent value)? deleteChild,
   }) {
     return getChildListEvent?.call(this);
   }
@@ -2709,7 +2992,12 @@ class _$AddViewPlayerGetChildListEventImpl
         childSelectionToggle,
     TResult Function(AddViewPlayerChildProfilePhotoEvent value)?
         setChileProfilePic,
+    TResult Function(AddViewPlayerChildNetworkImageEvent value)?
+        setNetWorkChildImage,
     TResult Function(ResetAddViewEvent value)? resetAddViewPlayerEvent,
+    TResult Function(AddViewPlayerChildForChildUpdateEvent value)?
+        isForChildUpdate,
+    TResult Function(AddViewPlayerChildDelteEvent value)? deleteChild,
     required TResult orElse(),
   }) {
     if (getChildListEvent != null) {
@@ -2812,7 +3100,10 @@ class _$AddViewPlayerChildSelectionToggleEventImpl
     required TResult Function() getChildListEvent,
     required TResult Function(int index) childSelectionToggle,
     required TResult Function(File file) setChileProfilePic,
+    required TResult Function(String imageUrl) setNetWorkChildImage,
     required TResult Function() resetAddViewPlayerEvent,
+    required TResult Function(String id) isForChildUpdate,
+    required TResult Function(String id) deleteChild,
   }) {
     return childSelectionToggle(index);
   }
@@ -2833,7 +3124,10 @@ class _$AddViewPlayerChildSelectionToggleEventImpl
     TResult? Function()? getChildListEvent,
     TResult? Function(int index)? childSelectionToggle,
     TResult? Function(File file)? setChileProfilePic,
+    TResult? Function(String imageUrl)? setNetWorkChildImage,
     TResult? Function()? resetAddViewPlayerEvent,
+    TResult? Function(String id)? isForChildUpdate,
+    TResult? Function(String id)? deleteChild,
   }) {
     return childSelectionToggle?.call(index);
   }
@@ -2854,7 +3148,10 @@ class _$AddViewPlayerChildSelectionToggleEventImpl
     TResult Function()? getChildListEvent,
     TResult Function(int index)? childSelectionToggle,
     TResult Function(File file)? setChileProfilePic,
+    TResult Function(String imageUrl)? setNetWorkChildImage,
     TResult Function()? resetAddViewPlayerEvent,
+    TResult Function(String id)? isForChildUpdate,
+    TResult Function(String id)? deleteChild,
     required TResult orElse(),
   }) {
     if (childSelectionToggle != null) {
@@ -2886,7 +3183,12 @@ class _$AddViewPlayerChildSelectionToggleEventImpl
         childSelectionToggle,
     required TResult Function(AddViewPlayerChildProfilePhotoEvent value)
         setChileProfilePic,
+    required TResult Function(AddViewPlayerChildNetworkImageEvent value)
+        setNetWorkChildImage,
     required TResult Function(ResetAddViewEvent value) resetAddViewPlayerEvent,
+    required TResult Function(AddViewPlayerChildForChildUpdateEvent value)
+        isForChildUpdate,
+    required TResult Function(AddViewPlayerChildDelteEvent value) deleteChild,
   }) {
     return childSelectionToggle(this);
   }
@@ -2913,7 +3215,12 @@ class _$AddViewPlayerChildSelectionToggleEventImpl
         childSelectionToggle,
     TResult? Function(AddViewPlayerChildProfilePhotoEvent value)?
         setChileProfilePic,
+    TResult? Function(AddViewPlayerChildNetworkImageEvent value)?
+        setNetWorkChildImage,
     TResult? Function(ResetAddViewEvent value)? resetAddViewPlayerEvent,
+    TResult? Function(AddViewPlayerChildForChildUpdateEvent value)?
+        isForChildUpdate,
+    TResult? Function(AddViewPlayerChildDelteEvent value)? deleteChild,
   }) {
     return childSelectionToggle?.call(this);
   }
@@ -2940,7 +3247,12 @@ class _$AddViewPlayerChildSelectionToggleEventImpl
         childSelectionToggle,
     TResult Function(AddViewPlayerChildProfilePhotoEvent value)?
         setChileProfilePic,
+    TResult Function(AddViewPlayerChildNetworkImageEvent value)?
+        setNetWorkChildImage,
     TResult Function(ResetAddViewEvent value)? resetAddViewPlayerEvent,
+    TResult Function(AddViewPlayerChildForChildUpdateEvent value)?
+        isForChildUpdate,
+    TResult Function(AddViewPlayerChildDelteEvent value)? deleteChild,
     required TResult orElse(),
   }) {
     if (childSelectionToggle != null) {
@@ -3052,7 +3364,10 @@ class _$AddViewPlayerChildProfilePhotoEventImpl
     required TResult Function() getChildListEvent,
     required TResult Function(int index) childSelectionToggle,
     required TResult Function(File file) setChileProfilePic,
+    required TResult Function(String imageUrl) setNetWorkChildImage,
     required TResult Function() resetAddViewPlayerEvent,
+    required TResult Function(String id) isForChildUpdate,
+    required TResult Function(String id) deleteChild,
   }) {
     return setChileProfilePic(file);
   }
@@ -3073,7 +3388,10 @@ class _$AddViewPlayerChildProfilePhotoEventImpl
     TResult? Function()? getChildListEvent,
     TResult? Function(int index)? childSelectionToggle,
     TResult? Function(File file)? setChileProfilePic,
+    TResult? Function(String imageUrl)? setNetWorkChildImage,
     TResult? Function()? resetAddViewPlayerEvent,
+    TResult? Function(String id)? isForChildUpdate,
+    TResult? Function(String id)? deleteChild,
   }) {
     return setChileProfilePic?.call(file);
   }
@@ -3094,7 +3412,10 @@ class _$AddViewPlayerChildProfilePhotoEventImpl
     TResult Function()? getChildListEvent,
     TResult Function(int index)? childSelectionToggle,
     TResult Function(File file)? setChileProfilePic,
+    TResult Function(String imageUrl)? setNetWorkChildImage,
     TResult Function()? resetAddViewPlayerEvent,
+    TResult Function(String id)? isForChildUpdate,
+    TResult Function(String id)? deleteChild,
     required TResult orElse(),
   }) {
     if (setChileProfilePic != null) {
@@ -3126,7 +3447,12 @@ class _$AddViewPlayerChildProfilePhotoEventImpl
         childSelectionToggle,
     required TResult Function(AddViewPlayerChildProfilePhotoEvent value)
         setChileProfilePic,
+    required TResult Function(AddViewPlayerChildNetworkImageEvent value)
+        setNetWorkChildImage,
     required TResult Function(ResetAddViewEvent value) resetAddViewPlayerEvent,
+    required TResult Function(AddViewPlayerChildForChildUpdateEvent value)
+        isForChildUpdate,
+    required TResult Function(AddViewPlayerChildDelteEvent value) deleteChild,
   }) {
     return setChileProfilePic(this);
   }
@@ -3153,7 +3479,12 @@ class _$AddViewPlayerChildProfilePhotoEventImpl
         childSelectionToggle,
     TResult? Function(AddViewPlayerChildProfilePhotoEvent value)?
         setChileProfilePic,
+    TResult? Function(AddViewPlayerChildNetworkImageEvent value)?
+        setNetWorkChildImage,
     TResult? Function(ResetAddViewEvent value)? resetAddViewPlayerEvent,
+    TResult? Function(AddViewPlayerChildForChildUpdateEvent value)?
+        isForChildUpdate,
+    TResult? Function(AddViewPlayerChildDelteEvent value)? deleteChild,
   }) {
     return setChileProfilePic?.call(this);
   }
@@ -3180,7 +3511,12 @@ class _$AddViewPlayerChildProfilePhotoEventImpl
         childSelectionToggle,
     TResult Function(AddViewPlayerChildProfilePhotoEvent value)?
         setChileProfilePic,
+    TResult Function(AddViewPlayerChildNetworkImageEvent value)?
+        setNetWorkChildImage,
     TResult Function(ResetAddViewEvent value)? resetAddViewPlayerEvent,
+    TResult Function(AddViewPlayerChildForChildUpdateEvent value)?
+        isForChildUpdate,
+    TResult Function(AddViewPlayerChildDelteEvent value)? deleteChild,
     required TResult orElse(),
   }) {
     if (setChileProfilePic != null) {
@@ -3202,6 +3538,271 @@ abstract class AddViewPlayerChildProfilePhotoEvent
   @JsonKey(includeFromJson: false, includeToJson: false)
   _$$AddViewPlayerChildProfilePhotoEventImplCopyWith<
           _$AddViewPlayerChildProfilePhotoEventImpl>
+      get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$AddViewPlayerChildNetworkImageEventImplCopyWith<$Res> {
+  factory _$$AddViewPlayerChildNetworkImageEventImplCopyWith(
+          _$AddViewPlayerChildNetworkImageEventImpl value,
+          $Res Function(_$AddViewPlayerChildNetworkImageEventImpl) then) =
+      __$$AddViewPlayerChildNetworkImageEventImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String imageUrl});
+}
+
+/// @nodoc
+class __$$AddViewPlayerChildNetworkImageEventImplCopyWithImpl<$Res>
+    extends _$AddViewPlayerEventCopyWithImpl<$Res,
+        _$AddViewPlayerChildNetworkImageEventImpl>
+    implements _$$AddViewPlayerChildNetworkImageEventImplCopyWith<$Res> {
+  __$$AddViewPlayerChildNetworkImageEventImplCopyWithImpl(
+      _$AddViewPlayerChildNetworkImageEventImpl _value,
+      $Res Function(_$AddViewPlayerChildNetworkImageEventImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of AddViewPlayerEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? imageUrl = null,
+  }) {
+    return _then(_$AddViewPlayerChildNetworkImageEventImpl(
+      null == imageUrl
+          ? _value.imageUrl
+          : imageUrl // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$AddViewPlayerChildNetworkImageEventImpl
+    implements AddViewPlayerChildNetworkImageEvent {
+  const _$AddViewPlayerChildNetworkImageEventImpl(this.imageUrl);
+
+  @override
+  final String imageUrl;
+
+  @override
+  String toString() {
+    return 'AddViewPlayerEvent.setNetWorkChildImage(imageUrl: $imageUrl)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$AddViewPlayerChildNetworkImageEventImpl &&
+            (identical(other.imageUrl, imageUrl) ||
+                other.imageUrl == imageUrl));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, imageUrl);
+
+  /// Create a copy of AddViewPlayerEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$AddViewPlayerChildNetworkImageEventImplCopyWith<
+          _$AddViewPlayerChildNetworkImageEventImpl>
+      get copyWith => __$$AddViewPlayerChildNetworkImageEventImplCopyWithImpl<
+          _$AddViewPlayerChildNetworkImageEventImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(int tabno) selectedTab,
+    required TResult Function(int consentStatus) childPhotoConsent,
+    required TResult Function(int firstAidStatus) administratorFirstAid,
+    required TResult Function(String childName) childName,
+    required TResult Function(String age) childAge,
+    required TResult Function(String dob) childDob,
+    required TResult Function(String schoolName) schoolName,
+    required TResult Function(String clubName) clubName,
+    required TResult Function(String medicalCondition) medicalCondition,
+    required TResult Function() submitButtonPress,
+    required TResult Function() getChildListEvent,
+    required TResult Function(int index) childSelectionToggle,
+    required TResult Function(File file) setChileProfilePic,
+    required TResult Function(String imageUrl) setNetWorkChildImage,
+    required TResult Function() resetAddViewPlayerEvent,
+    required TResult Function(String id) isForChildUpdate,
+    required TResult Function(String id) deleteChild,
+  }) {
+    return setNetWorkChildImage(imageUrl);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(int tabno)? selectedTab,
+    TResult? Function(int consentStatus)? childPhotoConsent,
+    TResult? Function(int firstAidStatus)? administratorFirstAid,
+    TResult? Function(String childName)? childName,
+    TResult? Function(String age)? childAge,
+    TResult? Function(String dob)? childDob,
+    TResult? Function(String schoolName)? schoolName,
+    TResult? Function(String clubName)? clubName,
+    TResult? Function(String medicalCondition)? medicalCondition,
+    TResult? Function()? submitButtonPress,
+    TResult? Function()? getChildListEvent,
+    TResult? Function(int index)? childSelectionToggle,
+    TResult? Function(File file)? setChileProfilePic,
+    TResult? Function(String imageUrl)? setNetWorkChildImage,
+    TResult? Function()? resetAddViewPlayerEvent,
+    TResult? Function(String id)? isForChildUpdate,
+    TResult? Function(String id)? deleteChild,
+  }) {
+    return setNetWorkChildImage?.call(imageUrl);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(int tabno)? selectedTab,
+    TResult Function(int consentStatus)? childPhotoConsent,
+    TResult Function(int firstAidStatus)? administratorFirstAid,
+    TResult Function(String childName)? childName,
+    TResult Function(String age)? childAge,
+    TResult Function(String dob)? childDob,
+    TResult Function(String schoolName)? schoolName,
+    TResult Function(String clubName)? clubName,
+    TResult Function(String medicalCondition)? medicalCondition,
+    TResult Function()? submitButtonPress,
+    TResult Function()? getChildListEvent,
+    TResult Function(int index)? childSelectionToggle,
+    TResult Function(File file)? setChileProfilePic,
+    TResult Function(String imageUrl)? setNetWorkChildImage,
+    TResult Function()? resetAddViewPlayerEvent,
+    TResult Function(String id)? isForChildUpdate,
+    TResult Function(String id)? deleteChild,
+    required TResult orElse(),
+  }) {
+    if (setNetWorkChildImage != null) {
+      return setNetWorkChildImage(imageUrl);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(AddViewPlayerSelectedTabEvent value) selectedTab,
+    required TResult Function(AddViewPlayerChiclPhotoConsentEvent value)
+        childPhotoConsent,
+    required TResult Function(AddViewPlayeAdministratorFirstAidEvent value)
+        administratorFirstAid,
+    required TResult Function(AddViewPlayerChildNameEvent value) childName,
+    required TResult Function(AddViewPlayerChildAgeEvent value) childAge,
+    required TResult Function(AddViewPlayerChildDobEvent value) childDob,
+    required TResult Function(AddViewPlayerSchoolNameEvent value) schoolName,
+    required TResult Function(AddViewPlayerClubNameEvent value) clubName,
+    required TResult Function(AddViewPlayerTessUsMedicalConditionEvent value)
+        medicalCondition,
+    required TResult Function(AddViewPlayerSubmitButtonPressEvent value)
+        submitButtonPress,
+    required TResult Function(AddViewPlayerGetChildListEvent value)
+        getChildListEvent,
+    required TResult Function(AddViewPlayerChildSelectionToggleEvent value)
+        childSelectionToggle,
+    required TResult Function(AddViewPlayerChildProfilePhotoEvent value)
+        setChileProfilePic,
+    required TResult Function(AddViewPlayerChildNetworkImageEvent value)
+        setNetWorkChildImage,
+    required TResult Function(ResetAddViewEvent value) resetAddViewPlayerEvent,
+    required TResult Function(AddViewPlayerChildForChildUpdateEvent value)
+        isForChildUpdate,
+    required TResult Function(AddViewPlayerChildDelteEvent value) deleteChild,
+  }) {
+    return setNetWorkChildImage(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(AddViewPlayerSelectedTabEvent value)? selectedTab,
+    TResult? Function(AddViewPlayerChiclPhotoConsentEvent value)?
+        childPhotoConsent,
+    TResult? Function(AddViewPlayeAdministratorFirstAidEvent value)?
+        administratorFirstAid,
+    TResult? Function(AddViewPlayerChildNameEvent value)? childName,
+    TResult? Function(AddViewPlayerChildAgeEvent value)? childAge,
+    TResult? Function(AddViewPlayerChildDobEvent value)? childDob,
+    TResult? Function(AddViewPlayerSchoolNameEvent value)? schoolName,
+    TResult? Function(AddViewPlayerClubNameEvent value)? clubName,
+    TResult? Function(AddViewPlayerTessUsMedicalConditionEvent value)?
+        medicalCondition,
+    TResult? Function(AddViewPlayerSubmitButtonPressEvent value)?
+        submitButtonPress,
+    TResult? Function(AddViewPlayerGetChildListEvent value)? getChildListEvent,
+    TResult? Function(AddViewPlayerChildSelectionToggleEvent value)?
+        childSelectionToggle,
+    TResult? Function(AddViewPlayerChildProfilePhotoEvent value)?
+        setChileProfilePic,
+    TResult? Function(AddViewPlayerChildNetworkImageEvent value)?
+        setNetWorkChildImage,
+    TResult? Function(ResetAddViewEvent value)? resetAddViewPlayerEvent,
+    TResult? Function(AddViewPlayerChildForChildUpdateEvent value)?
+        isForChildUpdate,
+    TResult? Function(AddViewPlayerChildDelteEvent value)? deleteChild,
+  }) {
+    return setNetWorkChildImage?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(AddViewPlayerSelectedTabEvent value)? selectedTab,
+    TResult Function(AddViewPlayerChiclPhotoConsentEvent value)?
+        childPhotoConsent,
+    TResult Function(AddViewPlayeAdministratorFirstAidEvent value)?
+        administratorFirstAid,
+    TResult Function(AddViewPlayerChildNameEvent value)? childName,
+    TResult Function(AddViewPlayerChildAgeEvent value)? childAge,
+    TResult Function(AddViewPlayerChildDobEvent value)? childDob,
+    TResult Function(AddViewPlayerSchoolNameEvent value)? schoolName,
+    TResult Function(AddViewPlayerClubNameEvent value)? clubName,
+    TResult Function(AddViewPlayerTessUsMedicalConditionEvent value)?
+        medicalCondition,
+    TResult Function(AddViewPlayerSubmitButtonPressEvent value)?
+        submitButtonPress,
+    TResult Function(AddViewPlayerGetChildListEvent value)? getChildListEvent,
+    TResult Function(AddViewPlayerChildSelectionToggleEvent value)?
+        childSelectionToggle,
+    TResult Function(AddViewPlayerChildProfilePhotoEvent value)?
+        setChileProfilePic,
+    TResult Function(AddViewPlayerChildNetworkImageEvent value)?
+        setNetWorkChildImage,
+    TResult Function(ResetAddViewEvent value)? resetAddViewPlayerEvent,
+    TResult Function(AddViewPlayerChildForChildUpdateEvent value)?
+        isForChildUpdate,
+    TResult Function(AddViewPlayerChildDelteEvent value)? deleteChild,
+    required TResult orElse(),
+  }) {
+    if (setNetWorkChildImage != null) {
+      return setNetWorkChildImage(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class AddViewPlayerChildNetworkImageEvent
+    implements AddViewPlayerEvent {
+  const factory AddViewPlayerChildNetworkImageEvent(final String imageUrl) =
+      _$AddViewPlayerChildNetworkImageEventImpl;
+
+  String get imageUrl;
+
+  /// Create a copy of AddViewPlayerEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$AddViewPlayerChildNetworkImageEventImplCopyWith<
+          _$AddViewPlayerChildNetworkImageEventImpl>
       get copyWith => throw _privateConstructorUsedError;
 }
 
@@ -3259,7 +3860,10 @@ class _$ResetAddViewEventImpl implements ResetAddViewEvent {
     required TResult Function() getChildListEvent,
     required TResult Function(int index) childSelectionToggle,
     required TResult Function(File file) setChileProfilePic,
+    required TResult Function(String imageUrl) setNetWorkChildImage,
     required TResult Function() resetAddViewPlayerEvent,
+    required TResult Function(String id) isForChildUpdate,
+    required TResult Function(String id) deleteChild,
   }) {
     return resetAddViewPlayerEvent();
   }
@@ -3280,7 +3884,10 @@ class _$ResetAddViewEventImpl implements ResetAddViewEvent {
     TResult? Function()? getChildListEvent,
     TResult? Function(int index)? childSelectionToggle,
     TResult? Function(File file)? setChileProfilePic,
+    TResult? Function(String imageUrl)? setNetWorkChildImage,
     TResult? Function()? resetAddViewPlayerEvent,
+    TResult? Function(String id)? isForChildUpdate,
+    TResult? Function(String id)? deleteChild,
   }) {
     return resetAddViewPlayerEvent?.call();
   }
@@ -3301,7 +3908,10 @@ class _$ResetAddViewEventImpl implements ResetAddViewEvent {
     TResult Function()? getChildListEvent,
     TResult Function(int index)? childSelectionToggle,
     TResult Function(File file)? setChileProfilePic,
+    TResult Function(String imageUrl)? setNetWorkChildImage,
     TResult Function()? resetAddViewPlayerEvent,
+    TResult Function(String id)? isForChildUpdate,
+    TResult Function(String id)? deleteChild,
     required TResult orElse(),
   }) {
     if (resetAddViewPlayerEvent != null) {
@@ -3333,7 +3943,12 @@ class _$ResetAddViewEventImpl implements ResetAddViewEvent {
         childSelectionToggle,
     required TResult Function(AddViewPlayerChildProfilePhotoEvent value)
         setChileProfilePic,
+    required TResult Function(AddViewPlayerChildNetworkImageEvent value)
+        setNetWorkChildImage,
     required TResult Function(ResetAddViewEvent value) resetAddViewPlayerEvent,
+    required TResult Function(AddViewPlayerChildForChildUpdateEvent value)
+        isForChildUpdate,
+    required TResult Function(AddViewPlayerChildDelteEvent value) deleteChild,
   }) {
     return resetAddViewPlayerEvent(this);
   }
@@ -3360,7 +3975,12 @@ class _$ResetAddViewEventImpl implements ResetAddViewEvent {
         childSelectionToggle,
     TResult? Function(AddViewPlayerChildProfilePhotoEvent value)?
         setChileProfilePic,
+    TResult? Function(AddViewPlayerChildNetworkImageEvent value)?
+        setNetWorkChildImage,
     TResult? Function(ResetAddViewEvent value)? resetAddViewPlayerEvent,
+    TResult? Function(AddViewPlayerChildForChildUpdateEvent value)?
+        isForChildUpdate,
+    TResult? Function(AddViewPlayerChildDelteEvent value)? deleteChild,
   }) {
     return resetAddViewPlayerEvent?.call(this);
   }
@@ -3387,7 +4007,12 @@ class _$ResetAddViewEventImpl implements ResetAddViewEvent {
         childSelectionToggle,
     TResult Function(AddViewPlayerChildProfilePhotoEvent value)?
         setChileProfilePic,
+    TResult Function(AddViewPlayerChildNetworkImageEvent value)?
+        setNetWorkChildImage,
     TResult Function(ResetAddViewEvent value)? resetAddViewPlayerEvent,
+    TResult Function(AddViewPlayerChildForChildUpdateEvent value)?
+        isForChildUpdate,
+    TResult Function(AddViewPlayerChildDelteEvent value)? deleteChild,
     required TResult orElse(),
   }) {
     if (resetAddViewPlayerEvent != null) {
@@ -3399,4 +4024,531 @@ class _$ResetAddViewEventImpl implements ResetAddViewEvent {
 
 abstract class ResetAddViewEvent implements AddViewPlayerEvent {
   const factory ResetAddViewEvent() = _$ResetAddViewEventImpl;
+}
+
+/// @nodoc
+abstract class _$$AddViewPlayerChildForChildUpdateEventImplCopyWith<$Res> {
+  factory _$$AddViewPlayerChildForChildUpdateEventImplCopyWith(
+          _$AddViewPlayerChildForChildUpdateEventImpl value,
+          $Res Function(_$AddViewPlayerChildForChildUpdateEventImpl) then) =
+      __$$AddViewPlayerChildForChildUpdateEventImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String id});
+}
+
+/// @nodoc
+class __$$AddViewPlayerChildForChildUpdateEventImplCopyWithImpl<$Res>
+    extends _$AddViewPlayerEventCopyWithImpl<$Res,
+        _$AddViewPlayerChildForChildUpdateEventImpl>
+    implements _$$AddViewPlayerChildForChildUpdateEventImplCopyWith<$Res> {
+  __$$AddViewPlayerChildForChildUpdateEventImplCopyWithImpl(
+      _$AddViewPlayerChildForChildUpdateEventImpl _value,
+      $Res Function(_$AddViewPlayerChildForChildUpdateEventImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of AddViewPlayerEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? id = null,
+  }) {
+    return _then(_$AddViewPlayerChildForChildUpdateEventImpl(
+      null == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$AddViewPlayerChildForChildUpdateEventImpl
+    implements AddViewPlayerChildForChildUpdateEvent {
+  const _$AddViewPlayerChildForChildUpdateEventImpl(this.id);
+
+  @override
+  final String id;
+
+  @override
+  String toString() {
+    return 'AddViewPlayerEvent.isForChildUpdate(id: $id)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$AddViewPlayerChildForChildUpdateEventImpl &&
+            (identical(other.id, id) || other.id == id));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, id);
+
+  /// Create a copy of AddViewPlayerEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$AddViewPlayerChildForChildUpdateEventImplCopyWith<
+          _$AddViewPlayerChildForChildUpdateEventImpl>
+      get copyWith => __$$AddViewPlayerChildForChildUpdateEventImplCopyWithImpl<
+          _$AddViewPlayerChildForChildUpdateEventImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(int tabno) selectedTab,
+    required TResult Function(int consentStatus) childPhotoConsent,
+    required TResult Function(int firstAidStatus) administratorFirstAid,
+    required TResult Function(String childName) childName,
+    required TResult Function(String age) childAge,
+    required TResult Function(String dob) childDob,
+    required TResult Function(String schoolName) schoolName,
+    required TResult Function(String clubName) clubName,
+    required TResult Function(String medicalCondition) medicalCondition,
+    required TResult Function() submitButtonPress,
+    required TResult Function() getChildListEvent,
+    required TResult Function(int index) childSelectionToggle,
+    required TResult Function(File file) setChileProfilePic,
+    required TResult Function(String imageUrl) setNetWorkChildImage,
+    required TResult Function() resetAddViewPlayerEvent,
+    required TResult Function(String id) isForChildUpdate,
+    required TResult Function(String id) deleteChild,
+  }) {
+    return isForChildUpdate(id);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(int tabno)? selectedTab,
+    TResult? Function(int consentStatus)? childPhotoConsent,
+    TResult? Function(int firstAidStatus)? administratorFirstAid,
+    TResult? Function(String childName)? childName,
+    TResult? Function(String age)? childAge,
+    TResult? Function(String dob)? childDob,
+    TResult? Function(String schoolName)? schoolName,
+    TResult? Function(String clubName)? clubName,
+    TResult? Function(String medicalCondition)? medicalCondition,
+    TResult? Function()? submitButtonPress,
+    TResult? Function()? getChildListEvent,
+    TResult? Function(int index)? childSelectionToggle,
+    TResult? Function(File file)? setChileProfilePic,
+    TResult? Function(String imageUrl)? setNetWorkChildImage,
+    TResult? Function()? resetAddViewPlayerEvent,
+    TResult? Function(String id)? isForChildUpdate,
+    TResult? Function(String id)? deleteChild,
+  }) {
+    return isForChildUpdate?.call(id);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(int tabno)? selectedTab,
+    TResult Function(int consentStatus)? childPhotoConsent,
+    TResult Function(int firstAidStatus)? administratorFirstAid,
+    TResult Function(String childName)? childName,
+    TResult Function(String age)? childAge,
+    TResult Function(String dob)? childDob,
+    TResult Function(String schoolName)? schoolName,
+    TResult Function(String clubName)? clubName,
+    TResult Function(String medicalCondition)? medicalCondition,
+    TResult Function()? submitButtonPress,
+    TResult Function()? getChildListEvent,
+    TResult Function(int index)? childSelectionToggle,
+    TResult Function(File file)? setChileProfilePic,
+    TResult Function(String imageUrl)? setNetWorkChildImage,
+    TResult Function()? resetAddViewPlayerEvent,
+    TResult Function(String id)? isForChildUpdate,
+    TResult Function(String id)? deleteChild,
+    required TResult orElse(),
+  }) {
+    if (isForChildUpdate != null) {
+      return isForChildUpdate(id);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(AddViewPlayerSelectedTabEvent value) selectedTab,
+    required TResult Function(AddViewPlayerChiclPhotoConsentEvent value)
+        childPhotoConsent,
+    required TResult Function(AddViewPlayeAdministratorFirstAidEvent value)
+        administratorFirstAid,
+    required TResult Function(AddViewPlayerChildNameEvent value) childName,
+    required TResult Function(AddViewPlayerChildAgeEvent value) childAge,
+    required TResult Function(AddViewPlayerChildDobEvent value) childDob,
+    required TResult Function(AddViewPlayerSchoolNameEvent value) schoolName,
+    required TResult Function(AddViewPlayerClubNameEvent value) clubName,
+    required TResult Function(AddViewPlayerTessUsMedicalConditionEvent value)
+        medicalCondition,
+    required TResult Function(AddViewPlayerSubmitButtonPressEvent value)
+        submitButtonPress,
+    required TResult Function(AddViewPlayerGetChildListEvent value)
+        getChildListEvent,
+    required TResult Function(AddViewPlayerChildSelectionToggleEvent value)
+        childSelectionToggle,
+    required TResult Function(AddViewPlayerChildProfilePhotoEvent value)
+        setChileProfilePic,
+    required TResult Function(AddViewPlayerChildNetworkImageEvent value)
+        setNetWorkChildImage,
+    required TResult Function(ResetAddViewEvent value) resetAddViewPlayerEvent,
+    required TResult Function(AddViewPlayerChildForChildUpdateEvent value)
+        isForChildUpdate,
+    required TResult Function(AddViewPlayerChildDelteEvent value) deleteChild,
+  }) {
+    return isForChildUpdate(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(AddViewPlayerSelectedTabEvent value)? selectedTab,
+    TResult? Function(AddViewPlayerChiclPhotoConsentEvent value)?
+        childPhotoConsent,
+    TResult? Function(AddViewPlayeAdministratorFirstAidEvent value)?
+        administratorFirstAid,
+    TResult? Function(AddViewPlayerChildNameEvent value)? childName,
+    TResult? Function(AddViewPlayerChildAgeEvent value)? childAge,
+    TResult? Function(AddViewPlayerChildDobEvent value)? childDob,
+    TResult? Function(AddViewPlayerSchoolNameEvent value)? schoolName,
+    TResult? Function(AddViewPlayerClubNameEvent value)? clubName,
+    TResult? Function(AddViewPlayerTessUsMedicalConditionEvent value)?
+        medicalCondition,
+    TResult? Function(AddViewPlayerSubmitButtonPressEvent value)?
+        submitButtonPress,
+    TResult? Function(AddViewPlayerGetChildListEvent value)? getChildListEvent,
+    TResult? Function(AddViewPlayerChildSelectionToggleEvent value)?
+        childSelectionToggle,
+    TResult? Function(AddViewPlayerChildProfilePhotoEvent value)?
+        setChileProfilePic,
+    TResult? Function(AddViewPlayerChildNetworkImageEvent value)?
+        setNetWorkChildImage,
+    TResult? Function(ResetAddViewEvent value)? resetAddViewPlayerEvent,
+    TResult? Function(AddViewPlayerChildForChildUpdateEvent value)?
+        isForChildUpdate,
+    TResult? Function(AddViewPlayerChildDelteEvent value)? deleteChild,
+  }) {
+    return isForChildUpdate?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(AddViewPlayerSelectedTabEvent value)? selectedTab,
+    TResult Function(AddViewPlayerChiclPhotoConsentEvent value)?
+        childPhotoConsent,
+    TResult Function(AddViewPlayeAdministratorFirstAidEvent value)?
+        administratorFirstAid,
+    TResult Function(AddViewPlayerChildNameEvent value)? childName,
+    TResult Function(AddViewPlayerChildAgeEvent value)? childAge,
+    TResult Function(AddViewPlayerChildDobEvent value)? childDob,
+    TResult Function(AddViewPlayerSchoolNameEvent value)? schoolName,
+    TResult Function(AddViewPlayerClubNameEvent value)? clubName,
+    TResult Function(AddViewPlayerTessUsMedicalConditionEvent value)?
+        medicalCondition,
+    TResult Function(AddViewPlayerSubmitButtonPressEvent value)?
+        submitButtonPress,
+    TResult Function(AddViewPlayerGetChildListEvent value)? getChildListEvent,
+    TResult Function(AddViewPlayerChildSelectionToggleEvent value)?
+        childSelectionToggle,
+    TResult Function(AddViewPlayerChildProfilePhotoEvent value)?
+        setChileProfilePic,
+    TResult Function(AddViewPlayerChildNetworkImageEvent value)?
+        setNetWorkChildImage,
+    TResult Function(ResetAddViewEvent value)? resetAddViewPlayerEvent,
+    TResult Function(AddViewPlayerChildForChildUpdateEvent value)?
+        isForChildUpdate,
+    TResult Function(AddViewPlayerChildDelteEvent value)? deleteChild,
+    required TResult orElse(),
+  }) {
+    if (isForChildUpdate != null) {
+      return isForChildUpdate(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class AddViewPlayerChildForChildUpdateEvent
+    implements AddViewPlayerEvent {
+  const factory AddViewPlayerChildForChildUpdateEvent(final String id) =
+      _$AddViewPlayerChildForChildUpdateEventImpl;
+
+  String get id;
+
+  /// Create a copy of AddViewPlayerEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$AddViewPlayerChildForChildUpdateEventImplCopyWith<
+          _$AddViewPlayerChildForChildUpdateEventImpl>
+      get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$AddViewPlayerChildDelteEventImplCopyWith<$Res> {
+  factory _$$AddViewPlayerChildDelteEventImplCopyWith(
+          _$AddViewPlayerChildDelteEventImpl value,
+          $Res Function(_$AddViewPlayerChildDelteEventImpl) then) =
+      __$$AddViewPlayerChildDelteEventImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String id});
+}
+
+/// @nodoc
+class __$$AddViewPlayerChildDelteEventImplCopyWithImpl<$Res>
+    extends _$AddViewPlayerEventCopyWithImpl<$Res,
+        _$AddViewPlayerChildDelteEventImpl>
+    implements _$$AddViewPlayerChildDelteEventImplCopyWith<$Res> {
+  __$$AddViewPlayerChildDelteEventImplCopyWithImpl(
+      _$AddViewPlayerChildDelteEventImpl _value,
+      $Res Function(_$AddViewPlayerChildDelteEventImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of AddViewPlayerEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? id = null,
+  }) {
+    return _then(_$AddViewPlayerChildDelteEventImpl(
+      null == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$AddViewPlayerChildDelteEventImpl
+    implements AddViewPlayerChildDelteEvent {
+  const _$AddViewPlayerChildDelteEventImpl(this.id);
+
+  @override
+  final String id;
+
+  @override
+  String toString() {
+    return 'AddViewPlayerEvent.deleteChild(id: $id)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$AddViewPlayerChildDelteEventImpl &&
+            (identical(other.id, id) || other.id == id));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, id);
+
+  /// Create a copy of AddViewPlayerEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$AddViewPlayerChildDelteEventImplCopyWith<
+          _$AddViewPlayerChildDelteEventImpl>
+      get copyWith => __$$AddViewPlayerChildDelteEventImplCopyWithImpl<
+          _$AddViewPlayerChildDelteEventImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(int tabno) selectedTab,
+    required TResult Function(int consentStatus) childPhotoConsent,
+    required TResult Function(int firstAidStatus) administratorFirstAid,
+    required TResult Function(String childName) childName,
+    required TResult Function(String age) childAge,
+    required TResult Function(String dob) childDob,
+    required TResult Function(String schoolName) schoolName,
+    required TResult Function(String clubName) clubName,
+    required TResult Function(String medicalCondition) medicalCondition,
+    required TResult Function() submitButtonPress,
+    required TResult Function() getChildListEvent,
+    required TResult Function(int index) childSelectionToggle,
+    required TResult Function(File file) setChileProfilePic,
+    required TResult Function(String imageUrl) setNetWorkChildImage,
+    required TResult Function() resetAddViewPlayerEvent,
+    required TResult Function(String id) isForChildUpdate,
+    required TResult Function(String id) deleteChild,
+  }) {
+    return deleteChild(id);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(int tabno)? selectedTab,
+    TResult? Function(int consentStatus)? childPhotoConsent,
+    TResult? Function(int firstAidStatus)? administratorFirstAid,
+    TResult? Function(String childName)? childName,
+    TResult? Function(String age)? childAge,
+    TResult? Function(String dob)? childDob,
+    TResult? Function(String schoolName)? schoolName,
+    TResult? Function(String clubName)? clubName,
+    TResult? Function(String medicalCondition)? medicalCondition,
+    TResult? Function()? submitButtonPress,
+    TResult? Function()? getChildListEvent,
+    TResult? Function(int index)? childSelectionToggle,
+    TResult? Function(File file)? setChileProfilePic,
+    TResult? Function(String imageUrl)? setNetWorkChildImage,
+    TResult? Function()? resetAddViewPlayerEvent,
+    TResult? Function(String id)? isForChildUpdate,
+    TResult? Function(String id)? deleteChild,
+  }) {
+    return deleteChild?.call(id);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(int tabno)? selectedTab,
+    TResult Function(int consentStatus)? childPhotoConsent,
+    TResult Function(int firstAidStatus)? administratorFirstAid,
+    TResult Function(String childName)? childName,
+    TResult Function(String age)? childAge,
+    TResult Function(String dob)? childDob,
+    TResult Function(String schoolName)? schoolName,
+    TResult Function(String clubName)? clubName,
+    TResult Function(String medicalCondition)? medicalCondition,
+    TResult Function()? submitButtonPress,
+    TResult Function()? getChildListEvent,
+    TResult Function(int index)? childSelectionToggle,
+    TResult Function(File file)? setChileProfilePic,
+    TResult Function(String imageUrl)? setNetWorkChildImage,
+    TResult Function()? resetAddViewPlayerEvent,
+    TResult Function(String id)? isForChildUpdate,
+    TResult Function(String id)? deleteChild,
+    required TResult orElse(),
+  }) {
+    if (deleteChild != null) {
+      return deleteChild(id);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(AddViewPlayerSelectedTabEvent value) selectedTab,
+    required TResult Function(AddViewPlayerChiclPhotoConsentEvent value)
+        childPhotoConsent,
+    required TResult Function(AddViewPlayeAdministratorFirstAidEvent value)
+        administratorFirstAid,
+    required TResult Function(AddViewPlayerChildNameEvent value) childName,
+    required TResult Function(AddViewPlayerChildAgeEvent value) childAge,
+    required TResult Function(AddViewPlayerChildDobEvent value) childDob,
+    required TResult Function(AddViewPlayerSchoolNameEvent value) schoolName,
+    required TResult Function(AddViewPlayerClubNameEvent value) clubName,
+    required TResult Function(AddViewPlayerTessUsMedicalConditionEvent value)
+        medicalCondition,
+    required TResult Function(AddViewPlayerSubmitButtonPressEvent value)
+        submitButtonPress,
+    required TResult Function(AddViewPlayerGetChildListEvent value)
+        getChildListEvent,
+    required TResult Function(AddViewPlayerChildSelectionToggleEvent value)
+        childSelectionToggle,
+    required TResult Function(AddViewPlayerChildProfilePhotoEvent value)
+        setChileProfilePic,
+    required TResult Function(AddViewPlayerChildNetworkImageEvent value)
+        setNetWorkChildImage,
+    required TResult Function(ResetAddViewEvent value) resetAddViewPlayerEvent,
+    required TResult Function(AddViewPlayerChildForChildUpdateEvent value)
+        isForChildUpdate,
+    required TResult Function(AddViewPlayerChildDelteEvent value) deleteChild,
+  }) {
+    return deleteChild(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(AddViewPlayerSelectedTabEvent value)? selectedTab,
+    TResult? Function(AddViewPlayerChiclPhotoConsentEvent value)?
+        childPhotoConsent,
+    TResult? Function(AddViewPlayeAdministratorFirstAidEvent value)?
+        administratorFirstAid,
+    TResult? Function(AddViewPlayerChildNameEvent value)? childName,
+    TResult? Function(AddViewPlayerChildAgeEvent value)? childAge,
+    TResult? Function(AddViewPlayerChildDobEvent value)? childDob,
+    TResult? Function(AddViewPlayerSchoolNameEvent value)? schoolName,
+    TResult? Function(AddViewPlayerClubNameEvent value)? clubName,
+    TResult? Function(AddViewPlayerTessUsMedicalConditionEvent value)?
+        medicalCondition,
+    TResult? Function(AddViewPlayerSubmitButtonPressEvent value)?
+        submitButtonPress,
+    TResult? Function(AddViewPlayerGetChildListEvent value)? getChildListEvent,
+    TResult? Function(AddViewPlayerChildSelectionToggleEvent value)?
+        childSelectionToggle,
+    TResult? Function(AddViewPlayerChildProfilePhotoEvent value)?
+        setChileProfilePic,
+    TResult? Function(AddViewPlayerChildNetworkImageEvent value)?
+        setNetWorkChildImage,
+    TResult? Function(ResetAddViewEvent value)? resetAddViewPlayerEvent,
+    TResult? Function(AddViewPlayerChildForChildUpdateEvent value)?
+        isForChildUpdate,
+    TResult? Function(AddViewPlayerChildDelteEvent value)? deleteChild,
+  }) {
+    return deleteChild?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(AddViewPlayerSelectedTabEvent value)? selectedTab,
+    TResult Function(AddViewPlayerChiclPhotoConsentEvent value)?
+        childPhotoConsent,
+    TResult Function(AddViewPlayeAdministratorFirstAidEvent value)?
+        administratorFirstAid,
+    TResult Function(AddViewPlayerChildNameEvent value)? childName,
+    TResult Function(AddViewPlayerChildAgeEvent value)? childAge,
+    TResult Function(AddViewPlayerChildDobEvent value)? childDob,
+    TResult Function(AddViewPlayerSchoolNameEvent value)? schoolName,
+    TResult Function(AddViewPlayerClubNameEvent value)? clubName,
+    TResult Function(AddViewPlayerTessUsMedicalConditionEvent value)?
+        medicalCondition,
+    TResult Function(AddViewPlayerSubmitButtonPressEvent value)?
+        submitButtonPress,
+    TResult Function(AddViewPlayerGetChildListEvent value)? getChildListEvent,
+    TResult Function(AddViewPlayerChildSelectionToggleEvent value)?
+        childSelectionToggle,
+    TResult Function(AddViewPlayerChildProfilePhotoEvent value)?
+        setChileProfilePic,
+    TResult Function(AddViewPlayerChildNetworkImageEvent value)?
+        setNetWorkChildImage,
+    TResult Function(ResetAddViewEvent value)? resetAddViewPlayerEvent,
+    TResult Function(AddViewPlayerChildForChildUpdateEvent value)?
+        isForChildUpdate,
+    TResult Function(AddViewPlayerChildDelteEvent value)? deleteChild,
+    required TResult orElse(),
+  }) {
+    if (deleteChild != null) {
+      return deleteChild(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class AddViewPlayerChildDelteEvent implements AddViewPlayerEvent {
+  const factory AddViewPlayerChildDelteEvent(final String id) =
+      _$AddViewPlayerChildDelteEventImpl;
+
+  String get id;
+
+  /// Create a copy of AddViewPlayerEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$AddViewPlayerChildDelteEventImplCopyWith<
+          _$AddViewPlayerChildDelteEventImpl>
+      get copyWith => throw _privateConstructorUsedError;
 }

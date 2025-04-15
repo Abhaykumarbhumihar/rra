@@ -31,12 +31,16 @@ class BookedSessionData with _$BookedSessionData {
 class Session with _$Session {
   const factory Session({
     @JsonKey(name: 'id') @Default(0) int id,
+    @JsonKey(name: 'player_id') @Default(0) int playerId,
     @JsonKey(name: 'session_name') @Default('') String sessionName,
+    @JsonKey(name: 'player_name') @Default('') String playerName,
     @JsonKey(name: 'coaching_program') @Default('') String coachingProgram,
     @JsonKey(name: 'image') @Default('') String image,
     @JsonKey(name: 'term') @Default('') String term,
     @JsonKey(name: 'session_day') @Default('') String sessionDay,
     @JsonKey(name: 'start_date') @Default('') String startDate,
+    @JsonKey(name: 'from_date') @Default('') String fromDate,
+    @JsonKey(name: 'to_date') @Default('') String toDate,
     @JsonKey(name: 'end_date') @Default('') String endDate,
     @JsonKey(name: 'date') @Default("") String date,
     @JsonKey(name: 'amount') @Default("\$0.0")String amount,

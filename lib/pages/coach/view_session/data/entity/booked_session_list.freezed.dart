@@ -463,8 +463,12 @@ Session _$SessionFromJson(Map<String, dynamic> json) {
 mixin _$Session {
   @JsonKey(name: 'id')
   int get id => throw _privateConstructorUsedError;
+  @JsonKey(name: 'player_id')
+  int get playerId => throw _privateConstructorUsedError;
   @JsonKey(name: 'session_name')
   String get sessionName => throw _privateConstructorUsedError;
+  @JsonKey(name: 'player_name')
+  String get playerName => throw _privateConstructorUsedError;
   @JsonKey(name: 'coaching_program')
   String get coachingProgram => throw _privateConstructorUsedError;
   @JsonKey(name: 'image')
@@ -475,6 +479,10 @@ mixin _$Session {
   String get sessionDay => throw _privateConstructorUsedError;
   @JsonKey(name: 'start_date')
   String get startDate => throw _privateConstructorUsedError;
+  @JsonKey(name: 'from_date')
+  String get fromDate => throw _privateConstructorUsedError;
+  @JsonKey(name: 'to_date')
+  String get toDate => throw _privateConstructorUsedError;
   @JsonKey(name: 'end_date')
   String get endDate => throw _privateConstructorUsedError;
   @JsonKey(name: 'date')
@@ -502,12 +510,16 @@ abstract class $SessionCopyWith<$Res> {
   @useResult
   $Res call(
       {@JsonKey(name: 'id') int id,
+      @JsonKey(name: 'player_id') int playerId,
       @JsonKey(name: 'session_name') String sessionName,
+      @JsonKey(name: 'player_name') String playerName,
       @JsonKey(name: 'coaching_program') String coachingProgram,
       @JsonKey(name: 'image') String image,
       @JsonKey(name: 'term') String term,
       @JsonKey(name: 'session_day') String sessionDay,
       @JsonKey(name: 'start_date') String startDate,
+      @JsonKey(name: 'from_date') String fromDate,
+      @JsonKey(name: 'to_date') String toDate,
       @JsonKey(name: 'end_date') String endDate,
       @JsonKey(name: 'date') String date,
       @JsonKey(name: 'amount') String amount,
@@ -531,12 +543,16 @@ class _$SessionCopyWithImpl<$Res, $Val extends Session>
   @override
   $Res call({
     Object? id = null,
+    Object? playerId = null,
     Object? sessionName = null,
+    Object? playerName = null,
     Object? coachingProgram = null,
     Object? image = null,
     Object? term = null,
     Object? sessionDay = null,
     Object? startDate = null,
+    Object? fromDate = null,
+    Object? toDate = null,
     Object? endDate = null,
     Object? date = null,
     Object? amount = null,
@@ -548,9 +564,17 @@ class _$SessionCopyWithImpl<$Res, $Val extends Session>
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
               as int,
+      playerId: null == playerId
+          ? _value.playerId
+          : playerId // ignore: cast_nullable_to_non_nullable
+              as int,
       sessionName: null == sessionName
           ? _value.sessionName
           : sessionName // ignore: cast_nullable_to_non_nullable
+              as String,
+      playerName: null == playerName
+          ? _value.playerName
+          : playerName // ignore: cast_nullable_to_non_nullable
               as String,
       coachingProgram: null == coachingProgram
           ? _value.coachingProgram
@@ -571,6 +595,14 @@ class _$SessionCopyWithImpl<$Res, $Val extends Session>
       startDate: null == startDate
           ? _value.startDate
           : startDate // ignore: cast_nullable_to_non_nullable
+              as String,
+      fromDate: null == fromDate
+          ? _value.fromDate
+          : fromDate // ignore: cast_nullable_to_non_nullable
+              as String,
+      toDate: null == toDate
+          ? _value.toDate
+          : toDate // ignore: cast_nullable_to_non_nullable
               as String,
       endDate: null == endDate
           ? _value.endDate
@@ -605,12 +637,16 @@ abstract class _$$SessionImplCopyWith<$Res> implements $SessionCopyWith<$Res> {
   @useResult
   $Res call(
       {@JsonKey(name: 'id') int id,
+      @JsonKey(name: 'player_id') int playerId,
       @JsonKey(name: 'session_name') String sessionName,
+      @JsonKey(name: 'player_name') String playerName,
       @JsonKey(name: 'coaching_program') String coachingProgram,
       @JsonKey(name: 'image') String image,
       @JsonKey(name: 'term') String term,
       @JsonKey(name: 'session_day') String sessionDay,
       @JsonKey(name: 'start_date') String startDate,
+      @JsonKey(name: 'from_date') String fromDate,
+      @JsonKey(name: 'to_date') String toDate,
       @JsonKey(name: 'end_date') String endDate,
       @JsonKey(name: 'date') String date,
       @JsonKey(name: 'amount') String amount,
@@ -632,12 +668,16 @@ class __$$SessionImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? id = null,
+    Object? playerId = null,
     Object? sessionName = null,
+    Object? playerName = null,
     Object? coachingProgram = null,
     Object? image = null,
     Object? term = null,
     Object? sessionDay = null,
     Object? startDate = null,
+    Object? fromDate = null,
+    Object? toDate = null,
     Object? endDate = null,
     Object? date = null,
     Object? amount = null,
@@ -649,9 +689,17 @@ class __$$SessionImplCopyWithImpl<$Res>
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
               as int,
+      playerId: null == playerId
+          ? _value.playerId
+          : playerId // ignore: cast_nullable_to_non_nullable
+              as int,
       sessionName: null == sessionName
           ? _value.sessionName
           : sessionName // ignore: cast_nullable_to_non_nullable
+              as String,
+      playerName: null == playerName
+          ? _value.playerName
+          : playerName // ignore: cast_nullable_to_non_nullable
               as String,
       coachingProgram: null == coachingProgram
           ? _value.coachingProgram
@@ -672,6 +720,14 @@ class __$$SessionImplCopyWithImpl<$Res>
       startDate: null == startDate
           ? _value.startDate
           : startDate // ignore: cast_nullable_to_non_nullable
+              as String,
+      fromDate: null == fromDate
+          ? _value.fromDate
+          : fromDate // ignore: cast_nullable_to_non_nullable
+              as String,
+      toDate: null == toDate
+          ? _value.toDate
+          : toDate // ignore: cast_nullable_to_non_nullable
               as String,
       endDate: null == endDate
           ? _value.endDate
@@ -702,12 +758,16 @@ class __$$SessionImplCopyWithImpl<$Res>
 class _$SessionImpl implements _Session {
   const _$SessionImpl(
       {@JsonKey(name: 'id') this.id = 0,
+      @JsonKey(name: 'player_id') this.playerId = 0,
       @JsonKey(name: 'session_name') this.sessionName = '',
+      @JsonKey(name: 'player_name') this.playerName = '',
       @JsonKey(name: 'coaching_program') this.coachingProgram = '',
       @JsonKey(name: 'image') this.image = '',
       @JsonKey(name: 'term') this.term = '',
       @JsonKey(name: 'session_day') this.sessionDay = '',
       @JsonKey(name: 'start_date') this.startDate = '',
+      @JsonKey(name: 'from_date') this.fromDate = '',
+      @JsonKey(name: 'to_date') this.toDate = '',
       @JsonKey(name: 'end_date') this.endDate = '',
       @JsonKey(name: 'date') this.date = "",
       @JsonKey(name: 'amount') this.amount = "\$0.0",
@@ -721,8 +781,14 @@ class _$SessionImpl implements _Session {
   @JsonKey(name: 'id')
   final int id;
   @override
+  @JsonKey(name: 'player_id')
+  final int playerId;
+  @override
   @JsonKey(name: 'session_name')
   final String sessionName;
+  @override
+  @JsonKey(name: 'player_name')
+  final String playerName;
   @override
   @JsonKey(name: 'coaching_program')
   final String coachingProgram;
@@ -738,6 +804,12 @@ class _$SessionImpl implements _Session {
   @override
   @JsonKey(name: 'start_date')
   final String startDate;
+  @override
+  @JsonKey(name: 'from_date')
+  final String fromDate;
+  @override
+  @JsonKey(name: 'to_date')
+  final String toDate;
   @override
   @JsonKey(name: 'end_date')
   final String endDate;
@@ -756,7 +828,7 @@ class _$SessionImpl implements _Session {
 
   @override
   String toString() {
-    return 'Session(id: $id, sessionName: $sessionName, coachingProgram: $coachingProgram, image: $image, term: $term, sessionDay: $sessionDay, startDate: $startDate, endDate: $endDate, date: $date, amount: $amount, status: $status, cancelable: $cancelable)';
+    return 'Session(id: $id, playerId: $playerId, sessionName: $sessionName, playerName: $playerName, coachingProgram: $coachingProgram, image: $image, term: $term, sessionDay: $sessionDay, startDate: $startDate, fromDate: $fromDate, toDate: $toDate, endDate: $endDate, date: $date, amount: $amount, status: $status, cancelable: $cancelable)';
   }
 
   @override
@@ -765,8 +837,12 @@ class _$SessionImpl implements _Session {
         (other.runtimeType == runtimeType &&
             other is _$SessionImpl &&
             (identical(other.id, id) || other.id == id) &&
+            (identical(other.playerId, playerId) ||
+                other.playerId == playerId) &&
             (identical(other.sessionName, sessionName) ||
                 other.sessionName == sessionName) &&
+            (identical(other.playerName, playerName) ||
+                other.playerName == playerName) &&
             (identical(other.coachingProgram, coachingProgram) ||
                 other.coachingProgram == coachingProgram) &&
             (identical(other.image, image) || other.image == image) &&
@@ -775,6 +851,9 @@ class _$SessionImpl implements _Session {
                 other.sessionDay == sessionDay) &&
             (identical(other.startDate, startDate) ||
                 other.startDate == startDate) &&
+            (identical(other.fromDate, fromDate) ||
+                other.fromDate == fromDate) &&
+            (identical(other.toDate, toDate) || other.toDate == toDate) &&
             (identical(other.endDate, endDate) || other.endDate == endDate) &&
             (identical(other.date, date) || other.date == date) &&
             (identical(other.amount, amount) || other.amount == amount) &&
@@ -788,12 +867,16 @@ class _$SessionImpl implements _Session {
   int get hashCode => Object.hash(
       runtimeType,
       id,
+      playerId,
       sessionName,
+      playerName,
       coachingProgram,
       image,
       term,
       sessionDay,
       startDate,
+      fromDate,
+      toDate,
       endDate,
       date,
       amount,
@@ -819,12 +902,16 @@ class _$SessionImpl implements _Session {
 abstract class _Session implements Session {
   const factory _Session(
       {@JsonKey(name: 'id') final int id,
+      @JsonKey(name: 'player_id') final int playerId,
       @JsonKey(name: 'session_name') final String sessionName,
+      @JsonKey(name: 'player_name') final String playerName,
       @JsonKey(name: 'coaching_program') final String coachingProgram,
       @JsonKey(name: 'image') final String image,
       @JsonKey(name: 'term') final String term,
       @JsonKey(name: 'session_day') final String sessionDay,
       @JsonKey(name: 'start_date') final String startDate,
+      @JsonKey(name: 'from_date') final String fromDate,
+      @JsonKey(name: 'to_date') final String toDate,
       @JsonKey(name: 'end_date') final String endDate,
       @JsonKey(name: 'date') final String date,
       @JsonKey(name: 'amount') final String amount,
@@ -837,8 +924,14 @@ abstract class _Session implements Session {
   @JsonKey(name: 'id')
   int get id;
   @override
+  @JsonKey(name: 'player_id')
+  int get playerId;
+  @override
   @JsonKey(name: 'session_name')
   String get sessionName;
+  @override
+  @JsonKey(name: 'player_name')
+  String get playerName;
   @override
   @JsonKey(name: 'coaching_program')
   String get coachingProgram;
@@ -854,6 +947,12 @@ abstract class _Session implements Session {
   @override
   @JsonKey(name: 'start_date')
   String get startDate;
+  @override
+  @JsonKey(name: 'from_date')
+  String get fromDate;
+  @override
+  @JsonKey(name: 'to_date')
+  String get toDate;
   @override
   @JsonKey(name: 'end_date')
   String get endDate;

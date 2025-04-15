@@ -9,6 +9,7 @@ import '../../../../../../common/component/auth_text_field.dart';
 import '../../../../../../common/component/common_app_bar.dart';
 import '../../../../../../common/component/common_background.dart';
 import '../../../../../../common/component/common_toggle_tab.dart';
+import '../../../../../../common/component/confirmation_dialog.dart';
 import '../../../../../../common/component/custom_app_button.dart';
 import '../../../../../../common/component/screen_title.dart';
 import '../../../../../../common/local/SharedPrefs.dart';
@@ -147,6 +148,7 @@ class AddDetail extends StatelessWidget {
                                   ),
                                 if (state.selectedTab == 1)
                                   AddChild(
+                                    networkImageUrl: state.netWorkImage,
                                     firstNameController: firstNameController,
                                     dobController: dobController,
                                     ageController: ageController,
@@ -175,137 +177,334 @@ class AddDetail extends StatelessWidget {
 
                                         return Card(
                                           shape: RoundedRectangleBorder(
-                                            borderRadius: BorderRadius.circular(8),
-                                            side: BorderSide(color: Colors.pinkAccent, width: 0.5), // 👈 Border color & width
+                                            borderRadius:
+                                                BorderRadius.circular(8),
+                                            side: BorderSide(
+                                              color: Colors.pinkAccent,
+                                              width: 0.5,
+                                            ),
                                           ),
-                                          color: Colors.transparent, // Optional: keep transparent background if needed
+                                          color: Colors.transparent,
                                           elevation: 4,
                                           child: Padding(
-                                            padding:  EdgeInsets.only(top: 8.0,left: 4),
-                                            child: Expanded(
-                                              child: Row(
-                                                crossAxisAlignment: CrossAxisAlignment.start,
-                                                children: [
-                                                  if (!isFromDashBoard)
-                                                    Checkbox(
-                                                      activeColor: AppColor.appButtonColor,
-                                                      fillColor: MaterialStateProperty.resolveWith<Color>(
-                                                            (Set<MaterialState> states) {
-                                                          if (states.contains(MaterialState.selected)) {
-                                                            return AppColor.appButtonColor;
-                                                          }
-                                                          return Colors.transparent;
-                                                        },
-                                                      ),
-                                                      side: const BorderSide(color: Colors.white, width: 2),
-                                                      checkColor: AppColor.appWhiteColor,
-                                                      value: state.selectedChildren.length > index &&
-                                                          state.selectedChildren[index],
-                                                      onChanged: (bool? newValue) {
-                                                        context.read<AddViewPlayerBloc>().add(
-                                                          AddViewPlayerChildSelectionToggleEvent(index),
-                                                        );
+                                            padding: EdgeInsets.only(
+                                                top: 8.0, left: 4),
+                                            child: Row(
+                                              crossAxisAlignment:
+                                                  CrossAxisAlignment.start,
+                                              children: [
+                                                if (!isFromDashBoard)
+                                                  Checkbox(
+                                                    activeColor:
+                                                        AppColor.appButtonColor,
+                                                    fillColor:
+                                                        MaterialStateProperty
+                                                            .resolveWith<Color>(
+                                                      (Set<MaterialState>
+                                                          states) {
+                                                        if (states.contains(
+                                                            MaterialState
+                                                                .selected)) {
+                                                          return AppColor
+                                                              .appButtonColor;
+                                                        }
+                                                        return Colors
+                                                            .transparent;
                                                       },
                                                     ),
-                                                  SizedBox(width: 8),
-                                                  if (isFromDashBoard)
+                                                    side: const BorderSide(
+                                                        color: Colors.white,
+                                                        width: 2),
+                                                    checkColor:
+                                                        AppColor.appWhiteColor,
+                                                    value: state.selectedChildren
+                                                                .length >
+                                                            index &&
+                                                        state.selectedChildren[
+                                                            index],
+                                                    onChanged:
+                                                        (bool? newValue) {
+                                                      context
+                                                          .read<
+                                                              AddViewPlayerBloc>()
+                                                          .add(
+                                                            AddViewPlayerChildSelectionToggleEvent(
+                                                                index),
+                                                          );
+                                                    },
+                                                  ),
+                                                SizedBox(width: 8),
+                                                if (isFromDashBoard)
                                                   NetworkImageWidget(
+                                                    fullimage: true,
                                                     imageUrl: data.image,
                                                     imageHeight: 100,
                                                     imageWidth: 100,
                                                     radiusAll: 8.0,
                                                   ),
-                                                  SizedBox(width: 8),
-                                                  // 👇 Let this expand and allow multiline text
-                                                  Expanded(
-                                                    child: Column(
-                                                      crossAxisAlignment: CrossAxisAlignment.start,
-                                                      children: [
-                                                        Text(
-                                                          "Name: ${data.childName}",
-                                                          style: TextStyle(
-                                                            color: AppColor.appWhiteColor,
-                                                            fontFamily: AppFont.interSemiBold,
-                                                            fontSize: context.screenWidth * 0.0375,
-                                                          ),
+                                                SizedBox(width: 8),
+                                                Expanded(
+                                                  child: Column(
+                                                    crossAxisAlignment:
+                                                        CrossAxisAlignment
+                                                            .start,
+                                                    children: [
+                                                      Text(
+                                                        "Name: ${data.childName}",
+                                                        style: TextStyle(
+                                                          color: AppColor
+                                                              .appWhiteColor,
+                                                          fontFamily: AppFont
+                                                              .interSemiBold,
+                                                          fontSize: context
+                                                                  .screenWidth *
+                                                              0.0375,
                                                         ),
-                                                        Text(
-                                                          "Dob: ${data.childDob}",
-                                                          style: TextStyle(
-                                                            color: AppColor.appWhiteColor,
-                                                            fontFamily: AppFont.interSemiBold,
-                                                            fontSize: context.screenWidth * 0.0375,
-                                                          ),
+                                                      ),
+                                                      Text(
+                                                        "Dob: ${data.childDob}",
+                                                        style: TextStyle(
+                                                          color: AppColor
+                                                              .appWhiteColor,
+                                                          fontFamily: AppFont
+                                                              .interSemiBold,
+                                                          fontSize: context
+                                                                  .screenWidth *
+                                                              0.0375,
                                                         ),
-                                                        Text(
-                                                          "School: ${data.childSchool}",
-                                                          style: TextStyle(
-                                                            color: AppColor.appWhiteColor,
-                                                            fontFamily: AppFont.interSemiBold,
-                                                            fontSize: context.screenWidth * 0.0375,
-                                                          ),
-                                                          softWrap: true, // optional: forces wrapping
+                                                      ),
+                                                      Text(
+                                                        "School: ${data.childSchool}",
+                                                        style: TextStyle(
+                                                          color: AppColor
+                                                              .appWhiteColor,
+                                                          fontFamily: AppFont
+                                                              .interSemiBold,
+                                                          fontSize: context
+                                                                  .screenWidth *
+                                                              0.0375,
                                                         ),
-                                                        if (isFromDashBoard)
+                                                        softWrap: true,
+                                                      ),
+                                                      if (isFromDashBoard)
                                                         Row(
-                                                          mainAxisAlignment: MainAxisAlignment.end,
+                                                          mainAxisAlignment:
+                                                              MainAxisAlignment
+                                                                  .end,
                                                           children: <Widget>[
                                                             ElevatedButton(
-                                                              onPressed: (){},
-                                                              style: ElevatedButton.styleFrom(
-                                                                  backgroundColor: Colors.pinkAccent, // Button color
-                                                                  shape: RoundedRectangleBorder(
-                                                                    borderRadius:
-                                                                    BorderRadius.circular(20), // Rounded Button
-                                                                  ),
-                                                                  minimumSize: Size(4, 30)
-                                                                //  padding: EdgeInsets.symmetric(horizontal: 12, vertical: 12),
+                                                              onPressed: () {
+                                                                ConfirmationDialog
+                                                                    .show(
+                                                                  context:
+                                                                      context,
+                                                                  title:
+                                                                      'Delete Child',
+                                                                  description:
+                                                                      'Are you sure you want to delete this child?',
+                                                                  confirmButtonText:
+                                                                      'Yes',
+                                                                  onCancel: () {
+                                                                    print(
+                                                                        'Cancelled');
+                                                                  },
+                                                                  onConfirm:
+                                                                      () async {
+                                                                    BlocProvider.of<AddViewPlayerBloc>(
+                                                                            context)
+                                                                        .add(AddViewPlayerChildDelteEvent(data
+                                                                            .id
+                                                                            .toString()));
+                                                                  },
+                                                                ).then((_) {
+                                                                  // This ensures the overlay is removed if dialog is dismissed by tapping outside
+                                                                });
+                                                              },
+                                                              style:
+                                                                  ElevatedButton
+                                                                      .styleFrom(
+                                                                backgroundColor:
+                                                                    Colors
+                                                                        .pinkAccent,
+                                                                shape:
+                                                                    RoundedRectangleBorder(
+                                                                  borderRadius:
+                                                                      BorderRadius
+                                                                          .circular(
+                                                                              20),
+                                                                ),
+                                                                minimumSize:
+                                                                    Size(4, 30),
                                                               ),
                                                               child: Text(
                                                                 'Delete',
-                                                                style: TextStyle(
-                                                                  color: Colors.white,
-                                                                  fontSize: context.screenWidth * 0.032,
-                                                                  fontFamily: AppFont.interMedium,
+                                                                style:
+                                                                    TextStyle(
+                                                                  color: Colors
+                                                                      .white,
+                                                                  fontSize:
+                                                                      context.screenWidth *
+                                                                          0.032,
+                                                                  fontFamily:
+                                                                      AppFont
+                                                                          .interMedium,
                                                                 ),
                                                               ),
                                                             ),
-                                                            SizedBox(width: 10,),
+                                                            SizedBox(width: 10),
                                                             ElevatedButton(
-                                                              onPressed: (){},
-                                                              style: ElevatedButton.styleFrom(
-                                                                  backgroundColor: Colors.pinkAccent, // Button color
-                                                                  shape: RoundedRectangleBorder(
-                                                                    borderRadius:
-                                                                    BorderRadius.circular(20), // Rounded Button
-                                                                  ),
-                                                                  minimumSize: Size(4, 30)
-                                                                //  padding: EdgeInsets.symmetric(horizontal: 12, vertical: 12),
+                                                              onPressed: () {
+                                                                var name = data
+                                                                    .childName;
+                                                                var dob = data
+                                                                    .childDob;
+                                                                var schoolName =
+                                                                    data.childSchool;
+                                                                var clubName =
+                                                                    data.childClub;
+                                                                var medicalCondition =
+                                                                    data.childMedicalCondition;
+                                                                var photoConsent =
+                                                                    data.childPhotoSocialWebsite;
+                                                                var firstAidconsent =
+                                                                    data.childPermissions;
+                                                                var childImage =
+                                                                    data.image;
+                                                                var id =
+                                                                    data.id;
+                                                                firstNameController
+                                                                        .text =
+                                                                    name;
+                                                                BlocProvider.of<
+                                                                            AddViewPlayerBloc>(
+                                                                        context)
+                                                                    .add(AddViewPlayerEvent
+                                                                        .childName(
+                                                                            name));
+
+                                                                dobController
+                                                                    .text = dob;
+                                                                context
+                                                                    .read<
+                                                                        AddViewPlayerBloc>()
+                                                                    .add(AddViewPlayerChildDobEvent(
+                                                                        dob));
+                                                                schoolNameController
+                                                                        .text =
+                                                                    schoolName;
+                                                                context
+                                                                    .read<
+                                                                        AddViewPlayerBloc>()
+                                                                    .add(AddViewPlayerSchoolNameEvent(
+                                                                        schoolName));
+
+                                                                clubNameController
+                                                                        .text =
+                                                                    clubName;
+                                                                context
+                                                                    .read<
+                                                                        AddViewPlayerBloc>()
+                                                                    .add(AddViewPlayerClubNameEvent(
+                                                                        clubName));
+
+                                                                medicalConditionController
+                                                                        .text =
+                                                                    medicalCondition;
+                                                                context
+                                                                    .read<
+                                                                        AddViewPlayerBloc>()
+                                                                    .add(AddViewPlayerTessUsMedicalConditionEvent(
+                                                                        medicalCondition));
+
+                                                                context
+                                                                    .read<
+                                                                        AddViewPlayerBloc>()
+                                                                    .add(
+                                                                      AddViewPlayerChiclPhotoConsentEvent(
+                                                                          int.parse(
+                                                                              photoConsent)),
+                                                                    );
+
+                                                                context
+                                                                    .read<
+                                                                        AddViewPlayerBloc>()
+                                                                    .add(
+                                                                      AddViewPlayeAdministratorFirstAidEvent(
+                                                                          int.parse(
+                                                                              firstAidconsent)),
+                                                                    );
+                                                                context
+                                                                    .read<
+                                                                        AddViewPlayerBloc>()
+                                                                    .add(
+                                                                      AddViewPlayerChildNetworkImageEvent(
+                                                                          childImage),
+                                                                    );
+                                                                context
+                                                                    .read<
+                                                                        AddViewPlayerBloc>()
+                                                                    .add(
+                                                                      AddViewPlayerChildForChildUpdateEvent(
+                                                                          id.toString()),
+                                                                    );
+
+                                                                context
+                                                                    .read<
+                                                                        AddViewPlayerBloc>()
+                                                                    .add(
+                                                                        AddViewPlayerSelectedTabEvent(
+                                                                            1));
+                                                              },
+                                                              style:
+                                                                  ElevatedButton
+                                                                      .styleFrom(
+                                                                backgroundColor:
+                                                                    Colors
+                                                                        .pinkAccent,
+                                                                shape:
+                                                                    RoundedRectangleBorder(
+                                                                  borderRadius:
+                                                                      BorderRadius
+                                                                          .circular(
+                                                                              20),
+                                                                ),
+                                                                minimumSize:
+                                                                    Size(4, 30),
                                                               ),
                                                               child: Text(
                                                                 'Update Info',
-                                                                style: TextStyle(
-                                                                  color: Colors.white,
-                                                                  fontSize: context.screenWidth * 0.032,
-                                                                  fontFamily: AppFont.interMedium,
+                                                                style:
+                                                                    TextStyle(
+                                                                  color: Colors
+                                                                      .white,
+                                                                  fontSize:
+                                                                      context.screenWidth *
+                                                                          0.032,
+                                                                  fontFamily:
+                                                                      AppFont
+                                                                          .interMedium,
                                                                 ),
                                                               ),
-                                                            ),SizedBox(width: 8,)
+                                                            ),
+                                                            SizedBox(width: 8),
                                                           ],
-                                                        )
-                                                      ],
-                                                    ),
+                                                        ),
+                                                    ],
                                                   )
-                                                ],
-                                              )
-                                                  .animate()
-                                                  .fade(duration: 500.ms, delay: (index * 200).ms)
-                                                  .slideY(begin: 0.2, end: 0, duration: 400.ms),
+                                                      .animate()
+                                                      .fade(
+                                                          duration: 500.ms,
+                                                          delay:
+                                                              (index * 200).ms)
+                                                      .slideY(
+                                                          begin: 0.2,
+                                                          end: 0,
+                                                          duration: 400.ms),
+                                                ),
+                                              ],
                                             ),
                                           ),
                                         );
-
-
                                       },
                                     ),
                                   ),

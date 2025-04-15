@@ -121,6 +121,7 @@ class ChildProfileAppbar extends StatelessWidget {
   final bool isShowEditClick;
   final VoidCallback? editClcikAction;
   final VoidCallback? onCameraClick;
+  final String? networkImageUrl; // Add this parameter for network image
 
   const ChildProfileAppbar({
     Key? key,
@@ -129,6 +130,7 @@ class ChildProfileAppbar extends StatelessWidget {
     required this.isShowEditClick,
     required this.onBackPressed,
     required this.onCameraClick,
+    this.networkImageUrl, // Make it optional
   }) : super(key: key);
 
   @override
@@ -137,32 +139,27 @@ class ChildProfileAppbar extends StatelessWidget {
 
     return BlocBuilder<AddViewPlayerBloc, AddViewPlayerState>(
       builder: (context, state) {
-        print("RUNNING HERE RUNNING HREEEEEEE");
         return Container(
           padding: EdgeInsets.only(
-              left: context.screenWidth * 0.020,
-              right: context.screenWidth * 0.040),
+            left: context.screenWidth * 0.020,
+            right: context.screenWidth * 0.040,
+          ),
           width: width,
           child: Column(
             children: <Widget>[
-
-
-
               Stack(
                 clipBehavior: Clip.none,
                 alignment: Alignment.center,
                 children: [
-                  state.childProfilePhoto != null
-                      ? CircleAvatar(
-                    radius: context.screenWidth *
-                        0.15, // Adjust size as needed
-                    backgroundImage: FileImage(state.childProfilePhoto!),
-                  )
-                      : CircleAvatar(
-                    radius: context.screenWidth *
-                        0.15, // Adjust size as needed
-                    backgroundImage:
-                    NetworkImage("state.userdata.data.image"),
+                  // Priority: 1. Updated File Image | 2. Network Image | 3. Default
+                  CircleAvatar(
+                    radius: context.screenWidth * 0.15,
+                    backgroundImage: state.childProfilePhoto != null&& state.childProfilePhoto!=""
+                        ? FileImage(state.childProfilePhoto!)
+                        : (networkImageUrl != null && networkImageUrl!.isNotEmpty)
+                        ? NetworkImage(networkImageUrl!)
+                        : const AssetImage("assets/images/default_avatar.png")
+                    as ImageProvider,
                   ),
                   Positioned(
                     bottom: context.screenHeight * 0.03,
@@ -183,9 +180,7 @@ class ChildProfileAppbar extends StatelessWidget {
                   ),
                 ],
               ),
-              SizedBox(
-                height: context.screenHeight * 0.03,
-              ),
+              SizedBox(height: context.screenHeight * 0.03),
             ],
           ),
         );

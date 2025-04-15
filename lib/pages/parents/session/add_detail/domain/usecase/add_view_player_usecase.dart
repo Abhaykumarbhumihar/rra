@@ -8,8 +8,13 @@ class AddViewPlayerUsecase {
   AddViewPlayerUsecase(this._addViewPlayerRepositery);
 
   Future<Either<Failure, dynamic>> addChildExecute(
+      Map<String, dynamic> userData,bool isForUpdate) async {
+    return _addViewPlayerRepositery.addChild(userData,isForUpdate);
+  }
+
+  Future<Either<Failure, dynamic>> deleteChildExecute(
       Map<String, dynamic> userData) async {
-    return _addViewPlayerRepositery.addChild(userData);
+    return _addViewPlayerRepositery.deleteChild(userData);
   }
 
   Future<Either<Failure, ChildListModel>> getChildLisstExecute(

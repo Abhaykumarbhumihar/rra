@@ -20,6 +20,7 @@ class AddChild extends StatelessWidget {
   final TextEditingController medicalConditionController;
   final int photoConsent;
   final int firstAidConsent;
+  final String? networkImageUrl;
   AddChild({
     required this.firstNameController,
     required this.dobController,
@@ -27,6 +28,7 @@ class AddChild extends StatelessWidget {
     required this.schoolNameController,
     required this.clubNameController,
     required this.medicalConditionController,
+    this.networkImageUrl,
     this.photoConsent=1,
     this.firstAidConsent=1
   });
@@ -44,6 +46,7 @@ class AddChild extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[
         ChildProfileAppbar(
+          networkImageUrl:networkImageUrl ,
           onBackPressed: () {
             Navigator.pop(context);
           },

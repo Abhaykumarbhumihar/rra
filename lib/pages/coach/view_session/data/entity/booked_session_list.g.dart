@@ -49,12 +49,16 @@ Map<String, dynamic> _$$BookedSessionDataImplToJson(
 _$SessionImpl _$$SessionImplFromJson(Map<String, dynamic> json) =>
     _$SessionImpl(
       id: (json['id'] as num?)?.toInt() ?? 0,
+      playerId: (json['player_id'] as num?)?.toInt() ?? 0,
       sessionName: json['session_name'] as String? ?? '',
+      playerName: json['player_name'] as String? ?? '',
       coachingProgram: json['coaching_program'] as String? ?? '',
       image: json['image'] as String? ?? '',
       term: json['term'] as String? ?? '',
       sessionDay: json['session_day'] as String? ?? '',
       startDate: json['start_date'] as String? ?? '',
+      fromDate: json['from_date'] as String? ?? '',
+      toDate: json['to_date'] as String? ?? '',
       endDate: json['end_date'] as String? ?? '',
       date: json['date'] as String? ?? "",
       amount: json['amount'] as String? ?? "\$0.0",
@@ -65,12 +69,16 @@ _$SessionImpl _$$SessionImplFromJson(Map<String, dynamic> json) =>
 Map<String, dynamic> _$$SessionImplToJson(_$SessionImpl instance) =>
     <String, dynamic>{
       'id': instance.id,
+      'player_id': instance.playerId,
       'session_name': instance.sessionName,
+      'player_name': instance.playerName,
       'coaching_program': instance.coachingProgram,
       'image': instance.image,
       'term': instance.term,
       'session_day': instance.sessionDay,
       'start_date': instance.startDate,
+      'from_date': instance.fromDate,
+      'to_date': instance.toDate,
       'end_date': instance.endDate,
       'date': instance.date,
       'amount': instance.amount,

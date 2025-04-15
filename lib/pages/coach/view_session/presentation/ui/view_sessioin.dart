@@ -46,7 +46,7 @@ class CoachViewSessioin extends StatelessWidget {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           CustomHeader(
-                            title: "View Session",
+                            title: "My Session",
                             onBackPress: () {
                               Navigator.pop(context);
                             },

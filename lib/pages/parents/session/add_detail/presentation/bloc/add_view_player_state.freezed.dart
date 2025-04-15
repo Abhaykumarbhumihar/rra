@@ -27,6 +27,8 @@ mixin _$AddViewPlayerState {
   int? get administratorFirstAidNeed => throw _privateConstructorUsedError;
   List<bool> get selectedChildren => throw _privateConstructorUsedError;
   String get childName => throw _privateConstructorUsedError;
+  String get childId => throw _privateConstructorUsedError;
+  String get netWorkImage => throw _privateConstructorUsedError;
   String get dob => throw _privateConstructorUsedError;
   String get age => throw _privateConstructorUsedError;
   String get schoolName => throw _privateConstructorUsedError;
@@ -64,6 +66,8 @@ abstract class $AddViewPlayerStateCopyWith<$Res> {
       int? administratorFirstAidNeed,
       List<bool> selectedChildren,
       String childName,
+      String childId,
+      String netWorkImage,
       String dob,
       String age,
       String schoolName,
@@ -105,6 +109,8 @@ class _$AddViewPlayerStateCopyWithImpl<$Res, $Val extends AddViewPlayerState>
     Object? administratorFirstAidNeed = freezed,
     Object? selectedChildren = null,
     Object? childName = null,
+    Object? childId = null,
+    Object? netWorkImage = null,
     Object? dob = null,
     Object? age = null,
     Object? schoolName = null,
@@ -161,6 +167,14 @@ class _$AddViewPlayerStateCopyWithImpl<$Res, $Val extends AddViewPlayerState>
       childName: null == childName
           ? _value.childName
           : childName // ignore: cast_nullable_to_non_nullable
+              as String,
+      childId: null == childId
+          ? _value.childId
+          : childId // ignore: cast_nullable_to_non_nullable
+              as String,
+      netWorkImage: null == netWorkImage
+          ? _value.netWorkImage
+          : netWorkImage // ignore: cast_nullable_to_non_nullable
               as String,
       dob: null == dob
           ? _value.dob
@@ -240,6 +254,8 @@ abstract class _$$AddViewPlayerStateImplCopyWith<$Res>
       int? administratorFirstAidNeed,
       List<bool> selectedChildren,
       String childName,
+      String childId,
+      String netWorkImage,
       String dob,
       String age,
       String schoolName,
@@ -280,6 +296,8 @@ class __$$AddViewPlayerStateImplCopyWithImpl<$Res>
     Object? administratorFirstAidNeed = freezed,
     Object? selectedChildren = null,
     Object? childName = null,
+    Object? childId = null,
+    Object? netWorkImage = null,
     Object? dob = null,
     Object? age = null,
     Object? schoolName = null,
@@ -336,6 +354,14 @@ class __$$AddViewPlayerStateImplCopyWithImpl<$Res>
       childName: null == childName
           ? _value.childName
           : childName // ignore: cast_nullable_to_non_nullable
+              as String,
+      childId: null == childId
+          ? _value.childId
+          : childId // ignore: cast_nullable_to_non_nullable
+              as String,
+      netWorkImage: null == netWorkImage
+          ? _value.netWorkImage
+          : netWorkImage // ignore: cast_nullable_to_non_nullable
               as String,
       dob: null == dob
           ? _value.dob
@@ -400,6 +426,8 @@ class _$AddViewPlayerStateImpl implements _AddViewPlayerState {
       this.administratorFirstAidNeed,
       final List<bool> selectedChildren = const [],
       this.childName = "",
+      this.childId = "",
+      this.netWorkImage = "",
       this.dob = "",
       this.age = "",
       this.schoolName = "",
@@ -451,6 +479,12 @@ class _$AddViewPlayerStateImpl implements _AddViewPlayerState {
   final String childName;
   @override
   @JsonKey()
+  final String childId;
+  @override
+  @JsonKey()
+  final String netWorkImage;
+  @override
+  @JsonKey()
   final String dob;
   @override
   @JsonKey()
@@ -491,7 +525,7 @@ class _$AddViewPlayerStateImpl implements _AddViewPlayerState {
 
   @override
   String toString() {
-    return 'AddViewPlayerState(selectedTab: $selectedTab, isLoading: $isLoading, error: $error, success: $success, isError: $isError, isLoginApiError: $isLoginApiError, childProfilePhoto: $childProfilePhoto, childPhotoUseOnSocialMedia: $childPhotoUseOnSocialMedia, administratorFirstAidNeed: $administratorFirstAidNeed, selectedChildren: $selectedChildren, childName: $childName, dob: $dob, age: $age, schoolName: $schoolName, clubName: $clubName, medicalConditionTessUs: $medicalConditionTessUs, selectedChildId: $selectedChildId, isChildSuccess: $isChildSuccess, isChildError: $isChildError, isCHildListSucces: $isCHildListSucces, isCHildListError: $isCHildListError, childLisstModel: $childLisstModel)';
+    return 'AddViewPlayerState(selectedTab: $selectedTab, isLoading: $isLoading, error: $error, success: $success, isError: $isError, isLoginApiError: $isLoginApiError, childProfilePhoto: $childProfilePhoto, childPhotoUseOnSocialMedia: $childPhotoUseOnSocialMedia, administratorFirstAidNeed: $administratorFirstAidNeed, selectedChildren: $selectedChildren, childName: $childName, childId: $childId, netWorkImage: $netWorkImage, dob: $dob, age: $age, schoolName: $schoolName, clubName: $clubName, medicalConditionTessUs: $medicalConditionTessUs, selectedChildId: $selectedChildId, isChildSuccess: $isChildSuccess, isChildError: $isChildError, isCHildListSucces: $isCHildListSucces, isCHildListError: $isCHildListError, childLisstModel: $childLisstModel)';
   }
 
   @override
@@ -521,6 +555,9 @@ class _$AddViewPlayerStateImpl implements _AddViewPlayerState {
                 .equals(other._selectedChildren, _selectedChildren) &&
             (identical(other.childName, childName) ||
                 other.childName == childName) &&
+            (identical(other.childId, childId) || other.childId == childId) &&
+            (identical(other.netWorkImage, netWorkImage) ||
+                other.netWorkImage == netWorkImage) &&
             (identical(other.dob, dob) || other.dob == dob) &&
             (identical(other.age, age) || other.age == age) &&
             (identical(other.schoolName, schoolName) ||
@@ -557,6 +594,8 @@ class _$AddViewPlayerStateImpl implements _AddViewPlayerState {
         administratorFirstAidNeed,
         const DeepCollectionEquality().hash(_selectedChildren),
         childName,
+        childId,
+        netWorkImage,
         dob,
         age,
         schoolName,
@@ -593,6 +632,8 @@ abstract class _AddViewPlayerState implements AddViewPlayerState {
       final int? administratorFirstAidNeed,
       final List<bool> selectedChildren,
       final String childName,
+      final String childId,
+      final String netWorkImage,
       final String dob,
       final String age,
       final String schoolName,
@@ -627,6 +668,10 @@ abstract class _AddViewPlayerState implements AddViewPlayerState {
   List<bool> get selectedChildren;
   @override
   String get childName;
+  @override
+  String get childId;
+  @override
+  String get netWorkImage;
   @override
   String get dob;
   @override

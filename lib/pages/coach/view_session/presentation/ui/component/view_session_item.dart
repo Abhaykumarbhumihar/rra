@@ -84,6 +84,10 @@ class ViewSessionItem extends StatelessWidget {
                             label: "Coaching Program :",
                             value: " ${data.coachingProgram}",
                           ),
+                          InfoRow1(
+                            label: "Player Name :",
+                            value: " ${data.playerName}",
+                          ),
                           InfoRow(
                             label: "Term :",
                             value: " ${data.term}",

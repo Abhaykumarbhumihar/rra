@@ -24,7 +24,7 @@ class ManageTeamList extends StatelessWidget {
   Widget build(BuildContext context) {
     return CommonPageFormat(
       isScrollable: false,
-      title: "Manage Team",
+      title: "Manage Teams",
       onBackPress: () {
         Navigator.pop(context);
       },

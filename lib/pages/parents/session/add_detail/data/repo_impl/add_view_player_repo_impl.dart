@@ -16,12 +16,44 @@ class AddViewPlayerRepoImpl implements AddViewPlayerRepositery {
   AddViewPlayerRepoImpl();
 
   @override
-  Future<Either<Failure, dynamic>> addChild(Map<String, dynamic> addChildData)async {
+  Future<Either<Failure, dynamic>> addChild(Map<String, dynamic> addChildData,bool isForUpdate)async {
     try {
+var endUrl="";
+      if(isForUpdate){
+        endUrl=AppConstant.getUpdateChild;
+      }else{
+        endUrl=AppConstant.getAddChild;
+      }
+      print(addChildData);
+      http.Response response =
+      await _apiServices.post(endUrl, addChildData,useDefaultHeaders: true);
+      print(response.body);
+      if (response.statusCode == 200) {
+        final Map<String, dynamic> responseData = jsonDecode(response.body);
+        if(responseData['success']){
+          return Right(responseData);
+        }else{
+          return Left(Failure(responseData['success']));
+        }
+
+      } else {
+        final errorMessage = _extractErrorMessage(response.body);
+        return Left(Failure(errorMessage));
+      }
+    } catch (e) {
+      return Left(Failure("$e"));
+    }
+  }
+
+
+  @override
+  Future<Either<Failure, dynamic>> deleteChild(Map<String, dynamic> addChildData)async {
+    try {
+
 
       print(addChildData);
       http.Response response =
-      await _apiServices.post(AppConstant.getAddChild, addChildData,useDefaultHeaders: true);
+      await _apiServices.post(AppConstant.getDeleteChild, addChildData,useDefaultHeaders: true);
       print(response.body);
       if (response.statusCode == 200) {
         final Map<String, dynamic> responseData = jsonDecode(response.body);
