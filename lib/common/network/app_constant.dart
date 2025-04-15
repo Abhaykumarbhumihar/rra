@@ -30,7 +30,7 @@ class AppConstant {
   static String get getRemoveDiscount=> "remove-discounts";
 
   static String get getAddChild=> "createplayer";
-  static String get getUpdateChild=> "editplayer";
+  static String get getUpdateChild=> "updateplayer";
   static String get getDeleteChild=> "deleteplayer";
   static String get getParentsChildList=> "get_parentschild";
 
@@ -47,9 +47,13 @@ class AppConstant {
   static String get getCityList => "user/myfinds/city";
 
 
+  static String get getDashboardData => "dashboard";
+
+
   /*my order parent*/
   static String get getParentMyOrder => "parent/my/orders";
   static String get getParentMyOrderDetail => "parent/oder/detail";
+  static String get getCancelOrder => "cancel/order";
 
   /*coach document terms session player coaching*/
 static String get getTermsSessionCoachingPlayer=>"term/coaching/session";

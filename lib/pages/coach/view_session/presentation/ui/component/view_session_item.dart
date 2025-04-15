@@ -48,36 +48,7 @@ class ViewSessionItem extends StatelessWidget {
                                   value: " ${data.sessionName}",
                                 ),
                               ),
-                              // data.cancelable == true
-                              //     ? GestureDetector(
-                              //         onTap: () {
-                              //           var bloc =
-                              //               BlocProvider.of<ViewSessionBloc>(
-                              //                   context);
-                              //           ConfirmationDialog.show(
-                              //             context: context,
-                              //             title: 'Cancel Session!',
-                              //             description:
-                              //                 'Are you sure you want to cancel this session?',
-                              //             confirmButtonText: 'Yes',
-                              //             // Optional - defaults to "Confirm"
-                              //             onCancel: () {
-                              //               // Handle cancel action
-                              //               print('Cancelled');
-                              //             },
-                              //             onConfirm: () {
-                              //               bloc.add(CancelBookedSessionEvent(
-                              //                   {"order_id": data.id}));
-                              //               print('Logged out');
-                              //             },
-                              //           );
-                              //         },
-                              //         child: Icon(
-                              //           Icons.cancel,
-                              //           color: Colors.white,
-                              //         ),
-                              //       )
-                              //     : SizedBox()
+
                             ],
                           ),
                           InfoRow1(
@@ -97,12 +68,20 @@ class ViewSessionItem extends StatelessWidget {
                             value: " ${data.sessionDay}",
                           ),
                           InfoRow(
-                            label: "Start Date:",
+                            label: "Start Time:",
                             value: " ${data.startDate}",
                           ),
                           InfoRow(
-                            label: "End Date:",
+                            label: "End Time:",
                             value: " ${data.endDate}",
+                          ),
+                          InfoRow(
+                            label: "Start Date:",
+                            value: " ${data.fromDate}",
+                          ),
+                          InfoRow(
+                            label: "End Date:",
+                            value: " ${data.toDate}",
                           ),
                         ],
                       ),

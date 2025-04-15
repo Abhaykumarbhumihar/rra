@@ -19,6 +19,7 @@ mixin _$AppState {
   int get index => throw _privateConstructorUsedError;
   DateTime? get lastBackPressTime => throw _privateConstructorUsedError;
   OtpVerificationModel get userdata => throw _privateConstructorUsedError;
+  DashboardResponse get dashboardData => throw _privateConstructorUsedError;
   bool get isError => throw _privateConstructorUsedError;
   String get errorMessage => throw _privateConstructorUsedError;
   String get bookedSessionCount => throw _privateConstructorUsedError;
@@ -42,6 +43,7 @@ abstract class $AppStateCopyWith<$Res> {
       {int index,
       DateTime? lastBackPressTime,
       OtpVerificationModel userdata,
+      DashboardResponse dashboardData,
       bool isError,
       String errorMessage,
       String bookedSessionCount,
@@ -50,6 +52,7 @@ abstract class $AppStateCopyWith<$Res> {
       bool isLoadingreport});
 
   $OtpVerificationModelCopyWith<$Res> get userdata;
+  $DashboardResponseCopyWith<$Res> get dashboardData;
 }
 
 /// @nodoc
@@ -70,6 +73,7 @@ class _$AppStateCopyWithImpl<$Res, $Val extends AppState>
     Object? index = null,
     Object? lastBackPressTime = freezed,
     Object? userdata = null,
+    Object? dashboardData = null,
     Object? isError = null,
     Object? errorMessage = null,
     Object? bookedSessionCount = null,
@@ -90,6 +94,10 @@ class _$AppStateCopyWithImpl<$Res, $Val extends AppState>
           ? _value.userdata
           : userdata // ignore: cast_nullable_to_non_nullable
               as OtpVerificationModel,
+      dashboardData: null == dashboardData
+          ? _value.dashboardData
+          : dashboardData // ignore: cast_nullable_to_non_nullable
+              as DashboardResponse,
       isError: null == isError
           ? _value.isError
           : isError // ignore: cast_nullable_to_non_nullable
@@ -126,6 +134,16 @@ class _$AppStateCopyWithImpl<$Res, $Val extends AppState>
       return _then(_value.copyWith(userdata: value) as $Val);
     });
   }
+
+  /// Create a copy of AppState
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $DashboardResponseCopyWith<$Res> get dashboardData {
+    return $DashboardResponseCopyWith<$Res>(_value.dashboardData, (value) {
+      return _then(_value.copyWith(dashboardData: value) as $Val);
+    });
+  }
 }
 
 /// @nodoc
@@ -140,6 +158,7 @@ abstract class _$$AppStateImplCopyWith<$Res>
       {int index,
       DateTime? lastBackPressTime,
       OtpVerificationModel userdata,
+      DashboardResponse dashboardData,
       bool isError,
       String errorMessage,
       String bookedSessionCount,
@@ -149,6 +168,8 @@ abstract class _$$AppStateImplCopyWith<$Res>
 
   @override
   $OtpVerificationModelCopyWith<$Res> get userdata;
+  @override
+  $DashboardResponseCopyWith<$Res> get dashboardData;
 }
 
 /// @nodoc
@@ -167,6 +188,7 @@ class __$$AppStateImplCopyWithImpl<$Res>
     Object? index = null,
     Object? lastBackPressTime = freezed,
     Object? userdata = null,
+    Object? dashboardData = null,
     Object? isError = null,
     Object? errorMessage = null,
     Object? bookedSessionCount = null,
@@ -187,6 +209,10 @@ class __$$AppStateImplCopyWithImpl<$Res>
           ? _value.userdata
           : userdata // ignore: cast_nullable_to_non_nullable
               as OtpVerificationModel,
+      dashboardData: null == dashboardData
+          ? _value.dashboardData
+          : dashboardData // ignore: cast_nullable_to_non_nullable
+              as DashboardResponse,
       isError: null == isError
           ? _value.isError
           : isError // ignore: cast_nullable_to_non_nullable
@@ -222,6 +248,7 @@ class _$AppStateImpl implements _AppState {
       {this.index = 0,
       this.lastBackPressTime,
       this.userdata = const OtpVerificationModel(),
+      this.dashboardData = const DashboardResponse(),
       this.isError = false,
       this.errorMessage = '',
       this.bookedSessionCount = '0',
@@ -237,6 +264,9 @@ class _$AppStateImpl implements _AppState {
   @override
   @JsonKey()
   final OtpVerificationModel userdata;
+  @override
+  @JsonKey()
+  final DashboardResponse dashboardData;
   @override
   @JsonKey()
   final bool isError;
@@ -258,7 +288,7 @@ class _$AppStateImpl implements _AppState {
 
   @override
   String toString() {
-    return 'AppState(index: $index, lastBackPressTime: $lastBackPressTime, userdata: $userdata, isError: $isError, errorMessage: $errorMessage, bookedSessionCount: $bookedSessionCount, error: $error, isLoading: $isLoading, isLoadingreport: $isLoadingreport)';
+    return 'AppState(index: $index, lastBackPressTime: $lastBackPressTime, userdata: $userdata, dashboardData: $dashboardData, isError: $isError, errorMessage: $errorMessage, bookedSessionCount: $bookedSessionCount, error: $error, isLoading: $isLoading, isLoadingreport: $isLoadingreport)';
   }
 
   @override
@@ -271,6 +301,8 @@ class _$AppStateImpl implements _AppState {
                 other.lastBackPressTime == lastBackPressTime) &&
             (identical(other.userdata, userdata) ||
                 other.userdata == userdata) &&
+            (identical(other.dashboardData, dashboardData) ||
+                other.dashboardData == dashboardData) &&
             (identical(other.isError, isError) || other.isError == isError) &&
             (identical(other.errorMessage, errorMessage) ||
                 other.errorMessage == errorMessage) &&
@@ -289,6 +321,7 @@ class _$AppStateImpl implements _AppState {
       index,
       lastBackPressTime,
       userdata,
+      dashboardData,
       isError,
       errorMessage,
       bookedSessionCount,
@@ -310,6 +343,7 @@ abstract class _AppState implements AppState {
       {final int index,
       final DateTime? lastBackPressTime,
       final OtpVerificationModel userdata,
+      final DashboardResponse dashboardData,
       final bool isError,
       final String errorMessage,
       final String bookedSessionCount,
@@ -323,6 +357,8 @@ abstract class _AppState implements AppState {
   DateTime? get lastBackPressTime;
   @override
   OtpVerificationModel get userdata;
+  @override
+  DashboardResponse get dashboardData;
   @override
   bool get isError;
   @override

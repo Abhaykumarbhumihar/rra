@@ -67,7 +67,7 @@ class SessionBottomSheet extends StatelessWidget {
 
   Future<void> _handleDaySelection(BuildContext context, String dayKey,String dayName) async {
     final academyId = await getIt<SharedPrefs>().getString("selected_academyid");
-
+    BlocProvider.of<ViewSessionBloc>(context).add(DaySelectEvent(dayKey));
     BlocProvider.of<ViewSessionBloc>(context).add(
       GetBookedSessionListEvent({
         "academy_id": academyId,

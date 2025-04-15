@@ -4,8 +4,11 @@ import 'package:rra/common/values/values_exports.dart';
 import 'package:rra/common/component/component_export.dart';
 import 'package:rra/pages/parents/parent_order/parent_order_list/data/enitity/parent_my_order/parent_my_order_list_model.dart';
 
+import '../../../../../../../common/component/confirmation_dialog.dart';
 import '../../../../parent_order_detail/presentation/bloc/parent_myorder_detail_bloc.dart';
 import '../../../../parent_order_detail/presentation/bloc/parent_myorder_detail_event.dart';
+import '../../bloc/parent_order_bloc.dart';
+import '../../bloc/parent_order_event.dart';
 
 class ParentOrderListItem extends StatelessWidget {
   final Order myOrder;
@@ -81,12 +84,39 @@ class ParentOrderListItem extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.start,
                 crossAxisAlignment: CrossAxisAlignment.end,
                 children: <Widget>[
-                  Image.asset(
-                    'assets/images/circle_close.png',
-                    height: 14,
-                    width: 14,
-                    fit: BoxFit.fill,
-                  ),
+                  myOrder.cancelable==true? CommonSmallElevatedButton(
+                    padding:
+                    EdgeInsets.symmetric(horizontal: 20.0, vertical: 6.0),
+                    label: "Cancel",
+                    onPressed: () {
+                      ConfirmationDialog
+                          .show(
+                        context:
+                        context,
+                        title:
+                        'Cancel Order!',
+                        description:
+                        'Are you sure you want to cancel this order?',
+                        confirmButtonText:
+                        'Yes',
+                        onCancel: () {
+                          print(
+                              'Cancelled');
+                        },
+                        onConfirm:
+                            () async {
+
+                          BlocProvider.of<ParentOrderBloc>(
+                              context)
+                              .add(CancelOrderEvent({"order_id":myOrder.orderId.toString()}));
+                        },
+                      ).then((_) {
+                        // This ensures the overlay is removed if dialog is dismissed by tapping outside
+                      });
+                    },
+                    color: AppColor.appButtonColor,
+                  ):SizedBox(),
+
                   SizedBox(
                     height: 14.0,
                   ),

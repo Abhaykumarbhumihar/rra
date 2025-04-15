@@ -5,6 +5,7 @@ part 'parent_order_event.freezed.dart';
 @freezed
 sealed class ParentOrderEvent with _$ParentOrderEvent {
   const factory ParentOrderEvent.getParentMyOrderList(Map<String,dynamic>data) = ParentMyOrderListEvent;
+  const factory ParentOrderEvent.cancelOrder(Map<String,dynamic>data) = CancelOrderEvent;
 
 
 

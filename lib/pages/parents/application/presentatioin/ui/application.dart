@@ -37,6 +37,7 @@ class ApplicationPage extends StatelessWidget {
               "application.dart application.dart application.dart application.dart");
           context.read<AppBloc>().loadUserData();
           context.read<AppBloc>().add(UserDataUpdate());
+          context.read<AppBloc>().add(DashboardEvent());
           return SizedBox(
             width: context.screenWidth,
             height: context.screenHeight,

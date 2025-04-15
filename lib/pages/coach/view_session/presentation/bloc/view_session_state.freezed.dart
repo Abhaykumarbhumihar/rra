@@ -20,6 +20,8 @@ mixin _$ViewSessionState {
   bool get isStatusUpdated => throw _privateConstructorUsedError;
   bool get isError => throw _privateConstructorUsedError;
   String get message => throw _privateConstructorUsedError;
+  String get dayselect => throw _privateConstructorUsedError;
+  String get playerIdselect => throw _privateConstructorUsedError;
   BookedSessionList get bookedSession => throw _privateConstructorUsedError;
 
   /// Create a copy of ViewSessionState
@@ -40,6 +42,8 @@ abstract class $ViewSessionStateCopyWith<$Res> {
       bool isStatusUpdated,
       bool isError,
       String message,
+      String dayselect,
+      String playerIdselect,
       BookedSessionList bookedSession});
 
   $BookedSessionListCopyWith<$Res> get bookedSession;
@@ -64,6 +68,8 @@ class _$ViewSessionStateCopyWithImpl<$Res, $Val extends ViewSessionState>
     Object? isStatusUpdated = null,
     Object? isError = null,
     Object? message = null,
+    Object? dayselect = null,
+    Object? playerIdselect = null,
     Object? bookedSession = null,
   }) {
     return _then(_value.copyWith(
@@ -82,6 +88,14 @@ class _$ViewSessionStateCopyWithImpl<$Res, $Val extends ViewSessionState>
       message: null == message
           ? _value.message
           : message // ignore: cast_nullable_to_non_nullable
+              as String,
+      dayselect: null == dayselect
+          ? _value.dayselect
+          : dayselect // ignore: cast_nullable_to_non_nullable
+              as String,
+      playerIdselect: null == playerIdselect
+          ? _value.playerIdselect
+          : playerIdselect // ignore: cast_nullable_to_non_nullable
               as String,
       bookedSession: null == bookedSession
           ? _value.bookedSession
@@ -114,6 +128,8 @@ abstract class _$$ViewSessionStateImplCopyWith<$Res>
       bool isStatusUpdated,
       bool isError,
       String message,
+      String dayselect,
+      String playerIdselect,
       BookedSessionList bookedSession});
 
   @override
@@ -137,6 +153,8 @@ class __$$ViewSessionStateImplCopyWithImpl<$Res>
     Object? isStatusUpdated = null,
     Object? isError = null,
     Object? message = null,
+    Object? dayselect = null,
+    Object? playerIdselect = null,
     Object? bookedSession = null,
   }) {
     return _then(_$ViewSessionStateImpl(
@@ -156,6 +174,14 @@ class __$$ViewSessionStateImplCopyWithImpl<$Res>
           ? _value.message
           : message // ignore: cast_nullable_to_non_nullable
               as String,
+      dayselect: null == dayselect
+          ? _value.dayselect
+          : dayselect // ignore: cast_nullable_to_non_nullable
+              as String,
+      playerIdselect: null == playerIdselect
+          ? _value.playerIdselect
+          : playerIdselect // ignore: cast_nullable_to_non_nullable
+              as String,
       bookedSession: null == bookedSession
           ? _value.bookedSession
           : bookedSession // ignore: cast_nullable_to_non_nullable
@@ -172,6 +198,8 @@ class _$ViewSessionStateImpl implements _ViewSessionState {
       this.isStatusUpdated = false,
       this.isError = false,
       this.message = "",
+      this.dayselect = "",
+      this.playerIdselect = "",
       this.bookedSession = const BookedSessionList()});
 
   @override
@@ -188,11 +216,17 @@ class _$ViewSessionStateImpl implements _ViewSessionState {
   final String message;
   @override
   @JsonKey()
+  final String dayselect;
+  @override
+  @JsonKey()
+  final String playerIdselect;
+  @override
+  @JsonKey()
   final BookedSessionList bookedSession;
 
   @override
   String toString() {
-    return 'ViewSessionState(isLoading: $isLoading, isStatusUpdated: $isStatusUpdated, isError: $isError, message: $message, bookedSession: $bookedSession)';
+    return 'ViewSessionState(isLoading: $isLoading, isStatusUpdated: $isStatusUpdated, isError: $isError, message: $message, dayselect: $dayselect, playerIdselect: $playerIdselect, bookedSession: $bookedSession)';
   }
 
   @override
@@ -206,13 +240,17 @@ class _$ViewSessionStateImpl implements _ViewSessionState {
                 other.isStatusUpdated == isStatusUpdated) &&
             (identical(other.isError, isError) || other.isError == isError) &&
             (identical(other.message, message) || other.message == message) &&
+            (identical(other.dayselect, dayselect) ||
+                other.dayselect == dayselect) &&
+            (identical(other.playerIdselect, playerIdselect) ||
+                other.playerIdselect == playerIdselect) &&
             (identical(other.bookedSession, bookedSession) ||
                 other.bookedSession == bookedSession));
   }
 
   @override
-  int get hashCode => Object.hash(
-      runtimeType, isLoading, isStatusUpdated, isError, message, bookedSession);
+  int get hashCode => Object.hash(runtimeType, isLoading, isStatusUpdated,
+      isError, message, dayselect, playerIdselect, bookedSession);
 
   /// Create a copy of ViewSessionState
   /// with the given fields replaced by the non-null parameter values.
@@ -230,6 +268,8 @@ abstract class _ViewSessionState implements ViewSessionState {
       final bool isStatusUpdated,
       final bool isError,
       final String message,
+      final String dayselect,
+      final String playerIdselect,
       final BookedSessionList bookedSession}) = _$ViewSessionStateImpl;
 
   @override
@@ -240,6 +280,10 @@ abstract class _ViewSessionState implements ViewSessionState {
   bool get isError;
   @override
   String get message;
+  @override
+  String get dayselect;
+  @override
+  String get playerIdselect;
   @override
   BookedSessionList get bookedSession;
 

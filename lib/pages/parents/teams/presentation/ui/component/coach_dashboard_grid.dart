@@ -2,7 +2,11 @@ import 'package:auto_height_grid_view/auto_height_grid_view.dart';
 import 'package:rra/common/values/values_exports.dart';
 
 import '../../../../../../common/component/circler.dart';
+import '../../../../../../common/local/SharedPrefs.dart';
 import '../../../../../../common/routes/routes.dart';
+import '../../../../../../common/service_locator/setivelocator.dart';
+import '../../../../../coach/coach_attendance/player_attendance_list/presentation/bloc/attendance_bloc.dart';
+import '../../../../../coach/coach_attendance/player_attendance_list/presentation/bloc/attendance_event.dart';
 
 class CoachDashboardGrid extends StatelessWidget {
   CoachDashboardGrid({super.key});
@@ -52,7 +56,7 @@ class CoachDashboardGrid extends StatelessWidget {
         final item = items[index]; // Get current item
 
         return GestureDetector(
-          onTap: () {
+          onTap: () async {
             if(item['title']=="List Collaterals"){
               Navigator.pushNamed(
                   context, AppRoutes.COACHMYCOLLATERALSLIST);
@@ -60,6 +64,9 @@ class CoachDashboardGrid extends StatelessWidget {
               Navigator.pushNamed(
                   context, AppRoutes.COACHMANAGETEAMLIST);
             }else if(item['title']=="Mark Attendance"){
+              var academyId = await getIt<SharedPrefs>().getString("selected_academyid");
+                        BlocProvider.of<AttendanceBloc>(context).add(FilterAttendanceListEvent({"academy_id":academyId}));
+
               Navigator.pushNamed(
                   context, AppRoutes.COACHPLAYERATTENDANCELIST);
             }else if(item['title']=="View Reports"){

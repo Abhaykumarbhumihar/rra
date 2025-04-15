@@ -3,7 +3,11 @@ import 'package:rra/common/routes/exports.dart';
 import 'package:rra/common/values/values_exports.dart';
 import 'package:rra/common/component/component_export.dart';
 
+import '../../../../../common/local/SharedPrefs.dart';
+import '../../../../../common/service_locator/setivelocator.dart';
+import '../../../manage_team/presentation/ui/component/dropdown_selection_field.dart';
 import '../bloc/view_session_bloc.dart';
+import '../bloc/view_session_event.dart';
 import '../bloc/view_session_state.dart';
 import 'component/session_bottom_sheet.dart';
 import 'component/view_session_item.dart';
@@ -12,6 +16,7 @@ class CoachViewSessioin extends StatelessWidget {
   CoachViewSessioin({super.key});
 
   final TextEditingController daysController = TextEditingController();
+  TextEditingController _playerNameController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -81,6 +86,40 @@ class CoachViewSessioin extends StatelessWidget {
                                 }
                               },
                               onChanged: (value) {},
+                            ),
+                          ),
+                          Padding(
+                            padding:  EdgeInsets.only(
+                              left: context.screenWidth * 0.052,
+                              right: context.screenWidth * 0.052,
+                            ),
+                            child: DropdownSelectionField(
+                               isRequired: true,
+                              hint: "Select Player",
+
+                              controller: _playerNameController,
+                              title: "Select Player",
+                              items:  state.bookedSession.data
+                                  ?.players ??
+                                  [],
+                              itemText: (item) => item.childName ?? '',
+                              onSelected: (item) async {
+                                _playerNameController.text = item?.childName ?? '';
+                                BlocProvider.of<ViewSessionBloc>(context).add(PlayerSelect(item.id.toString()));
+                                final academyId = await getIt<SharedPrefs>().getString("selected_academyid");
+
+                                BlocProvider.of<ViewSessionBloc>(context).add(
+                                  GetBookedSessionListEvent({
+                                    // if(state.dayselect!="")
+                                    //   "days": state.dayselect,
+
+                                    "academy_id": academyId,
+                                    "player_id":item.id.toString()
+
+                                  }),
+                                );
+
+                              },
                             ),
                           ),
                           SizedBox(

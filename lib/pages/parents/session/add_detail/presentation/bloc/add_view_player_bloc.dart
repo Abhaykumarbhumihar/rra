@@ -250,6 +250,9 @@ class AddViewPlayerBloc extends Bloc<AddViewPlayerEvent, AddViewPlayerState> {
       var academyId =
           await getIt<SharedPrefs>().getString("selected_academyid");
       Map<String, dynamic> addChildMapData = {
+        if(isForUpdate)
+          "id":state.childId,
+
         "academyId": academyId,
         "child_name": "${state.childName}",
         "child_dob": "${state.dob}",
@@ -262,10 +265,9 @@ class AddViewPlayerBloc extends Bloc<AddViewPlayerEvent, AddViewPlayerState> {
         "child_permissions": state.administratorFirstAidNeed,
         if (base64Image != null)
           "image": "data:image/png;base64," + base64Image,
-        if(isForUpdate)
-          "id":state.childId
 
       };
+      print(addChildMapData);
       emit(state.copyWith(
         isLoading: true,
         isError: false,

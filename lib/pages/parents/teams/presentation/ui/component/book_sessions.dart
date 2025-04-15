@@ -6,6 +6,7 @@ import '../../../../../../common/routes/routes.dart';
 import '../../../../../../common/service_locator/setivelocator.dart';
 import '../../../../../coach/view_session/presentation/bloc/view_session_bloc.dart';
 import '../../../../../coach/view_session/presentation/bloc/view_session_event.dart';
+import '../../../../application/presentatioin/bloc/app_bloc.dart';
 
 class BookSessions extends StatelessWidget {
   const BookSessions({super.key});
@@ -38,7 +39,7 @@ class BookSessions extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    "${BlocProvider.of<ViewSessionBloc>(context).state.bookedSession.data.sessions.length}",
+                    "${BlocProvider.of<AppBloc>(context).state.dashboardData.data.sessionCount}",
                     style: TextStyle(
                       height: 1.0,
                       fontSize: context.screenWidth * 0.128,

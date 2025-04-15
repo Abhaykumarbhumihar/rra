@@ -12,8 +12,8 @@ class ApplicationUseCase {
 
 
 
-  Future<Either<Failure, dynamic>> reportCommentReplyExecute(
-      Map<String, String> reportData) async {
-    return await _applicationRepositery.reportCommentreply(reportData);
+  Future<Either<Failure, dynamic>> dashboardDataExecute(
+      Map<String, dynamic> dashboardData) async {
+    return await _applicationRepositery.dashboardData(dashboardData);
   }
 }

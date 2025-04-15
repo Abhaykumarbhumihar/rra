@@ -55,6 +55,30 @@ class ParentMyorderRepoImpl implements ParentMyorderRepositery {
     }
   }
 
+  @override
+  Future<Either<Failure, dynamic>> cancelOrder(Map<String, dynamic> cancelOrderData) async {
+    try {
+      print("code is running here");
+
+      http.Response response = await _apiServices.post(
+          AppConstant.getCancelOrder, cancelOrderData,
+          useDefaultHeaders: true);
+      print("getParentMyOrder == ${cancelOrderData}");
+      print(response.body);
+      if (response.statusCode == 200) {
+        final Map<String, dynamic> responseData = jsonDecode(response.body);
+
+        return Right(responseData);
+      } else {
+        final errorMessage = _extractErrorMessage(response.body);
+        return Left(Failure(errorMessage));
+      }
+    } catch (e) {
+      print("error ${AppConstant.getCancelOrder} $e");
+
+      return Left(Failure("$e"));
+    }
+  }
 
 
 

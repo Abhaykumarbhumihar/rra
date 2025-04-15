@@ -33,6 +33,10 @@ _$BookedSessionDataImpl _$$BookedSessionDataImplFromJson(
               ?.map((e) => Session.fromJson(e as Map<String, dynamic>))
               .toList() ??
           const [],
+      players: (json['players'] as List<dynamic>?)
+              ?.map((e) => Player.fromJson(e as Map<String, dynamic>))
+              .toList() ??
+          const [],
       dayMapping: (json['dayMapping'] as Map<String, dynamic>?)?.map(
             (k, e) => MapEntry(k, e as String),
           ) ??
@@ -43,7 +47,19 @@ Map<String, dynamic> _$$BookedSessionDataImplToJson(
         _$BookedSessionDataImpl instance) =>
     <String, dynamic>{
       'sessions': instance.sessions,
+      'players': instance.players,
       'dayMapping': instance.dayMapping,
+    };
+
+_$PlayerImpl _$$PlayerImplFromJson(Map<String, dynamic> json) => _$PlayerImpl(
+      id: (json['id'] as num?)?.toInt() ?? 0,
+      childName: json['child_name'] as String? ?? '',
+    );
+
+Map<String, dynamic> _$$PlayerImplToJson(_$PlayerImpl instance) =>
+    <String, dynamic>{
+      'id': instance.id,
+      'child_name': instance.childName,
     };
 
 _$SessionImpl _$$SessionImplFromJson(Map<String, dynamic> json) =>
@@ -52,6 +68,10 @@ _$SessionImpl _$$SessionImplFromJson(Map<String, dynamic> json) =>
       playerId: (json['player_id'] as num?)?.toInt() ?? 0,
       sessionName: json['session_name'] as String? ?? '',
       playerName: json['player_name'] as String? ?? '',
+      playerDetail: json['player_detail'] == null
+          ? null
+          : PlayerDetail.fromJson(
+              json['player_detail'] as Map<String, dynamic>),
       coachingProgram: json['coaching_program'] as String? ?? '',
       image: json['image'] as String? ?? '',
       term: json['term'] as String? ?? '',
@@ -72,6 +92,7 @@ Map<String, dynamic> _$$SessionImplToJson(_$SessionImpl instance) =>
       'player_id': instance.playerId,
       'session_name': instance.sessionName,
       'player_name': instance.playerName,
+      'player_detail': instance.playerDetail,
       'coaching_program': instance.coachingProgram,
       'image': instance.image,
       'term': instance.term,
@@ -84,4 +105,16 @@ Map<String, dynamic> _$$SessionImplToJson(_$SessionImpl instance) =>
       'amount': instance.amount,
       'status': instance.status,
       'cancelable': instance.cancelable,
+    };
+
+_$PlayerDetailImpl _$$PlayerDetailImplFromJson(Map<String, dynamic> json) =>
+    _$PlayerDetailImpl(
+      id: (json['id'] as num?)?.toInt() ?? 0,
+      childName: json['child_name'] as String? ?? '',
+    );
+
+Map<String, dynamic> _$$PlayerDetailImplToJson(_$PlayerDetailImpl instance) =>
+    <String, dynamic>{
+      'id': instance.id,
+      'child_name': instance.childName,
     };

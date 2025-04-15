@@ -8,6 +8,7 @@ import '../../../../../common/network/failure.dart';
 import '../../../../../common/service_locator/setivelocator.dart';
 import '../../domain/repositery/application_repositery.dart';
 import '../entity/city/city_response_model.dart';
+import '../entity/dashboard/dashboard_model.dart';
 import '../entity/state/state_response_model.dart';
 
 class ApplicationRepositeryImpl implements ApplicationRepositery {
@@ -26,20 +27,20 @@ class ApplicationRepositeryImpl implements ApplicationRepositery {
   }
 
   @override
-  Future<Either<Failure, dynamic>> reportCommentreply(
-      Map<String, String> reportData) async {
+  Future<Either<Failure, DashboardResponse>> dashboardData(
+      Map<String, dynamic> reportData) async {
     try {
       http.Response response = await _apiServices.post(
-          AppConstant.getCityList, reportData,
-          useDefaultHeaders: true);
-      print("report reportCommentreply ====${response.body}");
+          AppConstant.getDashboardData, reportData,
+          useDefaultHeaders: true,isJson: true);
+      print("report dashboardData ====${response.body}");
       if (response.statusCode == 200) {
         final Map<String, dynamic> responseData = jsonDecode(response.body);
-
-        return Right(response.body);
+        DashboardResponse dashboardResponse=DashboardResponse.fromJson(responseData);
+        return Right(dashboardResponse);
       } else {
         final errorMessage = _extractErrorMessage(response.body);
-        print("report reportCommentreply else   ====${errorMessage}");
+        print("report dashboardData else   ====${errorMessage}");
         return Left(Failure(errorMessage));
       }
     } catch (e) {

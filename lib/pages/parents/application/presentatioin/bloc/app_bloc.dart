@@ -26,6 +26,7 @@ class AppBloc extends Bloc<AppEvent, AppState> {
     on<HandleBackPressEvent>(handleBackPressEvent);
     on<UserDataUpdate>(updateUserData);
     on<BookedSessionCountEvent>(bookedSessionCount);
+    on<DashboardEvent>(_getDashboardData);
     add(UserDataUpdate());
   }
 
@@ -91,4 +92,23 @@ bookedSessionCount: event.count
       isLoadingreport: false,
     ));
   }
+
+  Future<void>_getDashboardData(DashboardEvent event,Emitter<AppState> emit)async{
+    print("_getDashboardData _getDashboardData _getDashboardData _getDashboardData");
+    final academyId = await getIt<SharedPrefs>().getString("selected_academyid");
+
+    Map<String,dynamic>map={
+      "academy_id":academyId
+    };
+    final response=await _applicationUseCase.dashboardDataExecute(map);
+    response.fold((failure){
+
+    }, (dashBoardDara){
+      emit(state.copyWith(
+        dashboardData: dashBoardDara
+      ));
+    });
+  }
+
+
 }

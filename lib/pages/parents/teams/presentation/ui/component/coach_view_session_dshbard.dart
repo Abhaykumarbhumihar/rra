@@ -1,3 +1,4 @@
+import 'package:rra/common/routes/exports.dart';
 import 'package:rra/common/values/values_exports.dart';
 
 import '../../../../../../common/routes/routes.dart';
@@ -85,7 +86,7 @@ class CoachViewSessionDshbard extends StatelessWidget {
                           padding: const EdgeInsets.symmetric(
                               horizontal: 12.0, vertical: 6.0),
                           child: Text(
-                            "My Sessions : ${BlocProvider.of<ViewSessionBloc>(context).state.bookedSession.data.sessions.length}",
+                            "My Sessions : ${BlocProvider.of<AppBloc>(context).state.dashboardData.data.sessionCount}",
                             style: TextStyle(
                               fontSize: context.screenWidth * 0.0373,
                               color: AppColor.appWhiteColor,

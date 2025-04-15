@@ -16,6 +16,19 @@ class ViewSessionBloc extends Bloc<ViewSessionEvent, ViewSessionState> {
   ViewSessionBloc() : super(ViewSessionState.initial()) {
     on<GetBookedSessionListEvent>(_getBookedSessionList);
     on<CancelBookedSessionEvent>(_cancelBookedSession);
+    on<DaySelectEvent>(_daySelect);
+    on<PlayerSelect>(_playerFilter);
+  }
+  Future<void>_daySelect(DaySelectEvent event,Emitter<ViewSessionState> emit)async{
+    emit(state.copyWith(
+      dayselect: event.day
+    ));
+  }
+
+  Future<void>_playerFilter(PlayerSelect event,Emitter<ViewSessionState> emit)async{
+    emit(state.copyWith(
+        playerIdselect: event.day
+    ));
   }
   Future<void>_getBookedSessionList(GetBookedSessionListEvent event,Emitter<ViewSessionState> emit)async{
     if (!(await Connectivity().isConnected)) {
@@ -34,7 +47,6 @@ class ViewSessionBloc extends Bloc<ViewSessionEvent, ViewSessionState> {
      // message: "",
       bookedSession: BookedSessionList()
     ));
-    final academyId = await getIt<SharedPrefs>().getString("selected_academyid");
 
     final response = await _sessionUsease.playerListExecute(event.data);
     response.fold((failure){

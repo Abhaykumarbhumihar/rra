@@ -2,10 +2,14 @@ import 'package:auto_height_grid_view/auto_height_grid_view.dart';
 import 'package:rra/common/values/values_exports.dart';
 
 import '../../../../../../common/component/circler.dart';
+import '../../../../../../common/local/SharedPrefs.dart';
 import '../../../../../../common/routes/routes.dart';
 
 import 'package:flutter_animate/flutter_animate.dart';
 
+import '../../../../../../common/service_locator/setivelocator.dart';
+import '../../../../../coach/coach_attendance/player_attendance_list/presentation/bloc/attendance_bloc.dart';
+import '../../../../../coach/coach_attendance/player_attendance_list/presentation/bloc/attendance_event.dart';
 import '../../../../../coach/coach_player_report/coach_player_report_list/presentation/bloc/report_bloc.dart';
 import '../../../../../coach/coach_player_report/coach_player_report_list/presentation/bloc/report_event.dart';
 
@@ -74,7 +78,7 @@ class DashboardGrid extends StatelessWidget {
         final item = items[index];
 
         return GestureDetector(
-          onTap: () {
+          onTap: () async {
             if (item['title'] == "Documents") {
               Navigator.pushNamed(context, AppRoutes.ADDVIEWDOCUMENT);
             } else if (item['title'] == "View Score") {
@@ -82,6 +86,9 @@ class DashboardGrid extends StatelessWidget {
 
               Navigator.pushNamed(context, AppRoutes.COACHPLAYERREPOORTLISTPAGE);
             } else if (item['title'] == "View Attendance") {
+              var academyId = await getIt<SharedPrefs>().getString("selected_academyid");
+                       BlocProvider.of<AttendanceBloc>(context).add(FilterAttendanceListEvent({"academy_id":academyId}));
+
               Navigator.pushNamed(context, AppRoutes.COACHPLAYERATTENDANCELIST);
             } else if (item['title'] == "My Orders") {
               Navigator.pushNamed(context, AppRoutes.PARENTORDERLISTPAGE);

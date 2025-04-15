@@ -39,7 +39,7 @@ class CoachPlayerAttendanceList extends StatelessWidget {
               return Column(
                 children: [
                   SizedBox(
-                    height: 24,
+                    height: 4,
                   ),
 
                   DropdownSelectionField(

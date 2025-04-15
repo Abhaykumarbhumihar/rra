@@ -17,6 +17,9 @@ class ParentMyOrderUsecase {
   Future<Either<Failure, ParentMyOrderListModel>> getParentMyOrderExecute(Map<String, dynamic> orderData) async {
     return _myorderRepositery.getParentMyOrder( orderData);
   }
+  Future<Either<Failure, dynamic>> cancelOrderExecute(Map<String, dynamic> cancelOrderDara) async {
+    return _myorderRepositery.cancelOrder( cancelOrderDara);
+  }
 
 
 }

@@ -72,6 +72,7 @@ class SplashPage extends StatelessWidget {
             var academyId = getIt<SharedPrefs>().getString("selected_academyid");
 
             BlocProvider.of<ManageTeamBloc>(context).add(ManageTeamReportEventGetTermsSessionCoachingPlayerEvents({"academy_id":academyId}));
+            BlocProvider.of<AppBloc>(context).add(UserDataUpdate());
 
             BlocProvider.of<ReportBloc>(context).add(ReportEventGetTermsSessionCoachingPlayerEvents({"academy_id":academyId}));
             BlocProvider.of<ManageTeamBloc>(context).add(GetTeamListEvent({"academy_id":academyId}));

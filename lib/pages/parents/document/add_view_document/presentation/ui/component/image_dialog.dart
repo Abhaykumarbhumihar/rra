@@ -19,7 +19,7 @@ class ImageDialog extends StatelessWidget {
       child: Stack(
         children: [
           NetworkImageWidget(
-
+fullimage: true,
               imageUrl: imageUrl,
               imageHeight: context.screenHeight*2,
               imageWidth: context.screenWidth),

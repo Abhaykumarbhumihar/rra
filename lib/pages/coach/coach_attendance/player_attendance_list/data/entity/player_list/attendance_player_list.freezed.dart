@@ -438,11 +438,11 @@ mixin _$Player {
   @JsonKey(name: 'child_age')
   String get age => throw _privateConstructorUsedError;
   @JsonKey(name: 'child_school')
-  String get school => throw _privateConstructorUsedError;
+  String? get school => throw _privateConstructorUsedError;
   @JsonKey(name: 'child_club')
-  String get club => throw _privateConstructorUsedError;
+  String? get club => throw _privateConstructorUsedError;
   @JsonKey(name: 'child_medical_condition')
-  String get medicalCondition => throw _privateConstructorUsedError;
+  String? get medicalCondition => throw _privateConstructorUsedError;
   @JsonKey(name: 'child_address')
   String get address => throw _privateConstructorUsedError;
   @JsonKey(name: 'child_photo_social_website')
@@ -458,6 +458,9 @@ mixin _$Player {
   int get totalSessions => throw _privateConstructorUsedError;
   @JsonKey(name: 'attended_sessions')
   int get attendedSessions => throw _privateConstructorUsedError;
+  @JsonKey(name: 'attendance_record')
+  List<AttendanceRecord> get attendanceRecords =>
+      throw _privateConstructorUsedError;
 
   /// Serializes this Player to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -481,9 +484,9 @@ abstract class $PlayerCopyWith<$Res> {
       @JsonKey(name: 'child_name') String name,
       @JsonKey(name: 'child_dob') String dob,
       @JsonKey(name: 'child_age') String age,
-      @JsonKey(name: 'child_school') String school,
-      @JsonKey(name: 'child_club') String club,
-      @JsonKey(name: 'child_medical_condition') String medicalCondition,
+      @JsonKey(name: 'child_school') String? school,
+      @JsonKey(name: 'child_club') String? club,
+      @JsonKey(name: 'child_medical_condition') String? medicalCondition,
       @JsonKey(name: 'child_address') String address,
       @JsonKey(name: 'child_photo_social_website')
       String photoSocialWebsitePermission,
@@ -492,7 +495,9 @@ abstract class $PlayerCopyWith<$Res> {
       @JsonKey(name: 'created_at') String createdAt,
       @JsonKey(name: 'updated_at') String updatedAt,
       @JsonKey(name: 'total_sessions') int totalSessions,
-      @JsonKey(name: 'attended_sessions') int attendedSessions});
+      @JsonKey(name: 'attended_sessions') int attendedSessions,
+      @JsonKey(name: 'attendance_record')
+      List<AttendanceRecord> attendanceRecords});
 }
 
 /// @nodoc
@@ -517,9 +522,9 @@ class _$PlayerCopyWithImpl<$Res, $Val extends Player>
     Object? name = null,
     Object? dob = null,
     Object? age = null,
-    Object? school = null,
-    Object? club = null,
-    Object? medicalCondition = null,
+    Object? school = freezed,
+    Object? club = freezed,
+    Object? medicalCondition = freezed,
     Object? address = null,
     Object? photoSocialWebsitePermission = null,
     Object? permissions = null,
@@ -528,6 +533,7 @@ class _$PlayerCopyWithImpl<$Res, $Val extends Player>
     Object? updatedAt = null,
     Object? totalSessions = null,
     Object? attendedSessions = null,
+    Object? attendanceRecords = null,
   }) {
     return _then(_value.copyWith(
       id: null == id
@@ -558,18 +564,18 @@ class _$PlayerCopyWithImpl<$Res, $Val extends Player>
           ? _value.age
           : age // ignore: cast_nullable_to_non_nullable
               as String,
-      school: null == school
+      school: freezed == school
           ? _value.school
           : school // ignore: cast_nullable_to_non_nullable
-              as String,
-      club: null == club
+              as String?,
+      club: freezed == club
           ? _value.club
           : club // ignore: cast_nullable_to_non_nullable
-              as String,
-      medicalCondition: null == medicalCondition
+              as String?,
+      medicalCondition: freezed == medicalCondition
           ? _value.medicalCondition
           : medicalCondition // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       address: null == address
           ? _value.address
           : address // ignore: cast_nullable_to_non_nullable
@@ -602,6 +608,10 @@ class _$PlayerCopyWithImpl<$Res, $Val extends Player>
           ? _value.attendedSessions
           : attendedSessions // ignore: cast_nullable_to_non_nullable
               as int,
+      attendanceRecords: null == attendanceRecords
+          ? _value.attendanceRecords
+          : attendanceRecords // ignore: cast_nullable_to_non_nullable
+              as List<AttendanceRecord>,
     ) as $Val);
   }
 }
@@ -621,9 +631,9 @@ abstract class _$$PlayerImplCopyWith<$Res> implements $PlayerCopyWith<$Res> {
       @JsonKey(name: 'child_name') String name,
       @JsonKey(name: 'child_dob') String dob,
       @JsonKey(name: 'child_age') String age,
-      @JsonKey(name: 'child_school') String school,
-      @JsonKey(name: 'child_club') String club,
-      @JsonKey(name: 'child_medical_condition') String medicalCondition,
+      @JsonKey(name: 'child_school') String? school,
+      @JsonKey(name: 'child_club') String? club,
+      @JsonKey(name: 'child_medical_condition') String? medicalCondition,
       @JsonKey(name: 'child_address') String address,
       @JsonKey(name: 'child_photo_social_website')
       String photoSocialWebsitePermission,
@@ -632,7 +642,9 @@ abstract class _$$PlayerImplCopyWith<$Res> implements $PlayerCopyWith<$Res> {
       @JsonKey(name: 'created_at') String createdAt,
       @JsonKey(name: 'updated_at') String updatedAt,
       @JsonKey(name: 'total_sessions') int totalSessions,
-      @JsonKey(name: 'attended_sessions') int attendedSessions});
+      @JsonKey(name: 'attended_sessions') int attendedSessions,
+      @JsonKey(name: 'attendance_record')
+      List<AttendanceRecord> attendanceRecords});
 }
 
 /// @nodoc
@@ -655,9 +667,9 @@ class __$$PlayerImplCopyWithImpl<$Res>
     Object? name = null,
     Object? dob = null,
     Object? age = null,
-    Object? school = null,
-    Object? club = null,
-    Object? medicalCondition = null,
+    Object? school = freezed,
+    Object? club = freezed,
+    Object? medicalCondition = freezed,
     Object? address = null,
     Object? photoSocialWebsitePermission = null,
     Object? permissions = null,
@@ -666,6 +678,7 @@ class __$$PlayerImplCopyWithImpl<$Res>
     Object? updatedAt = null,
     Object? totalSessions = null,
     Object? attendedSessions = null,
+    Object? attendanceRecords = null,
   }) {
     return _then(_$PlayerImpl(
       id: null == id
@@ -696,18 +709,18 @@ class __$$PlayerImplCopyWithImpl<$Res>
           ? _value.age
           : age // ignore: cast_nullable_to_non_nullable
               as String,
-      school: null == school
+      school: freezed == school
           ? _value.school
           : school // ignore: cast_nullable_to_non_nullable
-              as String,
-      club: null == club
+              as String?,
+      club: freezed == club
           ? _value.club
           : club // ignore: cast_nullable_to_non_nullable
-              as String,
-      medicalCondition: null == medicalCondition
+              as String?,
+      medicalCondition: freezed == medicalCondition
           ? _value.medicalCondition
           : medicalCondition // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       address: null == address
           ? _value.address
           : address // ignore: cast_nullable_to_non_nullable
@@ -740,6 +753,10 @@ class __$$PlayerImplCopyWithImpl<$Res>
           ? _value.attendedSessions
           : attendedSessions // ignore: cast_nullable_to_non_nullable
               as int,
+      attendanceRecords: null == attendanceRecords
+          ? _value._attendanceRecords
+          : attendanceRecords // ignore: cast_nullable_to_non_nullable
+              as List<AttendanceRecord>,
     ));
   }
 }
@@ -755,9 +772,9 @@ class _$PlayerImpl implements _Player {
       @JsonKey(name: 'child_name') this.name = '',
       @JsonKey(name: 'child_dob') this.dob = '',
       @JsonKey(name: 'child_age') this.age = '',
-      @JsonKey(name: 'child_school') this.school = '',
-      @JsonKey(name: 'child_club') this.club = '',
-      @JsonKey(name: 'child_medical_condition') this.medicalCondition = '',
+      @JsonKey(name: 'child_school') this.school,
+      @JsonKey(name: 'child_club') this.club,
+      @JsonKey(name: 'child_medical_condition') this.medicalCondition,
       @JsonKey(name: 'child_address') this.address = '',
       @JsonKey(name: 'child_photo_social_website')
       this.photoSocialWebsitePermission = '0',
@@ -766,7 +783,10 @@ class _$PlayerImpl implements _Player {
       @JsonKey(name: 'created_at') this.createdAt = '',
       @JsonKey(name: 'updated_at') this.updatedAt = '',
       @JsonKey(name: 'total_sessions') this.totalSessions = 0,
-      @JsonKey(name: 'attended_sessions') this.attendedSessions = 0});
+      @JsonKey(name: 'attended_sessions') this.attendedSessions = 0,
+      @JsonKey(name: 'attendance_record')
+      final List<AttendanceRecord> attendanceRecords = const []})
+      : _attendanceRecords = attendanceRecords;
 
   factory _$PlayerImpl.fromJson(Map<String, dynamic> json) =>
       _$$PlayerImplFromJson(json);
@@ -794,13 +814,13 @@ class _$PlayerImpl implements _Player {
   final String age;
   @override
   @JsonKey(name: 'child_school')
-  final String school;
+  final String? school;
   @override
   @JsonKey(name: 'child_club')
-  final String club;
+  final String? club;
   @override
   @JsonKey(name: 'child_medical_condition')
-  final String medicalCondition;
+  final String? medicalCondition;
   @override
   @JsonKey(name: 'child_address')
   final String address;
@@ -825,10 +845,19 @@ class _$PlayerImpl implements _Player {
   @override
   @JsonKey(name: 'attended_sessions')
   final int attendedSessions;
+  final List<AttendanceRecord> _attendanceRecords;
+  @override
+  @JsonKey(name: 'attendance_record')
+  List<AttendanceRecord> get attendanceRecords {
+    if (_attendanceRecords is EqualUnmodifiableListView)
+      return _attendanceRecords;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_attendanceRecords);
+  }
 
   @override
   String toString() {
-    return 'Player(id: $id, imageUrl: $imageUrl, parentId: $parentId, academyId: $academyId, name: $name, dob: $dob, age: $age, school: $school, club: $club, medicalCondition: $medicalCondition, address: $address, photoSocialWebsitePermission: $photoSocialWebsitePermission, permissions: $permissions, status: $status, createdAt: $createdAt, updatedAt: $updatedAt, totalSessions: $totalSessions, attendedSessions: $attendedSessions)';
+    return 'Player(id: $id, imageUrl: $imageUrl, parentId: $parentId, academyId: $academyId, name: $name, dob: $dob, age: $age, school: $school, club: $club, medicalCondition: $medicalCondition, address: $address, photoSocialWebsitePermission: $photoSocialWebsitePermission, permissions: $permissions, status: $status, createdAt: $createdAt, updatedAt: $updatedAt, totalSessions: $totalSessions, attendedSessions: $attendedSessions, attendanceRecords: $attendanceRecords)';
   }
 
   @override
@@ -865,31 +894,35 @@ class _$PlayerImpl implements _Player {
             (identical(other.totalSessions, totalSessions) ||
                 other.totalSessions == totalSessions) &&
             (identical(other.attendedSessions, attendedSessions) ||
-                other.attendedSessions == attendedSessions));
+                other.attendedSessions == attendedSessions) &&
+            const DeepCollectionEquality()
+                .equals(other._attendanceRecords, _attendanceRecords));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      id,
-      imageUrl,
-      parentId,
-      academyId,
-      name,
-      dob,
-      age,
-      school,
-      club,
-      medicalCondition,
-      address,
-      photoSocialWebsitePermission,
-      permissions,
-      status,
-      createdAt,
-      updatedAt,
-      totalSessions,
-      attendedSessions);
+  int get hashCode => Object.hashAll([
+        runtimeType,
+        id,
+        imageUrl,
+        parentId,
+        academyId,
+        name,
+        dob,
+        age,
+        school,
+        club,
+        medicalCondition,
+        address,
+        photoSocialWebsitePermission,
+        permissions,
+        status,
+        createdAt,
+        updatedAt,
+        totalSessions,
+        attendedSessions,
+        const DeepCollectionEquality().hash(_attendanceRecords)
+      ]);
 
   /// Create a copy of Player
   /// with the given fields replaced by the non-null parameter values.
@@ -916,9 +949,9 @@ abstract class _Player implements Player {
       @JsonKey(name: 'child_name') final String name,
       @JsonKey(name: 'child_dob') final String dob,
       @JsonKey(name: 'child_age') final String age,
-      @JsonKey(name: 'child_school') final String school,
-      @JsonKey(name: 'child_club') final String club,
-      @JsonKey(name: 'child_medical_condition') final String medicalCondition,
+      @JsonKey(name: 'child_school') final String? school,
+      @JsonKey(name: 'child_club') final String? club,
+      @JsonKey(name: 'child_medical_condition') final String? medicalCondition,
       @JsonKey(name: 'child_address') final String address,
       @JsonKey(name: 'child_photo_social_website')
       final String photoSocialWebsitePermission,
@@ -927,8 +960,9 @@ abstract class _Player implements Player {
       @JsonKey(name: 'created_at') final String createdAt,
       @JsonKey(name: 'updated_at') final String updatedAt,
       @JsonKey(name: 'total_sessions') final int totalSessions,
-      @JsonKey(name: 'attended_sessions')
-      final int attendedSessions}) = _$PlayerImpl;
+      @JsonKey(name: 'attended_sessions') final int attendedSessions,
+      @JsonKey(name: 'attendance_record')
+      final List<AttendanceRecord> attendanceRecords}) = _$PlayerImpl;
 
   factory _Player.fromJson(Map<String, dynamic> json) = _$PlayerImpl.fromJson;
 
@@ -954,13 +988,13 @@ abstract class _Player implements Player {
   String get age;
   @override
   @JsonKey(name: 'child_school')
-  String get school;
+  String? get school;
   @override
   @JsonKey(name: 'child_club')
-  String get club;
+  String? get club;
   @override
   @JsonKey(name: 'child_medical_condition')
-  String get medicalCondition;
+  String? get medicalCondition;
   @override
   @JsonKey(name: 'child_address')
   String get address;
@@ -984,11 +1018,221 @@ abstract class _Player implements Player {
   @override
   @JsonKey(name: 'attended_sessions')
   int get attendedSessions;
+  @override
+  @JsonKey(name: 'attendance_record')
+  List<AttendanceRecord> get attendanceRecords;
 
   /// Create a copy of Player
   /// with the given fields replaced by the non-null parameter values.
   @override
   @JsonKey(includeFromJson: false, includeToJson: false)
   _$$PlayerImplCopyWith<_$PlayerImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+AttendanceRecord _$AttendanceRecordFromJson(Map<String, dynamic> json) {
+  return _AttendanceRecord.fromJson(json);
+}
+
+/// @nodoc
+mixin _$AttendanceRecord {
+  @JsonKey(name: 'session_id')
+  int get sessionId => throw _privateConstructorUsedError;
+  @JsonKey(name: 'date')
+  String get date => throw _privateConstructorUsedError;
+  @JsonKey(name: 'attendance_status')
+  String get attendanceStatus => throw _privateConstructorUsedError;
+
+  /// Serializes this AttendanceRecord to a JSON map.
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+
+  /// Create a copy of AttendanceRecord
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  $AttendanceRecordCopyWith<AttendanceRecord> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $AttendanceRecordCopyWith<$Res> {
+  factory $AttendanceRecordCopyWith(
+          AttendanceRecord value, $Res Function(AttendanceRecord) then) =
+      _$AttendanceRecordCopyWithImpl<$Res, AttendanceRecord>;
+  @useResult
+  $Res call(
+      {@JsonKey(name: 'session_id') int sessionId,
+      @JsonKey(name: 'date') String date,
+      @JsonKey(name: 'attendance_status') String attendanceStatus});
+}
+
+/// @nodoc
+class _$AttendanceRecordCopyWithImpl<$Res, $Val extends AttendanceRecord>
+    implements $AttendanceRecordCopyWith<$Res> {
+  _$AttendanceRecordCopyWithImpl(this._value, this._then);
+
+  // ignore: unused_field
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
+
+  /// Create a copy of AttendanceRecord
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? sessionId = null,
+    Object? date = null,
+    Object? attendanceStatus = null,
+  }) {
+    return _then(_value.copyWith(
+      sessionId: null == sessionId
+          ? _value.sessionId
+          : sessionId // ignore: cast_nullable_to_non_nullable
+              as int,
+      date: null == date
+          ? _value.date
+          : date // ignore: cast_nullable_to_non_nullable
+              as String,
+      attendanceStatus: null == attendanceStatus
+          ? _value.attendanceStatus
+          : attendanceStatus // ignore: cast_nullable_to_non_nullable
+              as String,
+    ) as $Val);
+  }
+}
+
+/// @nodoc
+abstract class _$$AttendanceRecordImplCopyWith<$Res>
+    implements $AttendanceRecordCopyWith<$Res> {
+  factory _$$AttendanceRecordImplCopyWith(_$AttendanceRecordImpl value,
+          $Res Function(_$AttendanceRecordImpl) then) =
+      __$$AttendanceRecordImplCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call(
+      {@JsonKey(name: 'session_id') int sessionId,
+      @JsonKey(name: 'date') String date,
+      @JsonKey(name: 'attendance_status') String attendanceStatus});
+}
+
+/// @nodoc
+class __$$AttendanceRecordImplCopyWithImpl<$Res>
+    extends _$AttendanceRecordCopyWithImpl<$Res, _$AttendanceRecordImpl>
+    implements _$$AttendanceRecordImplCopyWith<$Res> {
+  __$$AttendanceRecordImplCopyWithImpl(_$AttendanceRecordImpl _value,
+      $Res Function(_$AttendanceRecordImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of AttendanceRecord
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? sessionId = null,
+    Object? date = null,
+    Object? attendanceStatus = null,
+  }) {
+    return _then(_$AttendanceRecordImpl(
+      sessionId: null == sessionId
+          ? _value.sessionId
+          : sessionId // ignore: cast_nullable_to_non_nullable
+              as int,
+      date: null == date
+          ? _value.date
+          : date // ignore: cast_nullable_to_non_nullable
+              as String,
+      attendanceStatus: null == attendanceStatus
+          ? _value.attendanceStatus
+          : attendanceStatus // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+@JsonSerializable()
+class _$AttendanceRecordImpl implements _AttendanceRecord {
+  const _$AttendanceRecordImpl(
+      {@JsonKey(name: 'session_id') this.sessionId = 0,
+      @JsonKey(name: 'date') this.date = '',
+      @JsonKey(name: 'attendance_status') this.attendanceStatus = ''});
+
+  factory _$AttendanceRecordImpl.fromJson(Map<String, dynamic> json) =>
+      _$$AttendanceRecordImplFromJson(json);
+
+  @override
+  @JsonKey(name: 'session_id')
+  final int sessionId;
+  @override
+  @JsonKey(name: 'date')
+  final String date;
+  @override
+  @JsonKey(name: 'attendance_status')
+  final String attendanceStatus;
+
+  @override
+  String toString() {
+    return 'AttendanceRecord(sessionId: $sessionId, date: $date, attendanceStatus: $attendanceStatus)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$AttendanceRecordImpl &&
+            (identical(other.sessionId, sessionId) ||
+                other.sessionId == sessionId) &&
+            (identical(other.date, date) || other.date == date) &&
+            (identical(other.attendanceStatus, attendanceStatus) ||
+                other.attendanceStatus == attendanceStatus));
+  }
+
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  int get hashCode =>
+      Object.hash(runtimeType, sessionId, date, attendanceStatus);
+
+  /// Create a copy of AttendanceRecord
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$AttendanceRecordImplCopyWith<_$AttendanceRecordImpl> get copyWith =>
+      __$$AttendanceRecordImplCopyWithImpl<_$AttendanceRecordImpl>(
+          this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$AttendanceRecordImplToJson(
+      this,
+    );
+  }
+}
+
+abstract class _AttendanceRecord implements AttendanceRecord {
+  const factory _AttendanceRecord(
+          {@JsonKey(name: 'session_id') final int sessionId,
+          @JsonKey(name: 'date') final String date,
+          @JsonKey(name: 'attendance_status') final String attendanceStatus}) =
+      _$AttendanceRecordImpl;
+
+  factory _AttendanceRecord.fromJson(Map<String, dynamic> json) =
+      _$AttendanceRecordImpl.fromJson;
+
+  @override
+  @JsonKey(name: 'session_id')
+  int get sessionId;
+  @override
+  @JsonKey(name: 'date')
+  String get date;
+  @override
+  @JsonKey(name: 'attendance_status')
+  String get attendanceStatus;
+
+  /// Create a copy of AttendanceRecord
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$AttendanceRecordImplCopyWith<_$AttendanceRecordImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

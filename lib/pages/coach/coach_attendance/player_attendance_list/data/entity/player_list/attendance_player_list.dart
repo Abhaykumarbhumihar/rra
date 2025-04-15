@@ -36,9 +36,9 @@ class Player with _$Player {
     @JsonKey(name: 'child_name') @Default('') String name,
     @JsonKey(name: 'child_dob') @Default('') String dob,
     @JsonKey(name: 'child_age') @Default('') String age,
-    @JsonKey(name: 'child_school') @Default('') String school,
-    @JsonKey(name: 'child_club') @Default('') String club,
-    @JsonKey(name: 'child_medical_condition') @Default('') String medicalCondition,
+    @JsonKey(name: 'child_school') String? school,
+    @JsonKey(name: 'child_club') String? club,
+    @JsonKey(name: 'child_medical_condition') String? medicalCondition,
     @JsonKey(name: 'child_address') @Default('') String address,
     @JsonKey(name: 'child_photo_social_website') @Default('0') String photoSocialWebsitePermission,
     @JsonKey(name: 'child_permissions') @Default('0') String permissions,
@@ -47,7 +47,21 @@ class Player with _$Player {
     @JsonKey(name: 'updated_at') @Default('') String updatedAt,
     @JsonKey(name: 'total_sessions') @Default(0) int totalSessions,
     @JsonKey(name: 'attended_sessions') @Default(0) int attendedSessions,
+    @JsonKey(name: 'attendance_record')
+    @Default([]) List<AttendanceRecord> attendanceRecords,
   }) = _Player;
 
   factory Player.fromJson(Map<String, dynamic> json) => _$PlayerFromJson(json);
+}
+
+@freezed
+class AttendanceRecord with _$AttendanceRecord {
+  const factory AttendanceRecord({
+    @JsonKey(name: 'session_id') @Default(0) int sessionId,
+    @JsonKey(name: 'date') @Default('') String date,
+    @JsonKey(name: 'attendance_status') @Default('') String attendanceStatus,
+  }) = _AttendanceRecord;
+
+  factory AttendanceRecord.fromJson(Map<String, dynamic> json) =>
+      _$AttendanceRecordFromJson(json);
 }

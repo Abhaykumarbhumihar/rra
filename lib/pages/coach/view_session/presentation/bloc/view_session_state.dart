@@ -13,6 +13,8 @@ class ViewSessionState with _$ViewSessionState {
     @Default(false) bool isStatusUpdated,
     @Default(false) bool isError,
     @Default("") String message,
+    @Default("") String dayselect,
+    @Default("") String playerIdselect,
     @Default(BookedSessionList()) BookedSessionList bookedSession,
   }) = _ViewSessionState;
 

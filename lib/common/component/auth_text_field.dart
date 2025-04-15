@@ -292,6 +292,12 @@ class _CustomTextInputMobileState extends State<CustomTextInputMobile> {
         color: Colors.white.withOpacity(0.5),
         size: width * 0.04,
       );
+    } else if (widget.title == "Select Player") {
+      return Icon(
+        FontAwesomeIcons.chevronDown,
+        color: Colors.white.withOpacity(0.5),
+        size: width * 0.04,
+      );
     }else if (widget.title ==  "Select Program") {
       return Icon(
         FontAwesomeIcons.chevronDown,

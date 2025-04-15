@@ -50,9 +50,9 @@ _$PlayerImpl _$$PlayerImplFromJson(Map<String, dynamic> json) => _$PlayerImpl(
       name: json['child_name'] as String? ?? '',
       dob: json['child_dob'] as String? ?? '',
       age: json['child_age'] as String? ?? '',
-      school: json['child_school'] as String? ?? '',
-      club: json['child_club'] as String? ?? '',
-      medicalCondition: json['child_medical_condition'] as String? ?? '',
+      school: json['child_school'] as String?,
+      club: json['child_club'] as String?,
+      medicalCondition: json['child_medical_condition'] as String?,
       address: json['child_address'] as String? ?? '',
       photoSocialWebsitePermission:
           json['child_photo_social_website'] as String? ?? '0',
@@ -62,6 +62,10 @@ _$PlayerImpl _$$PlayerImplFromJson(Map<String, dynamic> json) => _$PlayerImpl(
       updatedAt: json['updated_at'] as String? ?? '',
       totalSessions: (json['total_sessions'] as num?)?.toInt() ?? 0,
       attendedSessions: (json['attended_sessions'] as num?)?.toInt() ?? 0,
+      attendanceRecords: (json['attendance_record'] as List<dynamic>?)
+              ?.map((e) => AttendanceRecord.fromJson(e as Map<String, dynamic>))
+              .toList() ??
+          const [],
     );
 
 Map<String, dynamic> _$$PlayerImplToJson(_$PlayerImpl instance) =>
@@ -84,4 +88,21 @@ Map<String, dynamic> _$$PlayerImplToJson(_$PlayerImpl instance) =>
       'updated_at': instance.updatedAt,
       'total_sessions': instance.totalSessions,
       'attended_sessions': instance.attendedSessions,
+      'attendance_record': instance.attendanceRecords,
+    };
+
+_$AttendanceRecordImpl _$$AttendanceRecordImplFromJson(
+        Map<String, dynamic> json) =>
+    _$AttendanceRecordImpl(
+      sessionId: (json['session_id'] as num?)?.toInt() ?? 0,
+      date: json['date'] as String? ?? '',
+      attendanceStatus: json['attendance_status'] as String? ?? '',
+    );
+
+Map<String, dynamic> _$$AttendanceRecordImplToJson(
+        _$AttendanceRecordImpl instance) =>
+    <String, dynamic>{
+      'session_id': instance.sessionId,
+      'date': instance.date,
+      'attendance_status': instance.attendanceStatus,
     };

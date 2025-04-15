@@ -20,11 +20,22 @@ class BookedSessionList with _$BookedSessionList {
 class BookedSessionData with _$BookedSessionData {
   const factory BookedSessionData({
     @JsonKey(name: 'sessions') @Default([]) List<Session> sessions,
+    @JsonKey(name: 'players') @Default([]) List<Player> players,
     @JsonKey(name: 'dayMapping') @Default({}) Map<String, String> dayMapping,
   }) = _BookedSessionData;
 
   factory BookedSessionData.fromJson(Map<String, dynamic> json) =>
       _$BookedSessionDataFromJson(json);
+}
+
+@freezed
+class Player with _$Player {
+  const factory Player({
+    @JsonKey(name: 'id') @Default(0) int id,
+    @JsonKey(name: 'child_name') @Default('') String childName,
+  }) = _Player;
+
+  factory Player.fromJson(Map<String, dynamic> json) => _$PlayerFromJson(json);
 }
 
 @freezed
@@ -34,6 +45,7 @@ class Session with _$Session {
     @JsonKey(name: 'player_id') @Default(0) int playerId,
     @JsonKey(name: 'session_name') @Default('') String sessionName,
     @JsonKey(name: 'player_name') @Default('') String playerName,
+    @JsonKey(name: 'player_detail') PlayerDetail? playerDetail,
     @JsonKey(name: 'coaching_program') @Default('') String coachingProgram,
     @JsonKey(name: 'image') @Default('') String image,
     @JsonKey(name: 'term') @Default('') String term,
@@ -43,10 +55,21 @@ class Session with _$Session {
     @JsonKey(name: 'to_date') @Default('') String toDate,
     @JsonKey(name: 'end_date') @Default('') String endDate,
     @JsonKey(name: 'date') @Default("") String date,
-    @JsonKey(name: 'amount') @Default("\$0.0")String amount,
-    @JsonKey(name: 'status')  @Default("") String status,
-    @JsonKey(name: 'cancelable') @Default(false)bool cancelable,
+    @JsonKey(name: 'amount') @Default("\$0.0") String amount,
+    @JsonKey(name: 'status') @Default("") String status,
+    @JsonKey(name: 'cancelable') @Default(false) bool cancelable,
   }) = _Session;
 
   factory Session.fromJson(Map<String, dynamic> json) => _$SessionFromJson(json);
+}
+
+@freezed
+class PlayerDetail with _$PlayerDetail {
+  const factory PlayerDetail({
+    @JsonKey(name: 'id') @Default(0) int id,
+    @JsonKey(name: 'child_name') @Default('') String childName,
+  }) = _PlayerDetail;
+
+  factory PlayerDetail.fromJson(Map<String, dynamic> json) =>
+      _$PlayerDetailFromJson(json);
 }

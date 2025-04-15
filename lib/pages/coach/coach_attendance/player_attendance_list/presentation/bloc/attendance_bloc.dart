@@ -315,8 +315,9 @@ class AttendanceBloc extends Bloc<AttendanceEvent, AttendanceState> {
           "academy_id": academyId,
           "player_id":state.selectedPlayerid
         };
-        Map<String, dynamic> map = {"academy_id": academyId};
-        add(GetDetailOfOneChildAttendanceEvent(mapForGetDetail));
+        add(GetAttendanceListEvent({}));
+        // Map<String, dynamic> map = {"academy_id": academyId};
+        // add(GetDetailOfOneChildAttendanceEvent(mapForGetDetail));
 
 
 

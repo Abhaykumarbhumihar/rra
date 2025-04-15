@@ -5,6 +5,7 @@ import 'package:either_dart/src/either.dart';
 
 import 'package:rra/common/network/failure.dart';
 import 'package:http/http.dart' as http;
+import 'package:rra/common/values/utils.dart';
 import 'package:rra/pages/parents/session/add_detail/data/entity/child_list_model.dart';
 import '../../../../../../common/network/api_services.dart';
 import '../../../../../../common/network/app_constant.dart';
@@ -24,7 +25,8 @@ var endUrl="";
       }else{
         endUrl=AppConstant.getAddChild;
       }
-      print(addChildData);
+      print("=================\n\n");
+      Utils.LogPrint(addChildData);
       http.Response response =
       await _apiServices.post(endUrl, addChildData,useDefaultHeaders: true);
       print(response.body);

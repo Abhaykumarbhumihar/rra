@@ -34,6 +34,13 @@ class BookedSessionCountEvent extends AppEvent {
   List<Object?> get props => [count];
 }
 
+class DashboardEvent extends AppEvent {
+
+  DashboardEvent();
+  @override
+  List<Object?> get props => [];
+}
+
 
 
 

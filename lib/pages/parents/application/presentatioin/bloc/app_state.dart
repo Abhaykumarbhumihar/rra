@@ -12,6 +12,7 @@
 // }
 import 'package:freezed_annotation/freezed_annotation.dart';
 import '../../../../auth/otpverification/data/entity/otp_verification_model.dart';
+import '../../data/entity/dashboard/dashboard_model.dart';
 
 
 part 'app_state.freezed.dart';
@@ -22,6 +23,7 @@ class AppState with _$AppState {
     @Default(0) int index,
     DateTime? lastBackPressTime,
     @Default(OtpVerificationModel()) OtpVerificationModel userdata,
+    @Default(DashboardResponse()) DashboardResponse dashboardData,
     @Default(false) bool isError,
     @Default('') String errorMessage,
     @Default('0') String bookedSessionCount,
