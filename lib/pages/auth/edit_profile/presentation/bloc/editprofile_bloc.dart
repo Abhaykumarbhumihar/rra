@@ -51,7 +51,7 @@ class EditprofileBloc extends Bloc<EditprofileEvent, EditprofileState> {
       emit(state.copyWith(
           firstName: userdata?.data.name ?? '',
           email: userdata?.data.email ?? '',
-          phoneNo: "" ?? '',
+          phoneNo: userdata?.data.mobile ?? '',
           gender: (userdata?.data.gender == null ||
                   userdata?.data.gender == '' ||
                   userdata?.data.gender == 'Unknown')

@@ -68,7 +68,9 @@ class AddDocumentComponent extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               mainAxisAlignment: MainAxisAlignment.start,
+              mainAxisSize: MainAxisSize.min,
               children: <Widget>[
+
                 CustomTextInputMobile(
                   controller: titleController,
                   title: "Title",

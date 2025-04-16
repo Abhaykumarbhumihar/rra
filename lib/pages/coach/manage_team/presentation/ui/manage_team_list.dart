@@ -44,69 +44,135 @@ class ManageTeamList extends StatelessWidget {
                   Column(
                     children: [
 
-
-                      const SizedBox(height: 24),
                       DropdownSelectionField(
                         controller: _termController,
                         title: "Select Term",
-                        items: state.termsProgramSessionPlayerModelData?.data
-                                ?.term ??
-                            [],
+                        items: state.termsProgramSessionPlayerModelData?.data?.term ?? [],
                         itemText: (item) => item.termName ?? '',
                         onSelected: (item) {
                           _termController.text = item?.termName ?? '';
                           _programController.text = "";
                           _sessionController.text = "";
-                          context
-                              .read<ManageTeamBloc>()
-                              .add(ManageTeamTermSelected(item!));
+                          context.read<ManageTeamBloc>().add(ManageTeamTermSelected(item!));
                           BlocProvider.of<ManageTeamBloc>(context).add(
-                              ManageTeamReportEventGetTermsSessionCoachingPlayerEvents(
-                                  {}));
+                            ManageTeamReportEventGetTermsSessionCoachingPlayerEvents({}),
+                          );
                         },
-                      ),
+                      )    .animate()
+                          .fadeIn(duration: 1.3.seconds)
+                          .slideX(begin: -0.2, duration: 1.3.seconds, curve: Curves.easeOut),
+
                       const SizedBox(height: 6),
+
                       DropdownSelectionField(
                         controller: _programController,
                         title: "Select Program",
-                        items: state.termsProgramSessionPlayerModelData?.data
-                                ?.coachingProgram ??
-                            [],
+                        items: state.termsProgramSessionPlayerModelData?.data?.coachingProgram ?? [],
                         itemText: (item) => item.name ?? '',
                         onSelected: (item) {
                           _programController.text = item?.name ?? '';
                           _sessionController.text = "";
-
-                          context
-                              .read<ManageTeamBloc>()
-                              .add(ManageTeamProgramSelected(item!));
+                          context.read<ManageTeamBloc>().add(ManageTeamProgramSelected(item!));
                           BlocProvider.of<ManageTeamBloc>(context).add(
-                              ManageTeamReportEventGetTermsSessionCoachingPlayerEvents(
-                                  {}));
-                          BlocProvider.of<ManageTeamBloc>(context)
-                              .add(GetTeamListEvent({}));
+                            ManageTeamReportEventGetTermsSessionCoachingPlayerEvents({}),
+                          );
+                          BlocProvider.of<ManageTeamBloc>(context).add(GetTeamListEvent({}));
                         },
-                      ),
+                      )  .animate()
+                          .fadeIn(duration: 1.3.seconds)
+                          .slideY(begin: 1.3, duration: 1.3.seconds, curve: Curves.easeOut),
+
                       const SizedBox(height: 6),
+
                       DropdownSelectionField(
                         controller: _sessionController,
                         title: "Select Session",
-                        items: state.termsProgramSessionPlayerModelData?.data
-                                ?.session ??
-                            [],
+                        items: state.termsProgramSessionPlayerModelData?.data?.session ?? [],
                         itemText: (item) => item.title ?? '',
                         onSelected: (item) {
                           _sessionController.text = item?.title ?? '';
-                          context
-                              .read<ManageTeamBloc>()
-                              .add(ManageTeamSessionSelected(item!));
+                          context.read<ManageTeamBloc>().add(ManageTeamSessionSelected(item!));
                           BlocProvider.of<ManageTeamBloc>(context).add(
-                              ManageTeamReportEventGetTermsSessionCoachingPlayerEvents(
-                                  {}));
-                          BlocProvider.of<ManageTeamBloc>(context)
-                              .add(GetTeamListEvent({}));
+                            ManageTeamReportEventGetTermsSessionCoachingPlayerEvents({}),
+                          );
+                          BlocProvider.of<ManageTeamBloc>(context).add(GetTeamListEvent({}));
                         },
-                      ),
+                      )   .animate()
+                          .fadeIn(duration: 1.3.seconds)
+                          .slideX(begin: 0.2, duration: 1.3.seconds, curve: Curves.easeOut),
+
+                      const SizedBox(height: 10),
+
+                      // const SizedBox(height: 24),
+                      // DropdownSelectionField(
+                      //   controller: _termController,
+                      //   title: "Select Term",
+                      //   items: state.termsProgramSessionPlayerModelData?.data
+                      //           ?.term ??
+                      //       [],
+                      //   itemText: (item) => item.termName ?? '',
+                      //   onSelected: (item) {
+                      //     _termController.text = item?.termName ?? '';
+                      //     _programController.text = "";
+                      //     _sessionController.text = "";
+                      //     context
+                      //         .read<ManageTeamBloc>()
+                      //         .add(ManageTeamTermSelected(item!));
+                      //     BlocProvider.of<ManageTeamBloc>(context).add(
+                      //         ManageTeamReportEventGetTermsSessionCoachingPlayerEvents(
+                      //             {}));
+                      //   },
+                      // ).animate()
+                      //     .fadeIn(duration: 1.2.seconds)
+                      //     .slideX(begin: -0.2, duration: 1.2.seconds),
+                      //
+                      // const SizedBox(height: 6),
+                      // DropdownSelectionField(
+                      //   controller: _programController,
+                      //   title: "Select Program",
+                      //   items: state.termsProgramSessionPlayerModelData?.data
+                      //           ?.coachingProgram ??
+                      //       [],
+                      //   itemText: (item) => item.name ?? '',
+                      //   onSelected: (item) {
+                      //     _programController.text = item?.name ?? '';
+                      //     _sessionController.text = "";
+                      //
+                      //     context
+                      //         .read<ManageTeamBloc>()
+                      //         .add(ManageTeamProgramSelected(item!));
+                      //     BlocProvider.of<ManageTeamBloc>(context).add(
+                      //         ManageTeamReportEventGetTermsSessionCoachingPlayerEvents(
+                      //             {}));
+                      //     BlocProvider.of<ManageTeamBloc>(context)
+                      //         .add(GetTeamListEvent({}));
+                      //   },
+                      // ).animate()
+                      //     .fadeIn(duration: 1.2.seconds)
+                      //     .slideY(begin: 0.2, duration: 1.2.seconds),
+                      //
+                      // const SizedBox(height: 6),
+                      // DropdownSelectionField(
+                      //   controller: _sessionController,
+                      //   title: "Select Session",
+                      //   items: state.termsProgramSessionPlayerModelData?.data
+                      //           ?.session ??
+                      //       [],
+                      //   itemText: (item) => item.title ?? '',
+                      //   onSelected: (item) {
+                      //     _sessionController.text = item?.title ?? '';
+                      //     context
+                      //         .read<ManageTeamBloc>()
+                      //         .add(ManageTeamSessionSelected(item!));
+                      //     BlocProvider.of<ManageTeamBloc>(context).add(
+                      //         ManageTeamReportEventGetTermsSessionCoachingPlayerEvents(
+                      //             {}));
+                      //     BlocProvider.of<ManageTeamBloc>(context)
+                      //         .add(GetTeamListEvent({}));
+                      //   },
+                      // ).animate()
+                      //     .fadeIn(duration: 1.2.seconds)
+                      //     .slideX(begin: -0.2, duration: 1.2.seconds),
                       SizedBox(
                         height: 10,
                       ),

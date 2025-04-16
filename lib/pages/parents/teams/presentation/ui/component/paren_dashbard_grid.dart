@@ -8,6 +8,7 @@ import '../../../../../../common/routes/routes.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 
 import '../../../../../../common/service_locator/setivelocator.dart';
+import '../../../../../auth/otpverification/data/entity/otp_verification_model.dart';
 import '../../../../../coach/coach_attendance/player_attendance_list/presentation/bloc/attendance_bloc.dart';
 import '../../../../../coach/coach_attendance/player_attendance_list/presentation/bloc/attendance_event.dart';
 import '../../../../../coach/coach_player_report/coach_player_report_list/presentation/bloc/report_bloc.dart';
@@ -95,6 +96,15 @@ class DashboardGrid extends StatelessWidget {
             } else if (item['title'] == "View Players") {
               Map<String, dynamic> arguments = {"isFromDashBoard": true};
               Navigator.pushNamed(context, AppRoutes.ADDDETAILS, arguments: arguments);
+            }else if(item['title']=='Change Password'){
+              var userdata = getIt<SharedPrefs>().getModel<OtpVerificationModel>("user_model", (json) => OtpVerificationModel.fromJson(json));
+              Map<String, dynamic> argumentsforresetpassword = {
+                "email": userdata?.data.email,
+              };
+              Navigator.pushNamed(context, AppRoutes.RESETPASSWORD, arguments: argumentsforresetpassword);
+            }else if(item['title']=='My Profile'){
+              Navigator.pushNamed(
+                  context, AppRoutes.EDITPROFILE);
             }
             print("${item['title']} clicked");
           },

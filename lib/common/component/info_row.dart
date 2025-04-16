@@ -28,6 +28,35 @@ class InfoRow extends StatelessWidget {
     );
   }
 }
+class InfoRowRichText extends StatelessWidget {
+  final String label;
+  final String value;
+
+  const InfoRowRichText({
+    Key? key,
+    required this.label,
+    required this.value,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return RichText(
+      text: TextSpan(
+        children: [
+          TextSpan(
+            text: label,
+            style: AppTextStyle.semiBold(MediaQuery.of(context).size.width * 0.0373),
+          ),
+          TextSpan(
+            text: value,
+            style: AppTextStyle.regular(MediaQuery.of(context).size.width * 0.0373),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
 class InfoRow1 extends StatelessWidget {
   final String label;
   final String value;

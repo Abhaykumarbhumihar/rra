@@ -96,6 +96,7 @@ class EditProfile extends StatelessWidget {
                       children: <Widget>[
                         EditProfileAppbar(
                           onBackPressed: () {
+                            print("CLICK IS WORKING HERE HERE");
                             Navigator.pop(context);
                           },
                           editClcikAction: () {},

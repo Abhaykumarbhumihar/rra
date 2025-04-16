@@ -238,8 +238,8 @@ class AddDetail extends StatelessWidget {
                                                   NetworkImageWidget(
                                                     fullimage: true,
                                                     imageUrl: data.image,
-                                                    imageHeight: 100,
-                                                    imageWidth: 100,
+                                                    imageHeight: 75,
+                                                    imageWidth: 75,
                                                     radiusAll: 8.0,
                                                   ),
                                                 SizedBox(width: 8),

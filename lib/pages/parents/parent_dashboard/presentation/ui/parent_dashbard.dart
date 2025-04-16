@@ -29,7 +29,7 @@ class ParentDashbard extends StatelessWidget {
           child: Row(
             children: <Widget>[
               CustomSessionCard(
-                sessionCount: "16",
+                sessionCount: "0",
                 sessionLabel: "Facilities Booked",
                 buttonText1: "View Facilities",
                 buttonText2: "Book Facility",
@@ -47,7 +47,7 @@ class ParentDashbard extends StatelessWidget {
                 width: 20.0,
               ),
               CustomSessionCard(
-                sessionCount: "16",
+                sessionCount: "0",
                 sessionLabel: "Camps Booked",
                 buttonText1: "View Camps",
                 buttonText2: "Book Camp",

@@ -108,7 +108,7 @@ class ResetPassword extends StatelessWidget {
                                       .add(ResetNewpasswordChanged(value));
                                 },
                                 errorMessage: state.errorMessage ==
-                                            "Password must be at least 6 characters long and include at least one uppercase letter, one lowercase letter, one number, and one special character." ||
+                                            "Password must be at least 8 characters long and include at least one uppercase letter, one lowercase letter, one number, and one special character." ||
                                         state.errorMessage ==
                                             "Please enter your password"
                                     ? state.errorMessage

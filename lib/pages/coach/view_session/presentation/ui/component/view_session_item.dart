@@ -34,56 +34,58 @@ class ViewSessionItem extends StatelessWidget {
                       bottom: 4),
                   child: Center(
                     child: BackgroundContainer(
-                      child: Column(
-                        mainAxisSize: MainAxisSize.min,
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        children: <Widget>[
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: <Widget>[
-                              Expanded(
-                                child: InfoRow1(
-                                  label: "Session Name:",
-                                  value: " ${data.sessionName}",
-                                ),
-                              ),
-
-                            ],
-                          ),
-                          InfoRow1(
-                            label: "Coaching Program :",
-                            value: " ${data.coachingProgram}",
-                          ),
-                          InfoRow1(
-                            label: "Player Name :",
-                            value: " ${data.playerName}",
-                          ),
-                          InfoRow(
-                            label: "Term :",
-                            value: " ${data.term}",
-                          ),
-                          InfoRow(
-                            label: "Session Day:",
-                            value: " ${data.sessionDay}",
-                          ),
-                          InfoRow(
-                            label: "Start Time:",
-                            value: " ${data.startDate}",
-                          ),
-                          InfoRow(
-                            label: "End Time:",
-                            value: " ${data.endDate}",
-                          ),
-                          InfoRow(
-                            label: "Start Date:",
-                            value: " ${data.fromDate}",
-                          ),
-                          InfoRow(
-                            label: "End Date:",
-                            value: " ${data.toDate}",
-                          ),
-                        ],
+                      child: SizedBox(
+                        width: double.infinity,
+                        child: Column(
+                          mainAxisSize: MainAxisSize.min,
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: <Widget>[
+                        InfoRowRichText(
+                        label: "Session Name:",
+                          value: " ${data.sessionName}",
+                        ),
+                            InfoRowRichText(
+                              label: "Coaching Program :",
+                              value: " ${data.coachingProgram}",
+                            ),
+                            SizedBox(height: 2,),
+                            InfoRowRichText(
+                              label: "Player Name :",
+                              value: " ${data.playerName}",
+                            ),
+                            SizedBox(height: 2,),
+                            InfoRowRichText(
+                              label: "Term :",
+                              value: " ${data.term}",
+                            ),
+                            SizedBox(height: 2,),
+                            InfoRowRichText(
+                              label: "Session Day:",
+                              value: " ${data.sessionDay}",
+                            ),
+                            SizedBox(height: 2,),
+                            InfoRowRichText(
+                              label: "Start Time:",
+                              value: " ${data.startDate}",
+                            ),
+                            SizedBox(height: 2,),
+                            InfoRowRichText(
+                              label: "End Time:",
+                              value: " ${data.endDate}",
+                            ),
+                            SizedBox(height: 2,),
+                            InfoRowRichText(
+                              label: "Start Date:",
+                              value: " ${data.fromDate}",
+                            ),
+                            SizedBox(height: 2,),
+                            InfoRowRichText(
+                              label: "End Date:",
+                              value: " ${data.toDate}",
+                            ),
+                          ],
+                        ),
                       ),
                     ),
                   ),

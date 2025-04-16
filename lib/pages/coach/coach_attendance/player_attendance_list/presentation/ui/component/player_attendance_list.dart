@@ -119,7 +119,7 @@ class PlayerAttendanceList extends StatelessWidget {
                               ),
                               SizedBox(height: 5,),
                               SizedBox(
-                                height: 50,
+                                height: 75,
                                 child: ConstrainedBox(
                                   constraints: BoxConstraints(
                                       maxWidth: context.screenWidth * 0.8),
@@ -132,150 +132,157 @@ class PlayerAttendanceList extends StatelessWidget {
                                     itemBuilder: (context, index) {
                                       var attendanceData =
                                           data.attendanceRecords[index];
-                                      return Padding(
-                                        padding: const EdgeInsets.only(
-                                            right: 4.0, left: 6.0),
-                                        child: Column(
-                                          children: [
-                                            Text("${attendanceData.date}",
-                                                style: AppTextStyle.semiBold(
-                                                    MediaQuery.of(context)
-                                                            .size
-                                                            .width *
-                                                        0.0373)),
-                                            AttendanceCommonSmallElevatedButton(
-                                              label:
-                                                  "${attendanceData?.attendanceStatus}",
-                                              onPressed: () async {
-                                                var userdata = await getIt<
-                                                        SharedPrefs>()
-                                                    .getModel<
-                                                            OtpVerificationModel>(
-                                                        "user_model",
-                                                        (json) =>
-                                                            OtpVerificationModel
-                                                                .fromJson(
-                                                                    json));
-                                                if (userdata?.data.role ==
-                                                    "coach") {
-                                                  final selectedStatus =
-                                                      await showModalBottomSheet<
-                                                          String>(
-                                                    context: context,
-                                                    backgroundColor:
-                                                        Colors.transparent,
-                                                    // Makes the rounded corners visible
-                                                    builder: (context) {
-                                                      return Container(
-                                                        decoration:
-                                                            const BoxDecoration(
-                                                          color: Colors.white,
-                                                          borderRadius:
-                                                              BorderRadius.only(
-                                                            topLeft:
-                                                                Radius.circular(
-                                                                    20),
-                                                            topRight:
-                                                                Radius.circular(
-                                                                    20),
+                                      return Card(
+                                        elevation: 2,
+                                        color: Colors.white12,
+                                        shape: RoundedRectangleBorder(
+                                          borderRadius: BorderRadius.circular(4),
+                                        ),
+                                        child: Padding(
+                                          padding: const EdgeInsets.only(
+                                              right: 6.0, left: 6.0,top: 4,bottom: 4),
+                                          child: Column(
+                                            children: [
+                                              Text("${attendanceData.date}",
+                                                  style: AppTextStyle.semiBold(
+                                                      MediaQuery.of(context)
+                                                              .size
+                                                              .width *
+                                                          0.0373)),
+                                              AttendanceCommonSmallElevatedButton(
+                                                label:
+                                                    "${attendanceData?.attendanceStatus}",
+                                                onPressed: () async {
+                                                  var userdata = await getIt<
+                                                          SharedPrefs>()
+                                                      .getModel<
+                                                              OtpVerificationModel>(
+                                                          "user_model",
+                                                          (json) =>
+                                                              OtpVerificationModel
+                                                                  .fromJson(
+                                                                      json));
+                                                  if (userdata?.data.role ==
+                                                      "coach") {
+                                                    final selectedStatus =
+                                                        await showModalBottomSheet<
+                                                            String>(
+                                                      context: context,
+                                                      backgroundColor:
+                                                          Colors.transparent,
+                                                      // Makes the rounded corners visible
+                                                      builder: (context) {
+                                                        return Container(
+                                                          decoration:
+                                                              const BoxDecoration(
+                                                            color: Colors.white,
+                                                            borderRadius:
+                                                                BorderRadius.only(
+                                                              topLeft:
+                                                                  Radius.circular(
+                                                                      20),
+                                                              topRight:
+                                                                  Radius.circular(
+                                                                      20),
+                                                            ),
                                                           ),
-                                                        ),
-                                                        child: Column(
-                                                          mainAxisSize:
-                                                              MainAxisSize.min,
-                                                          children: [
-                                                            const Padding(
-                                                              padding: EdgeInsets
-                                                                  .only(
-                                                                      top: 16,
-                                                                      bottom:
-                                                                          8),
-                                                              child: Text(
-                                                                'Select Attendance Status',
-                                                                style:
-                                                                    TextStyle(
-                                                                  fontSize: 18,
-                                                                  fontWeight:
-                                                                      FontWeight
-                                                                          .bold,
-                                                                  color: Colors
-                                                                      .black87,
+                                                          child: Column(
+                                                            mainAxisSize:
+                                                                MainAxisSize.min,
+                                                            children: [
+                                                              const Padding(
+                                                                padding: EdgeInsets
+                                                                    .only(
+                                                                        top: 16,
+                                                                        bottom:
+                                                                            8),
+                                                                child: Text(
+                                                                  'Select Attendance Status',
+                                                                  style:
+                                                                      TextStyle(
+                                                                    fontSize: 18,
+                                                                    fontWeight:
+                                                                        FontWeight
+                                                                            .bold,
+                                                                    color: Colors
+                                                                        .black87,
+                                                                  ),
                                                                 ),
                                                               ),
-                                                            ),
-                                                            const Divider(
-                                                                height: 1,
-                                                                thickness: 1),
-                                                            _buildStatusItem(
-                                                                context,
-                                                                'Present',
-                                                                Icons
-                                                                    .check_circle,
-                                                                Colors.green),
-                                                            _buildStatusItem(
-                                                                context,
-                                                                'Absent',
-                                                                Icons.cancel,
-                                                                Colors.red),
-                                                            // _buildStatusItem(
-                                                            //     context,
-                                                            //     'Cancel',
-                                                            //     Icons.block,
-                                                            //     Colors.orange),
-                                                            _buildStatusItem(
-                                                                context,
-                                                                'Not Marked',
-                                                                Icons
-                                                                    .help_outline,
-                                                                Colors.grey),
-                                                            const SizedBox(
-                                                                height: 8),
-                                                          ],
-                                                        ),
-                                                      );
-                                                    },
-                                                  );
+                                                              const Divider(
+                                                                  height: 1,
+                                                                  thickness: 1),
+                                                              _buildStatusItem(
+                                                                  context,
+                                                                  'Present',
+                                                                  Icons
+                                                                      .check_circle,
+                                                                  Colors.green),
+                                                              _buildStatusItem(
+                                                                  context,
+                                                                  'Absent',
+                                                                  Icons.cancel,
+                                                                  Colors.red),
+                                                              // _buildStatusItem(
+                                                              //     context,
+                                                              //     'Cancel',
+                                                              //     Icons.block,
+                                                              //     Colors.orange),
+                                                              _buildStatusItem(
+                                                                  context,
+                                                                  'Not Marked',
+                                                                  Icons
+                                                                      .help_outline,
+                                                                  Colors.grey),
+                                                              const SizedBox(
+                                                                  height: 8),
+                                                            ],
+                                                          ),
+                                                        );
+                                                      },
+                                                    );
 
-                                                  if (selectedStatus != null) {
-                                                    var academyId = await getIt<
-                                                            SharedPrefs>()
-                                                        .getString(
-                                                            "selected_academyid");
-                                                    var status="";
-                                                    if(selectedStatus=="Not Marked"){
-                                                      status="cancel";
-                                                    }else{
-                                                      status=selectedStatus;
+                                                    if (selectedStatus != null) {
+                                                      var academyId = await getIt<
+                                                              SharedPrefs>()
+                                                          .getString(
+                                                              "selected_academyid");
+                                                      var status="";
+                                                      if(selectedStatus=="Not Marked"){
+                                                        status="cancel";
+                                                      }else{
+                                                        status=selectedStatus;
+                                                      }
+                                                      Map<String, dynamic> map = {
+                                                        "player_id": data.id,
+                                                        "session_id":
+                                                            attendanceData
+                                                                ?.sessionId,
+                                                        "academy_id": academyId,
+                                                        "date":
+                                                            attendanceData?.date,
+
+                                                        "status": status,
+                                                      };
+                                                      BlocProvider.of<
+                                                                  AttendanceBloc>(
+                                                              context)
+                                                          .add(
+                                                              UpdateAttendanceEvent(
+                                                                  map));
                                                     }
-                                                    Map<String, dynamic> map = {
-                                                      "player_id": data.id,
-                                                      "session_id":
-                                                          attendanceData
-                                                              ?.sessionId,
-                                                      "academy_id": academyId,
-                                                      "date":
-                                                          attendanceData?.date,
-
-                                                      "status": status,
-                                                    };
-                                                    BlocProvider.of<
-                                                                AttendanceBloc>(
-                                                            context)
-                                                        .add(
-                                                            UpdateAttendanceEvent(
-                                                                map));
                                                   }
-                                                }
 
-                                                },
-                                              color: AttendanceButtonUtils
-                                                  .getButtonColor(attendanceData
-                                                      ?.attendanceStatus),
-                                              textColor: AttendanceButtonUtils
-                                                  .getTextColor(attendanceData
-                                                      ?.attendanceStatus),
-                                            )
-                                          ],
+                                                  },
+                                                color: AttendanceButtonUtils
+                                                    .getButtonColor(attendanceData
+                                                        ?.attendanceStatus),
+                                                textColor: AttendanceButtonUtils
+                                                    .getTextColor(attendanceData
+                                                        ?.attendanceStatus),
+                                              )
+                                            ],
+                                          ),
                                         ),
                                       );
                                     },

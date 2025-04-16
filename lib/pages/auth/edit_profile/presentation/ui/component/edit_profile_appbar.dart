@@ -44,7 +44,10 @@ class EditProfileAppbar extends StatelessWidget {
             children: <Widget>[
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: Checkbox.width),
-                child: CommonBackground.BackButtonImage(context),
+                child: GestureDetector(
+                  onTap: onBackPressed,
+                  child: CommonBackground.BackButtonImage(context),
+                )
               ),
               SizedBox(
                 height: context.screenHeight * 0.038,

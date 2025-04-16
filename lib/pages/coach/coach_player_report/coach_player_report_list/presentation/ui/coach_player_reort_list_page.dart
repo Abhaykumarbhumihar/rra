@@ -1,3 +1,4 @@
+import 'package:flutter_animate/flutter_animate.dart';
 import 'package:rra/common/component/loading_indicator.dart';
 import 'package:rra/common/values/values_exports.dart';
 import 'package:rra/common/component/component_export.dart';
@@ -59,7 +60,9 @@ class CoachPlayerReortListAge extends StatelessWidget {
                     BlocProvider.of<ReportBloc>(context).add(ReportEventGetTermsSessionCoachingPlayerEvents({}));
 
                   },
-                ),
+                )  .animate()
+                    .fadeIn(duration: 1.3.seconds)
+                    .slideX(begin: -0.2, duration: 1.3.seconds, curve: Curves.easeOut),
                 const SizedBox(height: 6),
                 DropdownSelectionField(
                   controller: _programController,
@@ -78,7 +81,9 @@ class CoachPlayerReortListAge extends StatelessWidget {
                     BlocProvider.of<ReportBloc>(context).add(ReportEventGetTermsSessionCoachingPlayerEvents({}));
                     BlocProvider.of<ReportBloc>(context).add(GetReportChildListEvent({}));
                   },
-                ),
+                ).animate()
+                    .fadeIn(duration: 1.3.seconds)
+                    .slideY(begin: 1.3, duration: 1.3.seconds, curve: Curves.easeOut),
                 const SizedBox(height: 6),
                 DropdownSelectionField(
                   controller: _sessionController,
@@ -95,7 +100,9 @@ class CoachPlayerReortListAge extends StatelessWidget {
                     BlocProvider.of<ReportBloc>(context).add(ReportEventGetTermsSessionCoachingPlayerEvents({}));
                     BlocProvider.of<ReportBloc>(context).add(GetReportChildListEvent({}));
                   },
-                ),
+                ) .animate()
+                    .fadeIn(duration: 1.3.seconds)
+                    .slideX(begin: 0.2, duration: 1.3.seconds, curve: Curves.easeOut),
                 SizedBox(
                   height: 10,
                 ),
