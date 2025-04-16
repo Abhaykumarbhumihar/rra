@@ -65,7 +65,12 @@ class ResetPassword extends StatelessWidget {
                               horizontal: Checkbox.width),
                           child: Column(
                             children: [
-                              CommonBackground.BackButtonImage(context),
+                             GestureDetector(
+                               onTap: (){
+                                 Navigator.of(context).pop();
+                               },
+                               child:  CommonBackground.BackButtonImage(context),
+                             ),
                               SizedBox(
                                 height: height * 0.038,
                               ),

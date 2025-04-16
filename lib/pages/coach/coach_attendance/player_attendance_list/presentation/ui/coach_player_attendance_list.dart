@@ -60,9 +60,7 @@ class CoachPlayerAttendanceList extends StatelessWidget {
                       BlocProvider.of<AttendanceBloc>(context)
                           .add(FilterAttendanceListEvent({}));
                     },
-                  ).animate()
-                      .fadeIn(duration: 1.3.seconds)
-                      .slideX(begin: -0.2, duration: 1.3.seconds, curve: Curves.easeOut),
+                  ),
                   const SizedBox(height: 6),
                   DropdownSelectionField(
                     controller: _programController,
@@ -83,9 +81,7 @@ class CoachPlayerAttendanceList extends StatelessWidget {
                       BlocProvider.of<AttendanceBloc>(context)
                           .add(GetAttendanceListEvent({}));
                     },
-                  ).animate()
-                      .fadeIn(duration: 1.3.seconds)
-                      .slideY(begin: 1.3, duration: 1.3.seconds, curve: Curves.easeOut),
+                  ),
                   const SizedBox(height: 6),
                   DropdownSelectionField(
                     controller: _sessionController,
@@ -105,9 +101,7 @@ class CoachPlayerAttendanceList extends StatelessWidget {
                       BlocProvider.of<AttendanceBloc>(context)
                           .add(GetAttendanceListEvent({}));
                     },
-                  ).animate()
-                      .fadeIn(duration: 1.3.seconds)
-                      .slideX(begin: 0.2, duration: 1.3.seconds, curve: Curves.easeOut),
+                  ),
                   SizedBox(
                     height: 10,
                   ),

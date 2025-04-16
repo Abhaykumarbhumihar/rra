@@ -67,7 +67,7 @@ class AddDetail extends StatelessWidget {
                   Column(
                     children: [
                       CustomHeader(
-                        title: "Add Details",
+                        title: "Players",
                         onBackPress: () {
                           Navigator.pop(context);
                         },
@@ -238,8 +238,8 @@ class AddDetail extends StatelessWidget {
                                                   NetworkImageWidget(
                                                     fullimage: true,
                                                     imageUrl: data.image,
-                                                    imageHeight: 75,
-                                                    imageWidth: 75,
+                                                    imageHeight: 60,
+                                                    imageWidth: 60,
                                                     radiusAll: 8.0,
                                                   ),
                                                 SizedBox(width: 8),
@@ -262,7 +262,7 @@ class AddDetail extends StatelessWidget {
                                                         ),
                                                       ),
                                                       Text(
-                                                        "Dob: ${data.childDob}",
+                                                        "DOB: ${data.childDob}",
                                                         style: TextStyle(
                                                           color: AppColor
                                                               .appWhiteColor,
@@ -344,7 +344,7 @@ class AddDetail extends StatelessWidget {
                                                                       .white,
                                                                   fontSize:
                                                                       context.screenWidth *
-                                                                          0.032,
+                                                                          0.028,
                                                                   fontFamily:
                                                                       AppFont
                                                                           .interMedium,
@@ -479,7 +479,7 @@ class AddDetail extends StatelessWidget {
                                                                       .white,
                                                                   fontSize:
                                                                       context.screenWidth *
-                                                                          0.032,
+                                                                          0.028,
                                                                   fontFamily:
                                                                       AppFont
                                                                           .interMedium,

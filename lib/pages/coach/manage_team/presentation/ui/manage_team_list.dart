@@ -58,9 +58,7 @@ class ManageTeamList extends StatelessWidget {
                             ManageTeamReportEventGetTermsSessionCoachingPlayerEvents({}),
                           );
                         },
-                      )    .animate()
-                          .fadeIn(duration: 1.3.seconds)
-                          .slideX(begin: -0.2, duration: 1.3.seconds, curve: Curves.easeOut),
+                      ),
 
                       const SizedBox(height: 6),
 
@@ -78,9 +76,7 @@ class ManageTeamList extends StatelessWidget {
                           );
                           BlocProvider.of<ManageTeamBloc>(context).add(GetTeamListEvent({}));
                         },
-                      )  .animate()
-                          .fadeIn(duration: 1.3.seconds)
-                          .slideY(begin: 1.3, duration: 1.3.seconds, curve: Curves.easeOut),
+                      ),
 
                       const SizedBox(height: 6),
 
@@ -97,9 +93,7 @@ class ManageTeamList extends StatelessWidget {
                           );
                           BlocProvider.of<ManageTeamBloc>(context).add(GetTeamListEvent({}));
                         },
-                      )   .animate()
-                          .fadeIn(duration: 1.3.seconds)
-                          .slideX(begin: 0.2, duration: 1.3.seconds, curve: Curves.easeOut),
+                      ),
 
                       const SizedBox(height: 10),
 

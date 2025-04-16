@@ -91,7 +91,7 @@ class CreateAccount extends StatelessWidget {
             await getIt<SharedPrefs>().setModel("user_model", state.userdata);
             await getIt<SharedPrefs>().setString("token", state.userdata.token);
             var academyId = await getIt<SharedPrefs>().getString("selected_academyid");
-            BlocProvider.of<AttendanceBloc>(context).add(GetAttendanceListEvent({"academy_id":academyId}));
+            //BlocProvider.of<AttendanceBloc>(context).add(GetAttendanceListEvent({"academy_id":academyId}));
             BlocProvider.of<ViewSessionBloc>(context).add(GetBookedSessionListEvent({"academy_id":academyId}));
             var userdata = await getIt<SharedPrefs>().getModel<OtpVerificationModel>("user_model", (json) => OtpVerificationModel.fromJson(json));
             BlocProvider.of<AddDocumentBloc>(context).add(GetUploadedParentDocument({}));
