@@ -16,6 +16,7 @@ _$OrderSummaryModelImpl _$$OrderSummaryModelImplFromJson(
               .toList() ??
           const [],
       message: json['message'] as String? ?? '',
+      currency: json['currency'] as String? ?? '',
     );
 
 Map<String, dynamic> _$$OrderSummaryModelImplToJson(
@@ -25,6 +26,7 @@ Map<String, dynamic> _$$OrderSummaryModelImplToJson(
       'success': instance.success,
       'data': instance.data,
       'message': instance.message,
+      'currency': instance.currency,
     };
 
 _$ProgramDataImpl _$$ProgramDataImplFromJson(Map<String, dynamic> json) =>

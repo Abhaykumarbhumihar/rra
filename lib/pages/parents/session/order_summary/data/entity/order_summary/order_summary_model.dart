@@ -12,6 +12,7 @@ class OrderSummaryModel with _$OrderSummaryModel {
     @Default(false) bool success,
     @Default([]) List<ProgramData> data,
     @Default('') String message,
+    @Default('') String currency,
   }) = _OrderSummaryModel;
 
   factory OrderSummaryModel.fromJson(Map<String, dynamic> json) =>

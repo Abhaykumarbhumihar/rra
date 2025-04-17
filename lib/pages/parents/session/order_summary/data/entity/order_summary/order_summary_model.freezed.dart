@@ -24,6 +24,7 @@ mixin _$OrderSummaryModel {
   bool get success => throw _privateConstructorUsedError;
   List<ProgramData> get data => throw _privateConstructorUsedError;
   String get message => throw _privateConstructorUsedError;
+  String get currency => throw _privateConstructorUsedError;
 
   /// Serializes this OrderSummaryModel to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -41,7 +42,12 @@ abstract class $OrderSummaryModelCopyWith<$Res> {
           OrderSummaryModel value, $Res Function(OrderSummaryModel) then) =
       _$OrderSummaryModelCopyWithImpl<$Res, OrderSummaryModel>;
   @useResult
-  $Res call({int code, bool success, List<ProgramData> data, String message});
+  $Res call(
+      {int code,
+      bool success,
+      List<ProgramData> data,
+      String message,
+      String currency});
 }
 
 /// @nodoc
@@ -63,6 +69,7 @@ class _$OrderSummaryModelCopyWithImpl<$Res, $Val extends OrderSummaryModel>
     Object? success = null,
     Object? data = null,
     Object? message = null,
+    Object? currency = null,
   }) {
     return _then(_value.copyWith(
       code: null == code
@@ -81,6 +88,10 @@ class _$OrderSummaryModelCopyWithImpl<$Res, $Val extends OrderSummaryModel>
           ? _value.message
           : message // ignore: cast_nullable_to_non_nullable
               as String,
+      currency: null == currency
+          ? _value.currency
+          : currency // ignore: cast_nullable_to_non_nullable
+              as String,
     ) as $Val);
   }
 }
@@ -93,7 +104,12 @@ abstract class _$$OrderSummaryModelImplCopyWith<$Res>
       __$$OrderSummaryModelImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({int code, bool success, List<ProgramData> data, String message});
+  $Res call(
+      {int code,
+      bool success,
+      List<ProgramData> data,
+      String message,
+      String currency});
 }
 
 /// @nodoc
@@ -113,6 +129,7 @@ class __$$OrderSummaryModelImplCopyWithImpl<$Res>
     Object? success = null,
     Object? data = null,
     Object? message = null,
+    Object? currency = null,
   }) {
     return _then(_$OrderSummaryModelImpl(
       code: null == code
@@ -131,6 +148,10 @@ class __$$OrderSummaryModelImplCopyWithImpl<$Res>
           ? _value.message
           : message // ignore: cast_nullable_to_non_nullable
               as String,
+      currency: null == currency
+          ? _value.currency
+          : currency // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
   }
 }
@@ -142,7 +163,8 @@ class _$OrderSummaryModelImpl implements _OrderSummaryModel {
       {this.code = 200,
       this.success = false,
       final List<ProgramData> data = const [],
-      this.message = ''})
+      this.message = '',
+      this.currency = ''})
       : _data = data;
 
   factory _$OrderSummaryModelImpl.fromJson(Map<String, dynamic> json) =>
@@ -166,10 +188,13 @@ class _$OrderSummaryModelImpl implements _OrderSummaryModel {
   @override
   @JsonKey()
   final String message;
+  @override
+  @JsonKey()
+  final String currency;
 
   @override
   String toString() {
-    return 'OrderSummaryModel(code: $code, success: $success, data: $data, message: $message)';
+    return 'OrderSummaryModel(code: $code, success: $success, data: $data, message: $message, currency: $currency)';
   }
 
   @override
@@ -180,13 +205,15 @@ class _$OrderSummaryModelImpl implements _OrderSummaryModel {
             (identical(other.code, code) || other.code == code) &&
             (identical(other.success, success) || other.success == success) &&
             const DeepCollectionEquality().equals(other._data, _data) &&
-            (identical(other.message, message) || other.message == message));
+            (identical(other.message, message) || other.message == message) &&
+            (identical(other.currency, currency) ||
+                other.currency == currency));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(runtimeType, code, success,
-      const DeepCollectionEquality().hash(_data), message);
+      const DeepCollectionEquality().hash(_data), message, currency);
 
   /// Create a copy of OrderSummaryModel
   /// with the given fields replaced by the non-null parameter values.
@@ -210,7 +237,8 @@ abstract class _OrderSummaryModel implements OrderSummaryModel {
       {final int code,
       final bool success,
       final List<ProgramData> data,
-      final String message}) = _$OrderSummaryModelImpl;
+      final String message,
+      final String currency}) = _$OrderSummaryModelImpl;
 
   factory _OrderSummaryModel.fromJson(Map<String, dynamic> json) =
       _$OrderSummaryModelImpl.fromJson;
@@ -223,6 +251,8 @@ abstract class _OrderSummaryModel implements OrderSummaryModel {
   List<ProgramData> get data;
   @override
   String get message;
+  @override
+  String get currency;
 
   /// Create a copy of OrderSummaryModel
   /// with the given fields replaced by the non-null parameter values.
