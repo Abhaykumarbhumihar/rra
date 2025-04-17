@@ -235,23 +235,23 @@ class AddDocumentBloc extends Bloc<AddDocumentEvent, AddDocumentState> {
     //   return;
     // }
 
-    if (state.selectedFileName.isEmpty || state.document == null) {
-      emit(state.copyWith(
-          isError: true,
-          isLoading: false,
-          isUploadSuccess: false,
-          infoMessage: "Please select a file to upload."));
-      return;
-    }
+    // if (state.selectedFileName.isEmpty || state.document == null) {
+    //   emit(state.copyWith(
+    //       isError: true,
+    //       isLoading: false,
+    //       isUploadSuccess: false,
+    //       infoMessage: "Please select a file to upload."));
+    //   return;
+    // }
 
-    if (state.message.isEmpty) {
-      emit(state.copyWith(
-          isError: true,
-          isUploadSuccess: false,
-          isLoading: false,
-          infoMessage: "Please enter a message."));
-      return;
-    }
+    // if (state.message.isEmpty) {
+    //   emit(state.copyWith(
+    //       isError: true,
+    //       isUploadSuccess: false,
+    //       isLoading: false,
+    //       infoMessage: "Please enter a message."));
+    //   return;
+    // }
     if (!(await Connectivity().isConnected)) {
       emit(state.copyWith(
           isLoading: false,
@@ -290,8 +290,8 @@ class AddDocumentBloc extends Bloc<AddDocumentEvent, AddDocumentState> {
           "term_id": termIds,
         },
         "academy_id": int.tryParse(academyId) ?? 0,
-        "title": state.title,
-        "Comments": state.message,
+        "title": state.title.toString(),
+        "Comments": state.message.toString(),
         if (base64Image != null)
           "document_image": "data:image/png;base64," + base64Image,
       };

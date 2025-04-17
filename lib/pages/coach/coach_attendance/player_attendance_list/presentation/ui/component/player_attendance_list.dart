@@ -249,7 +249,7 @@ class PlayerAttendanceList extends StatelessWidget {
                                                               "selected_academyid");
                                                       var status="";
                                                       if(selectedStatus=="Not Marked"){
-                                                        status="cancel";
+                                                        status="Cancel";
                                                       }else{
                                                         status=selectedStatus;
                                                       }
