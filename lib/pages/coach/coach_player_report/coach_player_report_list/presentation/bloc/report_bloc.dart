@@ -23,6 +23,8 @@ class ReportBloc extends Bloc<ReportEvent, ReportState> {
     on<SessionSelected>(_sessionSelected);
     on<ProgramSelected>(_programSelected);
     on<AddScoreEvent>(_addScore);
+    on<ReportDetail>(_getReportDetail);
+    on<SetPlayerId>(_setCurrentPlayerId);
     on<ReportEventGetTermsSessionCoachingPlayerEvents>(
         _getTermsSessioCoachingPlayer);
   }
@@ -32,6 +34,12 @@ class ReportBloc extends Bloc<ReportEvent, ReportState> {
     emit(state.copyWith(termsId: event.term,
     sessionId: Session(),
       coachingProgramId: CoachingProgram()
+    ));
+  }
+
+  Future<void> _setCurrentPlayerId(
+      SetPlayerId event, Emitter<ReportState> emit) async {
+    emit(state.copyWith(playerId: event.playerId,
     ));
   }
 
@@ -232,7 +240,72 @@ class ReportBloc extends Bloc<ReportEvent, ReportState> {
             isError: false,
             isStatusUpdated: false,
             message: ""));
+        add(ReportDetail({}));
         add(GetReportChildListEvent({}));
+      });
+    } catch (error) {
+      emit(state.copyWith(isLoading: false, message: error.toString()));
+    }
+  }
+
+
+
+
+  Future<void> _getReportDetail(
+      ReportDetail event, Emitter<ReportState> emit) async {
+    try {
+      print("CLICKING HEREE_getChildAttendanceList_getChildAttendanceList ");
+      emit(state.copyWith(
+          isLoading: false,
+          isError: false,
+          isStatusUpdated: false,
+          message: ""));
+
+      if (!(await Connectivity().isConnected)) {
+        emit(state.copyWith(
+          message:
+          'No internet connection. Please check your connection \nand try again.',
+          isLoading: false,
+          isError: false,
+          isStatusUpdated: false,
+        ));
+        return;
+      }
+      final termIds = state.termsId;
+      final programIds = state.coachingProgramId;
+      final sessionIds = state.sessionId;
+
+
+
+      var academyId = await getIt<SharedPrefs>().getString("selected_academyid");
+      Map<String, dynamic> map = {
+        "academy_id": academyId,
+        "term_id":termIds.id,
+        "coaching_program_id":programIds.id,
+        "session_id":sessionIds.id,
+        'player_id':state.playerId
+      };
+      emit(state.copyWith(
+          isLoading: true,
+          isError: false,
+          isStatusUpdated: false,
+          message: ""));
+
+      final response = await _reportUsecase.getReportDetailExecute(map);
+      response.fold((failure) {
+        emit(state.copyWith(
+            isLoading: false,
+            isError: true,
+            isStatusUpdated: false,playerReportModel:PlayerReportModel(),
+            message: ""));
+      }, (useResult) {
+        emit(state.copyWith(
+            isLoading: false,
+            isError: false,
+            isStatusUpdated: false,
+            reportDetailModel: useResult,
+
+            message: ""));
       });
     } catch (error) {
       emit(state.copyWith(isLoading: false, message: error.toString()));

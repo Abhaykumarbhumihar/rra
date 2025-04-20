@@ -281,14 +281,14 @@ mixin _$ProgramData {
   String get toTime => throw _privateConstructorUsedError;
   @JsonKey(name: 'slots_left', fromJson: _parseSlotsLeft)
   int get slotsLeft => throw _privateConstructorUsedError;
-  @JsonKey(name: 'price_per_session')
+  @JsonKey(name: 'price_per_session', fromJson: _parseCurrency)
   double get pricePerSession => throw _privateConstructorUsedError;
   @JsonKey(name: 'number_of_sessions')
   int get numberOfSessions => throw _privateConstructorUsedError;
-  @JsonKey(name: 'total_amount')
+  @JsonKey(name: 'total_amount', fromJson: _parseCurrency)
   double get totalAmount => throw _privateConstructorUsedError;
   List<Discount> get discounts => throw _privateConstructorUsedError;
-  @JsonKey(name: 'total_after_discount')
+  @JsonKey(name: 'total_after_discount', fromJson: _parseCurrency)
   double get totalAfterDiscount => throw _privateConstructorUsedError;
   @JsonKey(name: 'booking_dates')
   List<String> get bookingDates => throw _privateConstructorUsedError;
@@ -317,11 +317,14 @@ abstract class $ProgramDataCopyWith<$Res> {
       @JsonKey(name: 'from_time') String fromTime,
       @JsonKey(name: 'to_time') String toTime,
       @JsonKey(name: 'slots_left', fromJson: _parseSlotsLeft) int slotsLeft,
-      @JsonKey(name: 'price_per_session') double pricePerSession,
+      @JsonKey(name: 'price_per_session', fromJson: _parseCurrency)
+      double pricePerSession,
       @JsonKey(name: 'number_of_sessions') int numberOfSessions,
-      @JsonKey(name: 'total_amount') double totalAmount,
+      @JsonKey(name: 'total_amount', fromJson: _parseCurrency)
+      double totalAmount,
       List<Discount> discounts,
-      @JsonKey(name: 'total_after_discount') double totalAfterDiscount,
+      @JsonKey(name: 'total_after_discount', fromJson: _parseCurrency)
+      double totalAfterDiscount,
       @JsonKey(name: 'booking_dates') List<String> bookingDates});
 }
 
@@ -427,11 +430,14 @@ abstract class _$$ProgramDataImplCopyWith<$Res>
       @JsonKey(name: 'from_time') String fromTime,
       @JsonKey(name: 'to_time') String toTime,
       @JsonKey(name: 'slots_left', fromJson: _parseSlotsLeft) int slotsLeft,
-      @JsonKey(name: 'price_per_session') double pricePerSession,
+      @JsonKey(name: 'price_per_session', fromJson: _parseCurrency)
+      double pricePerSession,
       @JsonKey(name: 'number_of_sessions') int numberOfSessions,
-      @JsonKey(name: 'total_amount') double totalAmount,
+      @JsonKey(name: 'total_amount', fromJson: _parseCurrency)
+      double totalAmount,
       List<Discount> discounts,
-      @JsonKey(name: 'total_after_discount') double totalAfterDiscount,
+      @JsonKey(name: 'total_after_discount', fromJson: _parseCurrency)
+      double totalAfterDiscount,
       @JsonKey(name: 'booking_dates') List<String> bookingDates});
 }
 
@@ -532,11 +538,14 @@ class _$ProgramDataImpl implements _ProgramData {
       @JsonKey(name: 'to_time') this.toTime = '',
       @JsonKey(name: 'slots_left', fromJson: _parseSlotsLeft)
       this.slotsLeft = 0,
-      @JsonKey(name: 'price_per_session') this.pricePerSession = 0.0,
+      @JsonKey(name: 'price_per_session', fromJson: _parseCurrency)
+      this.pricePerSession = 0.0,
       @JsonKey(name: 'number_of_sessions') this.numberOfSessions = 0,
-      @JsonKey(name: 'total_amount') this.totalAmount = 0.0,
+      @JsonKey(name: 'total_amount', fromJson: _parseCurrency)
+      this.totalAmount = 0.0,
       final List<Discount> discounts = const [],
-      @JsonKey(name: 'total_after_discount') this.totalAfterDiscount = 0.0,
+      @JsonKey(name: 'total_after_discount', fromJson: _parseCurrency)
+      this.totalAfterDiscount = 0.0,
       @JsonKey(name: 'booking_dates')
       final List<String> bookingDates = const []})
       : _discounts = discounts,
@@ -567,13 +576,13 @@ class _$ProgramDataImpl implements _ProgramData {
   @JsonKey(name: 'slots_left', fromJson: _parseSlotsLeft)
   final int slotsLeft;
   @override
-  @JsonKey(name: 'price_per_session')
+  @JsonKey(name: 'price_per_session', fromJson: _parseCurrency)
   final double pricePerSession;
   @override
   @JsonKey(name: 'number_of_sessions')
   final int numberOfSessions;
   @override
-  @JsonKey(name: 'total_amount')
+  @JsonKey(name: 'total_amount', fromJson: _parseCurrency)
   final double totalAmount;
   final List<Discount> _discounts;
   @override
@@ -585,7 +594,7 @@ class _$ProgramDataImpl implements _ProgramData {
   }
 
   @override
-  @JsonKey(name: 'total_after_discount')
+  @JsonKey(name: 'total_after_discount', fromJson: _parseCurrency)
   final double totalAfterDiscount;
   final List<String> _bookingDates;
   @override
@@ -669,22 +678,25 @@ class _$ProgramDataImpl implements _ProgramData {
 
 abstract class _ProgramData implements ProgramData {
   const factory _ProgramData(
-      {@JsonKey(name: 'player_names') final String playerNames,
-      @JsonKey(name: 'coaching_program') final String coachingProgram,
-      final String location,
-      @JsonKey(name: 'session_id', fromJson: _parseSessionId)
-      final int sessionId,
-      @JsonKey(name: 'from_time') final String fromTime,
-      @JsonKey(name: 'to_time') final String toTime,
-      @JsonKey(name: 'slots_left', fromJson: _parseSlotsLeft)
-      final int slotsLeft,
-      @JsonKey(name: 'price_per_session') final double pricePerSession,
-      @JsonKey(name: 'number_of_sessions') final int numberOfSessions,
-      @JsonKey(name: 'total_amount') final double totalAmount,
-      final List<Discount> discounts,
-      @JsonKey(name: 'total_after_discount') final double totalAfterDiscount,
-      @JsonKey(name: 'booking_dates')
-      final List<String> bookingDates}) = _$ProgramDataImpl;
+          {@JsonKey(name: 'player_names') final String playerNames,
+          @JsonKey(name: 'coaching_program') final String coachingProgram,
+          final String location,
+          @JsonKey(name: 'session_id', fromJson: _parseSessionId)
+          final int sessionId,
+          @JsonKey(name: 'from_time') final String fromTime,
+          @JsonKey(name: 'to_time') final String toTime,
+          @JsonKey(name: 'slots_left', fromJson: _parseSlotsLeft)
+          final int slotsLeft,
+          @JsonKey(name: 'price_per_session', fromJson: _parseCurrency)
+          final double pricePerSession,
+          @JsonKey(name: 'number_of_sessions') final int numberOfSessions,
+          @JsonKey(name: 'total_amount', fromJson: _parseCurrency)
+          final double totalAmount,
+          final List<Discount> discounts,
+          @JsonKey(name: 'total_after_discount', fromJson: _parseCurrency)
+          final double totalAfterDiscount,
+          @JsonKey(name: 'booking_dates') final List<String> bookingDates}) =
+      _$ProgramDataImpl;
 
   factory _ProgramData.fromJson(Map<String, dynamic> json) =
       _$ProgramDataImpl.fromJson;
@@ -710,18 +722,18 @@ abstract class _ProgramData implements ProgramData {
   @JsonKey(name: 'slots_left', fromJson: _parseSlotsLeft)
   int get slotsLeft;
   @override
-  @JsonKey(name: 'price_per_session')
+  @JsonKey(name: 'price_per_session', fromJson: _parseCurrency)
   double get pricePerSession;
   @override
   @JsonKey(name: 'number_of_sessions')
   int get numberOfSessions;
   @override
-  @JsonKey(name: 'total_amount')
+  @JsonKey(name: 'total_amount', fromJson: _parseCurrency)
   double get totalAmount;
   @override
   List<Discount> get discounts;
   @override
-  @JsonKey(name: 'total_after_discount')
+  @JsonKey(name: 'total_after_discount', fromJson: _parseCurrency)
   double get totalAfterDiscount;
   @override
   @JsonKey(name: 'booking_dates')
@@ -742,6 +754,7 @@ Discount _$DiscountFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$Discount {
   String get name => throw _privateConstructorUsedError;
+  @JsonKey(fromJson: _parseCurrency)
   double get amount => throw _privateConstructorUsedError;
   String get type => throw _privateConstructorUsedError;
 
@@ -760,7 +773,10 @@ abstract class $DiscountCopyWith<$Res> {
   factory $DiscountCopyWith(Discount value, $Res Function(Discount) then) =
       _$DiscountCopyWithImpl<$Res, Discount>;
   @useResult
-  $Res call({String name, double amount, String type});
+  $Res call(
+      {String name,
+      @JsonKey(fromJson: _parseCurrency) double amount,
+      String type});
 }
 
 /// @nodoc
@@ -807,7 +823,10 @@ abstract class _$$DiscountImplCopyWith<$Res>
       __$$DiscountImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String name, double amount, String type});
+  $Res call(
+      {String name,
+      @JsonKey(fromJson: _parseCurrency) double amount,
+      String type});
 }
 
 /// @nodoc
@@ -847,7 +866,10 @@ class __$$DiscountImplCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$DiscountImpl implements _Discount {
-  const _$DiscountImpl({this.name = '', this.amount = 0.0, this.type = ''});
+  const _$DiscountImpl(
+      {this.name = '',
+      @JsonKey(fromJson: _parseCurrency) this.amount = 0.0,
+      this.type = ''});
 
   factory _$DiscountImpl.fromJson(Map<String, dynamic> json) =>
       _$$DiscountImplFromJson(json);
@@ -856,7 +878,7 @@ class _$DiscountImpl implements _Discount {
   @JsonKey()
   final String name;
   @override
-  @JsonKey()
+  @JsonKey(fromJson: _parseCurrency)
   final double amount;
   @override
   @JsonKey()
@@ -900,7 +922,7 @@ class _$DiscountImpl implements _Discount {
 abstract class _Discount implements Discount {
   const factory _Discount(
       {final String name,
-      final double amount,
+      @JsonKey(fromJson: _parseCurrency) final double amount,
       final String type}) = _$DiscountImpl;
 
   factory _Discount.fromJson(Map<String, dynamic> json) =
@@ -909,6 +931,7 @@ abstract class _Discount implements Discount {
   @override
   String get name;
   @override
+  @JsonKey(fromJson: _parseCurrency)
   double get amount;
   @override
   String get type;

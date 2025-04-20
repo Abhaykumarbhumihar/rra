@@ -1,11 +1,13 @@
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:intl/intl.dart';
+import 'package:rra/common/routes/exports.dart';
 import 'package:rra/common/values/values_exports.dart';
 import 'package:rra/pages/parents/session/calendar/presentation/ui/component/recurring_dialog.dart';
 
 import '../../../../../../../common/component/screen_title.dart';
 import '../../../../../../../common/routes/routes.dart';
 import '../../../../../../../common/values/utils.dart';
+import '../../../../order_summary/presentation/bloc/order_summary_event.dart';
 import '../../bloc/session_calendar_bloc.dart';
 import '../../bloc/session_calendar_event.dart';
 import '../../bloc/session_calendar_state.dart';
@@ -205,6 +207,7 @@ class Availablity extends StatelessWidget {
   void _showCustomBottomSheet(
       BuildContext context, Map<String, dynamic> body, dayName) {
     var bloc = BlocProvider.of<SessionCalendarBloc>(context);
+    var blocSummary = BlocProvider.of<OrderSummaryBloc>(context);
     showModalBottomSheet(
       context: context,
       shape: const RoundedRectangleBorder(
@@ -217,6 +220,7 @@ class Availablity extends StatelessWidget {
             if (selectedOption == "Select and continue") {
               bloc.add(SetSelectTypeBottomSheetEvent("Select and continue"));
               bloc.add(SetSlotBooking(body));
+             // blocSummary.add(ResetStateEvent());
               Navigator.pushNamed(context, AppRoutes.ADDDETAILS);
 
               //  Navigator.pushNamed(context, AppRoutes.ADDDETAILS);
@@ -227,13 +231,13 @@ class Availablity extends StatelessWidget {
               bloc.add(SetSlotBooking(body));
               BlocProvider.of<SessionCalendarBloc>(context)
                   .add(SessionCalendarEvent.setSeletTypeBottomSheet(""));
-
+             // blocSummary.add(ResetStateEvent());
               recurringDialog(context, 52);
             }
             if (selectedOption == "Select and add another time") {
               bloc.add(
                   SetSelectTypeBottomSheetEvent("Select and add another time"));
-
+              //blocSummary.add(ResetStateEvent());
               bloc.add(SetSlotBooking(body));
            //   _scrollToBottom();
             }

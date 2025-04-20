@@ -67,26 +67,31 @@ class ParentOrderListItem extends StatelessWidget {
                       ? CommonSmallElevatedButton(
                     padding: EdgeInsets.symmetric(
                         horizontal: 20.0, vertical: 6.0),
-                    label: "Cancel",
+                    label:myOrder.status=="success"? "Cancel":"cancelled",
                     onPressed: () {
-                      ConfirmationDialog.show(
-                        context: context,
-                        title: 'Cancel Order!',
-                        description:
-                        'Are you sure you want to cancel this order?',
-                        confirmButtonText: 'Yes',
-                        onCancel: () {
-                          print('Cancelled');
-                        },
-                        onConfirm: () async {
-                          BlocProvider.of<ParentOrderBloc>(context).add(
-                              CancelOrderEvent({
-                                "order_id": myOrder.orderId.toString()
-                              }));
-                        },
-                      ).then((_) {
-                        // This ensures the overlay is removed if dialog is dismissed by tapping outside
-                      });
+                      if(myOrder.status=="success"){
+                        ConfirmationDialog.show(
+                          context: context,
+                          title: 'Cancel Order!',
+                          description:
+                          'Are you sure you want to cancel this order?',
+                          confirmButtonText: 'Yes',
+                          onCancel: () {
+                            print('Cancelled');
+                          },
+                          onConfirm: () async {
+                            BlocProvider.of<ParentOrderBloc>(context).add(
+                                CancelOrderEvent({
+                                  "order_id": myOrder.orderId.toString()
+                                }));
+                          },
+                        ).then((_) {
+                          // This ensures the overlay is removed if dialog is dismissed by tapping outside
+                        });
+                      }else{
+                        context.showCustomSnackbar("You have cancelled this order.");
+                      }
+
                     },
                     color: AppColor.appButtonColor,
                   )

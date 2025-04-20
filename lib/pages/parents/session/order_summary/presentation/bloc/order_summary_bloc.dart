@@ -31,9 +31,9 @@ class OrderSummaryBloc extends Bloc<OrderSummaryEvent, OrderSummaryState> {
     on<OrderPlaceEvent>(_order_place);
     on<OrderPlaceMentWithPaymentIdEvent>(_order_placeWithPaymentId);
     on<ResetStatusOfPaymentAndOrderAfterErrorEvent>(_resetStatusOfPaymentAndOrderAfterError);
-    on<ResetStateEvent>((event, emit) {
-      emit(OrderSummaryState.initial());
-    });
+    // on<ResetStateEvent>((event, emit) {
+    //   emit(OrderSummaryState.initial());
+    // });
   }
 
   Future<void> _resetStatusOfPaymentAndOrderAfterError(
@@ -252,11 +252,12 @@ orderId: "",
         isOrderPlaceError: false,
         isOrderPlaceSuccess: false,
         paymentID: ""));
-    print("C C C C C C CC C C C C C C C C C C");
+    print("C C C C C C CC C C${event.data} C C C C C C C C");
     final response =
         await _orderSummaryUsecase.getOrderSummaryExecute(event.data);
 
     response.fold((failure) {
+      print("==_getOrderSummary= ${failure.message} _getOrderSummary========\n\n");
       emit(state.copyWith(
           isOrderPlaceError: false,
           error:failure.message,
@@ -284,7 +285,7 @@ orderId: "",
         "academy_id": academyId,
       };
       if(orderSummaryData.data.isNotEmpty){
-        add(GetTotalPriceEvent(map));
+       // add(GetTotalPriceEvent(map));
       }
 
     });

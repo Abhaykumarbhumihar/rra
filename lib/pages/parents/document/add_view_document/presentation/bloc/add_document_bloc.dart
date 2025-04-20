@@ -25,6 +25,7 @@ class AddDocumentBloc extends Bloc<AddDocumentEvent, AddDocumentState> {
     on<SelectedTabEvent>(tabSelect);
     on<GetUploadedParentDocument>(_getParentUploadedDocument);
     on<SetTitleParentDocumentEvent>(_setTitle);
+    on<DocumentIdSetForUpload>(_setDocumentId);
     on<SetMessageParentDocumentEvent>(_setMessage);
     on<SetDocumentForParentDocumentEvent>(_setFile);
     on<SetSelectedCoachIdParentDocumentEvent>(_addSelectedCoach);
@@ -66,6 +67,7 @@ class AddDocumentBloc extends Bloc<AddDocumentEvent, AddDocumentState> {
         coachingProgram:[],
         session:[],
         player:[],
+        documentIds: "",
         message:"",
       infoMessage: "",
         isUploadSuccess:false,
@@ -78,6 +80,10 @@ class AddDocumentBloc extends Bloc<AddDocumentEvent, AddDocumentState> {
   Future<void> _setTitle(
       SetTitleParentDocumentEvent event, Emitter<AddDocumentState> emit) async {
     emit(state.copyWith(infoMessage: "", title: event.title,   isUploadSuccess: false,));
+  }
+  Future<void> _setDocumentId(
+      DocumentIdSetForUpload event, Emitter<AddDocumentState> emit) async {
+    emit(state.copyWith(infoMessage: "", documentIds: event.docid,   isUploadSuccess: false,));
   }
 
   Future<void> _removeSelectedCoach(
@@ -270,7 +276,11 @@ class AddDocumentBloc extends Bloc<AddDocumentEvent, AddDocumentState> {
 
       // Prepare the data for submission
       String? base64Image;
-      base64Image = await convertFileToBase64(state.document!);
+      if(state.document!=null){
+
+        base64Image = await convertFileToBase64(state.document!);
+      }
+
       final academyId = await getIt<SharedPrefs>().getString("selected_academyid");
       var userdata = await getIt<SharedPrefs>().getModel<OtpVerificationModel>(
           "user_model", (json) => OtpVerificationModel.fromJson(json));
@@ -292,6 +302,8 @@ class AddDocumentBloc extends Bloc<AddDocumentEvent, AddDocumentState> {
         "academy_id": int.tryParse(academyId) ?? 0,
         "title": state.title.toString(),
         "Comments": state.message.toString(),
+        if (state.documentIds != "")
+          "id": state.documentIds,
         if (base64Image != null)
           "document_image": "data:image/png;base64," + base64Image,
       };

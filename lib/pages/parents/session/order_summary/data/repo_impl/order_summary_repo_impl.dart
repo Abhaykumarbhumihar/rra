@@ -100,6 +100,7 @@ class OrderSummaryRepoImpl implements OrderSummaryRepositery {
       http.Response response =
       await _apiServices.post(AppConstant.getOrderSummaryData, orderSummaryData,useDefaultHeaders: true,isJson: true);
       print("nvnvnvnv+++vnvnv++++++++\n\n");
+      print("+++++++getOrderSummary++++++++++++++getSelgetOrderSummaryetedSession++++++++++getOrderSummary+++++++++++++++++++");
 
 
       if (response.statusCode == 200) {
@@ -107,17 +108,18 @@ class OrderSummaryRepoImpl implements OrderSummaryRepositery {
 
 
         if(responseData['success']){
-          print("CODE IS RU RURURURURURUR $responseData");//here my code is running
+          print("CODE IS RUgetOrderSummary RURURURURURUR getOrderSummary  $responseData");//here my code is running
           OrderSummaryModel orderSummaryModel=OrderSummaryModel.fromJson(responseData);
           ///here it is not wokring
           return Right(orderSummaryModel);
 
         }else{
-          print("CODE IS RU NNNNNNNN");
+          print("CODE IS RUgetOrderSummary NNNNNNNN $responseData");
           return Left(Failure(responseData['message']));
         }
 
       } else {
+        print("CODE IS RUgetOrderSummary NNNNNNNN ${response.body}");
         final errorMessage = _extractErrorMessage(response.body);
         return Left(Failure(errorMessage));
       }

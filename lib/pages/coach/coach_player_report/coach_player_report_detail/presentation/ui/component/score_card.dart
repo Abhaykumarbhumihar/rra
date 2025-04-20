@@ -1,5 +1,10 @@
+import 'package:rra/common/routes/exports.dart';
+import 'package:rra/common/service_locator/setivelocator.dart';
+
 import '../../../../../../../common/component/component_export.dart';
+import '../../../../../../../common/local/SharedPrefs.dart';
 import '../../../../../../../common/values/values_exports.dart';
+import '../../../../../../auth/otpverification/data/entity/otp_verification_model.dart';
 
 class ScoreCard extends StatelessWidget {
   final String title;
@@ -44,7 +49,7 @@ class ScoreCard extends StatelessWidget {
                       ),
                     ],
                   ),
-                  Column(
+                 BlocProvider.of<AppBloc>(context).state.userdata.data.role=="coach"?  Column(
                     children: [
                       const SizedBox(height: 10),
                       CommonSmallElevatedButton(
@@ -56,7 +61,7 @@ class ScoreCard extends StatelessWidget {
                       ),
                       const SizedBox(height: 9.0),
                     ],
-                  )
+                  ):SizedBox()
                 ],
               )
             ],

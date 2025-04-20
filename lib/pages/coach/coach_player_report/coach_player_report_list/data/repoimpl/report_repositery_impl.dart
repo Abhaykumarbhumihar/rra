@@ -11,6 +11,7 @@ import '../../../../../../common/network/app_constant.dart';
 import '../../../../../../common/network/failure.dart';
 import '../../../../../../common/service_locator/setivelocator.dart';
 import '../../domain/repositery/report_repositer.dart';
+import '../entity/report_detail/report_detail.dart';
 import '../entity/report_model.dart';
 
 
@@ -31,6 +32,33 @@ class ReportRepositeryImpl implements ReportRepositer {
         final Map<String, dynamic> responseData = jsonDecode(response.body);
         if(responseData['success']){
           PlayerReportModel playerReportModel=PlayerReportModel.fromJson(responseData);
+          return Right(playerReportModel);
+        }else{
+          return Left(Failure(responseData['success']));
+        }
+
+      } else {
+        final errorMessage = _extractErrorMessage(response.body);
+        return Left(Failure(errorMessage));
+      }
+    } catch (e) {
+      return Left(Failure("$e"));
+    }
+  }
+
+
+  @override
+  Future<Either<Failure, ReportDetail>> reportDetail(Map<String, dynamic> loginData)async {
+    try {
+
+      print(loginData);
+      http.Response response =
+      await _apiServices.post(AppConstant.getViewReportDetail, loginData,useDefaultHeaders: true,isJson: true);
+      print(response.body);
+      if (response.statusCode == 200) {
+        final Map<String, dynamic> responseData = jsonDecode(response.body);
+        if(responseData['success']){
+          ReportDetail playerReportModel=ReportDetail.fromJson(responseData);
           return Right(playerReportModel);
         }else{
           return Left(Failure(responseData['success']));

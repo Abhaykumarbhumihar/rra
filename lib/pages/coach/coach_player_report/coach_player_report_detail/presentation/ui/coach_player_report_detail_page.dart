@@ -1,7 +1,11 @@
 import 'package:rra/common/values/values_exports.dart';
 import 'package:rra/common/component/component_export.dart';
 
+import '../../../../../../common/local/SharedPrefs.dart';
 import '../../../../../../common/routes/routes.dart';
+import '../../../../../../common/service_locator/setivelocator.dart';
+import '../../../../../auth/otpverification/data/entity/otp_verification_model.dart';
+import '../../../coach_player_report_list/data/entity/report_detail/report_detail.dart';
 import '../../../coach_player_report_list/data/entity/report_model.dart';
 import '../../../coach_player_report_list/presentation/bloc/report_bloc.dart';
 import '../../../coach_player_report_list/presentation/bloc/report_state.dart';
@@ -14,16 +18,16 @@ class CoachPlayerReportDetailPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final args = ModalRoute.of(context)!.settings.arguments
-        as Map<String, PlayerReportData>;
-    final reportData = args['childReportData']!;
+    // final args = ModalRoute.of(context)!.settings.arguments
+    //     as Map<String, PlayerReportData>;
+    // final reportData = args['childReportData']!;
 
     return BlocListener<ReportBloc, ReportState>(
       listener: (context, state) {},
       child: BlocBuilder<ReportBloc, ReportState>(
         builder: (context, state) {
           return CommonPageFormat(
-            title: reportData.session,
+            title: state.reportDetailModel.data.session,
             onBackPress: () => Navigator.pop(context),
             child: Padding(
               padding: EdgeInsets.symmetric(
@@ -34,10 +38,10 @@ class CoachPlayerReportDetailPage extends StatelessWidget {
                   const SizedBox(height: 24),
 
                   PlayerInfoCard(
-                    reportData: reportData,
+                    reportData: state.reportDetailModel,
                     onViewReport: () {
-                      Map<String, PlayerReportData> arguments = {
-                        "childReportData": reportData,
+                      Map<String, ReportDetail> arguments = {
+                        "childReportData": state.reportDetailModel,
 
                       };
                    Navigator.pushNamed(context, AppRoutes.COACHPLAYERREPOORTWEBVIEWPAGE,arguments: arguments);
@@ -48,12 +52,13 @@ class CoachPlayerReportDetailPage extends StatelessWidget {
 
                   const SizedBox(height: 10),
                   ListView.builder(
-                      itemCount: reportData.performanceElements.length,
+                      itemCount: state.reportDetailModel.data.performanceElement.length,
                       shrinkWrap: true,
                       physics: BouncingScrollPhysics(),
                       padding: EdgeInsets.zero,
                       itemBuilder: (context, index) {
-                        var data = reportData.performanceElements[index];
+
+                        var data =state.reportDetailModel.data.performanceElement[index];
                         return ScoreCard(
                           title: "${data.performanceElementTitle}",
                           marks: data.marks,
@@ -75,7 +80,7 @@ class CoachPlayerReportDetailPage extends StatelessWidget {
 
 
 
-  Future<void> _handleAddScore(BuildContext context,  AddScore? addScore, PerformanceElement performanceData,) async {
+  Future<void> _handleAddScore(BuildContext context,  AddScoreDetail addScore, PerformanceElementDetail performanceData,) async {
     // Call the dialog with dynamic sliders
     final result = await showStrikeRotationDialog(
       context: context,
@@ -96,8 +101,8 @@ class CoachPlayerReportDetailPage extends StatelessWidget {
 // Helper function to show the dialog with dynamic configuration
   Future<Map<String, dynamic>?> showStrikeRotationDialog({
     required BuildContext context,
-    required List<Score> sliderConfigs,
-    required PerformanceElement performanceData,
+    required List<ScoreDetail> sliderConfigs,
+    required PerformanceElementDetail performanceData,
     String? initialComment,
   }) {
     return showDialog<Map<String, dynamic>>(

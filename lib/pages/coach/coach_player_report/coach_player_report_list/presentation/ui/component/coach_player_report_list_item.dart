@@ -4,6 +4,7 @@ import 'package:rra/common/values/values_exports.dart';
 import '../../../../../../../common/routes/routes.dart';
 import '../../../data/entity/report_model.dart';
 import '../../bloc/report_bloc.dart';
+import '../../bloc/report_event.dart';
 import '../../bloc/report_state.dart';
 
 class CoachPlayerReportListItem extends StatelessWidget {
@@ -87,6 +88,10 @@ class CoachPlayerReportListItem extends StatelessWidget {
                           padding: EdgeInsets.symmetric(horizontal: 16.0,vertical: 6.0),
                           label: "Add/View",
                           onPressed: (){
+
+BlocProvider.of<ReportBloc>(context).add(SetPlayerId(data.childId.toString()));
+BlocProvider.of<ReportBloc>(context).add(ReportDetail({}));
+
                             Map<String, PlayerReportData> arguments = {
                               "childReportData": data,
 

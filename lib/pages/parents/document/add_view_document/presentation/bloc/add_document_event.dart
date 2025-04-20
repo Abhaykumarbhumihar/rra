@@ -28,4 +28,5 @@ class AddDocumentEvent with _$AddDocumentEvent {
   const factory AddDocumentEvent.removeSelectedPlayer(Player player) = RemoveSelectedPlayervent;
   const factory AddDocumentEvent.selectParentOrCoach(int coachParentSelect) = SelectParentCoachEvent;
   const factory AddDocumentEvent.resetAfterUploadDocument() = ResetAfterDocumentUploadEvent;
+  const factory AddDocumentEvent.setDocumentId(String docid) = DocumentIdSetForUpload;
 }

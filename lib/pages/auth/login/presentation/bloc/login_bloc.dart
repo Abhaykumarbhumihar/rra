@@ -116,6 +116,7 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
         'password': state.password ?? "",
         'email': state.email.toString().toLowerCase().trim(),
         'academy_id': academyId,
+        'fcm_token':"sdfdsfsdf"
       };
       emit(state.copyWith(
           isLoading: true,

@@ -1,7 +1,5 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-
-
 part 'order_summary_model.freezed.dart';
 part 'order_summary_model.g.dart';
 
@@ -29,11 +27,11 @@ class ProgramData with _$ProgramData {
     @JsonKey(name: 'from_time') @Default('') String fromTime,
     @JsonKey(name: 'to_time') @Default('') String toTime,
     @JsonKey(name: 'slots_left', fromJson: _parseSlotsLeft) @Default(0) int slotsLeft,
-    @JsonKey(name: 'price_per_session') @Default(0.0) double pricePerSession,
+    @JsonKey(name: 'price_per_session', fromJson: _parseCurrency) @Default(0.0) double pricePerSession,
     @JsonKey(name: 'number_of_sessions') @Default(0) int numberOfSessions,
-    @JsonKey(name: 'total_amount') @Default(0.0) double totalAmount,
+    @JsonKey(name: 'total_amount', fromJson: _parseCurrency) @Default(0.0) double totalAmount,
     @Default([]) List<Discount> discounts,
-    @JsonKey(name: 'total_after_discount') @Default(0.0) double totalAfterDiscount,
+    @JsonKey(name: 'total_after_discount', fromJson: _parseCurrency) @Default(0.0) double totalAfterDiscount,
     @JsonKey(name: 'booking_dates') @Default([]) List<String> bookingDates,
   }) = _ProgramData;
 
@@ -45,7 +43,7 @@ class ProgramData with _$ProgramData {
 class Discount with _$Discount {
   const factory Discount({
     @Default('') String name,
-    @Default(0.0) double amount,
+    @JsonKey(fromJson: _parseCurrency) @Default(0.0) double amount,
     @Default('') String type,
   }) = _Discount;
 
@@ -53,16 +51,26 @@ class Discount with _$Discount {
       _$DiscountFromJson(json);
 }
 
-// Helper function to parse session_id which might come as String or int
+// Helper functions
 int _parseSessionId(dynamic value) {
   if (value is int) return value;
   if (value is String) return int.tryParse(value) ?? 0;
   return 0;
 }
 
-// Helper function to parse slots_left which might come as String or int
 int _parseSlotsLeft(dynamic value) {
   if (value is int) return value;
   if (value is String) return int.tryParse(value) ?? 0;
   return 0;
+}
+
+double _parseCurrency(dynamic value) {
+  if (value is num) return value.toDouble();
+  if (value is String) {
+    // Remove currency symbols and commas
+    final numericString = value
+        .replaceAll(RegExp(r'[^\d.]'), '');
+    return double.tryParse(numericString) ?? 0.0;
+  }
+  return 0.0;
 }

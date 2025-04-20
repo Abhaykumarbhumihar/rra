@@ -529,6 +529,7 @@ class AddDetail extends StatelessWidget {
                                         child: CustomButton(
                                           text: "Continue",
                                           onPressed: () async {
+
                                             if (BlocProvider.of<
                                                             SessionCalendarBloc>(
                                                         context)
@@ -544,6 +545,7 @@ class AddDetail extends StatelessWidget {
                                                 context.showCustomSnackbar(
                                                     "Please select minimum 1 child");
                                               } else {
+                                               // BlocProvider.of<OrderSummaryBloc>(context).add(const ResetStateEvent());
                                                 var academyId = await getIt<
                                                         SharedPrefs>()
                                                     .getString(
@@ -558,11 +560,14 @@ class AddDetail extends StatelessWidget {
                                                         context)
                                                     .add(
                                                         ResetStatusOfPaymentAndOrderAfterErrorEvent());
+
+
                                                 BlocProvider.of<
                                                             OrderSummaryBloc>(
                                                         context)
                                                     .add(GetOrderSummaryEvent(
                                                         mapData));
+
                                                 Navigator.pushNamed(context,
                                                     AppRoutes.ORDERSUMMARY);
                                               }

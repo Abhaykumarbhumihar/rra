@@ -1,10 +1,12 @@
+import 'package:rra/pages/coach/coach_player_report/coach_player_report_list/data/entity/report_detail/report_detail.dart';
+
 import '../../../../../../../common/component/component_export.dart';
 import '../../../../../../../common/component/info_row.dart';
 import '../../../../../../../common/values/values_exports.dart';
 import '../../../../coach_player_report_list/data/entity/report_model.dart';
 
 class PlayerInfoCard extends StatelessWidget {
-  final PlayerReportData reportData;
+  final ReportDetail reportData;
   final VoidCallback onViewReport;
 
   const PlayerInfoCard({
@@ -34,21 +36,21 @@ class PlayerInfoCard extends StatelessWidget {
                 children: [
                   InfoRow(
                     label: "Term Name :",
-                    value: " ${reportData.term}",
+                    value: " ${reportData.data.term}",
                   ),
                   InfoRow(
                     label: "Session :",
-                    value: " ${reportData.session}",
+                    value: " ${reportData.data.term}",
                   ),
                 ],
               ),
-              CommonSmallElevatedButton(
+              reportData.data.isWebviewData? CommonSmallElevatedButton(
                 padding: const EdgeInsets.symmetric(
                     horizontal: 16.0, vertical: 6.0),
                 label: "View Report",
                 onPressed: onViewReport,
                 color: Colors.blue,
-              )
+              ):SizedBox()
             ],
           )
         ],

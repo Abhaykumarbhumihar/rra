@@ -44,6 +44,7 @@ class OrderSummary extends StatelessWidget {
 
     return BlocListener<OrderSummaryBloc, OrderSummaryState>(
       listener: (context, state) async {
+        print(state);
         if (state.couponErrorMessage != '') {
           context.showCustomSnackbar(state.couponErrorMessage);
         }
@@ -107,16 +108,17 @@ class OrderSummary extends StatelessWidget {
         }
 
         if(state.isLoading==false &&  state.orderSummaryModel.data.isEmpty){
-          BlocProvider.of<OrderSummaryBloc>(context)
-              .add(ResetStatusOfPaymentAndOrderAfterErrorEvent());
-          BlocProvider.of<SessionCalendarBloc>(context)
-              .add(GetSelectedSessionEvent());
-          Navigator.of(context).pop();
+          // BlocProvider.of<OrderSummaryBloc>(context)
+          //     .add(ResetStatusOfPaymentAndOrderAfterErrorEvent());
+          // BlocProvider.of<SessionCalendarBloc>(context)
+          //     .add(GetSelectedSessionEvent());
+          // Navigator.of(context).pop();
         }
 
 
       },
       child: BlocBuilder<OrderSummaryBloc, OrderSummaryState>(
+
         builder: (context, state) {
           return WillPopScope(
             onWillPop: () async {

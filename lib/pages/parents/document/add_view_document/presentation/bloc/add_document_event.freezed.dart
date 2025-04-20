@@ -39,6 +39,7 @@ mixin _$AddDocumentEvent {
     required TResult Function(Player player) removeSelectedPlayer,
     required TResult Function(int coachParentSelect) selectParentOrCoach,
     required TResult Function() resetAfterUploadDocument,
+    required TResult Function(String docid) setDocumentId,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -63,6 +64,7 @@ mixin _$AddDocumentEvent {
     TResult? Function(Player player)? removeSelectedPlayer,
     TResult? Function(int coachParentSelect)? selectParentOrCoach,
     TResult? Function()? resetAfterUploadDocument,
+    TResult? Function(String docid)? setDocumentId,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -86,6 +88,7 @@ mixin _$AddDocumentEvent {
     TResult Function(Player player)? removeSelectedPlayer,
     TResult Function(int coachParentSelect)? selectParentOrCoach,
     TResult Function()? resetAfterUploadDocument,
+    TResult Function(String docid)? setDocumentId,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -124,6 +127,7 @@ mixin _$AddDocumentEvent {
     required TResult Function(SelectParentCoachEvent value) selectParentOrCoach,
     required TResult Function(ResetAfterDocumentUploadEvent value)
         resetAfterUploadDocument,
+    required TResult Function(DocumentIdSetForUpload value) setDocumentId,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -154,6 +158,7 @@ mixin _$AddDocumentEvent {
     TResult? Function(SelectParentCoachEvent value)? selectParentOrCoach,
     TResult? Function(ResetAfterDocumentUploadEvent value)?
         resetAfterUploadDocument,
+    TResult? Function(DocumentIdSetForUpload value)? setDocumentId,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -182,6 +187,7 @@ mixin _$AddDocumentEvent {
     TResult Function(SelectParentCoachEvent value)? selectParentOrCoach,
     TResult Function(ResetAfterDocumentUploadEvent value)?
         resetAfterUploadDocument,
+    TResult Function(DocumentIdSetForUpload value)? setDocumentId,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -298,6 +304,7 @@ class _$SelectedTabEventImpl implements SelectedTabEvent {
     required TResult Function(Player player) removeSelectedPlayer,
     required TResult Function(int coachParentSelect) selectParentOrCoach,
     required TResult Function() resetAfterUploadDocument,
+    required TResult Function(String docid) setDocumentId,
   }) {
     return selectTabEvent(tabno);
   }
@@ -325,6 +332,7 @@ class _$SelectedTabEventImpl implements SelectedTabEvent {
     TResult? Function(Player player)? removeSelectedPlayer,
     TResult? Function(int coachParentSelect)? selectParentOrCoach,
     TResult? Function()? resetAfterUploadDocument,
+    TResult? Function(String docid)? setDocumentId,
   }) {
     return selectTabEvent?.call(tabno);
   }
@@ -351,6 +359,7 @@ class _$SelectedTabEventImpl implements SelectedTabEvent {
     TResult Function(Player player)? removeSelectedPlayer,
     TResult Function(int coachParentSelect)? selectParentOrCoach,
     TResult Function()? resetAfterUploadDocument,
+    TResult Function(String docid)? setDocumentId,
     required TResult orElse(),
   }) {
     if (selectTabEvent != null) {
@@ -395,6 +404,7 @@ class _$SelectedTabEventImpl implements SelectedTabEvent {
     required TResult Function(SelectParentCoachEvent value) selectParentOrCoach,
     required TResult Function(ResetAfterDocumentUploadEvent value)
         resetAfterUploadDocument,
+    required TResult Function(DocumentIdSetForUpload value) setDocumentId,
   }) {
     return selectTabEvent(this);
   }
@@ -428,6 +438,7 @@ class _$SelectedTabEventImpl implements SelectedTabEvent {
     TResult? Function(SelectParentCoachEvent value)? selectParentOrCoach,
     TResult? Function(ResetAfterDocumentUploadEvent value)?
         resetAfterUploadDocument,
+    TResult? Function(DocumentIdSetForUpload value)? setDocumentId,
   }) {
     return selectTabEvent?.call(this);
   }
@@ -459,6 +470,7 @@ class _$SelectedTabEventImpl implements SelectedTabEvent {
     TResult Function(SelectParentCoachEvent value)? selectParentOrCoach,
     TResult Function(ResetAfterDocumentUploadEvent value)?
         resetAfterUploadDocument,
+    TResult Function(DocumentIdSetForUpload value)? setDocumentId,
     required TResult orElse(),
   }) {
     if (selectTabEvent != null) {
@@ -580,6 +592,7 @@ class _$GetUploadedParentDocumentImpl implements GetUploadedParentDocument {
     required TResult Function(Player player) removeSelectedPlayer,
     required TResult Function(int coachParentSelect) selectParentOrCoach,
     required TResult Function() resetAfterUploadDocument,
+    required TResult Function(String docid) setDocumentId,
   }) {
     return getParentUploadedDocument(data);
   }
@@ -607,6 +620,7 @@ class _$GetUploadedParentDocumentImpl implements GetUploadedParentDocument {
     TResult? Function(Player player)? removeSelectedPlayer,
     TResult? Function(int coachParentSelect)? selectParentOrCoach,
     TResult? Function()? resetAfterUploadDocument,
+    TResult? Function(String docid)? setDocumentId,
   }) {
     return getParentUploadedDocument?.call(data);
   }
@@ -633,6 +647,7 @@ class _$GetUploadedParentDocumentImpl implements GetUploadedParentDocument {
     TResult Function(Player player)? removeSelectedPlayer,
     TResult Function(int coachParentSelect)? selectParentOrCoach,
     TResult Function()? resetAfterUploadDocument,
+    TResult Function(String docid)? setDocumentId,
     required TResult orElse(),
   }) {
     if (getParentUploadedDocument != null) {
@@ -677,6 +692,7 @@ class _$GetUploadedParentDocumentImpl implements GetUploadedParentDocument {
     required TResult Function(SelectParentCoachEvent value) selectParentOrCoach,
     required TResult Function(ResetAfterDocumentUploadEvent value)
         resetAfterUploadDocument,
+    required TResult Function(DocumentIdSetForUpload value) setDocumentId,
   }) {
     return getParentUploadedDocument(this);
   }
@@ -710,6 +726,7 @@ class _$GetUploadedParentDocumentImpl implements GetUploadedParentDocument {
     TResult? Function(SelectParentCoachEvent value)? selectParentOrCoach,
     TResult? Function(ResetAfterDocumentUploadEvent value)?
         resetAfterUploadDocument,
+    TResult? Function(DocumentIdSetForUpload value)? setDocumentId,
   }) {
     return getParentUploadedDocument?.call(this);
   }
@@ -741,6 +758,7 @@ class _$GetUploadedParentDocumentImpl implements GetUploadedParentDocument {
     TResult Function(SelectParentCoachEvent value)? selectParentOrCoach,
     TResult Function(ResetAfterDocumentUploadEvent value)?
         resetAfterUploadDocument,
+    TResult Function(DocumentIdSetForUpload value)? setDocumentId,
     required TResult orElse(),
   }) {
     if (getParentUploadedDocument != null) {
@@ -866,6 +884,7 @@ class _$GetTermsSessionCoachingPlayerEventsImpl
     required TResult Function(Player player) removeSelectedPlayer,
     required TResult Function(int coachParentSelect) selectParentOrCoach,
     required TResult Function() resetAfterUploadDocument,
+    required TResult Function(String docid) setDocumentId,
   }) {
     return getTermsSessionPlayer(data);
   }
@@ -893,6 +912,7 @@ class _$GetTermsSessionCoachingPlayerEventsImpl
     TResult? Function(Player player)? removeSelectedPlayer,
     TResult? Function(int coachParentSelect)? selectParentOrCoach,
     TResult? Function()? resetAfterUploadDocument,
+    TResult? Function(String docid)? setDocumentId,
   }) {
     return getTermsSessionPlayer?.call(data);
   }
@@ -919,6 +939,7 @@ class _$GetTermsSessionCoachingPlayerEventsImpl
     TResult Function(Player player)? removeSelectedPlayer,
     TResult Function(int coachParentSelect)? selectParentOrCoach,
     TResult Function()? resetAfterUploadDocument,
+    TResult Function(String docid)? setDocumentId,
     required TResult orElse(),
   }) {
     if (getTermsSessionPlayer != null) {
@@ -963,6 +984,7 @@ class _$GetTermsSessionCoachingPlayerEventsImpl
     required TResult Function(SelectParentCoachEvent value) selectParentOrCoach,
     required TResult Function(ResetAfterDocumentUploadEvent value)
         resetAfterUploadDocument,
+    required TResult Function(DocumentIdSetForUpload value) setDocumentId,
   }) {
     return getTermsSessionPlayer(this);
   }
@@ -996,6 +1018,7 @@ class _$GetTermsSessionCoachingPlayerEventsImpl
     TResult? Function(SelectParentCoachEvent value)? selectParentOrCoach,
     TResult? Function(ResetAfterDocumentUploadEvent value)?
         resetAfterUploadDocument,
+    TResult? Function(DocumentIdSetForUpload value)? setDocumentId,
   }) {
     return getTermsSessionPlayer?.call(this);
   }
@@ -1027,6 +1050,7 @@ class _$GetTermsSessionCoachingPlayerEventsImpl
     TResult Function(SelectParentCoachEvent value)? selectParentOrCoach,
     TResult Function(ResetAfterDocumentUploadEvent value)?
         resetAfterUploadDocument,
+    TResult Function(DocumentIdSetForUpload value)? setDocumentId,
     required TResult orElse(),
   }) {
     if (getTermsSessionPlayer != null) {
@@ -1144,6 +1168,7 @@ class _$SetTitleParentDocumentEventImpl implements SetTitleParentDocumentEvent {
     required TResult Function(Player player) removeSelectedPlayer,
     required TResult Function(int coachParentSelect) selectParentOrCoach,
     required TResult Function() resetAfterUploadDocument,
+    required TResult Function(String docid) setDocumentId,
   }) {
     return setTitle(title);
   }
@@ -1171,6 +1196,7 @@ class _$SetTitleParentDocumentEventImpl implements SetTitleParentDocumentEvent {
     TResult? Function(Player player)? removeSelectedPlayer,
     TResult? Function(int coachParentSelect)? selectParentOrCoach,
     TResult? Function()? resetAfterUploadDocument,
+    TResult? Function(String docid)? setDocumentId,
   }) {
     return setTitle?.call(title);
   }
@@ -1197,6 +1223,7 @@ class _$SetTitleParentDocumentEventImpl implements SetTitleParentDocumentEvent {
     TResult Function(Player player)? removeSelectedPlayer,
     TResult Function(int coachParentSelect)? selectParentOrCoach,
     TResult Function()? resetAfterUploadDocument,
+    TResult Function(String docid)? setDocumentId,
     required TResult orElse(),
   }) {
     if (setTitle != null) {
@@ -1241,6 +1268,7 @@ class _$SetTitleParentDocumentEventImpl implements SetTitleParentDocumentEvent {
     required TResult Function(SelectParentCoachEvent value) selectParentOrCoach,
     required TResult Function(ResetAfterDocumentUploadEvent value)
         resetAfterUploadDocument,
+    required TResult Function(DocumentIdSetForUpload value) setDocumentId,
   }) {
     return setTitle(this);
   }
@@ -1274,6 +1302,7 @@ class _$SetTitleParentDocumentEventImpl implements SetTitleParentDocumentEvent {
     TResult? Function(SelectParentCoachEvent value)? selectParentOrCoach,
     TResult? Function(ResetAfterDocumentUploadEvent value)?
         resetAfterUploadDocument,
+    TResult? Function(DocumentIdSetForUpload value)? setDocumentId,
   }) {
     return setTitle?.call(this);
   }
@@ -1305,6 +1334,7 @@ class _$SetTitleParentDocumentEventImpl implements SetTitleParentDocumentEvent {
     TResult Function(SelectParentCoachEvent value)? selectParentOrCoach,
     TResult Function(ResetAfterDocumentUploadEvent value)?
         resetAfterUploadDocument,
+    TResult Function(DocumentIdSetForUpload value)? setDocumentId,
     required TResult orElse(),
   }) {
     if (setTitle != null) {
@@ -1422,6 +1452,7 @@ class _$SetMessageParentDocumentEventImpl
     required TResult Function(Player player) removeSelectedPlayer,
     required TResult Function(int coachParentSelect) selectParentOrCoach,
     required TResult Function() resetAfterUploadDocument,
+    required TResult Function(String docid) setDocumentId,
   }) {
     return setMessage(message);
   }
@@ -1449,6 +1480,7 @@ class _$SetMessageParentDocumentEventImpl
     TResult? Function(Player player)? removeSelectedPlayer,
     TResult? Function(int coachParentSelect)? selectParentOrCoach,
     TResult? Function()? resetAfterUploadDocument,
+    TResult? Function(String docid)? setDocumentId,
   }) {
     return setMessage?.call(message);
   }
@@ -1475,6 +1507,7 @@ class _$SetMessageParentDocumentEventImpl
     TResult Function(Player player)? removeSelectedPlayer,
     TResult Function(int coachParentSelect)? selectParentOrCoach,
     TResult Function()? resetAfterUploadDocument,
+    TResult Function(String docid)? setDocumentId,
     required TResult orElse(),
   }) {
     if (setMessage != null) {
@@ -1519,6 +1552,7 @@ class _$SetMessageParentDocumentEventImpl
     required TResult Function(SelectParentCoachEvent value) selectParentOrCoach,
     required TResult Function(ResetAfterDocumentUploadEvent value)
         resetAfterUploadDocument,
+    required TResult Function(DocumentIdSetForUpload value) setDocumentId,
   }) {
     return setMessage(this);
   }
@@ -1552,6 +1586,7 @@ class _$SetMessageParentDocumentEventImpl
     TResult? Function(SelectParentCoachEvent value)? selectParentOrCoach,
     TResult? Function(ResetAfterDocumentUploadEvent value)?
         resetAfterUploadDocument,
+    TResult? Function(DocumentIdSetForUpload value)? setDocumentId,
   }) {
     return setMessage?.call(this);
   }
@@ -1583,6 +1618,7 @@ class _$SetMessageParentDocumentEventImpl
     TResult Function(SelectParentCoachEvent value)? selectParentOrCoach,
     TResult Function(ResetAfterDocumentUploadEvent value)?
         resetAfterUploadDocument,
+    TResult Function(DocumentIdSetForUpload value)? setDocumentId,
     required TResult orElse(),
   }) {
     if (setMessage != null) {
@@ -1713,6 +1749,7 @@ class _$SetSelectedCoachIdParentDocumentEventImpl
     required TResult Function(Player player) removeSelectedPlayer,
     required TResult Function(int coachParentSelect) selectParentOrCoach,
     required TResult Function() resetAfterUploadDocument,
+    required TResult Function(String docid) setDocumentId,
   }) {
     return setSelectedCoachId(caoch);
   }
@@ -1740,6 +1777,7 @@ class _$SetSelectedCoachIdParentDocumentEventImpl
     TResult? Function(Player player)? removeSelectedPlayer,
     TResult? Function(int coachParentSelect)? selectParentOrCoach,
     TResult? Function()? resetAfterUploadDocument,
+    TResult? Function(String docid)? setDocumentId,
   }) {
     return setSelectedCoachId?.call(caoch);
   }
@@ -1766,6 +1804,7 @@ class _$SetSelectedCoachIdParentDocumentEventImpl
     TResult Function(Player player)? removeSelectedPlayer,
     TResult Function(int coachParentSelect)? selectParentOrCoach,
     TResult Function()? resetAfterUploadDocument,
+    TResult Function(String docid)? setDocumentId,
     required TResult orElse(),
   }) {
     if (setSelectedCoachId != null) {
@@ -1810,6 +1849,7 @@ class _$SetSelectedCoachIdParentDocumentEventImpl
     required TResult Function(SelectParentCoachEvent value) selectParentOrCoach,
     required TResult Function(ResetAfterDocumentUploadEvent value)
         resetAfterUploadDocument,
+    required TResult Function(DocumentIdSetForUpload value) setDocumentId,
   }) {
     return setSelectedCoachId(this);
   }
@@ -1843,6 +1883,7 @@ class _$SetSelectedCoachIdParentDocumentEventImpl
     TResult? Function(SelectParentCoachEvent value)? selectParentOrCoach,
     TResult? Function(ResetAfterDocumentUploadEvent value)?
         resetAfterUploadDocument,
+    TResult? Function(DocumentIdSetForUpload value)? setDocumentId,
   }) {
     return setSelectedCoachId?.call(this);
   }
@@ -1874,6 +1915,7 @@ class _$SetSelectedCoachIdParentDocumentEventImpl
     TResult Function(SelectParentCoachEvent value)? selectParentOrCoach,
     TResult Function(ResetAfterDocumentUploadEvent value)?
         resetAfterUploadDocument,
+    TResult Function(DocumentIdSetForUpload value)? setDocumentId,
     required TResult orElse(),
   }) {
     if (setSelectedCoachId != null) {
@@ -2005,6 +2047,7 @@ class _$setSelectedTermDocumentEventImpl
     required TResult Function(Player player) removeSelectedPlayer,
     required TResult Function(int coachParentSelect) selectParentOrCoach,
     required TResult Function() resetAfterUploadDocument,
+    required TResult Function(String docid) setDocumentId,
   }) {
     return setSelectedTerm(terms);
   }
@@ -2032,6 +2075,7 @@ class _$setSelectedTermDocumentEventImpl
     TResult? Function(Player player)? removeSelectedPlayer,
     TResult? Function(int coachParentSelect)? selectParentOrCoach,
     TResult? Function()? resetAfterUploadDocument,
+    TResult? Function(String docid)? setDocumentId,
   }) {
     return setSelectedTerm?.call(terms);
   }
@@ -2058,6 +2102,7 @@ class _$setSelectedTermDocumentEventImpl
     TResult Function(Player player)? removeSelectedPlayer,
     TResult Function(int coachParentSelect)? selectParentOrCoach,
     TResult Function()? resetAfterUploadDocument,
+    TResult Function(String docid)? setDocumentId,
     required TResult orElse(),
   }) {
     if (setSelectedTerm != null) {
@@ -2102,6 +2147,7 @@ class _$setSelectedTermDocumentEventImpl
     required TResult Function(SelectParentCoachEvent value) selectParentOrCoach,
     required TResult Function(ResetAfterDocumentUploadEvent value)
         resetAfterUploadDocument,
+    required TResult Function(DocumentIdSetForUpload value) setDocumentId,
   }) {
     return setSelectedTerm(this);
   }
@@ -2135,6 +2181,7 @@ class _$setSelectedTermDocumentEventImpl
     TResult? Function(SelectParentCoachEvent value)? selectParentOrCoach,
     TResult? Function(ResetAfterDocumentUploadEvent value)?
         resetAfterUploadDocument,
+    TResult? Function(DocumentIdSetForUpload value)? setDocumentId,
   }) {
     return setSelectedTerm?.call(this);
   }
@@ -2166,6 +2213,7 @@ class _$setSelectedTermDocumentEventImpl
     TResult Function(SelectParentCoachEvent value)? selectParentOrCoach,
     TResult Function(ResetAfterDocumentUploadEvent value)?
         resetAfterUploadDocument,
+    TResult Function(DocumentIdSetForUpload value)? setDocumentId,
     required TResult orElse(),
   }) {
     if (setSelectedTerm != null) {
@@ -2297,6 +2345,7 @@ class _$setSelectedProgramDocumentEventImpl
     required TResult Function(Player player) removeSelectedPlayer,
     required TResult Function(int coachParentSelect) selectParentOrCoach,
     required TResult Function() resetAfterUploadDocument,
+    required TResult Function(String docid) setDocumentId,
   }) {
     return setSelectedProgram(programs);
   }
@@ -2324,6 +2373,7 @@ class _$setSelectedProgramDocumentEventImpl
     TResult? Function(Player player)? removeSelectedPlayer,
     TResult? Function(int coachParentSelect)? selectParentOrCoach,
     TResult? Function()? resetAfterUploadDocument,
+    TResult? Function(String docid)? setDocumentId,
   }) {
     return setSelectedProgram?.call(programs);
   }
@@ -2350,6 +2400,7 @@ class _$setSelectedProgramDocumentEventImpl
     TResult Function(Player player)? removeSelectedPlayer,
     TResult Function(int coachParentSelect)? selectParentOrCoach,
     TResult Function()? resetAfterUploadDocument,
+    TResult Function(String docid)? setDocumentId,
     required TResult orElse(),
   }) {
     if (setSelectedProgram != null) {
@@ -2394,6 +2445,7 @@ class _$setSelectedProgramDocumentEventImpl
     required TResult Function(SelectParentCoachEvent value) selectParentOrCoach,
     required TResult Function(ResetAfterDocumentUploadEvent value)
         resetAfterUploadDocument,
+    required TResult Function(DocumentIdSetForUpload value) setDocumentId,
   }) {
     return setSelectedProgram(this);
   }
@@ -2427,6 +2479,7 @@ class _$setSelectedProgramDocumentEventImpl
     TResult? Function(SelectParentCoachEvent value)? selectParentOrCoach,
     TResult? Function(ResetAfterDocumentUploadEvent value)?
         resetAfterUploadDocument,
+    TResult? Function(DocumentIdSetForUpload value)? setDocumentId,
   }) {
     return setSelectedProgram?.call(this);
   }
@@ -2458,6 +2511,7 @@ class _$setSelectedProgramDocumentEventImpl
     TResult Function(SelectParentCoachEvent value)? selectParentOrCoach,
     TResult Function(ResetAfterDocumentUploadEvent value)?
         resetAfterUploadDocument,
+    TResult Function(DocumentIdSetForUpload value)? setDocumentId,
     required TResult orElse(),
   }) {
     if (setSelectedProgram != null) {
@@ -2588,6 +2642,7 @@ class _$setSelectedSessionDocumentEventImpl
     required TResult Function(Player player) removeSelectedPlayer,
     required TResult Function(int coachParentSelect) selectParentOrCoach,
     required TResult Function() resetAfterUploadDocument,
+    required TResult Function(String docid) setDocumentId,
   }) {
     return setSelectedSession(session);
   }
@@ -2615,6 +2670,7 @@ class _$setSelectedSessionDocumentEventImpl
     TResult? Function(Player player)? removeSelectedPlayer,
     TResult? Function(int coachParentSelect)? selectParentOrCoach,
     TResult? Function()? resetAfterUploadDocument,
+    TResult? Function(String docid)? setDocumentId,
   }) {
     return setSelectedSession?.call(session);
   }
@@ -2641,6 +2697,7 @@ class _$setSelectedSessionDocumentEventImpl
     TResult Function(Player player)? removeSelectedPlayer,
     TResult Function(int coachParentSelect)? selectParentOrCoach,
     TResult Function()? resetAfterUploadDocument,
+    TResult Function(String docid)? setDocumentId,
     required TResult orElse(),
   }) {
     if (setSelectedSession != null) {
@@ -2685,6 +2742,7 @@ class _$setSelectedSessionDocumentEventImpl
     required TResult Function(SelectParentCoachEvent value) selectParentOrCoach,
     required TResult Function(ResetAfterDocumentUploadEvent value)
         resetAfterUploadDocument,
+    required TResult Function(DocumentIdSetForUpload value) setDocumentId,
   }) {
     return setSelectedSession(this);
   }
@@ -2718,6 +2776,7 @@ class _$setSelectedSessionDocumentEventImpl
     TResult? Function(SelectParentCoachEvent value)? selectParentOrCoach,
     TResult? Function(ResetAfterDocumentUploadEvent value)?
         resetAfterUploadDocument,
+    TResult? Function(DocumentIdSetForUpload value)? setDocumentId,
   }) {
     return setSelectedSession?.call(this);
   }
@@ -2749,6 +2808,7 @@ class _$setSelectedSessionDocumentEventImpl
     TResult Function(SelectParentCoachEvent value)? selectParentOrCoach,
     TResult Function(ResetAfterDocumentUploadEvent value)?
         resetAfterUploadDocument,
+    TResult Function(DocumentIdSetForUpload value)? setDocumentId,
     required TResult orElse(),
   }) {
     if (setSelectedSession != null) {
@@ -2879,6 +2939,7 @@ class _$setSelectedPlayerDocumentEventImpl
     required TResult Function(Player player) removeSelectedPlayer,
     required TResult Function(int coachParentSelect) selectParentOrCoach,
     required TResult Function() resetAfterUploadDocument,
+    required TResult Function(String docid) setDocumentId,
   }) {
     return setSelectedPlayer(player);
   }
@@ -2906,6 +2967,7 @@ class _$setSelectedPlayerDocumentEventImpl
     TResult? Function(Player player)? removeSelectedPlayer,
     TResult? Function(int coachParentSelect)? selectParentOrCoach,
     TResult? Function()? resetAfterUploadDocument,
+    TResult? Function(String docid)? setDocumentId,
   }) {
     return setSelectedPlayer?.call(player);
   }
@@ -2932,6 +2994,7 @@ class _$setSelectedPlayerDocumentEventImpl
     TResult Function(Player player)? removeSelectedPlayer,
     TResult Function(int coachParentSelect)? selectParentOrCoach,
     TResult Function()? resetAfterUploadDocument,
+    TResult Function(String docid)? setDocumentId,
     required TResult orElse(),
   }) {
     if (setSelectedPlayer != null) {
@@ -2976,6 +3039,7 @@ class _$setSelectedPlayerDocumentEventImpl
     required TResult Function(SelectParentCoachEvent value) selectParentOrCoach,
     required TResult Function(ResetAfterDocumentUploadEvent value)
         resetAfterUploadDocument,
+    required TResult Function(DocumentIdSetForUpload value) setDocumentId,
   }) {
     return setSelectedPlayer(this);
   }
@@ -3009,6 +3073,7 @@ class _$setSelectedPlayerDocumentEventImpl
     TResult? Function(SelectParentCoachEvent value)? selectParentOrCoach,
     TResult? Function(ResetAfterDocumentUploadEvent value)?
         resetAfterUploadDocument,
+    TResult? Function(DocumentIdSetForUpload value)? setDocumentId,
   }) {
     return setSelectedPlayer?.call(this);
   }
@@ -3040,6 +3105,7 @@ class _$setSelectedPlayerDocumentEventImpl
     TResult Function(SelectParentCoachEvent value)? selectParentOrCoach,
     TResult Function(ResetAfterDocumentUploadEvent value)?
         resetAfterUploadDocument,
+    TResult Function(DocumentIdSetForUpload value)? setDocumentId,
     required TResult orElse(),
   }) {
     if (setSelectedPlayer != null) {
@@ -3169,6 +3235,7 @@ class _$SetDocumentForParentDocumentEventImpl
     required TResult Function(Player player) removeSelectedPlayer,
     required TResult Function(int coachParentSelect) selectParentOrCoach,
     required TResult Function() resetAfterUploadDocument,
+    required TResult Function(String docid) setDocumentId,
   }) {
     return setDoucmentForUpload(fileName, documentFile);
   }
@@ -3196,6 +3263,7 @@ class _$SetDocumentForParentDocumentEventImpl
     TResult? Function(Player player)? removeSelectedPlayer,
     TResult? Function(int coachParentSelect)? selectParentOrCoach,
     TResult? Function()? resetAfterUploadDocument,
+    TResult? Function(String docid)? setDocumentId,
   }) {
     return setDoucmentForUpload?.call(fileName, documentFile);
   }
@@ -3222,6 +3290,7 @@ class _$SetDocumentForParentDocumentEventImpl
     TResult Function(Player player)? removeSelectedPlayer,
     TResult Function(int coachParentSelect)? selectParentOrCoach,
     TResult Function()? resetAfterUploadDocument,
+    TResult Function(String docid)? setDocumentId,
     required TResult orElse(),
   }) {
     if (setDoucmentForUpload != null) {
@@ -3266,6 +3335,7 @@ class _$SetDocumentForParentDocumentEventImpl
     required TResult Function(SelectParentCoachEvent value) selectParentOrCoach,
     required TResult Function(ResetAfterDocumentUploadEvent value)
         resetAfterUploadDocument,
+    required TResult Function(DocumentIdSetForUpload value) setDocumentId,
   }) {
     return setDoucmentForUpload(this);
   }
@@ -3299,6 +3369,7 @@ class _$SetDocumentForParentDocumentEventImpl
     TResult? Function(SelectParentCoachEvent value)? selectParentOrCoach,
     TResult? Function(ResetAfterDocumentUploadEvent value)?
         resetAfterUploadDocument,
+    TResult? Function(DocumentIdSetForUpload value)? setDocumentId,
   }) {
     return setDoucmentForUpload?.call(this);
   }
@@ -3330,6 +3401,7 @@ class _$SetDocumentForParentDocumentEventImpl
     TResult Function(SelectParentCoachEvent value)? selectParentOrCoach,
     TResult Function(ResetAfterDocumentUploadEvent value)?
         resetAfterUploadDocument,
+    TResult Function(DocumentIdSetForUpload value)? setDocumentId,
     required TResult orElse(),
   }) {
     if (setDoucmentForUpload != null) {
@@ -3421,6 +3493,7 @@ class _$SubmitParentDocumentEventImpl implements SubmitParentDocumentEvent {
     required TResult Function(Player player) removeSelectedPlayer,
     required TResult Function(int coachParentSelect) selectParentOrCoach,
     required TResult Function() resetAfterUploadDocument,
+    required TResult Function(String docid) setDocumentId,
   }) {
     return submitDocument();
   }
@@ -3448,6 +3521,7 @@ class _$SubmitParentDocumentEventImpl implements SubmitParentDocumentEvent {
     TResult? Function(Player player)? removeSelectedPlayer,
     TResult? Function(int coachParentSelect)? selectParentOrCoach,
     TResult? Function()? resetAfterUploadDocument,
+    TResult? Function(String docid)? setDocumentId,
   }) {
     return submitDocument?.call();
   }
@@ -3474,6 +3548,7 @@ class _$SubmitParentDocumentEventImpl implements SubmitParentDocumentEvent {
     TResult Function(Player player)? removeSelectedPlayer,
     TResult Function(int coachParentSelect)? selectParentOrCoach,
     TResult Function()? resetAfterUploadDocument,
+    TResult Function(String docid)? setDocumentId,
     required TResult orElse(),
   }) {
     if (submitDocument != null) {
@@ -3518,6 +3593,7 @@ class _$SubmitParentDocumentEventImpl implements SubmitParentDocumentEvent {
     required TResult Function(SelectParentCoachEvent value) selectParentOrCoach,
     required TResult Function(ResetAfterDocumentUploadEvent value)
         resetAfterUploadDocument,
+    required TResult Function(DocumentIdSetForUpload value) setDocumentId,
   }) {
     return submitDocument(this);
   }
@@ -3551,6 +3627,7 @@ class _$SubmitParentDocumentEventImpl implements SubmitParentDocumentEvent {
     TResult? Function(SelectParentCoachEvent value)? selectParentOrCoach,
     TResult? Function(ResetAfterDocumentUploadEvent value)?
         resetAfterUploadDocument,
+    TResult? Function(DocumentIdSetForUpload value)? setDocumentId,
   }) {
     return submitDocument?.call(this);
   }
@@ -3582,6 +3659,7 @@ class _$SubmitParentDocumentEventImpl implements SubmitParentDocumentEvent {
     TResult Function(SelectParentCoachEvent value)? selectParentOrCoach,
     TResult Function(ResetAfterDocumentUploadEvent value)?
         resetAfterUploadDocument,
+    TResult Function(DocumentIdSetForUpload value)? setDocumentId,
     required TResult orElse(),
   }) {
     if (submitDocument != null) {
@@ -3699,6 +3777,7 @@ class _$RemoveSelectedCoachEventImpl implements RemoveSelectedCoachEvent {
     required TResult Function(Player player) removeSelectedPlayer,
     required TResult Function(int coachParentSelect) selectParentOrCoach,
     required TResult Function() resetAfterUploadDocument,
+    required TResult Function(String docid) setDocumentId,
   }) {
     return removeSelectedCoach(coach);
   }
@@ -3726,6 +3805,7 @@ class _$RemoveSelectedCoachEventImpl implements RemoveSelectedCoachEvent {
     TResult? Function(Player player)? removeSelectedPlayer,
     TResult? Function(int coachParentSelect)? selectParentOrCoach,
     TResult? Function()? resetAfterUploadDocument,
+    TResult? Function(String docid)? setDocumentId,
   }) {
     return removeSelectedCoach?.call(coach);
   }
@@ -3752,6 +3832,7 @@ class _$RemoveSelectedCoachEventImpl implements RemoveSelectedCoachEvent {
     TResult Function(Player player)? removeSelectedPlayer,
     TResult Function(int coachParentSelect)? selectParentOrCoach,
     TResult Function()? resetAfterUploadDocument,
+    TResult Function(String docid)? setDocumentId,
     required TResult orElse(),
   }) {
     if (removeSelectedCoach != null) {
@@ -3796,6 +3877,7 @@ class _$RemoveSelectedCoachEventImpl implements RemoveSelectedCoachEvent {
     required TResult Function(SelectParentCoachEvent value) selectParentOrCoach,
     required TResult Function(ResetAfterDocumentUploadEvent value)
         resetAfterUploadDocument,
+    required TResult Function(DocumentIdSetForUpload value) setDocumentId,
   }) {
     return removeSelectedCoach(this);
   }
@@ -3829,6 +3911,7 @@ class _$RemoveSelectedCoachEventImpl implements RemoveSelectedCoachEvent {
     TResult? Function(SelectParentCoachEvent value)? selectParentOrCoach,
     TResult? Function(ResetAfterDocumentUploadEvent value)?
         resetAfterUploadDocument,
+    TResult? Function(DocumentIdSetForUpload value)? setDocumentId,
   }) {
     return removeSelectedCoach?.call(this);
   }
@@ -3860,6 +3943,7 @@ class _$RemoveSelectedCoachEventImpl implements RemoveSelectedCoachEvent {
     TResult Function(SelectParentCoachEvent value)? selectParentOrCoach,
     TResult Function(ResetAfterDocumentUploadEvent value)?
         resetAfterUploadDocument,
+    TResult Function(DocumentIdSetForUpload value)? setDocumentId,
     required TResult orElse(),
   }) {
     if (removeSelectedCoach != null) {
@@ -3986,6 +4070,7 @@ class _$RemoveSelectedTermsventImpl implements RemoveSelectedTermsvent {
     required TResult Function(Player player) removeSelectedPlayer,
     required TResult Function(int coachParentSelect) selectParentOrCoach,
     required TResult Function() resetAfterUploadDocument,
+    required TResult Function(String docid) setDocumentId,
   }) {
     return removeSelectedTerms(term);
   }
@@ -4013,6 +4098,7 @@ class _$RemoveSelectedTermsventImpl implements RemoveSelectedTermsvent {
     TResult? Function(Player player)? removeSelectedPlayer,
     TResult? Function(int coachParentSelect)? selectParentOrCoach,
     TResult? Function()? resetAfterUploadDocument,
+    TResult? Function(String docid)? setDocumentId,
   }) {
     return removeSelectedTerms?.call(term);
   }
@@ -4039,6 +4125,7 @@ class _$RemoveSelectedTermsventImpl implements RemoveSelectedTermsvent {
     TResult Function(Player player)? removeSelectedPlayer,
     TResult Function(int coachParentSelect)? selectParentOrCoach,
     TResult Function()? resetAfterUploadDocument,
+    TResult Function(String docid)? setDocumentId,
     required TResult orElse(),
   }) {
     if (removeSelectedTerms != null) {
@@ -4083,6 +4170,7 @@ class _$RemoveSelectedTermsventImpl implements RemoveSelectedTermsvent {
     required TResult Function(SelectParentCoachEvent value) selectParentOrCoach,
     required TResult Function(ResetAfterDocumentUploadEvent value)
         resetAfterUploadDocument,
+    required TResult Function(DocumentIdSetForUpload value) setDocumentId,
   }) {
     return removeSelectedTerms(this);
   }
@@ -4116,6 +4204,7 @@ class _$RemoveSelectedTermsventImpl implements RemoveSelectedTermsvent {
     TResult? Function(SelectParentCoachEvent value)? selectParentOrCoach,
     TResult? Function(ResetAfterDocumentUploadEvent value)?
         resetAfterUploadDocument,
+    TResult? Function(DocumentIdSetForUpload value)? setDocumentId,
   }) {
     return removeSelectedTerms?.call(this);
   }
@@ -4147,6 +4236,7 @@ class _$RemoveSelectedTermsventImpl implements RemoveSelectedTermsvent {
     TResult Function(SelectParentCoachEvent value)? selectParentOrCoach,
     TResult Function(ResetAfterDocumentUploadEvent value)?
         resetAfterUploadDocument,
+    TResult Function(DocumentIdSetForUpload value)? setDocumentId,
     required TResult orElse(),
   }) {
     if (removeSelectedTerms != null) {
@@ -4274,6 +4364,7 @@ class _$RemoveSelectedProgramventImpl implements RemoveSelectedProgramvent {
     required TResult Function(Player player) removeSelectedPlayer,
     required TResult Function(int coachParentSelect) selectParentOrCoach,
     required TResult Function() resetAfterUploadDocument,
+    required TResult Function(String docid) setDocumentId,
   }) {
     return removeSelectedProgram(program);
   }
@@ -4301,6 +4392,7 @@ class _$RemoveSelectedProgramventImpl implements RemoveSelectedProgramvent {
     TResult? Function(Player player)? removeSelectedPlayer,
     TResult? Function(int coachParentSelect)? selectParentOrCoach,
     TResult? Function()? resetAfterUploadDocument,
+    TResult? Function(String docid)? setDocumentId,
   }) {
     return removeSelectedProgram?.call(program);
   }
@@ -4327,6 +4419,7 @@ class _$RemoveSelectedProgramventImpl implements RemoveSelectedProgramvent {
     TResult Function(Player player)? removeSelectedPlayer,
     TResult Function(int coachParentSelect)? selectParentOrCoach,
     TResult Function()? resetAfterUploadDocument,
+    TResult Function(String docid)? setDocumentId,
     required TResult orElse(),
   }) {
     if (removeSelectedProgram != null) {
@@ -4371,6 +4464,7 @@ class _$RemoveSelectedProgramventImpl implements RemoveSelectedProgramvent {
     required TResult Function(SelectParentCoachEvent value) selectParentOrCoach,
     required TResult Function(ResetAfterDocumentUploadEvent value)
         resetAfterUploadDocument,
+    required TResult Function(DocumentIdSetForUpload value) setDocumentId,
   }) {
     return removeSelectedProgram(this);
   }
@@ -4404,6 +4498,7 @@ class _$RemoveSelectedProgramventImpl implements RemoveSelectedProgramvent {
     TResult? Function(SelectParentCoachEvent value)? selectParentOrCoach,
     TResult? Function(ResetAfterDocumentUploadEvent value)?
         resetAfterUploadDocument,
+    TResult? Function(DocumentIdSetForUpload value)? setDocumentId,
   }) {
     return removeSelectedProgram?.call(this);
   }
@@ -4435,6 +4530,7 @@ class _$RemoveSelectedProgramventImpl implements RemoveSelectedProgramvent {
     TResult Function(SelectParentCoachEvent value)? selectParentOrCoach,
     TResult Function(ResetAfterDocumentUploadEvent value)?
         resetAfterUploadDocument,
+    TResult Function(DocumentIdSetForUpload value)? setDocumentId,
     required TResult orElse(),
   }) {
     if (removeSelectedProgram != null) {
@@ -4562,6 +4658,7 @@ class _$RemoveSelectedSessionventImpl implements RemoveSelectedSessionvent {
     required TResult Function(Player player) removeSelectedPlayer,
     required TResult Function(int coachParentSelect) selectParentOrCoach,
     required TResult Function() resetAfterUploadDocument,
+    required TResult Function(String docid) setDocumentId,
   }) {
     return removeSelectedSession(session);
   }
@@ -4589,6 +4686,7 @@ class _$RemoveSelectedSessionventImpl implements RemoveSelectedSessionvent {
     TResult? Function(Player player)? removeSelectedPlayer,
     TResult? Function(int coachParentSelect)? selectParentOrCoach,
     TResult? Function()? resetAfterUploadDocument,
+    TResult? Function(String docid)? setDocumentId,
   }) {
     return removeSelectedSession?.call(session);
   }
@@ -4615,6 +4713,7 @@ class _$RemoveSelectedSessionventImpl implements RemoveSelectedSessionvent {
     TResult Function(Player player)? removeSelectedPlayer,
     TResult Function(int coachParentSelect)? selectParentOrCoach,
     TResult Function()? resetAfterUploadDocument,
+    TResult Function(String docid)? setDocumentId,
     required TResult orElse(),
   }) {
     if (removeSelectedSession != null) {
@@ -4659,6 +4758,7 @@ class _$RemoveSelectedSessionventImpl implements RemoveSelectedSessionvent {
     required TResult Function(SelectParentCoachEvent value) selectParentOrCoach,
     required TResult Function(ResetAfterDocumentUploadEvent value)
         resetAfterUploadDocument,
+    required TResult Function(DocumentIdSetForUpload value) setDocumentId,
   }) {
     return removeSelectedSession(this);
   }
@@ -4692,6 +4792,7 @@ class _$RemoveSelectedSessionventImpl implements RemoveSelectedSessionvent {
     TResult? Function(SelectParentCoachEvent value)? selectParentOrCoach,
     TResult? Function(ResetAfterDocumentUploadEvent value)?
         resetAfterUploadDocument,
+    TResult? Function(DocumentIdSetForUpload value)? setDocumentId,
   }) {
     return removeSelectedSession?.call(this);
   }
@@ -4723,6 +4824,7 @@ class _$RemoveSelectedSessionventImpl implements RemoveSelectedSessionvent {
     TResult Function(SelectParentCoachEvent value)? selectParentOrCoach,
     TResult Function(ResetAfterDocumentUploadEvent value)?
         resetAfterUploadDocument,
+    TResult Function(DocumentIdSetForUpload value)? setDocumentId,
     required TResult orElse(),
   }) {
     if (removeSelectedSession != null) {
@@ -4849,6 +4951,7 @@ class _$RemoveSelectedPlayerventImpl implements RemoveSelectedPlayervent {
     required TResult Function(Player player) removeSelectedPlayer,
     required TResult Function(int coachParentSelect) selectParentOrCoach,
     required TResult Function() resetAfterUploadDocument,
+    required TResult Function(String docid) setDocumentId,
   }) {
     return removeSelectedPlayer(player);
   }
@@ -4876,6 +4979,7 @@ class _$RemoveSelectedPlayerventImpl implements RemoveSelectedPlayervent {
     TResult? Function(Player player)? removeSelectedPlayer,
     TResult? Function(int coachParentSelect)? selectParentOrCoach,
     TResult? Function()? resetAfterUploadDocument,
+    TResult? Function(String docid)? setDocumentId,
   }) {
     return removeSelectedPlayer?.call(player);
   }
@@ -4902,6 +5006,7 @@ class _$RemoveSelectedPlayerventImpl implements RemoveSelectedPlayervent {
     TResult Function(Player player)? removeSelectedPlayer,
     TResult Function(int coachParentSelect)? selectParentOrCoach,
     TResult Function()? resetAfterUploadDocument,
+    TResult Function(String docid)? setDocumentId,
     required TResult orElse(),
   }) {
     if (removeSelectedPlayer != null) {
@@ -4946,6 +5051,7 @@ class _$RemoveSelectedPlayerventImpl implements RemoveSelectedPlayervent {
     required TResult Function(SelectParentCoachEvent value) selectParentOrCoach,
     required TResult Function(ResetAfterDocumentUploadEvent value)
         resetAfterUploadDocument,
+    required TResult Function(DocumentIdSetForUpload value) setDocumentId,
   }) {
     return removeSelectedPlayer(this);
   }
@@ -4979,6 +5085,7 @@ class _$RemoveSelectedPlayerventImpl implements RemoveSelectedPlayervent {
     TResult? Function(SelectParentCoachEvent value)? selectParentOrCoach,
     TResult? Function(ResetAfterDocumentUploadEvent value)?
         resetAfterUploadDocument,
+    TResult? Function(DocumentIdSetForUpload value)? setDocumentId,
   }) {
     return removeSelectedPlayer?.call(this);
   }
@@ -5010,6 +5117,7 @@ class _$RemoveSelectedPlayerventImpl implements RemoveSelectedPlayervent {
     TResult Function(SelectParentCoachEvent value)? selectParentOrCoach,
     TResult Function(ResetAfterDocumentUploadEvent value)?
         resetAfterUploadDocument,
+    TResult Function(DocumentIdSetForUpload value)? setDocumentId,
     required TResult orElse(),
   }) {
     if (removeSelectedPlayer != null) {
@@ -5125,6 +5233,7 @@ class _$SelectParentCoachEventImpl implements SelectParentCoachEvent {
     required TResult Function(Player player) removeSelectedPlayer,
     required TResult Function(int coachParentSelect) selectParentOrCoach,
     required TResult Function() resetAfterUploadDocument,
+    required TResult Function(String docid) setDocumentId,
   }) {
     return selectParentOrCoach(coachParentSelect);
   }
@@ -5152,6 +5261,7 @@ class _$SelectParentCoachEventImpl implements SelectParentCoachEvent {
     TResult? Function(Player player)? removeSelectedPlayer,
     TResult? Function(int coachParentSelect)? selectParentOrCoach,
     TResult? Function()? resetAfterUploadDocument,
+    TResult? Function(String docid)? setDocumentId,
   }) {
     return selectParentOrCoach?.call(coachParentSelect);
   }
@@ -5178,6 +5288,7 @@ class _$SelectParentCoachEventImpl implements SelectParentCoachEvent {
     TResult Function(Player player)? removeSelectedPlayer,
     TResult Function(int coachParentSelect)? selectParentOrCoach,
     TResult Function()? resetAfterUploadDocument,
+    TResult Function(String docid)? setDocumentId,
     required TResult orElse(),
   }) {
     if (selectParentOrCoach != null) {
@@ -5222,6 +5333,7 @@ class _$SelectParentCoachEventImpl implements SelectParentCoachEvent {
     required TResult Function(SelectParentCoachEvent value) selectParentOrCoach,
     required TResult Function(ResetAfterDocumentUploadEvent value)
         resetAfterUploadDocument,
+    required TResult Function(DocumentIdSetForUpload value) setDocumentId,
   }) {
     return selectParentOrCoach(this);
   }
@@ -5255,6 +5367,7 @@ class _$SelectParentCoachEventImpl implements SelectParentCoachEvent {
     TResult? Function(SelectParentCoachEvent value)? selectParentOrCoach,
     TResult? Function(ResetAfterDocumentUploadEvent value)?
         resetAfterUploadDocument,
+    TResult? Function(DocumentIdSetForUpload value)? setDocumentId,
   }) {
     return selectParentOrCoach?.call(this);
   }
@@ -5286,6 +5399,7 @@ class _$SelectParentCoachEventImpl implements SelectParentCoachEvent {
     TResult Function(SelectParentCoachEvent value)? selectParentOrCoach,
     TResult Function(ResetAfterDocumentUploadEvent value)?
         resetAfterUploadDocument,
+    TResult Function(DocumentIdSetForUpload value)? setDocumentId,
     required TResult orElse(),
   }) {
     if (selectParentOrCoach != null) {
@@ -5375,6 +5489,7 @@ class _$ResetAfterDocumentUploadEventImpl
     required TResult Function(Player player) removeSelectedPlayer,
     required TResult Function(int coachParentSelect) selectParentOrCoach,
     required TResult Function() resetAfterUploadDocument,
+    required TResult Function(String docid) setDocumentId,
   }) {
     return resetAfterUploadDocument();
   }
@@ -5402,6 +5517,7 @@ class _$ResetAfterDocumentUploadEventImpl
     TResult? Function(Player player)? removeSelectedPlayer,
     TResult? Function(int coachParentSelect)? selectParentOrCoach,
     TResult? Function()? resetAfterUploadDocument,
+    TResult? Function(String docid)? setDocumentId,
   }) {
     return resetAfterUploadDocument?.call();
   }
@@ -5428,6 +5544,7 @@ class _$ResetAfterDocumentUploadEventImpl
     TResult Function(Player player)? removeSelectedPlayer,
     TResult Function(int coachParentSelect)? selectParentOrCoach,
     TResult Function()? resetAfterUploadDocument,
+    TResult Function(String docid)? setDocumentId,
     required TResult orElse(),
   }) {
     if (resetAfterUploadDocument != null) {
@@ -5472,6 +5589,7 @@ class _$ResetAfterDocumentUploadEventImpl
     required TResult Function(SelectParentCoachEvent value) selectParentOrCoach,
     required TResult Function(ResetAfterDocumentUploadEvent value)
         resetAfterUploadDocument,
+    required TResult Function(DocumentIdSetForUpload value) setDocumentId,
   }) {
     return resetAfterUploadDocument(this);
   }
@@ -5505,6 +5623,7 @@ class _$ResetAfterDocumentUploadEventImpl
     TResult? Function(SelectParentCoachEvent value)? selectParentOrCoach,
     TResult? Function(ResetAfterDocumentUploadEvent value)?
         resetAfterUploadDocument,
+    TResult? Function(DocumentIdSetForUpload value)? setDocumentId,
   }) {
     return resetAfterUploadDocument?.call(this);
   }
@@ -5536,6 +5655,7 @@ class _$ResetAfterDocumentUploadEventImpl
     TResult Function(SelectParentCoachEvent value)? selectParentOrCoach,
     TResult Function(ResetAfterDocumentUploadEvent value)?
         resetAfterUploadDocument,
+    TResult Function(DocumentIdSetForUpload value)? setDocumentId,
     required TResult orElse(),
   }) {
     if (resetAfterUploadDocument != null) {
@@ -5548,4 +5668,285 @@ class _$ResetAfterDocumentUploadEventImpl
 abstract class ResetAfterDocumentUploadEvent implements AddDocumentEvent {
   const factory ResetAfterDocumentUploadEvent() =
       _$ResetAfterDocumentUploadEventImpl;
+}
+
+/// @nodoc
+abstract class _$$DocumentIdSetForUploadImplCopyWith<$Res> {
+  factory _$$DocumentIdSetForUploadImplCopyWith(
+          _$DocumentIdSetForUploadImpl value,
+          $Res Function(_$DocumentIdSetForUploadImpl) then) =
+      __$$DocumentIdSetForUploadImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String docid});
+}
+
+/// @nodoc
+class __$$DocumentIdSetForUploadImplCopyWithImpl<$Res>
+    extends _$AddDocumentEventCopyWithImpl<$Res, _$DocumentIdSetForUploadImpl>
+    implements _$$DocumentIdSetForUploadImplCopyWith<$Res> {
+  __$$DocumentIdSetForUploadImplCopyWithImpl(
+      _$DocumentIdSetForUploadImpl _value,
+      $Res Function(_$DocumentIdSetForUploadImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of AddDocumentEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? docid = null,
+  }) {
+    return _then(_$DocumentIdSetForUploadImpl(
+      null == docid
+          ? _value.docid
+          : docid // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$DocumentIdSetForUploadImpl implements DocumentIdSetForUpload {
+  const _$DocumentIdSetForUploadImpl(this.docid);
+
+  @override
+  final String docid;
+
+  @override
+  String toString() {
+    return 'AddDocumentEvent.setDocumentId(docid: $docid)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$DocumentIdSetForUploadImpl &&
+            (identical(other.docid, docid) || other.docid == docid));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, docid);
+
+  /// Create a copy of AddDocumentEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$DocumentIdSetForUploadImplCopyWith<_$DocumentIdSetForUploadImpl>
+      get copyWith => __$$DocumentIdSetForUploadImplCopyWithImpl<
+          _$DocumentIdSetForUploadImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(int tabno) selectTabEvent,
+    required TResult Function(Map<String, dynamic> data)
+        getParentUploadedDocument,
+    required TResult Function(Map<String, dynamic> data) getTermsSessionPlayer,
+    required TResult Function(String title) setTitle,
+    required TResult Function(String message) setMessage,
+    required TResult Function(Coach caoch) setSelectedCoachId,
+    required TResult Function(Term terms) setSelectedTerm,
+    required TResult Function(CoachingProgram programs) setSelectedProgram,
+    required TResult Function(Session session) setSelectedSession,
+    required TResult Function(Player player) setSelectedPlayer,
+    required TResult Function(String fileName, File? documentFile)
+        setDoucmentForUpload,
+    required TResult Function() submitDocument,
+    required TResult Function(Coach coach) removeSelectedCoach,
+    required TResult Function(Term term) removeSelectedTerms,
+    required TResult Function(CoachingProgram program) removeSelectedProgram,
+    required TResult Function(Session session) removeSelectedSession,
+    required TResult Function(Player player) removeSelectedPlayer,
+    required TResult Function(int coachParentSelect) selectParentOrCoach,
+    required TResult Function() resetAfterUploadDocument,
+    required TResult Function(String docid) setDocumentId,
+  }) {
+    return setDocumentId(docid);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(int tabno)? selectTabEvent,
+    TResult? Function(Map<String, dynamic> data)? getParentUploadedDocument,
+    TResult? Function(Map<String, dynamic> data)? getTermsSessionPlayer,
+    TResult? Function(String title)? setTitle,
+    TResult? Function(String message)? setMessage,
+    TResult? Function(Coach caoch)? setSelectedCoachId,
+    TResult? Function(Term terms)? setSelectedTerm,
+    TResult? Function(CoachingProgram programs)? setSelectedProgram,
+    TResult? Function(Session session)? setSelectedSession,
+    TResult? Function(Player player)? setSelectedPlayer,
+    TResult? Function(String fileName, File? documentFile)?
+        setDoucmentForUpload,
+    TResult? Function()? submitDocument,
+    TResult? Function(Coach coach)? removeSelectedCoach,
+    TResult? Function(Term term)? removeSelectedTerms,
+    TResult? Function(CoachingProgram program)? removeSelectedProgram,
+    TResult? Function(Session session)? removeSelectedSession,
+    TResult? Function(Player player)? removeSelectedPlayer,
+    TResult? Function(int coachParentSelect)? selectParentOrCoach,
+    TResult? Function()? resetAfterUploadDocument,
+    TResult? Function(String docid)? setDocumentId,
+  }) {
+    return setDocumentId?.call(docid);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(int tabno)? selectTabEvent,
+    TResult Function(Map<String, dynamic> data)? getParentUploadedDocument,
+    TResult Function(Map<String, dynamic> data)? getTermsSessionPlayer,
+    TResult Function(String title)? setTitle,
+    TResult Function(String message)? setMessage,
+    TResult Function(Coach caoch)? setSelectedCoachId,
+    TResult Function(Term terms)? setSelectedTerm,
+    TResult Function(CoachingProgram programs)? setSelectedProgram,
+    TResult Function(Session session)? setSelectedSession,
+    TResult Function(Player player)? setSelectedPlayer,
+    TResult Function(String fileName, File? documentFile)? setDoucmentForUpload,
+    TResult Function()? submitDocument,
+    TResult Function(Coach coach)? removeSelectedCoach,
+    TResult Function(Term term)? removeSelectedTerms,
+    TResult Function(CoachingProgram program)? removeSelectedProgram,
+    TResult Function(Session session)? removeSelectedSession,
+    TResult Function(Player player)? removeSelectedPlayer,
+    TResult Function(int coachParentSelect)? selectParentOrCoach,
+    TResult Function()? resetAfterUploadDocument,
+    TResult Function(String docid)? setDocumentId,
+    required TResult orElse(),
+  }) {
+    if (setDocumentId != null) {
+      return setDocumentId(docid);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(SelectedTabEvent value) selectTabEvent,
+    required TResult Function(GetUploadedParentDocument value)
+        getParentUploadedDocument,
+    required TResult Function(GetTermsSessionCoachingPlayerEvents value)
+        getTermsSessionPlayer,
+    required TResult Function(SetTitleParentDocumentEvent value) setTitle,
+    required TResult Function(SetMessageParentDocumentEvent value) setMessage,
+    required TResult Function(SetSelectedCoachIdParentDocumentEvent value)
+        setSelectedCoachId,
+    required TResult Function(setSelectedTermDocumentEvent value)
+        setSelectedTerm,
+    required TResult Function(setSelectedProgramDocumentEvent value)
+        setSelectedProgram,
+    required TResult Function(setSelectedSessionDocumentEvent value)
+        setSelectedSession,
+    required TResult Function(setSelectedPlayerDocumentEvent value)
+        setSelectedPlayer,
+    required TResult Function(SetDocumentForParentDocumentEvent value)
+        setDoucmentForUpload,
+    required TResult Function(SubmitParentDocumentEvent value) submitDocument,
+    required TResult Function(RemoveSelectedCoachEvent value)
+        removeSelectedCoach,
+    required TResult Function(RemoveSelectedTermsvent value)
+        removeSelectedTerms,
+    required TResult Function(RemoveSelectedProgramvent value)
+        removeSelectedProgram,
+    required TResult Function(RemoveSelectedSessionvent value)
+        removeSelectedSession,
+    required TResult Function(RemoveSelectedPlayervent value)
+        removeSelectedPlayer,
+    required TResult Function(SelectParentCoachEvent value) selectParentOrCoach,
+    required TResult Function(ResetAfterDocumentUploadEvent value)
+        resetAfterUploadDocument,
+    required TResult Function(DocumentIdSetForUpload value) setDocumentId,
+  }) {
+    return setDocumentId(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(SelectedTabEvent value)? selectTabEvent,
+    TResult? Function(GetUploadedParentDocument value)?
+        getParentUploadedDocument,
+    TResult? Function(GetTermsSessionCoachingPlayerEvents value)?
+        getTermsSessionPlayer,
+    TResult? Function(SetTitleParentDocumentEvent value)? setTitle,
+    TResult? Function(SetMessageParentDocumentEvent value)? setMessage,
+    TResult? Function(SetSelectedCoachIdParentDocumentEvent value)?
+        setSelectedCoachId,
+    TResult? Function(setSelectedTermDocumentEvent value)? setSelectedTerm,
+    TResult? Function(setSelectedProgramDocumentEvent value)?
+        setSelectedProgram,
+    TResult? Function(setSelectedSessionDocumentEvent value)?
+        setSelectedSession,
+    TResult? Function(setSelectedPlayerDocumentEvent value)? setSelectedPlayer,
+    TResult? Function(SetDocumentForParentDocumentEvent value)?
+        setDoucmentForUpload,
+    TResult? Function(SubmitParentDocumentEvent value)? submitDocument,
+    TResult? Function(RemoveSelectedCoachEvent value)? removeSelectedCoach,
+    TResult? Function(RemoveSelectedTermsvent value)? removeSelectedTerms,
+    TResult? Function(RemoveSelectedProgramvent value)? removeSelectedProgram,
+    TResult? Function(RemoveSelectedSessionvent value)? removeSelectedSession,
+    TResult? Function(RemoveSelectedPlayervent value)? removeSelectedPlayer,
+    TResult? Function(SelectParentCoachEvent value)? selectParentOrCoach,
+    TResult? Function(ResetAfterDocumentUploadEvent value)?
+        resetAfterUploadDocument,
+    TResult? Function(DocumentIdSetForUpload value)? setDocumentId,
+  }) {
+    return setDocumentId?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(SelectedTabEvent value)? selectTabEvent,
+    TResult Function(GetUploadedParentDocument value)?
+        getParentUploadedDocument,
+    TResult Function(GetTermsSessionCoachingPlayerEvents value)?
+        getTermsSessionPlayer,
+    TResult Function(SetTitleParentDocumentEvent value)? setTitle,
+    TResult Function(SetMessageParentDocumentEvent value)? setMessage,
+    TResult Function(SetSelectedCoachIdParentDocumentEvent value)?
+        setSelectedCoachId,
+    TResult Function(setSelectedTermDocumentEvent value)? setSelectedTerm,
+    TResult Function(setSelectedProgramDocumentEvent value)? setSelectedProgram,
+    TResult Function(setSelectedSessionDocumentEvent value)? setSelectedSession,
+    TResult Function(setSelectedPlayerDocumentEvent value)? setSelectedPlayer,
+    TResult Function(SetDocumentForParentDocumentEvent value)?
+        setDoucmentForUpload,
+    TResult Function(SubmitParentDocumentEvent value)? submitDocument,
+    TResult Function(RemoveSelectedCoachEvent value)? removeSelectedCoach,
+    TResult Function(RemoveSelectedTermsvent value)? removeSelectedTerms,
+    TResult Function(RemoveSelectedProgramvent value)? removeSelectedProgram,
+    TResult Function(RemoveSelectedSessionvent value)? removeSelectedSession,
+    TResult Function(RemoveSelectedPlayervent value)? removeSelectedPlayer,
+    TResult Function(SelectParentCoachEvent value)? selectParentOrCoach,
+    TResult Function(ResetAfterDocumentUploadEvent value)?
+        resetAfterUploadDocument,
+    TResult Function(DocumentIdSetForUpload value)? setDocumentId,
+    required TResult orElse(),
+  }) {
+    if (setDocumentId != null) {
+      return setDocumentId(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class DocumentIdSetForUpload implements AddDocumentEvent {
+  const factory DocumentIdSetForUpload(final String docid) =
+      _$DocumentIdSetForUploadImpl;
+
+  String get docid;
+
+  /// Create a copy of AddDocumentEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$DocumentIdSetForUploadImplCopyWith<_$DocumentIdSetForUploadImpl>
+      get copyWith => throw _privateConstructorUsedError;
 }

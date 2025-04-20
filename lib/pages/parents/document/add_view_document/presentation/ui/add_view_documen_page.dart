@@ -161,6 +161,12 @@ class AddViewDocumenPage extends StatelessWidget {
                                                               data!.coachId!));
                                                 }
                                               }
+                                              BlocProvider.of<
+                                                  AddDocumentBloc>(
+                                                  context)
+                                                  .add(
+                                                  DocumentIdSetForUpload(
+                                                      data!.id.toString()));
 
                                               /*set terms*/
                                               if (data.termId != null) {

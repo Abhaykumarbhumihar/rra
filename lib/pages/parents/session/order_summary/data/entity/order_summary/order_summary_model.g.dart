@@ -40,15 +40,20 @@ _$ProgramDataImpl _$$ProgramDataImplFromJson(Map<String, dynamic> json) =>
       toTime: json['to_time'] as String? ?? '',
       slotsLeft:
           json['slots_left'] == null ? 0 : _parseSlotsLeft(json['slots_left']),
-      pricePerSession: (json['price_per_session'] as num?)?.toDouble() ?? 0.0,
+      pricePerSession: json['price_per_session'] == null
+          ? 0.0
+          : _parseCurrency(json['price_per_session']),
       numberOfSessions: (json['number_of_sessions'] as num?)?.toInt() ?? 0,
-      totalAmount: (json['total_amount'] as num?)?.toDouble() ?? 0.0,
+      totalAmount: json['total_amount'] == null
+          ? 0.0
+          : _parseCurrency(json['total_amount']),
       discounts: (json['discounts'] as List<dynamic>?)
               ?.map((e) => Discount.fromJson(e as Map<String, dynamic>))
               .toList() ??
           const [],
-      totalAfterDiscount:
-          (json['total_after_discount'] as num?)?.toDouble() ?? 0.0,
+      totalAfterDiscount: json['total_after_discount'] == null
+          ? 0.0
+          : _parseCurrency(json['total_after_discount']),
       bookingDates: (json['booking_dates'] as List<dynamic>?)
               ?.map((e) => e as String)
               .toList() ??
@@ -75,7 +80,7 @@ Map<String, dynamic> _$$ProgramDataImplToJson(_$ProgramDataImpl instance) =>
 _$DiscountImpl _$$DiscountImplFromJson(Map<String, dynamic> json) =>
     _$DiscountImpl(
       name: json['name'] as String? ?? '',
-      amount: (json['amount'] as num?)?.toDouble() ?? 0.0,
+      amount: json['amount'] == null ? 0.0 : _parseCurrency(json['amount']),
       type: json['type'] as String? ?? '',
     );
 

@@ -8,13 +8,14 @@ import 'package:rra/pages/coach/coach_player_report/coach_player_report_list/dat
 import '../../../../../../../../common/component/custom_app_button.dart';
 import '../../../../../../../../common/local/SharedPrefs.dart';
 import '../../../../../../../../common/service_locator/setivelocator.dart';
+import '../../../../../coach_player_report_list/data/entity/report_detail/report_detail.dart';
 import '../../../../../coach_player_report_list/presentation/bloc/report_bloc.dart';
 import '../../../../../coach_player_report_list/presentation/bloc/report_event.dart';
 
 
 
 class StrikeRotationDialogPage extends StatefulWidget {
-  final PerformanceElement performanceData;
+  final PerformanceElementDetail performanceData;
   final String? initialComment;
 
   const StrikeRotationDialogPage({
@@ -155,7 +156,7 @@ BlocProvider.of<ReportBloc>(context).add(AddScoreEvent(results));
     );
   }
 
-  Widget _buildColorIndicator(List<ScoreCriteria> scoreCriteria) {
+  Widget _buildColorIndicator(List<ScoreCriteriaDetail> scoreCriteria) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [

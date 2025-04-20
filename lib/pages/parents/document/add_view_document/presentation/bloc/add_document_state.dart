@@ -16,9 +16,11 @@ class AddDocumentState with _$AddDocumentState {
     @Default(false) bool isSuccess,
     @Default(false) bool isUploadSuccess,
     @Default(false) bool isUploadError,
+
     @Default(ParentDocumentListModel()) ParentDocumentListModel parentDocumentListModel,
     @Default(TermsProgramSessionPlayerModel()) TermsProgramSessionPlayerModel termsProgramSessionPlayerModelData,
     @Default("") String title,
+    @Default("") String documentIds,
     @Default("") String selectedCoachId,
     @Default([]) List<Coach> coaches,
     @Default([]) List<Term> terms,

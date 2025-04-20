@@ -1,9 +1,11 @@
 import 'package:either_dart/src/either.dart';
 
 import 'package:rra/common/network/failure.dart';
+import 'package:rra/common/values/utils.dart';
 
 import 'package:rra/pages/parents/session/coachprograms/data/entity/parent_coaching_program_list.dart';
 
+import '../../../../../../common/local/SharedPrefs.dart';
 import '../../../../../../common/network/api_services.dart';
 import '../../../../../../common/network/app_constant.dart';
 import '../../../../../../common/service_locator/setivelocator.dart';
@@ -28,7 +30,20 @@ class CoachProgramsRepoImpl implements CoachProgramsRepo {
           AppConstant.getCoachingProgramList, coachProgramListData,
           useDefaultHeaders: true);
       print("CHECK HERE userData == ${coachProgramListData}");
-      print(response.body);
+     print("HHSHSHSHSHSHSSHHSSHSHSHSHHSSHSHSHSHSHSHHSSS\n\n\n");
+
+      final sessionCookie = response.headers['set-cookie']
+          ?.split(',')
+          .firstWhere((cookie) => cookie.contains('rajasthanroyals_session'), orElse: () => '')
+          .split(';')
+          .first
+          .split('=')
+          .last;
+
+
+      Utils.LogPrint("rajasthanroyals_session=${sessionCookie}");
+    await getIt<SharedPrefs>().setString("cookie","rajasthanroyals_session=${sessionCookie.toString()}");
+     print("HHSHSHSHSHSHSSHHSSHSHSHSHHSSHSHSHSHSHSHHSSS\n\n\n");
       if (response.statusCode == 200) {
         final Map<String, dynamic> responseData = jsonDecode(response.body);
         final CoachingProgramResponse coachingProgramResponse =
@@ -45,6 +60,16 @@ class CoachProgramsRepoImpl implements CoachProgramsRepo {
     }
   }
 
+  String extractSessionCookie(String headers) {
+    // Pattern to match the rajasthanroyals_session cookie
+    final pattern = RegExp(r'rajasthanroyals_session=([^;]+)');
+    final match = pattern.firstMatch(headers);
+
+    if (match != null && match.groupCount >= 1) {
+      return match.group(1)!;
+    }
+    return ''; // Return empty string if not found
+  }
   String _extractErrorMessage(String responseBody) {
     try {
       final Map<String, dynamic> errorData = jsonDecode(responseBody);

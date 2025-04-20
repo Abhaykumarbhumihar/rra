@@ -27,6 +27,7 @@ mixin _$AddDocumentState {
   TermsProgramSessionPlayerModel get termsProgramSessionPlayerModelData =>
       throw _privateConstructorUsedError;
   String get title => throw _privateConstructorUsedError;
+  String get documentIds => throw _privateConstructorUsedError;
   String get selectedCoachId => throw _privateConstructorUsedError;
   List<Coach> get coaches => throw _privateConstructorUsedError;
   List<Term> get terms => throw _privateConstructorUsedError;
@@ -64,6 +65,7 @@ abstract class $AddDocumentStateCopyWith<$Res> {
       ParentDocumentListModel parentDocumentListModel,
       TermsProgramSessionPlayerModel termsProgramSessionPlayerModelData,
       String title,
+      String documentIds,
       String selectedCoachId,
       List<Coach> coaches,
       List<Term> terms,
@@ -106,6 +108,7 @@ class _$AddDocumentStateCopyWithImpl<$Res, $Val extends AddDocumentState>
     Object? parentDocumentListModel = null,
     Object? termsProgramSessionPlayerModelData = null,
     Object? title = null,
+    Object? documentIds = null,
     Object? selectedCoachId = null,
     Object? coaches = null,
     Object? terms = null,
@@ -156,6 +159,10 @@ class _$AddDocumentStateCopyWithImpl<$Res, $Val extends AddDocumentState>
       title: null == title
           ? _value.title
           : title // ignore: cast_nullable_to_non_nullable
+              as String,
+      documentIds: null == documentIds
+          ? _value.documentIds
+          : documentIds // ignore: cast_nullable_to_non_nullable
               as String,
       selectedCoachId: null == selectedCoachId
           ? _value.selectedCoachId
@@ -251,6 +258,7 @@ abstract class _$$AddDocumentStateImplCopyWith<$Res>
       ParentDocumentListModel parentDocumentListModel,
       TermsProgramSessionPlayerModel termsProgramSessionPlayerModelData,
       String title,
+      String documentIds,
       String selectedCoachId,
       List<Coach> coaches,
       List<Term> terms,
@@ -293,6 +301,7 @@ class __$$AddDocumentStateImplCopyWithImpl<$Res>
     Object? parentDocumentListModel = null,
     Object? termsProgramSessionPlayerModelData = null,
     Object? title = null,
+    Object? documentIds = null,
     Object? selectedCoachId = null,
     Object? coaches = null,
     Object? terms = null,
@@ -343,6 +352,10 @@ class __$$AddDocumentStateImplCopyWithImpl<$Res>
       title: null == title
           ? _value.title
           : title // ignore: cast_nullable_to_non_nullable
+              as String,
+      documentIds: null == documentIds
+          ? _value.documentIds
+          : documentIds // ignore: cast_nullable_to_non_nullable
               as String,
       selectedCoachId: null == selectedCoachId
           ? _value.selectedCoachId
@@ -409,6 +422,7 @@ class _$AddDocumentStateImpl implements _AddDocumentState {
       this.termsProgramSessionPlayerModelData =
           const TermsProgramSessionPlayerModel(),
       this.title = "",
+      this.documentIds = "",
       this.selectedCoachId = "",
       final List<Coach> coaches = const [],
       final List<Term> terms = const [],
@@ -454,6 +468,9 @@ class _$AddDocumentStateImpl implements _AddDocumentState {
   @override
   @JsonKey()
   final String title;
+  @override
+  @JsonKey()
+  final String documentIds;
   @override
   @JsonKey()
   final String selectedCoachId;
@@ -522,7 +539,7 @@ class _$AddDocumentStateImpl implements _AddDocumentState {
 
   @override
   String toString() {
-    return 'AddDocumentState(selectedTab: $selectedTab, isError: $isError, isLoading: $isLoading, isSuccess: $isSuccess, isUploadSuccess: $isUploadSuccess, isUploadError: $isUploadError, parentDocumentListModel: $parentDocumentListModel, termsProgramSessionPlayerModelData: $termsProgramSessionPlayerModelData, title: $title, selectedCoachId: $selectedCoachId, coaches: $coaches, terms: $terms, coachingProgram: $coachingProgram, session: $session, player: $player, selectedCoachName: $selectedCoachName, selectedFileName: $selectedFileName, message: $message, infoMessage: $infoMessage, parent_coach_radio: $parent_coach_radio, document: $document)';
+    return 'AddDocumentState(selectedTab: $selectedTab, isError: $isError, isLoading: $isLoading, isSuccess: $isSuccess, isUploadSuccess: $isUploadSuccess, isUploadError: $isUploadError, parentDocumentListModel: $parentDocumentListModel, termsProgramSessionPlayerModelData: $termsProgramSessionPlayerModelData, title: $title, documentIds: $documentIds, selectedCoachId: $selectedCoachId, coaches: $coaches, terms: $terms, coachingProgram: $coachingProgram, session: $session, player: $player, selectedCoachName: $selectedCoachName, selectedFileName: $selectedFileName, message: $message, infoMessage: $infoMessage, parent_coach_radio: $parent_coach_radio, document: $document)';
   }
 
   @override
@@ -549,6 +566,8 @@ class _$AddDocumentStateImpl implements _AddDocumentState {
                 other.termsProgramSessionPlayerModelData ==
                     termsProgramSessionPlayerModelData) &&
             (identical(other.title, title) || other.title == title) &&
+            (identical(other.documentIds, documentIds) ||
+                other.documentIds == documentIds) &&
             (identical(other.selectedCoachId, selectedCoachId) ||
                 other.selectedCoachId == selectedCoachId) &&
             const DeepCollectionEquality().equals(other._coaches, _coaches) &&
@@ -582,6 +601,7 @@ class _$AddDocumentStateImpl implements _AddDocumentState {
         parentDocumentListModel,
         termsProgramSessionPlayerModelData,
         title,
+        documentIds,
         selectedCoachId,
         const DeepCollectionEquality().hash(_coaches),
         const DeepCollectionEquality().hash(_terms),
@@ -617,6 +637,7 @@ abstract class _AddDocumentState implements AddDocumentState {
       final ParentDocumentListModel parentDocumentListModel,
       final TermsProgramSessionPlayerModel termsProgramSessionPlayerModelData,
       final String title,
+      final String documentIds,
       final String selectedCoachId,
       final List<Coach> coaches,
       final List<Term> terms,
@@ -648,6 +669,8 @@ abstract class _AddDocumentState implements AddDocumentState {
   TermsProgramSessionPlayerModel get termsProgramSessionPlayerModelData;
   @override
   String get title;
+  @override
+  String get documentIds;
   @override
   String get selectedCoachId;
   @override
