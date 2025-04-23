@@ -9,8 +9,8 @@ part of 'attendance_player_list.dart';
 _$AttendancePlayerListResponseImpl _$$AttendancePlayerListResponseImplFromJson(
         Map<String, dynamic> json) =>
     _$AttendancePlayerListResponseImpl(
-      code: (json['code'] as num?)?.toInt() ?? 0,
-      success: json['success'] as bool? ?? false,
+      code: (json['code'] as num?)?.toInt() ?? 200,
+      success: json['success'] as bool? ?? true,
       message: json['message'] as String? ?? '',
       data: json['data'] == null
           ? const AttendancePlayerListData()
@@ -43,29 +43,28 @@ Map<String, dynamic> _$$AttendancePlayerListDataImplToJson(
     };
 
 _$PlayerImpl _$$PlayerImplFromJson(Map<String, dynamic> json) => _$PlayerImpl(
-      id: (json['id'] as num?)?.toInt() ?? 0,
-      imageUrl: json['image'] as String? ?? '',
-      parentId: (json['parent_id'] as num?)?.toInt() ?? 0,
-      academyId: (json['academy_id'] as num?)?.toInt() ?? 0,
-      name: json['child_name'] as String? ?? '',
-      dob: json['child_dob'] as String? ?? '',
-      age: json['child_age'] as String? ?? '',
+      id: (json['id'] as num).toInt(),
+      imageUrl: json['image'] as String,
+      parentId: (json['parent_id'] as num).toInt(),
+      academyId: (json['academy_id'] as num).toInt(),
+      name: json['child_name'] as String,
+      dob: json['child_dob'] as String,
+      age: json['child_age'] as String,
       school: json['child_school'] as String?,
       club: json['child_club'] as String?,
       medicalCondition: json['child_medical_condition'] as String?,
-      address: json['child_address'] as String? ?? '',
+      address: json['child_address'] as String,
       photoSocialWebsitePermission:
-          json['child_photo_social_website'] as String? ?? '0',
-      permissions: json['child_permissions'] as String? ?? '0',
-      status: (json['status'] as num?)?.toInt() ?? 1,
-      createdAt: json['created_at'] as String? ?? '',
-      updatedAt: json['updated_at'] as String? ?? '',
-      totalSessions: (json['total_sessions'] as num?)?.toInt() ?? 0,
-      attendedSessions: (json['attended_sessions'] as num?)?.toInt() ?? 0,
-      attendanceRecords: (json['attendance_record'] as List<dynamic>?)
-              ?.map((e) => AttendanceRecord.fromJson(e as Map<String, dynamic>))
-              .toList() ??
-          const [],
+          json['child_photo_social_website'] as String,
+      permissions: json['child_permissions'] as String,
+      status: (json['status'] as num).toInt(),
+      createdAt: json['created_at'] as String,
+      updatedAt: json['updated_at'] as String,
+      totalSessions: (json['total_sessions'] as num).toInt(),
+      attendedSessions: (json['attended_sessions'] as num).toInt(),
+      attendanceRecords: (json['attendance_record'] as List<dynamic>)
+          .map((e) => AttendanceRecord.fromJson(e as Map<String, dynamic>))
+          .toList(),
     );
 
 Map<String, dynamic> _$$PlayerImplToJson(_$PlayerImpl instance) =>
@@ -94,9 +93,9 @@ Map<String, dynamic> _$$PlayerImplToJson(_$PlayerImpl instance) =>
 _$AttendanceRecordImpl _$$AttendanceRecordImplFromJson(
         Map<String, dynamic> json) =>
     _$AttendanceRecordImpl(
-      sessionId: (json['session_id'] as num?)?.toInt() ?? 0,
-      date: json['date'] as String? ?? '',
-      attendanceStatus: json['attendance_status'] as String? ?? '',
+      sessionId: (json['session_id'] as num).toInt(),
+      date: json['date'] as String,
+      attendanceStatus: json['attendance_status'] as String,
     );
 
 Map<String, dynamic> _$$AttendanceRecordImplToJson(

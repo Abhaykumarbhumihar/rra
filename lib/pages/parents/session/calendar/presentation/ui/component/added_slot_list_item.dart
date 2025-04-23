@@ -21,6 +21,7 @@ class AddedSlotListItem extends StatelessWidget {
   final String fromTime;
   final String toTime;
   final String sessionID;
+  final String currency;
   const AddedSlotListItem({
     required this.fromTime,
     required this.toTime,
@@ -32,7 +33,7 @@ class AddedSlotListItem extends StatelessWidget {
     required this.location,
     required this.dateTime,
     required this.price,
-    required this.onClose,
+    required this.onClose, required  this.currency,
   });
 
   @override
@@ -166,7 +167,7 @@ class AddedSlotListItem extends StatelessWidget {
                                   ),
                                   SizedBox(height: 6),
                                   Text(
-                                    "${price} * ${childCount}",
+                                    "${currency}${formatAndRoundPrice(price)} * ${childCount}",
                                     style: AppTextStyle.bold(
                                         context.screenWidth * 0.0373),
                                   ),
@@ -184,7 +185,21 @@ class AddedSlotListItem extends StatelessWidget {
       ],
     );
   }
+  String formatAndRoundPrice(String price) {
+    try {
+      // 1. Remove commas, currency symbols (₹, $, etc.)
+      String cleanPrice = price.replaceAll(RegExp(r'[^0-9.]'), '');
 
+      // 2. Parse to double and round
+      double parsedValue = double.parse(cleanPrice);
+
+      // 3. Return without decimal places
+      return parsedValue.round().toString();
+    } catch (e) {
+      // अगर error आए (e.g., invalid number), तो original return करें
+      return price;
+    }
+  }
   void showLogoutConfirmationDialog({
     required BuildContext context,
     required VoidCallback onCancel,

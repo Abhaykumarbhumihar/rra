@@ -27,6 +27,8 @@ mixin _$AttendanceEvent {
     required TResult Function(Term term) getTermSelected,
     required TResult Function(CoachingProgram program) getProgramSelected,
     required TResult Function(Session session) getSessionSelected,
+    required TResult Function(PlayerData player) getPlayerSelected,
+    required TResult Function() resetState,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -39,6 +41,8 @@ mixin _$AttendanceEvent {
     TResult? Function(Term term)? getTermSelected,
     TResult? Function(CoachingProgram program)? getProgramSelected,
     TResult? Function(Session session)? getSessionSelected,
+    TResult? Function(PlayerData player)? getPlayerSelected,
+    TResult? Function()? resetState,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -51,6 +55,8 @@ mixin _$AttendanceEvent {
     TResult Function(Term term)? getTermSelected,
     TResult Function(CoachingProgram program)? getProgramSelected,
     TResult Function(Session session)? getSessionSelected,
+    TResult Function(PlayerData player)? getPlayerSelected,
+    TResult Function()? resetState,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -68,6 +74,9 @@ mixin _$AttendanceEvent {
     required TResult Function(TermSelectedEvent value) getTermSelected,
     required TResult Function(ProgramSelectedEvent value) getProgramSelected,
     required TResult Function(SessionSelectedEvent value) getSessionSelected,
+    required TResult Function(PlayerselectedSelectedEvent value)
+        getPlayerSelected,
+    required TResult Function(ResetStateEvent value) resetState,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -81,6 +90,8 @@ mixin _$AttendanceEvent {
     TResult? Function(TermSelectedEvent value)? getTermSelected,
     TResult? Function(ProgramSelectedEvent value)? getProgramSelected,
     TResult? Function(SessionSelectedEvent value)? getSessionSelected,
+    TResult? Function(PlayerselectedSelectedEvent value)? getPlayerSelected,
+    TResult? Function(ResetStateEvent value)? resetState,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -94,6 +105,8 @@ mixin _$AttendanceEvent {
     TResult Function(TermSelectedEvent value)? getTermSelected,
     TResult Function(ProgramSelectedEvent value)? getProgramSelected,
     TResult Function(SessionSelectedEvent value)? getSessionSelected,
+    TResult Function(PlayerselectedSelectedEvent value)? getPlayerSelected,
+    TResult Function(ResetStateEvent value)? resetState,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -207,6 +220,8 @@ class _$FilterAttendanceListEventImpl implements FilterAttendanceListEvent {
     required TResult Function(Term term) getTermSelected,
     required TResult Function(CoachingProgram program) getProgramSelected,
     required TResult Function(Session session) getSessionSelected,
+    required TResult Function(PlayerData player) getPlayerSelected,
+    required TResult Function() resetState,
   }) {
     return filterAttendaceList(data);
   }
@@ -222,6 +237,8 @@ class _$FilterAttendanceListEventImpl implements FilterAttendanceListEvent {
     TResult? Function(Term term)? getTermSelected,
     TResult? Function(CoachingProgram program)? getProgramSelected,
     TResult? Function(Session session)? getSessionSelected,
+    TResult? Function(PlayerData player)? getPlayerSelected,
+    TResult? Function()? resetState,
   }) {
     return filterAttendaceList?.call(data);
   }
@@ -237,6 +254,8 @@ class _$FilterAttendanceListEventImpl implements FilterAttendanceListEvent {
     TResult Function(Term term)? getTermSelected,
     TResult Function(CoachingProgram program)? getProgramSelected,
     TResult Function(Session session)? getSessionSelected,
+    TResult Function(PlayerData player)? getPlayerSelected,
+    TResult Function()? resetState,
     required TResult orElse(),
   }) {
     if (filterAttendaceList != null) {
@@ -260,6 +279,9 @@ class _$FilterAttendanceListEventImpl implements FilterAttendanceListEvent {
     required TResult Function(TermSelectedEvent value) getTermSelected,
     required TResult Function(ProgramSelectedEvent value) getProgramSelected,
     required TResult Function(SessionSelectedEvent value) getSessionSelected,
+    required TResult Function(PlayerselectedSelectedEvent value)
+        getPlayerSelected,
+    required TResult Function(ResetStateEvent value) resetState,
   }) {
     return filterAttendaceList(this);
   }
@@ -276,6 +298,8 @@ class _$FilterAttendanceListEventImpl implements FilterAttendanceListEvent {
     TResult? Function(TermSelectedEvent value)? getTermSelected,
     TResult? Function(ProgramSelectedEvent value)? getProgramSelected,
     TResult? Function(SessionSelectedEvent value)? getSessionSelected,
+    TResult? Function(PlayerselectedSelectedEvent value)? getPlayerSelected,
+    TResult? Function(ResetStateEvent value)? resetState,
   }) {
     return filterAttendaceList?.call(this);
   }
@@ -292,6 +316,8 @@ class _$FilterAttendanceListEventImpl implements FilterAttendanceListEvent {
     TResult Function(TermSelectedEvent value)? getTermSelected,
     TResult Function(ProgramSelectedEvent value)? getProgramSelected,
     TResult Function(SessionSelectedEvent value)? getSessionSelected,
+    TResult Function(PlayerselectedSelectedEvent value)? getPlayerSelected,
+    TResult Function(ResetStateEvent value)? resetState,
     required TResult orElse(),
   }) {
     if (filterAttendaceList != null) {
@@ -401,6 +427,8 @@ class _$GetAttendanceListEventImpl implements GetAttendanceListEvent {
     required TResult Function(Term term) getTermSelected,
     required TResult Function(CoachingProgram program) getProgramSelected,
     required TResult Function(Session session) getSessionSelected,
+    required TResult Function(PlayerData player) getPlayerSelected,
+    required TResult Function() resetState,
   }) {
     return getAttenDanceListData(data);
   }
@@ -416,6 +444,8 @@ class _$GetAttendanceListEventImpl implements GetAttendanceListEvent {
     TResult? Function(Term term)? getTermSelected,
     TResult? Function(CoachingProgram program)? getProgramSelected,
     TResult? Function(Session session)? getSessionSelected,
+    TResult? Function(PlayerData player)? getPlayerSelected,
+    TResult? Function()? resetState,
   }) {
     return getAttenDanceListData?.call(data);
   }
@@ -431,6 +461,8 @@ class _$GetAttendanceListEventImpl implements GetAttendanceListEvent {
     TResult Function(Term term)? getTermSelected,
     TResult Function(CoachingProgram program)? getProgramSelected,
     TResult Function(Session session)? getSessionSelected,
+    TResult Function(PlayerData player)? getPlayerSelected,
+    TResult Function()? resetState,
     required TResult orElse(),
   }) {
     if (getAttenDanceListData != null) {
@@ -454,6 +486,9 @@ class _$GetAttendanceListEventImpl implements GetAttendanceListEvent {
     required TResult Function(TermSelectedEvent value) getTermSelected,
     required TResult Function(ProgramSelectedEvent value) getProgramSelected,
     required TResult Function(SessionSelectedEvent value) getSessionSelected,
+    required TResult Function(PlayerselectedSelectedEvent value)
+        getPlayerSelected,
+    required TResult Function(ResetStateEvent value) resetState,
   }) {
     return getAttenDanceListData(this);
   }
@@ -470,6 +505,8 @@ class _$GetAttendanceListEventImpl implements GetAttendanceListEvent {
     TResult? Function(TermSelectedEvent value)? getTermSelected,
     TResult? Function(ProgramSelectedEvent value)? getProgramSelected,
     TResult? Function(SessionSelectedEvent value)? getSessionSelected,
+    TResult? Function(PlayerselectedSelectedEvent value)? getPlayerSelected,
+    TResult? Function(ResetStateEvent value)? resetState,
   }) {
     return getAttenDanceListData?.call(this);
   }
@@ -486,6 +523,8 @@ class _$GetAttendanceListEventImpl implements GetAttendanceListEvent {
     TResult Function(TermSelectedEvent value)? getTermSelected,
     TResult Function(ProgramSelectedEvent value)? getProgramSelected,
     TResult Function(SessionSelectedEvent value)? getSessionSelected,
+    TResult Function(PlayerselectedSelectedEvent value)? getPlayerSelected,
+    TResult Function(ResetStateEvent value)? resetState,
     required TResult orElse(),
   }) {
     if (getAttenDanceListData != null) {
@@ -599,6 +638,8 @@ class _$GetDetailOfOneChildAttendanceEventImpl
     required TResult Function(Term term) getTermSelected,
     required TResult Function(CoachingProgram program) getProgramSelected,
     required TResult Function(Session session) getSessionSelected,
+    required TResult Function(PlayerData player) getPlayerSelected,
+    required TResult Function() resetState,
   }) {
     return getDetailOfChildAttendance(data);
   }
@@ -614,6 +655,8 @@ class _$GetDetailOfOneChildAttendanceEventImpl
     TResult? Function(Term term)? getTermSelected,
     TResult? Function(CoachingProgram program)? getProgramSelected,
     TResult? Function(Session session)? getSessionSelected,
+    TResult? Function(PlayerData player)? getPlayerSelected,
+    TResult? Function()? resetState,
   }) {
     return getDetailOfChildAttendance?.call(data);
   }
@@ -629,6 +672,8 @@ class _$GetDetailOfOneChildAttendanceEventImpl
     TResult Function(Term term)? getTermSelected,
     TResult Function(CoachingProgram program)? getProgramSelected,
     TResult Function(Session session)? getSessionSelected,
+    TResult Function(PlayerData player)? getPlayerSelected,
+    TResult Function()? resetState,
     required TResult orElse(),
   }) {
     if (getDetailOfChildAttendance != null) {
@@ -652,6 +697,9 @@ class _$GetDetailOfOneChildAttendanceEventImpl
     required TResult Function(TermSelectedEvent value) getTermSelected,
     required TResult Function(ProgramSelectedEvent value) getProgramSelected,
     required TResult Function(SessionSelectedEvent value) getSessionSelected,
+    required TResult Function(PlayerselectedSelectedEvent value)
+        getPlayerSelected,
+    required TResult Function(ResetStateEvent value) resetState,
   }) {
     return getDetailOfChildAttendance(this);
   }
@@ -668,6 +716,8 @@ class _$GetDetailOfOneChildAttendanceEventImpl
     TResult? Function(TermSelectedEvent value)? getTermSelected,
     TResult? Function(ProgramSelectedEvent value)? getProgramSelected,
     TResult? Function(SessionSelectedEvent value)? getSessionSelected,
+    TResult? Function(PlayerselectedSelectedEvent value)? getPlayerSelected,
+    TResult? Function(ResetStateEvent value)? resetState,
   }) {
     return getDetailOfChildAttendance?.call(this);
   }
@@ -684,6 +734,8 @@ class _$GetDetailOfOneChildAttendanceEventImpl
     TResult Function(TermSelectedEvent value)? getTermSelected,
     TResult Function(ProgramSelectedEvent value)? getProgramSelected,
     TResult Function(SessionSelectedEvent value)? getSessionSelected,
+    TResult Function(PlayerselectedSelectedEvent value)? getPlayerSelected,
+    TResult Function(ResetStateEvent value)? resetState,
     required TResult orElse(),
   }) {
     if (getDetailOfChildAttendance != null) {
@@ -794,6 +846,8 @@ class _$UpdateAttendanceEventImpl implements UpdateAttendanceEvent {
     required TResult Function(Term term) getTermSelected,
     required TResult Function(CoachingProgram program) getProgramSelected,
     required TResult Function(Session session) getSessionSelected,
+    required TResult Function(PlayerData player) getPlayerSelected,
+    required TResult Function() resetState,
   }) {
     return updateAttendanceStatus(data);
   }
@@ -809,6 +863,8 @@ class _$UpdateAttendanceEventImpl implements UpdateAttendanceEvent {
     TResult? Function(Term term)? getTermSelected,
     TResult? Function(CoachingProgram program)? getProgramSelected,
     TResult? Function(Session session)? getSessionSelected,
+    TResult? Function(PlayerData player)? getPlayerSelected,
+    TResult? Function()? resetState,
   }) {
     return updateAttendanceStatus?.call(data);
   }
@@ -824,6 +880,8 @@ class _$UpdateAttendanceEventImpl implements UpdateAttendanceEvent {
     TResult Function(Term term)? getTermSelected,
     TResult Function(CoachingProgram program)? getProgramSelected,
     TResult Function(Session session)? getSessionSelected,
+    TResult Function(PlayerData player)? getPlayerSelected,
+    TResult Function()? resetState,
     required TResult orElse(),
   }) {
     if (updateAttendanceStatus != null) {
@@ -847,6 +905,9 @@ class _$UpdateAttendanceEventImpl implements UpdateAttendanceEvent {
     required TResult Function(TermSelectedEvent value) getTermSelected,
     required TResult Function(ProgramSelectedEvent value) getProgramSelected,
     required TResult Function(SessionSelectedEvent value) getSessionSelected,
+    required TResult Function(PlayerselectedSelectedEvent value)
+        getPlayerSelected,
+    required TResult Function(ResetStateEvent value) resetState,
   }) {
     return updateAttendanceStatus(this);
   }
@@ -863,6 +924,8 @@ class _$UpdateAttendanceEventImpl implements UpdateAttendanceEvent {
     TResult? Function(TermSelectedEvent value)? getTermSelected,
     TResult? Function(ProgramSelectedEvent value)? getProgramSelected,
     TResult? Function(SessionSelectedEvent value)? getSessionSelected,
+    TResult? Function(PlayerselectedSelectedEvent value)? getPlayerSelected,
+    TResult? Function(ResetStateEvent value)? resetState,
   }) {
     return updateAttendanceStatus?.call(this);
   }
@@ -879,6 +942,8 @@ class _$UpdateAttendanceEventImpl implements UpdateAttendanceEvent {
     TResult Function(TermSelectedEvent value)? getTermSelected,
     TResult Function(ProgramSelectedEvent value)? getProgramSelected,
     TResult Function(SessionSelectedEvent value)? getSessionSelected,
+    TResult Function(PlayerselectedSelectedEvent value)? getPlayerSelected,
+    TResult Function(ResetStateEvent value)? resetState,
     required TResult orElse(),
   }) {
     if (updateAttendanceStatus != null) {
@@ -979,6 +1044,8 @@ class _$StoreTapUserIdImpl implements StoreTapUserId {
     required TResult Function(Term term) getTermSelected,
     required TResult Function(CoachingProgram program) getProgramSelected,
     required TResult Function(Session session) getSessionSelected,
+    required TResult Function(PlayerData player) getPlayerSelected,
+    required TResult Function() resetState,
   }) {
     return storeTapUserId(id);
   }
@@ -994,6 +1061,8 @@ class _$StoreTapUserIdImpl implements StoreTapUserId {
     TResult? Function(Term term)? getTermSelected,
     TResult? Function(CoachingProgram program)? getProgramSelected,
     TResult? Function(Session session)? getSessionSelected,
+    TResult? Function(PlayerData player)? getPlayerSelected,
+    TResult? Function()? resetState,
   }) {
     return storeTapUserId?.call(id);
   }
@@ -1009,6 +1078,8 @@ class _$StoreTapUserIdImpl implements StoreTapUserId {
     TResult Function(Term term)? getTermSelected,
     TResult Function(CoachingProgram program)? getProgramSelected,
     TResult Function(Session session)? getSessionSelected,
+    TResult Function(PlayerData player)? getPlayerSelected,
+    TResult Function()? resetState,
     required TResult orElse(),
   }) {
     if (storeTapUserId != null) {
@@ -1032,6 +1103,9 @@ class _$StoreTapUserIdImpl implements StoreTapUserId {
     required TResult Function(TermSelectedEvent value) getTermSelected,
     required TResult Function(ProgramSelectedEvent value) getProgramSelected,
     required TResult Function(SessionSelectedEvent value) getSessionSelected,
+    required TResult Function(PlayerselectedSelectedEvent value)
+        getPlayerSelected,
+    required TResult Function(ResetStateEvent value) resetState,
   }) {
     return storeTapUserId(this);
   }
@@ -1048,6 +1122,8 @@ class _$StoreTapUserIdImpl implements StoreTapUserId {
     TResult? Function(TermSelectedEvent value)? getTermSelected,
     TResult? Function(ProgramSelectedEvent value)? getProgramSelected,
     TResult? Function(SessionSelectedEvent value)? getSessionSelected,
+    TResult? Function(PlayerselectedSelectedEvent value)? getPlayerSelected,
+    TResult? Function(ResetStateEvent value)? resetState,
   }) {
     return storeTapUserId?.call(this);
   }
@@ -1064,6 +1140,8 @@ class _$StoreTapUserIdImpl implements StoreTapUserId {
     TResult Function(TermSelectedEvent value)? getTermSelected,
     TResult Function(ProgramSelectedEvent value)? getProgramSelected,
     TResult Function(SessionSelectedEvent value)? getSessionSelected,
+    TResult Function(PlayerselectedSelectedEvent value)? getPlayerSelected,
+    TResult Function(ResetStateEvent value)? resetState,
     required TResult orElse(),
   }) {
     if (storeTapUserId != null) {
@@ -1175,6 +1253,8 @@ class _$TermSelectedEventImpl implements TermSelectedEvent {
     required TResult Function(Term term) getTermSelected,
     required TResult Function(CoachingProgram program) getProgramSelected,
     required TResult Function(Session session) getSessionSelected,
+    required TResult Function(PlayerData player) getPlayerSelected,
+    required TResult Function() resetState,
   }) {
     return getTermSelected(term);
   }
@@ -1190,6 +1270,8 @@ class _$TermSelectedEventImpl implements TermSelectedEvent {
     TResult? Function(Term term)? getTermSelected,
     TResult? Function(CoachingProgram program)? getProgramSelected,
     TResult? Function(Session session)? getSessionSelected,
+    TResult? Function(PlayerData player)? getPlayerSelected,
+    TResult? Function()? resetState,
   }) {
     return getTermSelected?.call(term);
   }
@@ -1205,6 +1287,8 @@ class _$TermSelectedEventImpl implements TermSelectedEvent {
     TResult Function(Term term)? getTermSelected,
     TResult Function(CoachingProgram program)? getProgramSelected,
     TResult Function(Session session)? getSessionSelected,
+    TResult Function(PlayerData player)? getPlayerSelected,
+    TResult Function()? resetState,
     required TResult orElse(),
   }) {
     if (getTermSelected != null) {
@@ -1228,6 +1312,9 @@ class _$TermSelectedEventImpl implements TermSelectedEvent {
     required TResult Function(TermSelectedEvent value) getTermSelected,
     required TResult Function(ProgramSelectedEvent value) getProgramSelected,
     required TResult Function(SessionSelectedEvent value) getSessionSelected,
+    required TResult Function(PlayerselectedSelectedEvent value)
+        getPlayerSelected,
+    required TResult Function(ResetStateEvent value) resetState,
   }) {
     return getTermSelected(this);
   }
@@ -1244,6 +1331,8 @@ class _$TermSelectedEventImpl implements TermSelectedEvent {
     TResult? Function(TermSelectedEvent value)? getTermSelected,
     TResult? Function(ProgramSelectedEvent value)? getProgramSelected,
     TResult? Function(SessionSelectedEvent value)? getSessionSelected,
+    TResult? Function(PlayerselectedSelectedEvent value)? getPlayerSelected,
+    TResult? Function(ResetStateEvent value)? resetState,
   }) {
     return getTermSelected?.call(this);
   }
@@ -1260,6 +1349,8 @@ class _$TermSelectedEventImpl implements TermSelectedEvent {
     TResult Function(TermSelectedEvent value)? getTermSelected,
     TResult Function(ProgramSelectedEvent value)? getProgramSelected,
     TResult Function(SessionSelectedEvent value)? getSessionSelected,
+    TResult Function(PlayerselectedSelectedEvent value)? getPlayerSelected,
+    TResult Function(ResetStateEvent value)? resetState,
     required TResult orElse(),
   }) {
     if (getTermSelected != null) {
@@ -1372,6 +1463,8 @@ class _$ProgramSelectedEventImpl implements ProgramSelectedEvent {
     required TResult Function(Term term) getTermSelected,
     required TResult Function(CoachingProgram program) getProgramSelected,
     required TResult Function(Session session) getSessionSelected,
+    required TResult Function(PlayerData player) getPlayerSelected,
+    required TResult Function() resetState,
   }) {
     return getProgramSelected(program);
   }
@@ -1387,6 +1480,8 @@ class _$ProgramSelectedEventImpl implements ProgramSelectedEvent {
     TResult? Function(Term term)? getTermSelected,
     TResult? Function(CoachingProgram program)? getProgramSelected,
     TResult? Function(Session session)? getSessionSelected,
+    TResult? Function(PlayerData player)? getPlayerSelected,
+    TResult? Function()? resetState,
   }) {
     return getProgramSelected?.call(program);
   }
@@ -1402,6 +1497,8 @@ class _$ProgramSelectedEventImpl implements ProgramSelectedEvent {
     TResult Function(Term term)? getTermSelected,
     TResult Function(CoachingProgram program)? getProgramSelected,
     TResult Function(Session session)? getSessionSelected,
+    TResult Function(PlayerData player)? getPlayerSelected,
+    TResult Function()? resetState,
     required TResult orElse(),
   }) {
     if (getProgramSelected != null) {
@@ -1425,6 +1522,9 @@ class _$ProgramSelectedEventImpl implements ProgramSelectedEvent {
     required TResult Function(TermSelectedEvent value) getTermSelected,
     required TResult Function(ProgramSelectedEvent value) getProgramSelected,
     required TResult Function(SessionSelectedEvent value) getSessionSelected,
+    required TResult Function(PlayerselectedSelectedEvent value)
+        getPlayerSelected,
+    required TResult Function(ResetStateEvent value) resetState,
   }) {
     return getProgramSelected(this);
   }
@@ -1441,6 +1541,8 @@ class _$ProgramSelectedEventImpl implements ProgramSelectedEvent {
     TResult? Function(TermSelectedEvent value)? getTermSelected,
     TResult? Function(ProgramSelectedEvent value)? getProgramSelected,
     TResult? Function(SessionSelectedEvent value)? getSessionSelected,
+    TResult? Function(PlayerselectedSelectedEvent value)? getPlayerSelected,
+    TResult? Function(ResetStateEvent value)? resetState,
   }) {
     return getProgramSelected?.call(this);
   }
@@ -1457,6 +1559,8 @@ class _$ProgramSelectedEventImpl implements ProgramSelectedEvent {
     TResult Function(TermSelectedEvent value)? getTermSelected,
     TResult Function(ProgramSelectedEvent value)? getProgramSelected,
     TResult Function(SessionSelectedEvent value)? getSessionSelected,
+    TResult Function(PlayerselectedSelectedEvent value)? getPlayerSelected,
+    TResult Function(ResetStateEvent value)? resetState,
     required TResult orElse(),
   }) {
     if (getProgramSelected != null) {
@@ -1570,6 +1674,8 @@ class _$SessionSelectedEventImpl implements SessionSelectedEvent {
     required TResult Function(Term term) getTermSelected,
     required TResult Function(CoachingProgram program) getProgramSelected,
     required TResult Function(Session session) getSessionSelected,
+    required TResult Function(PlayerData player) getPlayerSelected,
+    required TResult Function() resetState,
   }) {
     return getSessionSelected(session);
   }
@@ -1585,6 +1691,8 @@ class _$SessionSelectedEventImpl implements SessionSelectedEvent {
     TResult? Function(Term term)? getTermSelected,
     TResult? Function(CoachingProgram program)? getProgramSelected,
     TResult? Function(Session session)? getSessionSelected,
+    TResult? Function(PlayerData player)? getPlayerSelected,
+    TResult? Function()? resetState,
   }) {
     return getSessionSelected?.call(session);
   }
@@ -1600,6 +1708,8 @@ class _$SessionSelectedEventImpl implements SessionSelectedEvent {
     TResult Function(Term term)? getTermSelected,
     TResult Function(CoachingProgram program)? getProgramSelected,
     TResult Function(Session session)? getSessionSelected,
+    TResult Function(PlayerData player)? getPlayerSelected,
+    TResult Function()? resetState,
     required TResult orElse(),
   }) {
     if (getSessionSelected != null) {
@@ -1623,6 +1733,9 @@ class _$SessionSelectedEventImpl implements SessionSelectedEvent {
     required TResult Function(TermSelectedEvent value) getTermSelected,
     required TResult Function(ProgramSelectedEvent value) getProgramSelected,
     required TResult Function(SessionSelectedEvent value) getSessionSelected,
+    required TResult Function(PlayerselectedSelectedEvent value)
+        getPlayerSelected,
+    required TResult Function(ResetStateEvent value) resetState,
   }) {
     return getSessionSelected(this);
   }
@@ -1639,6 +1752,8 @@ class _$SessionSelectedEventImpl implements SessionSelectedEvent {
     TResult? Function(TermSelectedEvent value)? getTermSelected,
     TResult? Function(ProgramSelectedEvent value)? getProgramSelected,
     TResult? Function(SessionSelectedEvent value)? getSessionSelected,
+    TResult? Function(PlayerselectedSelectedEvent value)? getPlayerSelected,
+    TResult? Function(ResetStateEvent value)? resetState,
   }) {
     return getSessionSelected?.call(this);
   }
@@ -1655,6 +1770,8 @@ class _$SessionSelectedEventImpl implements SessionSelectedEvent {
     TResult Function(TermSelectedEvent value)? getTermSelected,
     TResult Function(ProgramSelectedEvent value)? getProgramSelected,
     TResult Function(SessionSelectedEvent value)? getSessionSelected,
+    TResult Function(PlayerselectedSelectedEvent value)? getPlayerSelected,
+    TResult Function(ResetStateEvent value)? resetState,
     required TResult orElse(),
   }) {
     if (getSessionSelected != null) {
@@ -1675,4 +1792,378 @@ abstract class SessionSelectedEvent implements AttendanceEvent {
   @JsonKey(includeFromJson: false, includeToJson: false)
   _$$SessionSelectedEventImplCopyWith<_$SessionSelectedEventImpl>
       get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$PlayerselectedSelectedEventImplCopyWith<$Res> {
+  factory _$$PlayerselectedSelectedEventImplCopyWith(
+          _$PlayerselectedSelectedEventImpl value,
+          $Res Function(_$PlayerselectedSelectedEventImpl) then) =
+      __$$PlayerselectedSelectedEventImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({PlayerData player});
+
+  $PlayerDataCopyWith<$Res> get player;
+}
+
+/// @nodoc
+class __$$PlayerselectedSelectedEventImplCopyWithImpl<$Res>
+    extends _$AttendanceEventCopyWithImpl<$Res,
+        _$PlayerselectedSelectedEventImpl>
+    implements _$$PlayerselectedSelectedEventImplCopyWith<$Res> {
+  __$$PlayerselectedSelectedEventImplCopyWithImpl(
+      _$PlayerselectedSelectedEventImpl _value,
+      $Res Function(_$PlayerselectedSelectedEventImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of AttendanceEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? player = null,
+  }) {
+    return _then(_$PlayerselectedSelectedEventImpl(
+      null == player
+          ? _value.player
+          : player // ignore: cast_nullable_to_non_nullable
+              as PlayerData,
+    ));
+  }
+
+  /// Create a copy of AttendanceEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $PlayerDataCopyWith<$Res> get player {
+    return $PlayerDataCopyWith<$Res>(_value.player, (value) {
+      return _then(_value.copyWith(player: value));
+    });
+  }
+}
+
+/// @nodoc
+
+class _$PlayerselectedSelectedEventImpl implements PlayerselectedSelectedEvent {
+  const _$PlayerselectedSelectedEventImpl(this.player);
+
+  @override
+  final PlayerData player;
+
+  @override
+  String toString() {
+    return 'AttendanceEvent.getPlayerSelected(player: $player)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$PlayerselectedSelectedEventImpl &&
+            (identical(other.player, player) || other.player == player));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, player);
+
+  /// Create a copy of AttendanceEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$PlayerselectedSelectedEventImplCopyWith<_$PlayerselectedSelectedEventImpl>
+      get copyWith => __$$PlayerselectedSelectedEventImplCopyWithImpl<
+          _$PlayerselectedSelectedEventImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(Map<String, dynamic> data) filterAttendaceList,
+    required TResult Function(Map<String, dynamic> data) getAttenDanceListData,
+    required TResult Function(Map<String, dynamic> data)
+        getDetailOfChildAttendance,
+    required TResult Function(Map<String, dynamic> data) updateAttendanceStatus,
+    required TResult Function(String id) storeTapUserId,
+    required TResult Function(Term term) getTermSelected,
+    required TResult Function(CoachingProgram program) getProgramSelected,
+    required TResult Function(Session session) getSessionSelected,
+    required TResult Function(PlayerData player) getPlayerSelected,
+    required TResult Function() resetState,
+  }) {
+    return getPlayerSelected(player);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(Map<String, dynamic> data)? filterAttendaceList,
+    TResult? Function(Map<String, dynamic> data)? getAttenDanceListData,
+    TResult? Function(Map<String, dynamic> data)? getDetailOfChildAttendance,
+    TResult? Function(Map<String, dynamic> data)? updateAttendanceStatus,
+    TResult? Function(String id)? storeTapUserId,
+    TResult? Function(Term term)? getTermSelected,
+    TResult? Function(CoachingProgram program)? getProgramSelected,
+    TResult? Function(Session session)? getSessionSelected,
+    TResult? Function(PlayerData player)? getPlayerSelected,
+    TResult? Function()? resetState,
+  }) {
+    return getPlayerSelected?.call(player);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(Map<String, dynamic> data)? filterAttendaceList,
+    TResult Function(Map<String, dynamic> data)? getAttenDanceListData,
+    TResult Function(Map<String, dynamic> data)? getDetailOfChildAttendance,
+    TResult Function(Map<String, dynamic> data)? updateAttendanceStatus,
+    TResult Function(String id)? storeTapUserId,
+    TResult Function(Term term)? getTermSelected,
+    TResult Function(CoachingProgram program)? getProgramSelected,
+    TResult Function(Session session)? getSessionSelected,
+    TResult Function(PlayerData player)? getPlayerSelected,
+    TResult Function()? resetState,
+    required TResult orElse(),
+  }) {
+    if (getPlayerSelected != null) {
+      return getPlayerSelected(player);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(FilterAttendanceListEvent value)
+        filterAttendaceList,
+    required TResult Function(GetAttendanceListEvent value)
+        getAttenDanceListData,
+    required TResult Function(GetDetailOfOneChildAttendanceEvent value)
+        getDetailOfChildAttendance,
+    required TResult Function(UpdateAttendanceEvent value)
+        updateAttendanceStatus,
+    required TResult Function(StoreTapUserId value) storeTapUserId,
+    required TResult Function(TermSelectedEvent value) getTermSelected,
+    required TResult Function(ProgramSelectedEvent value) getProgramSelected,
+    required TResult Function(SessionSelectedEvent value) getSessionSelected,
+    required TResult Function(PlayerselectedSelectedEvent value)
+        getPlayerSelected,
+    required TResult Function(ResetStateEvent value) resetState,
+  }) {
+    return getPlayerSelected(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(FilterAttendanceListEvent value)? filterAttendaceList,
+    TResult? Function(GetAttendanceListEvent value)? getAttenDanceListData,
+    TResult? Function(GetDetailOfOneChildAttendanceEvent value)?
+        getDetailOfChildAttendance,
+    TResult? Function(UpdateAttendanceEvent value)? updateAttendanceStatus,
+    TResult? Function(StoreTapUserId value)? storeTapUserId,
+    TResult? Function(TermSelectedEvent value)? getTermSelected,
+    TResult? Function(ProgramSelectedEvent value)? getProgramSelected,
+    TResult? Function(SessionSelectedEvent value)? getSessionSelected,
+    TResult? Function(PlayerselectedSelectedEvent value)? getPlayerSelected,
+    TResult? Function(ResetStateEvent value)? resetState,
+  }) {
+    return getPlayerSelected?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(FilterAttendanceListEvent value)? filterAttendaceList,
+    TResult Function(GetAttendanceListEvent value)? getAttenDanceListData,
+    TResult Function(GetDetailOfOneChildAttendanceEvent value)?
+        getDetailOfChildAttendance,
+    TResult Function(UpdateAttendanceEvent value)? updateAttendanceStatus,
+    TResult Function(StoreTapUserId value)? storeTapUserId,
+    TResult Function(TermSelectedEvent value)? getTermSelected,
+    TResult Function(ProgramSelectedEvent value)? getProgramSelected,
+    TResult Function(SessionSelectedEvent value)? getSessionSelected,
+    TResult Function(PlayerselectedSelectedEvent value)? getPlayerSelected,
+    TResult Function(ResetStateEvent value)? resetState,
+    required TResult orElse(),
+  }) {
+    if (getPlayerSelected != null) {
+      return getPlayerSelected(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class PlayerselectedSelectedEvent implements AttendanceEvent {
+  const factory PlayerselectedSelectedEvent(final PlayerData player) =
+      _$PlayerselectedSelectedEventImpl;
+
+  PlayerData get player;
+
+  /// Create a copy of AttendanceEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$PlayerselectedSelectedEventImplCopyWith<_$PlayerselectedSelectedEventImpl>
+      get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$ResetStateEventImplCopyWith<$Res> {
+  factory _$$ResetStateEventImplCopyWith(_$ResetStateEventImpl value,
+          $Res Function(_$ResetStateEventImpl) then) =
+      __$$ResetStateEventImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$ResetStateEventImplCopyWithImpl<$Res>
+    extends _$AttendanceEventCopyWithImpl<$Res, _$ResetStateEventImpl>
+    implements _$$ResetStateEventImplCopyWith<$Res> {
+  __$$ResetStateEventImplCopyWithImpl(
+      _$ResetStateEventImpl _value, $Res Function(_$ResetStateEventImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of AttendanceEvent
+  /// with the given fields replaced by the non-null parameter values.
+}
+
+/// @nodoc
+
+class _$ResetStateEventImpl implements ResetStateEvent {
+  const _$ResetStateEventImpl();
+
+  @override
+  String toString() {
+    return 'AttendanceEvent.resetState()';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$ResetStateEventImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(Map<String, dynamic> data) filterAttendaceList,
+    required TResult Function(Map<String, dynamic> data) getAttenDanceListData,
+    required TResult Function(Map<String, dynamic> data)
+        getDetailOfChildAttendance,
+    required TResult Function(Map<String, dynamic> data) updateAttendanceStatus,
+    required TResult Function(String id) storeTapUserId,
+    required TResult Function(Term term) getTermSelected,
+    required TResult Function(CoachingProgram program) getProgramSelected,
+    required TResult Function(Session session) getSessionSelected,
+    required TResult Function(PlayerData player) getPlayerSelected,
+    required TResult Function() resetState,
+  }) {
+    return resetState();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(Map<String, dynamic> data)? filterAttendaceList,
+    TResult? Function(Map<String, dynamic> data)? getAttenDanceListData,
+    TResult? Function(Map<String, dynamic> data)? getDetailOfChildAttendance,
+    TResult? Function(Map<String, dynamic> data)? updateAttendanceStatus,
+    TResult? Function(String id)? storeTapUserId,
+    TResult? Function(Term term)? getTermSelected,
+    TResult? Function(CoachingProgram program)? getProgramSelected,
+    TResult? Function(Session session)? getSessionSelected,
+    TResult? Function(PlayerData player)? getPlayerSelected,
+    TResult? Function()? resetState,
+  }) {
+    return resetState?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(Map<String, dynamic> data)? filterAttendaceList,
+    TResult Function(Map<String, dynamic> data)? getAttenDanceListData,
+    TResult Function(Map<String, dynamic> data)? getDetailOfChildAttendance,
+    TResult Function(Map<String, dynamic> data)? updateAttendanceStatus,
+    TResult Function(String id)? storeTapUserId,
+    TResult Function(Term term)? getTermSelected,
+    TResult Function(CoachingProgram program)? getProgramSelected,
+    TResult Function(Session session)? getSessionSelected,
+    TResult Function(PlayerData player)? getPlayerSelected,
+    TResult Function()? resetState,
+    required TResult orElse(),
+  }) {
+    if (resetState != null) {
+      return resetState();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(FilterAttendanceListEvent value)
+        filterAttendaceList,
+    required TResult Function(GetAttendanceListEvent value)
+        getAttenDanceListData,
+    required TResult Function(GetDetailOfOneChildAttendanceEvent value)
+        getDetailOfChildAttendance,
+    required TResult Function(UpdateAttendanceEvent value)
+        updateAttendanceStatus,
+    required TResult Function(StoreTapUserId value) storeTapUserId,
+    required TResult Function(TermSelectedEvent value) getTermSelected,
+    required TResult Function(ProgramSelectedEvent value) getProgramSelected,
+    required TResult Function(SessionSelectedEvent value) getSessionSelected,
+    required TResult Function(PlayerselectedSelectedEvent value)
+        getPlayerSelected,
+    required TResult Function(ResetStateEvent value) resetState,
+  }) {
+    return resetState(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(FilterAttendanceListEvent value)? filterAttendaceList,
+    TResult? Function(GetAttendanceListEvent value)? getAttenDanceListData,
+    TResult? Function(GetDetailOfOneChildAttendanceEvent value)?
+        getDetailOfChildAttendance,
+    TResult? Function(UpdateAttendanceEvent value)? updateAttendanceStatus,
+    TResult? Function(StoreTapUserId value)? storeTapUserId,
+    TResult? Function(TermSelectedEvent value)? getTermSelected,
+    TResult? Function(ProgramSelectedEvent value)? getProgramSelected,
+    TResult? Function(SessionSelectedEvent value)? getSessionSelected,
+    TResult? Function(PlayerselectedSelectedEvent value)? getPlayerSelected,
+    TResult? Function(ResetStateEvent value)? resetState,
+  }) {
+    return resetState?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(FilterAttendanceListEvent value)? filterAttendaceList,
+    TResult Function(GetAttendanceListEvent value)? getAttenDanceListData,
+    TResult Function(GetDetailOfOneChildAttendanceEvent value)?
+        getDetailOfChildAttendance,
+    TResult Function(UpdateAttendanceEvent value)? updateAttendanceStatus,
+    TResult Function(StoreTapUserId value)? storeTapUserId,
+    TResult Function(TermSelectedEvent value)? getTermSelected,
+    TResult Function(ProgramSelectedEvent value)? getProgramSelected,
+    TResult Function(SessionSelectedEvent value)? getSessionSelected,
+    TResult Function(PlayerselectedSelectedEvent value)? getPlayerSelected,
+    TResult Function(ResetStateEvent value)? resetState,
+    required TResult orElse(),
+  }) {
+    if (resetState != null) {
+      return resetState(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class ResetStateEvent implements AttendanceEvent {
+  const factory ResetStateEvent() = _$ResetStateEventImpl;
 }

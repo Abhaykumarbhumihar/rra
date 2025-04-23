@@ -25,6 +25,7 @@ mixin _$AttendanceState {
       throw _privateConstructorUsedError;
   Term get termsId => throw _privateConstructorUsedError;
   Session get sessionId => throw _privateConstructorUsedError;
+  PlayerData get player => throw _privateConstructorUsedError;
   CoachingProgram get coachingProgramId => throw _privateConstructorUsedError;
   SinglePlayerAttendanceDetailModel get singlePlayerAttendanceDetailModel =>
       throw _privateConstructorUsedError;
@@ -53,6 +54,7 @@ abstract class $AttendanceStateCopyWith<$Res> {
       TermsProgramSessionPlayerModel termsProgramSessionPlayerModelData,
       Term termsId,
       Session sessionId,
+      PlayerData player,
       CoachingProgram coachingProgramId,
       SinglePlayerAttendanceDetailModel singlePlayerAttendanceDetailModel,
       AttendancePlayerListResponse attendancePlayerListResponse});
@@ -61,6 +63,7 @@ abstract class $AttendanceStateCopyWith<$Res> {
       get termsProgramSessionPlayerModelData;
   $TermCopyWith<$Res> get termsId;
   $SessionCopyWith<$Res> get sessionId;
+  $PlayerDataCopyWith<$Res> get player;
   $CoachingProgramCopyWith<$Res> get coachingProgramId;
   $SinglePlayerAttendanceDetailModelCopyWith<$Res>
       get singlePlayerAttendanceDetailModel;
@@ -90,6 +93,7 @@ class _$AttendanceStateCopyWithImpl<$Res, $Val extends AttendanceState>
     Object? termsProgramSessionPlayerModelData = null,
     Object? termsId = null,
     Object? sessionId = null,
+    Object? player = null,
     Object? coachingProgramId = null,
     Object? singlePlayerAttendanceDetailModel = null,
     Object? attendancePlayerListResponse = null,
@@ -128,6 +132,10 @@ class _$AttendanceStateCopyWithImpl<$Res, $Val extends AttendanceState>
           ? _value.sessionId
           : sessionId // ignore: cast_nullable_to_non_nullable
               as Session,
+      player: null == player
+          ? _value.player
+          : player // ignore: cast_nullable_to_non_nullable
+              as PlayerData,
       coachingProgramId: null == coachingProgramId
           ? _value.coachingProgramId
           : coachingProgramId // ignore: cast_nullable_to_non_nullable
@@ -174,6 +182,16 @@ class _$AttendanceStateCopyWithImpl<$Res, $Val extends AttendanceState>
   $SessionCopyWith<$Res> get sessionId {
     return $SessionCopyWith<$Res>(_value.sessionId, (value) {
       return _then(_value.copyWith(sessionId: value) as $Val);
+    });
+  }
+
+  /// Create a copy of AttendanceState
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $PlayerDataCopyWith<$Res> get player {
+    return $PlayerDataCopyWith<$Res>(_value.player, (value) {
+      return _then(_value.copyWith(player: value) as $Val);
     });
   }
 
@@ -230,6 +248,7 @@ abstract class _$$AttendanceStateImplCopyWith<$Res>
       TermsProgramSessionPlayerModel termsProgramSessionPlayerModelData,
       Term termsId,
       Session sessionId,
+      PlayerData player,
       CoachingProgram coachingProgramId,
       SinglePlayerAttendanceDetailModel singlePlayerAttendanceDetailModel,
       AttendancePlayerListResponse attendancePlayerListResponse});
@@ -241,6 +260,8 @@ abstract class _$$AttendanceStateImplCopyWith<$Res>
   $TermCopyWith<$Res> get termsId;
   @override
   $SessionCopyWith<$Res> get sessionId;
+  @override
+  $PlayerDataCopyWith<$Res> get player;
   @override
   $CoachingProgramCopyWith<$Res> get coachingProgramId;
   @override
@@ -271,6 +292,7 @@ class __$$AttendanceStateImplCopyWithImpl<$Res>
     Object? termsProgramSessionPlayerModelData = null,
     Object? termsId = null,
     Object? sessionId = null,
+    Object? player = null,
     Object? coachingProgramId = null,
     Object? singlePlayerAttendanceDetailModel = null,
     Object? attendancePlayerListResponse = null,
@@ -309,6 +331,10 @@ class __$$AttendanceStateImplCopyWithImpl<$Res>
           ? _value.sessionId
           : sessionId // ignore: cast_nullable_to_non_nullable
               as Session,
+      player: null == player
+          ? _value.player
+          : player // ignore: cast_nullable_to_non_nullable
+              as PlayerData,
       coachingProgramId: null == coachingProgramId
           ? _value.coachingProgramId
           : coachingProgramId // ignore: cast_nullable_to_non_nullable
@@ -339,6 +365,7 @@ class _$AttendanceStateImpl implements _AttendanceState {
           const TermsProgramSessionPlayerModel(),
       this.termsId = const Term(),
       this.sessionId = const Session(),
+      this.player = const PlayerData(),
       this.coachingProgramId = const CoachingProgram(),
       this.singlePlayerAttendanceDetailModel =
           const SinglePlayerAttendanceDetailModel(),
@@ -371,6 +398,9 @@ class _$AttendanceStateImpl implements _AttendanceState {
   final Session sessionId;
   @override
   @JsonKey()
+  final PlayerData player;
+  @override
+  @JsonKey()
   final CoachingProgram coachingProgramId;
   @override
   @JsonKey()
@@ -381,7 +411,7 @@ class _$AttendanceStateImpl implements _AttendanceState {
 
   @override
   String toString() {
-    return 'AttendanceState(isLoading: $isLoading, isStatusUpdated: $isStatusUpdated, isError: $isError, message: $message, selectedPlayerid: $selectedPlayerid, termsProgramSessionPlayerModelData: $termsProgramSessionPlayerModelData, termsId: $termsId, sessionId: $sessionId, coachingProgramId: $coachingProgramId, singlePlayerAttendanceDetailModel: $singlePlayerAttendanceDetailModel, attendancePlayerListResponse: $attendancePlayerListResponse)';
+    return 'AttendanceState(isLoading: $isLoading, isStatusUpdated: $isStatusUpdated, isError: $isError, message: $message, selectedPlayerid: $selectedPlayerid, termsProgramSessionPlayerModelData: $termsProgramSessionPlayerModelData, termsId: $termsId, sessionId: $sessionId, player: $player, coachingProgramId: $coachingProgramId, singlePlayerAttendanceDetailModel: $singlePlayerAttendanceDetailModel, attendancePlayerListResponse: $attendancePlayerListResponse)';
   }
 
   @override
@@ -404,6 +434,7 @@ class _$AttendanceStateImpl implements _AttendanceState {
             (identical(other.termsId, termsId) || other.termsId == termsId) &&
             (identical(other.sessionId, sessionId) ||
                 other.sessionId == sessionId) &&
+            (identical(other.player, player) || other.player == player) &&
             (identical(other.coachingProgramId, coachingProgramId) ||
                 other.coachingProgramId == coachingProgramId) &&
             (identical(other.singlePlayerAttendanceDetailModel,
@@ -427,6 +458,7 @@ class _$AttendanceStateImpl implements _AttendanceState {
       termsProgramSessionPlayerModelData,
       termsId,
       sessionId,
+      player,
       coachingProgramId,
       singlePlayerAttendanceDetailModel,
       attendancePlayerListResponse);
@@ -451,6 +483,7 @@ abstract class _AttendanceState implements AttendanceState {
       final TermsProgramSessionPlayerModel termsProgramSessionPlayerModelData,
       final Term termsId,
       final Session sessionId,
+      final PlayerData player,
       final CoachingProgram coachingProgramId,
       final SinglePlayerAttendanceDetailModel singlePlayerAttendanceDetailModel,
       final AttendancePlayerListResponse
@@ -472,6 +505,8 @@ abstract class _AttendanceState implements AttendanceState {
   Term get termsId;
   @override
   Session get sessionId;
+  @override
+  PlayerData get player;
   @override
   CoachingProgram get coachingProgramId;
   @override

@@ -1,4 +1,5 @@
 import 'package:rra/common/component/component_export.dart';
+import 'package:rra/common/routes/exports.dart';
 import 'package:rra/common/values/values_exports.dart';
 
 import '../../../../../../../common/routes/routes.dart';
@@ -34,6 +35,16 @@ class CoachPlayerReportListItem extends StatelessWidget {
                 "childReportData": data,
 
               };
+//  const factory ReportEvent.setCurrentPlayerId(String playerId,
+//  String termid,
+//  String coachingProgramId,
+//  String sessionId) = SetPlayerId;
+
+              BlocProvider.of<ReportBloc>(context).add(SetPlayerId(data.childId.toString(),
+              data.termId.toString(),"${data.coachingProgramId.toString()}",data.sessionId.toString(),
+                  BlocProvider.of<AppBloc>(context).state.userdata.data.role=="parent"?true:false));
+
+              BlocProvider.of<ReportBloc>(context).add(ReportDetail({}));
               Navigator.pushNamed(
                   context, AppRoutes.COACHPLAYERREPOORTDETAILPAGE,arguments: arguments);
             },
@@ -89,8 +100,10 @@ class CoachPlayerReportListItem extends StatelessWidget {
                           label: "Add/View",
                           onPressed: (){
 
-BlocProvider.of<ReportBloc>(context).add(SetPlayerId(data.childId.toString()));
-BlocProvider.of<ReportBloc>(context).add(ReportDetail({}));
+                            BlocProvider.of<ReportBloc>(context).add(SetPlayerId(data.childId.toString(),
+                                data.termId.toString(),data.coachingProgramId.toString(),data.sessionId.toString(),
+                                BlocProvider.of<AppBloc>(context).state.userdata.data.role=="parent"?true:false));
+                            BlocProvider.of<ReportBloc>(context).add(ReportDetail({}));
 
                             Map<String, PlayerReportData> arguments = {
                               "childReportData": data,

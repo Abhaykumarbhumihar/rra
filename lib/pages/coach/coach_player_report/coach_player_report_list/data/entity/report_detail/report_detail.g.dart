@@ -28,7 +28,7 @@ _$ReportDataImpl _$$ReportDataImplFromJson(Map<String, dynamic> json) =>
     _$ReportDataImpl(
       coachingProgram: json['coaching_program'] as String? ?? '',
       sessionName: json['session_name'] as String? ?? '',
-      childId: (json['child_id'] as num?)?.toInt() ?? 0,
+      childId: json['child_id'] == null ? 0 : _stringToInt(json['child_id']),
       childName: json['child_name'] as String? ?? '',
       isChildHasPhysicalIssue:
           json['isChildHasPhysicalIssue'] as bool? ?? false,
@@ -70,17 +70,22 @@ Map<String, dynamic> _$$ReportDataImplToJson(_$ReportDataImpl instance) =>
 _$PerformanceElementDetailImpl _$$PerformanceElementDetailImplFromJson(
         Map<String, dynamic> json) =>
     _$PerformanceElementDetailImpl(
-      performanceElementId:
-          (json['performance_element_id'] as num?)?.toInt() ?? 0,
+      performanceElementId: json['performance_element_id'] == null
+          ? 0
+          : _stringToInt(json['performance_element_id']),
       performanceElementTitle:
           json['performance_element_title'] as String? ?? '',
-      marks: (json['marks'] as num?)?.toInt() ?? 0,
-      totalMarks: (json['total_marks'] as num?)?.toInt() ?? 0,
-      sessionId: (json['session_id'] as num?)?.toInt() ?? 0,
-      playerId: (json['player_id'] as num?)?.toInt() ?? 0,
-      coachingProgramId: (json['coaching_program_id'] as num?)?.toInt() ?? 0,
+      marks: json['marks'] == null ? 0 : _stringToInt(json['marks']),
+      totalMarks:
+          json['total_marks'] == null ? 0 : _stringToInt(json['total_marks']),
+      sessionId:
+          json['session_id'] == null ? 0 : _stringToInt(json['session_id']),
+      playerId: json['player_id'] == null ? 0 : _stringToInt(json['player_id']),
+      coachingProgramId: json['coaching_program_id'] == null
+          ? 0
+          : _stringToInt(json['coaching_program_id']),
       addScore: json['add_score'] == null
-          ? const AddScoreDetail()
+          ? null
           : AddScoreDetail.fromJson(json['add_score'] as Map<String, dynamic>),
     );
 
@@ -110,7 +115,9 @@ _$AddScoreDetailImpl _$$AddScoreDetailImplFromJson(Map<String, dynamic> json) =>
               ?.map((e) => ScoreDetail.fromJson(e as Map<String, dynamic>))
               .toList() ??
           const <ScoreDetail>[],
-      scoreMasterId: (json['score_master_id'] as num?)?.toInt() ?? 0,
+      scoreMasterId: json['score_master_id'] == null
+          ? 0
+          : _stringToInt(json['score_master_id']),
       comment: json['comment'] as String? ?? '',
     );
 
@@ -145,9 +152,9 @@ Map<String, dynamic> _$$ScoreCriteriaDetailImplToJson(
 
 _$ScoreDetailImpl _$$ScoreDetailImplFromJson(Map<String, dynamic> json) =>
     _$ScoreDetailImpl(
-      id: (json['id'] as num?)?.toInt() ?? 0,
+      id: json['id'] == null ? 0 : _stringToInt(json['id']),
       name: json['name'] as String? ?? '',
-      score: (json['score'] as num?)?.toInt() ?? 0,
+      score: json['score'] == null ? 0 : _stringToInt(json['score']),
     );
 
 Map<String, dynamic> _$$ScoreDetailImplToJson(_$ScoreDetailImpl instance) =>

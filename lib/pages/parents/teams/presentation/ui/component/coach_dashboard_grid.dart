@@ -7,6 +7,10 @@ import '../../../../../../common/routes/routes.dart';
 import '../../../../../../common/service_locator/setivelocator.dart';
 import '../../../../../coach/coach_attendance/player_attendance_list/presentation/bloc/attendance_bloc.dart';
 import '../../../../../coach/coach_attendance/player_attendance_list/presentation/bloc/attendance_event.dart';
+import '../../../../../coach/coach_player_report/coach_player_report_list/presentation/bloc/report_bloc.dart';
+import '../../../../../coach/coach_player_report/coach_player_report_list/presentation/bloc/report_event.dart';
+import '../../../../../coach/manage_team/presentation/bloc/manage_team_bloc.dart';
+import '../../../../../coach/manage_team/presentation/bloc/manage_team_event.dart';
 
 class CoachDashboardGrid extends StatelessWidget {
   CoachDashboardGrid({super.key});
@@ -61,15 +65,23 @@ class CoachDashboardGrid extends StatelessWidget {
               Navigator.pushNamed(
                   context, AppRoutes.COACHMYCOLLATERALSLIST);
             }else if(item['title']=="Manage Team"){
+              BlocProvider.of<ManageTeamBloc>(context).add(ResetManageTeamStateEvent());
+              BlocProvider.of<ManageTeamBloc>(context).add(ManageTeamReportEventGetTermsSessionCoachingPlayerEvents({}));
+
               Navigator.pushNamed(
                   context, AppRoutes.COACHMANAGETEAMLIST);
             }else if(item['title']=="Mark Attendance"){
+              BlocProvider.of<AttendanceBloc>(context).add(ResetStateEvent());
               var academyId = await getIt<SharedPrefs>().getString("selected_academyid");
                         BlocProvider.of<AttendanceBloc>(context).add(FilterAttendanceListEvent({"academy_id":academyId}));
 
               Navigator.pushNamed(
                   context, AppRoutes.COACHPLAYERATTENDANCELIST);
             }else if(item['title']=="View Reports"){
+              BlocProvider.of<ReportBloc>(context).add(ResetReportStateEvent());
+
+              BlocProvider.of<ReportBloc>(context).add(ReportEventGetTermsSessionCoachingPlayerEvents({}));
+
               Navigator.pushNamed(
                   context, AppRoutes.COACHPLAYERREPOORTLISTPAGE);
             }else if(item['title']=="View Documents"){

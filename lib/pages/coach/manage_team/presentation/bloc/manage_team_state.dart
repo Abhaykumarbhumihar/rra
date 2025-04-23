@@ -30,8 +30,10 @@ class ManageTeamState with _$ManageTeamState {
     isStatusUpdated:false,
     termsId:Term(),
     sessionId:Session(),
+      selectedPlayerid:"",
+      termsProgramSessionPlayerModelData:TermsProgramSessionPlayerModel(),
       coachingProgramId:CoachingProgram(),
-
+    manageTeamListModel:ManageTeamListModel(),
     isError: false,
     message:"",
   );

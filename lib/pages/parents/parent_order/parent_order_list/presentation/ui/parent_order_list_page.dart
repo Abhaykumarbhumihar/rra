@@ -1,3 +1,4 @@
+import 'package:rra/common/component/loading_indicator.dart';
 import 'package:rra/common/values/values_exports.dart';
 import 'package:rra/common/component/component_export.dart';
 
@@ -22,7 +23,7 @@ class ParentOrderListPage extends StatelessWidget {
               Navigator.pop(context);
             },
             child: state.isLoading
-                ? Container()
+                ?LoadingIndicator()
                 : Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [

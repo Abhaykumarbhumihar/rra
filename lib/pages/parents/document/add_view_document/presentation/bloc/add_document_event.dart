@@ -18,14 +18,14 @@ class AddDocumentEvent with _$AddDocumentEvent {
   const factory AddDocumentEvent.setSelectedTerm(Term terms) = setSelectedTermDocumentEvent;
   const factory AddDocumentEvent.setSelectedProgram(CoachingProgram programs) = setSelectedProgramDocumentEvent;
   const factory AddDocumentEvent.setSelectedSession(Session session) = setSelectedSessionDocumentEvent;
-  const factory AddDocumentEvent.setSelectedPlayer(Player player) = setSelectedPlayerDocumentEvent;
+  const factory AddDocumentEvent.setSelectedPlayer(PlayerData player) = setSelectedPlayerDocumentEvent;
   const factory AddDocumentEvent.setDoucmentForUpload(String fileName, File? documentFile) = SetDocumentForParentDocumentEvent;
   const factory AddDocumentEvent.submitDocument() = SubmitParentDocumentEvent;
   const factory AddDocumentEvent.removeSelectedCoach(Coach coach) = RemoveSelectedCoachEvent;
   const factory AddDocumentEvent.removeSelectedTerms(Term term) = RemoveSelectedTermsvent;
   const factory AddDocumentEvent.removeSelectedProgram(CoachingProgram program) = RemoveSelectedProgramvent;
   const factory AddDocumentEvent.removeSelectedSession(Session session) = RemoveSelectedSessionvent;
-  const factory AddDocumentEvent.removeSelectedPlayer(Player player) = RemoveSelectedPlayervent;
+  const factory AddDocumentEvent.removeSelectedPlayer(PlayerData player) = RemoveSelectedPlayervent;
   const factory AddDocumentEvent.selectParentOrCoach(int coachParentSelect) = SelectParentCoachEvent;
   const factory AddDocumentEvent.resetAfterUploadDocument() = ResetAfterDocumentUploadEvent;
   const factory AddDocumentEvent.setDocumentId(String docid) = DocumentIdSetForUpload;

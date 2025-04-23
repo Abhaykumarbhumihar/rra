@@ -275,7 +275,8 @@ mixin _$TermsProgramSessionPlayerData {
   List<CoachingProgram> get coachingProgram =>
       throw _privateConstructorUsedError;
   List<Session> get session => throw _privateConstructorUsedError;
-  List<Player> get player => throw _privateConstructorUsedError;
+  @JsonKey(name: 'player')
+  List<PlayerData> get playerData => throw _privateConstructorUsedError;
 
   /// Serializes this TermsProgramSessionPlayerData to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -299,7 +300,7 @@ abstract class $TermsProgramSessionPlayerDataCopyWith<$Res> {
       {List<Term> term,
       @JsonKey(name: 'coachingProgram') List<CoachingProgram> coachingProgram,
       List<Session> session,
-      List<Player> player});
+      @JsonKey(name: 'player') List<PlayerData> playerData});
 }
 
 /// @nodoc
@@ -321,7 +322,7 @@ class _$TermsProgramSessionPlayerDataCopyWithImpl<$Res,
     Object? term = null,
     Object? coachingProgram = null,
     Object? session = null,
-    Object? player = null,
+    Object? playerData = null,
   }) {
     return _then(_value.copyWith(
       term: null == term
@@ -336,10 +337,10 @@ class _$TermsProgramSessionPlayerDataCopyWithImpl<$Res,
           ? _value.session
           : session // ignore: cast_nullable_to_non_nullable
               as List<Session>,
-      player: null == player
-          ? _value.player
-          : player // ignore: cast_nullable_to_non_nullable
-              as List<Player>,
+      playerData: null == playerData
+          ? _value.playerData
+          : playerData // ignore: cast_nullable_to_non_nullable
+              as List<PlayerData>,
     ) as $Val);
   }
 }
@@ -357,7 +358,7 @@ abstract class _$$TermsProgramSessionPlayerDataImplCopyWith<$Res>
       {List<Term> term,
       @JsonKey(name: 'coachingProgram') List<CoachingProgram> coachingProgram,
       List<Session> session,
-      List<Player> player});
+      @JsonKey(name: 'player') List<PlayerData> playerData});
 }
 
 /// @nodoc
@@ -378,7 +379,7 @@ class __$$TermsProgramSessionPlayerDataImplCopyWithImpl<$Res>
     Object? term = null,
     Object? coachingProgram = null,
     Object? session = null,
-    Object? player = null,
+    Object? playerData = null,
   }) {
     return _then(_$TermsProgramSessionPlayerDataImpl(
       term: null == term
@@ -393,10 +394,10 @@ class __$$TermsProgramSessionPlayerDataImplCopyWithImpl<$Res>
           ? _value._session
           : session // ignore: cast_nullable_to_non_nullable
               as List<Session>,
-      player: null == player
-          ? _value._player
-          : player // ignore: cast_nullable_to_non_nullable
-              as List<Player>,
+      playerData: null == playerData
+          ? _value._playerData
+          : playerData // ignore: cast_nullable_to_non_nullable
+              as List<PlayerData>,
     ));
   }
 }
@@ -410,11 +411,11 @@ class _$TermsProgramSessionPlayerDataImpl
       @JsonKey(name: 'coachingProgram')
       final List<CoachingProgram> coachingProgram = const [],
       final List<Session> session = const [],
-      final List<Player> player = const []})
+      @JsonKey(name: 'player') final List<PlayerData> playerData = const []})
       : _term = term,
         _coachingProgram = coachingProgram,
         _session = session,
-        _player = player;
+        _playerData = playerData;
 
   factory _$TermsProgramSessionPlayerDataImpl.fromJson(
           Map<String, dynamic> json) =>
@@ -447,18 +448,18 @@ class _$TermsProgramSessionPlayerDataImpl
     return EqualUnmodifiableListView(_session);
   }
 
-  final List<Player> _player;
+  final List<PlayerData> _playerData;
   @override
-  @JsonKey()
-  List<Player> get player {
-    if (_player is EqualUnmodifiableListView) return _player;
+  @JsonKey(name: 'player')
+  List<PlayerData> get playerData {
+    if (_playerData is EqualUnmodifiableListView) return _playerData;
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_player);
+    return EqualUnmodifiableListView(_playerData);
   }
 
   @override
   String toString() {
-    return 'TermsProgramSessionPlayerData(term: $term, coachingProgram: $coachingProgram, session: $session, player: $player)';
+    return 'TermsProgramSessionPlayerData(term: $term, coachingProgram: $coachingProgram, session: $session, playerData: $playerData)';
   }
 
   @override
@@ -470,7 +471,8 @@ class _$TermsProgramSessionPlayerDataImpl
             const DeepCollectionEquality()
                 .equals(other._coachingProgram, _coachingProgram) &&
             const DeepCollectionEquality().equals(other._session, _session) &&
-            const DeepCollectionEquality().equals(other._player, _player));
+            const DeepCollectionEquality()
+                .equals(other._playerData, _playerData));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
@@ -480,7 +482,7 @@ class _$TermsProgramSessionPlayerDataImpl
       const DeepCollectionEquality().hash(_term),
       const DeepCollectionEquality().hash(_coachingProgram),
       const DeepCollectionEquality().hash(_session),
-      const DeepCollectionEquality().hash(_player));
+      const DeepCollectionEquality().hash(_playerData));
 
   /// Create a copy of TermsProgramSessionPlayerData
   /// with the given fields replaced by the non-null parameter values.
@@ -503,11 +505,12 @@ class _$TermsProgramSessionPlayerDataImpl
 abstract class _TermsProgramSessionPlayerData
     implements TermsProgramSessionPlayerData {
   const factory _TermsProgramSessionPlayerData(
-      {final List<Term> term,
-      @JsonKey(name: 'coachingProgram')
-      final List<CoachingProgram> coachingProgram,
-      final List<Session> session,
-      final List<Player> player}) = _$TermsProgramSessionPlayerDataImpl;
+          {final List<Term> term,
+          @JsonKey(name: 'coachingProgram')
+          final List<CoachingProgram> coachingProgram,
+          final List<Session> session,
+          @JsonKey(name: 'player') final List<PlayerData> playerData}) =
+      _$TermsProgramSessionPlayerDataImpl;
 
   factory _TermsProgramSessionPlayerData.fromJson(Map<String, dynamic> json) =
       _$TermsProgramSessionPlayerDataImpl.fromJson;
@@ -520,7 +523,8 @@ abstract class _TermsProgramSessionPlayerData
   @override
   List<Session> get session;
   @override
-  List<Player> get player;
+  @JsonKey(name: 'player')
+  List<PlayerData> get playerData;
 
   /// Create a copy of TermsProgramSessionPlayerData
   /// with the given fields replaced by the non-null parameter values.
@@ -951,6 +955,7 @@ Session _$SessionFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$Session {
   int get id => throw _privateConstructorUsedError;
+  @JsonKey(name: 'session_title')
   String get title => throw _privateConstructorUsedError;
   @JsonKey(name: 'session_day')
   String get sessionDay => throw _privateConstructorUsedError;
@@ -979,7 +984,7 @@ abstract class $SessionCopyWith<$Res> {
   @useResult
   $Res call(
       {int id,
-      String title,
+      @JsonKey(name: 'session_title') String title,
       @JsonKey(name: 'session_day') String sessionDay,
       @JsonKey(name: 'to_time') String toTime,
       @JsonKey(name: 'from_time') String fromTime,
@@ -1058,7 +1063,7 @@ abstract class _$$SessionImplCopyWith<$Res> implements $SessionCopyWith<$Res> {
   @useResult
   $Res call(
       {int id,
-      String title,
+      @JsonKey(name: 'session_title') String title,
       @JsonKey(name: 'session_day') String sessionDay,
       @JsonKey(name: 'to_time') String toTime,
       @JsonKey(name: 'from_time') String fromTime,
@@ -1131,7 +1136,7 @@ class __$$SessionImplCopyWithImpl<$Res>
 class _$SessionImpl implements _Session {
   const _$SessionImpl(
       {this.id = 0,
-      this.title = '',
+      @JsonKey(name: 'session_title') this.title = '',
       @JsonKey(name: 'session_day') this.sessionDay = '',
       @JsonKey(name: 'to_time') this.toTime = '',
       @JsonKey(name: 'from_time') this.fromTime = '',
@@ -1146,7 +1151,7 @@ class _$SessionImpl implements _Session {
   @JsonKey()
   final int id;
   @override
-  @JsonKey()
+  @JsonKey(name: 'session_title')
   final String title;
   @override
   @JsonKey(name: 'session_day')
@@ -1220,7 +1225,7 @@ class _$SessionImpl implements _Session {
 abstract class _Session implements Session {
   const factory _Session(
       {final int id,
-      final String title,
+      @JsonKey(name: 'session_title') final String title,
       @JsonKey(name: 'session_day') final String sessionDay,
       @JsonKey(name: 'to_time') final String toTime,
       @JsonKey(name: 'from_time') final String fromTime,
@@ -1233,6 +1238,7 @@ abstract class _Session implements Session {
   @override
   int get id;
   @override
+  @JsonKey(name: 'session_title')
   String get title;
   @override
   @JsonKey(name: 'session_day')
@@ -1475,5 +1481,228 @@ abstract class _Player implements Player {
   @override
   @JsonKey(includeFromJson: false, includeToJson: false)
   _$$PlayerImplCopyWith<_$PlayerImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+PlayerData _$PlayerDataFromJson(Map<String, dynamic> json) {
+  return _PlayerData.fromJson(json);
+}
+
+/// @nodoc
+mixin _$PlayerData {
+  int get id => throw _privateConstructorUsedError;
+  @JsonKey(name: 'parent_id')
+  int get parentId => throw _privateConstructorUsedError;
+  @JsonKey(name: 'child_name')
+  String get childName => throw _privateConstructorUsedError;
+  String get image => throw _privateConstructorUsedError;
+
+  /// Serializes this PlayerData to a JSON map.
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+
+  /// Create a copy of PlayerData
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  $PlayerDataCopyWith<PlayerData> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $PlayerDataCopyWith<$Res> {
+  factory $PlayerDataCopyWith(
+          PlayerData value, $Res Function(PlayerData) then) =
+      _$PlayerDataCopyWithImpl<$Res, PlayerData>;
+  @useResult
+  $Res call(
+      {int id,
+      @JsonKey(name: 'parent_id') int parentId,
+      @JsonKey(name: 'child_name') String childName,
+      String image});
+}
+
+/// @nodoc
+class _$PlayerDataCopyWithImpl<$Res, $Val extends PlayerData>
+    implements $PlayerDataCopyWith<$Res> {
+  _$PlayerDataCopyWithImpl(this._value, this._then);
+
+  // ignore: unused_field
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
+
+  /// Create a copy of PlayerData
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? id = null,
+    Object? parentId = null,
+    Object? childName = null,
+    Object? image = null,
+  }) {
+    return _then(_value.copyWith(
+      id: null == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as int,
+      parentId: null == parentId
+          ? _value.parentId
+          : parentId // ignore: cast_nullable_to_non_nullable
+              as int,
+      childName: null == childName
+          ? _value.childName
+          : childName // ignore: cast_nullable_to_non_nullable
+              as String,
+      image: null == image
+          ? _value.image
+          : image // ignore: cast_nullable_to_non_nullable
+              as String,
+    ) as $Val);
+  }
+}
+
+/// @nodoc
+abstract class _$$PlayerDataImplCopyWith<$Res>
+    implements $PlayerDataCopyWith<$Res> {
+  factory _$$PlayerDataImplCopyWith(
+          _$PlayerDataImpl value, $Res Function(_$PlayerDataImpl) then) =
+      __$$PlayerDataImplCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call(
+      {int id,
+      @JsonKey(name: 'parent_id') int parentId,
+      @JsonKey(name: 'child_name') String childName,
+      String image});
+}
+
+/// @nodoc
+class __$$PlayerDataImplCopyWithImpl<$Res>
+    extends _$PlayerDataCopyWithImpl<$Res, _$PlayerDataImpl>
+    implements _$$PlayerDataImplCopyWith<$Res> {
+  __$$PlayerDataImplCopyWithImpl(
+      _$PlayerDataImpl _value, $Res Function(_$PlayerDataImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of PlayerData
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? id = null,
+    Object? parentId = null,
+    Object? childName = null,
+    Object? image = null,
+  }) {
+    return _then(_$PlayerDataImpl(
+      id: null == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as int,
+      parentId: null == parentId
+          ? _value.parentId
+          : parentId // ignore: cast_nullable_to_non_nullable
+              as int,
+      childName: null == childName
+          ? _value.childName
+          : childName // ignore: cast_nullable_to_non_nullable
+              as String,
+      image: null == image
+          ? _value.image
+          : image // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+@JsonSerializable()
+class _$PlayerDataImpl implements _PlayerData {
+  const _$PlayerDataImpl(
+      {this.id = 0,
+      @JsonKey(name: 'parent_id') this.parentId = 0,
+      @JsonKey(name: 'child_name') this.childName = '',
+      this.image = ''});
+
+  factory _$PlayerDataImpl.fromJson(Map<String, dynamic> json) =>
+      _$$PlayerDataImplFromJson(json);
+
+  @override
+  @JsonKey()
+  final int id;
+  @override
+  @JsonKey(name: 'parent_id')
+  final int parentId;
+  @override
+  @JsonKey(name: 'child_name')
+  final String childName;
+  @override
+  @JsonKey()
+  final String image;
+
+  @override
+  String toString() {
+    return 'PlayerData(id: $id, parentId: $parentId, childName: $childName, image: $image)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$PlayerDataImpl &&
+            (identical(other.id, id) || other.id == id) &&
+            (identical(other.parentId, parentId) ||
+                other.parentId == parentId) &&
+            (identical(other.childName, childName) ||
+                other.childName == childName) &&
+            (identical(other.image, image) || other.image == image));
+  }
+
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  int get hashCode => Object.hash(runtimeType, id, parentId, childName, image);
+
+  /// Create a copy of PlayerData
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$PlayerDataImplCopyWith<_$PlayerDataImpl> get copyWith =>
+      __$$PlayerDataImplCopyWithImpl<_$PlayerDataImpl>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$PlayerDataImplToJson(
+      this,
+    );
+  }
+}
+
+abstract class _PlayerData implements PlayerData {
+  const factory _PlayerData(
+      {final int id,
+      @JsonKey(name: 'parent_id') final int parentId,
+      @JsonKey(name: 'child_name') final String childName,
+      final String image}) = _$PlayerDataImpl;
+
+  factory _PlayerData.fromJson(Map<String, dynamic> json) =
+      _$PlayerDataImpl.fromJson;
+
+  @override
+  int get id;
+  @override
+  @JsonKey(name: 'parent_id')
+  int get parentId;
+  @override
+  @JsonKey(name: 'child_name')
+  String get childName;
+  @override
+  String get image;
+
+  /// Create a copy of PlayerData
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$PlayerDataImplCopyWith<_$PlayerDataImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

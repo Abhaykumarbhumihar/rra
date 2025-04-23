@@ -29,6 +29,10 @@ Map<String, dynamic> _$$BookedSessionListImplToJson(
 _$BookedSessionDataImpl _$$BookedSessionDataImplFromJson(
         Map<String, dynamic> json) =>
     _$BookedSessionDataImpl(
+      orders: (json['orders'] as List<dynamic>?)
+              ?.map((e) => Order.fromJson(e as Map<String, dynamic>))
+              .toList() ??
+          const [],
       sessions: (json['sessions'] as List<dynamic>?)
               ?.map((e) => Session.fromJson(e as Map<String, dynamic>))
               .toList() ??
@@ -46,9 +50,34 @@ _$BookedSessionDataImpl _$$BookedSessionDataImplFromJson(
 Map<String, dynamic> _$$BookedSessionDataImplToJson(
         _$BookedSessionDataImpl instance) =>
     <String, dynamic>{
+      'orders': instance.orders,
       'sessions': instance.sessions,
       'players': instance.players,
       'dayMapping': instance.dayMapping,
+    };
+
+_$OrderImpl _$$OrderImplFromJson(Map<String, dynamic> json) => _$OrderImpl(
+      id: (json['id'] as num?)?.toInt() ?? 0,
+      uniqueId: json['unique_id'] as String? ?? '',
+      sessions: (json['sessions'] as List<dynamic>?)
+              ?.map((e) => e as String)
+              .toList() ??
+          const [],
+      createdAt: json['created_at'] as String? ?? '',
+      amount: json['amount'] as String? ?? '\$0.00',
+      status: json['status'] as String? ?? 'Unknown',
+      cancelable: json['cancelable'] as bool? ?? false,
+    );
+
+Map<String, dynamic> _$$OrderImplToJson(_$OrderImpl instance) =>
+    <String, dynamic>{
+      'id': instance.id,
+      'unique_id': instance.uniqueId,
+      'sessions': instance.sessions,
+      'created_at': instance.createdAt,
+      'amount': instance.amount,
+      'status': instance.status,
+      'cancelable': instance.cancelable,
     };
 
 _$PlayerImpl _$$PlayerImplFromJson(Map<String, dynamic> json) => _$PlayerImpl(
@@ -65,45 +94,30 @@ Map<String, dynamic> _$$PlayerImplToJson(_$PlayerImpl instance) =>
 _$SessionImpl _$$SessionImplFromJson(Map<String, dynamic> json) =>
     _$SessionImpl(
       id: (json['id'] as num?)?.toInt() ?? 0,
-      playerId: (json['player_id'] as num?)?.toInt() ?? 0,
       sessionName: json['session_name'] as String? ?? '',
-      playerName: json['player_name'] as String? ?? '',
-      playerDetail: json['player_detail'] == null
-          ? null
-          : PlayerDetail.fromJson(
-              json['player_detail'] as Map<String, dynamic>),
       coachingProgram: json['coaching_program'] as String? ?? '',
       image: json['image'] as String? ?? '',
       term: json['term'] as String? ?? '',
-      sessionDay: json['session_day'] as String? ?? '',
-      startDate: json['start_date'] as String? ?? '',
       fromDate: json['from_date'] as String? ?? '',
       toDate: json['to_date'] as String? ?? '',
+      sessionDay: json['session_day'] as String? ?? '',
+      startDate: json['start_date'] as String? ?? '',
       endDate: json['end_date'] as String? ?? '',
-      date: json['date'] as String? ?? "",
-      amount: json['amount'] as String? ?? "\$0.0",
-      status: json['status'] as String? ?? "",
       cancelable: json['cancelable'] as bool? ?? false,
     );
 
 Map<String, dynamic> _$$SessionImplToJson(_$SessionImpl instance) =>
     <String, dynamic>{
       'id': instance.id,
-      'player_id': instance.playerId,
       'session_name': instance.sessionName,
-      'player_name': instance.playerName,
-      'player_detail': instance.playerDetail,
       'coaching_program': instance.coachingProgram,
       'image': instance.image,
       'term': instance.term,
-      'session_day': instance.sessionDay,
-      'start_date': instance.startDate,
       'from_date': instance.fromDate,
       'to_date': instance.toDate,
+      'session_day': instance.sessionDay,
+      'start_date': instance.startDate,
       'end_date': instance.endDate,
-      'date': instance.date,
-      'amount': instance.amount,
-      'status': instance.status,
       'cancelable': instance.cancelable,
     };
 

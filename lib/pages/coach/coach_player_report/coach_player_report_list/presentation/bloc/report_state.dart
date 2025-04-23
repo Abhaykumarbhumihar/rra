@@ -16,11 +16,17 @@ class ReportState with _$ReportState {
     @Default("") String message,
     @Default("") String playerId,
     @Default("") String selectedPlayerid,
+    @Default("") String termsIdInList,
+    @Default("") String sessionIdInList,
+    @Default("") String cochingProgramIdInList,
+    @Default(false) bool isParent,
+
     @Default(PlayerReportModel()) PlayerReportModel playerReportModel,
     @Default(ReportDetail()) ReportDetail reportDetailModel,
     @Default(TermsProgramSessionPlayerModel()) TermsProgramSessionPlayerModel termsProgramSessionPlayerModelData,
     @Default(Term()) Term termsId,
     @Default(Session()) Session sessionId,
+    @Default(PlayerData()) PlayerData player,
     @Default(CoachingProgram()) CoachingProgram coachingProgramId,
   }) = _ReportState;
 
@@ -29,7 +35,14 @@ class ReportState with _$ReportState {
     isStatusUpdated:false,
     isError: false,
     message:"",
+      termsIdInList:"",
+      sessionIdInList:"",
+      cochingProgramIdInList:"",
+      player:PlayerData(),
       playerId: "",
+      isParent:false,
+      selectedPlayerid:"",
+      termsProgramSessionPlayerModelData:TermsProgramSessionPlayerModel(),
       reportDetailModel: ReportDetail(),
       playerReportModel: PlayerReportModel(),
       termsId:Term(),sessionId:Session(),coachingProgramId:CoachingProgram()

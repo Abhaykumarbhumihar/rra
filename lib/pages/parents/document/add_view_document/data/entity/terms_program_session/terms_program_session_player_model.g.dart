@@ -43,8 +43,8 @@ _$TermsProgramSessionPlayerDataImpl
                   ?.map((e) => Session.fromJson(e as Map<String, dynamic>))
                   .toList() ??
               const [],
-          player: (json['player'] as List<dynamic>?)
-                  ?.map((e) => Player.fromJson(e as Map<String, dynamic>))
+          playerData: (json['player'] as List<dynamic>?)
+                  ?.map((e) => PlayerData.fromJson(e as Map<String, dynamic>))
                   .toList() ??
               const [],
         );
@@ -55,7 +55,7 @@ Map<String, dynamic> _$$TermsProgramSessionPlayerDataImplToJson(
       'term': instance.term,
       'coachingProgram': instance.coachingProgram,
       'session': instance.session,
-      'player': instance.player,
+      'player': instance.playerData,
     };
 
 _$TermImpl _$$TermImplFromJson(Map<String, dynamic> json) => _$TermImpl(
@@ -92,7 +92,7 @@ Map<String, dynamic> _$$CoachingProgramImplToJson(
 _$SessionImpl _$$SessionImplFromJson(Map<String, dynamic> json) =>
     _$SessionImpl(
       id: (json['id'] as num?)?.toInt() ?? 0,
-      title: json['title'] as String? ?? '',
+      title: json['session_title'] as String? ?? '',
       sessionDay: json['session_day'] as String? ?? '',
       toTime: json['to_time'] as String? ?? '',
       fromTime: json['from_time'] as String? ?? '',
@@ -104,7 +104,7 @@ _$SessionImpl _$$SessionImplFromJson(Map<String, dynamic> json) =>
 Map<String, dynamic> _$$SessionImplToJson(_$SessionImpl instance) =>
     <String, dynamic>{
       'id': instance.id,
-      'title': instance.title,
+      'session_title': instance.title,
       'session_day': instance.sessionDay,
       'to_time': instance.toTime,
       'from_time': instance.fromTime,
@@ -121,6 +121,22 @@ _$PlayerImpl _$$PlayerImplFromJson(Map<String, dynamic> json) => _$PlayerImpl(
     );
 
 Map<String, dynamic> _$$PlayerImplToJson(_$PlayerImpl instance) =>
+    <String, dynamic>{
+      'id': instance.id,
+      'parent_id': instance.parentId,
+      'child_name': instance.childName,
+      'image': instance.image,
+    };
+
+_$PlayerDataImpl _$$PlayerDataImplFromJson(Map<String, dynamic> json) =>
+    _$PlayerDataImpl(
+      id: (json['id'] as num?)?.toInt() ?? 0,
+      parentId: (json['parent_id'] as num?)?.toInt() ?? 0,
+      childName: json['child_name'] as String? ?? '',
+      image: json['image'] as String? ?? '',
+    );
+
+Map<String, dynamic> _$$PlayerDataImplToJson(_$PlayerDataImpl instance) =>
     <String, dynamic>{
       'id': instance.id,
       'parent_id': instance.parentId,

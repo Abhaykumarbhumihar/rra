@@ -24,6 +24,7 @@ mixin _$ParentMyOrderListModel {
   int get code => throw _privateConstructorUsedError;
   bool get success => throw _privateConstructorUsedError;
   String get message => throw _privateConstructorUsedError;
+  @JsonKey(name: 'data')
   ParentOrderData get data => throw _privateConstructorUsedError;
 
   /// Serializes this ParentMyOrderListModel to a JSON map.
@@ -42,7 +43,11 @@ abstract class $ParentMyOrderListModelCopyWith<$Res> {
           $Res Function(ParentMyOrderListModel) then) =
       _$ParentMyOrderListModelCopyWithImpl<$Res, ParentMyOrderListModel>;
   @useResult
-  $Res call({int code, bool success, String message, ParentOrderData data});
+  $Res call(
+      {int code,
+      bool success,
+      String message,
+      @JsonKey(name: 'data') ParentOrderData data});
 
   $ParentOrderDataCopyWith<$Res> get data;
 }
@@ -108,7 +113,11 @@ abstract class _$$ParentMyOrderListModelImplCopyWith<$Res>
       __$$ParentMyOrderListModelImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({int code, bool success, String message, ParentOrderData data});
+  $Res call(
+      {int code,
+      bool success,
+      String message,
+      @JsonKey(name: 'data') ParentOrderData data});
 
   @override
   $ParentOrderDataCopyWith<$Res> get data;
@@ -162,7 +171,7 @@ class _$ParentMyOrderListModelImpl implements _ParentMyOrderListModel {
       {this.code = 0,
       this.success = false,
       this.message = '',
-      this.data = const ParentOrderData()});
+      @JsonKey(name: 'data') this.data = const ParentOrderData()});
 
   factory _$ParentMyOrderListModelImpl.fromJson(Map<String, dynamic> json) =>
       _$$ParentMyOrderListModelImplFromJson(json);
@@ -177,7 +186,7 @@ class _$ParentMyOrderListModelImpl implements _ParentMyOrderListModel {
   @JsonKey()
   final String message;
   @override
-  @JsonKey()
+  @JsonKey(name: 'data')
   final ParentOrderData data;
 
   @override
@@ -219,10 +228,11 @@ class _$ParentMyOrderListModelImpl implements _ParentMyOrderListModel {
 
 abstract class _ParentMyOrderListModel implements ParentMyOrderListModel {
   const factory _ParentMyOrderListModel(
-      {final int code,
-      final bool success,
-      final String message,
-      final ParentOrderData data}) = _$ParentMyOrderListModelImpl;
+          {final int code,
+          final bool success,
+          final String message,
+          @JsonKey(name: 'data') final ParentOrderData data}) =
+      _$ParentMyOrderListModelImpl;
 
   factory _ParentMyOrderListModel.fromJson(Map<String, dynamic> json) =
       _$ParentMyOrderListModelImpl.fromJson;
@@ -234,6 +244,7 @@ abstract class _ParentMyOrderListModel implements ParentMyOrderListModel {
   @override
   String get message;
   @override
+  @JsonKey(name: 'data')
   ParentOrderData get data;
 
   /// Create a copy of ParentMyOrderListModel
@@ -250,8 +261,8 @@ ParentOrderData _$ParentOrderDataFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$ParentOrderData {
-  User get user => throw _privateConstructorUsedError;
   List<Order> get orders => throw _privateConstructorUsedError;
+  List<Player> get players => throw _privateConstructorUsedError;
   @JsonKey(name: 'cancellation_days')
   int get cancellationDays => throw _privateConstructorUsedError;
 
@@ -272,11 +283,9 @@ abstract class $ParentOrderDataCopyWith<$Res> {
       _$ParentOrderDataCopyWithImpl<$Res, ParentOrderData>;
   @useResult
   $Res call(
-      {User user,
-      List<Order> orders,
+      {List<Order> orders,
+      List<Player> players,
       @JsonKey(name: 'cancellation_days') int cancellationDays});
-
-  $UserCopyWith<$Res> get user;
 }
 
 /// @nodoc
@@ -294,34 +303,24 @@ class _$ParentOrderDataCopyWithImpl<$Res, $Val extends ParentOrderData>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? user = null,
     Object? orders = null,
+    Object? players = null,
     Object? cancellationDays = null,
   }) {
     return _then(_value.copyWith(
-      user: null == user
-          ? _value.user
-          : user // ignore: cast_nullable_to_non_nullable
-              as User,
       orders: null == orders
           ? _value.orders
           : orders // ignore: cast_nullable_to_non_nullable
               as List<Order>,
+      players: null == players
+          ? _value.players
+          : players // ignore: cast_nullable_to_non_nullable
+              as List<Player>,
       cancellationDays: null == cancellationDays
           ? _value.cancellationDays
           : cancellationDays // ignore: cast_nullable_to_non_nullable
               as int,
     ) as $Val);
-  }
-
-  /// Create a copy of ParentOrderData
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @pragma('vm:prefer-inline')
-  $UserCopyWith<$Res> get user {
-    return $UserCopyWith<$Res>(_value.user, (value) {
-      return _then(_value.copyWith(user: value) as $Val);
-    });
   }
 }
 
@@ -334,12 +333,9 @@ abstract class _$$ParentOrderDataImplCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {User user,
-      List<Order> orders,
+      {List<Order> orders,
+      List<Player> players,
       @JsonKey(name: 'cancellation_days') int cancellationDays});
-
-  @override
-  $UserCopyWith<$Res> get user;
 }
 
 /// @nodoc
@@ -355,19 +351,19 @@ class __$$ParentOrderDataImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? user = null,
     Object? orders = null,
+    Object? players = null,
     Object? cancellationDays = null,
   }) {
     return _then(_$ParentOrderDataImpl(
-      user: null == user
-          ? _value.user
-          : user // ignore: cast_nullable_to_non_nullable
-              as User,
       orders: null == orders
           ? _value._orders
           : orders // ignore: cast_nullable_to_non_nullable
               as List<Order>,
+      players: null == players
+          ? _value._players
+          : players // ignore: cast_nullable_to_non_nullable
+              as List<Player>,
       cancellationDays: null == cancellationDays
           ? _value.cancellationDays
           : cancellationDays // ignore: cast_nullable_to_non_nullable
@@ -380,17 +376,15 @@ class __$$ParentOrderDataImplCopyWithImpl<$Res>
 @JsonSerializable()
 class _$ParentOrderDataImpl implements _ParentOrderData {
   const _$ParentOrderDataImpl(
-      {this.user = const User(),
-      final List<Order> orders = const [],
+      {final List<Order> orders = const <Order>[],
+      final List<Player> players = const <Player>[],
       @JsonKey(name: 'cancellation_days') this.cancellationDays = 0})
-      : _orders = orders;
+      : _orders = orders,
+        _players = players;
 
   factory _$ParentOrderDataImpl.fromJson(Map<String, dynamic> json) =>
       _$$ParentOrderDataImplFromJson(json);
 
-  @override
-  @JsonKey()
-  final User user;
   final List<Order> _orders;
   @override
   @JsonKey()
@@ -400,13 +394,22 @@ class _$ParentOrderDataImpl implements _ParentOrderData {
     return EqualUnmodifiableListView(_orders);
   }
 
+  final List<Player> _players;
+  @override
+  @JsonKey()
+  List<Player> get players {
+    if (_players is EqualUnmodifiableListView) return _players;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_players);
+  }
+
   @override
   @JsonKey(name: 'cancellation_days')
   final int cancellationDays;
 
   @override
   String toString() {
-    return 'ParentOrderData(user: $user, orders: $orders, cancellationDays: $cancellationDays)';
+    return 'ParentOrderData(orders: $orders, players: $players, cancellationDays: $cancellationDays)';
   }
 
   @override
@@ -414,16 +417,19 @@ class _$ParentOrderDataImpl implements _ParentOrderData {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$ParentOrderDataImpl &&
-            (identical(other.user, user) || other.user == user) &&
             const DeepCollectionEquality().equals(other._orders, _orders) &&
+            const DeepCollectionEquality().equals(other._players, _players) &&
             (identical(other.cancellationDays, cancellationDays) ||
                 other.cancellationDays == cancellationDays));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  int get hashCode => Object.hash(runtimeType, user,
-      const DeepCollectionEquality().hash(_orders), cancellationDays);
+  int get hashCode => Object.hash(
+      runtimeType,
+      const DeepCollectionEquality().hash(_orders),
+      const DeepCollectionEquality().hash(_players),
+      cancellationDays);
 
   /// Create a copy of ParentOrderData
   /// with the given fields replaced by the non-null parameter values.
@@ -444,8 +450,8 @@ class _$ParentOrderDataImpl implements _ParentOrderData {
 
 abstract class _ParentOrderData implements ParentOrderData {
   const factory _ParentOrderData(
-          {final User user,
-          final List<Order> orders,
+          {final List<Order> orders,
+          final List<Player> players,
           @JsonKey(name: 'cancellation_days') final int cancellationDays}) =
       _$ParentOrderDataImpl;
 
@@ -453,9 +459,9 @@ abstract class _ParentOrderData implements ParentOrderData {
       _$ParentOrderDataImpl.fromJson;
 
   @override
-  User get user;
-  @override
   List<Order> get orders;
+  @override
+  List<Player> get players;
   @override
   @JsonKey(name: 'cancellation_days')
   int get cancellationDays;
@@ -468,198 +474,19 @@ abstract class _ParentOrderData implements ParentOrderData {
       throw _privateConstructorUsedError;
 }
 
-User _$UserFromJson(Map<String, dynamic> json) {
-  return _User.fromJson(json);
-}
-
-/// @nodoc
-mixin _$User {
-  int get id => throw _privateConstructorUsedError;
-  String get name => throw _privateConstructorUsedError;
-  String get email => throw _privateConstructorUsedError;
-
-  /// Serializes this User to a JSON map.
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-
-  /// Create a copy of User
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  $UserCopyWith<User> get copyWith => throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class $UserCopyWith<$Res> {
-  factory $UserCopyWith(User value, $Res Function(User) then) =
-      _$UserCopyWithImpl<$Res, User>;
-  @useResult
-  $Res call({int id, String name, String email});
-}
-
-/// @nodoc
-class _$UserCopyWithImpl<$Res, $Val extends User>
-    implements $UserCopyWith<$Res> {
-  _$UserCopyWithImpl(this._value, this._then);
-
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
-
-  /// Create a copy of User
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? id = null,
-    Object? name = null,
-    Object? email = null,
-  }) {
-    return _then(_value.copyWith(
-      id: null == id
-          ? _value.id
-          : id // ignore: cast_nullable_to_non_nullable
-              as int,
-      name: null == name
-          ? _value.name
-          : name // ignore: cast_nullable_to_non_nullable
-              as String,
-      email: null == email
-          ? _value.email
-          : email // ignore: cast_nullable_to_non_nullable
-              as String,
-    ) as $Val);
-  }
-}
-
-/// @nodoc
-abstract class _$$UserImplCopyWith<$Res> implements $UserCopyWith<$Res> {
-  factory _$$UserImplCopyWith(
-          _$UserImpl value, $Res Function(_$UserImpl) then) =
-      __$$UserImplCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call({int id, String name, String email});
-}
-
-/// @nodoc
-class __$$UserImplCopyWithImpl<$Res>
-    extends _$UserCopyWithImpl<$Res, _$UserImpl>
-    implements _$$UserImplCopyWith<$Res> {
-  __$$UserImplCopyWithImpl(_$UserImpl _value, $Res Function(_$UserImpl) _then)
-      : super(_value, _then);
-
-  /// Create a copy of User
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? id = null,
-    Object? name = null,
-    Object? email = null,
-  }) {
-    return _then(_$UserImpl(
-      id: null == id
-          ? _value.id
-          : id // ignore: cast_nullable_to_non_nullable
-              as int,
-      name: null == name
-          ? _value.name
-          : name // ignore: cast_nullable_to_non_nullable
-              as String,
-      email: null == email
-          ? _value.email
-          : email // ignore: cast_nullable_to_non_nullable
-              as String,
-    ));
-  }
-}
-
-/// @nodoc
-@JsonSerializable()
-class _$UserImpl implements _User {
-  const _$UserImpl({this.id = 0, this.name = '', this.email = ''});
-
-  factory _$UserImpl.fromJson(Map<String, dynamic> json) =>
-      _$$UserImplFromJson(json);
-
-  @override
-  @JsonKey()
-  final int id;
-  @override
-  @JsonKey()
-  final String name;
-  @override
-  @JsonKey()
-  final String email;
-
-  @override
-  String toString() {
-    return 'User(id: $id, name: $name, email: $email)';
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$UserImpl &&
-            (identical(other.id, id) || other.id == id) &&
-            (identical(other.name, name) || other.name == name) &&
-            (identical(other.email, email) || other.email == email));
-  }
-
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  int get hashCode => Object.hash(runtimeType, id, name, email);
-
-  /// Create a copy of User
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$UserImplCopyWith<_$UserImpl> get copyWith =>
-      __$$UserImplCopyWithImpl<_$UserImpl>(this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$UserImplToJson(
-      this,
-    );
-  }
-}
-
-abstract class _User implements User {
-  const factory _User({final int id, final String name, final String email}) =
-      _$UserImpl;
-
-  factory _User.fromJson(Map<String, dynamic> json) = _$UserImpl.fromJson;
-
-  @override
-  int get id;
-  @override
-  String get name;
-  @override
-  String get email;
-
-  /// Create a copy of User
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$UserImplCopyWith<_$UserImpl> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
 Order _$OrderFromJson(Map<String, dynamic> json) {
   return _Order.fromJson(json);
 }
 
 /// @nodoc
 mixin _$Order {
-  @JsonKey(name: 'order_id')
-  int get orderId => throw _privateConstructorUsedError;
-  @JsonKey(name: 'order_unique_id')
-  String get orderUniqueId => throw _privateConstructorUsedError;
-  String get sessions => throw _privateConstructorUsedError;
-  String get date => throw _privateConstructorUsedError;
+  @JsonKey(fromJson: _stringToInt)
+  int get id => throw _privateConstructorUsedError;
+  @JsonKey(name: 'unique_id')
+  String get uniqueId => throw _privateConstructorUsedError;
+  List<String> get sessions => throw _privateConstructorUsedError;
+  @JsonKey(name: 'created_at')
+  String get createdAt => throw _privateConstructorUsedError;
   String get amount => throw _privateConstructorUsedError;
   String get status => throw _privateConstructorUsedError;
   bool get cancelable => throw _privateConstructorUsedError;
@@ -679,10 +506,10 @@ abstract class $OrderCopyWith<$Res> {
       _$OrderCopyWithImpl<$Res, Order>;
   @useResult
   $Res call(
-      {@JsonKey(name: 'order_id') int orderId,
-      @JsonKey(name: 'order_unique_id') String orderUniqueId,
-      String sessions,
-      String date,
+      {@JsonKey(fromJson: _stringToInt) int id,
+      @JsonKey(name: 'unique_id') String uniqueId,
+      List<String> sessions,
+      @JsonKey(name: 'created_at') String createdAt,
       String amount,
       String status,
       bool cancelable});
@@ -703,30 +530,30 @@ class _$OrderCopyWithImpl<$Res, $Val extends Order>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? orderId = null,
-    Object? orderUniqueId = null,
+    Object? id = null,
+    Object? uniqueId = null,
     Object? sessions = null,
-    Object? date = null,
+    Object? createdAt = null,
     Object? amount = null,
     Object? status = null,
     Object? cancelable = null,
   }) {
     return _then(_value.copyWith(
-      orderId: null == orderId
-          ? _value.orderId
-          : orderId // ignore: cast_nullable_to_non_nullable
+      id: null == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
               as int,
-      orderUniqueId: null == orderUniqueId
-          ? _value.orderUniqueId
-          : orderUniqueId // ignore: cast_nullable_to_non_nullable
+      uniqueId: null == uniqueId
+          ? _value.uniqueId
+          : uniqueId // ignore: cast_nullable_to_non_nullable
               as String,
       sessions: null == sessions
           ? _value.sessions
           : sessions // ignore: cast_nullable_to_non_nullable
-              as String,
-      date: null == date
-          ? _value.date
-          : date // ignore: cast_nullable_to_non_nullable
+              as List<String>,
+      createdAt: null == createdAt
+          ? _value.createdAt
+          : createdAt // ignore: cast_nullable_to_non_nullable
               as String,
       amount: null == amount
           ? _value.amount
@@ -752,10 +579,10 @@ abstract class _$$OrderImplCopyWith<$Res> implements $OrderCopyWith<$Res> {
   @override
   @useResult
   $Res call(
-      {@JsonKey(name: 'order_id') int orderId,
-      @JsonKey(name: 'order_unique_id') String orderUniqueId,
-      String sessions,
-      String date,
+      {@JsonKey(fromJson: _stringToInt) int id,
+      @JsonKey(name: 'unique_id') String uniqueId,
+      List<String> sessions,
+      @JsonKey(name: 'created_at') String createdAt,
       String amount,
       String status,
       bool cancelable});
@@ -774,30 +601,30 @@ class __$$OrderImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? orderId = null,
-    Object? orderUniqueId = null,
+    Object? id = null,
+    Object? uniqueId = null,
     Object? sessions = null,
-    Object? date = null,
+    Object? createdAt = null,
     Object? amount = null,
     Object? status = null,
     Object? cancelable = null,
   }) {
     return _then(_$OrderImpl(
-      orderId: null == orderId
-          ? _value.orderId
-          : orderId // ignore: cast_nullable_to_non_nullable
+      id: null == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
               as int,
-      orderUniqueId: null == orderUniqueId
-          ? _value.orderUniqueId
-          : orderUniqueId // ignore: cast_nullable_to_non_nullable
+      uniqueId: null == uniqueId
+          ? _value.uniqueId
+          : uniqueId // ignore: cast_nullable_to_non_nullable
               as String,
       sessions: null == sessions
-          ? _value.sessions
+          ? _value._sessions
           : sessions // ignore: cast_nullable_to_non_nullable
-              as String,
-      date: null == date
-          ? _value.date
-          : date // ignore: cast_nullable_to_non_nullable
+              as List<String>,
+      createdAt: null == createdAt
+          ? _value.createdAt
+          : createdAt // ignore: cast_nullable_to_non_nullable
               as String,
       amount: null == amount
           ? _value.amount
@@ -819,29 +646,36 @@ class __$$OrderImplCopyWithImpl<$Res>
 @JsonSerializable()
 class _$OrderImpl implements _Order {
   const _$OrderImpl(
-      {@JsonKey(name: 'order_id') this.orderId = 0,
-      @JsonKey(name: 'order_unique_id') this.orderUniqueId = '',
-      this.sessions = '',
-      this.date = '',
+      {@JsonKey(fromJson: _stringToInt) this.id = 0,
+      @JsonKey(name: 'unique_id') this.uniqueId = '',
+      final List<String> sessions = const <String>[],
+      @JsonKey(name: 'created_at') this.createdAt = '',
       this.amount = '',
       this.status = '',
-      this.cancelable = false});
+      this.cancelable = false})
+      : _sessions = sessions;
 
   factory _$OrderImpl.fromJson(Map<String, dynamic> json) =>
       _$$OrderImplFromJson(json);
 
   @override
-  @JsonKey(name: 'order_id')
-  final int orderId;
+  @JsonKey(fromJson: _stringToInt)
+  final int id;
   @override
-  @JsonKey(name: 'order_unique_id')
-  final String orderUniqueId;
-  @override
-  @JsonKey()
-  final String sessions;
+  @JsonKey(name: 'unique_id')
+  final String uniqueId;
+  final List<String> _sessions;
   @override
   @JsonKey()
-  final String date;
+  List<String> get sessions {
+    if (_sessions is EqualUnmodifiableListView) return _sessions;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_sessions);
+  }
+
+  @override
+  @JsonKey(name: 'created_at')
+  final String createdAt;
   @override
   @JsonKey()
   final String amount;
@@ -854,7 +688,7 @@ class _$OrderImpl implements _Order {
 
   @override
   String toString() {
-    return 'Order(orderId: $orderId, orderUniqueId: $orderUniqueId, sessions: $sessions, date: $date, amount: $amount, status: $status, cancelable: $cancelable)';
+    return 'Order(id: $id, uniqueId: $uniqueId, sessions: $sessions, createdAt: $createdAt, amount: $amount, status: $status, cancelable: $cancelable)';
   }
 
   @override
@@ -862,12 +696,12 @@ class _$OrderImpl implements _Order {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$OrderImpl &&
-            (identical(other.orderId, orderId) || other.orderId == orderId) &&
-            (identical(other.orderUniqueId, orderUniqueId) ||
-                other.orderUniqueId == orderUniqueId) &&
-            (identical(other.sessions, sessions) ||
-                other.sessions == sessions) &&
-            (identical(other.date, date) || other.date == date) &&
+            (identical(other.id, id) || other.id == id) &&
+            (identical(other.uniqueId, uniqueId) ||
+                other.uniqueId == uniqueId) &&
+            const DeepCollectionEquality().equals(other._sessions, _sessions) &&
+            (identical(other.createdAt, createdAt) ||
+                other.createdAt == createdAt) &&
             (identical(other.amount, amount) || other.amount == amount) &&
             (identical(other.status, status) || other.status == status) &&
             (identical(other.cancelable, cancelable) ||
@@ -876,8 +710,15 @@ class _$OrderImpl implements _Order {
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  int get hashCode => Object.hash(runtimeType, orderId, orderUniqueId, sessions,
-      date, amount, status, cancelable);
+  int get hashCode => Object.hash(
+      runtimeType,
+      id,
+      uniqueId,
+      const DeepCollectionEquality().hash(_sessions),
+      createdAt,
+      amount,
+      status,
+      cancelable);
 
   /// Create a copy of Order
   /// with the given fields replaced by the non-null parameter values.
@@ -897,10 +738,10 @@ class _$OrderImpl implements _Order {
 
 abstract class _Order implements Order {
   const factory _Order(
-      {@JsonKey(name: 'order_id') final int orderId,
-      @JsonKey(name: 'order_unique_id') final String orderUniqueId,
-      final String sessions,
-      final String date,
+      {@JsonKey(fromJson: _stringToInt) final int id,
+      @JsonKey(name: 'unique_id') final String uniqueId,
+      final List<String> sessions,
+      @JsonKey(name: 'created_at') final String createdAt,
       final String amount,
       final String status,
       final bool cancelable}) = _$OrderImpl;
@@ -908,15 +749,16 @@ abstract class _Order implements Order {
   factory _Order.fromJson(Map<String, dynamic> json) = _$OrderImpl.fromJson;
 
   @override
-  @JsonKey(name: 'order_id')
-  int get orderId;
+  @JsonKey(fromJson: _stringToInt)
+  int get id;
   @override
-  @JsonKey(name: 'order_unique_id')
-  String get orderUniqueId;
+  @JsonKey(name: 'unique_id')
+  String get uniqueId;
   @override
-  String get sessions;
+  List<String> get sessions;
   @override
-  String get date;
+  @JsonKey(name: 'created_at')
+  String get createdAt;
   @override
   String get amount;
   @override
@@ -929,5 +771,181 @@ abstract class _Order implements Order {
   @override
   @JsonKey(includeFromJson: false, includeToJson: false)
   _$$OrderImplCopyWith<_$OrderImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+Player _$PlayerFromJson(Map<String, dynamic> json) {
+  return _Player.fromJson(json);
+}
+
+/// @nodoc
+mixin _$Player {
+  @JsonKey(fromJson: _stringToInt)
+  int get id => throw _privateConstructorUsedError;
+  @JsonKey(name: 'child_name')
+  String get childName => throw _privateConstructorUsedError;
+
+  /// Serializes this Player to a JSON map.
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+
+  /// Create a copy of Player
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  $PlayerCopyWith<Player> get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $PlayerCopyWith<$Res> {
+  factory $PlayerCopyWith(Player value, $Res Function(Player) then) =
+      _$PlayerCopyWithImpl<$Res, Player>;
+  @useResult
+  $Res call(
+      {@JsonKey(fromJson: _stringToInt) int id,
+      @JsonKey(name: 'child_name') String childName});
+}
+
+/// @nodoc
+class _$PlayerCopyWithImpl<$Res, $Val extends Player>
+    implements $PlayerCopyWith<$Res> {
+  _$PlayerCopyWithImpl(this._value, this._then);
+
+  // ignore: unused_field
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
+
+  /// Create a copy of Player
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? id = null,
+    Object? childName = null,
+  }) {
+    return _then(_value.copyWith(
+      id: null == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as int,
+      childName: null == childName
+          ? _value.childName
+          : childName // ignore: cast_nullable_to_non_nullable
+              as String,
+    ) as $Val);
+  }
+}
+
+/// @nodoc
+abstract class _$$PlayerImplCopyWith<$Res> implements $PlayerCopyWith<$Res> {
+  factory _$$PlayerImplCopyWith(
+          _$PlayerImpl value, $Res Function(_$PlayerImpl) then) =
+      __$$PlayerImplCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call(
+      {@JsonKey(fromJson: _stringToInt) int id,
+      @JsonKey(name: 'child_name') String childName});
+}
+
+/// @nodoc
+class __$$PlayerImplCopyWithImpl<$Res>
+    extends _$PlayerCopyWithImpl<$Res, _$PlayerImpl>
+    implements _$$PlayerImplCopyWith<$Res> {
+  __$$PlayerImplCopyWithImpl(
+      _$PlayerImpl _value, $Res Function(_$PlayerImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of Player
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? id = null,
+    Object? childName = null,
+  }) {
+    return _then(_$PlayerImpl(
+      id: null == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as int,
+      childName: null == childName
+          ? _value.childName
+          : childName // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+@JsonSerializable()
+class _$PlayerImpl implements _Player {
+  const _$PlayerImpl(
+      {@JsonKey(fromJson: _stringToInt) this.id = 0,
+      @JsonKey(name: 'child_name') this.childName = ''});
+
+  factory _$PlayerImpl.fromJson(Map<String, dynamic> json) =>
+      _$$PlayerImplFromJson(json);
+
+  @override
+  @JsonKey(fromJson: _stringToInt)
+  final int id;
+  @override
+  @JsonKey(name: 'child_name')
+  final String childName;
+
+  @override
+  String toString() {
+    return 'Player(id: $id, childName: $childName)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$PlayerImpl &&
+            (identical(other.id, id) || other.id == id) &&
+            (identical(other.childName, childName) ||
+                other.childName == childName));
+  }
+
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  int get hashCode => Object.hash(runtimeType, id, childName);
+
+  /// Create a copy of Player
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$PlayerImplCopyWith<_$PlayerImpl> get copyWith =>
+      __$$PlayerImplCopyWithImpl<_$PlayerImpl>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$PlayerImplToJson(
+      this,
+    );
+  }
+}
+
+abstract class _Player implements Player {
+  const factory _Player(
+      {@JsonKey(fromJson: _stringToInt) final int id,
+      @JsonKey(name: 'child_name') final String childName}) = _$PlayerImpl;
+
+  factory _Player.fromJson(Map<String, dynamic> json) = _$PlayerImpl.fromJson;
+
+  @override
+  @JsonKey(fromJson: _stringToInt)
+  int get id;
+  @override
+  @JsonKey(name: 'child_name')
+  String get childName;
+
+  /// Create a copy of Player
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$PlayerImplCopyWith<_$PlayerImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

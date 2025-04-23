@@ -334,7 +334,7 @@ class AddDocumentComponent extends StatelessWidget {
                             Column(
                               children: <Widget>[
                                 state.termsProgramSessionPlayerModelData.data
-                                        .player.isNotEmpty
+                                        .playerData.isNotEmpty
                                     ? Row(
                                         mainAxisAlignment: MainAxisAlignment.end,
                                         children: <Widget>[
@@ -343,7 +343,7 @@ class AddDocumentComponent extends StatelessWidget {
                                               state
                                                   .termsProgramSessionPlayerModelData
                                                   .data
-                                                  .player
+                                                  .playerData
                                                   .map((coach) => BlocProvider.of<
                                                               AddDocumentBloc>(
                                                           context)
@@ -371,7 +371,7 @@ class AddDocumentComponent extends StatelessWidget {
                                   isAllSelected: areAllPlayerSelected(
                                       state.player,
                                       state.termsProgramSessionPlayerModelData
-                                          .data.player),
+                                          .data.playerData),
                                   title: "Player",
                                   items: state.player,
                                   itemText: (player) => player.childName,
@@ -521,7 +521,7 @@ class AddDocumentComponent extends StatelessWidget {
       backgroundColor: Colors.transparent,
       isScrollControlled: true,
       builder: (context) => PlayerSelectionBottomSheet(
-        player: state.termsProgramSessionPlayerModelData.data.player,
+        player: state.termsProgramSessionPlayerModelData.data.playerData,
         dateController: playerController,
         onCoachSelected: (coach) {
           print("SELECTED COACH ID $coach");
@@ -555,7 +555,7 @@ class AddDocumentComponent extends StatelessWidget {
         selectedTerms.every((term) => allTerms.contains(term));
   }
 
-  bool areAllPlayerSelected(List<Player> selectedTerms, List<Player> allTerms) {
+  bool areAllPlayerSelected(List<PlayerData> selectedTerms, List<PlayerData> allTerms) {
     // If the number of selected terms matches the total terms, then all terms are selected
     return selectedTerms.length == allTerms.length &&
         selectedTerms.every((term) => allTerms.contains(term));

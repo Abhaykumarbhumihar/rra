@@ -193,7 +193,7 @@ class AddDocumentBloc extends Bloc<AddDocumentEvent, AddDocumentState> {
       Emitter<AddDocumentState> emit,
       ) async {
     // Ensure the type is List<Player> by casting it from dynamic to Player
-    final updatedPlayers = Set<Player>.from(state.player)..add(event.player);
+    final updatedPlayers = Set<PlayerData>.from(state.player)..add(event.player);
 
     emit(state.copyWith(
       isUploadSuccess: false,

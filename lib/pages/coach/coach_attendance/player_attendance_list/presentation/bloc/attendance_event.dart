@@ -14,4 +14,7 @@ sealed class AttendanceEvent with _$AttendanceEvent {
   const factory AttendanceEvent.getTermSelected(Term term) = TermSelectedEvent;
   const factory AttendanceEvent.getProgramSelected(CoachingProgram program) = ProgramSelectedEvent;
   const factory AttendanceEvent.getSessionSelected(Session session) = SessionSelectedEvent;
+  const factory AttendanceEvent.getPlayerSelected(PlayerData player) = PlayerselectedSelectedEvent;
+  const factory AttendanceEvent.resetState() = ResetStateEvent;
+
 }

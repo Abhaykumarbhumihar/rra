@@ -24,6 +24,7 @@ mixin _$ViewSessionEvent {
     required TResult Function(Map<String, dynamic> data) getCancelBookedSession,
     required TResult Function(String day) daySelect,
     required TResult Function(String day) playerSelect,
+    required TResult Function() resetState,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -33,6 +34,7 @@ mixin _$ViewSessionEvent {
     TResult? Function(Map<String, dynamic> data)? getCancelBookedSession,
     TResult? Function(String day)? daySelect,
     TResult? Function(String day)? playerSelect,
+    TResult? Function()? resetState,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -42,6 +44,7 @@ mixin _$ViewSessionEvent {
     TResult Function(Map<String, dynamic> data)? getCancelBookedSession,
     TResult Function(String day)? daySelect,
     TResult Function(String day)? playerSelect,
+    TResult Function()? resetState,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -55,6 +58,7 @@ mixin _$ViewSessionEvent {
         getCancelBookedSession,
     required TResult Function(DaySelectEvent value) daySelect,
     required TResult Function(PlayerSelect value) playerSelect,
+    required TResult Function(ResetViewSessionStateEvent value) resetState,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -65,6 +69,7 @@ mixin _$ViewSessionEvent {
     TResult? Function(CancelBookedSessionEvent value)? getCancelBookedSession,
     TResult? Function(DaySelectEvent value)? daySelect,
     TResult? Function(PlayerSelect value)? playerSelect,
+    TResult? Function(ResetViewSessionStateEvent value)? resetState,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -75,6 +80,7 @@ mixin _$ViewSessionEvent {
     TResult Function(CancelBookedSessionEvent value)? getCancelBookedSession,
     TResult Function(DaySelectEvent value)? daySelect,
     TResult Function(PlayerSelect value)? playerSelect,
+    TResult Function(ResetViewSessionStateEvent value)? resetState,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -186,6 +192,7 @@ class _$GetBookedSessionListEventImpl implements GetBookedSessionListEvent {
     required TResult Function(Map<String, dynamic> data) getCancelBookedSession,
     required TResult Function(String day) daySelect,
     required TResult Function(String day) playerSelect,
+    required TResult Function() resetState,
   }) {
     return getBookedSessionList(data);
   }
@@ -198,6 +205,7 @@ class _$GetBookedSessionListEventImpl implements GetBookedSessionListEvent {
     TResult? Function(Map<String, dynamic> data)? getCancelBookedSession,
     TResult? Function(String day)? daySelect,
     TResult? Function(String day)? playerSelect,
+    TResult? Function()? resetState,
   }) {
     return getBookedSessionList?.call(data);
   }
@@ -210,6 +218,7 @@ class _$GetBookedSessionListEventImpl implements GetBookedSessionListEvent {
     TResult Function(Map<String, dynamic> data)? getCancelBookedSession,
     TResult Function(String day)? daySelect,
     TResult Function(String day)? playerSelect,
+    TResult Function()? resetState,
     required TResult orElse(),
   }) {
     if (getBookedSessionList != null) {
@@ -229,6 +238,7 @@ class _$GetBookedSessionListEventImpl implements GetBookedSessionListEvent {
         getCancelBookedSession,
     required TResult Function(DaySelectEvent value) daySelect,
     required TResult Function(PlayerSelect value) playerSelect,
+    required TResult Function(ResetViewSessionStateEvent value) resetState,
   }) {
     return getBookedSessionList(this);
   }
@@ -242,6 +252,7 @@ class _$GetBookedSessionListEventImpl implements GetBookedSessionListEvent {
     TResult? Function(CancelBookedSessionEvent value)? getCancelBookedSession,
     TResult? Function(DaySelectEvent value)? daySelect,
     TResult? Function(PlayerSelect value)? playerSelect,
+    TResult? Function(ResetViewSessionStateEvent value)? resetState,
   }) {
     return getBookedSessionList?.call(this);
   }
@@ -255,6 +266,7 @@ class _$GetBookedSessionListEventImpl implements GetBookedSessionListEvent {
     TResult Function(CancelBookedSessionEvent value)? getCancelBookedSession,
     TResult Function(DaySelectEvent value)? daySelect,
     TResult Function(PlayerSelect value)? playerSelect,
+    TResult Function(ResetViewSessionStateEvent value)? resetState,
     required TResult orElse(),
   }) {
     if (getBookedSessionList != null) {
@@ -364,6 +376,7 @@ class _$GetFilterBookedSessionListEventImpl
     required TResult Function(Map<String, dynamic> data) getCancelBookedSession,
     required TResult Function(String day) daySelect,
     required TResult Function(String day) playerSelect,
+    required TResult Function() resetState,
   }) {
     return getFilterBookedSessionList(data);
   }
@@ -376,6 +389,7 @@ class _$GetFilterBookedSessionListEventImpl
     TResult? Function(Map<String, dynamic> data)? getCancelBookedSession,
     TResult? Function(String day)? daySelect,
     TResult? Function(String day)? playerSelect,
+    TResult? Function()? resetState,
   }) {
     return getFilterBookedSessionList?.call(data);
   }
@@ -388,6 +402,7 @@ class _$GetFilterBookedSessionListEventImpl
     TResult Function(Map<String, dynamic> data)? getCancelBookedSession,
     TResult Function(String day)? daySelect,
     TResult Function(String day)? playerSelect,
+    TResult Function()? resetState,
     required TResult orElse(),
   }) {
     if (getFilterBookedSessionList != null) {
@@ -407,6 +422,7 @@ class _$GetFilterBookedSessionListEventImpl
         getCancelBookedSession,
     required TResult Function(DaySelectEvent value) daySelect,
     required TResult Function(PlayerSelect value) playerSelect,
+    required TResult Function(ResetViewSessionStateEvent value) resetState,
   }) {
     return getFilterBookedSessionList(this);
   }
@@ -420,6 +436,7 @@ class _$GetFilterBookedSessionListEventImpl
     TResult? Function(CancelBookedSessionEvent value)? getCancelBookedSession,
     TResult? Function(DaySelectEvent value)? daySelect,
     TResult? Function(PlayerSelect value)? playerSelect,
+    TResult? Function(ResetViewSessionStateEvent value)? resetState,
   }) {
     return getFilterBookedSessionList?.call(this);
   }
@@ -433,6 +450,7 @@ class _$GetFilterBookedSessionListEventImpl
     TResult Function(CancelBookedSessionEvent value)? getCancelBookedSession,
     TResult Function(DaySelectEvent value)? daySelect,
     TResult Function(PlayerSelect value)? playerSelect,
+    TResult Function(ResetViewSessionStateEvent value)? resetState,
     required TResult orElse(),
   }) {
     if (getFilterBookedSessionList != null) {
@@ -540,6 +558,7 @@ class _$CancelBookedSessionEventImpl implements CancelBookedSessionEvent {
     required TResult Function(Map<String, dynamic> data) getCancelBookedSession,
     required TResult Function(String day) daySelect,
     required TResult Function(String day) playerSelect,
+    required TResult Function() resetState,
   }) {
     return getCancelBookedSession(data);
   }
@@ -552,6 +571,7 @@ class _$CancelBookedSessionEventImpl implements CancelBookedSessionEvent {
     TResult? Function(Map<String, dynamic> data)? getCancelBookedSession,
     TResult? Function(String day)? daySelect,
     TResult? Function(String day)? playerSelect,
+    TResult? Function()? resetState,
   }) {
     return getCancelBookedSession?.call(data);
   }
@@ -564,6 +584,7 @@ class _$CancelBookedSessionEventImpl implements CancelBookedSessionEvent {
     TResult Function(Map<String, dynamic> data)? getCancelBookedSession,
     TResult Function(String day)? daySelect,
     TResult Function(String day)? playerSelect,
+    TResult Function()? resetState,
     required TResult orElse(),
   }) {
     if (getCancelBookedSession != null) {
@@ -583,6 +604,7 @@ class _$CancelBookedSessionEventImpl implements CancelBookedSessionEvent {
         getCancelBookedSession,
     required TResult Function(DaySelectEvent value) daySelect,
     required TResult Function(PlayerSelect value) playerSelect,
+    required TResult Function(ResetViewSessionStateEvent value) resetState,
   }) {
     return getCancelBookedSession(this);
   }
@@ -596,6 +618,7 @@ class _$CancelBookedSessionEventImpl implements CancelBookedSessionEvent {
     TResult? Function(CancelBookedSessionEvent value)? getCancelBookedSession,
     TResult? Function(DaySelectEvent value)? daySelect,
     TResult? Function(PlayerSelect value)? playerSelect,
+    TResult? Function(ResetViewSessionStateEvent value)? resetState,
   }) {
     return getCancelBookedSession?.call(this);
   }
@@ -609,6 +632,7 @@ class _$CancelBookedSessionEventImpl implements CancelBookedSessionEvent {
     TResult Function(CancelBookedSessionEvent value)? getCancelBookedSession,
     TResult Function(DaySelectEvent value)? daySelect,
     TResult Function(PlayerSelect value)? playerSelect,
+    TResult Function(ResetViewSessionStateEvent value)? resetState,
     required TResult orElse(),
   }) {
     if (getCancelBookedSession != null) {
@@ -706,6 +730,7 @@ class _$DaySelectEventImpl implements DaySelectEvent {
     required TResult Function(Map<String, dynamic> data) getCancelBookedSession,
     required TResult Function(String day) daySelect,
     required TResult Function(String day) playerSelect,
+    required TResult Function() resetState,
   }) {
     return daySelect(day);
   }
@@ -718,6 +743,7 @@ class _$DaySelectEventImpl implements DaySelectEvent {
     TResult? Function(Map<String, dynamic> data)? getCancelBookedSession,
     TResult? Function(String day)? daySelect,
     TResult? Function(String day)? playerSelect,
+    TResult? Function()? resetState,
   }) {
     return daySelect?.call(day);
   }
@@ -730,6 +756,7 @@ class _$DaySelectEventImpl implements DaySelectEvent {
     TResult Function(Map<String, dynamic> data)? getCancelBookedSession,
     TResult Function(String day)? daySelect,
     TResult Function(String day)? playerSelect,
+    TResult Function()? resetState,
     required TResult orElse(),
   }) {
     if (daySelect != null) {
@@ -749,6 +776,7 @@ class _$DaySelectEventImpl implements DaySelectEvent {
         getCancelBookedSession,
     required TResult Function(DaySelectEvent value) daySelect,
     required TResult Function(PlayerSelect value) playerSelect,
+    required TResult Function(ResetViewSessionStateEvent value) resetState,
   }) {
     return daySelect(this);
   }
@@ -762,6 +790,7 @@ class _$DaySelectEventImpl implements DaySelectEvent {
     TResult? Function(CancelBookedSessionEvent value)? getCancelBookedSession,
     TResult? Function(DaySelectEvent value)? daySelect,
     TResult? Function(PlayerSelect value)? playerSelect,
+    TResult? Function(ResetViewSessionStateEvent value)? resetState,
   }) {
     return daySelect?.call(this);
   }
@@ -775,6 +804,7 @@ class _$DaySelectEventImpl implements DaySelectEvent {
     TResult Function(CancelBookedSessionEvent value)? getCancelBookedSession,
     TResult Function(DaySelectEvent value)? daySelect,
     TResult Function(PlayerSelect value)? playerSelect,
+    TResult Function(ResetViewSessionStateEvent value)? resetState,
     required TResult orElse(),
   }) {
     if (daySelect != null) {
@@ -870,6 +900,7 @@ class _$PlayerSelectImpl implements PlayerSelect {
     required TResult Function(Map<String, dynamic> data) getCancelBookedSession,
     required TResult Function(String day) daySelect,
     required TResult Function(String day) playerSelect,
+    required TResult Function() resetState,
   }) {
     return playerSelect(day);
   }
@@ -882,6 +913,7 @@ class _$PlayerSelectImpl implements PlayerSelect {
     TResult? Function(Map<String, dynamic> data)? getCancelBookedSession,
     TResult? Function(String day)? daySelect,
     TResult? Function(String day)? playerSelect,
+    TResult? Function()? resetState,
   }) {
     return playerSelect?.call(day);
   }
@@ -894,6 +926,7 @@ class _$PlayerSelectImpl implements PlayerSelect {
     TResult Function(Map<String, dynamic> data)? getCancelBookedSession,
     TResult Function(String day)? daySelect,
     TResult Function(String day)? playerSelect,
+    TResult Function()? resetState,
     required TResult orElse(),
   }) {
     if (playerSelect != null) {
@@ -913,6 +946,7 @@ class _$PlayerSelectImpl implements PlayerSelect {
         getCancelBookedSession,
     required TResult Function(DaySelectEvent value) daySelect,
     required TResult Function(PlayerSelect value) playerSelect,
+    required TResult Function(ResetViewSessionStateEvent value) resetState,
   }) {
     return playerSelect(this);
   }
@@ -926,6 +960,7 @@ class _$PlayerSelectImpl implements PlayerSelect {
     TResult? Function(CancelBookedSessionEvent value)? getCancelBookedSession,
     TResult? Function(DaySelectEvent value)? daySelect,
     TResult? Function(PlayerSelect value)? playerSelect,
+    TResult? Function(ResetViewSessionStateEvent value)? resetState,
   }) {
     return playerSelect?.call(this);
   }
@@ -939,6 +974,7 @@ class _$PlayerSelectImpl implements PlayerSelect {
     TResult Function(CancelBookedSessionEvent value)? getCancelBookedSession,
     TResult Function(DaySelectEvent value)? daySelect,
     TResult Function(PlayerSelect value)? playerSelect,
+    TResult Function(ResetViewSessionStateEvent value)? resetState,
     required TResult orElse(),
   }) {
     if (playerSelect != null) {
@@ -958,4 +994,143 @@ abstract class PlayerSelect implements ViewSessionEvent {
   @JsonKey(includeFromJson: false, includeToJson: false)
   _$$PlayerSelectImplCopyWith<_$PlayerSelectImpl> get copyWith =>
       throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$ResetViewSessionStateEventImplCopyWith<$Res> {
+  factory _$$ResetViewSessionStateEventImplCopyWith(
+          _$ResetViewSessionStateEventImpl value,
+          $Res Function(_$ResetViewSessionStateEventImpl) then) =
+      __$$ResetViewSessionStateEventImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$ResetViewSessionStateEventImplCopyWithImpl<$Res>
+    extends _$ViewSessionEventCopyWithImpl<$Res,
+        _$ResetViewSessionStateEventImpl>
+    implements _$$ResetViewSessionStateEventImplCopyWith<$Res> {
+  __$$ResetViewSessionStateEventImplCopyWithImpl(
+      _$ResetViewSessionStateEventImpl _value,
+      $Res Function(_$ResetViewSessionStateEventImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of ViewSessionEvent
+  /// with the given fields replaced by the non-null parameter values.
+}
+
+/// @nodoc
+
+class _$ResetViewSessionStateEventImpl implements ResetViewSessionStateEvent {
+  const _$ResetViewSessionStateEventImpl();
+
+  @override
+  String toString() {
+    return 'ViewSessionEvent.resetState()';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$ResetViewSessionStateEventImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(Map<String, dynamic> data) getBookedSessionList,
+    required TResult Function(Map<String, dynamic> data)
+        getFilterBookedSessionList,
+    required TResult Function(Map<String, dynamic> data) getCancelBookedSession,
+    required TResult Function(String day) daySelect,
+    required TResult Function(String day) playerSelect,
+    required TResult Function() resetState,
+  }) {
+    return resetState();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(Map<String, dynamic> data)? getBookedSessionList,
+    TResult? Function(Map<String, dynamic> data)? getFilterBookedSessionList,
+    TResult? Function(Map<String, dynamic> data)? getCancelBookedSession,
+    TResult? Function(String day)? daySelect,
+    TResult? Function(String day)? playerSelect,
+    TResult? Function()? resetState,
+  }) {
+    return resetState?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(Map<String, dynamic> data)? getBookedSessionList,
+    TResult Function(Map<String, dynamic> data)? getFilterBookedSessionList,
+    TResult Function(Map<String, dynamic> data)? getCancelBookedSession,
+    TResult Function(String day)? daySelect,
+    TResult Function(String day)? playerSelect,
+    TResult Function()? resetState,
+    required TResult orElse(),
+  }) {
+    if (resetState != null) {
+      return resetState();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(GetBookedSessionListEvent value)
+        getBookedSessionList,
+    required TResult Function(GetFilterBookedSessionListEvent value)
+        getFilterBookedSessionList,
+    required TResult Function(CancelBookedSessionEvent value)
+        getCancelBookedSession,
+    required TResult Function(DaySelectEvent value) daySelect,
+    required TResult Function(PlayerSelect value) playerSelect,
+    required TResult Function(ResetViewSessionStateEvent value) resetState,
+  }) {
+    return resetState(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(GetBookedSessionListEvent value)? getBookedSessionList,
+    TResult? Function(GetFilterBookedSessionListEvent value)?
+        getFilterBookedSessionList,
+    TResult? Function(CancelBookedSessionEvent value)? getCancelBookedSession,
+    TResult? Function(DaySelectEvent value)? daySelect,
+    TResult? Function(PlayerSelect value)? playerSelect,
+    TResult? Function(ResetViewSessionStateEvent value)? resetState,
+  }) {
+    return resetState?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(GetBookedSessionListEvent value)? getBookedSessionList,
+    TResult Function(GetFilterBookedSessionListEvent value)?
+        getFilterBookedSessionList,
+    TResult Function(CancelBookedSessionEvent value)? getCancelBookedSession,
+    TResult Function(DaySelectEvent value)? daySelect,
+    TResult Function(PlayerSelect value)? playerSelect,
+    TResult Function(ResetViewSessionStateEvent value)? resetState,
+    required TResult orElse(),
+  }) {
+    if (resetState != null) {
+      return resetState(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class ResetViewSessionStateEvent implements ViewSessionEvent {
+  const factory ResetViewSessionStateEvent() = _$ResetViewSessionStateEventImpl;
 }

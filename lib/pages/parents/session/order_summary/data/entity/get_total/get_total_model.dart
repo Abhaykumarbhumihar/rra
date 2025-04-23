@@ -26,7 +26,9 @@ class GetTotalData with _$GetTotalData {
     @Default([])
     List<RegistrationFee> registrationFees,
     @Default('') String total_session_discount,
-    @Default(null) dynamic promocodeDetails,
+    @JsonKey(name: 'promocodeDetails')
+    @Default(PromocodeDetails())
+    PromocodeDetails promocodeDetails,
     @Default('') String total_payable,
     @JsonKey(name: 'bulk_discounts') @Default([]) List<dynamic> bulkDiscounts,
     @JsonKey(name: 'settings') @Default(Settings()) Settings settings,
@@ -36,6 +38,20 @@ class GetTotalData with _$GetTotalData {
   factory GetTotalData.fromJson(Map<String, dynamic> json) =>
       _$GetTotalDataFromJson(json);
 }
+
+@freezed
+class PromocodeDetails with _$PromocodeDetails {
+  const factory PromocodeDetails({
+    @Default(0) double totalAmount,
+    @Default('') String discount,
+    @Default(0) double finalAmount,
+    @Default(0) int promocode_id,
+  }) = _PromocodeDetails;
+
+  factory PromocodeDetails.fromJson(Map<String, dynamic> json) =>
+      _$PromocodeDetailsFromJson(json);
+}
+
 
 @freezed
 class RegistrationFee with _$RegistrationFee {

@@ -5,8 +5,8 @@ import '../../../bloc/add_document_bloc.dart';
 import '../../../bloc/add_document_event.dart';
 import '../../../bloc/add_document_state.dart';
 class PlayerSelectionBottomSheet extends StatelessWidget {
-  final List<Player> player;
-  final Function(Player) onCoachSelected;
+  final List<PlayerData> player;
+  final Function(PlayerData) onCoachSelected;
   final TextEditingController dateController;
 
   const PlayerSelectionBottomSheet({
@@ -41,7 +41,7 @@ class PlayerSelectionBottomSheet extends StatelessWidget {
           const SizedBox(height: 16),
           Expanded(
             child: ListView.builder(
-              itemCount: state.termsProgramSessionPlayerModelData.data.player.length,
+              itemCount: state.termsProgramSessionPlayerModelData.data.playerData.length,
               itemBuilder: (context, index) {
                 final data = player[index];
                 return ListTile(

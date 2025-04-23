@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "870784949702",
+    "project_id": "rra-cricket-academy",
+    "storage_bucket": "rra-cricket-academy.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:870784949702:android:c500b1aefb6bcf7e4fe6c7",
+        "android_client_info": {
+          "package_name": "com.rra.rra"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD8VS5F6UNQAD_xl4_pnK5nGMXbznInQoU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

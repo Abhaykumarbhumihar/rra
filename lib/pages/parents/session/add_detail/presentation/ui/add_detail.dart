@@ -104,7 +104,7 @@ class AddDetail extends StatelessWidget {
                                     .read<AddViewPlayerBloc>()
                                     .state
                                     .selectedTab,
-                                tabNames: ['Select\nChild', 'Add\nChild'],
+                                tabNames: ['Players\nList', 'Add\nChild'],
                                 onTabChanged: (index) {
                                   context.read<AddViewPlayerBloc>().add(
                                       AddViewPlayerSelectedTabEvent(index));

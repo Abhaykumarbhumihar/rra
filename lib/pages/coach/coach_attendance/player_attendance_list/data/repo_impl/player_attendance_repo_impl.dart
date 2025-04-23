@@ -4,6 +4,7 @@ import 'dart:io';
 import 'package:either_dart/src/either.dart';
 
 import 'package:http/http.dart' as http;
+import 'package:rra/common/values/utils.dart';
 import '../../../../../../common/network/api_services.dart';
 import '../../../../../../common/network/app_constant.dart';
 import '../../../../../../common/network/failure.dart';
@@ -28,6 +29,13 @@ class PlayerAttendanceRepoImpl implements PlayerAttendanceRepositey {
       await _apiServices.post(AppConstant.getAttendanceList, playerData,useDefaultHeaders: true,isJson: true);
       print("playerList playerList playerList playerList playerList");
       print(response.body);
+
+      print("S +++++++++ S++++++++++++S+++++++++++++++++++S");
+      print(playerData);
+      print(AppConstant.getAttendanceList);
+      print("=======================\n");
+      Utils.LogPrint(response.body);
+      print("S +++++++++ S++++++++++++S+++++++++++++++++++S");
       if (response.statusCode == 200) {
         final Map<String, dynamic> responseData = jsonDecode(response.body);
         if(responseData['success']){

@@ -164,8 +164,8 @@ class __$$AttendancePlayerListResponseImplCopyWithImpl<$Res>
 class _$AttendancePlayerListResponseImpl
     implements _AttendancePlayerListResponse {
   const _$AttendancePlayerListResponseImpl(
-      {this.code = 0,
-      this.success = false,
+      {this.code = 200,
+      this.success = true,
       this.message = '',
       this.data = const AttendancePlayerListData()});
 
@@ -765,34 +765,33 @@ class __$$PlayerImplCopyWithImpl<$Res>
 @JsonSerializable()
 class _$PlayerImpl implements _Player {
   const _$PlayerImpl(
-      {this.id = 0,
-      @JsonKey(name: 'image') this.imageUrl = '',
-      @JsonKey(name: 'parent_id') this.parentId = 0,
-      @JsonKey(name: 'academy_id') this.academyId = 0,
-      @JsonKey(name: 'child_name') this.name = '',
-      @JsonKey(name: 'child_dob') this.dob = '',
-      @JsonKey(name: 'child_age') this.age = '',
+      {required this.id,
+      @JsonKey(name: 'image') required this.imageUrl,
+      @JsonKey(name: 'parent_id') required this.parentId,
+      @JsonKey(name: 'academy_id') required this.academyId,
+      @JsonKey(name: 'child_name') required this.name,
+      @JsonKey(name: 'child_dob') required this.dob,
+      @JsonKey(name: 'child_age') required this.age,
       @JsonKey(name: 'child_school') this.school,
       @JsonKey(name: 'child_club') this.club,
       @JsonKey(name: 'child_medical_condition') this.medicalCondition,
-      @JsonKey(name: 'child_address') this.address = '',
+      @JsonKey(name: 'child_address') required this.address,
       @JsonKey(name: 'child_photo_social_website')
-      this.photoSocialWebsitePermission = '0',
-      @JsonKey(name: 'child_permissions') this.permissions = '0',
-      this.status = 1,
-      @JsonKey(name: 'created_at') this.createdAt = '',
-      @JsonKey(name: 'updated_at') this.updatedAt = '',
-      @JsonKey(name: 'total_sessions') this.totalSessions = 0,
-      @JsonKey(name: 'attended_sessions') this.attendedSessions = 0,
+      required this.photoSocialWebsitePermission,
+      @JsonKey(name: 'child_permissions') required this.permissions,
+      required this.status,
+      @JsonKey(name: 'created_at') required this.createdAt,
+      @JsonKey(name: 'updated_at') required this.updatedAt,
+      @JsonKey(name: 'total_sessions') required this.totalSessions,
+      @JsonKey(name: 'attended_sessions') required this.attendedSessions,
       @JsonKey(name: 'attendance_record')
-      final List<AttendanceRecord> attendanceRecords = const []})
+      required final List<AttendanceRecord> attendanceRecords})
       : _attendanceRecords = attendanceRecords;
 
   factory _$PlayerImpl.fromJson(Map<String, dynamic> json) =>
       _$$PlayerImplFromJson(json);
 
   @override
-  @JsonKey()
   final int id;
   @override
   @JsonKey(name: 'image')
@@ -831,7 +830,6 @@ class _$PlayerImpl implements _Player {
   @JsonKey(name: 'child_permissions')
   final String permissions;
   @override
-  @JsonKey()
   final int status;
   @override
   @JsonKey(name: 'created_at')
@@ -942,27 +940,27 @@ class _$PlayerImpl implements _Player {
 
 abstract class _Player implements Player {
   const factory _Player(
-      {final int id,
-      @JsonKey(name: 'image') final String imageUrl,
-      @JsonKey(name: 'parent_id') final int parentId,
-      @JsonKey(name: 'academy_id') final int academyId,
-      @JsonKey(name: 'child_name') final String name,
-      @JsonKey(name: 'child_dob') final String dob,
-      @JsonKey(name: 'child_age') final String age,
+      {required final int id,
+      @JsonKey(name: 'image') required final String imageUrl,
+      @JsonKey(name: 'parent_id') required final int parentId,
+      @JsonKey(name: 'academy_id') required final int academyId,
+      @JsonKey(name: 'child_name') required final String name,
+      @JsonKey(name: 'child_dob') required final String dob,
+      @JsonKey(name: 'child_age') required final String age,
       @JsonKey(name: 'child_school') final String? school,
       @JsonKey(name: 'child_club') final String? club,
       @JsonKey(name: 'child_medical_condition') final String? medicalCondition,
-      @JsonKey(name: 'child_address') final String address,
+      @JsonKey(name: 'child_address') required final String address,
       @JsonKey(name: 'child_photo_social_website')
-      final String photoSocialWebsitePermission,
-      @JsonKey(name: 'child_permissions') final String permissions,
-      final int status,
-      @JsonKey(name: 'created_at') final String createdAt,
-      @JsonKey(name: 'updated_at') final String updatedAt,
-      @JsonKey(name: 'total_sessions') final int totalSessions,
-      @JsonKey(name: 'attended_sessions') final int attendedSessions,
+      required final String photoSocialWebsitePermission,
+      @JsonKey(name: 'child_permissions') required final String permissions,
+      required final int status,
+      @JsonKey(name: 'created_at') required final String createdAt,
+      @JsonKey(name: 'updated_at') required final String updatedAt,
+      @JsonKey(name: 'total_sessions') required final int totalSessions,
+      @JsonKey(name: 'attended_sessions') required final int attendedSessions,
       @JsonKey(name: 'attendance_record')
-      final List<AttendanceRecord> attendanceRecords}) = _$PlayerImpl;
+      required final List<AttendanceRecord> attendanceRecords}) = _$PlayerImpl;
 
   factory _Player.fromJson(Map<String, dynamic> json) = _$PlayerImpl.fromJson;
 
@@ -1153,9 +1151,9 @@ class __$$AttendanceRecordImplCopyWithImpl<$Res>
 @JsonSerializable()
 class _$AttendanceRecordImpl implements _AttendanceRecord {
   const _$AttendanceRecordImpl(
-      {@JsonKey(name: 'session_id') this.sessionId = 0,
-      @JsonKey(name: 'date') this.date = '',
-      @JsonKey(name: 'attendance_status') this.attendanceStatus = ''});
+      {@JsonKey(name: 'session_id') required this.sessionId,
+      @JsonKey(name: 'date') required this.date,
+      @JsonKey(name: 'attendance_status') required this.attendanceStatus});
 
   factory _$AttendanceRecordImpl.fromJson(Map<String, dynamic> json) =>
       _$$AttendanceRecordImplFromJson(json);
@@ -1211,10 +1209,10 @@ class _$AttendanceRecordImpl implements _AttendanceRecord {
 
 abstract class _AttendanceRecord implements AttendanceRecord {
   const factory _AttendanceRecord(
-          {@JsonKey(name: 'session_id') final int sessionId,
-          @JsonKey(name: 'date') final String date,
-          @JsonKey(name: 'attendance_status') final String attendanceStatus}) =
-      _$AttendanceRecordImpl;
+      {@JsonKey(name: 'session_id') required final int sessionId,
+      @JsonKey(name: 'date') required final String date,
+      @JsonKey(name: 'attendance_status')
+      required final String attendanceStatus}) = _$AttendanceRecordImpl;
 
   factory _AttendanceRecord.fromJson(Map<String, dynamic> json) =
       _$AttendanceRecordImpl.fromJson;

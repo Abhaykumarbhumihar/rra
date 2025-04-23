@@ -41,6 +41,7 @@ class ApiServices {
           ||url==AppConstant.getRemoveDiscount
           ||url==AppConstant.getParentUploadDocument
           ||url==AppConstant.getTotal
+          ||url==AppConstant.getApplyDiscount
           ||url==AppConstant.getOrderPlace
 
       ) {

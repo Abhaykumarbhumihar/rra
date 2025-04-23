@@ -26,7 +26,7 @@ class AddDocumentState with _$AddDocumentState {
     @Default([]) List<Term> terms,
     @Default([]) List<CoachingProgram> coachingProgram,
     @Default([]) List<Session> session,
-    @Default([]) List<Player> player,
+    @Default([]) List<PlayerData> player,
     @Default("") String selectedCoachName,
     @Default("") String selectedFileName,
     @Default("") String message,

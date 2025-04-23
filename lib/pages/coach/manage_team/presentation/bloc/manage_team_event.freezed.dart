@@ -24,6 +24,7 @@ mixin _$ManageTeamEvent {
     required TResult Function(Term term) getTermSelected,
     required TResult Function(CoachingProgram program) getProgramSelected,
     required TResult Function(Session session) getSessionSelected,
+    required TResult Function() resetState,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -34,6 +35,7 @@ mixin _$ManageTeamEvent {
     TResult? Function(Term term)? getTermSelected,
     TResult? Function(CoachingProgram program)? getProgramSelected,
     TResult? Function(Session session)? getSessionSelected,
+    TResult? Function()? resetState,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -44,6 +46,7 @@ mixin _$ManageTeamEvent {
     TResult Function(Term term)? getTermSelected,
     TResult Function(CoachingProgram program)? getProgramSelected,
     TResult Function(Session session)? getSessionSelected,
+    TResult Function()? resetState,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -58,6 +61,7 @@ mixin _$ManageTeamEvent {
         getProgramSelected,
     required TResult Function(ManageTeamSessionSelected value)
         getSessionSelected,
+    required TResult Function(ResetManageTeamStateEvent value) resetState,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -69,6 +73,7 @@ mixin _$ManageTeamEvent {
     TResult? Function(ManageTeamTermSelected value)? getTermSelected,
     TResult? Function(ManageTeamProgramSelected value)? getProgramSelected,
     TResult? Function(ManageTeamSessionSelected value)? getSessionSelected,
+    TResult? Function(ResetManageTeamStateEvent value)? resetState,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -80,6 +85,7 @@ mixin _$ManageTeamEvent {
     TResult Function(ManageTeamTermSelected value)? getTermSelected,
     TResult Function(ManageTeamProgramSelected value)? getProgramSelected,
     TResult Function(ManageTeamSessionSelected value)? getSessionSelected,
+    TResult Function(ResetManageTeamStateEvent value)? resetState,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -187,6 +193,7 @@ class _$GetTeamListEventImpl implements GetTeamListEvent {
     required TResult Function(Term term) getTermSelected,
     required TResult Function(CoachingProgram program) getProgramSelected,
     required TResult Function(Session session) getSessionSelected,
+    required TResult Function() resetState,
   }) {
     return getManageTeamEvent(data);
   }
@@ -200,6 +207,7 @@ class _$GetTeamListEventImpl implements GetTeamListEvent {
     TResult? Function(Term term)? getTermSelected,
     TResult? Function(CoachingProgram program)? getProgramSelected,
     TResult? Function(Session session)? getSessionSelected,
+    TResult? Function()? resetState,
   }) {
     return getManageTeamEvent?.call(data);
   }
@@ -213,6 +221,7 @@ class _$GetTeamListEventImpl implements GetTeamListEvent {
     TResult Function(Term term)? getTermSelected,
     TResult Function(CoachingProgram program)? getProgramSelected,
     TResult Function(Session session)? getSessionSelected,
+    TResult Function()? resetState,
     required TResult orElse(),
   }) {
     if (getManageTeamEvent != null) {
@@ -233,6 +242,7 @@ class _$GetTeamListEventImpl implements GetTeamListEvent {
         getProgramSelected,
     required TResult Function(ManageTeamSessionSelected value)
         getSessionSelected,
+    required TResult Function(ResetManageTeamStateEvent value) resetState,
   }) {
     return getManageTeamEvent(this);
   }
@@ -247,6 +257,7 @@ class _$GetTeamListEventImpl implements GetTeamListEvent {
     TResult? Function(ManageTeamTermSelected value)? getTermSelected,
     TResult? Function(ManageTeamProgramSelected value)? getProgramSelected,
     TResult? Function(ManageTeamSessionSelected value)? getSessionSelected,
+    TResult? Function(ResetManageTeamStateEvent value)? resetState,
   }) {
     return getManageTeamEvent?.call(this);
   }
@@ -261,6 +272,7 @@ class _$GetTeamListEventImpl implements GetTeamListEvent {
     TResult Function(ManageTeamTermSelected value)? getTermSelected,
     TResult Function(ManageTeamProgramSelected value)? getProgramSelected,
     TResult Function(ManageTeamSessionSelected value)? getSessionSelected,
+    TResult Function(ResetManageTeamStateEvent value)? resetState,
     required TResult orElse(),
   }) {
     if (getManageTeamEvent != null) {
@@ -384,6 +396,7 @@ class _$ManageTeamReportEventGetTermsSessionCoachingPlayerEventsImpl
     required TResult Function(Term term) getTermSelected,
     required TResult Function(CoachingProgram program) getProgramSelected,
     required TResult Function(Session session) getSessionSelected,
+    required TResult Function() resetState,
   }) {
     return getReportEventReportChildList(filterData);
   }
@@ -397,6 +410,7 @@ class _$ManageTeamReportEventGetTermsSessionCoachingPlayerEventsImpl
     TResult? Function(Term term)? getTermSelected,
     TResult? Function(CoachingProgram program)? getProgramSelected,
     TResult? Function(Session session)? getSessionSelected,
+    TResult? Function()? resetState,
   }) {
     return getReportEventReportChildList?.call(filterData);
   }
@@ -410,6 +424,7 @@ class _$ManageTeamReportEventGetTermsSessionCoachingPlayerEventsImpl
     TResult Function(Term term)? getTermSelected,
     TResult Function(CoachingProgram program)? getProgramSelected,
     TResult Function(Session session)? getSessionSelected,
+    TResult Function()? resetState,
     required TResult orElse(),
   }) {
     if (getReportEventReportChildList != null) {
@@ -430,6 +445,7 @@ class _$ManageTeamReportEventGetTermsSessionCoachingPlayerEventsImpl
         getProgramSelected,
     required TResult Function(ManageTeamSessionSelected value)
         getSessionSelected,
+    required TResult Function(ResetManageTeamStateEvent value) resetState,
   }) {
     return getReportEventReportChildList(this);
   }
@@ -444,6 +460,7 @@ class _$ManageTeamReportEventGetTermsSessionCoachingPlayerEventsImpl
     TResult? Function(ManageTeamTermSelected value)? getTermSelected,
     TResult? Function(ManageTeamProgramSelected value)? getProgramSelected,
     TResult? Function(ManageTeamSessionSelected value)? getSessionSelected,
+    TResult? Function(ResetManageTeamStateEvent value)? resetState,
   }) {
     return getReportEventReportChildList?.call(this);
   }
@@ -458,6 +475,7 @@ class _$ManageTeamReportEventGetTermsSessionCoachingPlayerEventsImpl
     TResult Function(ManageTeamTermSelected value)? getTermSelected,
     TResult Function(ManageTeamProgramSelected value)? getProgramSelected,
     TResult Function(ManageTeamSessionSelected value)? getSessionSelected,
+    TResult Function(ResetManageTeamStateEvent value)? resetState,
     required TResult orElse(),
   }) {
     if (getReportEventReportChildList != null) {
@@ -572,6 +590,7 @@ class _$ManageTeamTermSelectedImpl implements ManageTeamTermSelected {
     required TResult Function(Term term) getTermSelected,
     required TResult Function(CoachingProgram program) getProgramSelected,
     required TResult Function(Session session) getSessionSelected,
+    required TResult Function() resetState,
   }) {
     return getTermSelected(term);
   }
@@ -585,6 +604,7 @@ class _$ManageTeamTermSelectedImpl implements ManageTeamTermSelected {
     TResult? Function(Term term)? getTermSelected,
     TResult? Function(CoachingProgram program)? getProgramSelected,
     TResult? Function(Session session)? getSessionSelected,
+    TResult? Function()? resetState,
   }) {
     return getTermSelected?.call(term);
   }
@@ -598,6 +618,7 @@ class _$ManageTeamTermSelectedImpl implements ManageTeamTermSelected {
     TResult Function(Term term)? getTermSelected,
     TResult Function(CoachingProgram program)? getProgramSelected,
     TResult Function(Session session)? getSessionSelected,
+    TResult Function()? resetState,
     required TResult orElse(),
   }) {
     if (getTermSelected != null) {
@@ -618,6 +639,7 @@ class _$ManageTeamTermSelectedImpl implements ManageTeamTermSelected {
         getProgramSelected,
     required TResult Function(ManageTeamSessionSelected value)
         getSessionSelected,
+    required TResult Function(ResetManageTeamStateEvent value) resetState,
   }) {
     return getTermSelected(this);
   }
@@ -632,6 +654,7 @@ class _$ManageTeamTermSelectedImpl implements ManageTeamTermSelected {
     TResult? Function(ManageTeamTermSelected value)? getTermSelected,
     TResult? Function(ManageTeamProgramSelected value)? getProgramSelected,
     TResult? Function(ManageTeamSessionSelected value)? getSessionSelected,
+    TResult? Function(ResetManageTeamStateEvent value)? resetState,
   }) {
     return getTermSelected?.call(this);
   }
@@ -646,6 +669,7 @@ class _$ManageTeamTermSelectedImpl implements ManageTeamTermSelected {
     TResult Function(ManageTeamTermSelected value)? getTermSelected,
     TResult Function(ManageTeamProgramSelected value)? getProgramSelected,
     TResult Function(ManageTeamSessionSelected value)? getSessionSelected,
+    TResult Function(ResetManageTeamStateEvent value)? resetState,
     required TResult orElse(),
   }) {
     if (getTermSelected != null) {
@@ -757,6 +781,7 @@ class _$ManageTeamProgramSelectedImpl implements ManageTeamProgramSelected {
     required TResult Function(Term term) getTermSelected,
     required TResult Function(CoachingProgram program) getProgramSelected,
     required TResult Function(Session session) getSessionSelected,
+    required TResult Function() resetState,
   }) {
     return getProgramSelected(program);
   }
@@ -770,6 +795,7 @@ class _$ManageTeamProgramSelectedImpl implements ManageTeamProgramSelected {
     TResult? Function(Term term)? getTermSelected,
     TResult? Function(CoachingProgram program)? getProgramSelected,
     TResult? Function(Session session)? getSessionSelected,
+    TResult? Function()? resetState,
   }) {
     return getProgramSelected?.call(program);
   }
@@ -783,6 +809,7 @@ class _$ManageTeamProgramSelectedImpl implements ManageTeamProgramSelected {
     TResult Function(Term term)? getTermSelected,
     TResult Function(CoachingProgram program)? getProgramSelected,
     TResult Function(Session session)? getSessionSelected,
+    TResult Function()? resetState,
     required TResult orElse(),
   }) {
     if (getProgramSelected != null) {
@@ -803,6 +830,7 @@ class _$ManageTeamProgramSelectedImpl implements ManageTeamProgramSelected {
         getProgramSelected,
     required TResult Function(ManageTeamSessionSelected value)
         getSessionSelected,
+    required TResult Function(ResetManageTeamStateEvent value) resetState,
   }) {
     return getProgramSelected(this);
   }
@@ -817,6 +845,7 @@ class _$ManageTeamProgramSelectedImpl implements ManageTeamProgramSelected {
     TResult? Function(ManageTeamTermSelected value)? getTermSelected,
     TResult? Function(ManageTeamProgramSelected value)? getProgramSelected,
     TResult? Function(ManageTeamSessionSelected value)? getSessionSelected,
+    TResult? Function(ResetManageTeamStateEvent value)? resetState,
   }) {
     return getProgramSelected?.call(this);
   }
@@ -831,6 +860,7 @@ class _$ManageTeamProgramSelectedImpl implements ManageTeamProgramSelected {
     TResult Function(ManageTeamTermSelected value)? getTermSelected,
     TResult Function(ManageTeamProgramSelected value)? getProgramSelected,
     TResult Function(ManageTeamSessionSelected value)? getSessionSelected,
+    TResult Function(ResetManageTeamStateEvent value)? resetState,
     required TResult orElse(),
   }) {
     if (getProgramSelected != null) {
@@ -942,6 +972,7 @@ class _$ManageTeamSessionSelectedImpl implements ManageTeamSessionSelected {
     required TResult Function(Term term) getTermSelected,
     required TResult Function(CoachingProgram program) getProgramSelected,
     required TResult Function(Session session) getSessionSelected,
+    required TResult Function() resetState,
   }) {
     return getSessionSelected(session);
   }
@@ -955,6 +986,7 @@ class _$ManageTeamSessionSelectedImpl implements ManageTeamSessionSelected {
     TResult? Function(Term term)? getTermSelected,
     TResult? Function(CoachingProgram program)? getProgramSelected,
     TResult? Function(Session session)? getSessionSelected,
+    TResult? Function()? resetState,
   }) {
     return getSessionSelected?.call(session);
   }
@@ -968,6 +1000,7 @@ class _$ManageTeamSessionSelectedImpl implements ManageTeamSessionSelected {
     TResult Function(Term term)? getTermSelected,
     TResult Function(CoachingProgram program)? getProgramSelected,
     TResult Function(Session session)? getSessionSelected,
+    TResult Function()? resetState,
     required TResult orElse(),
   }) {
     if (getSessionSelected != null) {
@@ -988,6 +1021,7 @@ class _$ManageTeamSessionSelectedImpl implements ManageTeamSessionSelected {
         getProgramSelected,
     required TResult Function(ManageTeamSessionSelected value)
         getSessionSelected,
+    required TResult Function(ResetManageTeamStateEvent value) resetState,
   }) {
     return getSessionSelected(this);
   }
@@ -1002,6 +1036,7 @@ class _$ManageTeamSessionSelectedImpl implements ManageTeamSessionSelected {
     TResult? Function(ManageTeamTermSelected value)? getTermSelected,
     TResult? Function(ManageTeamProgramSelected value)? getProgramSelected,
     TResult? Function(ManageTeamSessionSelected value)? getSessionSelected,
+    TResult? Function(ResetManageTeamStateEvent value)? resetState,
   }) {
     return getSessionSelected?.call(this);
   }
@@ -1016,6 +1051,7 @@ class _$ManageTeamSessionSelectedImpl implements ManageTeamSessionSelected {
     TResult Function(ManageTeamTermSelected value)? getTermSelected,
     TResult Function(ManageTeamProgramSelected value)? getProgramSelected,
     TResult Function(ManageTeamSessionSelected value)? getSessionSelected,
+    TResult Function(ResetManageTeamStateEvent value)? resetState,
     required TResult orElse(),
   }) {
     if (getSessionSelected != null) {
@@ -1036,4 +1072,147 @@ abstract class ManageTeamSessionSelected implements ManageTeamEvent {
   @JsonKey(includeFromJson: false, includeToJson: false)
   _$$ManageTeamSessionSelectedImplCopyWith<_$ManageTeamSessionSelectedImpl>
       get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$ResetManageTeamStateEventImplCopyWith<$Res> {
+  factory _$$ResetManageTeamStateEventImplCopyWith(
+          _$ResetManageTeamStateEventImpl value,
+          $Res Function(_$ResetManageTeamStateEventImpl) then) =
+      __$$ResetManageTeamStateEventImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$ResetManageTeamStateEventImplCopyWithImpl<$Res>
+    extends _$ManageTeamEventCopyWithImpl<$Res, _$ResetManageTeamStateEventImpl>
+    implements _$$ResetManageTeamStateEventImplCopyWith<$Res> {
+  __$$ResetManageTeamStateEventImplCopyWithImpl(
+      _$ResetManageTeamStateEventImpl _value,
+      $Res Function(_$ResetManageTeamStateEventImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of ManageTeamEvent
+  /// with the given fields replaced by the non-null parameter values.
+}
+
+/// @nodoc
+
+class _$ResetManageTeamStateEventImpl implements ResetManageTeamStateEvent {
+  const _$ResetManageTeamStateEventImpl();
+
+  @override
+  String toString() {
+    return 'ManageTeamEvent.resetState()';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$ResetManageTeamStateEventImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(Map<String, dynamic> data) getManageTeamEvent,
+    required TResult Function(Map<String, dynamic> filterData)
+        getReportEventReportChildList,
+    required TResult Function(Term term) getTermSelected,
+    required TResult Function(CoachingProgram program) getProgramSelected,
+    required TResult Function(Session session) getSessionSelected,
+    required TResult Function() resetState,
+  }) {
+    return resetState();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(Map<String, dynamic> data)? getManageTeamEvent,
+    TResult? Function(Map<String, dynamic> filterData)?
+        getReportEventReportChildList,
+    TResult? Function(Term term)? getTermSelected,
+    TResult? Function(CoachingProgram program)? getProgramSelected,
+    TResult? Function(Session session)? getSessionSelected,
+    TResult? Function()? resetState,
+  }) {
+    return resetState?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(Map<String, dynamic> data)? getManageTeamEvent,
+    TResult Function(Map<String, dynamic> filterData)?
+        getReportEventReportChildList,
+    TResult Function(Term term)? getTermSelected,
+    TResult Function(CoachingProgram program)? getProgramSelected,
+    TResult Function(Session session)? getSessionSelected,
+    TResult Function()? resetState,
+    required TResult orElse(),
+  }) {
+    if (resetState != null) {
+      return resetState();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(GetTeamListEvent value) getManageTeamEvent,
+    required TResult Function(
+            ManageTeamReportEventGetTermsSessionCoachingPlayerEvents value)
+        getReportEventReportChildList,
+    required TResult Function(ManageTeamTermSelected value) getTermSelected,
+    required TResult Function(ManageTeamProgramSelected value)
+        getProgramSelected,
+    required TResult Function(ManageTeamSessionSelected value)
+        getSessionSelected,
+    required TResult Function(ResetManageTeamStateEvent value) resetState,
+  }) {
+    return resetState(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(GetTeamListEvent value)? getManageTeamEvent,
+    TResult? Function(
+            ManageTeamReportEventGetTermsSessionCoachingPlayerEvents value)?
+        getReportEventReportChildList,
+    TResult? Function(ManageTeamTermSelected value)? getTermSelected,
+    TResult? Function(ManageTeamProgramSelected value)? getProgramSelected,
+    TResult? Function(ManageTeamSessionSelected value)? getSessionSelected,
+    TResult? Function(ResetManageTeamStateEvent value)? resetState,
+  }) {
+    return resetState?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(GetTeamListEvent value)? getManageTeamEvent,
+    TResult Function(
+            ManageTeamReportEventGetTermsSessionCoachingPlayerEvents value)?
+        getReportEventReportChildList,
+    TResult Function(ManageTeamTermSelected value)? getTermSelected,
+    TResult Function(ManageTeamProgramSelected value)? getProgramSelected,
+    TResult Function(ManageTeamSessionSelected value)? getSessionSelected,
+    TResult Function(ResetManageTeamStateEvent value)? resetState,
+    required TResult orElse(),
+  }) {
+    if (resetState != null) {
+      return resetState(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class ResetManageTeamStateEvent implements ManageTeamEvent {
+  const factory ResetManageTeamStateEvent() = _$ResetManageTeamStateEventImpl;
 }

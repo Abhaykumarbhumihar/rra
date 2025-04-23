@@ -19,10 +19,15 @@ class PlayerReportModel with _$PlayerReportModel {
 @freezed
 class PlayerReportData with _$PlayerReportData {
   const factory PlayerReportData({
+    @JsonKey(name: 'coaching_program') @Default('') String coachingProgram,
+    @JsonKey(name: 'coaching_program_id') @Default(0) int coachingProgramId,
+    @JsonKey(name: 'term_id') @Default(0) int termId,
+    @JsonKey(name: 'session_id') @Default(0) int sessionId,
     @JsonKey(name: 'child_id') @Default(0) int childId,
     @JsonKey(name: 'child_name') @Default('') String childName,
     @JsonKey(name: 'isChildHasPhysicalIssue') @Default(false) bool isChildHasPhysicalIssue,
     @JsonKey(name: 'child_age') @Default('') String childAge,
+    @JsonKey(name: 'is_webview_data') @Default(false) bool isWebviewData,
     @JsonKey(name: 'webview_link') @Default('') String webviewLink,
     @JsonKey(name: 'parent_name') @Default('') String parentName,
     @JsonKey(name: 'parent_email') @Default('') String parentEmail,
@@ -62,7 +67,6 @@ class AddScore with _$AddScore {
     @JsonKey(name: 'performance_data') @Default('') String performanceData,
     @JsonKey(name: 'score_criteria') @Default([]) List<ScoreCriteria> scoreCriteria,
     @JsonKey(name: 'scores') @Default([]) List<Score> scores,
-    @JsonKey(name: 'unmatched_elements') @Default([]) List<dynamic> unmatchedElements,
     @JsonKey(name: 'score_master_id') @Default(0) int scoreMasterId,
     @JsonKey(name: 'comment') @Default('') String comment,
   }) = _AddScore;

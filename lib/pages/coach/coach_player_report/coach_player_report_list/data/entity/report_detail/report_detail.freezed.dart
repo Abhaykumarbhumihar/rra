@@ -258,7 +258,7 @@ mixin _$ReportData {
   String get coachingProgram => throw _privateConstructorUsedError;
   @JsonKey(name: 'session_name')
   String get sessionName => throw _privateConstructorUsedError;
-  @JsonKey(name: 'child_id')
+  @JsonKey(name: 'child_id', fromJson: _stringToInt)
   int get childId => throw _privateConstructorUsedError;
   @JsonKey(name: 'child_name')
   String get childName => throw _privateConstructorUsedError;
@@ -305,7 +305,7 @@ abstract class $ReportDataCopyWith<$Res> {
   $Res call(
       {@JsonKey(name: 'coaching_program') String coachingProgram,
       @JsonKey(name: 'session_name') String sessionName,
-      @JsonKey(name: 'child_id') int childId,
+      @JsonKey(name: 'child_id', fromJson: _stringToInt) int childId,
       @JsonKey(name: 'child_name') String childName,
       @JsonKey(name: 'isChildHasPhysicalIssue') bool isChildHasPhysicalIssue,
       @JsonKey(name: 'child_age') String childAge,
@@ -428,7 +428,7 @@ abstract class _$$ReportDataImplCopyWith<$Res>
   $Res call(
       {@JsonKey(name: 'coaching_program') String coachingProgram,
       @JsonKey(name: 'session_name') String sessionName,
-      @JsonKey(name: 'child_id') int childId,
+      @JsonKey(name: 'child_id', fromJson: _stringToInt) int childId,
       @JsonKey(name: 'child_name') String childName,
       @JsonKey(name: 'isChildHasPhysicalIssue') bool isChildHasPhysicalIssue,
       @JsonKey(name: 'child_age') String childAge,
@@ -544,7 +544,7 @@ class _$ReportDataImpl implements _ReportData {
   const _$ReportDataImpl(
       {@JsonKey(name: 'coaching_program') this.coachingProgram = '',
       @JsonKey(name: 'session_name') this.sessionName = '',
-      @JsonKey(name: 'child_id') this.childId = 0,
+      @JsonKey(name: 'child_id', fromJson: _stringToInt) this.childId = 0,
       @JsonKey(name: 'child_name') this.childName = '',
       @JsonKey(name: 'isChildHasPhysicalIssue')
       this.isChildHasPhysicalIssue = false,
@@ -572,7 +572,7 @@ class _$ReportDataImpl implements _ReportData {
   @JsonKey(name: 'session_name')
   final String sessionName;
   @override
-  @JsonKey(name: 'child_id')
+  @JsonKey(name: 'child_id', fromJson: _stringToInt)
   final int childId;
   @override
   @JsonKey(name: 'child_name')
@@ -697,7 +697,7 @@ abstract class _ReportData implements ReportData {
   const factory _ReportData(
           {@JsonKey(name: 'coaching_program') final String coachingProgram,
           @JsonKey(name: 'session_name') final String sessionName,
-          @JsonKey(name: 'child_id') final int childId,
+          @JsonKey(name: 'child_id', fromJson: _stringToInt) final int childId,
           @JsonKey(name: 'child_name') final String childName,
           @JsonKey(name: 'isChildHasPhysicalIssue')
           final bool isChildHasPhysicalIssue,
@@ -724,7 +724,7 @@ abstract class _ReportData implements ReportData {
   @JsonKey(name: 'session_name')
   String get sessionName;
   @override
-  @JsonKey(name: 'child_id')
+  @JsonKey(name: 'child_id', fromJson: _stringToInt)
   int get childId;
   @override
   @JsonKey(name: 'child_name')
@@ -778,22 +778,22 @@ PerformanceElementDetail _$PerformanceElementDetailFromJson(
 
 /// @nodoc
 mixin _$PerformanceElementDetail {
-  @JsonKey(name: 'performance_element_id')
+  @JsonKey(name: 'performance_element_id', fromJson: _stringToInt)
   int get performanceElementId => throw _privateConstructorUsedError;
   @JsonKey(name: 'performance_element_title')
   String get performanceElementTitle => throw _privateConstructorUsedError;
-  @JsonKey(name: 'marks')
+  @JsonKey(name: 'marks', fromJson: _stringToInt)
   int get marks => throw _privateConstructorUsedError;
-  @JsonKey(name: 'total_marks')
+  @JsonKey(name: 'total_marks', fromJson: _stringToInt)
   int get totalMarks => throw _privateConstructorUsedError;
-  @JsonKey(name: 'session_id')
+  @JsonKey(name: 'session_id', fromJson: _stringToInt)
   int get sessionId => throw _privateConstructorUsedError;
-  @JsonKey(name: 'player_id')
+  @JsonKey(name: 'player_id', fromJson: _stringToInt)
   int get playerId => throw _privateConstructorUsedError;
-  @JsonKey(name: 'coaching_program_id')
+  @JsonKey(name: 'coaching_program_id', fromJson: _stringToInt)
   int get coachingProgramId => throw _privateConstructorUsedError;
   @JsonKey(name: 'add_score')
-  AddScoreDetail get addScore => throw _privateConstructorUsedError;
+  AddScoreDetail? get addScore => throw _privateConstructorUsedError;
 
   /// Serializes this PerformanceElementDetail to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -812,17 +812,19 @@ abstract class $PerformanceElementDetailCopyWith<$Res> {
       _$PerformanceElementDetailCopyWithImpl<$Res, PerformanceElementDetail>;
   @useResult
   $Res call(
-      {@JsonKey(name: 'performance_element_id') int performanceElementId,
+      {@JsonKey(name: 'performance_element_id', fromJson: _stringToInt)
+      int performanceElementId,
       @JsonKey(name: 'performance_element_title')
       String performanceElementTitle,
-      @JsonKey(name: 'marks') int marks,
-      @JsonKey(name: 'total_marks') int totalMarks,
-      @JsonKey(name: 'session_id') int sessionId,
-      @JsonKey(name: 'player_id') int playerId,
-      @JsonKey(name: 'coaching_program_id') int coachingProgramId,
-      @JsonKey(name: 'add_score') AddScoreDetail addScore});
+      @JsonKey(name: 'marks', fromJson: _stringToInt) int marks,
+      @JsonKey(name: 'total_marks', fromJson: _stringToInt) int totalMarks,
+      @JsonKey(name: 'session_id', fromJson: _stringToInt) int sessionId,
+      @JsonKey(name: 'player_id', fromJson: _stringToInt) int playerId,
+      @JsonKey(name: 'coaching_program_id', fromJson: _stringToInt)
+      int coachingProgramId,
+      @JsonKey(name: 'add_score') AddScoreDetail? addScore});
 
-  $AddScoreDetailCopyWith<$Res> get addScore;
+  $AddScoreDetailCopyWith<$Res>? get addScore;
 }
 
 /// @nodoc
@@ -848,7 +850,7 @@ class _$PerformanceElementDetailCopyWithImpl<$Res,
     Object? sessionId = null,
     Object? playerId = null,
     Object? coachingProgramId = null,
-    Object? addScore = null,
+    Object? addScore = freezed,
   }) {
     return _then(_value.copyWith(
       performanceElementId: null == performanceElementId
@@ -879,10 +881,10 @@ class _$PerformanceElementDetailCopyWithImpl<$Res,
           ? _value.coachingProgramId
           : coachingProgramId // ignore: cast_nullable_to_non_nullable
               as int,
-      addScore: null == addScore
+      addScore: freezed == addScore
           ? _value.addScore
           : addScore // ignore: cast_nullable_to_non_nullable
-              as AddScoreDetail,
+              as AddScoreDetail?,
     ) as $Val);
   }
 
@@ -890,8 +892,12 @@ class _$PerformanceElementDetailCopyWithImpl<$Res,
   /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
-  $AddScoreDetailCopyWith<$Res> get addScore {
-    return $AddScoreDetailCopyWith<$Res>(_value.addScore, (value) {
+  $AddScoreDetailCopyWith<$Res>? get addScore {
+    if (_value.addScore == null) {
+      return null;
+    }
+
+    return $AddScoreDetailCopyWith<$Res>(_value.addScore!, (value) {
       return _then(_value.copyWith(addScore: value) as $Val);
     });
   }
@@ -907,18 +913,20 @@ abstract class _$$PerformanceElementDetailImplCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {@JsonKey(name: 'performance_element_id') int performanceElementId,
+      {@JsonKey(name: 'performance_element_id', fromJson: _stringToInt)
+      int performanceElementId,
       @JsonKey(name: 'performance_element_title')
       String performanceElementTitle,
-      @JsonKey(name: 'marks') int marks,
-      @JsonKey(name: 'total_marks') int totalMarks,
-      @JsonKey(name: 'session_id') int sessionId,
-      @JsonKey(name: 'player_id') int playerId,
-      @JsonKey(name: 'coaching_program_id') int coachingProgramId,
-      @JsonKey(name: 'add_score') AddScoreDetail addScore});
+      @JsonKey(name: 'marks', fromJson: _stringToInt) int marks,
+      @JsonKey(name: 'total_marks', fromJson: _stringToInt) int totalMarks,
+      @JsonKey(name: 'session_id', fromJson: _stringToInt) int sessionId,
+      @JsonKey(name: 'player_id', fromJson: _stringToInt) int playerId,
+      @JsonKey(name: 'coaching_program_id', fromJson: _stringToInt)
+      int coachingProgramId,
+      @JsonKey(name: 'add_score') AddScoreDetail? addScore});
 
   @override
-  $AddScoreDetailCopyWith<$Res> get addScore;
+  $AddScoreDetailCopyWith<$Res>? get addScore;
 }
 
 /// @nodoc
@@ -943,7 +951,7 @@ class __$$PerformanceElementDetailImplCopyWithImpl<$Res>
     Object? sessionId = null,
     Object? playerId = null,
     Object? coachingProgramId = null,
-    Object? addScore = null,
+    Object? addScore = freezed,
   }) {
     return _then(_$PerformanceElementDetailImpl(
       performanceElementId: null == performanceElementId
@@ -974,10 +982,10 @@ class __$$PerformanceElementDetailImplCopyWithImpl<$Res>
           ? _value.coachingProgramId
           : coachingProgramId // ignore: cast_nullable_to_non_nullable
               as int,
-      addScore: null == addScore
+      addScore: freezed == addScore
           ? _value.addScore
           : addScore // ignore: cast_nullable_to_non_nullable
-              as AddScoreDetail,
+              as AddScoreDetail?,
     ));
   }
 }
@@ -986,43 +994,45 @@ class __$$PerformanceElementDetailImplCopyWithImpl<$Res>
 @JsonSerializable()
 class _$PerformanceElementDetailImpl implements _PerformanceElementDetail {
   const _$PerformanceElementDetailImpl(
-      {@JsonKey(name: 'performance_element_id') this.performanceElementId = 0,
+      {@JsonKey(name: 'performance_element_id', fromJson: _stringToInt)
+      this.performanceElementId = 0,
       @JsonKey(name: 'performance_element_title')
       this.performanceElementTitle = '',
-      @JsonKey(name: 'marks') this.marks = 0,
-      @JsonKey(name: 'total_marks') this.totalMarks = 0,
-      @JsonKey(name: 'session_id') this.sessionId = 0,
-      @JsonKey(name: 'player_id') this.playerId = 0,
-      @JsonKey(name: 'coaching_program_id') this.coachingProgramId = 0,
-      @JsonKey(name: 'add_score') this.addScore = const AddScoreDetail()});
+      @JsonKey(name: 'marks', fromJson: _stringToInt) this.marks = 0,
+      @JsonKey(name: 'total_marks', fromJson: _stringToInt) this.totalMarks = 0,
+      @JsonKey(name: 'session_id', fromJson: _stringToInt) this.sessionId = 0,
+      @JsonKey(name: 'player_id', fromJson: _stringToInt) this.playerId = 0,
+      @JsonKey(name: 'coaching_program_id', fromJson: _stringToInt)
+      this.coachingProgramId = 0,
+      @JsonKey(name: 'add_score') this.addScore});
 
   factory _$PerformanceElementDetailImpl.fromJson(Map<String, dynamic> json) =>
       _$$PerformanceElementDetailImplFromJson(json);
 
   @override
-  @JsonKey(name: 'performance_element_id')
+  @JsonKey(name: 'performance_element_id', fromJson: _stringToInt)
   final int performanceElementId;
   @override
   @JsonKey(name: 'performance_element_title')
   final String performanceElementTitle;
   @override
-  @JsonKey(name: 'marks')
+  @JsonKey(name: 'marks', fromJson: _stringToInt)
   final int marks;
   @override
-  @JsonKey(name: 'total_marks')
+  @JsonKey(name: 'total_marks', fromJson: _stringToInt)
   final int totalMarks;
   @override
-  @JsonKey(name: 'session_id')
+  @JsonKey(name: 'session_id', fromJson: _stringToInt)
   final int sessionId;
   @override
-  @JsonKey(name: 'player_id')
+  @JsonKey(name: 'player_id', fromJson: _stringToInt)
   final int playerId;
   @override
-  @JsonKey(name: 'coaching_program_id')
+  @JsonKey(name: 'coaching_program_id', fromJson: _stringToInt)
   final int coachingProgramId;
   @override
   @JsonKey(name: 'add_score')
-  final AddScoreDetail addScore;
+  final AddScoreDetail? addScore;
 
   @override
   String toString() {
@@ -1084,44 +1094,47 @@ class _$PerformanceElementDetailImpl implements _PerformanceElementDetail {
 
 abstract class _PerformanceElementDetail implements PerformanceElementDetail {
   const factory _PerformanceElementDetail(
-      {@JsonKey(name: 'performance_element_id') final int performanceElementId,
+      {@JsonKey(name: 'performance_element_id', fromJson: _stringToInt)
+      final int performanceElementId,
       @JsonKey(name: 'performance_element_title')
       final String performanceElementTitle,
-      @JsonKey(name: 'marks') final int marks,
-      @JsonKey(name: 'total_marks') final int totalMarks,
-      @JsonKey(name: 'session_id') final int sessionId,
-      @JsonKey(name: 'player_id') final int playerId,
-      @JsonKey(name: 'coaching_program_id') final int coachingProgramId,
+      @JsonKey(name: 'marks', fromJson: _stringToInt) final int marks,
+      @JsonKey(name: 'total_marks', fromJson: _stringToInt)
+      final int totalMarks,
+      @JsonKey(name: 'session_id', fromJson: _stringToInt) final int sessionId,
+      @JsonKey(name: 'player_id', fromJson: _stringToInt) final int playerId,
+      @JsonKey(name: 'coaching_program_id', fromJson: _stringToInt)
+      final int coachingProgramId,
       @JsonKey(name: 'add_score')
-      final AddScoreDetail addScore}) = _$PerformanceElementDetailImpl;
+      final AddScoreDetail? addScore}) = _$PerformanceElementDetailImpl;
 
   factory _PerformanceElementDetail.fromJson(Map<String, dynamic> json) =
       _$PerformanceElementDetailImpl.fromJson;
 
   @override
-  @JsonKey(name: 'performance_element_id')
+  @JsonKey(name: 'performance_element_id', fromJson: _stringToInt)
   int get performanceElementId;
   @override
   @JsonKey(name: 'performance_element_title')
   String get performanceElementTitle;
   @override
-  @JsonKey(name: 'marks')
+  @JsonKey(name: 'marks', fromJson: _stringToInt)
   int get marks;
   @override
-  @JsonKey(name: 'total_marks')
+  @JsonKey(name: 'total_marks', fromJson: _stringToInt)
   int get totalMarks;
   @override
-  @JsonKey(name: 'session_id')
+  @JsonKey(name: 'session_id', fromJson: _stringToInt)
   int get sessionId;
   @override
-  @JsonKey(name: 'player_id')
+  @JsonKey(name: 'player_id', fromJson: _stringToInt)
   int get playerId;
   @override
-  @JsonKey(name: 'coaching_program_id')
+  @JsonKey(name: 'coaching_program_id', fromJson: _stringToInt)
   int get coachingProgramId;
   @override
   @JsonKey(name: 'add_score')
-  AddScoreDetail get addScore;
+  AddScoreDetail? get addScore;
 
   /// Create a copy of PerformanceElementDetail
   /// with the given fields replaced by the non-null parameter values.
@@ -1146,7 +1159,7 @@ mixin _$AddScoreDetail {
       throw _privateConstructorUsedError;
   @JsonKey(name: 'scores')
   List<ScoreDetail> get scores => throw _privateConstructorUsedError;
-  @JsonKey(name: 'score_master_id')
+  @JsonKey(name: 'score_master_id', fromJson: _stringToInt)
   int get scoreMasterId => throw _privateConstructorUsedError;
   @JsonKey(name: 'comment')
   String get comment => throw _privateConstructorUsedError;
@@ -1172,7 +1185,8 @@ abstract class $AddScoreDetailCopyWith<$Res> {
       @JsonKey(name: 'performance_data') String performanceData,
       @JsonKey(name: 'score_criteria') List<ScoreCriteriaDetail> scoreCriteria,
       @JsonKey(name: 'scores') List<ScoreDetail> scores,
-      @JsonKey(name: 'score_master_id') int scoreMasterId,
+      @JsonKey(name: 'score_master_id', fromJson: _stringToInt)
+      int scoreMasterId,
       @JsonKey(name: 'comment') String comment});
 }
 
@@ -1240,7 +1254,8 @@ abstract class _$$AddScoreDetailImplCopyWith<$Res>
       @JsonKey(name: 'performance_data') String performanceData,
       @JsonKey(name: 'score_criteria') List<ScoreCriteriaDetail> scoreCriteria,
       @JsonKey(name: 'scores') List<ScoreDetail> scores,
-      @JsonKey(name: 'score_master_id') int scoreMasterId,
+      @JsonKey(name: 'score_master_id', fromJson: _stringToInt)
+      int scoreMasterId,
       @JsonKey(name: 'comment') String comment});
 }
 
@@ -1304,7 +1319,8 @@ class _$AddScoreDetailImpl implements _AddScoreDetail {
           const <ScoreCriteriaDetail>[],
       @JsonKey(name: 'scores')
       final List<ScoreDetail> scores = const <ScoreDetail>[],
-      @JsonKey(name: 'score_master_id') this.scoreMasterId = 0,
+      @JsonKey(name: 'score_master_id', fromJson: _stringToInt)
+      this.scoreMasterId = 0,
       @JsonKey(name: 'comment') this.comment = ''})
       : _scoreCriteria = scoreCriteria,
         _scores = scores;
@@ -1337,7 +1353,7 @@ class _$AddScoreDetailImpl implements _AddScoreDetail {
   }
 
   @override
-  @JsonKey(name: 'score_master_id')
+  @JsonKey(name: 'score_master_id', fromJson: _stringToInt)
   final int scoreMasterId;
   @override
   @JsonKey(name: 'comment')
@@ -1400,7 +1416,8 @@ abstract class _AddScoreDetail implements AddScoreDetail {
       @JsonKey(name: 'score_criteria')
       final List<ScoreCriteriaDetail> scoreCriteria,
       @JsonKey(name: 'scores') final List<ScoreDetail> scores,
-      @JsonKey(name: 'score_master_id') final int scoreMasterId,
+      @JsonKey(name: 'score_master_id', fromJson: _stringToInt)
+      final int scoreMasterId,
       @JsonKey(name: 'comment') final String comment}) = _$AddScoreDetailImpl;
 
   factory _AddScoreDetail.fromJson(Map<String, dynamic> json) =
@@ -1419,7 +1436,7 @@ abstract class _AddScoreDetail implements AddScoreDetail {
   @JsonKey(name: 'scores')
   List<ScoreDetail> get scores;
   @override
-  @JsonKey(name: 'score_master_id')
+  @JsonKey(name: 'score_master_id', fromJson: _stringToInt)
   int get scoreMasterId;
   @override
   @JsonKey(name: 'comment')
@@ -1665,11 +1682,11 @@ ScoreDetail _$ScoreDetailFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$ScoreDetail {
-  @JsonKey(name: 'id')
+  @JsonKey(name: 'id', fromJson: _stringToInt)
   int get id => throw _privateConstructorUsedError;
   @JsonKey(name: 'name')
   String get name => throw _privateConstructorUsedError;
-  @JsonKey(name: 'score')
+  @JsonKey(name: 'score', fromJson: _stringToInt)
   int get score => throw _privateConstructorUsedError;
 
   /// Serializes this ScoreDetail to a JSON map.
@@ -1689,9 +1706,9 @@ abstract class $ScoreDetailCopyWith<$Res> {
       _$ScoreDetailCopyWithImpl<$Res, ScoreDetail>;
   @useResult
   $Res call(
-      {@JsonKey(name: 'id') int id,
+      {@JsonKey(name: 'id', fromJson: _stringToInt) int id,
       @JsonKey(name: 'name') String name,
-      @JsonKey(name: 'score') int score});
+      @JsonKey(name: 'score', fromJson: _stringToInt) int score});
 }
 
 /// @nodoc
@@ -1739,9 +1756,9 @@ abstract class _$$ScoreDetailImplCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {@JsonKey(name: 'id') int id,
+      {@JsonKey(name: 'id', fromJson: _stringToInt) int id,
       @JsonKey(name: 'name') String name,
-      @JsonKey(name: 'score') int score});
+      @JsonKey(name: 'score', fromJson: _stringToInt) int score});
 }
 
 /// @nodoc
@@ -1782,21 +1799,21 @@ class __$$ScoreDetailImplCopyWithImpl<$Res>
 @JsonSerializable()
 class _$ScoreDetailImpl implements _ScoreDetail {
   const _$ScoreDetailImpl(
-      {@JsonKey(name: 'id') this.id = 0,
+      {@JsonKey(name: 'id', fromJson: _stringToInt) this.id = 0,
       @JsonKey(name: 'name') this.name = '',
-      @JsonKey(name: 'score') this.score = 0});
+      @JsonKey(name: 'score', fromJson: _stringToInt) this.score = 0});
 
   factory _$ScoreDetailImpl.fromJson(Map<String, dynamic> json) =>
       _$$ScoreDetailImplFromJson(json);
 
   @override
-  @JsonKey(name: 'id')
+  @JsonKey(name: 'id', fromJson: _stringToInt)
   final int id;
   @override
   @JsonKey(name: 'name')
   final String name;
   @override
-  @JsonKey(name: 'score')
+  @JsonKey(name: 'score', fromJson: _stringToInt)
   final int score;
 
   @override
@@ -1836,21 +1853,22 @@ class _$ScoreDetailImpl implements _ScoreDetail {
 
 abstract class _ScoreDetail implements ScoreDetail {
   const factory _ScoreDetail(
-      {@JsonKey(name: 'id') final int id,
-      @JsonKey(name: 'name') final String name,
-      @JsonKey(name: 'score') final int score}) = _$ScoreDetailImpl;
+          {@JsonKey(name: 'id', fromJson: _stringToInt) final int id,
+          @JsonKey(name: 'name') final String name,
+          @JsonKey(name: 'score', fromJson: _stringToInt) final int score}) =
+      _$ScoreDetailImpl;
 
   factory _ScoreDetail.fromJson(Map<String, dynamic> json) =
       _$ScoreDetailImpl.fromJson;
 
   @override
-  @JsonKey(name: 'id')
+  @JsonKey(name: 'id', fromJson: _stringToInt)
   int get id;
   @override
   @JsonKey(name: 'name')
   String get name;
   @override
-  @JsonKey(name: 'score')
+  @JsonKey(name: 'score', fromJson: _stringToInt)
   int get score;
 
   /// Create a copy of ScoreDetail

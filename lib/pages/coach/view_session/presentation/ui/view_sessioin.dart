@@ -34,9 +34,19 @@ class CoachViewSessioin extends StatelessWidget {
                 BlocProvider.of<AppBloc>(context).add(BookedSessionCountEvent(
                     "${state.bookedSession.data.sessions}"));
               }
-              if(state.isLoading==false &&state.bookedSession.data.sessions.isEmpty ){
-                context.showCustomSnackbar("No sessions found.");
-              }
+                if(BlocProvider.of<AppBloc>(context).state.userdata.data.role ==
+                    "coach"){
+                  if( state.bookedSession.data.sessions.isEmpty){
+                    context.showCustomSnackbar("No sessions found.");
+                  }
+                }
+                if(BlocProvider.of<AppBloc>(context).state.userdata.data.role ==
+                    "parent"){
+                  if( state.bookedSession.data.orders.isEmpty){
+                    context.showCustomSnackbar("No sessions found.");
+                  }
+                }
+
             },
             child: BlocBuilder<ViewSessionBloc, ViewSessionState>(
               builder: (context, state) {
@@ -88,44 +98,50 @@ class CoachViewSessioin extends StatelessWidget {
                               onChanged: (value) {},
                             ),
                           ),
-                          Padding(
-                            padding:  EdgeInsets.only(
-                              left: context.screenWidth * 0.052,
-                              right: context.screenWidth * 0.052,
-                            ),
-                            child: DropdownSelectionField(
-                               isRequired: true,
-                              hint: "Select Player",
+                         // if(BlocProvider.of<AppBloc>(context).state.userdata.data.role=="parent")
 
-                              controller: _playerNameController,
-                              title: "Select Player",
-                              items:  state.bookedSession.data
-                                  ?.players ??
-                                  [],
-                              itemText: (item) => item.childName ?? '',
-                              onSelected: (item) async {
-                                _playerNameController.text = item?.childName ?? '';
-                                BlocProvider.of<ViewSessionBloc>(context).add(PlayerSelect(item.id.toString()));
-                                final academyId = await getIt<SharedPrefs>().getString("selected_academyid");
-
-                                BlocProvider.of<ViewSessionBloc>(context).add(
-                                  GetBookedSessionListEvent({
-                                    // if(state.dayselect!="")
-                                    //   "days": state.dayselect,
-
-                                    "academy_id": academyId,
-                                    "player_id":item.id.toString()
-
-                                  }),
-                                );
-
-                              },
-                            ),
-                          ),
-                          SizedBox(
-                            height: 10,
-                          ),
-                          Expanded(child: ViewSessionItem()),
+                          //   Padding(
+                          //   padding:  EdgeInsets.only(
+                          //     left: context.screenWidth * 0.052,
+                          //     right: context.screenWidth * 0.052,
+                          //   ),
+                          //   child: DropdownSelectionField(
+                          //      isRequired: true,
+                          //     hint: "Select Player",
+                          //
+                          //     controller: _playerNameController,
+                          //     title: "Select Player",
+                          //     items:  state.bookedSession.data
+                          //         ?.players ??
+                          //         [],
+                          //     itemText: (item) => item.childName ?? '',
+                          //     onSelected: (item) async {
+                          //       _playerNameController.text = item?.childName ?? '';
+                          //       BlocProvider.of<ViewSessionBloc>(context).add(PlayerSelect(item.id.toString()));
+                          //       final academyId = await getIt<SharedPrefs>().getString("selected_academyid");
+                          //
+                          //       BlocProvider.of<ViewSessionBloc>(context).add(
+                          //         GetBookedSessionListEvent({
+                          //           // if(state.dayselect!="")
+                          //           //   "days": state.dayselect,
+                          //
+                          //           "academy_id": academyId,
+                          //           "player_id":item.id.toString()
+                          //
+                          //         }),
+                          //       );
+                          //
+                          //     },
+                          //   ),
+                          // ),
+                          // SizedBox(
+                          //   height: 10,
+                          // ),
+                          if(BlocProvider.of<AppBloc>(context).state.userdata.data.role ==
+                              "coach")
+                          Expanded(child: ViewSessionItemCoach()),
+                          if(BlocProvider.of<AppBloc>(context).state.userdata.data.role=="parent")
+                            Expanded(child: ViewSessionItemParent()),
                           SizedBox(
                             height: 10,
                           ),

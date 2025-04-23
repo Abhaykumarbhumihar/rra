@@ -1,3 +1,4 @@
+import 'package:rra/common/values/utils.dart';
 import 'package:rra/common/values/values_exports.dart';
 import 'package:rra/common/component/component_export.dart';
 
@@ -23,7 +24,12 @@ class CoachPlayerReportDetailPage extends StatelessWidget {
     // final reportData = args['childReportData']!;
 
     return BlocListener<ReportBloc, ReportState>(
-      listener: (context, state) {},
+      listener: (context, state) {
+
+        print("CHCHCHC)))______HCHCC______CHCHHCC________\n\n");
+        Utils.LogPrint(state.reportDetailModel);
+        print("CHCHCHC)))______HCHCC______CHCHHCC________\n\n");
+      },
       child: BlocBuilder<ReportBloc, ReportState>(
         builder: (context, state) {
           return CommonPageFormat(
@@ -64,7 +70,7 @@ class CoachPlayerReportDetailPage extends StatelessWidget {
                           marks: data.marks,
                           totalMarks: data.totalMarks,
                           onAddScore: () =>
-                              _handleAddScore(context,data.addScore,data),
+                              _handleAddScore(context,data.addScore!,data),
                         );
                       }),
                   //  _buildScoreCards(reportData,context),

@@ -28,7 +28,7 @@ mixin _$AddDocumentEvent {
     required TResult Function(Term terms) setSelectedTerm,
     required TResult Function(CoachingProgram programs) setSelectedProgram,
     required TResult Function(Session session) setSelectedSession,
-    required TResult Function(Player player) setSelectedPlayer,
+    required TResult Function(PlayerData player) setSelectedPlayer,
     required TResult Function(String fileName, File? documentFile)
         setDoucmentForUpload,
     required TResult Function() submitDocument,
@@ -36,7 +36,7 @@ mixin _$AddDocumentEvent {
     required TResult Function(Term term) removeSelectedTerms,
     required TResult Function(CoachingProgram program) removeSelectedProgram,
     required TResult Function(Session session) removeSelectedSession,
-    required TResult Function(Player player) removeSelectedPlayer,
+    required TResult Function(PlayerData player) removeSelectedPlayer,
     required TResult Function(int coachParentSelect) selectParentOrCoach,
     required TResult Function() resetAfterUploadDocument,
     required TResult Function(String docid) setDocumentId,
@@ -53,7 +53,7 @@ mixin _$AddDocumentEvent {
     TResult? Function(Term terms)? setSelectedTerm,
     TResult? Function(CoachingProgram programs)? setSelectedProgram,
     TResult? Function(Session session)? setSelectedSession,
-    TResult? Function(Player player)? setSelectedPlayer,
+    TResult? Function(PlayerData player)? setSelectedPlayer,
     TResult? Function(String fileName, File? documentFile)?
         setDoucmentForUpload,
     TResult? Function()? submitDocument,
@@ -61,7 +61,7 @@ mixin _$AddDocumentEvent {
     TResult? Function(Term term)? removeSelectedTerms,
     TResult? Function(CoachingProgram program)? removeSelectedProgram,
     TResult? Function(Session session)? removeSelectedSession,
-    TResult? Function(Player player)? removeSelectedPlayer,
+    TResult? Function(PlayerData player)? removeSelectedPlayer,
     TResult? Function(int coachParentSelect)? selectParentOrCoach,
     TResult? Function()? resetAfterUploadDocument,
     TResult? Function(String docid)? setDocumentId,
@@ -78,14 +78,14 @@ mixin _$AddDocumentEvent {
     TResult Function(Term terms)? setSelectedTerm,
     TResult Function(CoachingProgram programs)? setSelectedProgram,
     TResult Function(Session session)? setSelectedSession,
-    TResult Function(Player player)? setSelectedPlayer,
+    TResult Function(PlayerData player)? setSelectedPlayer,
     TResult Function(String fileName, File? documentFile)? setDoucmentForUpload,
     TResult Function()? submitDocument,
     TResult Function(Coach coach)? removeSelectedCoach,
     TResult Function(Term term)? removeSelectedTerms,
     TResult Function(CoachingProgram program)? removeSelectedProgram,
     TResult Function(Session session)? removeSelectedSession,
-    TResult Function(Player player)? removeSelectedPlayer,
+    TResult Function(PlayerData player)? removeSelectedPlayer,
     TResult Function(int coachParentSelect)? selectParentOrCoach,
     TResult Function()? resetAfterUploadDocument,
     TResult Function(String docid)? setDocumentId,
@@ -293,7 +293,7 @@ class _$SelectedTabEventImpl implements SelectedTabEvent {
     required TResult Function(Term terms) setSelectedTerm,
     required TResult Function(CoachingProgram programs) setSelectedProgram,
     required TResult Function(Session session) setSelectedSession,
-    required TResult Function(Player player) setSelectedPlayer,
+    required TResult Function(PlayerData player) setSelectedPlayer,
     required TResult Function(String fileName, File? documentFile)
         setDoucmentForUpload,
     required TResult Function() submitDocument,
@@ -301,7 +301,7 @@ class _$SelectedTabEventImpl implements SelectedTabEvent {
     required TResult Function(Term term) removeSelectedTerms,
     required TResult Function(CoachingProgram program) removeSelectedProgram,
     required TResult Function(Session session) removeSelectedSession,
-    required TResult Function(Player player) removeSelectedPlayer,
+    required TResult Function(PlayerData player) removeSelectedPlayer,
     required TResult Function(int coachParentSelect) selectParentOrCoach,
     required TResult Function() resetAfterUploadDocument,
     required TResult Function(String docid) setDocumentId,
@@ -321,7 +321,7 @@ class _$SelectedTabEventImpl implements SelectedTabEvent {
     TResult? Function(Term terms)? setSelectedTerm,
     TResult? Function(CoachingProgram programs)? setSelectedProgram,
     TResult? Function(Session session)? setSelectedSession,
-    TResult? Function(Player player)? setSelectedPlayer,
+    TResult? Function(PlayerData player)? setSelectedPlayer,
     TResult? Function(String fileName, File? documentFile)?
         setDoucmentForUpload,
     TResult? Function()? submitDocument,
@@ -329,7 +329,7 @@ class _$SelectedTabEventImpl implements SelectedTabEvent {
     TResult? Function(Term term)? removeSelectedTerms,
     TResult? Function(CoachingProgram program)? removeSelectedProgram,
     TResult? Function(Session session)? removeSelectedSession,
-    TResult? Function(Player player)? removeSelectedPlayer,
+    TResult? Function(PlayerData player)? removeSelectedPlayer,
     TResult? Function(int coachParentSelect)? selectParentOrCoach,
     TResult? Function()? resetAfterUploadDocument,
     TResult? Function(String docid)? setDocumentId,
@@ -349,14 +349,14 @@ class _$SelectedTabEventImpl implements SelectedTabEvent {
     TResult Function(Term terms)? setSelectedTerm,
     TResult Function(CoachingProgram programs)? setSelectedProgram,
     TResult Function(Session session)? setSelectedSession,
-    TResult Function(Player player)? setSelectedPlayer,
+    TResult Function(PlayerData player)? setSelectedPlayer,
     TResult Function(String fileName, File? documentFile)? setDoucmentForUpload,
     TResult Function()? submitDocument,
     TResult Function(Coach coach)? removeSelectedCoach,
     TResult Function(Term term)? removeSelectedTerms,
     TResult Function(CoachingProgram program)? removeSelectedProgram,
     TResult Function(Session session)? removeSelectedSession,
-    TResult Function(Player player)? removeSelectedPlayer,
+    TResult Function(PlayerData player)? removeSelectedPlayer,
     TResult Function(int coachParentSelect)? selectParentOrCoach,
     TResult Function()? resetAfterUploadDocument,
     TResult Function(String docid)? setDocumentId,
@@ -581,7 +581,7 @@ class _$GetUploadedParentDocumentImpl implements GetUploadedParentDocument {
     required TResult Function(Term terms) setSelectedTerm,
     required TResult Function(CoachingProgram programs) setSelectedProgram,
     required TResult Function(Session session) setSelectedSession,
-    required TResult Function(Player player) setSelectedPlayer,
+    required TResult Function(PlayerData player) setSelectedPlayer,
     required TResult Function(String fileName, File? documentFile)
         setDoucmentForUpload,
     required TResult Function() submitDocument,
@@ -589,7 +589,7 @@ class _$GetUploadedParentDocumentImpl implements GetUploadedParentDocument {
     required TResult Function(Term term) removeSelectedTerms,
     required TResult Function(CoachingProgram program) removeSelectedProgram,
     required TResult Function(Session session) removeSelectedSession,
-    required TResult Function(Player player) removeSelectedPlayer,
+    required TResult Function(PlayerData player) removeSelectedPlayer,
     required TResult Function(int coachParentSelect) selectParentOrCoach,
     required TResult Function() resetAfterUploadDocument,
     required TResult Function(String docid) setDocumentId,
@@ -609,7 +609,7 @@ class _$GetUploadedParentDocumentImpl implements GetUploadedParentDocument {
     TResult? Function(Term terms)? setSelectedTerm,
     TResult? Function(CoachingProgram programs)? setSelectedProgram,
     TResult? Function(Session session)? setSelectedSession,
-    TResult? Function(Player player)? setSelectedPlayer,
+    TResult? Function(PlayerData player)? setSelectedPlayer,
     TResult? Function(String fileName, File? documentFile)?
         setDoucmentForUpload,
     TResult? Function()? submitDocument,
@@ -617,7 +617,7 @@ class _$GetUploadedParentDocumentImpl implements GetUploadedParentDocument {
     TResult? Function(Term term)? removeSelectedTerms,
     TResult? Function(CoachingProgram program)? removeSelectedProgram,
     TResult? Function(Session session)? removeSelectedSession,
-    TResult? Function(Player player)? removeSelectedPlayer,
+    TResult? Function(PlayerData player)? removeSelectedPlayer,
     TResult? Function(int coachParentSelect)? selectParentOrCoach,
     TResult? Function()? resetAfterUploadDocument,
     TResult? Function(String docid)? setDocumentId,
@@ -637,14 +637,14 @@ class _$GetUploadedParentDocumentImpl implements GetUploadedParentDocument {
     TResult Function(Term terms)? setSelectedTerm,
     TResult Function(CoachingProgram programs)? setSelectedProgram,
     TResult Function(Session session)? setSelectedSession,
-    TResult Function(Player player)? setSelectedPlayer,
+    TResult Function(PlayerData player)? setSelectedPlayer,
     TResult Function(String fileName, File? documentFile)? setDoucmentForUpload,
     TResult Function()? submitDocument,
     TResult Function(Coach coach)? removeSelectedCoach,
     TResult Function(Term term)? removeSelectedTerms,
     TResult Function(CoachingProgram program)? removeSelectedProgram,
     TResult Function(Session session)? removeSelectedSession,
-    TResult Function(Player player)? removeSelectedPlayer,
+    TResult Function(PlayerData player)? removeSelectedPlayer,
     TResult Function(int coachParentSelect)? selectParentOrCoach,
     TResult Function()? resetAfterUploadDocument,
     TResult Function(String docid)? setDocumentId,
@@ -873,7 +873,7 @@ class _$GetTermsSessionCoachingPlayerEventsImpl
     required TResult Function(Term terms) setSelectedTerm,
     required TResult Function(CoachingProgram programs) setSelectedProgram,
     required TResult Function(Session session) setSelectedSession,
-    required TResult Function(Player player) setSelectedPlayer,
+    required TResult Function(PlayerData player) setSelectedPlayer,
     required TResult Function(String fileName, File? documentFile)
         setDoucmentForUpload,
     required TResult Function() submitDocument,
@@ -881,7 +881,7 @@ class _$GetTermsSessionCoachingPlayerEventsImpl
     required TResult Function(Term term) removeSelectedTerms,
     required TResult Function(CoachingProgram program) removeSelectedProgram,
     required TResult Function(Session session) removeSelectedSession,
-    required TResult Function(Player player) removeSelectedPlayer,
+    required TResult Function(PlayerData player) removeSelectedPlayer,
     required TResult Function(int coachParentSelect) selectParentOrCoach,
     required TResult Function() resetAfterUploadDocument,
     required TResult Function(String docid) setDocumentId,
@@ -901,7 +901,7 @@ class _$GetTermsSessionCoachingPlayerEventsImpl
     TResult? Function(Term terms)? setSelectedTerm,
     TResult? Function(CoachingProgram programs)? setSelectedProgram,
     TResult? Function(Session session)? setSelectedSession,
-    TResult? Function(Player player)? setSelectedPlayer,
+    TResult? Function(PlayerData player)? setSelectedPlayer,
     TResult? Function(String fileName, File? documentFile)?
         setDoucmentForUpload,
     TResult? Function()? submitDocument,
@@ -909,7 +909,7 @@ class _$GetTermsSessionCoachingPlayerEventsImpl
     TResult? Function(Term term)? removeSelectedTerms,
     TResult? Function(CoachingProgram program)? removeSelectedProgram,
     TResult? Function(Session session)? removeSelectedSession,
-    TResult? Function(Player player)? removeSelectedPlayer,
+    TResult? Function(PlayerData player)? removeSelectedPlayer,
     TResult? Function(int coachParentSelect)? selectParentOrCoach,
     TResult? Function()? resetAfterUploadDocument,
     TResult? Function(String docid)? setDocumentId,
@@ -929,14 +929,14 @@ class _$GetTermsSessionCoachingPlayerEventsImpl
     TResult Function(Term terms)? setSelectedTerm,
     TResult Function(CoachingProgram programs)? setSelectedProgram,
     TResult Function(Session session)? setSelectedSession,
-    TResult Function(Player player)? setSelectedPlayer,
+    TResult Function(PlayerData player)? setSelectedPlayer,
     TResult Function(String fileName, File? documentFile)? setDoucmentForUpload,
     TResult Function()? submitDocument,
     TResult Function(Coach coach)? removeSelectedCoach,
     TResult Function(Term term)? removeSelectedTerms,
     TResult Function(CoachingProgram program)? removeSelectedProgram,
     TResult Function(Session session)? removeSelectedSession,
-    TResult Function(Player player)? removeSelectedPlayer,
+    TResult Function(PlayerData player)? removeSelectedPlayer,
     TResult Function(int coachParentSelect)? selectParentOrCoach,
     TResult Function()? resetAfterUploadDocument,
     TResult Function(String docid)? setDocumentId,
@@ -1157,7 +1157,7 @@ class _$SetTitleParentDocumentEventImpl implements SetTitleParentDocumentEvent {
     required TResult Function(Term terms) setSelectedTerm,
     required TResult Function(CoachingProgram programs) setSelectedProgram,
     required TResult Function(Session session) setSelectedSession,
-    required TResult Function(Player player) setSelectedPlayer,
+    required TResult Function(PlayerData player) setSelectedPlayer,
     required TResult Function(String fileName, File? documentFile)
         setDoucmentForUpload,
     required TResult Function() submitDocument,
@@ -1165,7 +1165,7 @@ class _$SetTitleParentDocumentEventImpl implements SetTitleParentDocumentEvent {
     required TResult Function(Term term) removeSelectedTerms,
     required TResult Function(CoachingProgram program) removeSelectedProgram,
     required TResult Function(Session session) removeSelectedSession,
-    required TResult Function(Player player) removeSelectedPlayer,
+    required TResult Function(PlayerData player) removeSelectedPlayer,
     required TResult Function(int coachParentSelect) selectParentOrCoach,
     required TResult Function() resetAfterUploadDocument,
     required TResult Function(String docid) setDocumentId,
@@ -1185,7 +1185,7 @@ class _$SetTitleParentDocumentEventImpl implements SetTitleParentDocumentEvent {
     TResult? Function(Term terms)? setSelectedTerm,
     TResult? Function(CoachingProgram programs)? setSelectedProgram,
     TResult? Function(Session session)? setSelectedSession,
-    TResult? Function(Player player)? setSelectedPlayer,
+    TResult? Function(PlayerData player)? setSelectedPlayer,
     TResult? Function(String fileName, File? documentFile)?
         setDoucmentForUpload,
     TResult? Function()? submitDocument,
@@ -1193,7 +1193,7 @@ class _$SetTitleParentDocumentEventImpl implements SetTitleParentDocumentEvent {
     TResult? Function(Term term)? removeSelectedTerms,
     TResult? Function(CoachingProgram program)? removeSelectedProgram,
     TResult? Function(Session session)? removeSelectedSession,
-    TResult? Function(Player player)? removeSelectedPlayer,
+    TResult? Function(PlayerData player)? removeSelectedPlayer,
     TResult? Function(int coachParentSelect)? selectParentOrCoach,
     TResult? Function()? resetAfterUploadDocument,
     TResult? Function(String docid)? setDocumentId,
@@ -1213,14 +1213,14 @@ class _$SetTitleParentDocumentEventImpl implements SetTitleParentDocumentEvent {
     TResult Function(Term terms)? setSelectedTerm,
     TResult Function(CoachingProgram programs)? setSelectedProgram,
     TResult Function(Session session)? setSelectedSession,
-    TResult Function(Player player)? setSelectedPlayer,
+    TResult Function(PlayerData player)? setSelectedPlayer,
     TResult Function(String fileName, File? documentFile)? setDoucmentForUpload,
     TResult Function()? submitDocument,
     TResult Function(Coach coach)? removeSelectedCoach,
     TResult Function(Term term)? removeSelectedTerms,
     TResult Function(CoachingProgram program)? removeSelectedProgram,
     TResult Function(Session session)? removeSelectedSession,
-    TResult Function(Player player)? removeSelectedPlayer,
+    TResult Function(PlayerData player)? removeSelectedPlayer,
     TResult Function(int coachParentSelect)? selectParentOrCoach,
     TResult Function()? resetAfterUploadDocument,
     TResult Function(String docid)? setDocumentId,
@@ -1441,7 +1441,7 @@ class _$SetMessageParentDocumentEventImpl
     required TResult Function(Term terms) setSelectedTerm,
     required TResult Function(CoachingProgram programs) setSelectedProgram,
     required TResult Function(Session session) setSelectedSession,
-    required TResult Function(Player player) setSelectedPlayer,
+    required TResult Function(PlayerData player) setSelectedPlayer,
     required TResult Function(String fileName, File? documentFile)
         setDoucmentForUpload,
     required TResult Function() submitDocument,
@@ -1449,7 +1449,7 @@ class _$SetMessageParentDocumentEventImpl
     required TResult Function(Term term) removeSelectedTerms,
     required TResult Function(CoachingProgram program) removeSelectedProgram,
     required TResult Function(Session session) removeSelectedSession,
-    required TResult Function(Player player) removeSelectedPlayer,
+    required TResult Function(PlayerData player) removeSelectedPlayer,
     required TResult Function(int coachParentSelect) selectParentOrCoach,
     required TResult Function() resetAfterUploadDocument,
     required TResult Function(String docid) setDocumentId,
@@ -1469,7 +1469,7 @@ class _$SetMessageParentDocumentEventImpl
     TResult? Function(Term terms)? setSelectedTerm,
     TResult? Function(CoachingProgram programs)? setSelectedProgram,
     TResult? Function(Session session)? setSelectedSession,
-    TResult? Function(Player player)? setSelectedPlayer,
+    TResult? Function(PlayerData player)? setSelectedPlayer,
     TResult? Function(String fileName, File? documentFile)?
         setDoucmentForUpload,
     TResult? Function()? submitDocument,
@@ -1477,7 +1477,7 @@ class _$SetMessageParentDocumentEventImpl
     TResult? Function(Term term)? removeSelectedTerms,
     TResult? Function(CoachingProgram program)? removeSelectedProgram,
     TResult? Function(Session session)? removeSelectedSession,
-    TResult? Function(Player player)? removeSelectedPlayer,
+    TResult? Function(PlayerData player)? removeSelectedPlayer,
     TResult? Function(int coachParentSelect)? selectParentOrCoach,
     TResult? Function()? resetAfterUploadDocument,
     TResult? Function(String docid)? setDocumentId,
@@ -1497,14 +1497,14 @@ class _$SetMessageParentDocumentEventImpl
     TResult Function(Term terms)? setSelectedTerm,
     TResult Function(CoachingProgram programs)? setSelectedProgram,
     TResult Function(Session session)? setSelectedSession,
-    TResult Function(Player player)? setSelectedPlayer,
+    TResult Function(PlayerData player)? setSelectedPlayer,
     TResult Function(String fileName, File? documentFile)? setDoucmentForUpload,
     TResult Function()? submitDocument,
     TResult Function(Coach coach)? removeSelectedCoach,
     TResult Function(Term term)? removeSelectedTerms,
     TResult Function(CoachingProgram program)? removeSelectedProgram,
     TResult Function(Session session)? removeSelectedSession,
-    TResult Function(Player player)? removeSelectedPlayer,
+    TResult Function(PlayerData player)? removeSelectedPlayer,
     TResult Function(int coachParentSelect)? selectParentOrCoach,
     TResult Function()? resetAfterUploadDocument,
     TResult Function(String docid)? setDocumentId,
@@ -1738,7 +1738,7 @@ class _$SetSelectedCoachIdParentDocumentEventImpl
     required TResult Function(Term terms) setSelectedTerm,
     required TResult Function(CoachingProgram programs) setSelectedProgram,
     required TResult Function(Session session) setSelectedSession,
-    required TResult Function(Player player) setSelectedPlayer,
+    required TResult Function(PlayerData player) setSelectedPlayer,
     required TResult Function(String fileName, File? documentFile)
         setDoucmentForUpload,
     required TResult Function() submitDocument,
@@ -1746,7 +1746,7 @@ class _$SetSelectedCoachIdParentDocumentEventImpl
     required TResult Function(Term term) removeSelectedTerms,
     required TResult Function(CoachingProgram program) removeSelectedProgram,
     required TResult Function(Session session) removeSelectedSession,
-    required TResult Function(Player player) removeSelectedPlayer,
+    required TResult Function(PlayerData player) removeSelectedPlayer,
     required TResult Function(int coachParentSelect) selectParentOrCoach,
     required TResult Function() resetAfterUploadDocument,
     required TResult Function(String docid) setDocumentId,
@@ -1766,7 +1766,7 @@ class _$SetSelectedCoachIdParentDocumentEventImpl
     TResult? Function(Term terms)? setSelectedTerm,
     TResult? Function(CoachingProgram programs)? setSelectedProgram,
     TResult? Function(Session session)? setSelectedSession,
-    TResult? Function(Player player)? setSelectedPlayer,
+    TResult? Function(PlayerData player)? setSelectedPlayer,
     TResult? Function(String fileName, File? documentFile)?
         setDoucmentForUpload,
     TResult? Function()? submitDocument,
@@ -1774,7 +1774,7 @@ class _$SetSelectedCoachIdParentDocumentEventImpl
     TResult? Function(Term term)? removeSelectedTerms,
     TResult? Function(CoachingProgram program)? removeSelectedProgram,
     TResult? Function(Session session)? removeSelectedSession,
-    TResult? Function(Player player)? removeSelectedPlayer,
+    TResult? Function(PlayerData player)? removeSelectedPlayer,
     TResult? Function(int coachParentSelect)? selectParentOrCoach,
     TResult? Function()? resetAfterUploadDocument,
     TResult? Function(String docid)? setDocumentId,
@@ -1794,14 +1794,14 @@ class _$SetSelectedCoachIdParentDocumentEventImpl
     TResult Function(Term terms)? setSelectedTerm,
     TResult Function(CoachingProgram programs)? setSelectedProgram,
     TResult Function(Session session)? setSelectedSession,
-    TResult Function(Player player)? setSelectedPlayer,
+    TResult Function(PlayerData player)? setSelectedPlayer,
     TResult Function(String fileName, File? documentFile)? setDoucmentForUpload,
     TResult Function()? submitDocument,
     TResult Function(Coach coach)? removeSelectedCoach,
     TResult Function(Term term)? removeSelectedTerms,
     TResult Function(CoachingProgram program)? removeSelectedProgram,
     TResult Function(Session session)? removeSelectedSession,
-    TResult Function(Player player)? removeSelectedPlayer,
+    TResult Function(PlayerData player)? removeSelectedPlayer,
     TResult Function(int coachParentSelect)? selectParentOrCoach,
     TResult Function()? resetAfterUploadDocument,
     TResult Function(String docid)? setDocumentId,
@@ -2036,7 +2036,7 @@ class _$setSelectedTermDocumentEventImpl
     required TResult Function(Term terms) setSelectedTerm,
     required TResult Function(CoachingProgram programs) setSelectedProgram,
     required TResult Function(Session session) setSelectedSession,
-    required TResult Function(Player player) setSelectedPlayer,
+    required TResult Function(PlayerData player) setSelectedPlayer,
     required TResult Function(String fileName, File? documentFile)
         setDoucmentForUpload,
     required TResult Function() submitDocument,
@@ -2044,7 +2044,7 @@ class _$setSelectedTermDocumentEventImpl
     required TResult Function(Term term) removeSelectedTerms,
     required TResult Function(CoachingProgram program) removeSelectedProgram,
     required TResult Function(Session session) removeSelectedSession,
-    required TResult Function(Player player) removeSelectedPlayer,
+    required TResult Function(PlayerData player) removeSelectedPlayer,
     required TResult Function(int coachParentSelect) selectParentOrCoach,
     required TResult Function() resetAfterUploadDocument,
     required TResult Function(String docid) setDocumentId,
@@ -2064,7 +2064,7 @@ class _$setSelectedTermDocumentEventImpl
     TResult? Function(Term terms)? setSelectedTerm,
     TResult? Function(CoachingProgram programs)? setSelectedProgram,
     TResult? Function(Session session)? setSelectedSession,
-    TResult? Function(Player player)? setSelectedPlayer,
+    TResult? Function(PlayerData player)? setSelectedPlayer,
     TResult? Function(String fileName, File? documentFile)?
         setDoucmentForUpload,
     TResult? Function()? submitDocument,
@@ -2072,7 +2072,7 @@ class _$setSelectedTermDocumentEventImpl
     TResult? Function(Term term)? removeSelectedTerms,
     TResult? Function(CoachingProgram program)? removeSelectedProgram,
     TResult? Function(Session session)? removeSelectedSession,
-    TResult? Function(Player player)? removeSelectedPlayer,
+    TResult? Function(PlayerData player)? removeSelectedPlayer,
     TResult? Function(int coachParentSelect)? selectParentOrCoach,
     TResult? Function()? resetAfterUploadDocument,
     TResult? Function(String docid)? setDocumentId,
@@ -2092,14 +2092,14 @@ class _$setSelectedTermDocumentEventImpl
     TResult Function(Term terms)? setSelectedTerm,
     TResult Function(CoachingProgram programs)? setSelectedProgram,
     TResult Function(Session session)? setSelectedSession,
-    TResult Function(Player player)? setSelectedPlayer,
+    TResult Function(PlayerData player)? setSelectedPlayer,
     TResult Function(String fileName, File? documentFile)? setDoucmentForUpload,
     TResult Function()? submitDocument,
     TResult Function(Coach coach)? removeSelectedCoach,
     TResult Function(Term term)? removeSelectedTerms,
     TResult Function(CoachingProgram program)? removeSelectedProgram,
     TResult Function(Session session)? removeSelectedSession,
-    TResult Function(Player player)? removeSelectedPlayer,
+    TResult Function(PlayerData player)? removeSelectedPlayer,
     TResult Function(int coachParentSelect)? selectParentOrCoach,
     TResult Function()? resetAfterUploadDocument,
     TResult Function(String docid)? setDocumentId,
@@ -2334,7 +2334,7 @@ class _$setSelectedProgramDocumentEventImpl
     required TResult Function(Term terms) setSelectedTerm,
     required TResult Function(CoachingProgram programs) setSelectedProgram,
     required TResult Function(Session session) setSelectedSession,
-    required TResult Function(Player player) setSelectedPlayer,
+    required TResult Function(PlayerData player) setSelectedPlayer,
     required TResult Function(String fileName, File? documentFile)
         setDoucmentForUpload,
     required TResult Function() submitDocument,
@@ -2342,7 +2342,7 @@ class _$setSelectedProgramDocumentEventImpl
     required TResult Function(Term term) removeSelectedTerms,
     required TResult Function(CoachingProgram program) removeSelectedProgram,
     required TResult Function(Session session) removeSelectedSession,
-    required TResult Function(Player player) removeSelectedPlayer,
+    required TResult Function(PlayerData player) removeSelectedPlayer,
     required TResult Function(int coachParentSelect) selectParentOrCoach,
     required TResult Function() resetAfterUploadDocument,
     required TResult Function(String docid) setDocumentId,
@@ -2362,7 +2362,7 @@ class _$setSelectedProgramDocumentEventImpl
     TResult? Function(Term terms)? setSelectedTerm,
     TResult? Function(CoachingProgram programs)? setSelectedProgram,
     TResult? Function(Session session)? setSelectedSession,
-    TResult? Function(Player player)? setSelectedPlayer,
+    TResult? Function(PlayerData player)? setSelectedPlayer,
     TResult? Function(String fileName, File? documentFile)?
         setDoucmentForUpload,
     TResult? Function()? submitDocument,
@@ -2370,7 +2370,7 @@ class _$setSelectedProgramDocumentEventImpl
     TResult? Function(Term term)? removeSelectedTerms,
     TResult? Function(CoachingProgram program)? removeSelectedProgram,
     TResult? Function(Session session)? removeSelectedSession,
-    TResult? Function(Player player)? removeSelectedPlayer,
+    TResult? Function(PlayerData player)? removeSelectedPlayer,
     TResult? Function(int coachParentSelect)? selectParentOrCoach,
     TResult? Function()? resetAfterUploadDocument,
     TResult? Function(String docid)? setDocumentId,
@@ -2390,14 +2390,14 @@ class _$setSelectedProgramDocumentEventImpl
     TResult Function(Term terms)? setSelectedTerm,
     TResult Function(CoachingProgram programs)? setSelectedProgram,
     TResult Function(Session session)? setSelectedSession,
-    TResult Function(Player player)? setSelectedPlayer,
+    TResult Function(PlayerData player)? setSelectedPlayer,
     TResult Function(String fileName, File? documentFile)? setDoucmentForUpload,
     TResult Function()? submitDocument,
     TResult Function(Coach coach)? removeSelectedCoach,
     TResult Function(Term term)? removeSelectedTerms,
     TResult Function(CoachingProgram program)? removeSelectedProgram,
     TResult Function(Session session)? removeSelectedSession,
-    TResult Function(Player player)? removeSelectedPlayer,
+    TResult Function(PlayerData player)? removeSelectedPlayer,
     TResult Function(int coachParentSelect)? selectParentOrCoach,
     TResult Function()? resetAfterUploadDocument,
     TResult Function(String docid)? setDocumentId,
@@ -2631,7 +2631,7 @@ class _$setSelectedSessionDocumentEventImpl
     required TResult Function(Term terms) setSelectedTerm,
     required TResult Function(CoachingProgram programs) setSelectedProgram,
     required TResult Function(Session session) setSelectedSession,
-    required TResult Function(Player player) setSelectedPlayer,
+    required TResult Function(PlayerData player) setSelectedPlayer,
     required TResult Function(String fileName, File? documentFile)
         setDoucmentForUpload,
     required TResult Function() submitDocument,
@@ -2639,7 +2639,7 @@ class _$setSelectedSessionDocumentEventImpl
     required TResult Function(Term term) removeSelectedTerms,
     required TResult Function(CoachingProgram program) removeSelectedProgram,
     required TResult Function(Session session) removeSelectedSession,
-    required TResult Function(Player player) removeSelectedPlayer,
+    required TResult Function(PlayerData player) removeSelectedPlayer,
     required TResult Function(int coachParentSelect) selectParentOrCoach,
     required TResult Function() resetAfterUploadDocument,
     required TResult Function(String docid) setDocumentId,
@@ -2659,7 +2659,7 @@ class _$setSelectedSessionDocumentEventImpl
     TResult? Function(Term terms)? setSelectedTerm,
     TResult? Function(CoachingProgram programs)? setSelectedProgram,
     TResult? Function(Session session)? setSelectedSession,
-    TResult? Function(Player player)? setSelectedPlayer,
+    TResult? Function(PlayerData player)? setSelectedPlayer,
     TResult? Function(String fileName, File? documentFile)?
         setDoucmentForUpload,
     TResult? Function()? submitDocument,
@@ -2667,7 +2667,7 @@ class _$setSelectedSessionDocumentEventImpl
     TResult? Function(Term term)? removeSelectedTerms,
     TResult? Function(CoachingProgram program)? removeSelectedProgram,
     TResult? Function(Session session)? removeSelectedSession,
-    TResult? Function(Player player)? removeSelectedPlayer,
+    TResult? Function(PlayerData player)? removeSelectedPlayer,
     TResult? Function(int coachParentSelect)? selectParentOrCoach,
     TResult? Function()? resetAfterUploadDocument,
     TResult? Function(String docid)? setDocumentId,
@@ -2687,14 +2687,14 @@ class _$setSelectedSessionDocumentEventImpl
     TResult Function(Term terms)? setSelectedTerm,
     TResult Function(CoachingProgram programs)? setSelectedProgram,
     TResult Function(Session session)? setSelectedSession,
-    TResult Function(Player player)? setSelectedPlayer,
+    TResult Function(PlayerData player)? setSelectedPlayer,
     TResult Function(String fileName, File? documentFile)? setDoucmentForUpload,
     TResult Function()? submitDocument,
     TResult Function(Coach coach)? removeSelectedCoach,
     TResult Function(Term term)? removeSelectedTerms,
     TResult Function(CoachingProgram program)? removeSelectedProgram,
     TResult Function(Session session)? removeSelectedSession,
-    TResult Function(Player player)? removeSelectedPlayer,
+    TResult Function(PlayerData player)? removeSelectedPlayer,
     TResult Function(int coachParentSelect)? selectParentOrCoach,
     TResult Function()? resetAfterUploadDocument,
     TResult Function(String docid)? setDocumentId,
@@ -2839,9 +2839,9 @@ abstract class _$$setSelectedPlayerDocumentEventImplCopyWith<$Res> {
           $Res Function(_$setSelectedPlayerDocumentEventImpl) then) =
       __$$setSelectedPlayerDocumentEventImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({Player player});
+  $Res call({PlayerData player});
 
-  $PlayerCopyWith<$Res> get player;
+  $PlayerDataCopyWith<$Res> get player;
 }
 
 /// @nodoc
@@ -2865,7 +2865,7 @@ class __$$setSelectedPlayerDocumentEventImplCopyWithImpl<$Res>
       null == player
           ? _value.player
           : player // ignore: cast_nullable_to_non_nullable
-              as Player,
+              as PlayerData,
     ));
   }
 
@@ -2873,8 +2873,8 @@ class __$$setSelectedPlayerDocumentEventImplCopyWithImpl<$Res>
   /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
-  $PlayerCopyWith<$Res> get player {
-    return $PlayerCopyWith<$Res>(_value.player, (value) {
+  $PlayerDataCopyWith<$Res> get player {
+    return $PlayerDataCopyWith<$Res>(_value.player, (value) {
       return _then(_value.copyWith(player: value));
     });
   }
@@ -2887,7 +2887,7 @@ class _$setSelectedPlayerDocumentEventImpl
   const _$setSelectedPlayerDocumentEventImpl(this.player);
 
   @override
-  final Player player;
+  final PlayerData player;
 
   @override
   String toString() {
@@ -2928,7 +2928,7 @@ class _$setSelectedPlayerDocumentEventImpl
     required TResult Function(Term terms) setSelectedTerm,
     required TResult Function(CoachingProgram programs) setSelectedProgram,
     required TResult Function(Session session) setSelectedSession,
-    required TResult Function(Player player) setSelectedPlayer,
+    required TResult Function(PlayerData player) setSelectedPlayer,
     required TResult Function(String fileName, File? documentFile)
         setDoucmentForUpload,
     required TResult Function() submitDocument,
@@ -2936,7 +2936,7 @@ class _$setSelectedPlayerDocumentEventImpl
     required TResult Function(Term term) removeSelectedTerms,
     required TResult Function(CoachingProgram program) removeSelectedProgram,
     required TResult Function(Session session) removeSelectedSession,
-    required TResult Function(Player player) removeSelectedPlayer,
+    required TResult Function(PlayerData player) removeSelectedPlayer,
     required TResult Function(int coachParentSelect) selectParentOrCoach,
     required TResult Function() resetAfterUploadDocument,
     required TResult Function(String docid) setDocumentId,
@@ -2956,7 +2956,7 @@ class _$setSelectedPlayerDocumentEventImpl
     TResult? Function(Term terms)? setSelectedTerm,
     TResult? Function(CoachingProgram programs)? setSelectedProgram,
     TResult? Function(Session session)? setSelectedSession,
-    TResult? Function(Player player)? setSelectedPlayer,
+    TResult? Function(PlayerData player)? setSelectedPlayer,
     TResult? Function(String fileName, File? documentFile)?
         setDoucmentForUpload,
     TResult? Function()? submitDocument,
@@ -2964,7 +2964,7 @@ class _$setSelectedPlayerDocumentEventImpl
     TResult? Function(Term term)? removeSelectedTerms,
     TResult? Function(CoachingProgram program)? removeSelectedProgram,
     TResult? Function(Session session)? removeSelectedSession,
-    TResult? Function(Player player)? removeSelectedPlayer,
+    TResult? Function(PlayerData player)? removeSelectedPlayer,
     TResult? Function(int coachParentSelect)? selectParentOrCoach,
     TResult? Function()? resetAfterUploadDocument,
     TResult? Function(String docid)? setDocumentId,
@@ -2984,14 +2984,14 @@ class _$setSelectedPlayerDocumentEventImpl
     TResult Function(Term terms)? setSelectedTerm,
     TResult Function(CoachingProgram programs)? setSelectedProgram,
     TResult Function(Session session)? setSelectedSession,
-    TResult Function(Player player)? setSelectedPlayer,
+    TResult Function(PlayerData player)? setSelectedPlayer,
     TResult Function(String fileName, File? documentFile)? setDoucmentForUpload,
     TResult Function()? submitDocument,
     TResult Function(Coach coach)? removeSelectedCoach,
     TResult Function(Term term)? removeSelectedTerms,
     TResult Function(CoachingProgram program)? removeSelectedProgram,
     TResult Function(Session session)? removeSelectedSession,
-    TResult Function(Player player)? removeSelectedPlayer,
+    TResult Function(PlayerData player)? removeSelectedPlayer,
     TResult Function(int coachParentSelect)? selectParentOrCoach,
     TResult Function()? resetAfterUploadDocument,
     TResult Function(String docid)? setDocumentId,
@@ -3116,10 +3116,10 @@ class _$setSelectedPlayerDocumentEventImpl
 }
 
 abstract class setSelectedPlayerDocumentEvent implements AddDocumentEvent {
-  const factory setSelectedPlayerDocumentEvent(final Player player) =
+  const factory setSelectedPlayerDocumentEvent(final PlayerData player) =
       _$setSelectedPlayerDocumentEventImpl;
 
-  Player get player;
+  PlayerData get player;
 
   /// Create a copy of AddDocumentEvent
   /// with the given fields replaced by the non-null parameter values.
@@ -3224,7 +3224,7 @@ class _$SetDocumentForParentDocumentEventImpl
     required TResult Function(Term terms) setSelectedTerm,
     required TResult Function(CoachingProgram programs) setSelectedProgram,
     required TResult Function(Session session) setSelectedSession,
-    required TResult Function(Player player) setSelectedPlayer,
+    required TResult Function(PlayerData player) setSelectedPlayer,
     required TResult Function(String fileName, File? documentFile)
         setDoucmentForUpload,
     required TResult Function() submitDocument,
@@ -3232,7 +3232,7 @@ class _$SetDocumentForParentDocumentEventImpl
     required TResult Function(Term term) removeSelectedTerms,
     required TResult Function(CoachingProgram program) removeSelectedProgram,
     required TResult Function(Session session) removeSelectedSession,
-    required TResult Function(Player player) removeSelectedPlayer,
+    required TResult Function(PlayerData player) removeSelectedPlayer,
     required TResult Function(int coachParentSelect) selectParentOrCoach,
     required TResult Function() resetAfterUploadDocument,
     required TResult Function(String docid) setDocumentId,
@@ -3252,7 +3252,7 @@ class _$SetDocumentForParentDocumentEventImpl
     TResult? Function(Term terms)? setSelectedTerm,
     TResult? Function(CoachingProgram programs)? setSelectedProgram,
     TResult? Function(Session session)? setSelectedSession,
-    TResult? Function(Player player)? setSelectedPlayer,
+    TResult? Function(PlayerData player)? setSelectedPlayer,
     TResult? Function(String fileName, File? documentFile)?
         setDoucmentForUpload,
     TResult? Function()? submitDocument,
@@ -3260,7 +3260,7 @@ class _$SetDocumentForParentDocumentEventImpl
     TResult? Function(Term term)? removeSelectedTerms,
     TResult? Function(CoachingProgram program)? removeSelectedProgram,
     TResult? Function(Session session)? removeSelectedSession,
-    TResult? Function(Player player)? removeSelectedPlayer,
+    TResult? Function(PlayerData player)? removeSelectedPlayer,
     TResult? Function(int coachParentSelect)? selectParentOrCoach,
     TResult? Function()? resetAfterUploadDocument,
     TResult? Function(String docid)? setDocumentId,
@@ -3280,14 +3280,14 @@ class _$SetDocumentForParentDocumentEventImpl
     TResult Function(Term terms)? setSelectedTerm,
     TResult Function(CoachingProgram programs)? setSelectedProgram,
     TResult Function(Session session)? setSelectedSession,
-    TResult Function(Player player)? setSelectedPlayer,
+    TResult Function(PlayerData player)? setSelectedPlayer,
     TResult Function(String fileName, File? documentFile)? setDoucmentForUpload,
     TResult Function()? submitDocument,
     TResult Function(Coach coach)? removeSelectedCoach,
     TResult Function(Term term)? removeSelectedTerms,
     TResult Function(CoachingProgram program)? removeSelectedProgram,
     TResult Function(Session session)? removeSelectedSession,
-    TResult Function(Player player)? removeSelectedPlayer,
+    TResult Function(PlayerData player)? removeSelectedPlayer,
     TResult Function(int coachParentSelect)? selectParentOrCoach,
     TResult Function()? resetAfterUploadDocument,
     TResult Function(String docid)? setDocumentId,
@@ -3482,7 +3482,7 @@ class _$SubmitParentDocumentEventImpl implements SubmitParentDocumentEvent {
     required TResult Function(Term terms) setSelectedTerm,
     required TResult Function(CoachingProgram programs) setSelectedProgram,
     required TResult Function(Session session) setSelectedSession,
-    required TResult Function(Player player) setSelectedPlayer,
+    required TResult Function(PlayerData player) setSelectedPlayer,
     required TResult Function(String fileName, File? documentFile)
         setDoucmentForUpload,
     required TResult Function() submitDocument,
@@ -3490,7 +3490,7 @@ class _$SubmitParentDocumentEventImpl implements SubmitParentDocumentEvent {
     required TResult Function(Term term) removeSelectedTerms,
     required TResult Function(CoachingProgram program) removeSelectedProgram,
     required TResult Function(Session session) removeSelectedSession,
-    required TResult Function(Player player) removeSelectedPlayer,
+    required TResult Function(PlayerData player) removeSelectedPlayer,
     required TResult Function(int coachParentSelect) selectParentOrCoach,
     required TResult Function() resetAfterUploadDocument,
     required TResult Function(String docid) setDocumentId,
@@ -3510,7 +3510,7 @@ class _$SubmitParentDocumentEventImpl implements SubmitParentDocumentEvent {
     TResult? Function(Term terms)? setSelectedTerm,
     TResult? Function(CoachingProgram programs)? setSelectedProgram,
     TResult? Function(Session session)? setSelectedSession,
-    TResult? Function(Player player)? setSelectedPlayer,
+    TResult? Function(PlayerData player)? setSelectedPlayer,
     TResult? Function(String fileName, File? documentFile)?
         setDoucmentForUpload,
     TResult? Function()? submitDocument,
@@ -3518,7 +3518,7 @@ class _$SubmitParentDocumentEventImpl implements SubmitParentDocumentEvent {
     TResult? Function(Term term)? removeSelectedTerms,
     TResult? Function(CoachingProgram program)? removeSelectedProgram,
     TResult? Function(Session session)? removeSelectedSession,
-    TResult? Function(Player player)? removeSelectedPlayer,
+    TResult? Function(PlayerData player)? removeSelectedPlayer,
     TResult? Function(int coachParentSelect)? selectParentOrCoach,
     TResult? Function()? resetAfterUploadDocument,
     TResult? Function(String docid)? setDocumentId,
@@ -3538,14 +3538,14 @@ class _$SubmitParentDocumentEventImpl implements SubmitParentDocumentEvent {
     TResult Function(Term terms)? setSelectedTerm,
     TResult Function(CoachingProgram programs)? setSelectedProgram,
     TResult Function(Session session)? setSelectedSession,
-    TResult Function(Player player)? setSelectedPlayer,
+    TResult Function(PlayerData player)? setSelectedPlayer,
     TResult Function(String fileName, File? documentFile)? setDoucmentForUpload,
     TResult Function()? submitDocument,
     TResult Function(Coach coach)? removeSelectedCoach,
     TResult Function(Term term)? removeSelectedTerms,
     TResult Function(CoachingProgram program)? removeSelectedProgram,
     TResult Function(Session session)? removeSelectedSession,
-    TResult Function(Player player)? removeSelectedPlayer,
+    TResult Function(PlayerData player)? removeSelectedPlayer,
     TResult Function(int coachParentSelect)? selectParentOrCoach,
     TResult Function()? resetAfterUploadDocument,
     TResult Function(String docid)? setDocumentId,
@@ -3766,7 +3766,7 @@ class _$RemoveSelectedCoachEventImpl implements RemoveSelectedCoachEvent {
     required TResult Function(Term terms) setSelectedTerm,
     required TResult Function(CoachingProgram programs) setSelectedProgram,
     required TResult Function(Session session) setSelectedSession,
-    required TResult Function(Player player) setSelectedPlayer,
+    required TResult Function(PlayerData player) setSelectedPlayer,
     required TResult Function(String fileName, File? documentFile)
         setDoucmentForUpload,
     required TResult Function() submitDocument,
@@ -3774,7 +3774,7 @@ class _$RemoveSelectedCoachEventImpl implements RemoveSelectedCoachEvent {
     required TResult Function(Term term) removeSelectedTerms,
     required TResult Function(CoachingProgram program) removeSelectedProgram,
     required TResult Function(Session session) removeSelectedSession,
-    required TResult Function(Player player) removeSelectedPlayer,
+    required TResult Function(PlayerData player) removeSelectedPlayer,
     required TResult Function(int coachParentSelect) selectParentOrCoach,
     required TResult Function() resetAfterUploadDocument,
     required TResult Function(String docid) setDocumentId,
@@ -3794,7 +3794,7 @@ class _$RemoveSelectedCoachEventImpl implements RemoveSelectedCoachEvent {
     TResult? Function(Term terms)? setSelectedTerm,
     TResult? Function(CoachingProgram programs)? setSelectedProgram,
     TResult? Function(Session session)? setSelectedSession,
-    TResult? Function(Player player)? setSelectedPlayer,
+    TResult? Function(PlayerData player)? setSelectedPlayer,
     TResult? Function(String fileName, File? documentFile)?
         setDoucmentForUpload,
     TResult? Function()? submitDocument,
@@ -3802,7 +3802,7 @@ class _$RemoveSelectedCoachEventImpl implements RemoveSelectedCoachEvent {
     TResult? Function(Term term)? removeSelectedTerms,
     TResult? Function(CoachingProgram program)? removeSelectedProgram,
     TResult? Function(Session session)? removeSelectedSession,
-    TResult? Function(Player player)? removeSelectedPlayer,
+    TResult? Function(PlayerData player)? removeSelectedPlayer,
     TResult? Function(int coachParentSelect)? selectParentOrCoach,
     TResult? Function()? resetAfterUploadDocument,
     TResult? Function(String docid)? setDocumentId,
@@ -3822,14 +3822,14 @@ class _$RemoveSelectedCoachEventImpl implements RemoveSelectedCoachEvent {
     TResult Function(Term terms)? setSelectedTerm,
     TResult Function(CoachingProgram programs)? setSelectedProgram,
     TResult Function(Session session)? setSelectedSession,
-    TResult Function(Player player)? setSelectedPlayer,
+    TResult Function(PlayerData player)? setSelectedPlayer,
     TResult Function(String fileName, File? documentFile)? setDoucmentForUpload,
     TResult Function()? submitDocument,
     TResult Function(Coach coach)? removeSelectedCoach,
     TResult Function(Term term)? removeSelectedTerms,
     TResult Function(CoachingProgram program)? removeSelectedProgram,
     TResult Function(Session session)? removeSelectedSession,
-    TResult Function(Player player)? removeSelectedPlayer,
+    TResult Function(PlayerData player)? removeSelectedPlayer,
     TResult Function(int coachParentSelect)? selectParentOrCoach,
     TResult Function()? resetAfterUploadDocument,
     TResult Function(String docid)? setDocumentId,
@@ -4059,7 +4059,7 @@ class _$RemoveSelectedTermsventImpl implements RemoveSelectedTermsvent {
     required TResult Function(Term terms) setSelectedTerm,
     required TResult Function(CoachingProgram programs) setSelectedProgram,
     required TResult Function(Session session) setSelectedSession,
-    required TResult Function(Player player) setSelectedPlayer,
+    required TResult Function(PlayerData player) setSelectedPlayer,
     required TResult Function(String fileName, File? documentFile)
         setDoucmentForUpload,
     required TResult Function() submitDocument,
@@ -4067,7 +4067,7 @@ class _$RemoveSelectedTermsventImpl implements RemoveSelectedTermsvent {
     required TResult Function(Term term) removeSelectedTerms,
     required TResult Function(CoachingProgram program) removeSelectedProgram,
     required TResult Function(Session session) removeSelectedSession,
-    required TResult Function(Player player) removeSelectedPlayer,
+    required TResult Function(PlayerData player) removeSelectedPlayer,
     required TResult Function(int coachParentSelect) selectParentOrCoach,
     required TResult Function() resetAfterUploadDocument,
     required TResult Function(String docid) setDocumentId,
@@ -4087,7 +4087,7 @@ class _$RemoveSelectedTermsventImpl implements RemoveSelectedTermsvent {
     TResult? Function(Term terms)? setSelectedTerm,
     TResult? Function(CoachingProgram programs)? setSelectedProgram,
     TResult? Function(Session session)? setSelectedSession,
-    TResult? Function(Player player)? setSelectedPlayer,
+    TResult? Function(PlayerData player)? setSelectedPlayer,
     TResult? Function(String fileName, File? documentFile)?
         setDoucmentForUpload,
     TResult? Function()? submitDocument,
@@ -4095,7 +4095,7 @@ class _$RemoveSelectedTermsventImpl implements RemoveSelectedTermsvent {
     TResult? Function(Term term)? removeSelectedTerms,
     TResult? Function(CoachingProgram program)? removeSelectedProgram,
     TResult? Function(Session session)? removeSelectedSession,
-    TResult? Function(Player player)? removeSelectedPlayer,
+    TResult? Function(PlayerData player)? removeSelectedPlayer,
     TResult? Function(int coachParentSelect)? selectParentOrCoach,
     TResult? Function()? resetAfterUploadDocument,
     TResult? Function(String docid)? setDocumentId,
@@ -4115,14 +4115,14 @@ class _$RemoveSelectedTermsventImpl implements RemoveSelectedTermsvent {
     TResult Function(Term terms)? setSelectedTerm,
     TResult Function(CoachingProgram programs)? setSelectedProgram,
     TResult Function(Session session)? setSelectedSession,
-    TResult Function(Player player)? setSelectedPlayer,
+    TResult Function(PlayerData player)? setSelectedPlayer,
     TResult Function(String fileName, File? documentFile)? setDoucmentForUpload,
     TResult Function()? submitDocument,
     TResult Function(Coach coach)? removeSelectedCoach,
     TResult Function(Term term)? removeSelectedTerms,
     TResult Function(CoachingProgram program)? removeSelectedProgram,
     TResult Function(Session session)? removeSelectedSession,
-    TResult Function(Player player)? removeSelectedPlayer,
+    TResult Function(PlayerData player)? removeSelectedPlayer,
     TResult Function(int coachParentSelect)? selectParentOrCoach,
     TResult Function()? resetAfterUploadDocument,
     TResult Function(String docid)? setDocumentId,
@@ -4353,7 +4353,7 @@ class _$RemoveSelectedProgramventImpl implements RemoveSelectedProgramvent {
     required TResult Function(Term terms) setSelectedTerm,
     required TResult Function(CoachingProgram programs) setSelectedProgram,
     required TResult Function(Session session) setSelectedSession,
-    required TResult Function(Player player) setSelectedPlayer,
+    required TResult Function(PlayerData player) setSelectedPlayer,
     required TResult Function(String fileName, File? documentFile)
         setDoucmentForUpload,
     required TResult Function() submitDocument,
@@ -4361,7 +4361,7 @@ class _$RemoveSelectedProgramventImpl implements RemoveSelectedProgramvent {
     required TResult Function(Term term) removeSelectedTerms,
     required TResult Function(CoachingProgram program) removeSelectedProgram,
     required TResult Function(Session session) removeSelectedSession,
-    required TResult Function(Player player) removeSelectedPlayer,
+    required TResult Function(PlayerData player) removeSelectedPlayer,
     required TResult Function(int coachParentSelect) selectParentOrCoach,
     required TResult Function() resetAfterUploadDocument,
     required TResult Function(String docid) setDocumentId,
@@ -4381,7 +4381,7 @@ class _$RemoveSelectedProgramventImpl implements RemoveSelectedProgramvent {
     TResult? Function(Term terms)? setSelectedTerm,
     TResult? Function(CoachingProgram programs)? setSelectedProgram,
     TResult? Function(Session session)? setSelectedSession,
-    TResult? Function(Player player)? setSelectedPlayer,
+    TResult? Function(PlayerData player)? setSelectedPlayer,
     TResult? Function(String fileName, File? documentFile)?
         setDoucmentForUpload,
     TResult? Function()? submitDocument,
@@ -4389,7 +4389,7 @@ class _$RemoveSelectedProgramventImpl implements RemoveSelectedProgramvent {
     TResult? Function(Term term)? removeSelectedTerms,
     TResult? Function(CoachingProgram program)? removeSelectedProgram,
     TResult? Function(Session session)? removeSelectedSession,
-    TResult? Function(Player player)? removeSelectedPlayer,
+    TResult? Function(PlayerData player)? removeSelectedPlayer,
     TResult? Function(int coachParentSelect)? selectParentOrCoach,
     TResult? Function()? resetAfterUploadDocument,
     TResult? Function(String docid)? setDocumentId,
@@ -4409,14 +4409,14 @@ class _$RemoveSelectedProgramventImpl implements RemoveSelectedProgramvent {
     TResult Function(Term terms)? setSelectedTerm,
     TResult Function(CoachingProgram programs)? setSelectedProgram,
     TResult Function(Session session)? setSelectedSession,
-    TResult Function(Player player)? setSelectedPlayer,
+    TResult Function(PlayerData player)? setSelectedPlayer,
     TResult Function(String fileName, File? documentFile)? setDoucmentForUpload,
     TResult Function()? submitDocument,
     TResult Function(Coach coach)? removeSelectedCoach,
     TResult Function(Term term)? removeSelectedTerms,
     TResult Function(CoachingProgram program)? removeSelectedProgram,
     TResult Function(Session session)? removeSelectedSession,
-    TResult Function(Player player)? removeSelectedPlayer,
+    TResult Function(PlayerData player)? removeSelectedPlayer,
     TResult Function(int coachParentSelect)? selectParentOrCoach,
     TResult Function()? resetAfterUploadDocument,
     TResult Function(String docid)? setDocumentId,
@@ -4647,7 +4647,7 @@ class _$RemoveSelectedSessionventImpl implements RemoveSelectedSessionvent {
     required TResult Function(Term terms) setSelectedTerm,
     required TResult Function(CoachingProgram programs) setSelectedProgram,
     required TResult Function(Session session) setSelectedSession,
-    required TResult Function(Player player) setSelectedPlayer,
+    required TResult Function(PlayerData player) setSelectedPlayer,
     required TResult Function(String fileName, File? documentFile)
         setDoucmentForUpload,
     required TResult Function() submitDocument,
@@ -4655,7 +4655,7 @@ class _$RemoveSelectedSessionventImpl implements RemoveSelectedSessionvent {
     required TResult Function(Term term) removeSelectedTerms,
     required TResult Function(CoachingProgram program) removeSelectedProgram,
     required TResult Function(Session session) removeSelectedSession,
-    required TResult Function(Player player) removeSelectedPlayer,
+    required TResult Function(PlayerData player) removeSelectedPlayer,
     required TResult Function(int coachParentSelect) selectParentOrCoach,
     required TResult Function() resetAfterUploadDocument,
     required TResult Function(String docid) setDocumentId,
@@ -4675,7 +4675,7 @@ class _$RemoveSelectedSessionventImpl implements RemoveSelectedSessionvent {
     TResult? Function(Term terms)? setSelectedTerm,
     TResult? Function(CoachingProgram programs)? setSelectedProgram,
     TResult? Function(Session session)? setSelectedSession,
-    TResult? Function(Player player)? setSelectedPlayer,
+    TResult? Function(PlayerData player)? setSelectedPlayer,
     TResult? Function(String fileName, File? documentFile)?
         setDoucmentForUpload,
     TResult? Function()? submitDocument,
@@ -4683,7 +4683,7 @@ class _$RemoveSelectedSessionventImpl implements RemoveSelectedSessionvent {
     TResult? Function(Term term)? removeSelectedTerms,
     TResult? Function(CoachingProgram program)? removeSelectedProgram,
     TResult? Function(Session session)? removeSelectedSession,
-    TResult? Function(Player player)? removeSelectedPlayer,
+    TResult? Function(PlayerData player)? removeSelectedPlayer,
     TResult? Function(int coachParentSelect)? selectParentOrCoach,
     TResult? Function()? resetAfterUploadDocument,
     TResult? Function(String docid)? setDocumentId,
@@ -4703,14 +4703,14 @@ class _$RemoveSelectedSessionventImpl implements RemoveSelectedSessionvent {
     TResult Function(Term terms)? setSelectedTerm,
     TResult Function(CoachingProgram programs)? setSelectedProgram,
     TResult Function(Session session)? setSelectedSession,
-    TResult Function(Player player)? setSelectedPlayer,
+    TResult Function(PlayerData player)? setSelectedPlayer,
     TResult Function(String fileName, File? documentFile)? setDoucmentForUpload,
     TResult Function()? submitDocument,
     TResult Function(Coach coach)? removeSelectedCoach,
     TResult Function(Term term)? removeSelectedTerms,
     TResult Function(CoachingProgram program)? removeSelectedProgram,
     TResult Function(Session session)? removeSelectedSession,
-    TResult Function(Player player)? removeSelectedPlayer,
+    TResult Function(PlayerData player)? removeSelectedPlayer,
     TResult Function(int coachParentSelect)? selectParentOrCoach,
     TResult Function()? resetAfterUploadDocument,
     TResult Function(String docid)? setDocumentId,
@@ -4854,9 +4854,9 @@ abstract class _$$RemoveSelectedPlayerventImplCopyWith<$Res> {
           $Res Function(_$RemoveSelectedPlayerventImpl) then) =
       __$$RemoveSelectedPlayerventImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({Player player});
+  $Res call({PlayerData player});
 
-  $PlayerCopyWith<$Res> get player;
+  $PlayerDataCopyWith<$Res> get player;
 }
 
 /// @nodoc
@@ -4879,7 +4879,7 @@ class __$$RemoveSelectedPlayerventImplCopyWithImpl<$Res>
       null == player
           ? _value.player
           : player // ignore: cast_nullable_to_non_nullable
-              as Player,
+              as PlayerData,
     ));
   }
 
@@ -4887,8 +4887,8 @@ class __$$RemoveSelectedPlayerventImplCopyWithImpl<$Res>
   /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
-  $PlayerCopyWith<$Res> get player {
-    return $PlayerCopyWith<$Res>(_value.player, (value) {
+  $PlayerDataCopyWith<$Res> get player {
+    return $PlayerDataCopyWith<$Res>(_value.player, (value) {
       return _then(_value.copyWith(player: value));
     });
   }
@@ -4900,7 +4900,7 @@ class _$RemoveSelectedPlayerventImpl implements RemoveSelectedPlayervent {
   const _$RemoveSelectedPlayerventImpl(this.player);
 
   @override
-  final Player player;
+  final PlayerData player;
 
   @override
   String toString() {
@@ -4940,7 +4940,7 @@ class _$RemoveSelectedPlayerventImpl implements RemoveSelectedPlayervent {
     required TResult Function(Term terms) setSelectedTerm,
     required TResult Function(CoachingProgram programs) setSelectedProgram,
     required TResult Function(Session session) setSelectedSession,
-    required TResult Function(Player player) setSelectedPlayer,
+    required TResult Function(PlayerData player) setSelectedPlayer,
     required TResult Function(String fileName, File? documentFile)
         setDoucmentForUpload,
     required TResult Function() submitDocument,
@@ -4948,7 +4948,7 @@ class _$RemoveSelectedPlayerventImpl implements RemoveSelectedPlayervent {
     required TResult Function(Term term) removeSelectedTerms,
     required TResult Function(CoachingProgram program) removeSelectedProgram,
     required TResult Function(Session session) removeSelectedSession,
-    required TResult Function(Player player) removeSelectedPlayer,
+    required TResult Function(PlayerData player) removeSelectedPlayer,
     required TResult Function(int coachParentSelect) selectParentOrCoach,
     required TResult Function() resetAfterUploadDocument,
     required TResult Function(String docid) setDocumentId,
@@ -4968,7 +4968,7 @@ class _$RemoveSelectedPlayerventImpl implements RemoveSelectedPlayervent {
     TResult? Function(Term terms)? setSelectedTerm,
     TResult? Function(CoachingProgram programs)? setSelectedProgram,
     TResult? Function(Session session)? setSelectedSession,
-    TResult? Function(Player player)? setSelectedPlayer,
+    TResult? Function(PlayerData player)? setSelectedPlayer,
     TResult? Function(String fileName, File? documentFile)?
         setDoucmentForUpload,
     TResult? Function()? submitDocument,
@@ -4976,7 +4976,7 @@ class _$RemoveSelectedPlayerventImpl implements RemoveSelectedPlayervent {
     TResult? Function(Term term)? removeSelectedTerms,
     TResult? Function(CoachingProgram program)? removeSelectedProgram,
     TResult? Function(Session session)? removeSelectedSession,
-    TResult? Function(Player player)? removeSelectedPlayer,
+    TResult? Function(PlayerData player)? removeSelectedPlayer,
     TResult? Function(int coachParentSelect)? selectParentOrCoach,
     TResult? Function()? resetAfterUploadDocument,
     TResult? Function(String docid)? setDocumentId,
@@ -4996,14 +4996,14 @@ class _$RemoveSelectedPlayerventImpl implements RemoveSelectedPlayervent {
     TResult Function(Term terms)? setSelectedTerm,
     TResult Function(CoachingProgram programs)? setSelectedProgram,
     TResult Function(Session session)? setSelectedSession,
-    TResult Function(Player player)? setSelectedPlayer,
+    TResult Function(PlayerData player)? setSelectedPlayer,
     TResult Function(String fileName, File? documentFile)? setDoucmentForUpload,
     TResult Function()? submitDocument,
     TResult Function(Coach coach)? removeSelectedCoach,
     TResult Function(Term term)? removeSelectedTerms,
     TResult Function(CoachingProgram program)? removeSelectedProgram,
     TResult Function(Session session)? removeSelectedSession,
-    TResult Function(Player player)? removeSelectedPlayer,
+    TResult Function(PlayerData player)? removeSelectedPlayer,
     TResult Function(int coachParentSelect)? selectParentOrCoach,
     TResult Function()? resetAfterUploadDocument,
     TResult Function(String docid)? setDocumentId,
@@ -5128,10 +5128,10 @@ class _$RemoveSelectedPlayerventImpl implements RemoveSelectedPlayervent {
 }
 
 abstract class RemoveSelectedPlayervent implements AddDocumentEvent {
-  const factory RemoveSelectedPlayervent(final Player player) =
+  const factory RemoveSelectedPlayervent(final PlayerData player) =
       _$RemoveSelectedPlayerventImpl;
 
-  Player get player;
+  PlayerData get player;
 
   /// Create a copy of AddDocumentEvent
   /// with the given fields replaced by the non-null parameter values.
@@ -5222,7 +5222,7 @@ class _$SelectParentCoachEventImpl implements SelectParentCoachEvent {
     required TResult Function(Term terms) setSelectedTerm,
     required TResult Function(CoachingProgram programs) setSelectedProgram,
     required TResult Function(Session session) setSelectedSession,
-    required TResult Function(Player player) setSelectedPlayer,
+    required TResult Function(PlayerData player) setSelectedPlayer,
     required TResult Function(String fileName, File? documentFile)
         setDoucmentForUpload,
     required TResult Function() submitDocument,
@@ -5230,7 +5230,7 @@ class _$SelectParentCoachEventImpl implements SelectParentCoachEvent {
     required TResult Function(Term term) removeSelectedTerms,
     required TResult Function(CoachingProgram program) removeSelectedProgram,
     required TResult Function(Session session) removeSelectedSession,
-    required TResult Function(Player player) removeSelectedPlayer,
+    required TResult Function(PlayerData player) removeSelectedPlayer,
     required TResult Function(int coachParentSelect) selectParentOrCoach,
     required TResult Function() resetAfterUploadDocument,
     required TResult Function(String docid) setDocumentId,
@@ -5250,7 +5250,7 @@ class _$SelectParentCoachEventImpl implements SelectParentCoachEvent {
     TResult? Function(Term terms)? setSelectedTerm,
     TResult? Function(CoachingProgram programs)? setSelectedProgram,
     TResult? Function(Session session)? setSelectedSession,
-    TResult? Function(Player player)? setSelectedPlayer,
+    TResult? Function(PlayerData player)? setSelectedPlayer,
     TResult? Function(String fileName, File? documentFile)?
         setDoucmentForUpload,
     TResult? Function()? submitDocument,
@@ -5258,7 +5258,7 @@ class _$SelectParentCoachEventImpl implements SelectParentCoachEvent {
     TResult? Function(Term term)? removeSelectedTerms,
     TResult? Function(CoachingProgram program)? removeSelectedProgram,
     TResult? Function(Session session)? removeSelectedSession,
-    TResult? Function(Player player)? removeSelectedPlayer,
+    TResult? Function(PlayerData player)? removeSelectedPlayer,
     TResult? Function(int coachParentSelect)? selectParentOrCoach,
     TResult? Function()? resetAfterUploadDocument,
     TResult? Function(String docid)? setDocumentId,
@@ -5278,14 +5278,14 @@ class _$SelectParentCoachEventImpl implements SelectParentCoachEvent {
     TResult Function(Term terms)? setSelectedTerm,
     TResult Function(CoachingProgram programs)? setSelectedProgram,
     TResult Function(Session session)? setSelectedSession,
-    TResult Function(Player player)? setSelectedPlayer,
+    TResult Function(PlayerData player)? setSelectedPlayer,
     TResult Function(String fileName, File? documentFile)? setDoucmentForUpload,
     TResult Function()? submitDocument,
     TResult Function(Coach coach)? removeSelectedCoach,
     TResult Function(Term term)? removeSelectedTerms,
     TResult Function(CoachingProgram program)? removeSelectedProgram,
     TResult Function(Session session)? removeSelectedSession,
-    TResult Function(Player player)? removeSelectedPlayer,
+    TResult Function(PlayerData player)? removeSelectedPlayer,
     TResult Function(int coachParentSelect)? selectParentOrCoach,
     TResult Function()? resetAfterUploadDocument,
     TResult Function(String docid)? setDocumentId,
@@ -5478,7 +5478,7 @@ class _$ResetAfterDocumentUploadEventImpl
     required TResult Function(Term terms) setSelectedTerm,
     required TResult Function(CoachingProgram programs) setSelectedProgram,
     required TResult Function(Session session) setSelectedSession,
-    required TResult Function(Player player) setSelectedPlayer,
+    required TResult Function(PlayerData player) setSelectedPlayer,
     required TResult Function(String fileName, File? documentFile)
         setDoucmentForUpload,
     required TResult Function() submitDocument,
@@ -5486,7 +5486,7 @@ class _$ResetAfterDocumentUploadEventImpl
     required TResult Function(Term term) removeSelectedTerms,
     required TResult Function(CoachingProgram program) removeSelectedProgram,
     required TResult Function(Session session) removeSelectedSession,
-    required TResult Function(Player player) removeSelectedPlayer,
+    required TResult Function(PlayerData player) removeSelectedPlayer,
     required TResult Function(int coachParentSelect) selectParentOrCoach,
     required TResult Function() resetAfterUploadDocument,
     required TResult Function(String docid) setDocumentId,
@@ -5506,7 +5506,7 @@ class _$ResetAfterDocumentUploadEventImpl
     TResult? Function(Term terms)? setSelectedTerm,
     TResult? Function(CoachingProgram programs)? setSelectedProgram,
     TResult? Function(Session session)? setSelectedSession,
-    TResult? Function(Player player)? setSelectedPlayer,
+    TResult? Function(PlayerData player)? setSelectedPlayer,
     TResult? Function(String fileName, File? documentFile)?
         setDoucmentForUpload,
     TResult? Function()? submitDocument,
@@ -5514,7 +5514,7 @@ class _$ResetAfterDocumentUploadEventImpl
     TResult? Function(Term term)? removeSelectedTerms,
     TResult? Function(CoachingProgram program)? removeSelectedProgram,
     TResult? Function(Session session)? removeSelectedSession,
-    TResult? Function(Player player)? removeSelectedPlayer,
+    TResult? Function(PlayerData player)? removeSelectedPlayer,
     TResult? Function(int coachParentSelect)? selectParentOrCoach,
     TResult? Function()? resetAfterUploadDocument,
     TResult? Function(String docid)? setDocumentId,
@@ -5534,14 +5534,14 @@ class _$ResetAfterDocumentUploadEventImpl
     TResult Function(Term terms)? setSelectedTerm,
     TResult Function(CoachingProgram programs)? setSelectedProgram,
     TResult Function(Session session)? setSelectedSession,
-    TResult Function(Player player)? setSelectedPlayer,
+    TResult Function(PlayerData player)? setSelectedPlayer,
     TResult Function(String fileName, File? documentFile)? setDoucmentForUpload,
     TResult Function()? submitDocument,
     TResult Function(Coach coach)? removeSelectedCoach,
     TResult Function(Term term)? removeSelectedTerms,
     TResult Function(CoachingProgram program)? removeSelectedProgram,
     TResult Function(Session session)? removeSelectedSession,
-    TResult Function(Player player)? removeSelectedPlayer,
+    TResult Function(PlayerData player)? removeSelectedPlayer,
     TResult Function(int coachParentSelect)? selectParentOrCoach,
     TResult Function()? resetAfterUploadDocument,
     TResult Function(String docid)? setDocumentId,
@@ -5751,7 +5751,7 @@ class _$DocumentIdSetForUploadImpl implements DocumentIdSetForUpload {
     required TResult Function(Term terms) setSelectedTerm,
     required TResult Function(CoachingProgram programs) setSelectedProgram,
     required TResult Function(Session session) setSelectedSession,
-    required TResult Function(Player player) setSelectedPlayer,
+    required TResult Function(PlayerData player) setSelectedPlayer,
     required TResult Function(String fileName, File? documentFile)
         setDoucmentForUpload,
     required TResult Function() submitDocument,
@@ -5759,7 +5759,7 @@ class _$DocumentIdSetForUploadImpl implements DocumentIdSetForUpload {
     required TResult Function(Term term) removeSelectedTerms,
     required TResult Function(CoachingProgram program) removeSelectedProgram,
     required TResult Function(Session session) removeSelectedSession,
-    required TResult Function(Player player) removeSelectedPlayer,
+    required TResult Function(PlayerData player) removeSelectedPlayer,
     required TResult Function(int coachParentSelect) selectParentOrCoach,
     required TResult Function() resetAfterUploadDocument,
     required TResult Function(String docid) setDocumentId,
@@ -5779,7 +5779,7 @@ class _$DocumentIdSetForUploadImpl implements DocumentIdSetForUpload {
     TResult? Function(Term terms)? setSelectedTerm,
     TResult? Function(CoachingProgram programs)? setSelectedProgram,
     TResult? Function(Session session)? setSelectedSession,
-    TResult? Function(Player player)? setSelectedPlayer,
+    TResult? Function(PlayerData player)? setSelectedPlayer,
     TResult? Function(String fileName, File? documentFile)?
         setDoucmentForUpload,
     TResult? Function()? submitDocument,
@@ -5787,7 +5787,7 @@ class _$DocumentIdSetForUploadImpl implements DocumentIdSetForUpload {
     TResult? Function(Term term)? removeSelectedTerms,
     TResult? Function(CoachingProgram program)? removeSelectedProgram,
     TResult? Function(Session session)? removeSelectedSession,
-    TResult? Function(Player player)? removeSelectedPlayer,
+    TResult? Function(PlayerData player)? removeSelectedPlayer,
     TResult? Function(int coachParentSelect)? selectParentOrCoach,
     TResult? Function()? resetAfterUploadDocument,
     TResult? Function(String docid)? setDocumentId,
@@ -5807,14 +5807,14 @@ class _$DocumentIdSetForUploadImpl implements DocumentIdSetForUpload {
     TResult Function(Term terms)? setSelectedTerm,
     TResult Function(CoachingProgram programs)? setSelectedProgram,
     TResult Function(Session session)? setSelectedSession,
-    TResult Function(Player player)? setSelectedPlayer,
+    TResult Function(PlayerData player)? setSelectedPlayer,
     TResult Function(String fileName, File? documentFile)? setDoucmentForUpload,
     TResult Function()? submitDocument,
     TResult Function(Coach coach)? removeSelectedCoach,
     TResult Function(Term term)? removeSelectedTerms,
     TResult Function(CoachingProgram program)? removeSelectedProgram,
     TResult Function(Session session)? removeSelectedSession,
-    TResult Function(Player player)? removeSelectedPlayer,
+    TResult Function(PlayerData player)? removeSelectedPlayer,
     TResult Function(int coachParentSelect)? selectParentOrCoach,
     TResult Function()? resetAfterUploadDocument,
     TResult Function(String docid)? setDocumentId,

@@ -2,6 +2,7 @@ import 'package:bloc/bloc.dart';
 import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:meta/meta.dart';
 import 'package:rra/common/network/connectivity_extension.dart';
+import 'package:rra/common/values/utils.dart';
 import 'package:rra/pages/coach/coach_player_report/coach_player_report_list/data/entity/report_model.dart';
 import 'package:rra/pages/coach/coach_player_report/coach_player_report_list/presentation/bloc/report_event.dart';
 import 'package:rra/pages/coach/coach_player_report/coach_player_report_list/presentation/bloc/report_state.dart';
@@ -25,10 +26,22 @@ class ReportBloc extends Bloc<ReportEvent, ReportState> {
     on<AddScoreEvent>(_addScore);
     on<ReportDetail>(_getReportDetail);
     on<SetPlayerId>(_setCurrentPlayerId);
+    on<ResetReportStateEvent>(_resetState);
+    on<PlayerSelectedEvent>(_playerSelected);
     on<ReportEventGetTermsSessionCoachingPlayerEvents>(
         _getTermsSessioCoachingPlayer);
   }
-
+  Future<void> _playerSelected(
+      PlayerSelectedEvent event, Emitter<ReportState> emit) async {
+    emit(state.copyWith(
+      player: event.player,
+      sessionId: Session(),
+    ));
+  }
+  Future<void> _resetState(
+      ResetReportStateEvent event, Emitter<ReportState> emit) async {
+    emit(ReportState.initial());
+  }
   Future<void> _termSelected(
       TermSelected event, Emitter<ReportState> emit) async {
     emit(state.copyWith(termsId: event.term,
@@ -40,6 +53,10 @@ class ReportBloc extends Bloc<ReportEvent, ReportState> {
   Future<void> _setCurrentPlayerId(
       SetPlayerId event, Emitter<ReportState> emit) async {
     emit(state.copyWith(playerId: event.playerId,
+        termsIdInList:event.termid,
+        sessionIdInList:event.sessionId,
+        cochingProgramIdInList:event.coachingProgramId,
+        isParent: event.isParent
     ));
   }
 
@@ -84,7 +101,7 @@ class ReportBloc extends Bloc<ReportEvent, ReportState> {
         final termIds = state.termsId;
         final programIds = state.coachingProgramId;
         final sessionIds = state.sessionId;
-
+        final playerId = state.player;
         if (!_isDefaultObject(termIds) && termIds.id != null) {
           map["term_id"] = [termIds.id];
         }
@@ -93,6 +110,9 @@ class ReportBloc extends Bloc<ReportEvent, ReportState> {
         }
         if (!_isDefaultObject(sessionIds) && sessionIds.id != null) {
           map["session_id"] = [sessionIds.id];
+        }
+        if (!_isDefaultObject(playerId) && playerId.id != null) {
+          map["player_id"] = playerId.id;
         }
       } catch (e) {}
 
@@ -135,6 +155,8 @@ class ReportBloc extends Bloc<ReportEvent, ReportState> {
       return object.id == null || object == const Session();
     } else if (object is CoachingProgram) {
       return object.id == null || object == const CoachingProgram();
+    }else if (object is PlayerData) {
+      return object.id == null || object == const PlayerData();
     }
     return true;
   }
@@ -159,19 +181,34 @@ class ReportBloc extends Bloc<ReportEvent, ReportState> {
         ));
         return;
       }
-      final termIds = state.termsId;
-      final programIds = state.coachingProgramId;
-      final sessionIds = state.sessionId;
-
-
-
       var academyId = await getIt<SharedPrefs>().getString("selected_academyid");
-      Map<String, dynamic> map = {
-        "academy_id": academyId,
-        "term_id":termIds.id,
-        "coaching_program_id":programIds.id,
-        "session_id":sessionIds.id
-      };
+
+      Map<String, dynamic> map = {"academy_id": academyId};
+      try {
+        final termIds = state.termsId;
+        final programIds = state.coachingProgramId;
+        final sessionIds = state.sessionId;
+        final playerId = state.player;
+
+        if(state.isParent==false){
+          if (!_isDefaultObject(termIds) && termIds.id != null) {
+            map["term_id"] = termIds.id;
+          }
+          if (!_isDefaultObject(programIds) && programIds.id != null) {
+            map["coaching_program_id"] = programIds.id;
+          }
+        }
+
+        if (!_isDefaultObject(sessionIds) && sessionIds.id != null) {
+          map["session_id"] = sessionIds.id;
+        }
+        if (!_isDefaultObject(playerId) && playerId.id != null) {
+          map["player_id"] =playerId.id;
+        }
+      } catch (e) {}
+
+
+
       emit(state.copyWith(
           isLoading: true,
           isError: false,
@@ -271,20 +308,15 @@ class ReportBloc extends Bloc<ReportEvent, ReportState> {
         ));
         return;
       }
-      final termIds = state.termsId;
-      final programIds = state.coachingProgramId;
-      final sessionIds = state.sessionId;
-
-
-
       var academyId = await getIt<SharedPrefs>().getString("selected_academyid");
       Map<String, dynamic> map = {
         "academy_id": academyId,
-        "term_id":termIds.id,
-        "coaching_program_id":programIds.id,
-        "session_id":sessionIds.id,
+        "term_id":state.termsIdInList,
+        "coaching_program_id":state.cochingProgramIdInList,
+        "session_id":state.sessionIdInList,
         'player_id':state.playerId
       };
+      print("SDF SDF DF DF D DF  D DD-----${map}");
       emit(state.copyWith(
           isLoading: true,
           isError: false,
@@ -293,12 +325,18 @@ class ReportBloc extends Bloc<ReportEvent, ReportState> {
 
       final response = await _reportUsecase.getReportDetailExecute(map);
       response.fold((failure) {
+        print("=s=s=s=s=s=sfailure=s=s=ss=s=s=s=s=sfailure=s=s=s=s=s=s=s=s=s=s=s=\n\n");
+        Utils.LogPrint(failure.message);
+        print("=s=s=s=s=s=s=s=s=ss=s=failures=s=s=s=s=sfailure=s=s=s=s=s=s=s=s=s=\n\n");
         emit(state.copyWith(
             isLoading: false,
             isError: true,
             isStatusUpdated: false,playerReportModel:PlayerReportModel(),
             message: ""));
       }, (useResult) {
+        print("=s=s=s=s=s=s=s=s=ss=s=s=s=s=s=s=s=s=s=s=s=s=s=s=s=s=\n\n");
+        Utils.LogPrint(useResult);
+        print("=s=s=s=s=s=s=s=s=ss=s=s=s=s=s=s=s=s=s=s=s=s=s=s=s=s=\n\n");
         emit(state.copyWith(
             isLoading: false,
             isError: false,

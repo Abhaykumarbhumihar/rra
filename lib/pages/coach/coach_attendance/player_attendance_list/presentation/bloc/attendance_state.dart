@@ -18,6 +18,7 @@ class AttendanceState with _$AttendanceState {
     @Default(TermsProgramSessionPlayerModel()) TermsProgramSessionPlayerModel termsProgramSessionPlayerModelData,
     @Default(Term()) Term termsId,
     @Default(Session()) Session sessionId,
+    @Default(PlayerData()) PlayerData player,
     @Default(CoachingProgram()) CoachingProgram coachingProgramId,
     @Default(SinglePlayerAttendanceDetailModel()) SinglePlayerAttendanceDetailModel singlePlayerAttendanceDetailModel,
     @Default(AttendancePlayerListResponse()) AttendancePlayerListResponse attendancePlayerListResponse,
@@ -26,9 +27,16 @@ class AttendanceState with _$AttendanceState {
   factory AttendanceState.initial() => const AttendanceState(
     isLoading: false,
     isStatusUpdated:false,
+    player:PlayerData(),
     isError: false,
     message:"",
-      termsId:Term(),sessionId:Session(),coachingProgramId:CoachingProgram()
+      selectedPlayerid:"",
+
+      termsProgramSessionPlayerModelData:TermsProgramSessionPlayerModel(),
+      singlePlayerAttendanceDetailModel:SinglePlayerAttendanceDetailModel(),
+      attendancePlayerListResponse:AttendancePlayerListResponse(),
+      termsId:Term(),sessionId:Session(),
+      coachingProgramId:CoachingProgram()
   );
 }
 

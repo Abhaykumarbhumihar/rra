@@ -5,6 +5,7 @@ import 'package:rra/common/component/component_export.dart';
 
 import '../../../../../../common/local/SharedPrefs.dart';
 import '../../../../../../common/service_locator/setivelocator.dart';
+import '../../../../../parents/application/presentatioin/bloc/app_bloc.dart';
 import '../../../../manage_team/presentation/ui/component/dropdown_selection_field.dart';
 import '../bloc/report_bloc.dart';
 import '../bloc/report_event.dart';
@@ -17,6 +18,7 @@ class CoachPlayerReortListAge extends StatelessWidget {
   TextEditingController _termController = TextEditingController();
   TextEditingController _programController = TextEditingController();
   TextEditingController _sessionController = TextEditingController();
+  TextEditingController _ChildController = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return BlocListener<ReportBloc, ReportState>(
@@ -44,7 +46,7 @@ class CoachPlayerReortListAge extends StatelessWidget {
                   height: 24,
                 ),
 
-
+                if(BlocProvider.of<AppBloc>(context).state.userdata.data.role=="coach")
                 DropdownSelectionField(
                   controller: _termController,
                   title: "Select Term",
@@ -62,6 +64,7 @@ class CoachPlayerReortListAge extends StatelessWidget {
                   },
                 ),
                 const SizedBox(height: 6),
+                if(BlocProvider.of<AppBloc>(context).state.userdata.data.role=="coach")
                 DropdownSelectionField(
                   controller: _programController,
                   title: "Select Program",
@@ -80,6 +83,34 @@ class CoachPlayerReortListAge extends StatelessWidget {
                     BlocProvider.of<ReportBloc>(context).add(GetReportChildListEvent({}));
                   },
                 ),
+                if(BlocProvider.of<AppBloc>(context).state.userdata.data.role=="parent")
+                  const SizedBox(height: 6),
+                if(BlocProvider.of<AppBloc>(context).state.userdata.data.role=="parent")
+
+                  DropdownSelectionField(
+                  controller: _ChildController,
+                  title: "Select Child",
+                  items: state.termsProgramSessionPlayerModelData?.data
+                      ?.playerData ??
+                      [],
+                  itemText: (item) => item.childName ?? '',
+                  onSelected: (item) {
+                    _ChildController.text = item?.childName ?? '';
+                    _sessionController.text = "";
+                    context
+                        .read<ReportBloc>()
+                        .add(PlayerSelectedEvent(item));
+                    BlocProvider.of<ReportBloc>(context).add(ReportEventGetTermsSessionCoachingPlayerEvents({}));
+
+                    // BlocProvider.of<ReportBloc>(context)
+                    //     .add(GetAttendanceListEvent({}));
+
+                    print("CHECKING SESSION DATA IS ${state.termsProgramSessionPlayerModelData?.data
+                        ?.session}");
+                  },
+                ),
+
+
                 const SizedBox(height: 6),
                 DropdownSelectionField(
                   controller: _sessionController,

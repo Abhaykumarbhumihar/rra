@@ -285,7 +285,7 @@ orderId: "",
         "academy_id": academyId,
       };
       if(orderSummaryData.data.isNotEmpty){
-       // add(GetTotalPriceEvent(map));
+       add(GetTotalPriceEvent(map));
       }
 
     });

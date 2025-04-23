@@ -10,5 +10,5 @@ sealed class ViewSessionEvent with _$ViewSessionEvent {
   const factory ViewSessionEvent.getCancelBookedSession(Map<String,dynamic>data) = CancelBookedSessionEvent;
   const factory ViewSessionEvent.daySelect(String day) = DaySelectEvent;
   const factory ViewSessionEvent.playerSelect(String day) = PlayerSelect;
-
+  const factory ViewSessionEvent.resetState() = ResetViewSessionStateEvent;
 }

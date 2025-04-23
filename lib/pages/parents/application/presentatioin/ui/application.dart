@@ -7,6 +7,14 @@ import '../../../../../common/routes/routes.dart';
 import 'package:rra/common/values/values_exports.dart';
 import '../../../../../common/service_locator/setivelocator.dart';
 import '../../../../academic/presentation/bloc/academic_event.dart';
+import '../../../../coach/coach_attendance/player_attendance_list/presentation/bloc/attendance_bloc.dart';
+import '../../../../coach/coach_attendance/player_attendance_list/presentation/bloc/attendance_event.dart';
+import '../../../../coach/coach_player_report/coach_player_report_list/presentation/bloc/report_bloc.dart';
+import '../../../../coach/coach_player_report/coach_player_report_list/presentation/bloc/report_event.dart';
+import '../../../../coach/manage_team/presentation/bloc/manage_team_bloc.dart';
+import '../../../../coach/manage_team/presentation/bloc/manage_team_event.dart';
+import '../../../../coach/view_session/presentation/bloc/view_session_bloc.dart';
+import '../../../../coach/view_session/presentation/bloc/view_session_event.dart';
 import '../bloc/app_bloc.dart';
 import '../bloc/app_state.dart';
 import 'application_widget.dart';
@@ -173,6 +181,10 @@ class ApplicationPage extends StatelessWidget {
             .loadUserData();
         BlocProvider.of<AppBloc>(context).loadUserData();
         BlocProvider.of<AcademicBloc>(context).add(AcademicListEvent(""));
+        BlocProvider.of<AttendanceBloc>(context).add(ResetStateEvent());
+        BlocProvider.of<ReportBloc>(context).add(ResetReportStateEvent());
+        BlocProvider.of<ManageTeamBloc>(context).add(ResetManageTeamStateEvent());
+        BlocProvider.of<ViewSessionBloc>(context).add(ResetViewSessionStateEvent());
 
         Navigator.pushNamedAndRemoveUntil(
           context,

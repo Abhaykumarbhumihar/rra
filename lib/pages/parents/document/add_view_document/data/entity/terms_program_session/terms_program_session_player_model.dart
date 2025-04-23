@@ -23,7 +23,7 @@ class TermsProgramSessionPlayerData with _$TermsProgramSessionPlayerData {
     @Default([]) List<Term> term,
     @Default([]) @JsonKey(name: 'coachingProgram') List<CoachingProgram> coachingProgram,
     @Default([]) List<Session> session,
-    @Default([]) List<Player> player,
+    @Default([]) @JsonKey(name: 'player') List<PlayerData> playerData,
   }) = _TermsProgramSessionPlayerData;
 
   factory TermsProgramSessionPlayerData.fromJson(Map<String, dynamic> json) =>
@@ -61,7 +61,7 @@ class CoachingProgram with _$CoachingProgram {
 class Session with _$Session {
   const factory Session({
     @Default(0) int id,
-    @Default('')  String title,
+    @Default('') @JsonKey(name:'session_title')  String title,
     @Default('') @JsonKey(name: 'session_day') String sessionDay,
     @Default('') @JsonKey(name: 'to_time') String toTime,
     @Default('') @JsonKey(name: 'from_time') String fromTime,
@@ -83,4 +83,16 @@ class Player with _$Player {
   }) = _Player;
 
   factory Player.fromJson(Map<String, dynamic> json) => _$PlayerFromJson(json);
+}
+
+@freezed
+class PlayerData with _$PlayerData {
+  const factory PlayerData({
+    @Default(0) int id,
+    @Default(0) @JsonKey(name: 'parent_id') int parentId,
+    @Default('') @JsonKey(name: 'child_name') String childName,
+    @Default('') String image,
+  }) = _PlayerData;
+
+  factory PlayerData.fromJson(Map<String, dynamic> json) => _$PlayerDataFromJson(json);
 }

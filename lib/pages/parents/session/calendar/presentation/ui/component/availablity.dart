@@ -152,9 +152,9 @@ class Availablity extends StatelessWidget {
                                     borderRadius: BorderRadius.circular(4.0),
                                   ),
                                   child: Padding(
-                                    padding: const EdgeInsets.symmetric(horizontal: 6.0,vertical: 6),
+                                    padding: const EdgeInsets.symmetric(horizontal: 16.0,vertical: 6),
                                     child: Text(
-                                      "Price: ${data.price}",
+                                      "${data.price}",
                                       style: TextStyle(fontSize: 12, fontWeight: FontWeight.w500),
                                     ),
                                   ),

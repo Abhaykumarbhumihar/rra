@@ -22,12 +22,17 @@ mixin _$ReportState {
   String get message => throw _privateConstructorUsedError;
   String get playerId => throw _privateConstructorUsedError;
   String get selectedPlayerid => throw _privateConstructorUsedError;
+  String get termsIdInList => throw _privateConstructorUsedError;
+  String get sessionIdInList => throw _privateConstructorUsedError;
+  String get cochingProgramIdInList => throw _privateConstructorUsedError;
+  bool get isParent => throw _privateConstructorUsedError;
   PlayerReportModel get playerReportModel => throw _privateConstructorUsedError;
   ReportDetail get reportDetailModel => throw _privateConstructorUsedError;
   TermsProgramSessionPlayerModel get termsProgramSessionPlayerModelData =>
       throw _privateConstructorUsedError;
   Term get termsId => throw _privateConstructorUsedError;
   Session get sessionId => throw _privateConstructorUsedError;
+  PlayerData get player => throw _privateConstructorUsedError;
   CoachingProgram get coachingProgramId => throw _privateConstructorUsedError;
 
   /// Create a copy of ReportState
@@ -50,11 +55,16 @@ abstract class $ReportStateCopyWith<$Res> {
       String message,
       String playerId,
       String selectedPlayerid,
+      String termsIdInList,
+      String sessionIdInList,
+      String cochingProgramIdInList,
+      bool isParent,
       PlayerReportModel playerReportModel,
       ReportDetail reportDetailModel,
       TermsProgramSessionPlayerModel termsProgramSessionPlayerModelData,
       Term termsId,
       Session sessionId,
+      PlayerData player,
       CoachingProgram coachingProgramId});
 
   $PlayerReportModelCopyWith<$Res> get playerReportModel;
@@ -63,6 +73,7 @@ abstract class $ReportStateCopyWith<$Res> {
       get termsProgramSessionPlayerModelData;
   $TermCopyWith<$Res> get termsId;
   $SessionCopyWith<$Res> get sessionId;
+  $PlayerDataCopyWith<$Res> get player;
   $CoachingProgramCopyWith<$Res> get coachingProgramId;
 }
 
@@ -87,11 +98,16 @@ class _$ReportStateCopyWithImpl<$Res, $Val extends ReportState>
     Object? message = null,
     Object? playerId = null,
     Object? selectedPlayerid = null,
+    Object? termsIdInList = null,
+    Object? sessionIdInList = null,
+    Object? cochingProgramIdInList = null,
+    Object? isParent = null,
     Object? playerReportModel = null,
     Object? reportDetailModel = null,
     Object? termsProgramSessionPlayerModelData = null,
     Object? termsId = null,
     Object? sessionId = null,
+    Object? player = null,
     Object? coachingProgramId = null,
   }) {
     return _then(_value.copyWith(
@@ -119,6 +135,22 @@ class _$ReportStateCopyWithImpl<$Res, $Val extends ReportState>
           ? _value.selectedPlayerid
           : selectedPlayerid // ignore: cast_nullable_to_non_nullable
               as String,
+      termsIdInList: null == termsIdInList
+          ? _value.termsIdInList
+          : termsIdInList // ignore: cast_nullable_to_non_nullable
+              as String,
+      sessionIdInList: null == sessionIdInList
+          ? _value.sessionIdInList
+          : sessionIdInList // ignore: cast_nullable_to_non_nullable
+              as String,
+      cochingProgramIdInList: null == cochingProgramIdInList
+          ? _value.cochingProgramIdInList
+          : cochingProgramIdInList // ignore: cast_nullable_to_non_nullable
+              as String,
+      isParent: null == isParent
+          ? _value.isParent
+          : isParent // ignore: cast_nullable_to_non_nullable
+              as bool,
       playerReportModel: null == playerReportModel
           ? _value.playerReportModel
           : playerReportModel // ignore: cast_nullable_to_non_nullable
@@ -140,6 +172,10 @@ class _$ReportStateCopyWithImpl<$Res, $Val extends ReportState>
           ? _value.sessionId
           : sessionId // ignore: cast_nullable_to_non_nullable
               as Session,
+      player: null == player
+          ? _value.player
+          : player // ignore: cast_nullable_to_non_nullable
+              as PlayerData,
       coachingProgramId: null == coachingProgramId
           ? _value.coachingProgramId
           : coachingProgramId // ignore: cast_nullable_to_non_nullable
@@ -204,6 +240,16 @@ class _$ReportStateCopyWithImpl<$Res, $Val extends ReportState>
   /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
+  $PlayerDataCopyWith<$Res> get player {
+    return $PlayerDataCopyWith<$Res>(_value.player, (value) {
+      return _then(_value.copyWith(player: value) as $Val);
+    });
+  }
+
+  /// Create a copy of ReportState
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
   $CoachingProgramCopyWith<$Res> get coachingProgramId {
     return $CoachingProgramCopyWith<$Res>(_value.coachingProgramId, (value) {
       return _then(_value.copyWith(coachingProgramId: value) as $Val);
@@ -226,11 +272,16 @@ abstract class _$$ReportStateImplCopyWith<$Res>
       String message,
       String playerId,
       String selectedPlayerid,
+      String termsIdInList,
+      String sessionIdInList,
+      String cochingProgramIdInList,
+      bool isParent,
       PlayerReportModel playerReportModel,
       ReportDetail reportDetailModel,
       TermsProgramSessionPlayerModel termsProgramSessionPlayerModelData,
       Term termsId,
       Session sessionId,
+      PlayerData player,
       CoachingProgram coachingProgramId});
 
   @override
@@ -244,6 +295,8 @@ abstract class _$$ReportStateImplCopyWith<$Res>
   $TermCopyWith<$Res> get termsId;
   @override
   $SessionCopyWith<$Res> get sessionId;
+  @override
+  $PlayerDataCopyWith<$Res> get player;
   @override
   $CoachingProgramCopyWith<$Res> get coachingProgramId;
 }
@@ -267,11 +320,16 @@ class __$$ReportStateImplCopyWithImpl<$Res>
     Object? message = null,
     Object? playerId = null,
     Object? selectedPlayerid = null,
+    Object? termsIdInList = null,
+    Object? sessionIdInList = null,
+    Object? cochingProgramIdInList = null,
+    Object? isParent = null,
     Object? playerReportModel = null,
     Object? reportDetailModel = null,
     Object? termsProgramSessionPlayerModelData = null,
     Object? termsId = null,
     Object? sessionId = null,
+    Object? player = null,
     Object? coachingProgramId = null,
   }) {
     return _then(_$ReportStateImpl(
@@ -299,6 +357,22 @@ class __$$ReportStateImplCopyWithImpl<$Res>
           ? _value.selectedPlayerid
           : selectedPlayerid // ignore: cast_nullable_to_non_nullable
               as String,
+      termsIdInList: null == termsIdInList
+          ? _value.termsIdInList
+          : termsIdInList // ignore: cast_nullable_to_non_nullable
+              as String,
+      sessionIdInList: null == sessionIdInList
+          ? _value.sessionIdInList
+          : sessionIdInList // ignore: cast_nullable_to_non_nullable
+              as String,
+      cochingProgramIdInList: null == cochingProgramIdInList
+          ? _value.cochingProgramIdInList
+          : cochingProgramIdInList // ignore: cast_nullable_to_non_nullable
+              as String,
+      isParent: null == isParent
+          ? _value.isParent
+          : isParent // ignore: cast_nullable_to_non_nullable
+              as bool,
       playerReportModel: null == playerReportModel
           ? _value.playerReportModel
           : playerReportModel // ignore: cast_nullable_to_non_nullable
@@ -320,6 +394,10 @@ class __$$ReportStateImplCopyWithImpl<$Res>
           ? _value.sessionId
           : sessionId // ignore: cast_nullable_to_non_nullable
               as Session,
+      player: null == player
+          ? _value.player
+          : player // ignore: cast_nullable_to_non_nullable
+              as PlayerData,
       coachingProgramId: null == coachingProgramId
           ? _value.coachingProgramId
           : coachingProgramId // ignore: cast_nullable_to_non_nullable
@@ -338,12 +416,17 @@ class _$ReportStateImpl implements _ReportState {
       this.message = "",
       this.playerId = "",
       this.selectedPlayerid = "",
+      this.termsIdInList = "",
+      this.sessionIdInList = "",
+      this.cochingProgramIdInList = "",
+      this.isParent = false,
       this.playerReportModel = const PlayerReportModel(),
       this.reportDetailModel = const ReportDetail(),
       this.termsProgramSessionPlayerModelData =
           const TermsProgramSessionPlayerModel(),
       this.termsId = const Term(),
       this.sessionId = const Session(),
+      this.player = const PlayerData(),
       this.coachingProgramId = const CoachingProgram()});
 
   @override
@@ -366,6 +449,18 @@ class _$ReportStateImpl implements _ReportState {
   final String selectedPlayerid;
   @override
   @JsonKey()
+  final String termsIdInList;
+  @override
+  @JsonKey()
+  final String sessionIdInList;
+  @override
+  @JsonKey()
+  final String cochingProgramIdInList;
+  @override
+  @JsonKey()
+  final bool isParent;
+  @override
+  @JsonKey()
   final PlayerReportModel playerReportModel;
   @override
   @JsonKey()
@@ -381,11 +476,14 @@ class _$ReportStateImpl implements _ReportState {
   final Session sessionId;
   @override
   @JsonKey()
+  final PlayerData player;
+  @override
+  @JsonKey()
   final CoachingProgram coachingProgramId;
 
   @override
   String toString() {
-    return 'ReportState(isLoading: $isLoading, isStatusUpdated: $isStatusUpdated, isError: $isError, message: $message, playerId: $playerId, selectedPlayerid: $selectedPlayerid, playerReportModel: $playerReportModel, reportDetailModel: $reportDetailModel, termsProgramSessionPlayerModelData: $termsProgramSessionPlayerModelData, termsId: $termsId, sessionId: $sessionId, coachingProgramId: $coachingProgramId)';
+    return 'ReportState(isLoading: $isLoading, isStatusUpdated: $isStatusUpdated, isError: $isError, message: $message, playerId: $playerId, selectedPlayerid: $selectedPlayerid, termsIdInList: $termsIdInList, sessionIdInList: $sessionIdInList, cochingProgramIdInList: $cochingProgramIdInList, isParent: $isParent, playerReportModel: $playerReportModel, reportDetailModel: $reportDetailModel, termsProgramSessionPlayerModelData: $termsProgramSessionPlayerModelData, termsId: $termsId, sessionId: $sessionId, player: $player, coachingProgramId: $coachingProgramId)';
   }
 
   @override
@@ -403,6 +501,14 @@ class _$ReportStateImpl implements _ReportState {
                 other.playerId == playerId) &&
             (identical(other.selectedPlayerid, selectedPlayerid) ||
                 other.selectedPlayerid == selectedPlayerid) &&
+            (identical(other.termsIdInList, termsIdInList) ||
+                other.termsIdInList == termsIdInList) &&
+            (identical(other.sessionIdInList, sessionIdInList) ||
+                other.sessionIdInList == sessionIdInList) &&
+            (identical(other.cochingProgramIdInList, cochingProgramIdInList) ||
+                other.cochingProgramIdInList == cochingProgramIdInList) &&
+            (identical(other.isParent, isParent) ||
+                other.isParent == isParent) &&
             (identical(other.playerReportModel, playerReportModel) ||
                 other.playerReportModel == playerReportModel) &&
             (identical(other.reportDetailModel, reportDetailModel) ||
@@ -414,6 +520,7 @@ class _$ReportStateImpl implements _ReportState {
             (identical(other.termsId, termsId) || other.termsId == termsId) &&
             (identical(other.sessionId, sessionId) ||
                 other.sessionId == sessionId) &&
+            (identical(other.player, player) || other.player == player) &&
             (identical(other.coachingProgramId, coachingProgramId) ||
                 other.coachingProgramId == coachingProgramId));
   }
@@ -427,11 +534,16 @@ class _$ReportStateImpl implements _ReportState {
       message,
       playerId,
       selectedPlayerid,
+      termsIdInList,
+      sessionIdInList,
+      cochingProgramIdInList,
+      isParent,
       playerReportModel,
       reportDetailModel,
       termsProgramSessionPlayerModelData,
       termsId,
       sessionId,
+      player,
       coachingProgramId);
 
   /// Create a copy of ReportState
@@ -451,11 +563,16 @@ abstract class _ReportState implements ReportState {
       final String message,
       final String playerId,
       final String selectedPlayerid,
+      final String termsIdInList,
+      final String sessionIdInList,
+      final String cochingProgramIdInList,
+      final bool isParent,
       final PlayerReportModel playerReportModel,
       final ReportDetail reportDetailModel,
       final TermsProgramSessionPlayerModel termsProgramSessionPlayerModelData,
       final Term termsId,
       final Session sessionId,
+      final PlayerData player,
       final CoachingProgram coachingProgramId}) = _$ReportStateImpl;
 
   @override
@@ -471,6 +588,14 @@ abstract class _ReportState implements ReportState {
   @override
   String get selectedPlayerid;
   @override
+  String get termsIdInList;
+  @override
+  String get sessionIdInList;
+  @override
+  String get cochingProgramIdInList;
+  @override
+  bool get isParent;
+  @override
   PlayerReportModel get playerReportModel;
   @override
   ReportDetail get reportDetailModel;
@@ -480,6 +605,8 @@ abstract class _ReportState implements ReportState {
   Term get termsId;
   @override
   Session get sessionId;
+  @override
+  PlayerData get player;
   @override
   CoachingProgram get coachingProgramId;
 

@@ -16,7 +16,7 @@ class ParentDashbard extends StatelessWidget {
       children: <Widget>[
         CustomHeaderWithOutTitle(),
         Padding(
-          padding: const EdgeInsets.only(right: 2.0),
+          padding: EdgeInsets.only(left: 0,right:0 ),
           child: BookSessions().animate().fade().slideX(begin: 0.5, end: 0, duration: 500.ms),
         ),
 
@@ -25,7 +25,7 @@ class ParentDashbard extends StatelessWidget {
         ),
         Padding(
           padding: EdgeInsets.only(
-            left: context.screenWidth * 0.054,),
+            left: context.screenWidth * 0.054,right: 0),
           child: Row(
             children: <Widget>[
               CustomSessionCard(
@@ -65,7 +65,7 @@ class ParentDashbard extends StatelessWidget {
         ),
         SizedBox(height: 15,),
         Padding(
-          padding: const EdgeInsets.only(right: 2.0),
+          padding: const EdgeInsets.only(right:0.0),
           child: DashboardGrid(),
         ),
         SizedBox(

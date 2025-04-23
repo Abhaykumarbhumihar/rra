@@ -203,7 +203,7 @@ class AddViewDocumenPage extends StatelessWidget {
                                                         context)
                                                     .add(
                                                         setSelectedPlayerDocumentEvent(
-                                                            data.parentId!));
+                                                            data.parentId! as PlayerData));
                                               }
 
                                               BlocProvider.of<AddDocumentBloc>(

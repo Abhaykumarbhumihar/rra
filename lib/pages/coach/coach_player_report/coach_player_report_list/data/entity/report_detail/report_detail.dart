@@ -21,7 +21,7 @@ class ReportData with _$ReportData {
   const factory ReportData({
     @JsonKey(name: 'coaching_program') @Default('') String coachingProgram,
     @JsonKey(name: 'session_name') @Default('') String sessionName,
-    @JsonKey(name: 'child_id') @Default(0) int childId,
+    @JsonKey(name: 'child_id', fromJson: _stringToInt) @Default(0) int childId,
     @JsonKey(name: 'child_name') @Default('') String childName,
     @JsonKey(name: 'isChildHasPhysicalIssue') @Default(false) bool isChildHasPhysicalIssue,
     @JsonKey(name: 'child_age') @Default('') String childAge,
@@ -44,14 +44,14 @@ class ReportData with _$ReportData {
 @freezed
 class PerformanceElementDetail with _$PerformanceElementDetail {
   const factory PerformanceElementDetail({
-    @JsonKey(name: 'performance_element_id') @Default(0) int performanceElementId,
+    @JsonKey(name: 'performance_element_id', fromJson: _stringToInt) @Default(0) int performanceElementId,
     @JsonKey(name: 'performance_element_title') @Default('') String performanceElementTitle,
-    @JsonKey(name: 'marks') @Default(0) int marks,
-    @JsonKey(name: 'total_marks') @Default(0) int totalMarks,
-    @JsonKey(name: 'session_id') @Default(0) int sessionId,
-    @JsonKey(name: 'player_id') @Default(0) int playerId,
-    @JsonKey(name: 'coaching_program_id') @Default(0) int coachingProgramId,
-    @JsonKey(name: 'add_score') @Default(AddScoreDetail()) AddScoreDetail addScore,
+    @JsonKey(name: 'marks', fromJson: _stringToInt) @Default(0) int marks,
+    @JsonKey(name: 'total_marks', fromJson: _stringToInt) @Default(0) int totalMarks,
+    @JsonKey(name: 'session_id', fromJson: _stringToInt) @Default(0) int sessionId,
+    @JsonKey(name: 'player_id', fromJson: _stringToInt) @Default(0) int playerId,
+    @JsonKey(name: 'coaching_program_id', fromJson: _stringToInt) @Default(0) int coachingProgramId,
+    @JsonKey(name: 'add_score') AddScoreDetail? addScore,
   }) = _PerformanceElementDetail;
 
   factory PerformanceElementDetail.fromJson(Map<String, dynamic> json) =>
@@ -63,10 +63,9 @@ class AddScoreDetail with _$AddScoreDetail {
   const factory AddScoreDetail({
     @JsonKey(name: 'child_name') @Default('') String childName,
     @JsonKey(name: 'performance_data') @Default('') String performanceData,
-    @JsonKey(name: 'score_criteria')
-    @Default(<ScoreCriteriaDetail>[]) List<ScoreCriteriaDetail> scoreCriteria,
+    @JsonKey(name: 'score_criteria') @Default(<ScoreCriteriaDetail>[]) List<ScoreCriteriaDetail> scoreCriteria,
     @JsonKey(name: 'scores') @Default(<ScoreDetail>[]) List<ScoreDetail> scores,
-    @JsonKey(name: 'score_master_id') @Default(0) int scoreMasterId,
+    @JsonKey(name: 'score_master_id', fromJson: _stringToInt) @Default(0) int scoreMasterId,
     @JsonKey(name: 'comment') @Default('') String comment,
   }) = _AddScoreDetail;
 
@@ -90,10 +89,19 @@ class ScoreCriteriaDetail with _$ScoreCriteriaDetail {
 @freezed
 class ScoreDetail with _$ScoreDetail {
   const factory ScoreDetail({
-    @JsonKey(name: 'id') @Default(0) int id,
+    @JsonKey(name: 'id', fromJson: _stringToInt) @Default(0) int id,
     @JsonKey(name: 'name') @Default('') String name,
-    @JsonKey(name: 'score') @Default(0) int score,
+    @JsonKey(name: 'score', fromJson: _stringToInt) @Default(0) int score,
   }) = _ScoreDetail;
 
-  factory ScoreDetail.fromJson(Map<String, dynamic> json) => _$ScoreDetailFromJson(json);
+  factory ScoreDetail.fromJson(Map<String, dynamic> json) =>
+      _$ScoreDetailFromJson(json);
+}
+
+// Helper function to handle both string and number inputs
+int _stringToInt(dynamic value) {
+  if (value is int) return value;
+  if (value is String) return int.tryParse(value) ?? 0;
+  if (value is num) return value.toInt();
+  return 0;
 }

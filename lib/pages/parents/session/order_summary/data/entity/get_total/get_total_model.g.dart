@@ -34,7 +34,10 @@ _$GetTotalDataImpl _$$GetTotalDataImplFromJson(Map<String, dynamic> json) =>
               .toList() ??
           const [],
       total_session_discount: json['total_session_discount'] as String? ?? '',
-      promocodeDetails: json['promocodeDetails'] ?? null,
+      promocodeDetails: json['promocodeDetails'] == null
+          ? const PromocodeDetails()
+          : PromocodeDetails.fromJson(
+              json['promocodeDetails'] as Map<String, dynamic>),
       total_payable: json['total_payable'] as String? ?? '',
       bulkDiscounts: json['bulk_discounts'] as List<dynamic>? ?? const [],
       settings: json['settings'] == null
@@ -55,6 +58,24 @@ Map<String, dynamic> _$$GetTotalDataImplToJson(_$GetTotalDataImpl instance) =>
       'bulk_discounts': instance.bulkDiscounts,
       'settings': instance.settings,
       'is_private': instance.is_private,
+    };
+
+_$PromocodeDetailsImpl _$$PromocodeDetailsImplFromJson(
+        Map<String, dynamic> json) =>
+    _$PromocodeDetailsImpl(
+      totalAmount: (json['totalAmount'] as num?)?.toDouble() ?? 0,
+      discount: json['discount'] as String? ?? '',
+      finalAmount: (json['finalAmount'] as num?)?.toDouble() ?? 0,
+      promocode_id: (json['promocode_id'] as num?)?.toInt() ?? 0,
+    );
+
+Map<String, dynamic> _$$PromocodeDetailsImplToJson(
+        _$PromocodeDetailsImpl instance) =>
+    <String, dynamic>{
+      'totalAmount': instance.totalAmount,
+      'discount': instance.discount,
+      'finalAmount': instance.finalAmount,
+      'promocode_id': instance.promocode_id,
     };
 
 _$RegistrationFeeImpl _$$RegistrationFeeImplFromJson(

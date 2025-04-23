@@ -209,6 +209,8 @@ class OrderSummary extends StatelessWidget {
                                                   .orderSummaryModel.data[index];
                                           
                                               return AddedSlotListItem(
+                                                currency:state
+                                                    .orderSummaryModel.currency,
                                                 fromTime: session.fromTime,
                                                 toTime: session.toTime,
                                                 sessionID:
@@ -409,10 +411,11 @@ class OrderSummary extends StatelessWidget {
       {required VoidCallback checkOutAction, VoidCallback? couponApplyAction}) {
     showModalBottomSheet(
       context: context,
+      isScrollControlled: true, // All
       shape: const RoundedRectangleBorder(
         borderRadius: BorderRadius.vertical(top: Radius.circular(40)),
       ),
-      clipBehavior: Clip.antiAliasWithSaveLayer,
+      clipBehavior: Clip.antiAlias,
       builder: (context) => PaymentBottomSheet(
         checkOutAction: checkOutAction,
         promoCodeController: promoCodeController,

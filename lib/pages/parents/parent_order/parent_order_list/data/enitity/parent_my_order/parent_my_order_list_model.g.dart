@@ -29,42 +29,33 @@ Map<String, dynamic> _$$ParentMyOrderListModelImplToJson(
 _$ParentOrderDataImpl _$$ParentOrderDataImplFromJson(
         Map<String, dynamic> json) =>
     _$ParentOrderDataImpl(
-      user: json['user'] == null
-          ? const User()
-          : User.fromJson(json['user'] as Map<String, dynamic>),
       orders: (json['orders'] as List<dynamic>?)
               ?.map((e) => Order.fromJson(e as Map<String, dynamic>))
               .toList() ??
-          const [],
+          const <Order>[],
+      players: (json['players'] as List<dynamic>?)
+              ?.map((e) => Player.fromJson(e as Map<String, dynamic>))
+              .toList() ??
+          const <Player>[],
       cancellationDays: (json['cancellation_days'] as num?)?.toInt() ?? 0,
     );
 
 Map<String, dynamic> _$$ParentOrderDataImplToJson(
         _$ParentOrderDataImpl instance) =>
     <String, dynamic>{
-      'user': instance.user,
       'orders': instance.orders,
+      'players': instance.players,
       'cancellation_days': instance.cancellationDays,
     };
 
-_$UserImpl _$$UserImplFromJson(Map<String, dynamic> json) => _$UserImpl(
-      id: (json['id'] as num?)?.toInt() ?? 0,
-      name: json['name'] as String? ?? '',
-      email: json['email'] as String? ?? '',
-    );
-
-Map<String, dynamic> _$$UserImplToJson(_$UserImpl instance) =>
-    <String, dynamic>{
-      'id': instance.id,
-      'name': instance.name,
-      'email': instance.email,
-    };
-
 _$OrderImpl _$$OrderImplFromJson(Map<String, dynamic> json) => _$OrderImpl(
-      orderId: (json['order_id'] as num?)?.toInt() ?? 0,
-      orderUniqueId: json['order_unique_id'] as String? ?? '',
-      sessions: json['sessions'] as String? ?? '',
-      date: json['date'] as String? ?? '',
+      id: json['id'] == null ? 0 : _stringToInt(json['id']),
+      uniqueId: json['unique_id'] as String? ?? '',
+      sessions: (json['sessions'] as List<dynamic>?)
+              ?.map((e) => e as String)
+              .toList() ??
+          const <String>[],
+      createdAt: json['created_at'] as String? ?? '',
       amount: json['amount'] as String? ?? '',
       status: json['status'] as String? ?? '',
       cancelable: json['cancelable'] as bool? ?? false,
@@ -72,11 +63,22 @@ _$OrderImpl _$$OrderImplFromJson(Map<String, dynamic> json) => _$OrderImpl(
 
 Map<String, dynamic> _$$OrderImplToJson(_$OrderImpl instance) =>
     <String, dynamic>{
-      'order_id': instance.orderId,
-      'order_unique_id': instance.orderUniqueId,
+      'id': instance.id,
+      'unique_id': instance.uniqueId,
       'sessions': instance.sessions,
-      'date': instance.date,
+      'created_at': instance.createdAt,
       'amount': instance.amount,
       'status': instance.status,
       'cancelable': instance.cancelable,
+    };
+
+_$PlayerImpl _$$PlayerImplFromJson(Map<String, dynamic> json) => _$PlayerImpl(
+      id: json['id'] == null ? 0 : _stringToInt(json['id']),
+      childName: json['child_name'] as String? ?? '',
+    );
+
+Map<String, dynamic> _$$PlayerImplToJson(_$PlayerImpl instance) =>
+    <String, dynamic>{
+      'id': instance.id,
+      'child_name': instance.childName,
     };

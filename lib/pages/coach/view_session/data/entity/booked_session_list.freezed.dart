@@ -262,6 +262,8 @@ BookedSessionData _$BookedSessionDataFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$BookedSessionData {
+  @JsonKey(name: 'orders')
+  List<Order> get orders => throw _privateConstructorUsedError;
   @JsonKey(name: 'sessions')
   List<Session> get sessions => throw _privateConstructorUsedError;
   @JsonKey(name: 'players')
@@ -286,7 +288,8 @@ abstract class $BookedSessionDataCopyWith<$Res> {
       _$BookedSessionDataCopyWithImpl<$Res, BookedSessionData>;
   @useResult
   $Res call(
-      {@JsonKey(name: 'sessions') List<Session> sessions,
+      {@JsonKey(name: 'orders') List<Order> orders,
+      @JsonKey(name: 'sessions') List<Session> sessions,
       @JsonKey(name: 'players') List<Player> players,
       @JsonKey(name: 'dayMapping') Map<String, String> dayMapping});
 }
@@ -306,11 +309,16 @@ class _$BookedSessionDataCopyWithImpl<$Res, $Val extends BookedSessionData>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? orders = null,
     Object? sessions = null,
     Object? players = null,
     Object? dayMapping = null,
   }) {
     return _then(_value.copyWith(
+      orders: null == orders
+          ? _value.orders
+          : orders // ignore: cast_nullable_to_non_nullable
+              as List<Order>,
       sessions: null == sessions
           ? _value.sessions
           : sessions // ignore: cast_nullable_to_non_nullable
@@ -336,7 +344,8 @@ abstract class _$$BookedSessionDataImplCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {@JsonKey(name: 'sessions') List<Session> sessions,
+      {@JsonKey(name: 'orders') List<Order> orders,
+      @JsonKey(name: 'sessions') List<Session> sessions,
       @JsonKey(name: 'players') List<Player> players,
       @JsonKey(name: 'dayMapping') Map<String, String> dayMapping});
 }
@@ -354,11 +363,16 @@ class __$$BookedSessionDataImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? orders = null,
     Object? sessions = null,
     Object? players = null,
     Object? dayMapping = null,
   }) {
     return _then(_$BookedSessionDataImpl(
+      orders: null == orders
+          ? _value._orders
+          : orders // ignore: cast_nullable_to_non_nullable
+              as List<Order>,
       sessions: null == sessions
           ? _value._sessions
           : sessions // ignore: cast_nullable_to_non_nullable
@@ -379,16 +393,27 @@ class __$$BookedSessionDataImplCopyWithImpl<$Res>
 @JsonSerializable()
 class _$BookedSessionDataImpl implements _BookedSessionData {
   const _$BookedSessionDataImpl(
-      {@JsonKey(name: 'sessions') final List<Session> sessions = const [],
+      {@JsonKey(name: 'orders') final List<Order> orders = const [],
+      @JsonKey(name: 'sessions') final List<Session> sessions = const [],
       @JsonKey(name: 'players') final List<Player> players = const [],
       @JsonKey(name: 'dayMapping')
       final Map<String, String> dayMapping = const {}})
-      : _sessions = sessions,
+      : _orders = orders,
+        _sessions = sessions,
         _players = players,
         _dayMapping = dayMapping;
 
   factory _$BookedSessionDataImpl.fromJson(Map<String, dynamic> json) =>
       _$$BookedSessionDataImplFromJson(json);
+
+  final List<Order> _orders;
+  @override
+  @JsonKey(name: 'orders')
+  List<Order> get orders {
+    if (_orders is EqualUnmodifiableListView) return _orders;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_orders);
+  }
 
   final List<Session> _sessions;
   @override
@@ -419,7 +444,7 @@ class _$BookedSessionDataImpl implements _BookedSessionData {
 
   @override
   String toString() {
-    return 'BookedSessionData(sessions: $sessions, players: $players, dayMapping: $dayMapping)';
+    return 'BookedSessionData(orders: $orders, sessions: $sessions, players: $players, dayMapping: $dayMapping)';
   }
 
   @override
@@ -427,6 +452,7 @@ class _$BookedSessionDataImpl implements _BookedSessionData {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$BookedSessionDataImpl &&
+            const DeepCollectionEquality().equals(other._orders, _orders) &&
             const DeepCollectionEquality().equals(other._sessions, _sessions) &&
             const DeepCollectionEquality().equals(other._players, _players) &&
             const DeepCollectionEquality()
@@ -437,6 +463,7 @@ class _$BookedSessionDataImpl implements _BookedSessionData {
   @override
   int get hashCode => Object.hash(
       runtimeType,
+      const DeepCollectionEquality().hash(_orders),
       const DeepCollectionEquality().hash(_sessions),
       const DeepCollectionEquality().hash(_players),
       const DeepCollectionEquality().hash(_dayMapping));
@@ -460,7 +487,8 @@ class _$BookedSessionDataImpl implements _BookedSessionData {
 
 abstract class _BookedSessionData implements BookedSessionData {
   const factory _BookedSessionData(
-          {@JsonKey(name: 'sessions') final List<Session> sessions,
+          {@JsonKey(name: 'orders') final List<Order> orders,
+          @JsonKey(name: 'sessions') final List<Session> sessions,
           @JsonKey(name: 'players') final List<Player> players,
           @JsonKey(name: 'dayMapping') final Map<String, String> dayMapping}) =
       _$BookedSessionDataImpl;
@@ -468,6 +496,9 @@ abstract class _BookedSessionData implements BookedSessionData {
   factory _BookedSessionData.fromJson(Map<String, dynamic> json) =
       _$BookedSessionDataImpl.fromJson;
 
+  @override
+  @JsonKey(name: 'orders')
+  List<Order> get orders;
   @override
   @JsonKey(name: 'sessions')
   List<Session> get sessions;
@@ -483,6 +514,314 @@ abstract class _BookedSessionData implements BookedSessionData {
   @override
   @JsonKey(includeFromJson: false, includeToJson: false)
   _$$BookedSessionDataImplCopyWith<_$BookedSessionDataImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+Order _$OrderFromJson(Map<String, dynamic> json) {
+  return _Order.fromJson(json);
+}
+
+/// @nodoc
+mixin _$Order {
+  @JsonKey(name: 'id')
+  int get id => throw _privateConstructorUsedError;
+  @JsonKey(name: 'unique_id')
+  String get uniqueId => throw _privateConstructorUsedError;
+  @JsonKey(name: 'sessions')
+  List<String> get sessions => throw _privateConstructorUsedError;
+  @JsonKey(name: 'created_at')
+  String get createdAt => throw _privateConstructorUsedError;
+  @JsonKey(name: 'amount')
+  String get amount => throw _privateConstructorUsedError;
+  @JsonKey(name: 'status')
+  String get status => throw _privateConstructorUsedError;
+  @JsonKey(name: 'cancelable')
+  bool get cancelable => throw _privateConstructorUsedError;
+
+  /// Serializes this Order to a JSON map.
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+
+  /// Create a copy of Order
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  $OrderCopyWith<Order> get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $OrderCopyWith<$Res> {
+  factory $OrderCopyWith(Order value, $Res Function(Order) then) =
+      _$OrderCopyWithImpl<$Res, Order>;
+  @useResult
+  $Res call(
+      {@JsonKey(name: 'id') int id,
+      @JsonKey(name: 'unique_id') String uniqueId,
+      @JsonKey(name: 'sessions') List<String> sessions,
+      @JsonKey(name: 'created_at') String createdAt,
+      @JsonKey(name: 'amount') String amount,
+      @JsonKey(name: 'status') String status,
+      @JsonKey(name: 'cancelable') bool cancelable});
+}
+
+/// @nodoc
+class _$OrderCopyWithImpl<$Res, $Val extends Order>
+    implements $OrderCopyWith<$Res> {
+  _$OrderCopyWithImpl(this._value, this._then);
+
+  // ignore: unused_field
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
+
+  /// Create a copy of Order
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? id = null,
+    Object? uniqueId = null,
+    Object? sessions = null,
+    Object? createdAt = null,
+    Object? amount = null,
+    Object? status = null,
+    Object? cancelable = null,
+  }) {
+    return _then(_value.copyWith(
+      id: null == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as int,
+      uniqueId: null == uniqueId
+          ? _value.uniqueId
+          : uniqueId // ignore: cast_nullable_to_non_nullable
+              as String,
+      sessions: null == sessions
+          ? _value.sessions
+          : sessions // ignore: cast_nullable_to_non_nullable
+              as List<String>,
+      createdAt: null == createdAt
+          ? _value.createdAt
+          : createdAt // ignore: cast_nullable_to_non_nullable
+              as String,
+      amount: null == amount
+          ? _value.amount
+          : amount // ignore: cast_nullable_to_non_nullable
+              as String,
+      status: null == status
+          ? _value.status
+          : status // ignore: cast_nullable_to_non_nullable
+              as String,
+      cancelable: null == cancelable
+          ? _value.cancelable
+          : cancelable // ignore: cast_nullable_to_non_nullable
+              as bool,
+    ) as $Val);
+  }
+}
+
+/// @nodoc
+abstract class _$$OrderImplCopyWith<$Res> implements $OrderCopyWith<$Res> {
+  factory _$$OrderImplCopyWith(
+          _$OrderImpl value, $Res Function(_$OrderImpl) then) =
+      __$$OrderImplCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call(
+      {@JsonKey(name: 'id') int id,
+      @JsonKey(name: 'unique_id') String uniqueId,
+      @JsonKey(name: 'sessions') List<String> sessions,
+      @JsonKey(name: 'created_at') String createdAt,
+      @JsonKey(name: 'amount') String amount,
+      @JsonKey(name: 'status') String status,
+      @JsonKey(name: 'cancelable') bool cancelable});
+}
+
+/// @nodoc
+class __$$OrderImplCopyWithImpl<$Res>
+    extends _$OrderCopyWithImpl<$Res, _$OrderImpl>
+    implements _$$OrderImplCopyWith<$Res> {
+  __$$OrderImplCopyWithImpl(
+      _$OrderImpl _value, $Res Function(_$OrderImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of Order
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? id = null,
+    Object? uniqueId = null,
+    Object? sessions = null,
+    Object? createdAt = null,
+    Object? amount = null,
+    Object? status = null,
+    Object? cancelable = null,
+  }) {
+    return _then(_$OrderImpl(
+      id: null == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as int,
+      uniqueId: null == uniqueId
+          ? _value.uniqueId
+          : uniqueId // ignore: cast_nullable_to_non_nullable
+              as String,
+      sessions: null == sessions
+          ? _value._sessions
+          : sessions // ignore: cast_nullable_to_non_nullable
+              as List<String>,
+      createdAt: null == createdAt
+          ? _value.createdAt
+          : createdAt // ignore: cast_nullable_to_non_nullable
+              as String,
+      amount: null == amount
+          ? _value.amount
+          : amount // ignore: cast_nullable_to_non_nullable
+              as String,
+      status: null == status
+          ? _value.status
+          : status // ignore: cast_nullable_to_non_nullable
+              as String,
+      cancelable: null == cancelable
+          ? _value.cancelable
+          : cancelable // ignore: cast_nullable_to_non_nullable
+              as bool,
+    ));
+  }
+}
+
+/// @nodoc
+@JsonSerializable()
+class _$OrderImpl implements _Order {
+  const _$OrderImpl(
+      {@JsonKey(name: 'id') this.id = 0,
+      @JsonKey(name: 'unique_id') this.uniqueId = '',
+      @JsonKey(name: 'sessions') final List<String> sessions = const [],
+      @JsonKey(name: 'created_at') this.createdAt = '',
+      @JsonKey(name: 'amount') this.amount = '\$0.00',
+      @JsonKey(name: 'status') this.status = 'Unknown',
+      @JsonKey(name: 'cancelable') this.cancelable = false})
+      : _sessions = sessions;
+
+  factory _$OrderImpl.fromJson(Map<String, dynamic> json) =>
+      _$$OrderImplFromJson(json);
+
+  @override
+  @JsonKey(name: 'id')
+  final int id;
+  @override
+  @JsonKey(name: 'unique_id')
+  final String uniqueId;
+  final List<String> _sessions;
+  @override
+  @JsonKey(name: 'sessions')
+  List<String> get sessions {
+    if (_sessions is EqualUnmodifiableListView) return _sessions;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_sessions);
+  }
+
+  @override
+  @JsonKey(name: 'created_at')
+  final String createdAt;
+  @override
+  @JsonKey(name: 'amount')
+  final String amount;
+  @override
+  @JsonKey(name: 'status')
+  final String status;
+  @override
+  @JsonKey(name: 'cancelable')
+  final bool cancelable;
+
+  @override
+  String toString() {
+    return 'Order(id: $id, uniqueId: $uniqueId, sessions: $sessions, createdAt: $createdAt, amount: $amount, status: $status, cancelable: $cancelable)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$OrderImpl &&
+            (identical(other.id, id) || other.id == id) &&
+            (identical(other.uniqueId, uniqueId) ||
+                other.uniqueId == uniqueId) &&
+            const DeepCollectionEquality().equals(other._sessions, _sessions) &&
+            (identical(other.createdAt, createdAt) ||
+                other.createdAt == createdAt) &&
+            (identical(other.amount, amount) || other.amount == amount) &&
+            (identical(other.status, status) || other.status == status) &&
+            (identical(other.cancelable, cancelable) ||
+                other.cancelable == cancelable));
+  }
+
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  int get hashCode => Object.hash(
+      runtimeType,
+      id,
+      uniqueId,
+      const DeepCollectionEquality().hash(_sessions),
+      createdAt,
+      amount,
+      status,
+      cancelable);
+
+  /// Create a copy of Order
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$OrderImplCopyWith<_$OrderImpl> get copyWith =>
+      __$$OrderImplCopyWithImpl<_$OrderImpl>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$OrderImplToJson(
+      this,
+    );
+  }
+}
+
+abstract class _Order implements Order {
+  const factory _Order(
+      {@JsonKey(name: 'id') final int id,
+      @JsonKey(name: 'unique_id') final String uniqueId,
+      @JsonKey(name: 'sessions') final List<String> sessions,
+      @JsonKey(name: 'created_at') final String createdAt,
+      @JsonKey(name: 'amount') final String amount,
+      @JsonKey(name: 'status') final String status,
+      @JsonKey(name: 'cancelable') final bool cancelable}) = _$OrderImpl;
+
+  factory _Order.fromJson(Map<String, dynamic> json) = _$OrderImpl.fromJson;
+
+  @override
+  @JsonKey(name: 'id')
+  int get id;
+  @override
+  @JsonKey(name: 'unique_id')
+  String get uniqueId;
+  @override
+  @JsonKey(name: 'sessions')
+  List<String> get sessions;
+  @override
+  @JsonKey(name: 'created_at')
+  String get createdAt;
+  @override
+  @JsonKey(name: 'amount')
+  String get amount;
+  @override
+  @JsonKey(name: 'status')
+  String get status;
+  @override
+  @JsonKey(name: 'cancelable')
+  bool get cancelable;
+
+  /// Create a copy of Order
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$OrderImplCopyWith<_$OrderImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -670,36 +1009,24 @@ Session _$SessionFromJson(Map<String, dynamic> json) {
 mixin _$Session {
   @JsonKey(name: 'id')
   int get id => throw _privateConstructorUsedError;
-  @JsonKey(name: 'player_id')
-  int get playerId => throw _privateConstructorUsedError;
   @JsonKey(name: 'session_name')
   String get sessionName => throw _privateConstructorUsedError;
-  @JsonKey(name: 'player_name')
-  String get playerName => throw _privateConstructorUsedError;
-  @JsonKey(name: 'player_detail')
-  PlayerDetail? get playerDetail => throw _privateConstructorUsedError;
   @JsonKey(name: 'coaching_program')
   String get coachingProgram => throw _privateConstructorUsedError;
   @JsonKey(name: 'image')
   String get image => throw _privateConstructorUsedError;
   @JsonKey(name: 'term')
   String get term => throw _privateConstructorUsedError;
-  @JsonKey(name: 'session_day')
-  String get sessionDay => throw _privateConstructorUsedError;
-  @JsonKey(name: 'start_date')
-  String get startDate => throw _privateConstructorUsedError;
   @JsonKey(name: 'from_date')
   String get fromDate => throw _privateConstructorUsedError;
   @JsonKey(name: 'to_date')
   String get toDate => throw _privateConstructorUsedError;
+  @JsonKey(name: 'session_day')
+  String get sessionDay => throw _privateConstructorUsedError;
+  @JsonKey(name: 'start_date')
+  String get startDate => throw _privateConstructorUsedError;
   @JsonKey(name: 'end_date')
   String get endDate => throw _privateConstructorUsedError;
-  @JsonKey(name: 'date')
-  String get date => throw _privateConstructorUsedError;
-  @JsonKey(name: 'amount')
-  String get amount => throw _privateConstructorUsedError;
-  @JsonKey(name: 'status')
-  String get status => throw _privateConstructorUsedError;
   @JsonKey(name: 'cancelable')
   bool get cancelable => throw _privateConstructorUsedError;
 
@@ -719,24 +1046,16 @@ abstract class $SessionCopyWith<$Res> {
   @useResult
   $Res call(
       {@JsonKey(name: 'id') int id,
-      @JsonKey(name: 'player_id') int playerId,
       @JsonKey(name: 'session_name') String sessionName,
-      @JsonKey(name: 'player_name') String playerName,
-      @JsonKey(name: 'player_detail') PlayerDetail? playerDetail,
       @JsonKey(name: 'coaching_program') String coachingProgram,
       @JsonKey(name: 'image') String image,
       @JsonKey(name: 'term') String term,
-      @JsonKey(name: 'session_day') String sessionDay,
-      @JsonKey(name: 'start_date') String startDate,
       @JsonKey(name: 'from_date') String fromDate,
       @JsonKey(name: 'to_date') String toDate,
+      @JsonKey(name: 'session_day') String sessionDay,
+      @JsonKey(name: 'start_date') String startDate,
       @JsonKey(name: 'end_date') String endDate,
-      @JsonKey(name: 'date') String date,
-      @JsonKey(name: 'amount') String amount,
-      @JsonKey(name: 'status') String status,
       @JsonKey(name: 'cancelable') bool cancelable});
-
-  $PlayerDetailCopyWith<$Res>? get playerDetail;
 }
 
 /// @nodoc
@@ -755,21 +1074,15 @@ class _$SessionCopyWithImpl<$Res, $Val extends Session>
   @override
   $Res call({
     Object? id = null,
-    Object? playerId = null,
     Object? sessionName = null,
-    Object? playerName = null,
-    Object? playerDetail = freezed,
     Object? coachingProgram = null,
     Object? image = null,
     Object? term = null,
-    Object? sessionDay = null,
-    Object? startDate = null,
     Object? fromDate = null,
     Object? toDate = null,
+    Object? sessionDay = null,
+    Object? startDate = null,
     Object? endDate = null,
-    Object? date = null,
-    Object? amount = null,
-    Object? status = null,
     Object? cancelable = null,
   }) {
     return _then(_value.copyWith(
@@ -777,22 +1090,10 @@ class _$SessionCopyWithImpl<$Res, $Val extends Session>
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
               as int,
-      playerId: null == playerId
-          ? _value.playerId
-          : playerId // ignore: cast_nullable_to_non_nullable
-              as int,
       sessionName: null == sessionName
           ? _value.sessionName
           : sessionName // ignore: cast_nullable_to_non_nullable
               as String,
-      playerName: null == playerName
-          ? _value.playerName
-          : playerName // ignore: cast_nullable_to_non_nullable
-              as String,
-      playerDetail: freezed == playerDetail
-          ? _value.playerDetail
-          : playerDetail // ignore: cast_nullable_to_non_nullable
-              as PlayerDetail?,
       coachingProgram: null == coachingProgram
           ? _value.coachingProgram
           : coachingProgram // ignore: cast_nullable_to_non_nullable
@@ -805,14 +1106,6 @@ class _$SessionCopyWithImpl<$Res, $Val extends Session>
           ? _value.term
           : term // ignore: cast_nullable_to_non_nullable
               as String,
-      sessionDay: null == sessionDay
-          ? _value.sessionDay
-          : sessionDay // ignore: cast_nullable_to_non_nullable
-              as String,
-      startDate: null == startDate
-          ? _value.startDate
-          : startDate // ignore: cast_nullable_to_non_nullable
-              as String,
       fromDate: null == fromDate
           ? _value.fromDate
           : fromDate // ignore: cast_nullable_to_non_nullable
@@ -821,41 +1114,23 @@ class _$SessionCopyWithImpl<$Res, $Val extends Session>
           ? _value.toDate
           : toDate // ignore: cast_nullable_to_non_nullable
               as String,
+      sessionDay: null == sessionDay
+          ? _value.sessionDay
+          : sessionDay // ignore: cast_nullable_to_non_nullable
+              as String,
+      startDate: null == startDate
+          ? _value.startDate
+          : startDate // ignore: cast_nullable_to_non_nullable
+              as String,
       endDate: null == endDate
           ? _value.endDate
           : endDate // ignore: cast_nullable_to_non_nullable
-              as String,
-      date: null == date
-          ? _value.date
-          : date // ignore: cast_nullable_to_non_nullable
-              as String,
-      amount: null == amount
-          ? _value.amount
-          : amount // ignore: cast_nullable_to_non_nullable
-              as String,
-      status: null == status
-          ? _value.status
-          : status // ignore: cast_nullable_to_non_nullable
               as String,
       cancelable: null == cancelable
           ? _value.cancelable
           : cancelable // ignore: cast_nullable_to_non_nullable
               as bool,
     ) as $Val);
-  }
-
-  /// Create a copy of Session
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @pragma('vm:prefer-inline')
-  $PlayerDetailCopyWith<$Res>? get playerDetail {
-    if (_value.playerDetail == null) {
-      return null;
-    }
-
-    return $PlayerDetailCopyWith<$Res>(_value.playerDetail!, (value) {
-      return _then(_value.copyWith(playerDetail: value) as $Val);
-    });
   }
 }
 
@@ -868,25 +1143,16 @@ abstract class _$$SessionImplCopyWith<$Res> implements $SessionCopyWith<$Res> {
   @useResult
   $Res call(
       {@JsonKey(name: 'id') int id,
-      @JsonKey(name: 'player_id') int playerId,
       @JsonKey(name: 'session_name') String sessionName,
-      @JsonKey(name: 'player_name') String playerName,
-      @JsonKey(name: 'player_detail') PlayerDetail? playerDetail,
       @JsonKey(name: 'coaching_program') String coachingProgram,
       @JsonKey(name: 'image') String image,
       @JsonKey(name: 'term') String term,
-      @JsonKey(name: 'session_day') String sessionDay,
-      @JsonKey(name: 'start_date') String startDate,
       @JsonKey(name: 'from_date') String fromDate,
       @JsonKey(name: 'to_date') String toDate,
+      @JsonKey(name: 'session_day') String sessionDay,
+      @JsonKey(name: 'start_date') String startDate,
       @JsonKey(name: 'end_date') String endDate,
-      @JsonKey(name: 'date') String date,
-      @JsonKey(name: 'amount') String amount,
-      @JsonKey(name: 'status') String status,
       @JsonKey(name: 'cancelable') bool cancelable});
-
-  @override
-  $PlayerDetailCopyWith<$Res>? get playerDetail;
 }
 
 /// @nodoc
@@ -903,21 +1169,15 @@ class __$$SessionImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? id = null,
-    Object? playerId = null,
     Object? sessionName = null,
-    Object? playerName = null,
-    Object? playerDetail = freezed,
     Object? coachingProgram = null,
     Object? image = null,
     Object? term = null,
-    Object? sessionDay = null,
-    Object? startDate = null,
     Object? fromDate = null,
     Object? toDate = null,
+    Object? sessionDay = null,
+    Object? startDate = null,
     Object? endDate = null,
-    Object? date = null,
-    Object? amount = null,
-    Object? status = null,
     Object? cancelable = null,
   }) {
     return _then(_$SessionImpl(
@@ -925,22 +1185,10 @@ class __$$SessionImplCopyWithImpl<$Res>
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
               as int,
-      playerId: null == playerId
-          ? _value.playerId
-          : playerId // ignore: cast_nullable_to_non_nullable
-              as int,
       sessionName: null == sessionName
           ? _value.sessionName
           : sessionName // ignore: cast_nullable_to_non_nullable
               as String,
-      playerName: null == playerName
-          ? _value.playerName
-          : playerName // ignore: cast_nullable_to_non_nullable
-              as String,
-      playerDetail: freezed == playerDetail
-          ? _value.playerDetail
-          : playerDetail // ignore: cast_nullable_to_non_nullable
-              as PlayerDetail?,
       coachingProgram: null == coachingProgram
           ? _value.coachingProgram
           : coachingProgram // ignore: cast_nullable_to_non_nullable
@@ -953,14 +1201,6 @@ class __$$SessionImplCopyWithImpl<$Res>
           ? _value.term
           : term // ignore: cast_nullable_to_non_nullable
               as String,
-      sessionDay: null == sessionDay
-          ? _value.sessionDay
-          : sessionDay // ignore: cast_nullable_to_non_nullable
-              as String,
-      startDate: null == startDate
-          ? _value.startDate
-          : startDate // ignore: cast_nullable_to_non_nullable
-              as String,
       fromDate: null == fromDate
           ? _value.fromDate
           : fromDate // ignore: cast_nullable_to_non_nullable
@@ -969,21 +1209,17 @@ class __$$SessionImplCopyWithImpl<$Res>
           ? _value.toDate
           : toDate // ignore: cast_nullable_to_non_nullable
               as String,
+      sessionDay: null == sessionDay
+          ? _value.sessionDay
+          : sessionDay // ignore: cast_nullable_to_non_nullable
+              as String,
+      startDate: null == startDate
+          ? _value.startDate
+          : startDate // ignore: cast_nullable_to_non_nullable
+              as String,
       endDate: null == endDate
           ? _value.endDate
           : endDate // ignore: cast_nullable_to_non_nullable
-              as String,
-      date: null == date
-          ? _value.date
-          : date // ignore: cast_nullable_to_non_nullable
-              as String,
-      amount: null == amount
-          ? _value.amount
-          : amount // ignore: cast_nullable_to_non_nullable
-              as String,
-      status: null == status
-          ? _value.status
-          : status // ignore: cast_nullable_to_non_nullable
               as String,
       cancelable: null == cancelable
           ? _value.cancelable
@@ -998,21 +1234,15 @@ class __$$SessionImplCopyWithImpl<$Res>
 class _$SessionImpl implements _Session {
   const _$SessionImpl(
       {@JsonKey(name: 'id') this.id = 0,
-      @JsonKey(name: 'player_id') this.playerId = 0,
       @JsonKey(name: 'session_name') this.sessionName = '',
-      @JsonKey(name: 'player_name') this.playerName = '',
-      @JsonKey(name: 'player_detail') this.playerDetail,
       @JsonKey(name: 'coaching_program') this.coachingProgram = '',
       @JsonKey(name: 'image') this.image = '',
       @JsonKey(name: 'term') this.term = '',
-      @JsonKey(name: 'session_day') this.sessionDay = '',
-      @JsonKey(name: 'start_date') this.startDate = '',
       @JsonKey(name: 'from_date') this.fromDate = '',
       @JsonKey(name: 'to_date') this.toDate = '',
+      @JsonKey(name: 'session_day') this.sessionDay = '',
+      @JsonKey(name: 'start_date') this.startDate = '',
       @JsonKey(name: 'end_date') this.endDate = '',
-      @JsonKey(name: 'date') this.date = "",
-      @JsonKey(name: 'amount') this.amount = "\$0.0",
-      @JsonKey(name: 'status') this.status = "",
       @JsonKey(name: 'cancelable') this.cancelable = false});
 
   factory _$SessionImpl.fromJson(Map<String, dynamic> json) =>
@@ -1022,17 +1252,8 @@ class _$SessionImpl implements _Session {
   @JsonKey(name: 'id')
   final int id;
   @override
-  @JsonKey(name: 'player_id')
-  final int playerId;
-  @override
   @JsonKey(name: 'session_name')
   final String sessionName;
-  @override
-  @JsonKey(name: 'player_name')
-  final String playerName;
-  @override
-  @JsonKey(name: 'player_detail')
-  final PlayerDetail? playerDetail;
   @override
   @JsonKey(name: 'coaching_program')
   final String coachingProgram;
@@ -1043,36 +1264,27 @@ class _$SessionImpl implements _Session {
   @JsonKey(name: 'term')
   final String term;
   @override
-  @JsonKey(name: 'session_day')
-  final String sessionDay;
-  @override
-  @JsonKey(name: 'start_date')
-  final String startDate;
-  @override
   @JsonKey(name: 'from_date')
   final String fromDate;
   @override
   @JsonKey(name: 'to_date')
   final String toDate;
   @override
+  @JsonKey(name: 'session_day')
+  final String sessionDay;
+  @override
+  @JsonKey(name: 'start_date')
+  final String startDate;
+  @override
   @JsonKey(name: 'end_date')
   final String endDate;
-  @override
-  @JsonKey(name: 'date')
-  final String date;
-  @override
-  @JsonKey(name: 'amount')
-  final String amount;
-  @override
-  @JsonKey(name: 'status')
-  final String status;
   @override
   @JsonKey(name: 'cancelable')
   final bool cancelable;
 
   @override
   String toString() {
-    return 'Session(id: $id, playerId: $playerId, sessionName: $sessionName, playerName: $playerName, playerDetail: $playerDetail, coachingProgram: $coachingProgram, image: $image, term: $term, sessionDay: $sessionDay, startDate: $startDate, fromDate: $fromDate, toDate: $toDate, endDate: $endDate, date: $date, amount: $amount, status: $status, cancelable: $cancelable)';
+    return 'Session(id: $id, sessionName: $sessionName, coachingProgram: $coachingProgram, image: $image, term: $term, fromDate: $fromDate, toDate: $toDate, sessionDay: $sessionDay, startDate: $startDate, endDate: $endDate, cancelable: $cancelable)';
   }
 
   @override
@@ -1081,29 +1293,20 @@ class _$SessionImpl implements _Session {
         (other.runtimeType == runtimeType &&
             other is _$SessionImpl &&
             (identical(other.id, id) || other.id == id) &&
-            (identical(other.playerId, playerId) ||
-                other.playerId == playerId) &&
             (identical(other.sessionName, sessionName) ||
                 other.sessionName == sessionName) &&
-            (identical(other.playerName, playerName) ||
-                other.playerName == playerName) &&
-            (identical(other.playerDetail, playerDetail) ||
-                other.playerDetail == playerDetail) &&
             (identical(other.coachingProgram, coachingProgram) ||
                 other.coachingProgram == coachingProgram) &&
             (identical(other.image, image) || other.image == image) &&
             (identical(other.term, term) || other.term == term) &&
+            (identical(other.fromDate, fromDate) ||
+                other.fromDate == fromDate) &&
+            (identical(other.toDate, toDate) || other.toDate == toDate) &&
             (identical(other.sessionDay, sessionDay) ||
                 other.sessionDay == sessionDay) &&
             (identical(other.startDate, startDate) ||
                 other.startDate == startDate) &&
-            (identical(other.fromDate, fromDate) ||
-                other.fromDate == fromDate) &&
-            (identical(other.toDate, toDate) || other.toDate == toDate) &&
             (identical(other.endDate, endDate) || other.endDate == endDate) &&
-            (identical(other.date, date) || other.date == date) &&
-            (identical(other.amount, amount) || other.amount == amount) &&
-            (identical(other.status, status) || other.status == status) &&
             (identical(other.cancelable, cancelable) ||
                 other.cancelable == cancelable));
   }
@@ -1113,21 +1316,15 @@ class _$SessionImpl implements _Session {
   int get hashCode => Object.hash(
       runtimeType,
       id,
-      playerId,
       sessionName,
-      playerName,
-      playerDetail,
       coachingProgram,
       image,
       term,
-      sessionDay,
-      startDate,
       fromDate,
       toDate,
+      sessionDay,
+      startDate,
       endDate,
-      date,
-      amount,
-      status,
       cancelable);
 
   /// Create a copy of Session
@@ -1149,21 +1346,15 @@ class _$SessionImpl implements _Session {
 abstract class _Session implements Session {
   const factory _Session(
       {@JsonKey(name: 'id') final int id,
-      @JsonKey(name: 'player_id') final int playerId,
       @JsonKey(name: 'session_name') final String sessionName,
-      @JsonKey(name: 'player_name') final String playerName,
-      @JsonKey(name: 'player_detail') final PlayerDetail? playerDetail,
       @JsonKey(name: 'coaching_program') final String coachingProgram,
       @JsonKey(name: 'image') final String image,
       @JsonKey(name: 'term') final String term,
-      @JsonKey(name: 'session_day') final String sessionDay,
-      @JsonKey(name: 'start_date') final String startDate,
       @JsonKey(name: 'from_date') final String fromDate,
       @JsonKey(name: 'to_date') final String toDate,
+      @JsonKey(name: 'session_day') final String sessionDay,
+      @JsonKey(name: 'start_date') final String startDate,
       @JsonKey(name: 'end_date') final String endDate,
-      @JsonKey(name: 'date') final String date,
-      @JsonKey(name: 'amount') final String amount,
-      @JsonKey(name: 'status') final String status,
       @JsonKey(name: 'cancelable') final bool cancelable}) = _$SessionImpl;
 
   factory _Session.fromJson(Map<String, dynamic> json) = _$SessionImpl.fromJson;
@@ -1172,17 +1363,8 @@ abstract class _Session implements Session {
   @JsonKey(name: 'id')
   int get id;
   @override
-  @JsonKey(name: 'player_id')
-  int get playerId;
-  @override
   @JsonKey(name: 'session_name')
   String get sessionName;
-  @override
-  @JsonKey(name: 'player_name')
-  String get playerName;
-  @override
-  @JsonKey(name: 'player_detail')
-  PlayerDetail? get playerDetail;
   @override
   @JsonKey(name: 'coaching_program')
   String get coachingProgram;
@@ -1193,29 +1375,20 @@ abstract class _Session implements Session {
   @JsonKey(name: 'term')
   String get term;
   @override
-  @JsonKey(name: 'session_day')
-  String get sessionDay;
-  @override
-  @JsonKey(name: 'start_date')
-  String get startDate;
-  @override
   @JsonKey(name: 'from_date')
   String get fromDate;
   @override
   @JsonKey(name: 'to_date')
   String get toDate;
   @override
+  @JsonKey(name: 'session_day')
+  String get sessionDay;
+  @override
+  @JsonKey(name: 'start_date')
+  String get startDate;
+  @override
   @JsonKey(name: 'end_date')
   String get endDate;
-  @override
-  @JsonKey(name: 'date')
-  String get date;
-  @override
-  @JsonKey(name: 'amount')
-  String get amount;
-  @override
-  @JsonKey(name: 'status')
-  String get status;
   @override
   @JsonKey(name: 'cancelable')
   bool get cancelable;

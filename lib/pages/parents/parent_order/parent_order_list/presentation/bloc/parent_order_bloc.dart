@@ -34,7 +34,7 @@ class ParentOrderBloc extends Bloc<ParentOrderEvent, ParentOrderState> {
 
       var academyId = await getIt<SharedPrefs>().getString("selected_academyid");
       Map<String, dynamic> map = {
-        "academyid": academyId,
+        "academy_id": academyId,
       };
       emit(state.copyWith(
           isLoading: true,
@@ -84,7 +84,7 @@ class ParentOrderBloc extends Bloc<ParentOrderEvent, ParentOrderState> {
 
       var academyId = await getIt<SharedPrefs>().getString("selected_academyid");
       Map<String, dynamic> map = {
-        "academyid": academyId,
+        "academy_id": academyId,
       };
       emit(state.copyWith(
           isLoading: true,

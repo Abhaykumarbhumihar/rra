@@ -30,11 +30,16 @@ Map<String, dynamic> _$$PlayerReportModelImplToJson(
 _$PlayerReportDataImpl _$$PlayerReportDataImplFromJson(
         Map<String, dynamic> json) =>
     _$PlayerReportDataImpl(
+      coachingProgram: json['coaching_program'] as String? ?? '',
+      coachingProgramId: (json['coaching_program_id'] as num?)?.toInt() ?? 0,
+      termId: (json['term_id'] as num?)?.toInt() ?? 0,
+      sessionId: (json['session_id'] as num?)?.toInt() ?? 0,
       childId: (json['child_id'] as num?)?.toInt() ?? 0,
       childName: json['child_name'] as String? ?? '',
       isChildHasPhysicalIssue:
           json['isChildHasPhysicalIssue'] as bool? ?? false,
       childAge: json['child_age'] as String? ?? '',
+      isWebviewData: json['is_webview_data'] as bool? ?? false,
       webviewLink: json['webview_link'] as String? ?? '',
       parentName: json['parent_name'] as String? ?? '',
       parentEmail: json['parent_email'] as String? ?? '',
@@ -52,10 +57,15 @@ _$PlayerReportDataImpl _$$PlayerReportDataImplFromJson(
 Map<String, dynamic> _$$PlayerReportDataImplToJson(
         _$PlayerReportDataImpl instance) =>
     <String, dynamic>{
+      'coaching_program': instance.coachingProgram,
+      'coaching_program_id': instance.coachingProgramId,
+      'term_id': instance.termId,
+      'session_id': instance.sessionId,
       'child_id': instance.childId,
       'child_name': instance.childName,
       'isChildHasPhysicalIssue': instance.isChildHasPhysicalIssue,
       'child_age': instance.childAge,
+      'is_webview_data': instance.isWebviewData,
       'webview_link': instance.webviewLink,
       'parent_name': instance.parentName,
       'parent_email': instance.parentEmail,
@@ -108,8 +118,6 @@ _$AddScoreImpl _$$AddScoreImplFromJson(Map<String, dynamic> json) =>
               ?.map((e) => Score.fromJson(e as Map<String, dynamic>))
               .toList() ??
           const [],
-      unmatchedElements:
-          json['unmatched_elements'] as List<dynamic>? ?? const [],
       scoreMasterId: (json['score_master_id'] as num?)?.toInt() ?? 0,
       comment: json['comment'] as String? ?? '',
     );
@@ -120,7 +128,6 @@ Map<String, dynamic> _$$AddScoreImplToJson(_$AddScoreImpl instance) =>
       'performance_data': instance.performanceData,
       'score_criteria': instance.scoreCriteria,
       'scores': instance.scores,
-      'unmatched_elements': instance.unmatchedElements,
       'score_master_id': instance.scoreMasterId,
       'comment': instance.comment,
     };

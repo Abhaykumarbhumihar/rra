@@ -18,7 +18,14 @@ class ViewSessionBloc extends Bloc<ViewSessionEvent, ViewSessionState> {
     on<CancelBookedSessionEvent>(_cancelBookedSession);
     on<DaySelectEvent>(_daySelect);
     on<PlayerSelect>(_playerFilter);
+    on<ResetViewSessionStateEvent>(_resetSessionState);
   }
+
+  Future<void>_resetSessionState(ResetViewSessionStateEvent event,Emitter<ViewSessionState> emit)async{
+
+    emit(ViewSessionState.initial());
+  }
+
   Future<void>_daySelect(DaySelectEvent event,Emitter<ViewSessionState> emit)async{
     emit(state.copyWith(
       dayselect: event.day

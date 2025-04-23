@@ -14,8 +14,8 @@ class BookSessions extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return  Padding(
-      padding: EdgeInsets.symmetric(
-          horizontal: context.screenWidth * 0.05),
+      padding: EdgeInsets.only(left: context.screenWidth * 0.048,right:context.screenWidth * 0.045 ),
+
       child: Container(
         width: context.screenWidth,
         // height: context.screenHeight*0.22,
@@ -39,7 +39,7 @@ class BookSessions extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    "${BlocProvider.of<AppBloc>(context).state.dashboardData.data.sessionCount}",
+                    "${BlocProvider.of<AppBloc>(context).state.dashboardData.data.orderCount}",
                     style: TextStyle(
                       height: 1.0,
                       fontSize: context.screenWidth * 0.128,
@@ -114,7 +114,7 @@ class BookSessions extends StatelessWidget {
                       ),
                       child: Padding(
                         padding: const EdgeInsets.symmetric(
-                            horizontal: 10.0, vertical: 6.0),
+                            horizontal: 14.0, vertical: 6.0),
                         child: Text(
                           "Book Session",
                           style: TextStyle(
@@ -167,7 +167,7 @@ class BookSessionsForCoach extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    "${BlocProvider.of<AppBloc>(context).state.dashboardData.data.sessionCount}",
+                    "${BlocProvider.of<AppBloc>(context).state.dashboardData.data.orderCount}",
                     style: TextStyle(
                       height: 1.0,
                       fontSize: context.screenWidth * 0.128,

@@ -8,11 +8,14 @@ import '../../../../../../common/routes/routes.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 
 import '../../../../../../common/service_locator/setivelocator.dart';
+import '../../../../../auth/edit_profile/presentation/bloc/editprofile_bloc.dart';
 import '../../../../../auth/otpverification/data/entity/otp_verification_model.dart';
 import '../../../../../coach/coach_attendance/player_attendance_list/presentation/bloc/attendance_bloc.dart';
 import '../../../../../coach/coach_attendance/player_attendance_list/presentation/bloc/attendance_event.dart';
 import '../../../../../coach/coach_player_report/coach_player_report_list/presentation/bloc/report_bloc.dart';
 import '../../../../../coach/coach_player_report/coach_player_report_list/presentation/bloc/report_event.dart';
+import '../../../../parent_order/parent_order_list/presentation/bloc/parent_order_bloc.dart';
+import '../../../../parent_order/parent_order_list/presentation/bloc/parent_order_event.dart';
 
 class DashboardGrid extends StatelessWidget {
   DashboardGrid({super.key});
@@ -65,7 +68,7 @@ class DashboardGrid extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GridView.builder(
-      padding: EdgeInsets.symmetric(horizontal: context.screenWidth * 0.048),
+      padding: EdgeInsets.only(left: context.screenWidth * 0.048,right:context.screenWidth * 0.042 ),
       shrinkWrap: true,
       physics: BouncingScrollPhysics(),
       gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
@@ -83,15 +86,19 @@ class DashboardGrid extends StatelessWidget {
             if (item['title'] == "Documents") {
               Navigator.pushNamed(context, AppRoutes.ADDVIEWDOCUMENT);
             } else if (item['title'] == "View Score") {
+              BlocProvider.of<ReportBloc>(context).add(ResetReportStateEvent());
+
               BlocProvider.of<ReportBloc>(context).add(ReportEventGetTermsSessionCoachingPlayerEvents({}));
 
               Navigator.pushNamed(context, AppRoutes.COACHPLAYERREPOORTLISTPAGE);
             } else if (item['title'] == "View Attendance") {
+              BlocProvider.of<AttendanceBloc>(context).add(ResetStateEvent());
               var academyId = await getIt<SharedPrefs>().getString("selected_academyid");
                        BlocProvider.of<AttendanceBloc>(context).add(FilterAttendanceListEvent({"academy_id":academyId}));
 
               Navigator.pushNamed(context, AppRoutes.COACHPLAYERATTENDANCELIST);
             } else if (item['title'] == "My Orders") {
+              BlocProvider.of<ParentOrderBloc>(context).add(ParentMyOrderListEvent({}));
               Navigator.pushNamed(context, AppRoutes.PARENTORDERLISTPAGE);
             } else if (item['title'] == "View Players") {
               Map<String, dynamic> arguments = {"isFromDashBoard": true};
@@ -103,6 +110,8 @@ class DashboardGrid extends StatelessWidget {
               };
               Navigator.pushNamed(context, AppRoutes.RESETPASSWORD, arguments: argumentsforresetpassword);
             }else if(item['title']=='My Profile'){
+              BlocProvider.of<EditprofileBloc>(context)
+                  .loadUserData();
               Navigator.pushNamed(
                   context, AppRoutes.EDITPROFILE);
             }

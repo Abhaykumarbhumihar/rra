@@ -16,5 +16,5 @@ sealed class ManageTeamEvent with _$ManageTeamEvent {
   const factory ManageTeamEvent.getTermSelected(Term term) = ManageTeamTermSelected;
   const factory ManageTeamEvent.getProgramSelected(CoachingProgram program) = ManageTeamProgramSelected;
   const factory ManageTeamEvent.getSessionSelected(Session session) = ManageTeamSessionSelected;
-
+  const factory ManageTeamEvent.resetState() = ResetManageTeamStateEvent;
 }

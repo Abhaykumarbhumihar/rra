@@ -239,6 +239,14 @@ PlayerReportData _$PlayerReportDataFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$PlayerReportData {
+  @JsonKey(name: 'coaching_program')
+  String get coachingProgram => throw _privateConstructorUsedError;
+  @JsonKey(name: 'coaching_program_id')
+  int get coachingProgramId => throw _privateConstructorUsedError;
+  @JsonKey(name: 'term_id')
+  int get termId => throw _privateConstructorUsedError;
+  @JsonKey(name: 'session_id')
+  int get sessionId => throw _privateConstructorUsedError;
   @JsonKey(name: 'child_id')
   int get childId => throw _privateConstructorUsedError;
   @JsonKey(name: 'child_name')
@@ -247,6 +255,8 @@ mixin _$PlayerReportData {
   bool get isChildHasPhysicalIssue => throw _privateConstructorUsedError;
   @JsonKey(name: 'child_age')
   String get childAge => throw _privateConstructorUsedError;
+  @JsonKey(name: 'is_webview_data')
+  bool get isWebviewData => throw _privateConstructorUsedError;
   @JsonKey(name: 'webview_link')
   String get webviewLink => throw _privateConstructorUsedError;
   @JsonKey(name: 'parent_name')
@@ -282,10 +292,15 @@ abstract class $PlayerReportDataCopyWith<$Res> {
       _$PlayerReportDataCopyWithImpl<$Res, PlayerReportData>;
   @useResult
   $Res call(
-      {@JsonKey(name: 'child_id') int childId,
+      {@JsonKey(name: 'coaching_program') String coachingProgram,
+      @JsonKey(name: 'coaching_program_id') int coachingProgramId,
+      @JsonKey(name: 'term_id') int termId,
+      @JsonKey(name: 'session_id') int sessionId,
+      @JsonKey(name: 'child_id') int childId,
       @JsonKey(name: 'child_name') String childName,
       @JsonKey(name: 'isChildHasPhysicalIssue') bool isChildHasPhysicalIssue,
       @JsonKey(name: 'child_age') String childAge,
+      @JsonKey(name: 'is_webview_data') bool isWebviewData,
       @JsonKey(name: 'webview_link') String webviewLink,
       @JsonKey(name: 'parent_name') String parentName,
       @JsonKey(name: 'parent_email') String parentEmail,
@@ -312,10 +327,15 @@ class _$PlayerReportDataCopyWithImpl<$Res, $Val extends PlayerReportData>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? coachingProgram = null,
+    Object? coachingProgramId = null,
+    Object? termId = null,
+    Object? sessionId = null,
     Object? childId = null,
     Object? childName = null,
     Object? isChildHasPhysicalIssue = null,
     Object? childAge = null,
+    Object? isWebviewData = null,
     Object? webviewLink = null,
     Object? parentName = null,
     Object? parentEmail = null,
@@ -326,6 +346,22 @@ class _$PlayerReportDataCopyWithImpl<$Res, $Val extends PlayerReportData>
     Object? performanceElements = null,
   }) {
     return _then(_value.copyWith(
+      coachingProgram: null == coachingProgram
+          ? _value.coachingProgram
+          : coachingProgram // ignore: cast_nullable_to_non_nullable
+              as String,
+      coachingProgramId: null == coachingProgramId
+          ? _value.coachingProgramId
+          : coachingProgramId // ignore: cast_nullable_to_non_nullable
+              as int,
+      termId: null == termId
+          ? _value.termId
+          : termId // ignore: cast_nullable_to_non_nullable
+              as int,
+      sessionId: null == sessionId
+          ? _value.sessionId
+          : sessionId // ignore: cast_nullable_to_non_nullable
+              as int,
       childId: null == childId
           ? _value.childId
           : childId // ignore: cast_nullable_to_non_nullable
@@ -342,6 +378,10 @@ class _$PlayerReportDataCopyWithImpl<$Res, $Val extends PlayerReportData>
           ? _value.childAge
           : childAge // ignore: cast_nullable_to_non_nullable
               as String,
+      isWebviewData: null == isWebviewData
+          ? _value.isWebviewData
+          : isWebviewData // ignore: cast_nullable_to_non_nullable
+              as bool,
       webviewLink: null == webviewLink
           ? _value.webviewLink
           : webviewLink // ignore: cast_nullable_to_non_nullable
@@ -387,10 +427,15 @@ abstract class _$$PlayerReportDataImplCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {@JsonKey(name: 'child_id') int childId,
+      {@JsonKey(name: 'coaching_program') String coachingProgram,
+      @JsonKey(name: 'coaching_program_id') int coachingProgramId,
+      @JsonKey(name: 'term_id') int termId,
+      @JsonKey(name: 'session_id') int sessionId,
+      @JsonKey(name: 'child_id') int childId,
       @JsonKey(name: 'child_name') String childName,
       @JsonKey(name: 'isChildHasPhysicalIssue') bool isChildHasPhysicalIssue,
       @JsonKey(name: 'child_age') String childAge,
+      @JsonKey(name: 'is_webview_data') bool isWebviewData,
       @JsonKey(name: 'webview_link') String webviewLink,
       @JsonKey(name: 'parent_name') String parentName,
       @JsonKey(name: 'parent_email') String parentEmail,
@@ -415,10 +460,15 @@ class __$$PlayerReportDataImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? coachingProgram = null,
+    Object? coachingProgramId = null,
+    Object? termId = null,
+    Object? sessionId = null,
     Object? childId = null,
     Object? childName = null,
     Object? isChildHasPhysicalIssue = null,
     Object? childAge = null,
+    Object? isWebviewData = null,
     Object? webviewLink = null,
     Object? parentName = null,
     Object? parentEmail = null,
@@ -429,6 +479,22 @@ class __$$PlayerReportDataImplCopyWithImpl<$Res>
     Object? performanceElements = null,
   }) {
     return _then(_$PlayerReportDataImpl(
+      coachingProgram: null == coachingProgram
+          ? _value.coachingProgram
+          : coachingProgram // ignore: cast_nullable_to_non_nullable
+              as String,
+      coachingProgramId: null == coachingProgramId
+          ? _value.coachingProgramId
+          : coachingProgramId // ignore: cast_nullable_to_non_nullable
+              as int,
+      termId: null == termId
+          ? _value.termId
+          : termId // ignore: cast_nullable_to_non_nullable
+              as int,
+      sessionId: null == sessionId
+          ? _value.sessionId
+          : sessionId // ignore: cast_nullable_to_non_nullable
+              as int,
       childId: null == childId
           ? _value.childId
           : childId // ignore: cast_nullable_to_non_nullable
@@ -445,6 +511,10 @@ class __$$PlayerReportDataImplCopyWithImpl<$Res>
           ? _value.childAge
           : childAge // ignore: cast_nullable_to_non_nullable
               as String,
+      isWebviewData: null == isWebviewData
+          ? _value.isWebviewData
+          : isWebviewData // ignore: cast_nullable_to_non_nullable
+              as bool,
       webviewLink: null == webviewLink
           ? _value.webviewLink
           : webviewLink // ignore: cast_nullable_to_non_nullable
@@ -485,11 +555,16 @@ class __$$PlayerReportDataImplCopyWithImpl<$Res>
 @JsonSerializable()
 class _$PlayerReportDataImpl implements _PlayerReportData {
   const _$PlayerReportDataImpl(
-      {@JsonKey(name: 'child_id') this.childId = 0,
+      {@JsonKey(name: 'coaching_program') this.coachingProgram = '',
+      @JsonKey(name: 'coaching_program_id') this.coachingProgramId = 0,
+      @JsonKey(name: 'term_id') this.termId = 0,
+      @JsonKey(name: 'session_id') this.sessionId = 0,
+      @JsonKey(name: 'child_id') this.childId = 0,
       @JsonKey(name: 'child_name') this.childName = '',
       @JsonKey(name: 'isChildHasPhysicalIssue')
       this.isChildHasPhysicalIssue = false,
       @JsonKey(name: 'child_age') this.childAge = '',
+      @JsonKey(name: 'is_webview_data') this.isWebviewData = false,
       @JsonKey(name: 'webview_link') this.webviewLink = '',
       @JsonKey(name: 'parent_name') this.parentName = '',
       @JsonKey(name: 'parent_email') this.parentEmail = '',
@@ -505,6 +580,18 @@ class _$PlayerReportDataImpl implements _PlayerReportData {
       _$$PlayerReportDataImplFromJson(json);
 
   @override
+  @JsonKey(name: 'coaching_program')
+  final String coachingProgram;
+  @override
+  @JsonKey(name: 'coaching_program_id')
+  final int coachingProgramId;
+  @override
+  @JsonKey(name: 'term_id')
+  final int termId;
+  @override
+  @JsonKey(name: 'session_id')
+  final int sessionId;
+  @override
   @JsonKey(name: 'child_id')
   final int childId;
   @override
@@ -516,6 +603,9 @@ class _$PlayerReportDataImpl implements _PlayerReportData {
   @override
   @JsonKey(name: 'child_age')
   final String childAge;
+  @override
+  @JsonKey(name: 'is_webview_data')
+  final bool isWebviewData;
   @override
   @JsonKey(name: 'webview_link')
   final String webviewLink;
@@ -549,7 +639,7 @@ class _$PlayerReportDataImpl implements _PlayerReportData {
 
   @override
   String toString() {
-    return 'PlayerReportData(childId: $childId, childName: $childName, isChildHasPhysicalIssue: $isChildHasPhysicalIssue, childAge: $childAge, webviewLink: $webviewLink, parentName: $parentName, parentEmail: $parentEmail, parentPhone: $parentPhone, parentGender: $parentGender, term: $term, session: $session, performanceElements: $performanceElements)';
+    return 'PlayerReportData(coachingProgram: $coachingProgram, coachingProgramId: $coachingProgramId, termId: $termId, sessionId: $sessionId, childId: $childId, childName: $childName, isChildHasPhysicalIssue: $isChildHasPhysicalIssue, childAge: $childAge, isWebviewData: $isWebviewData, webviewLink: $webviewLink, parentName: $parentName, parentEmail: $parentEmail, parentPhone: $parentPhone, parentGender: $parentGender, term: $term, session: $session, performanceElements: $performanceElements)';
   }
 
   @override
@@ -557,6 +647,13 @@ class _$PlayerReportDataImpl implements _PlayerReportData {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$PlayerReportDataImpl &&
+            (identical(other.coachingProgram, coachingProgram) ||
+                other.coachingProgram == coachingProgram) &&
+            (identical(other.coachingProgramId, coachingProgramId) ||
+                other.coachingProgramId == coachingProgramId) &&
+            (identical(other.termId, termId) || other.termId == termId) &&
+            (identical(other.sessionId, sessionId) ||
+                other.sessionId == sessionId) &&
             (identical(other.childId, childId) || other.childId == childId) &&
             (identical(other.childName, childName) ||
                 other.childName == childName) &&
@@ -565,6 +662,8 @@ class _$PlayerReportDataImpl implements _PlayerReportData {
                 other.isChildHasPhysicalIssue == isChildHasPhysicalIssue) &&
             (identical(other.childAge, childAge) ||
                 other.childAge == childAge) &&
+            (identical(other.isWebviewData, isWebviewData) ||
+                other.isWebviewData == isWebviewData) &&
             (identical(other.webviewLink, webviewLink) ||
                 other.webviewLink == webviewLink) &&
             (identical(other.parentName, parentName) ||
@@ -585,10 +684,15 @@ class _$PlayerReportDataImpl implements _PlayerReportData {
   @override
   int get hashCode => Object.hash(
       runtimeType,
+      coachingProgram,
+      coachingProgramId,
+      termId,
+      sessionId,
       childId,
       childName,
       isChildHasPhysicalIssue,
       childAge,
+      isWebviewData,
       webviewLink,
       parentName,
       parentEmail,
@@ -617,11 +721,16 @@ class _$PlayerReportDataImpl implements _PlayerReportData {
 
 abstract class _PlayerReportData implements PlayerReportData {
   const factory _PlayerReportData(
-          {@JsonKey(name: 'child_id') final int childId,
+          {@JsonKey(name: 'coaching_program') final String coachingProgram,
+          @JsonKey(name: 'coaching_program_id') final int coachingProgramId,
+          @JsonKey(name: 'term_id') final int termId,
+          @JsonKey(name: 'session_id') final int sessionId,
+          @JsonKey(name: 'child_id') final int childId,
           @JsonKey(name: 'child_name') final String childName,
           @JsonKey(name: 'isChildHasPhysicalIssue')
           final bool isChildHasPhysicalIssue,
           @JsonKey(name: 'child_age') final String childAge,
+          @JsonKey(name: 'is_webview_data') final bool isWebviewData,
           @JsonKey(name: 'webview_link') final String webviewLink,
           @JsonKey(name: 'parent_name') final String parentName,
           @JsonKey(name: 'parent_email') final String parentEmail,
@@ -637,6 +746,18 @@ abstract class _PlayerReportData implements PlayerReportData {
       _$PlayerReportDataImpl.fromJson;
 
   @override
+  @JsonKey(name: 'coaching_program')
+  String get coachingProgram;
+  @override
+  @JsonKey(name: 'coaching_program_id')
+  int get coachingProgramId;
+  @override
+  @JsonKey(name: 'term_id')
+  int get termId;
+  @override
+  @JsonKey(name: 'session_id')
+  int get sessionId;
+  @override
   @JsonKey(name: 'child_id')
   int get childId;
   @override
@@ -648,6 +769,9 @@ abstract class _PlayerReportData implements PlayerReportData {
   @override
   @JsonKey(name: 'child_age')
   String get childAge;
+  @override
+  @JsonKey(name: 'is_webview_data')
+  bool get isWebviewData;
   @override
   @JsonKey(name: 'webview_link')
   String get webviewLink;
@@ -1054,8 +1178,6 @@ mixin _$AddScore {
   List<ScoreCriteria> get scoreCriteria => throw _privateConstructorUsedError;
   @JsonKey(name: 'scores')
   List<Score> get scores => throw _privateConstructorUsedError;
-  @JsonKey(name: 'unmatched_elements')
-  List<dynamic> get unmatchedElements => throw _privateConstructorUsedError;
   @JsonKey(name: 'score_master_id')
   int get scoreMasterId => throw _privateConstructorUsedError;
   @JsonKey(name: 'comment')
@@ -1081,7 +1203,6 @@ abstract class $AddScoreCopyWith<$Res> {
       @JsonKey(name: 'performance_data') String performanceData,
       @JsonKey(name: 'score_criteria') List<ScoreCriteria> scoreCriteria,
       @JsonKey(name: 'scores') List<Score> scores,
-      @JsonKey(name: 'unmatched_elements') List<dynamic> unmatchedElements,
       @JsonKey(name: 'score_master_id') int scoreMasterId,
       @JsonKey(name: 'comment') String comment});
 }
@@ -1105,7 +1226,6 @@ class _$AddScoreCopyWithImpl<$Res, $Val extends AddScore>
     Object? performanceData = null,
     Object? scoreCriteria = null,
     Object? scores = null,
-    Object? unmatchedElements = null,
     Object? scoreMasterId = null,
     Object? comment = null,
   }) {
@@ -1126,10 +1246,6 @@ class _$AddScoreCopyWithImpl<$Res, $Val extends AddScore>
           ? _value.scores
           : scores // ignore: cast_nullable_to_non_nullable
               as List<Score>,
-      unmatchedElements: null == unmatchedElements
-          ? _value.unmatchedElements
-          : unmatchedElements // ignore: cast_nullable_to_non_nullable
-              as List<dynamic>,
       scoreMasterId: null == scoreMasterId
           ? _value.scoreMasterId
           : scoreMasterId // ignore: cast_nullable_to_non_nullable
@@ -1155,7 +1271,6 @@ abstract class _$$AddScoreImplCopyWith<$Res>
       @JsonKey(name: 'performance_data') String performanceData,
       @JsonKey(name: 'score_criteria') List<ScoreCriteria> scoreCriteria,
       @JsonKey(name: 'scores') List<Score> scores,
-      @JsonKey(name: 'unmatched_elements') List<dynamic> unmatchedElements,
       @JsonKey(name: 'score_master_id') int scoreMasterId,
       @JsonKey(name: 'comment') String comment});
 }
@@ -1177,7 +1292,6 @@ class __$$AddScoreImplCopyWithImpl<$Res>
     Object? performanceData = null,
     Object? scoreCriteria = null,
     Object? scores = null,
-    Object? unmatchedElements = null,
     Object? scoreMasterId = null,
     Object? comment = null,
   }) {
@@ -1198,10 +1312,6 @@ class __$$AddScoreImplCopyWithImpl<$Res>
           ? _value._scores
           : scores // ignore: cast_nullable_to_non_nullable
               as List<Score>,
-      unmatchedElements: null == unmatchedElements
-          ? _value._unmatchedElements
-          : unmatchedElements // ignore: cast_nullable_to_non_nullable
-              as List<dynamic>,
       scoreMasterId: null == scoreMasterId
           ? _value.scoreMasterId
           : scoreMasterId // ignore: cast_nullable_to_non_nullable
@@ -1223,13 +1333,10 @@ class _$AddScoreImpl implements _AddScore {
       @JsonKey(name: 'score_criteria')
       final List<ScoreCriteria> scoreCriteria = const [],
       @JsonKey(name: 'scores') final List<Score> scores = const [],
-      @JsonKey(name: 'unmatched_elements')
-      final List<dynamic> unmatchedElements = const [],
       @JsonKey(name: 'score_master_id') this.scoreMasterId = 0,
       @JsonKey(name: 'comment') this.comment = ''})
       : _scoreCriteria = scoreCriteria,
-        _scores = scores,
-        _unmatchedElements = unmatchedElements;
+        _scores = scores;
 
   factory _$AddScoreImpl.fromJson(Map<String, dynamic> json) =>
       _$$AddScoreImplFromJson(json);
@@ -1258,16 +1365,6 @@ class _$AddScoreImpl implements _AddScore {
     return EqualUnmodifiableListView(_scores);
   }
 
-  final List<dynamic> _unmatchedElements;
-  @override
-  @JsonKey(name: 'unmatched_elements')
-  List<dynamic> get unmatchedElements {
-    if (_unmatchedElements is EqualUnmodifiableListView)
-      return _unmatchedElements;
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_unmatchedElements);
-  }
-
   @override
   @JsonKey(name: 'score_master_id')
   final int scoreMasterId;
@@ -1277,7 +1374,7 @@ class _$AddScoreImpl implements _AddScore {
 
   @override
   String toString() {
-    return 'AddScore(childName: $childName, performanceData: $performanceData, scoreCriteria: $scoreCriteria, scores: $scores, unmatchedElements: $unmatchedElements, scoreMasterId: $scoreMasterId, comment: $comment)';
+    return 'AddScore(childName: $childName, performanceData: $performanceData, scoreCriteria: $scoreCriteria, scores: $scores, scoreMasterId: $scoreMasterId, comment: $comment)';
   }
 
   @override
@@ -1292,8 +1389,6 @@ class _$AddScoreImpl implements _AddScore {
             const DeepCollectionEquality()
                 .equals(other._scoreCriteria, _scoreCriteria) &&
             const DeepCollectionEquality().equals(other._scores, _scores) &&
-            const DeepCollectionEquality()
-                .equals(other._unmatchedElements, _unmatchedElements) &&
             (identical(other.scoreMasterId, scoreMasterId) ||
                 other.scoreMasterId == scoreMasterId) &&
             (identical(other.comment, comment) || other.comment == comment));
@@ -1307,7 +1402,6 @@ class _$AddScoreImpl implements _AddScore {
       performanceData,
       const DeepCollectionEquality().hash(_scoreCriteria),
       const DeepCollectionEquality().hash(_scores),
-      const DeepCollectionEquality().hash(_unmatchedElements),
       scoreMasterId,
       comment);
 
@@ -1333,8 +1427,6 @@ abstract class _AddScore implements AddScore {
       @JsonKey(name: 'performance_data') final String performanceData,
       @JsonKey(name: 'score_criteria') final List<ScoreCriteria> scoreCriteria,
       @JsonKey(name: 'scores') final List<Score> scores,
-      @JsonKey(name: 'unmatched_elements')
-      final List<dynamic> unmatchedElements,
       @JsonKey(name: 'score_master_id') final int scoreMasterId,
       @JsonKey(name: 'comment') final String comment}) = _$AddScoreImpl;
 
@@ -1353,9 +1445,6 @@ abstract class _AddScore implements AddScore {
   @override
   @JsonKey(name: 'scores')
   List<Score> get scores;
-  @override
-  @JsonKey(name: 'unmatched_elements')
-  List<dynamic> get unmatchedElements;
   @override
   @JsonKey(name: 'score_master_id')
   int get scoreMasterId;

@@ -4,6 +4,7 @@ import 'dart:io';
 import 'package:either_dart/src/either.dart';
 
 import 'package:http/http.dart' as http;
+import 'package:rra/common/values/utils.dart';
 
 
 import '../../../../../../common/network/api_services.dart';
@@ -24,10 +25,14 @@ class ReportRepositeryImpl implements ReportRepositer {
   Future<Either<Failure, PlayerReportModel>> getChildReportList(Map<String, dynamic> loginData)async {
     try {
 
+      print("getChildReportList getChildReportList getChildReportList getChildReportList getChildReportList\n\n");
       print(loginData);
+
       http.Response response =
           await _apiServices.post(AppConstant.getViewReportList, loginData,useDefaultHeaders: true,isJson: true);
       print(response.body);
+      print("getChildReportList getChildReportList getChildReportList getChildReportList getChildReportList\n\n"
+          "\n\n${response.body}");
       if (response.statusCode == 200) {
         final Map<String, dynamic> responseData = jsonDecode(response.body);
         if(responseData['success']){
@@ -54,7 +59,11 @@ class ReportRepositeryImpl implements ReportRepositer {
       print(loginData);
       http.Response response =
       await _apiServices.post(AppConstant.getViewReportDetail, loginData,useDefaultHeaders: true,isJson: true);
-      print(response.body);
+      print(loginData);
+      print("+s=s=s=s=s=s=s=s==4=4=4=4==4=4=4=4=4=4=4=4=4\n\n");
+      Utils.LogPrint(response.body);
+      print("+s=s=s=s=s=s=s=s==4=4=4=4==4=4=4=4=4=4=4=4=4\n\n");
+
       if (response.statusCode == 200) {
         final Map<String, dynamic> responseData = jsonDecode(response.body);
         if(responseData['success']){

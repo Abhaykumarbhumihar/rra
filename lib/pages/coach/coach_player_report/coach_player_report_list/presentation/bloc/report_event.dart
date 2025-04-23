@@ -17,7 +17,9 @@ sealed class ReportEvent with _$ReportEvent {
   const factory ReportEvent.getProgramSelected(CoachingProgram program) = ProgramSelected;
   const factory ReportEvent.getSessionSelected(Session session) = SessionSelected;
   const factory ReportEvent.getReportDetail(Map<String,dynamic>data) = ReportDetail;
-  const factory ReportEvent.setCurrentPlayerId(String playerId) = SetPlayerId;
+  const factory ReportEvent.setCurrentPlayerId(String playerId,String termid,String coachingProgramId,String sessionId,bool isParent) = SetPlayerId;
+  const factory ReportEvent.getPlayerSelected(PlayerData player) = PlayerSelectedEvent;
 
+  const factory ReportEvent.resetState() = ResetReportStateEvent;
 
 }

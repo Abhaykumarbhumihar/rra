@@ -36,7 +36,7 @@ class ParentOrderListItem extends StatelessWidget {
               ),
               InfoRowRichText(
                 label: "Order :",
-                value: " #RRA_${myOrder.orderId}",
+                value: " #RRA_${myOrder.uniqueId}",
               ),
               SizedBox(
                 height: 6.0,
@@ -50,7 +50,7 @@ class ParentOrderListItem extends StatelessWidget {
               ),
               InfoRowRichText(
                 label: "Date :",
-                value: " ${myOrder.date} ",
+                value: " ${myOrder.createdAt} ",
               ),
               SizedBox(
                 height: 6.0,
@@ -82,7 +82,7 @@ class ParentOrderListItem extends StatelessWidget {
                           onConfirm: () async {
                             BlocProvider.of<ParentOrderBloc>(context).add(
                                 CancelOrderEvent({
-                                  "order_id": myOrder.orderId.toString()
+                                  "order_id": myOrder.id.toString()
                                 }));
                           },
                         ).then((_) {
@@ -105,7 +105,7 @@ class ParentOrderListItem extends StatelessWidget {
                     label: "View",
                     onPressed: () {
                       Map<String, dynamic> map = {
-                        "order_id": myOrder.orderId
+                        "order_id": myOrder.id
                       };
                       BlocProvider.of<ParentMyorderDetailBloc>(context).add(
                           ParentMyorderDetailEvent.getParentMyOrderDetail(

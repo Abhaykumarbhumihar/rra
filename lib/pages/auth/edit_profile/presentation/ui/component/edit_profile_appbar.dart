@@ -53,7 +53,7 @@ class EditProfileAppbar extends StatelessWidget {
                 height: context.screenHeight * 0.038,
               ),
               const ScreenTitle(
-                title: "Complete Your Profile",
+                title: "Your Profile",
               ),
               SizedBox(
                 height: 4.0,

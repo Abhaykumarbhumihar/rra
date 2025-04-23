@@ -23,5 +23,9 @@ class ViewSessionState with _$ViewSessionState {
     isStatusUpdated:false,
     isError: false,
     message:"",
+      bookedSession:BookedSessionList(),
+      playerIdselect:"",
+      dayselect:"",
+
   );
 }

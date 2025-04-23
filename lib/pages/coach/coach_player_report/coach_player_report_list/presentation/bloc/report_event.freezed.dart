@@ -26,7 +26,11 @@ mixin _$ReportEvent {
     required TResult Function(CoachingProgram program) getProgramSelected,
     required TResult Function(Session session) getSessionSelected,
     required TResult Function(Map<String, dynamic> data) getReportDetail,
-    required TResult Function(String playerId) setCurrentPlayerId,
+    required TResult Function(String playerId, String termid,
+            String coachingProgramId, String sessionId, bool isParent)
+        setCurrentPlayerId,
+    required TResult Function(PlayerData player) getPlayerSelected,
+    required TResult Function() resetState,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -39,7 +43,11 @@ mixin _$ReportEvent {
     TResult? Function(CoachingProgram program)? getProgramSelected,
     TResult? Function(Session session)? getSessionSelected,
     TResult? Function(Map<String, dynamic> data)? getReportDetail,
-    TResult? Function(String playerId)? setCurrentPlayerId,
+    TResult? Function(String playerId, String termid, String coachingProgramId,
+            String sessionId, bool isParent)?
+        setCurrentPlayerId,
+    TResult? Function(PlayerData player)? getPlayerSelected,
+    TResult? Function()? resetState,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -52,7 +60,11 @@ mixin _$ReportEvent {
     TResult Function(CoachingProgram program)? getProgramSelected,
     TResult Function(Session session)? getSessionSelected,
     TResult Function(Map<String, dynamic> data)? getReportDetail,
-    TResult Function(String playerId)? setCurrentPlayerId,
+    TResult Function(String playerId, String termid, String coachingProgramId,
+            String sessionId, bool isParent)?
+        setCurrentPlayerId,
+    TResult Function(PlayerData player)? getPlayerSelected,
+    TResult Function()? resetState,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -68,6 +80,8 @@ mixin _$ReportEvent {
     required TResult Function(SessionSelected value) getSessionSelected,
     required TResult Function(ReportDetail value) getReportDetail,
     required TResult Function(SetPlayerId value) setCurrentPlayerId,
+    required TResult Function(PlayerSelectedEvent value) getPlayerSelected,
+    required TResult Function(ResetReportStateEvent value) resetState,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -81,6 +95,8 @@ mixin _$ReportEvent {
     TResult? Function(SessionSelected value)? getSessionSelected,
     TResult? Function(ReportDetail value)? getReportDetail,
     TResult? Function(SetPlayerId value)? setCurrentPlayerId,
+    TResult? Function(PlayerSelectedEvent value)? getPlayerSelected,
+    TResult? Function(ResetReportStateEvent value)? resetState,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -94,6 +110,8 @@ mixin _$ReportEvent {
     TResult Function(SessionSelected value)? getSessionSelected,
     TResult Function(ReportDetail value)? getReportDetail,
     TResult Function(SetPlayerId value)? setCurrentPlayerId,
+    TResult Function(PlayerSelectedEvent value)? getPlayerSelected,
+    TResult Function(ResetReportStateEvent value)? resetState,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -206,7 +224,11 @@ class _$GetReportChildListEventImpl implements GetReportChildListEvent {
     required TResult Function(CoachingProgram program) getProgramSelected,
     required TResult Function(Session session) getSessionSelected,
     required TResult Function(Map<String, dynamic> data) getReportDetail,
-    required TResult Function(String playerId) setCurrentPlayerId,
+    required TResult Function(String playerId, String termid,
+            String coachingProgramId, String sessionId, bool isParent)
+        setCurrentPlayerId,
+    required TResult Function(PlayerData player) getPlayerSelected,
+    required TResult Function() resetState,
   }) {
     return getReportChildList(data);
   }
@@ -222,7 +244,11 @@ class _$GetReportChildListEventImpl implements GetReportChildListEvent {
     TResult? Function(CoachingProgram program)? getProgramSelected,
     TResult? Function(Session session)? getSessionSelected,
     TResult? Function(Map<String, dynamic> data)? getReportDetail,
-    TResult? Function(String playerId)? setCurrentPlayerId,
+    TResult? Function(String playerId, String termid, String coachingProgramId,
+            String sessionId, bool isParent)?
+        setCurrentPlayerId,
+    TResult? Function(PlayerData player)? getPlayerSelected,
+    TResult? Function()? resetState,
   }) {
     return getReportChildList?.call(data);
   }
@@ -238,7 +264,11 @@ class _$GetReportChildListEventImpl implements GetReportChildListEvent {
     TResult Function(CoachingProgram program)? getProgramSelected,
     TResult Function(Session session)? getSessionSelected,
     TResult Function(Map<String, dynamic> data)? getReportDetail,
-    TResult Function(String playerId)? setCurrentPlayerId,
+    TResult Function(String playerId, String termid, String coachingProgramId,
+            String sessionId, bool isParent)?
+        setCurrentPlayerId,
+    TResult Function(PlayerData player)? getPlayerSelected,
+    TResult Function()? resetState,
     required TResult orElse(),
   }) {
     if (getReportChildList != null) {
@@ -260,6 +290,8 @@ class _$GetReportChildListEventImpl implements GetReportChildListEvent {
     required TResult Function(SessionSelected value) getSessionSelected,
     required TResult Function(ReportDetail value) getReportDetail,
     required TResult Function(SetPlayerId value) setCurrentPlayerId,
+    required TResult Function(PlayerSelectedEvent value) getPlayerSelected,
+    required TResult Function(ResetReportStateEvent value) resetState,
   }) {
     return getReportChildList(this);
   }
@@ -276,6 +308,8 @@ class _$GetReportChildListEventImpl implements GetReportChildListEvent {
     TResult? Function(SessionSelected value)? getSessionSelected,
     TResult? Function(ReportDetail value)? getReportDetail,
     TResult? Function(SetPlayerId value)? setCurrentPlayerId,
+    TResult? Function(PlayerSelectedEvent value)? getPlayerSelected,
+    TResult? Function(ResetReportStateEvent value)? resetState,
   }) {
     return getReportChildList?.call(this);
   }
@@ -292,6 +326,8 @@ class _$GetReportChildListEventImpl implements GetReportChildListEvent {
     TResult Function(SessionSelected value)? getSessionSelected,
     TResult Function(ReportDetail value)? getReportDetail,
     TResult Function(SetPlayerId value)? setCurrentPlayerId,
+    TResult Function(PlayerSelectedEvent value)? getPlayerSelected,
+    TResult Function(ResetReportStateEvent value)? resetState,
     required TResult orElse(),
   }) {
     if (getReportChildList != null) {
@@ -396,7 +432,11 @@ class _$AddScoreEventImpl implements AddScoreEvent {
     required TResult Function(CoachingProgram program) getProgramSelected,
     required TResult Function(Session session) getSessionSelected,
     required TResult Function(Map<String, dynamic> data) getReportDetail,
-    required TResult Function(String playerId) setCurrentPlayerId,
+    required TResult Function(String playerId, String termid,
+            String coachingProgramId, String sessionId, bool isParent)
+        setCurrentPlayerId,
+    required TResult Function(PlayerData player) getPlayerSelected,
+    required TResult Function() resetState,
   }) {
     return getAddScore(data);
   }
@@ -412,7 +452,11 @@ class _$AddScoreEventImpl implements AddScoreEvent {
     TResult? Function(CoachingProgram program)? getProgramSelected,
     TResult? Function(Session session)? getSessionSelected,
     TResult? Function(Map<String, dynamic> data)? getReportDetail,
-    TResult? Function(String playerId)? setCurrentPlayerId,
+    TResult? Function(String playerId, String termid, String coachingProgramId,
+            String sessionId, bool isParent)?
+        setCurrentPlayerId,
+    TResult? Function(PlayerData player)? getPlayerSelected,
+    TResult? Function()? resetState,
   }) {
     return getAddScore?.call(data);
   }
@@ -428,7 +472,11 @@ class _$AddScoreEventImpl implements AddScoreEvent {
     TResult Function(CoachingProgram program)? getProgramSelected,
     TResult Function(Session session)? getSessionSelected,
     TResult Function(Map<String, dynamic> data)? getReportDetail,
-    TResult Function(String playerId)? setCurrentPlayerId,
+    TResult Function(String playerId, String termid, String coachingProgramId,
+            String sessionId, bool isParent)?
+        setCurrentPlayerId,
+    TResult Function(PlayerData player)? getPlayerSelected,
+    TResult Function()? resetState,
     required TResult orElse(),
   }) {
     if (getAddScore != null) {
@@ -450,6 +498,8 @@ class _$AddScoreEventImpl implements AddScoreEvent {
     required TResult Function(SessionSelected value) getSessionSelected,
     required TResult Function(ReportDetail value) getReportDetail,
     required TResult Function(SetPlayerId value) setCurrentPlayerId,
+    required TResult Function(PlayerSelectedEvent value) getPlayerSelected,
+    required TResult Function(ResetReportStateEvent value) resetState,
   }) {
     return getAddScore(this);
   }
@@ -466,6 +516,8 @@ class _$AddScoreEventImpl implements AddScoreEvent {
     TResult? Function(SessionSelected value)? getSessionSelected,
     TResult? Function(ReportDetail value)? getReportDetail,
     TResult? Function(SetPlayerId value)? setCurrentPlayerId,
+    TResult? Function(PlayerSelectedEvent value)? getPlayerSelected,
+    TResult? Function(ResetReportStateEvent value)? resetState,
   }) {
     return getAddScore?.call(this);
   }
@@ -482,6 +534,8 @@ class _$AddScoreEventImpl implements AddScoreEvent {
     TResult Function(SessionSelected value)? getSessionSelected,
     TResult Function(ReportDetail value)? getReportDetail,
     TResult Function(SetPlayerId value)? setCurrentPlayerId,
+    TResult Function(PlayerSelectedEvent value)? getPlayerSelected,
+    TResult Function(ResetReportStateEvent value)? resetState,
     required TResult orElse(),
   }) {
     if (getAddScore != null) {
@@ -600,7 +654,11 @@ class _$ReportEventGetTermsSessionCoachingPlayerEventsImpl
     required TResult Function(CoachingProgram program) getProgramSelected,
     required TResult Function(Session session) getSessionSelected,
     required TResult Function(Map<String, dynamic> data) getReportDetail,
-    required TResult Function(String playerId) setCurrentPlayerId,
+    required TResult Function(String playerId, String termid,
+            String coachingProgramId, String sessionId, bool isParent)
+        setCurrentPlayerId,
+    required TResult Function(PlayerData player) getPlayerSelected,
+    required TResult Function() resetState,
   }) {
     return getReportEventReportChildList(filterData);
   }
@@ -616,7 +674,11 @@ class _$ReportEventGetTermsSessionCoachingPlayerEventsImpl
     TResult? Function(CoachingProgram program)? getProgramSelected,
     TResult? Function(Session session)? getSessionSelected,
     TResult? Function(Map<String, dynamic> data)? getReportDetail,
-    TResult? Function(String playerId)? setCurrentPlayerId,
+    TResult? Function(String playerId, String termid, String coachingProgramId,
+            String sessionId, bool isParent)?
+        setCurrentPlayerId,
+    TResult? Function(PlayerData player)? getPlayerSelected,
+    TResult? Function()? resetState,
   }) {
     return getReportEventReportChildList?.call(filterData);
   }
@@ -632,7 +694,11 @@ class _$ReportEventGetTermsSessionCoachingPlayerEventsImpl
     TResult Function(CoachingProgram program)? getProgramSelected,
     TResult Function(Session session)? getSessionSelected,
     TResult Function(Map<String, dynamic> data)? getReportDetail,
-    TResult Function(String playerId)? setCurrentPlayerId,
+    TResult Function(String playerId, String termid, String coachingProgramId,
+            String sessionId, bool isParent)?
+        setCurrentPlayerId,
+    TResult Function(PlayerData player)? getPlayerSelected,
+    TResult Function()? resetState,
     required TResult orElse(),
   }) {
     if (getReportEventReportChildList != null) {
@@ -654,6 +720,8 @@ class _$ReportEventGetTermsSessionCoachingPlayerEventsImpl
     required TResult Function(SessionSelected value) getSessionSelected,
     required TResult Function(ReportDetail value) getReportDetail,
     required TResult Function(SetPlayerId value) setCurrentPlayerId,
+    required TResult Function(PlayerSelectedEvent value) getPlayerSelected,
+    required TResult Function(ResetReportStateEvent value) resetState,
   }) {
     return getReportEventReportChildList(this);
   }
@@ -670,6 +738,8 @@ class _$ReportEventGetTermsSessionCoachingPlayerEventsImpl
     TResult? Function(SessionSelected value)? getSessionSelected,
     TResult? Function(ReportDetail value)? getReportDetail,
     TResult? Function(SetPlayerId value)? setCurrentPlayerId,
+    TResult? Function(PlayerSelectedEvent value)? getPlayerSelected,
+    TResult? Function(ResetReportStateEvent value)? resetState,
   }) {
     return getReportEventReportChildList?.call(this);
   }
@@ -686,6 +756,8 @@ class _$ReportEventGetTermsSessionCoachingPlayerEventsImpl
     TResult Function(SessionSelected value)? getSessionSelected,
     TResult Function(ReportDetail value)? getReportDetail,
     TResult Function(SetPlayerId value)? setCurrentPlayerId,
+    TResult Function(PlayerSelectedEvent value)? getPlayerSelected,
+    TResult Function(ResetReportStateEvent value)? resetState,
     required TResult orElse(),
   }) {
     if (getReportEventReportChildList != null) {
@@ -799,7 +871,11 @@ class _$TermSelectedImpl implements TermSelected {
     required TResult Function(CoachingProgram program) getProgramSelected,
     required TResult Function(Session session) getSessionSelected,
     required TResult Function(Map<String, dynamic> data) getReportDetail,
-    required TResult Function(String playerId) setCurrentPlayerId,
+    required TResult Function(String playerId, String termid,
+            String coachingProgramId, String sessionId, bool isParent)
+        setCurrentPlayerId,
+    required TResult Function(PlayerData player) getPlayerSelected,
+    required TResult Function() resetState,
   }) {
     return getTermSelected(term);
   }
@@ -815,7 +891,11 @@ class _$TermSelectedImpl implements TermSelected {
     TResult? Function(CoachingProgram program)? getProgramSelected,
     TResult? Function(Session session)? getSessionSelected,
     TResult? Function(Map<String, dynamic> data)? getReportDetail,
-    TResult? Function(String playerId)? setCurrentPlayerId,
+    TResult? Function(String playerId, String termid, String coachingProgramId,
+            String sessionId, bool isParent)?
+        setCurrentPlayerId,
+    TResult? Function(PlayerData player)? getPlayerSelected,
+    TResult? Function()? resetState,
   }) {
     return getTermSelected?.call(term);
   }
@@ -831,7 +911,11 @@ class _$TermSelectedImpl implements TermSelected {
     TResult Function(CoachingProgram program)? getProgramSelected,
     TResult Function(Session session)? getSessionSelected,
     TResult Function(Map<String, dynamic> data)? getReportDetail,
-    TResult Function(String playerId)? setCurrentPlayerId,
+    TResult Function(String playerId, String termid, String coachingProgramId,
+            String sessionId, bool isParent)?
+        setCurrentPlayerId,
+    TResult Function(PlayerData player)? getPlayerSelected,
+    TResult Function()? resetState,
     required TResult orElse(),
   }) {
     if (getTermSelected != null) {
@@ -853,6 +937,8 @@ class _$TermSelectedImpl implements TermSelected {
     required TResult Function(SessionSelected value) getSessionSelected,
     required TResult Function(ReportDetail value) getReportDetail,
     required TResult Function(SetPlayerId value) setCurrentPlayerId,
+    required TResult Function(PlayerSelectedEvent value) getPlayerSelected,
+    required TResult Function(ResetReportStateEvent value) resetState,
   }) {
     return getTermSelected(this);
   }
@@ -869,6 +955,8 @@ class _$TermSelectedImpl implements TermSelected {
     TResult? Function(SessionSelected value)? getSessionSelected,
     TResult? Function(ReportDetail value)? getReportDetail,
     TResult? Function(SetPlayerId value)? setCurrentPlayerId,
+    TResult? Function(PlayerSelectedEvent value)? getPlayerSelected,
+    TResult? Function(ResetReportStateEvent value)? resetState,
   }) {
     return getTermSelected?.call(this);
   }
@@ -885,6 +973,8 @@ class _$TermSelectedImpl implements TermSelected {
     TResult Function(SessionSelected value)? getSessionSelected,
     TResult Function(ReportDetail value)? getReportDetail,
     TResult Function(SetPlayerId value)? setCurrentPlayerId,
+    TResult Function(PlayerSelectedEvent value)? getPlayerSelected,
+    TResult Function(ResetReportStateEvent value)? resetState,
     required TResult orElse(),
   }) {
     if (getTermSelected != null) {
@@ -995,7 +1085,11 @@ class _$ProgramSelectedImpl implements ProgramSelected {
     required TResult Function(CoachingProgram program) getProgramSelected,
     required TResult Function(Session session) getSessionSelected,
     required TResult Function(Map<String, dynamic> data) getReportDetail,
-    required TResult Function(String playerId) setCurrentPlayerId,
+    required TResult Function(String playerId, String termid,
+            String coachingProgramId, String sessionId, bool isParent)
+        setCurrentPlayerId,
+    required TResult Function(PlayerData player) getPlayerSelected,
+    required TResult Function() resetState,
   }) {
     return getProgramSelected(program);
   }
@@ -1011,7 +1105,11 @@ class _$ProgramSelectedImpl implements ProgramSelected {
     TResult? Function(CoachingProgram program)? getProgramSelected,
     TResult? Function(Session session)? getSessionSelected,
     TResult? Function(Map<String, dynamic> data)? getReportDetail,
-    TResult? Function(String playerId)? setCurrentPlayerId,
+    TResult? Function(String playerId, String termid, String coachingProgramId,
+            String sessionId, bool isParent)?
+        setCurrentPlayerId,
+    TResult? Function(PlayerData player)? getPlayerSelected,
+    TResult? Function()? resetState,
   }) {
     return getProgramSelected?.call(program);
   }
@@ -1027,7 +1125,11 @@ class _$ProgramSelectedImpl implements ProgramSelected {
     TResult Function(CoachingProgram program)? getProgramSelected,
     TResult Function(Session session)? getSessionSelected,
     TResult Function(Map<String, dynamic> data)? getReportDetail,
-    TResult Function(String playerId)? setCurrentPlayerId,
+    TResult Function(String playerId, String termid, String coachingProgramId,
+            String sessionId, bool isParent)?
+        setCurrentPlayerId,
+    TResult Function(PlayerData player)? getPlayerSelected,
+    TResult Function()? resetState,
     required TResult orElse(),
   }) {
     if (getProgramSelected != null) {
@@ -1049,6 +1151,8 @@ class _$ProgramSelectedImpl implements ProgramSelected {
     required TResult Function(SessionSelected value) getSessionSelected,
     required TResult Function(ReportDetail value) getReportDetail,
     required TResult Function(SetPlayerId value) setCurrentPlayerId,
+    required TResult Function(PlayerSelectedEvent value) getPlayerSelected,
+    required TResult Function(ResetReportStateEvent value) resetState,
   }) {
     return getProgramSelected(this);
   }
@@ -1065,6 +1169,8 @@ class _$ProgramSelectedImpl implements ProgramSelected {
     TResult? Function(SessionSelected value)? getSessionSelected,
     TResult? Function(ReportDetail value)? getReportDetail,
     TResult? Function(SetPlayerId value)? setCurrentPlayerId,
+    TResult? Function(PlayerSelectedEvent value)? getPlayerSelected,
+    TResult? Function(ResetReportStateEvent value)? resetState,
   }) {
     return getProgramSelected?.call(this);
   }
@@ -1081,6 +1187,8 @@ class _$ProgramSelectedImpl implements ProgramSelected {
     TResult Function(SessionSelected value)? getSessionSelected,
     TResult Function(ReportDetail value)? getReportDetail,
     TResult Function(SetPlayerId value)? setCurrentPlayerId,
+    TResult Function(PlayerSelectedEvent value)? getPlayerSelected,
+    TResult Function(ResetReportStateEvent value)? resetState,
     required TResult orElse(),
   }) {
     if (getProgramSelected != null) {
@@ -1192,7 +1300,11 @@ class _$SessionSelectedImpl implements SessionSelected {
     required TResult Function(CoachingProgram program) getProgramSelected,
     required TResult Function(Session session) getSessionSelected,
     required TResult Function(Map<String, dynamic> data) getReportDetail,
-    required TResult Function(String playerId) setCurrentPlayerId,
+    required TResult Function(String playerId, String termid,
+            String coachingProgramId, String sessionId, bool isParent)
+        setCurrentPlayerId,
+    required TResult Function(PlayerData player) getPlayerSelected,
+    required TResult Function() resetState,
   }) {
     return getSessionSelected(session);
   }
@@ -1208,7 +1320,11 @@ class _$SessionSelectedImpl implements SessionSelected {
     TResult? Function(CoachingProgram program)? getProgramSelected,
     TResult? Function(Session session)? getSessionSelected,
     TResult? Function(Map<String, dynamic> data)? getReportDetail,
-    TResult? Function(String playerId)? setCurrentPlayerId,
+    TResult? Function(String playerId, String termid, String coachingProgramId,
+            String sessionId, bool isParent)?
+        setCurrentPlayerId,
+    TResult? Function(PlayerData player)? getPlayerSelected,
+    TResult? Function()? resetState,
   }) {
     return getSessionSelected?.call(session);
   }
@@ -1224,7 +1340,11 @@ class _$SessionSelectedImpl implements SessionSelected {
     TResult Function(CoachingProgram program)? getProgramSelected,
     TResult Function(Session session)? getSessionSelected,
     TResult Function(Map<String, dynamic> data)? getReportDetail,
-    TResult Function(String playerId)? setCurrentPlayerId,
+    TResult Function(String playerId, String termid, String coachingProgramId,
+            String sessionId, bool isParent)?
+        setCurrentPlayerId,
+    TResult Function(PlayerData player)? getPlayerSelected,
+    TResult Function()? resetState,
     required TResult orElse(),
   }) {
     if (getSessionSelected != null) {
@@ -1246,6 +1366,8 @@ class _$SessionSelectedImpl implements SessionSelected {
     required TResult Function(SessionSelected value) getSessionSelected,
     required TResult Function(ReportDetail value) getReportDetail,
     required TResult Function(SetPlayerId value) setCurrentPlayerId,
+    required TResult Function(PlayerSelectedEvent value) getPlayerSelected,
+    required TResult Function(ResetReportStateEvent value) resetState,
   }) {
     return getSessionSelected(this);
   }
@@ -1262,6 +1384,8 @@ class _$SessionSelectedImpl implements SessionSelected {
     TResult? Function(SessionSelected value)? getSessionSelected,
     TResult? Function(ReportDetail value)? getReportDetail,
     TResult? Function(SetPlayerId value)? setCurrentPlayerId,
+    TResult? Function(PlayerSelectedEvent value)? getPlayerSelected,
+    TResult? Function(ResetReportStateEvent value)? resetState,
   }) {
     return getSessionSelected?.call(this);
   }
@@ -1278,6 +1402,8 @@ class _$SessionSelectedImpl implements SessionSelected {
     TResult Function(SessionSelected value)? getSessionSelected,
     TResult Function(ReportDetail value)? getReportDetail,
     TResult Function(SetPlayerId value)? setCurrentPlayerId,
+    TResult Function(PlayerSelectedEvent value)? getPlayerSelected,
+    TResult Function(ResetReportStateEvent value)? resetState,
     required TResult orElse(),
   }) {
     if (getSessionSelected != null) {
@@ -1381,7 +1507,11 @@ class _$ReportDetailImpl implements ReportDetail {
     required TResult Function(CoachingProgram program) getProgramSelected,
     required TResult Function(Session session) getSessionSelected,
     required TResult Function(Map<String, dynamic> data) getReportDetail,
-    required TResult Function(String playerId) setCurrentPlayerId,
+    required TResult Function(String playerId, String termid,
+            String coachingProgramId, String sessionId, bool isParent)
+        setCurrentPlayerId,
+    required TResult Function(PlayerData player) getPlayerSelected,
+    required TResult Function() resetState,
   }) {
     return getReportDetail(data);
   }
@@ -1397,7 +1527,11 @@ class _$ReportDetailImpl implements ReportDetail {
     TResult? Function(CoachingProgram program)? getProgramSelected,
     TResult? Function(Session session)? getSessionSelected,
     TResult? Function(Map<String, dynamic> data)? getReportDetail,
-    TResult? Function(String playerId)? setCurrentPlayerId,
+    TResult? Function(String playerId, String termid, String coachingProgramId,
+            String sessionId, bool isParent)?
+        setCurrentPlayerId,
+    TResult? Function(PlayerData player)? getPlayerSelected,
+    TResult? Function()? resetState,
   }) {
     return getReportDetail?.call(data);
   }
@@ -1413,7 +1547,11 @@ class _$ReportDetailImpl implements ReportDetail {
     TResult Function(CoachingProgram program)? getProgramSelected,
     TResult Function(Session session)? getSessionSelected,
     TResult Function(Map<String, dynamic> data)? getReportDetail,
-    TResult Function(String playerId)? setCurrentPlayerId,
+    TResult Function(String playerId, String termid, String coachingProgramId,
+            String sessionId, bool isParent)?
+        setCurrentPlayerId,
+    TResult Function(PlayerData player)? getPlayerSelected,
+    TResult Function()? resetState,
     required TResult orElse(),
   }) {
     if (getReportDetail != null) {
@@ -1435,6 +1573,8 @@ class _$ReportDetailImpl implements ReportDetail {
     required TResult Function(SessionSelected value) getSessionSelected,
     required TResult Function(ReportDetail value) getReportDetail,
     required TResult Function(SetPlayerId value) setCurrentPlayerId,
+    required TResult Function(PlayerSelectedEvent value) getPlayerSelected,
+    required TResult Function(ResetReportStateEvent value) resetState,
   }) {
     return getReportDetail(this);
   }
@@ -1451,6 +1591,8 @@ class _$ReportDetailImpl implements ReportDetail {
     TResult? Function(SessionSelected value)? getSessionSelected,
     TResult? Function(ReportDetail value)? getReportDetail,
     TResult? Function(SetPlayerId value)? setCurrentPlayerId,
+    TResult? Function(PlayerSelectedEvent value)? getPlayerSelected,
+    TResult? Function(ResetReportStateEvent value)? resetState,
   }) {
     return getReportDetail?.call(this);
   }
@@ -1467,6 +1609,8 @@ class _$ReportDetailImpl implements ReportDetail {
     TResult Function(SessionSelected value)? getSessionSelected,
     TResult Function(ReportDetail value)? getReportDetail,
     TResult Function(SetPlayerId value)? setCurrentPlayerId,
+    TResult Function(PlayerSelectedEvent value)? getPlayerSelected,
+    TResult Function(ResetReportStateEvent value)? resetState,
     required TResult orElse(),
   }) {
     if (getReportDetail != null) {
@@ -1495,7 +1639,12 @@ abstract class _$$SetPlayerIdImplCopyWith<$Res> {
           _$SetPlayerIdImpl value, $Res Function(_$SetPlayerIdImpl) then) =
       __$$SetPlayerIdImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({String playerId});
+  $Res call(
+      {String playerId,
+      String termid,
+      String coachingProgramId,
+      String sessionId,
+      bool isParent});
 }
 
 /// @nodoc
@@ -1512,12 +1661,32 @@ class __$$SetPlayerIdImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? playerId = null,
+    Object? termid = null,
+    Object? coachingProgramId = null,
+    Object? sessionId = null,
+    Object? isParent = null,
   }) {
     return _then(_$SetPlayerIdImpl(
       null == playerId
           ? _value.playerId
           : playerId // ignore: cast_nullable_to_non_nullable
               as String,
+      null == termid
+          ? _value.termid
+          : termid // ignore: cast_nullable_to_non_nullable
+              as String,
+      null == coachingProgramId
+          ? _value.coachingProgramId
+          : coachingProgramId // ignore: cast_nullable_to_non_nullable
+              as String,
+      null == sessionId
+          ? _value.sessionId
+          : sessionId // ignore: cast_nullable_to_non_nullable
+              as String,
+      null == isParent
+          ? _value.isParent
+          : isParent // ignore: cast_nullable_to_non_nullable
+              as bool,
     ));
   }
 }
@@ -1525,14 +1694,23 @@ class __$$SetPlayerIdImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$SetPlayerIdImpl implements SetPlayerId {
-  const _$SetPlayerIdImpl(this.playerId);
+  const _$SetPlayerIdImpl(this.playerId, this.termid, this.coachingProgramId,
+      this.sessionId, this.isParent);
 
   @override
   final String playerId;
+  @override
+  final String termid;
+  @override
+  final String coachingProgramId;
+  @override
+  final String sessionId;
+  @override
+  final bool isParent;
 
   @override
   String toString() {
-    return 'ReportEvent.setCurrentPlayerId(playerId: $playerId)';
+    return 'ReportEvent.setCurrentPlayerId(playerId: $playerId, termid: $termid, coachingProgramId: $coachingProgramId, sessionId: $sessionId, isParent: $isParent)';
   }
 
   @override
@@ -1541,11 +1719,19 @@ class _$SetPlayerIdImpl implements SetPlayerId {
         (other.runtimeType == runtimeType &&
             other is _$SetPlayerIdImpl &&
             (identical(other.playerId, playerId) ||
-                other.playerId == playerId));
+                other.playerId == playerId) &&
+            (identical(other.termid, termid) || other.termid == termid) &&
+            (identical(other.coachingProgramId, coachingProgramId) ||
+                other.coachingProgramId == coachingProgramId) &&
+            (identical(other.sessionId, sessionId) ||
+                other.sessionId == sessionId) &&
+            (identical(other.isParent, isParent) ||
+                other.isParent == isParent));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, playerId);
+  int get hashCode => Object.hash(
+      runtimeType, playerId, termid, coachingProgramId, sessionId, isParent);
 
   /// Create a copy of ReportEvent
   /// with the given fields replaced by the non-null parameter values.
@@ -1566,9 +1752,14 @@ class _$SetPlayerIdImpl implements SetPlayerId {
     required TResult Function(CoachingProgram program) getProgramSelected,
     required TResult Function(Session session) getSessionSelected,
     required TResult Function(Map<String, dynamic> data) getReportDetail,
-    required TResult Function(String playerId) setCurrentPlayerId,
+    required TResult Function(String playerId, String termid,
+            String coachingProgramId, String sessionId, bool isParent)
+        setCurrentPlayerId,
+    required TResult Function(PlayerData player) getPlayerSelected,
+    required TResult Function() resetState,
   }) {
-    return setCurrentPlayerId(playerId);
+    return setCurrentPlayerId(
+        playerId, termid, coachingProgramId, sessionId, isParent);
   }
 
   @override
@@ -1582,9 +1773,14 @@ class _$SetPlayerIdImpl implements SetPlayerId {
     TResult? Function(CoachingProgram program)? getProgramSelected,
     TResult? Function(Session session)? getSessionSelected,
     TResult? Function(Map<String, dynamic> data)? getReportDetail,
-    TResult? Function(String playerId)? setCurrentPlayerId,
+    TResult? Function(String playerId, String termid, String coachingProgramId,
+            String sessionId, bool isParent)?
+        setCurrentPlayerId,
+    TResult? Function(PlayerData player)? getPlayerSelected,
+    TResult? Function()? resetState,
   }) {
-    return setCurrentPlayerId?.call(playerId);
+    return setCurrentPlayerId?.call(
+        playerId, termid, coachingProgramId, sessionId, isParent);
   }
 
   @override
@@ -1598,11 +1794,16 @@ class _$SetPlayerIdImpl implements SetPlayerId {
     TResult Function(CoachingProgram program)? getProgramSelected,
     TResult Function(Session session)? getSessionSelected,
     TResult Function(Map<String, dynamic> data)? getReportDetail,
-    TResult Function(String playerId)? setCurrentPlayerId,
+    TResult Function(String playerId, String termid, String coachingProgramId,
+            String sessionId, bool isParent)?
+        setCurrentPlayerId,
+    TResult Function(PlayerData player)? getPlayerSelected,
+    TResult Function()? resetState,
     required TResult orElse(),
   }) {
     if (setCurrentPlayerId != null) {
-      return setCurrentPlayerId(playerId);
+      return setCurrentPlayerId(
+          playerId, termid, coachingProgramId, sessionId, isParent);
     }
     return orElse();
   }
@@ -1620,6 +1821,8 @@ class _$SetPlayerIdImpl implements SetPlayerId {
     required TResult Function(SessionSelected value) getSessionSelected,
     required TResult Function(ReportDetail value) getReportDetail,
     required TResult Function(SetPlayerId value) setCurrentPlayerId,
+    required TResult Function(PlayerSelectedEvent value) getPlayerSelected,
+    required TResult Function(ResetReportStateEvent value) resetState,
   }) {
     return setCurrentPlayerId(this);
   }
@@ -1636,6 +1839,8 @@ class _$SetPlayerIdImpl implements SetPlayerId {
     TResult? Function(SessionSelected value)? getSessionSelected,
     TResult? Function(ReportDetail value)? getReportDetail,
     TResult? Function(SetPlayerId value)? setCurrentPlayerId,
+    TResult? Function(PlayerSelectedEvent value)? getPlayerSelected,
+    TResult? Function(ResetReportStateEvent value)? resetState,
   }) {
     return setCurrentPlayerId?.call(this);
   }
@@ -1652,6 +1857,8 @@ class _$SetPlayerIdImpl implements SetPlayerId {
     TResult Function(SessionSelected value)? getSessionSelected,
     TResult Function(ReportDetail value)? getReportDetail,
     TResult Function(SetPlayerId value)? setCurrentPlayerId,
+    TResult Function(PlayerSelectedEvent value)? getPlayerSelected,
+    TResult Function(ResetReportStateEvent value)? resetState,
     required TResult orElse(),
   }) {
     if (setCurrentPlayerId != null) {
@@ -1662,13 +1869,405 @@ class _$SetPlayerIdImpl implements SetPlayerId {
 }
 
 abstract class SetPlayerId implements ReportEvent {
-  const factory SetPlayerId(final String playerId) = _$SetPlayerIdImpl;
+  const factory SetPlayerId(
+      final String playerId,
+      final String termid,
+      final String coachingProgramId,
+      final String sessionId,
+      final bool isParent) = _$SetPlayerIdImpl;
 
   String get playerId;
+  String get termid;
+  String get coachingProgramId;
+  String get sessionId;
+  bool get isParent;
 
   /// Create a copy of ReportEvent
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
   _$$SetPlayerIdImplCopyWith<_$SetPlayerIdImpl> get copyWith =>
       throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$PlayerSelectedEventImplCopyWith<$Res> {
+  factory _$$PlayerSelectedEventImplCopyWith(_$PlayerSelectedEventImpl value,
+          $Res Function(_$PlayerSelectedEventImpl) then) =
+      __$$PlayerSelectedEventImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({PlayerData player});
+
+  $PlayerDataCopyWith<$Res> get player;
+}
+
+/// @nodoc
+class __$$PlayerSelectedEventImplCopyWithImpl<$Res>
+    extends _$ReportEventCopyWithImpl<$Res, _$PlayerSelectedEventImpl>
+    implements _$$PlayerSelectedEventImplCopyWith<$Res> {
+  __$$PlayerSelectedEventImplCopyWithImpl(_$PlayerSelectedEventImpl _value,
+      $Res Function(_$PlayerSelectedEventImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of ReportEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? player = null,
+  }) {
+    return _then(_$PlayerSelectedEventImpl(
+      null == player
+          ? _value.player
+          : player // ignore: cast_nullable_to_non_nullable
+              as PlayerData,
+    ));
+  }
+
+  /// Create a copy of ReportEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $PlayerDataCopyWith<$Res> get player {
+    return $PlayerDataCopyWith<$Res>(_value.player, (value) {
+      return _then(_value.copyWith(player: value));
+    });
+  }
+}
+
+/// @nodoc
+
+class _$PlayerSelectedEventImpl implements PlayerSelectedEvent {
+  const _$PlayerSelectedEventImpl(this.player);
+
+  @override
+  final PlayerData player;
+
+  @override
+  String toString() {
+    return 'ReportEvent.getPlayerSelected(player: $player)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$PlayerSelectedEventImpl &&
+            (identical(other.player, player) || other.player == player));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, player);
+
+  /// Create a copy of ReportEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$PlayerSelectedEventImplCopyWith<_$PlayerSelectedEventImpl> get copyWith =>
+      __$$PlayerSelectedEventImplCopyWithImpl<_$PlayerSelectedEventImpl>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(Map<String, dynamic> data) getReportChildList,
+    required TResult Function(Map<String, dynamic> data) getAddScore,
+    required TResult Function(Map<String, dynamic> filterData)
+        getReportEventReportChildList,
+    required TResult Function(Term term) getTermSelected,
+    required TResult Function(CoachingProgram program) getProgramSelected,
+    required TResult Function(Session session) getSessionSelected,
+    required TResult Function(Map<String, dynamic> data) getReportDetail,
+    required TResult Function(String playerId, String termid,
+            String coachingProgramId, String sessionId, bool isParent)
+        setCurrentPlayerId,
+    required TResult Function(PlayerData player) getPlayerSelected,
+    required TResult Function() resetState,
+  }) {
+    return getPlayerSelected(player);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(Map<String, dynamic> data)? getReportChildList,
+    TResult? Function(Map<String, dynamic> data)? getAddScore,
+    TResult? Function(Map<String, dynamic> filterData)?
+        getReportEventReportChildList,
+    TResult? Function(Term term)? getTermSelected,
+    TResult? Function(CoachingProgram program)? getProgramSelected,
+    TResult? Function(Session session)? getSessionSelected,
+    TResult? Function(Map<String, dynamic> data)? getReportDetail,
+    TResult? Function(String playerId, String termid, String coachingProgramId,
+            String sessionId, bool isParent)?
+        setCurrentPlayerId,
+    TResult? Function(PlayerData player)? getPlayerSelected,
+    TResult? Function()? resetState,
+  }) {
+    return getPlayerSelected?.call(player);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(Map<String, dynamic> data)? getReportChildList,
+    TResult Function(Map<String, dynamic> data)? getAddScore,
+    TResult Function(Map<String, dynamic> filterData)?
+        getReportEventReportChildList,
+    TResult Function(Term term)? getTermSelected,
+    TResult Function(CoachingProgram program)? getProgramSelected,
+    TResult Function(Session session)? getSessionSelected,
+    TResult Function(Map<String, dynamic> data)? getReportDetail,
+    TResult Function(String playerId, String termid, String coachingProgramId,
+            String sessionId, bool isParent)?
+        setCurrentPlayerId,
+    TResult Function(PlayerData player)? getPlayerSelected,
+    TResult Function()? resetState,
+    required TResult orElse(),
+  }) {
+    if (getPlayerSelected != null) {
+      return getPlayerSelected(player);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(GetReportChildListEvent value) getReportChildList,
+    required TResult Function(AddScoreEvent value) getAddScore,
+    required TResult Function(
+            ReportEventGetTermsSessionCoachingPlayerEvents value)
+        getReportEventReportChildList,
+    required TResult Function(TermSelected value) getTermSelected,
+    required TResult Function(ProgramSelected value) getProgramSelected,
+    required TResult Function(SessionSelected value) getSessionSelected,
+    required TResult Function(ReportDetail value) getReportDetail,
+    required TResult Function(SetPlayerId value) setCurrentPlayerId,
+    required TResult Function(PlayerSelectedEvent value) getPlayerSelected,
+    required TResult Function(ResetReportStateEvent value) resetState,
+  }) {
+    return getPlayerSelected(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(GetReportChildListEvent value)? getReportChildList,
+    TResult? Function(AddScoreEvent value)? getAddScore,
+    TResult? Function(ReportEventGetTermsSessionCoachingPlayerEvents value)?
+        getReportEventReportChildList,
+    TResult? Function(TermSelected value)? getTermSelected,
+    TResult? Function(ProgramSelected value)? getProgramSelected,
+    TResult? Function(SessionSelected value)? getSessionSelected,
+    TResult? Function(ReportDetail value)? getReportDetail,
+    TResult? Function(SetPlayerId value)? setCurrentPlayerId,
+    TResult? Function(PlayerSelectedEvent value)? getPlayerSelected,
+    TResult? Function(ResetReportStateEvent value)? resetState,
+  }) {
+    return getPlayerSelected?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(GetReportChildListEvent value)? getReportChildList,
+    TResult Function(AddScoreEvent value)? getAddScore,
+    TResult Function(ReportEventGetTermsSessionCoachingPlayerEvents value)?
+        getReportEventReportChildList,
+    TResult Function(TermSelected value)? getTermSelected,
+    TResult Function(ProgramSelected value)? getProgramSelected,
+    TResult Function(SessionSelected value)? getSessionSelected,
+    TResult Function(ReportDetail value)? getReportDetail,
+    TResult Function(SetPlayerId value)? setCurrentPlayerId,
+    TResult Function(PlayerSelectedEvent value)? getPlayerSelected,
+    TResult Function(ResetReportStateEvent value)? resetState,
+    required TResult orElse(),
+  }) {
+    if (getPlayerSelected != null) {
+      return getPlayerSelected(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class PlayerSelectedEvent implements ReportEvent {
+  const factory PlayerSelectedEvent(final PlayerData player) =
+      _$PlayerSelectedEventImpl;
+
+  PlayerData get player;
+
+  /// Create a copy of ReportEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$PlayerSelectedEventImplCopyWith<_$PlayerSelectedEventImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$ResetReportStateEventImplCopyWith<$Res> {
+  factory _$$ResetReportStateEventImplCopyWith(
+          _$ResetReportStateEventImpl value,
+          $Res Function(_$ResetReportStateEventImpl) then) =
+      __$$ResetReportStateEventImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$ResetReportStateEventImplCopyWithImpl<$Res>
+    extends _$ReportEventCopyWithImpl<$Res, _$ResetReportStateEventImpl>
+    implements _$$ResetReportStateEventImplCopyWith<$Res> {
+  __$$ResetReportStateEventImplCopyWithImpl(_$ResetReportStateEventImpl _value,
+      $Res Function(_$ResetReportStateEventImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of ReportEvent
+  /// with the given fields replaced by the non-null parameter values.
+}
+
+/// @nodoc
+
+class _$ResetReportStateEventImpl implements ResetReportStateEvent {
+  const _$ResetReportStateEventImpl();
+
+  @override
+  String toString() {
+    return 'ReportEvent.resetState()';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$ResetReportStateEventImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(Map<String, dynamic> data) getReportChildList,
+    required TResult Function(Map<String, dynamic> data) getAddScore,
+    required TResult Function(Map<String, dynamic> filterData)
+        getReportEventReportChildList,
+    required TResult Function(Term term) getTermSelected,
+    required TResult Function(CoachingProgram program) getProgramSelected,
+    required TResult Function(Session session) getSessionSelected,
+    required TResult Function(Map<String, dynamic> data) getReportDetail,
+    required TResult Function(String playerId, String termid,
+            String coachingProgramId, String sessionId, bool isParent)
+        setCurrentPlayerId,
+    required TResult Function(PlayerData player) getPlayerSelected,
+    required TResult Function() resetState,
+  }) {
+    return resetState();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(Map<String, dynamic> data)? getReportChildList,
+    TResult? Function(Map<String, dynamic> data)? getAddScore,
+    TResult? Function(Map<String, dynamic> filterData)?
+        getReportEventReportChildList,
+    TResult? Function(Term term)? getTermSelected,
+    TResult? Function(CoachingProgram program)? getProgramSelected,
+    TResult? Function(Session session)? getSessionSelected,
+    TResult? Function(Map<String, dynamic> data)? getReportDetail,
+    TResult? Function(String playerId, String termid, String coachingProgramId,
+            String sessionId, bool isParent)?
+        setCurrentPlayerId,
+    TResult? Function(PlayerData player)? getPlayerSelected,
+    TResult? Function()? resetState,
+  }) {
+    return resetState?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(Map<String, dynamic> data)? getReportChildList,
+    TResult Function(Map<String, dynamic> data)? getAddScore,
+    TResult Function(Map<String, dynamic> filterData)?
+        getReportEventReportChildList,
+    TResult Function(Term term)? getTermSelected,
+    TResult Function(CoachingProgram program)? getProgramSelected,
+    TResult Function(Session session)? getSessionSelected,
+    TResult Function(Map<String, dynamic> data)? getReportDetail,
+    TResult Function(String playerId, String termid, String coachingProgramId,
+            String sessionId, bool isParent)?
+        setCurrentPlayerId,
+    TResult Function(PlayerData player)? getPlayerSelected,
+    TResult Function()? resetState,
+    required TResult orElse(),
+  }) {
+    if (resetState != null) {
+      return resetState();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(GetReportChildListEvent value) getReportChildList,
+    required TResult Function(AddScoreEvent value) getAddScore,
+    required TResult Function(
+            ReportEventGetTermsSessionCoachingPlayerEvents value)
+        getReportEventReportChildList,
+    required TResult Function(TermSelected value) getTermSelected,
+    required TResult Function(ProgramSelected value) getProgramSelected,
+    required TResult Function(SessionSelected value) getSessionSelected,
+    required TResult Function(ReportDetail value) getReportDetail,
+    required TResult Function(SetPlayerId value) setCurrentPlayerId,
+    required TResult Function(PlayerSelectedEvent value) getPlayerSelected,
+    required TResult Function(ResetReportStateEvent value) resetState,
+  }) {
+    return resetState(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(GetReportChildListEvent value)? getReportChildList,
+    TResult? Function(AddScoreEvent value)? getAddScore,
+    TResult? Function(ReportEventGetTermsSessionCoachingPlayerEvents value)?
+        getReportEventReportChildList,
+    TResult? Function(TermSelected value)? getTermSelected,
+    TResult? Function(ProgramSelected value)? getProgramSelected,
+    TResult? Function(SessionSelected value)? getSessionSelected,
+    TResult? Function(ReportDetail value)? getReportDetail,
+    TResult? Function(SetPlayerId value)? setCurrentPlayerId,
+    TResult? Function(PlayerSelectedEvent value)? getPlayerSelected,
+    TResult? Function(ResetReportStateEvent value)? resetState,
+  }) {
+    return resetState?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(GetReportChildListEvent value)? getReportChildList,
+    TResult Function(AddScoreEvent value)? getAddScore,
+    TResult Function(ReportEventGetTermsSessionCoachingPlayerEvents value)?
+        getReportEventReportChildList,
+    TResult Function(TermSelected value)? getTermSelected,
+    TResult Function(ProgramSelected value)? getProgramSelected,
+    TResult Function(SessionSelected value)? getSessionSelected,
+    TResult Function(ReportDetail value)? getReportDetail,
+    TResult Function(SetPlayerId value)? setCurrentPlayerId,
+    TResult Function(PlayerSelectedEvent value)? getPlayerSelected,
+    TResult Function(ResetReportStateEvent value)? resetState,
+    required TResult orElse(),
+  }) {
+    if (resetState != null) {
+      return resetState(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class ResetReportStateEvent implements ReportEvent {
+  const factory ResetReportStateEvent() = _$ResetReportStateEventImpl;
 }

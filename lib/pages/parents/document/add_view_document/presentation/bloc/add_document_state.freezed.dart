@@ -34,7 +34,7 @@ mixin _$AddDocumentState {
   List<CoachingProgram> get coachingProgram =>
       throw _privateConstructorUsedError;
   List<Session> get session => throw _privateConstructorUsedError;
-  List<Player> get player => throw _privateConstructorUsedError;
+  List<PlayerData> get player => throw _privateConstructorUsedError;
   String get selectedCoachName => throw _privateConstructorUsedError;
   String get selectedFileName => throw _privateConstructorUsedError;
   String get message => throw _privateConstructorUsedError;
@@ -71,7 +71,7 @@ abstract class $AddDocumentStateCopyWith<$Res> {
       List<Term> terms,
       List<CoachingProgram> coachingProgram,
       List<Session> session,
-      List<Player> player,
+      List<PlayerData> player,
       String selectedCoachName,
       String selectedFileName,
       String message,
@@ -187,7 +187,7 @@ class _$AddDocumentStateCopyWithImpl<$Res, $Val extends AddDocumentState>
       player: null == player
           ? _value.player
           : player // ignore: cast_nullable_to_non_nullable
-              as List<Player>,
+              as List<PlayerData>,
       selectedCoachName: null == selectedCoachName
           ? _value.selectedCoachName
           : selectedCoachName // ignore: cast_nullable_to_non_nullable
@@ -264,7 +264,7 @@ abstract class _$$AddDocumentStateImplCopyWith<$Res>
       List<Term> terms,
       List<CoachingProgram> coachingProgram,
       List<Session> session,
-      List<Player> player,
+      List<PlayerData> player,
       String selectedCoachName,
       String selectedFileName,
       String message,
@@ -380,7 +380,7 @@ class __$$AddDocumentStateImplCopyWithImpl<$Res>
       player: null == player
           ? _value._player
           : player // ignore: cast_nullable_to_non_nullable
-              as List<Player>,
+              as List<PlayerData>,
       selectedCoachName: null == selectedCoachName
           ? _value.selectedCoachName
           : selectedCoachName // ignore: cast_nullable_to_non_nullable
@@ -428,7 +428,7 @@ class _$AddDocumentStateImpl implements _AddDocumentState {
       final List<Term> terms = const [],
       final List<CoachingProgram> coachingProgram = const [],
       final List<Session> session = const [],
-      final List<Player> player = const [],
+      final List<PlayerData> player = const [],
       this.selectedCoachName = "",
       this.selectedFileName = "",
       this.message = "",
@@ -510,10 +510,10 @@ class _$AddDocumentStateImpl implements _AddDocumentState {
     return EqualUnmodifiableListView(_session);
   }
 
-  final List<Player> _player;
+  final List<PlayerData> _player;
   @override
   @JsonKey()
-  List<Player> get player {
+  List<PlayerData> get player {
     if (_player is EqualUnmodifiableListView) return _player;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(_player);
@@ -643,7 +643,7 @@ abstract class _AddDocumentState implements AddDocumentState {
       final List<Term> terms,
       final List<CoachingProgram> coachingProgram,
       final List<Session> session,
-      final List<Player> player,
+      final List<PlayerData> player,
       final String selectedCoachName,
       final String selectedFileName,
       final String message,
@@ -682,7 +682,7 @@ abstract class _AddDocumentState implements AddDocumentState {
   @override
   List<Session> get session;
   @override
-  List<Player> get player;
+  List<PlayerData> get player;
   @override
   String get selectedCoachName;
   @override
