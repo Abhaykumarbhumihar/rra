@@ -28,6 +28,7 @@ class OrderData with _$OrderData {
     @JsonKey(name: 'session_list')
     @Default([])
     List<SessionItem> sessionList,
+    @JsonKey(name: 'order_total') @Default(OrderTotal()) OrderTotal orderTotal,
   }) = _OrderData;
 
   factory OrderData.fromJson(Map<String, dynamic> json) =>
@@ -41,9 +42,36 @@ class SessionItem with _$SessionItem {
     @Default('') String date,
     @Default('') String timing,
     @Default('') String duration,
-    @Default('0.00') String price,
+    @Default('') String price,
   }) = _SessionItem;
 
   factory SessionItem.fromJson(Map<String, dynamic> json) =>
       _$SessionItemFromJson(json);
+}
+
+@freezed
+class OrderTotal with _$OrderTotal {
+  const factory OrderTotal({
+    @JsonKey(name: 'session_payment') @Default('') String sessionPayment,
+    @JsonKey(name: 'order_fees') @Default([]) List<OrderFee> orderFees,
+    @JsonKey(name: 'vat') @Default('') String vat,
+    @JsonKey(name: 'session_discounts') @Default([]) List<dynamic> sessionDiscounts,
+    @JsonKey(name: 'total_discount') @Default('') String totalDiscount,
+    @JsonKey(name: 'promocode') dynamic promoCode,
+    @JsonKey(name: 'grand_total') @Default('') String grandTotal,
+  }) = _OrderTotal;
+
+  factory OrderTotal.fromJson(Map<String, dynamic> json) =>
+      _$OrderTotalFromJson(json);
+}
+
+@freezed
+class OrderFee with _$OrderFee {
+  const factory OrderFee({
+    @JsonKey(name: 'label') @Default('') String label,
+    @JsonKey(name: 'amount') @Default('') String amount,
+  }) = _OrderFee;
+
+  factory OrderFee.fromJson(Map<String, dynamic> json) =>
+      _$OrderFeeFromJson(json);
 }

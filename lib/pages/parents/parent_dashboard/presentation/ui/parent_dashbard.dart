@@ -57,11 +57,11 @@ class ParentDashbard extends StatelessWidget {
                   print("View Session clicked");
                 },
                 onButtonClick2: () {
-                  BlocProvider.of<CampBloc>(context).add(CampListEvent({}));
-
-                  Navigator.pushNamed(
-                      context, AppRoutes.HOLIDAYCAMP);
-                  print("Book Facility clicked");
+                  // BlocProvider.of<CampBloc>(context).add(CampListEvent({}));
+                  //
+                  // Navigator.pushNamed(
+                  //     context, AppRoutes.HOLIDAYCAMP);
+                  // print("Book Facility clicked");
                 },
               ).animate().fade().slideX(begin: 0.5, end: 0, duration: 500.ms),
             ],

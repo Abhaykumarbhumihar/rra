@@ -256,6 +256,8 @@ mixin _$OrderData {
   String get coachedName => throw _privateConstructorUsedError;
   @JsonKey(name: 'session_list')
   List<SessionItem> get sessionList => throw _privateConstructorUsedError;
+  @JsonKey(name: 'order_total')
+  OrderTotal get orderTotal => throw _privateConstructorUsedError;
 
   /// Serializes this OrderData to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -278,7 +280,10 @@ abstract class $OrderDataCopyWith<$Res> {
       @JsonKey(name: 'coaching_program') String coachingProgram,
       String terms,
       @JsonKey(name: 'coached_name') String coachedName,
-      @JsonKey(name: 'session_list') List<SessionItem> sessionList});
+      @JsonKey(name: 'session_list') List<SessionItem> sessionList,
+      @JsonKey(name: 'order_total') OrderTotal orderTotal});
+
+  $OrderTotalCopyWith<$Res> get orderTotal;
 }
 
 /// @nodoc
@@ -302,6 +307,7 @@ class _$OrderDataCopyWithImpl<$Res, $Val extends OrderData>
     Object? terms = null,
     Object? coachedName = null,
     Object? sessionList = null,
+    Object? orderTotal = null,
   }) {
     return _then(_value.copyWith(
       childName: null == childName
@@ -328,7 +334,21 @@ class _$OrderDataCopyWithImpl<$Res, $Val extends OrderData>
           ? _value.sessionList
           : sessionList // ignore: cast_nullable_to_non_nullable
               as List<SessionItem>,
+      orderTotal: null == orderTotal
+          ? _value.orderTotal
+          : orderTotal // ignore: cast_nullable_to_non_nullable
+              as OrderTotal,
     ) as $Val);
+  }
+
+  /// Create a copy of OrderData
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $OrderTotalCopyWith<$Res> get orderTotal {
+    return $OrderTotalCopyWith<$Res>(_value.orderTotal, (value) {
+      return _then(_value.copyWith(orderTotal: value) as $Val);
+    });
   }
 }
 
@@ -346,7 +366,11 @@ abstract class _$$OrderDataImplCopyWith<$Res>
       @JsonKey(name: 'coaching_program') String coachingProgram,
       String terms,
       @JsonKey(name: 'coached_name') String coachedName,
-      @JsonKey(name: 'session_list') List<SessionItem> sessionList});
+      @JsonKey(name: 'session_list') List<SessionItem> sessionList,
+      @JsonKey(name: 'order_total') OrderTotal orderTotal});
+
+  @override
+  $OrderTotalCopyWith<$Res> get orderTotal;
 }
 
 /// @nodoc
@@ -368,6 +392,7 @@ class __$$OrderDataImplCopyWithImpl<$Res>
     Object? terms = null,
     Object? coachedName = null,
     Object? sessionList = null,
+    Object? orderTotal = null,
   }) {
     return _then(_$OrderDataImpl(
       childName: null == childName
@@ -394,6 +419,10 @@ class __$$OrderDataImplCopyWithImpl<$Res>
           ? _value._sessionList
           : sessionList // ignore: cast_nullable_to_non_nullable
               as List<SessionItem>,
+      orderTotal: null == orderTotal
+          ? _value.orderTotal
+          : orderTotal // ignore: cast_nullable_to_non_nullable
+              as OrderTotal,
     ));
   }
 }
@@ -408,7 +437,8 @@ class _$OrderDataImpl implements _OrderData {
       this.terms = '',
       @JsonKey(name: 'coached_name') this.coachedName = '',
       @JsonKey(name: 'session_list')
-      final List<SessionItem> sessionList = const []})
+      final List<SessionItem> sessionList = const [],
+      @JsonKey(name: 'order_total') this.orderTotal = const OrderTotal()})
       : _sessionList = sessionList;
 
   factory _$OrderDataImpl.fromJson(Map<String, dynamic> json) =>
@@ -439,8 +469,12 @@ class _$OrderDataImpl implements _OrderData {
   }
 
   @override
+  @JsonKey(name: 'order_total')
+  final OrderTotal orderTotal;
+
+  @override
   String toString() {
-    return 'OrderData(childName: $childName, sessionName: $sessionName, coachingProgram: $coachingProgram, terms: $terms, coachedName: $coachedName, sessionList: $sessionList)';
+    return 'OrderData(childName: $childName, sessionName: $sessionName, coachingProgram: $coachingProgram, terms: $terms, coachedName: $coachedName, sessionList: $sessionList, orderTotal: $orderTotal)';
   }
 
   @override
@@ -458,7 +492,9 @@ class _$OrderDataImpl implements _OrderData {
             (identical(other.coachedName, coachedName) ||
                 other.coachedName == coachedName) &&
             const DeepCollectionEquality()
-                .equals(other._sessionList, _sessionList));
+                .equals(other._sessionList, _sessionList) &&
+            (identical(other.orderTotal, orderTotal) ||
+                other.orderTotal == orderTotal));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
@@ -470,7 +506,8 @@ class _$OrderDataImpl implements _OrderData {
       coachingProgram,
       terms,
       coachedName,
-      const DeepCollectionEquality().hash(_sessionList));
+      const DeepCollectionEquality().hash(_sessionList),
+      orderTotal);
 
   /// Create a copy of OrderData
   /// with the given fields replaced by the non-null parameter values.
@@ -495,7 +532,8 @@ abstract class _OrderData implements OrderData {
           @JsonKey(name: 'coaching_program') final String coachingProgram,
           final String terms,
           @JsonKey(name: 'coached_name') final String coachedName,
-          @JsonKey(name: 'session_list') final List<SessionItem> sessionList}) =
+          @JsonKey(name: 'session_list') final List<SessionItem> sessionList,
+          @JsonKey(name: 'order_total') final OrderTotal orderTotal}) =
       _$OrderDataImpl;
 
   factory _OrderData.fromJson(Map<String, dynamic> json) =
@@ -518,6 +556,9 @@ abstract class _OrderData implements OrderData {
   @override
   @JsonKey(name: 'session_list')
   List<SessionItem> get sessionList;
+  @override
+  @JsonKey(name: 'order_total')
+  OrderTotal get orderTotal;
 
   /// Create a copy of OrderData
   /// with the given fields replaced by the non-null parameter values.
@@ -678,7 +719,7 @@ class _$SessionItemImpl implements _SessionItem {
       this.date = '',
       this.timing = '',
       this.duration = '',
-      this.price = '0.00'});
+      this.price = ''});
 
   factory _$SessionItemImpl.fromJson(Map<String, dynamic> json) =>
       _$$SessionItemImplFromJson(json);
@@ -767,5 +808,507 @@ abstract class _SessionItem implements SessionItem {
   @override
   @JsonKey(includeFromJson: false, includeToJson: false)
   _$$SessionItemImplCopyWith<_$SessionItemImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+OrderTotal _$OrderTotalFromJson(Map<String, dynamic> json) {
+  return _OrderTotal.fromJson(json);
+}
+
+/// @nodoc
+mixin _$OrderTotal {
+  @JsonKey(name: 'session_payment')
+  String get sessionPayment => throw _privateConstructorUsedError;
+  @JsonKey(name: 'order_fees')
+  List<OrderFee> get orderFees => throw _privateConstructorUsedError;
+  @JsonKey(name: 'vat')
+  String get vat => throw _privateConstructorUsedError;
+  @JsonKey(name: 'session_discounts')
+  List<dynamic> get sessionDiscounts => throw _privateConstructorUsedError;
+  @JsonKey(name: 'total_discount')
+  String get totalDiscount => throw _privateConstructorUsedError;
+  @JsonKey(name: 'promocode')
+  dynamic get promoCode => throw _privateConstructorUsedError;
+  @JsonKey(name: 'grand_total')
+  String get grandTotal => throw _privateConstructorUsedError;
+
+  /// Serializes this OrderTotal to a JSON map.
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+
+  /// Create a copy of OrderTotal
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  $OrderTotalCopyWith<OrderTotal> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $OrderTotalCopyWith<$Res> {
+  factory $OrderTotalCopyWith(
+          OrderTotal value, $Res Function(OrderTotal) then) =
+      _$OrderTotalCopyWithImpl<$Res, OrderTotal>;
+  @useResult
+  $Res call(
+      {@JsonKey(name: 'session_payment') String sessionPayment,
+      @JsonKey(name: 'order_fees') List<OrderFee> orderFees,
+      @JsonKey(name: 'vat') String vat,
+      @JsonKey(name: 'session_discounts') List<dynamic> sessionDiscounts,
+      @JsonKey(name: 'total_discount') String totalDiscount,
+      @JsonKey(name: 'promocode') dynamic promoCode,
+      @JsonKey(name: 'grand_total') String grandTotal});
+}
+
+/// @nodoc
+class _$OrderTotalCopyWithImpl<$Res, $Val extends OrderTotal>
+    implements $OrderTotalCopyWith<$Res> {
+  _$OrderTotalCopyWithImpl(this._value, this._then);
+
+  // ignore: unused_field
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
+
+  /// Create a copy of OrderTotal
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? sessionPayment = null,
+    Object? orderFees = null,
+    Object? vat = null,
+    Object? sessionDiscounts = null,
+    Object? totalDiscount = null,
+    Object? promoCode = freezed,
+    Object? grandTotal = null,
+  }) {
+    return _then(_value.copyWith(
+      sessionPayment: null == sessionPayment
+          ? _value.sessionPayment
+          : sessionPayment // ignore: cast_nullable_to_non_nullable
+              as String,
+      orderFees: null == orderFees
+          ? _value.orderFees
+          : orderFees // ignore: cast_nullable_to_non_nullable
+              as List<OrderFee>,
+      vat: null == vat
+          ? _value.vat
+          : vat // ignore: cast_nullable_to_non_nullable
+              as String,
+      sessionDiscounts: null == sessionDiscounts
+          ? _value.sessionDiscounts
+          : sessionDiscounts // ignore: cast_nullable_to_non_nullable
+              as List<dynamic>,
+      totalDiscount: null == totalDiscount
+          ? _value.totalDiscount
+          : totalDiscount // ignore: cast_nullable_to_non_nullable
+              as String,
+      promoCode: freezed == promoCode
+          ? _value.promoCode
+          : promoCode // ignore: cast_nullable_to_non_nullable
+              as dynamic,
+      grandTotal: null == grandTotal
+          ? _value.grandTotal
+          : grandTotal // ignore: cast_nullable_to_non_nullable
+              as String,
+    ) as $Val);
+  }
+}
+
+/// @nodoc
+abstract class _$$OrderTotalImplCopyWith<$Res>
+    implements $OrderTotalCopyWith<$Res> {
+  factory _$$OrderTotalImplCopyWith(
+          _$OrderTotalImpl value, $Res Function(_$OrderTotalImpl) then) =
+      __$$OrderTotalImplCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call(
+      {@JsonKey(name: 'session_payment') String sessionPayment,
+      @JsonKey(name: 'order_fees') List<OrderFee> orderFees,
+      @JsonKey(name: 'vat') String vat,
+      @JsonKey(name: 'session_discounts') List<dynamic> sessionDiscounts,
+      @JsonKey(name: 'total_discount') String totalDiscount,
+      @JsonKey(name: 'promocode') dynamic promoCode,
+      @JsonKey(name: 'grand_total') String grandTotal});
+}
+
+/// @nodoc
+class __$$OrderTotalImplCopyWithImpl<$Res>
+    extends _$OrderTotalCopyWithImpl<$Res, _$OrderTotalImpl>
+    implements _$$OrderTotalImplCopyWith<$Res> {
+  __$$OrderTotalImplCopyWithImpl(
+      _$OrderTotalImpl _value, $Res Function(_$OrderTotalImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of OrderTotal
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? sessionPayment = null,
+    Object? orderFees = null,
+    Object? vat = null,
+    Object? sessionDiscounts = null,
+    Object? totalDiscount = null,
+    Object? promoCode = freezed,
+    Object? grandTotal = null,
+  }) {
+    return _then(_$OrderTotalImpl(
+      sessionPayment: null == sessionPayment
+          ? _value.sessionPayment
+          : sessionPayment // ignore: cast_nullable_to_non_nullable
+              as String,
+      orderFees: null == orderFees
+          ? _value._orderFees
+          : orderFees // ignore: cast_nullable_to_non_nullable
+              as List<OrderFee>,
+      vat: null == vat
+          ? _value.vat
+          : vat // ignore: cast_nullable_to_non_nullable
+              as String,
+      sessionDiscounts: null == sessionDiscounts
+          ? _value._sessionDiscounts
+          : sessionDiscounts // ignore: cast_nullable_to_non_nullable
+              as List<dynamic>,
+      totalDiscount: null == totalDiscount
+          ? _value.totalDiscount
+          : totalDiscount // ignore: cast_nullable_to_non_nullable
+              as String,
+      promoCode: freezed == promoCode
+          ? _value.promoCode
+          : promoCode // ignore: cast_nullable_to_non_nullable
+              as dynamic,
+      grandTotal: null == grandTotal
+          ? _value.grandTotal
+          : grandTotal // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+@JsonSerializable()
+class _$OrderTotalImpl implements _OrderTotal {
+  const _$OrderTotalImpl(
+      {@JsonKey(name: 'session_payment') this.sessionPayment = '',
+      @JsonKey(name: 'order_fees') final List<OrderFee> orderFees = const [],
+      @JsonKey(name: 'vat') this.vat = '',
+      @JsonKey(name: 'session_discounts')
+      final List<dynamic> sessionDiscounts = const [],
+      @JsonKey(name: 'total_discount') this.totalDiscount = '',
+      @JsonKey(name: 'promocode') this.promoCode,
+      @JsonKey(name: 'grand_total') this.grandTotal = ''})
+      : _orderFees = orderFees,
+        _sessionDiscounts = sessionDiscounts;
+
+  factory _$OrderTotalImpl.fromJson(Map<String, dynamic> json) =>
+      _$$OrderTotalImplFromJson(json);
+
+  @override
+  @JsonKey(name: 'session_payment')
+  final String sessionPayment;
+  final List<OrderFee> _orderFees;
+  @override
+  @JsonKey(name: 'order_fees')
+  List<OrderFee> get orderFees {
+    if (_orderFees is EqualUnmodifiableListView) return _orderFees;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_orderFees);
+  }
+
+  @override
+  @JsonKey(name: 'vat')
+  final String vat;
+  final List<dynamic> _sessionDiscounts;
+  @override
+  @JsonKey(name: 'session_discounts')
+  List<dynamic> get sessionDiscounts {
+    if (_sessionDiscounts is EqualUnmodifiableListView)
+      return _sessionDiscounts;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_sessionDiscounts);
+  }
+
+  @override
+  @JsonKey(name: 'total_discount')
+  final String totalDiscount;
+  @override
+  @JsonKey(name: 'promocode')
+  final dynamic promoCode;
+  @override
+  @JsonKey(name: 'grand_total')
+  final String grandTotal;
+
+  @override
+  String toString() {
+    return 'OrderTotal(sessionPayment: $sessionPayment, orderFees: $orderFees, vat: $vat, sessionDiscounts: $sessionDiscounts, totalDiscount: $totalDiscount, promoCode: $promoCode, grandTotal: $grandTotal)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$OrderTotalImpl &&
+            (identical(other.sessionPayment, sessionPayment) ||
+                other.sessionPayment == sessionPayment) &&
+            const DeepCollectionEquality()
+                .equals(other._orderFees, _orderFees) &&
+            (identical(other.vat, vat) || other.vat == vat) &&
+            const DeepCollectionEquality()
+                .equals(other._sessionDiscounts, _sessionDiscounts) &&
+            (identical(other.totalDiscount, totalDiscount) ||
+                other.totalDiscount == totalDiscount) &&
+            const DeepCollectionEquality().equals(other.promoCode, promoCode) &&
+            (identical(other.grandTotal, grandTotal) ||
+                other.grandTotal == grandTotal));
+  }
+
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  int get hashCode => Object.hash(
+      runtimeType,
+      sessionPayment,
+      const DeepCollectionEquality().hash(_orderFees),
+      vat,
+      const DeepCollectionEquality().hash(_sessionDiscounts),
+      totalDiscount,
+      const DeepCollectionEquality().hash(promoCode),
+      grandTotal);
+
+  /// Create a copy of OrderTotal
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$OrderTotalImplCopyWith<_$OrderTotalImpl> get copyWith =>
+      __$$OrderTotalImplCopyWithImpl<_$OrderTotalImpl>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$OrderTotalImplToJson(
+      this,
+    );
+  }
+}
+
+abstract class _OrderTotal implements OrderTotal {
+  const factory _OrderTotal(
+      {@JsonKey(name: 'session_payment') final String sessionPayment,
+      @JsonKey(name: 'order_fees') final List<OrderFee> orderFees,
+      @JsonKey(name: 'vat') final String vat,
+      @JsonKey(name: 'session_discounts') final List<dynamic> sessionDiscounts,
+      @JsonKey(name: 'total_discount') final String totalDiscount,
+      @JsonKey(name: 'promocode') final dynamic promoCode,
+      @JsonKey(name: 'grand_total')
+      final String grandTotal}) = _$OrderTotalImpl;
+
+  factory _OrderTotal.fromJson(Map<String, dynamic> json) =
+      _$OrderTotalImpl.fromJson;
+
+  @override
+  @JsonKey(name: 'session_payment')
+  String get sessionPayment;
+  @override
+  @JsonKey(name: 'order_fees')
+  List<OrderFee> get orderFees;
+  @override
+  @JsonKey(name: 'vat')
+  String get vat;
+  @override
+  @JsonKey(name: 'session_discounts')
+  List<dynamic> get sessionDiscounts;
+  @override
+  @JsonKey(name: 'total_discount')
+  String get totalDiscount;
+  @override
+  @JsonKey(name: 'promocode')
+  dynamic get promoCode;
+  @override
+  @JsonKey(name: 'grand_total')
+  String get grandTotal;
+
+  /// Create a copy of OrderTotal
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$OrderTotalImplCopyWith<_$OrderTotalImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+OrderFee _$OrderFeeFromJson(Map<String, dynamic> json) {
+  return _OrderFee.fromJson(json);
+}
+
+/// @nodoc
+mixin _$OrderFee {
+  @JsonKey(name: 'label')
+  String get label => throw _privateConstructorUsedError;
+  @JsonKey(name: 'amount')
+  String get amount => throw _privateConstructorUsedError;
+
+  /// Serializes this OrderFee to a JSON map.
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+
+  /// Create a copy of OrderFee
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  $OrderFeeCopyWith<OrderFee> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $OrderFeeCopyWith<$Res> {
+  factory $OrderFeeCopyWith(OrderFee value, $Res Function(OrderFee) then) =
+      _$OrderFeeCopyWithImpl<$Res, OrderFee>;
+  @useResult
+  $Res call(
+      {@JsonKey(name: 'label') String label,
+      @JsonKey(name: 'amount') String amount});
+}
+
+/// @nodoc
+class _$OrderFeeCopyWithImpl<$Res, $Val extends OrderFee>
+    implements $OrderFeeCopyWith<$Res> {
+  _$OrderFeeCopyWithImpl(this._value, this._then);
+
+  // ignore: unused_field
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
+
+  /// Create a copy of OrderFee
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? label = null,
+    Object? amount = null,
+  }) {
+    return _then(_value.copyWith(
+      label: null == label
+          ? _value.label
+          : label // ignore: cast_nullable_to_non_nullable
+              as String,
+      amount: null == amount
+          ? _value.amount
+          : amount // ignore: cast_nullable_to_non_nullable
+              as String,
+    ) as $Val);
+  }
+}
+
+/// @nodoc
+abstract class _$$OrderFeeImplCopyWith<$Res>
+    implements $OrderFeeCopyWith<$Res> {
+  factory _$$OrderFeeImplCopyWith(
+          _$OrderFeeImpl value, $Res Function(_$OrderFeeImpl) then) =
+      __$$OrderFeeImplCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call(
+      {@JsonKey(name: 'label') String label,
+      @JsonKey(name: 'amount') String amount});
+}
+
+/// @nodoc
+class __$$OrderFeeImplCopyWithImpl<$Res>
+    extends _$OrderFeeCopyWithImpl<$Res, _$OrderFeeImpl>
+    implements _$$OrderFeeImplCopyWith<$Res> {
+  __$$OrderFeeImplCopyWithImpl(
+      _$OrderFeeImpl _value, $Res Function(_$OrderFeeImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of OrderFee
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? label = null,
+    Object? amount = null,
+  }) {
+    return _then(_$OrderFeeImpl(
+      label: null == label
+          ? _value.label
+          : label // ignore: cast_nullable_to_non_nullable
+              as String,
+      amount: null == amount
+          ? _value.amount
+          : amount // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+@JsonSerializable()
+class _$OrderFeeImpl implements _OrderFee {
+  const _$OrderFeeImpl(
+      {@JsonKey(name: 'label') this.label = '',
+      @JsonKey(name: 'amount') this.amount = ''});
+
+  factory _$OrderFeeImpl.fromJson(Map<String, dynamic> json) =>
+      _$$OrderFeeImplFromJson(json);
+
+  @override
+  @JsonKey(name: 'label')
+  final String label;
+  @override
+  @JsonKey(name: 'amount')
+  final String amount;
+
+  @override
+  String toString() {
+    return 'OrderFee(label: $label, amount: $amount)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$OrderFeeImpl &&
+            (identical(other.label, label) || other.label == label) &&
+            (identical(other.amount, amount) || other.amount == amount));
+  }
+
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  int get hashCode => Object.hash(runtimeType, label, amount);
+
+  /// Create a copy of OrderFee
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$OrderFeeImplCopyWith<_$OrderFeeImpl> get copyWith =>
+      __$$OrderFeeImplCopyWithImpl<_$OrderFeeImpl>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$OrderFeeImplToJson(
+      this,
+    );
+  }
+}
+
+abstract class _OrderFee implements OrderFee {
+  const factory _OrderFee(
+      {@JsonKey(name: 'label') final String label,
+      @JsonKey(name: 'amount') final String amount}) = _$OrderFeeImpl;
+
+  factory _OrderFee.fromJson(Map<String, dynamic> json) =
+      _$OrderFeeImpl.fromJson;
+
+  @override
+  @JsonKey(name: 'label')
+  String get label;
+  @override
+  @JsonKey(name: 'amount')
+  String get amount;
+
+  /// Create a copy of OrderFee
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$OrderFeeImplCopyWith<_$OrderFeeImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

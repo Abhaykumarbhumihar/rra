@@ -1,7 +1,9 @@
+import 'package:flutter_widget_from_html/flutter_widget_from_html.dart';
 import 'package:rra/common/component/component_export.dart';
 import 'package:rra/common/routes/routes.dart';
 import 'package:rra/common/values/values_exports.dart';
 
+import '../../../data/entity/collateral_model.dart';
 import '../../bloc/collateral_bloc.dart';
 import '../../bloc/collateral_state.dart';
 
@@ -22,10 +24,12 @@ class CollateralItem extends StatelessWidget {
         physics: BouncingScrollPhysics(),
         padding: EdgeInsets.zero,
         itemBuilder: (context,index){
+          var data=state.collateralModel.data.collaterals[index];
       return Padding(
         padding: EdgeInsets.only(
           left: context.screenWidth * 0.052,
           right: context.screenWidth * 0.052,
+          top: 3,bottom: 3
         ),
         child: Center(
           child: BackgroundContainer(
@@ -34,18 +38,19 @@ class CollateralItem extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
                 Text(
-                  "Collateral for Coaches",
+                  "${data.title}",
                   style: AppTextStyle.semiBold(
                       MediaQuery.of(context).size.width * 0.04266),
                 ),
                 SizedBox(
                   height: 2.0,
                 ),
-                Text(
-                  "This is a testing for the testing purpose only. This is a testing description for the testing purpose only",
-                  style: AppTextStyle.regular(
-                      MediaQuery.of(context).size.width * 0.03733),
+                HtmlWidget(
+                  "${data.description}",
+                  textStyle: AppTextStyle.coachingProgramDetail(
+                      context.screenWidth * 0.0373),
                 ),
+
                 SizedBox(
                   height: 4.0,
                 ),
@@ -55,12 +60,12 @@ class CollateralItem extends StatelessWidget {
                     Row(
                       children: <Widget>[
                         Text(
-                          "Created At : ",
+                          "Created At: ",
                           style: AppTextStyle.semiBold(
                               MediaQuery.of(context).size.width *0.032),
                         ),
                         Text(
-                          "14-02-2025 11:55:19",
+                          "${data.createdAt}",
                           style: AppTextStyle.regular(
                               MediaQuery.of(context).size.width * 0.032),
                         ),
@@ -69,8 +74,11 @@ class CollateralItem extends StatelessWidget {
                     SizedBox(width: 6.0,),
                     InkWell(
                       onTap: (){
+                        Map<String,Collateral>arguments={
+                          "data":data
+                        };
                         Navigator.pushNamed(
-                            context, AppRoutes.COACHCOLLATERALSDETAILS);
+                            context, AppRoutes.COACHCOLLATERALSDETAILS,arguments: arguments);
                       },
                       child: Container(
                         padding: EdgeInsets.symmetric(horizontal: 20,vertical: 6.0),

@@ -19,9 +19,7 @@ class CoachPlayerReportDetailPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // final args = ModalRoute.of(context)!.settings.arguments
-    //     as Map<String, PlayerReportData>;
-    // final reportData = args['childReportData']!;
+
 
     return BlocListener<ReportBloc, ReportState>(
       listener: (context, state) {
@@ -33,7 +31,7 @@ class CoachPlayerReportDetailPage extends StatelessWidget {
       child: BlocBuilder<ReportBloc, ReportState>(
         builder: (context, state) {
           return CommonPageFormat(
-            title: state.reportDetailModel.data.session,
+            title: state.reportDetailModel.data.childName,
             onBackPress: () => Navigator.pop(context),
             child: Padding(
               padding: EdgeInsets.symmetric(

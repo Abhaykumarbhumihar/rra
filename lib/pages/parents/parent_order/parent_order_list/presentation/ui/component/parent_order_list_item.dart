@@ -67,7 +67,7 @@ class ParentOrderListItem extends StatelessWidget {
                       ? CommonSmallElevatedButton(
                     padding: EdgeInsets.symmetric(
                         horizontal: 20.0, vertical: 6.0),
-                    label:myOrder.status=="success"? "Cancel":"cancelled",
+                    label:myOrder.status.toString().toLowerCase().trim()=="success"? "Cancel":"cancelled",
                     onPressed: () {
                       if(myOrder.status=="success"){
                         ConfirmationDialog.show(

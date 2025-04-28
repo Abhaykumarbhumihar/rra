@@ -37,28 +37,28 @@ class ParentOrderDetailItem extends StatelessWidget {
                       SizedBox(height: 12.0,),
 
                       InfoRow1(
-                        label: "Session Name :",
+                        label: "Session Name:",
                         value: " ${data.sessionName}",
                       ),
                       SizedBox(height: 3.0,),
                       InfoRow(
-                        label: "Date :",
+                        label: "Date:",
                         value: " ${data.date}",
                       ),
                       SizedBox(height: 3.0,),
                       InfoRow(
-                        label: "Timing :",
+                        label: "Timing:",
                         value: " ${data.timing}",
                       ),
                       SizedBox(height: 3.0,),
                       InfoRow(
-                        label: "Duration :",
+                        label: "Duration:",
                         value: " ${data.duration} Hours",
                       ),
                       SizedBox(height: 3.0,),
                       InfoRow(
-                        label: "Amount :",
-                        value: " \$${data.price}",
+                        label: "Amount: ",
+                        value: "${data.price}",
                       ),
 
 

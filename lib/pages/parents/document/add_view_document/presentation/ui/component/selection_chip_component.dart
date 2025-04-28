@@ -54,13 +54,16 @@ class SelectionChipComponent<T> extends StatelessWidget {
                     right: 8,
                   ),
                   child: items.isEmpty
-                      ? Text(
-                          'Select $title',
-                          style: TextStyle(
-                            color: Colors.white.withOpacity(0.5),
-                            fontSize: context.screenWidth * 0.035,
+                      ? GestureDetector(
+                    onTap: onAddPressed,
+                        child: Text(
+                            'Select $title',
+                            style: TextStyle(
+                              color: Colors.white.withOpacity(0.5),
+                              fontSize: context.screenWidth * 0.035,
+                            ),
                           ),
-                        )
+                      )
                       : (isAllSelected
                           ? Text(
                               "All ${title} selected",

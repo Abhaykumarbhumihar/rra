@@ -35,12 +35,20 @@ class PlayerInfoCard extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   InfoRow(
-                    label: "Term Name :",
+                    label: "Term Name:",
                     value: " ${reportData.data.term}",
                   ),
                   InfoRow(
-                    label: "Session :",
-                    value: " ${reportData.data.term}",
+                    label: "Session:",
+                    value: " ${reportData.data.sessionName}",
+                  ),
+                  InfoRow(
+                    label: "Player:",
+                    value: " ${reportData.data.childName}",
+                  ),
+                  InfoRow(
+                    label: "Coaching program:",
+                    value: " ${reportData.data.coachingProgram}",
                   ),
                 ],
               ),

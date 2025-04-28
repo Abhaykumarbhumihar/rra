@@ -37,6 +37,9 @@ _$OrderDataImpl _$$OrderDataImplFromJson(Map<String, dynamic> json) =>
               ?.map((e) => SessionItem.fromJson(e as Map<String, dynamic>))
               .toList() ??
           const [],
+      orderTotal: json['order_total'] == null
+          ? const OrderTotal()
+          : OrderTotal.fromJson(json['order_total'] as Map<String, dynamic>),
     );
 
 Map<String, dynamic> _$$OrderDataImplToJson(_$OrderDataImpl instance) =>
@@ -47,6 +50,7 @@ Map<String, dynamic> _$$OrderDataImplToJson(_$OrderDataImpl instance) =>
       'terms': instance.terms,
       'coached_name': instance.coachedName,
       'session_list': instance.sessionList,
+      'order_total': instance.orderTotal,
     };
 
 _$SessionItemImpl _$$SessionItemImplFromJson(Map<String, dynamic> json) =>
@@ -55,7 +59,7 @@ _$SessionItemImpl _$$SessionItemImplFromJson(Map<String, dynamic> json) =>
       date: json['date'] as String? ?? '',
       timing: json['timing'] as String? ?? '',
       duration: json['duration'] as String? ?? '',
-      price: json['price'] as String? ?? '0.00',
+      price: json['price'] as String? ?? '',
     );
 
 Map<String, dynamic> _$$SessionItemImplToJson(_$SessionItemImpl instance) =>
@@ -65,4 +69,41 @@ Map<String, dynamic> _$$SessionItemImplToJson(_$SessionItemImpl instance) =>
       'timing': instance.timing,
       'duration': instance.duration,
       'price': instance.price,
+    };
+
+_$OrderTotalImpl _$$OrderTotalImplFromJson(Map<String, dynamic> json) =>
+    _$OrderTotalImpl(
+      sessionPayment: json['session_payment'] as String? ?? '',
+      orderFees: (json['order_fees'] as List<dynamic>?)
+              ?.map((e) => OrderFee.fromJson(e as Map<String, dynamic>))
+              .toList() ??
+          const [],
+      vat: json['vat'] as String? ?? '',
+      sessionDiscounts: json['session_discounts'] as List<dynamic>? ?? const [],
+      totalDiscount: json['total_discount'] as String? ?? '',
+      promoCode: json['promocode'],
+      grandTotal: json['grand_total'] as String? ?? '',
+    );
+
+Map<String, dynamic> _$$OrderTotalImplToJson(_$OrderTotalImpl instance) =>
+    <String, dynamic>{
+      'session_payment': instance.sessionPayment,
+      'order_fees': instance.orderFees,
+      'vat': instance.vat,
+      'session_discounts': instance.sessionDiscounts,
+      'total_discount': instance.totalDiscount,
+      'promocode': instance.promoCode,
+      'grand_total': instance.grandTotal,
+    };
+
+_$OrderFeeImpl _$$OrderFeeImplFromJson(Map<String, dynamic> json) =>
+    _$OrderFeeImpl(
+      label: json['label'] as String? ?? '',
+      amount: json['amount'] as String? ?? '',
+    );
+
+Map<String, dynamic> _$$OrderFeeImplToJson(_$OrderFeeImpl instance) =>
+    <String, dynamic>{
+      'label': instance.label,
+      'amount': instance.amount,
     };

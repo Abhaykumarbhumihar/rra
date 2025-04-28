@@ -12,5 +12,6 @@ import '../../data/entity/terms_program_session/terms_program_session_player_mod
 abstract class ParentDocumentRepositery{
   Future<Either<Failure,dynamic>> uploadDocument(Map<String, dynamic> documentData);
   Future<Either<Failure,ParentDocumentListModel>> getDocumentList(Map<String, dynamic> documentData);
+  Future<Either<Failure,dynamic>> deleteDocument(Map<String, dynamic> documentData);
   Future<Either<Failure,TermsProgramSessionPlayerModel>> getTermsSessionPlayerCoaching(Map<String, dynamic> termsData);
 }

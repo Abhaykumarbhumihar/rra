@@ -153,6 +153,24 @@ class PlayerAttendanceList extends StatelessWidget {
                                                 label:
                                                     "${attendanceData?.attendanceStatus}",
                                                 onPressed: () async {
+                                                  // First check if the date is in the past
+                                                  final attendanceDateStr = attendanceData?.date;
+                                                  if (attendanceDateStr != null) {
+                                                    final attendanceDate = DateTime.parse(attendanceDateStr);
+                                                    final currentDate = DateTime.now();
+
+                                                    // Normalize dates (ignore time components)
+                                                    final normalizedAttDate = DateTime(attendanceDate.year, attendanceDate.month, attendanceDate.day);
+                                                    final normalizedCurrentDate = DateTime(currentDate.year, currentDate.month, currentDate.day);
+
+                                                    // If date is not in the past, show snackbar and return
+                                                    if (!normalizedAttDate.isBefore(normalizedCurrentDate)) {
+                                                      ScaffoldMessenger.of(context).showSnackBar(
+                                                        SnackBar(content: Text("Attendance can only be updated for past dates")),
+                                                      );
+                                                      return;
+                                                    }
+                                                  }
                                                   var userdata = await getIt<
                                                           SharedPrefs>()
                                                       .getModel<
