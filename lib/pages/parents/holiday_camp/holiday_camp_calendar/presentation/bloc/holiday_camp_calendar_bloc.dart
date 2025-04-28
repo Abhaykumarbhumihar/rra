@@ -30,11 +30,23 @@ class HolidayCampCalendarBloc
     on<HolidayCampCalendarDateEvents>(_getCalendarDatesList);
     on<SaveCampEvents>(_saveCamp);
     on<RemoveSavedCampEvent>(_removeSavedCamp);
+    on<HolidayCampCurrentDateEvent>(_setCurrentDate);
 
 
   }
 
-
+  Future<void> _setCurrentDate(
+      HolidayCampCurrentDateEvent event, Emitter<HolidayCampCalendarState> emit) async {
+    emit(state.copyWith(
+        isTimeAddedSuccess:false,
+        isLoading: false,
+        isError: false,
+        isLoginApiError: false,
+        success: false,
+        error: '',
+        selectBottomSheetType: "",
+        datetime: event.data));
+  }
   Future<void> _getCalendarDatesList(
       HolidayCampCalendarDateEvents event, Emitter<HolidayCampCalendarState> emit) async {
     try {

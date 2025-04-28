@@ -12,5 +12,5 @@ class HolidayCampCalendarEvent with _$HolidayCampCalendarEvent {
   const factory HolidayCampCalendarEvent.removeSavedCamp( Map<String, dynamic> data,index) = RemoveSavedCampEvent;
 
   const factory HolidayCampCalendarEvent.getValidateCampSendChildId(Map<String, dynamic> data) = ValidateCampSendChildIdEvent;
-
+  const factory HolidayCampCalendarEvent.setCurrentDate( DateTime data,String dayname) = HolidayCampCurrentDateEvent;
 }

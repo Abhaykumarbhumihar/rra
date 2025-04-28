@@ -114,6 +114,8 @@ class HolidayCampCalendarView extends StatelessWidget {
                                 onTap: (){
                                   String formattedDate = DateFormat('yyyy-MM-dd').format(availableDate);
                                   print(formattedDate);
+                                  BlocProvider.of<HolidayCampCalendarBloc>(context)
+                                      .add(HolidayCampCurrentDateEvent(availableDate,""));
                                   var academyId = getIt<SharedPrefs>().getString("selected_academyid");
                                   Map<String, dynamic> map = {
                                     "date":formattedDate,

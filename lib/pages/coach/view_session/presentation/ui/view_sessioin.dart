@@ -68,38 +68,38 @@ class CoachViewSessioin extends StatelessWidget {
                               Navigator.pop(context);
                             },
                           ),
-                          SizedBox(
-                            height: 24,
-                          ),
-                          Padding(
-                            padding: EdgeInsets.only(
-                              left: context.screenWidth * 0.052,
-                              right: context.screenWidth * 0.052,
-                            ),
-                            child: CustomTextInputMobile(
-                              controller: daysController,
-                              title: "Select Days",
-                              isPass: false,
-                              isSuffix: true,
-                              isShowTitle: false,
-                              isPrefix: false,
-                              hint: 'Select Days',
-                              readOnly: true,
-                              keyBoardType: TextInputType.phone,
-                              // focusNode: phoneNoFocusNode,
-                              maxLength: 13,
-                              errorMessage: "",
-                              onTap: () async {
-                                final selectedDay =
-                                    await showDayListBottomSheet(context);
-                                if (selectedDay != null) {
-                                  // Do something with the selected day
-                                  daysController.text = selectedDay;
-                                }
-                              },
-                              onChanged: (value) {},
-                            ),
-                          ),
+                          // SizedBox(
+                          //   height: 24,
+                          // ),
+                          // Padding(
+                          //   padding: EdgeInsets.only(
+                          //     left: context.screenWidth * 0.052,
+                          //     right: context.screenWidth * 0.052,
+                          //   ),
+                          //   child: CustomTextInputMobile(
+                          //     controller: daysController,
+                          //     title: "Select Days",
+                          //     isPass: false,
+                          //     isSuffix: true,
+                          //     isShowTitle: false,
+                          //     isPrefix: false,
+                          //     hint: 'Select Days',
+                          //     readOnly: true,
+                          //     keyBoardType: TextInputType.phone,
+                          //     // focusNode: phoneNoFocusNode,
+                          //     maxLength: 13,
+                          //     errorMessage: "",
+                          //     onTap: () async {
+                          //       final selectedDay =
+                          //           await showDayListBottomSheet(context);
+                          //       if (selectedDay != null) {
+                          //         // Do something with the selected day
+                          //         daysController.text = selectedDay;
+                          //       }
+                          //     },
+                          //     onChanged: (value) {},
+                          //   ),
+                          // ),
                          // if(BlocProvider.of<AppBloc>(context).state.userdata.data.role=="parent")
 
                           //   Padding(
