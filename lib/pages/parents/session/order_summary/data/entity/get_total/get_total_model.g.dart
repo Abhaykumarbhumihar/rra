@@ -35,7 +35,7 @@ _$GetTotalDataImpl _$$GetTotalDataImplFromJson(Map<String, dynamic> json) =>
           const [],
       total_session_discount: json['total_session_discount'] as String? ?? '',
       promocodeDetails: json['promocodeDetails'] == null
-          ? const PromocodeDetails()
+          ? null
           : PromocodeDetails.fromJson(
               json['promocodeDetails'] as Map<String, dynamic>),
       total_payable: json['total_payable'] as String? ?? '',
@@ -63,10 +63,10 @@ Map<String, dynamic> _$$GetTotalDataImplToJson(_$GetTotalDataImpl instance) =>
 _$PromocodeDetailsImpl _$$PromocodeDetailsImplFromJson(
         Map<String, dynamic> json) =>
     _$PromocodeDetailsImpl(
-      totalAmount: (json['totalAmount'] as num?)?.toDouble() ?? 0,
-      discount: json['discount'] as String? ?? '',
-      finalAmount: (json['finalAmount'] as num?)?.toDouble() ?? 0,
-      promocode_id: (json['promocode_id'] as num?)?.toInt() ?? 0,
+      totalAmount: json['totalAmount'] ?? 0,
+      discount: json['discount'] ?? '',
+      finalAmount: json['finalAmount'] ?? 0,
+      promocode_id: json['promocode_id'] ?? 0,
     );
 
 Map<String, dynamic> _$$PromocodeDetailsImplToJson(

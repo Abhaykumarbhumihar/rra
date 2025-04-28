@@ -262,7 +262,7 @@ mixin _$GetTotalData {
       throw _privateConstructorUsedError;
   String get total_session_discount => throw _privateConstructorUsedError;
   @JsonKey(name: 'promocodeDetails')
-  PromocodeDetails get promocodeDetails => throw _privateConstructorUsedError;
+  PromocodeDetails? get promocodeDetails => throw _privateConstructorUsedError;
   String get total_payable => throw _privateConstructorUsedError;
   @JsonKey(name: 'bulk_discounts')
   List<dynamic> get bulkDiscounts => throw _privateConstructorUsedError;
@@ -293,13 +293,13 @@ abstract class $GetTotalDataCopyWith<$Res> {
       @JsonKey(name: 'registration_fees')
       List<RegistrationFee> registrationFees,
       String total_session_discount,
-      @JsonKey(name: 'promocodeDetails') PromocodeDetails promocodeDetails,
+      @JsonKey(name: 'promocodeDetails') PromocodeDetails? promocodeDetails,
       String total_payable,
       @JsonKey(name: 'bulk_discounts') List<dynamic> bulkDiscounts,
       @JsonKey(name: 'settings') Settings settings,
       String is_private});
 
-  $PromocodeDetailsCopyWith<$Res> get promocodeDetails;
+  $PromocodeDetailsCopyWith<$Res>? get promocodeDetails;
   $SettingsCopyWith<$Res> get settings;
 }
 
@@ -323,7 +323,7 @@ class _$GetTotalDataCopyWithImpl<$Res, $Val extends GetTotalData>
     Object? registration_total = null,
     Object? registrationFees = null,
     Object? total_session_discount = null,
-    Object? promocodeDetails = null,
+    Object? promocodeDetails = freezed,
     Object? total_payable = null,
     Object? bulkDiscounts = null,
     Object? settings = null,
@@ -350,10 +350,10 @@ class _$GetTotalDataCopyWithImpl<$Res, $Val extends GetTotalData>
           ? _value.total_session_discount
           : total_session_discount // ignore: cast_nullable_to_non_nullable
               as String,
-      promocodeDetails: null == promocodeDetails
+      promocodeDetails: freezed == promocodeDetails
           ? _value.promocodeDetails
           : promocodeDetails // ignore: cast_nullable_to_non_nullable
-              as PromocodeDetails,
+              as PromocodeDetails?,
       total_payable: null == total_payable
           ? _value.total_payable
           : total_payable // ignore: cast_nullable_to_non_nullable
@@ -377,8 +377,12 @@ class _$GetTotalDataCopyWithImpl<$Res, $Val extends GetTotalData>
   /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
-  $PromocodeDetailsCopyWith<$Res> get promocodeDetails {
-    return $PromocodeDetailsCopyWith<$Res>(_value.promocodeDetails, (value) {
+  $PromocodeDetailsCopyWith<$Res>? get promocodeDetails {
+    if (_value.promocodeDetails == null) {
+      return null;
+    }
+
+    return $PromocodeDetailsCopyWith<$Res>(_value.promocodeDetails!, (value) {
       return _then(_value.copyWith(promocodeDetails: value) as $Val);
     });
   }
@@ -409,14 +413,14 @@ abstract class _$$GetTotalDataImplCopyWith<$Res>
       @JsonKey(name: 'registration_fees')
       List<RegistrationFee> registrationFees,
       String total_session_discount,
-      @JsonKey(name: 'promocodeDetails') PromocodeDetails promocodeDetails,
+      @JsonKey(name: 'promocodeDetails') PromocodeDetails? promocodeDetails,
       String total_payable,
       @JsonKey(name: 'bulk_discounts') List<dynamic> bulkDiscounts,
       @JsonKey(name: 'settings') Settings settings,
       String is_private});
 
   @override
-  $PromocodeDetailsCopyWith<$Res> get promocodeDetails;
+  $PromocodeDetailsCopyWith<$Res>? get promocodeDetails;
   @override
   $SettingsCopyWith<$Res> get settings;
 }
@@ -439,7 +443,7 @@ class __$$GetTotalDataImplCopyWithImpl<$Res>
     Object? registration_total = null,
     Object? registrationFees = null,
     Object? total_session_discount = null,
-    Object? promocodeDetails = null,
+    Object? promocodeDetails = freezed,
     Object? total_payable = null,
     Object? bulkDiscounts = null,
     Object? settings = null,
@@ -466,10 +470,10 @@ class __$$GetTotalDataImplCopyWithImpl<$Res>
           ? _value.total_session_discount
           : total_session_discount // ignore: cast_nullable_to_non_nullable
               as String,
-      promocodeDetails: null == promocodeDetails
+      promocodeDetails: freezed == promocodeDetails
           ? _value.promocodeDetails
           : promocodeDetails // ignore: cast_nullable_to_non_nullable
-              as PromocodeDetails,
+              as PromocodeDetails?,
       total_payable: null == total_payable
           ? _value.total_payable
           : total_payable // ignore: cast_nullable_to_non_nullable
@@ -500,8 +504,7 @@ class _$GetTotalDataImpl implements _GetTotalData {
       @JsonKey(name: 'registration_fees')
       final List<RegistrationFee> registrationFees = const [],
       this.total_session_discount = '',
-      @JsonKey(name: 'promocodeDetails')
-      this.promocodeDetails = const PromocodeDetails(),
+      @JsonKey(name: 'promocodeDetails') this.promocodeDetails,
       this.total_payable = '',
       @JsonKey(name: 'bulk_discounts')
       final List<dynamic> bulkDiscounts = const [],
@@ -537,7 +540,7 @@ class _$GetTotalDataImpl implements _GetTotalData {
   final String total_session_discount;
   @override
   @JsonKey(name: 'promocodeDetails')
-  final PromocodeDetails promocodeDetails;
+  final PromocodeDetails? promocodeDetails;
   @override
   @JsonKey()
   final String total_payable;
@@ -627,7 +630,7 @@ abstract class _GetTotalData implements GetTotalData {
       final List<RegistrationFee> registrationFees,
       final String total_session_discount,
       @JsonKey(name: 'promocodeDetails')
-      final PromocodeDetails promocodeDetails,
+      final PromocodeDetails? promocodeDetails,
       final String total_payable,
       @JsonKey(name: 'bulk_discounts') final List<dynamic> bulkDiscounts,
       @JsonKey(name: 'settings') final Settings settings,
@@ -649,7 +652,7 @@ abstract class _GetTotalData implements GetTotalData {
   String get total_session_discount;
   @override
   @JsonKey(name: 'promocodeDetails')
-  PromocodeDetails get promocodeDetails;
+  PromocodeDetails? get promocodeDetails;
   @override
   String get total_payable;
   @override
@@ -675,10 +678,10 @@ PromocodeDetails _$PromocodeDetailsFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$PromocodeDetails {
-  double get totalAmount => throw _privateConstructorUsedError;
-  String get discount => throw _privateConstructorUsedError;
-  double get finalAmount => throw _privateConstructorUsedError;
-  int get promocode_id => throw _privateConstructorUsedError;
+  dynamic get totalAmount => throw _privateConstructorUsedError;
+  dynamic get discount => throw _privateConstructorUsedError;
+  dynamic get finalAmount => throw _privateConstructorUsedError;
+  dynamic get promocode_id => throw _privateConstructorUsedError;
 
   /// Serializes this PromocodeDetails to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -697,10 +700,10 @@ abstract class $PromocodeDetailsCopyWith<$Res> {
       _$PromocodeDetailsCopyWithImpl<$Res, PromocodeDetails>;
   @useResult
   $Res call(
-      {double totalAmount,
-      String discount,
-      double finalAmount,
-      int promocode_id});
+      {dynamic totalAmount,
+      dynamic discount,
+      dynamic finalAmount,
+      dynamic promocode_id});
 }
 
 /// @nodoc
@@ -718,28 +721,28 @@ class _$PromocodeDetailsCopyWithImpl<$Res, $Val extends PromocodeDetails>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? totalAmount = null,
-    Object? discount = null,
-    Object? finalAmount = null,
-    Object? promocode_id = null,
+    Object? totalAmount = freezed,
+    Object? discount = freezed,
+    Object? finalAmount = freezed,
+    Object? promocode_id = freezed,
   }) {
     return _then(_value.copyWith(
-      totalAmount: null == totalAmount
+      totalAmount: freezed == totalAmount
           ? _value.totalAmount
           : totalAmount // ignore: cast_nullable_to_non_nullable
-              as double,
-      discount: null == discount
+              as dynamic,
+      discount: freezed == discount
           ? _value.discount
           : discount // ignore: cast_nullable_to_non_nullable
-              as String,
-      finalAmount: null == finalAmount
+              as dynamic,
+      finalAmount: freezed == finalAmount
           ? _value.finalAmount
           : finalAmount // ignore: cast_nullable_to_non_nullable
-              as double,
-      promocode_id: null == promocode_id
+              as dynamic,
+      promocode_id: freezed == promocode_id
           ? _value.promocode_id
           : promocode_id // ignore: cast_nullable_to_non_nullable
-              as int,
+              as dynamic,
     ) as $Val);
   }
 }
@@ -753,10 +756,10 @@ abstract class _$$PromocodeDetailsImplCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {double totalAmount,
-      String discount,
-      double finalAmount,
-      int promocode_id});
+      {dynamic totalAmount,
+      dynamic discount,
+      dynamic finalAmount,
+      dynamic promocode_id});
 }
 
 /// @nodoc
@@ -772,28 +775,28 @@ class __$$PromocodeDetailsImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? totalAmount = null,
-    Object? discount = null,
-    Object? finalAmount = null,
-    Object? promocode_id = null,
+    Object? totalAmount = freezed,
+    Object? discount = freezed,
+    Object? finalAmount = freezed,
+    Object? promocode_id = freezed,
   }) {
     return _then(_$PromocodeDetailsImpl(
-      totalAmount: null == totalAmount
+      totalAmount: freezed == totalAmount
           ? _value.totalAmount
           : totalAmount // ignore: cast_nullable_to_non_nullable
-              as double,
-      discount: null == discount
+              as dynamic,
+      discount: freezed == discount
           ? _value.discount
           : discount // ignore: cast_nullable_to_non_nullable
-              as String,
-      finalAmount: null == finalAmount
+              as dynamic,
+      finalAmount: freezed == finalAmount
           ? _value.finalAmount
           : finalAmount // ignore: cast_nullable_to_non_nullable
-              as double,
-      promocode_id: null == promocode_id
+              as dynamic,
+      promocode_id: freezed == promocode_id
           ? _value.promocode_id
           : promocode_id // ignore: cast_nullable_to_non_nullable
-              as int,
+              as dynamic,
     ));
   }
 }
@@ -812,16 +815,16 @@ class _$PromocodeDetailsImpl implements _PromocodeDetails {
 
   @override
   @JsonKey()
-  final double totalAmount;
+  final dynamic totalAmount;
   @override
   @JsonKey()
-  final String discount;
+  final dynamic discount;
   @override
   @JsonKey()
-  final double finalAmount;
+  final dynamic finalAmount;
   @override
   @JsonKey()
-  final int promocode_id;
+  final dynamic promocode_id;
 
   @override
   String toString() {
@@ -833,20 +836,23 @@ class _$PromocodeDetailsImpl implements _PromocodeDetails {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$PromocodeDetailsImpl &&
-            (identical(other.totalAmount, totalAmount) ||
-                other.totalAmount == totalAmount) &&
-            (identical(other.discount, discount) ||
-                other.discount == discount) &&
-            (identical(other.finalAmount, finalAmount) ||
-                other.finalAmount == finalAmount) &&
-            (identical(other.promocode_id, promocode_id) ||
-                other.promocode_id == promocode_id));
+            const DeepCollectionEquality()
+                .equals(other.totalAmount, totalAmount) &&
+            const DeepCollectionEquality().equals(other.discount, discount) &&
+            const DeepCollectionEquality()
+                .equals(other.finalAmount, finalAmount) &&
+            const DeepCollectionEquality()
+                .equals(other.promocode_id, promocode_id));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(
-      runtimeType, totalAmount, discount, finalAmount, promocode_id);
+      runtimeType,
+      const DeepCollectionEquality().hash(totalAmount),
+      const DeepCollectionEquality().hash(discount),
+      const DeepCollectionEquality().hash(finalAmount),
+      const DeepCollectionEquality().hash(promocode_id));
 
   /// Create a copy of PromocodeDetails
   /// with the given fields replaced by the non-null parameter values.
@@ -867,22 +873,22 @@ class _$PromocodeDetailsImpl implements _PromocodeDetails {
 
 abstract class _PromocodeDetails implements PromocodeDetails {
   const factory _PromocodeDetails(
-      {final double totalAmount,
-      final String discount,
-      final double finalAmount,
-      final int promocode_id}) = _$PromocodeDetailsImpl;
+      {final dynamic totalAmount,
+      final dynamic discount,
+      final dynamic finalAmount,
+      final dynamic promocode_id}) = _$PromocodeDetailsImpl;
 
   factory _PromocodeDetails.fromJson(Map<String, dynamic> json) =
       _$PromocodeDetailsImpl.fromJson;
 
   @override
-  double get totalAmount;
+  dynamic get totalAmount;
   @override
-  String get discount;
+  dynamic get discount;
   @override
-  double get finalAmount;
+  dynamic get finalAmount;
   @override
-  int get promocode_id;
+  dynamic get promocode_id;
 
   /// Create a copy of PromocodeDetails
   /// with the given fields replaced by the non-null parameter values.

@@ -52,7 +52,9 @@ class FileChooserComponent extends StatelessWidget {
                 child: Text(
                   selectedFileName.isEmpty
                       ? "No File Choosen"
-                      : selectedFileName.substring(0, 30),
+                      : selectedFileName.length > 20
+                      ? '${selectedFileName.substring(0, 20)}...'
+                      : selectedFileName,
                   style: TextStyle(
                     color: AppColor.appWhiteColor.withOpacity(0.7),
                     fontSize: context.screenWidth * 0.032,
@@ -60,6 +62,7 @@ class FileChooserComponent extends StatelessWidget {
                   ),
                   overflow: TextOverflow.ellipsis,
                   maxLines: 1,
+
                 ),
               )
             ],

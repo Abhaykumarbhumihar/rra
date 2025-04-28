@@ -53,7 +53,57 @@ class CustomButton extends StatelessWidget {
 }
 
 
+class CustomButtonThin extends StatelessWidget {
+  final String text;
+  final VoidCallback onPressed;
 
+  CustomButtonThin({
+    required this.text,
+    required this.onPressed,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    var width = context.screenWidth;
+    var height = context.screenHeight;
+
+
+    double buttonWidth = width;
+    double buttonHeight = width * 0.1082;
+
+    return InkWell(
+      onTap: onPressed,
+      child: Container(
+        width: buttonWidth,
+        height: buttonHeight,
+        decoration: BoxDecoration(
+          image: const DecorationImage(
+            image: AssetImage('assets/images/button_background.png'),
+            fit: BoxFit.cover,
+          ),
+          borderRadius: BorderRadius.circular(buttonHeight * 0.6),
+        ),
+        child: Center(
+          child: Material(
+            color: Colors.transparent,
+            child: Padding(
+              padding: const EdgeInsets.only(left: 8.0,right: 8.0),
+              child: Text(
+                text,
+                textAlign: TextAlign.center,
+                style: TextStyle(
+                  fontSize: Platform.isAndroid? width *0.0416:width *0.0416,
+                  color: Colors.white,
+                  fontFamily: AppFont.interMedium,
+                ),
+              ),
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+}
 class CustomButtonWithLineBorder extends StatelessWidget {
   final String text;
   final VoidCallback onPressed;

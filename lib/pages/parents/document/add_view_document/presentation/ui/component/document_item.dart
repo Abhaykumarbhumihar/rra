@@ -10,11 +10,13 @@ class DocumentItem extends StatelessWidget {
   final List<Coach> coaches; // Add coaches list as parameter
   final bool isUploadedDocument;
   final VoidCallback? onIconPress;
+  final VoidCallback? onDeleteIconPress;
   const DocumentItem({
     super.key,
     this.isUploadedDocument=false,
     required this.uploadedDocument,
     this.onIconPress,
+    this.onDeleteIconPress,
     required this.coaches, // Require coaches list
   });
 
@@ -59,6 +61,7 @@ class DocumentItem extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.start,
               children: <Widget>[
                 InfoRowWithIcon(
+                  onDeleteIconPress: onDeleteIconPress,
                   onIconPress: onIconPress,
                   isShowEditIcon:isUploadedDocument ,
                   label: "Dates",

@@ -9,6 +9,7 @@ import 'package:rra/pages/parents/document/add_view_document/data/entity/terms_p
 
 import '../../../../../../common/component/common_app_bar.dart';
 import '../../../../../../common/component/common_toggle_tab.dart';
+import '../../../../../../common/component/confirmation_dialog.dart';
 import '../../../../../../common/component/custom_app_button.dart';
 import '../../../../../../common/image/camera_file_utility.dart';
 import '../bloc/add_document_bloc.dart';
@@ -135,6 +136,23 @@ class AddViewDocumenPage extends StatelessWidget {
                                         padding: EdgeInsets.zero,
                                         itemBuilder: (context, index) {
                                           return DocumentItem(
+                                            onDeleteIconPress: (){
+
+                                              ConfirmationDialog.show(
+                                                context: context,
+                                                title: 'Delete Document?',
+                                                description: 'Are you sure you want to delete this document?',
+                                                confirmButtonText: 'Delete',
+                                                onCancel: () {
+                                                  print('Cancelled');
+                                                },
+                                                onConfirm: () async {
+
+
+                                                },
+                                              ).then((_) {
+                                              });
+                                            },
                                             onIconPress: () {
                                               print(state
                                                   .parentDocumentListModel
@@ -203,7 +221,7 @@ class AddViewDocumenPage extends StatelessWidget {
                                                         context)
                                                     .add(
                                                         setSelectedPlayerDocumentEvent(
-                                                            data.parentId! as PlayerData));
+                                                            data.parentId! ));
                                               }
 
                                               BlocProvider.of<AddDocumentBloc>(

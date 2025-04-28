@@ -5,6 +5,7 @@ import '../../../../../../common/component/circler.dart';
 import '../../../../../../common/local/SharedPrefs.dart';
 import '../../../../../../common/routes/routes.dart';
 import '../../../../../../common/service_locator/setivelocator.dart';
+import '../../../../../auth/edit_profile/presentation/bloc/editprofile_bloc.dart';
 import '../../../../../coach/coach_attendance/player_attendance_list/presentation/bloc/attendance_bloc.dart';
 import '../../../../../coach/coach_attendance/player_attendance_list/presentation/bloc/attendance_event.dart';
 import '../../../../../coach/coach_player_report/coach_player_report_list/presentation/bloc/report_bloc.dart';
@@ -27,7 +28,7 @@ class CoachDashboardGrid extends StatelessWidget {
       "background": "assets/images/dashboard_bottom_border_background.png"
     },
     {
-      "title": "View Reports",
+      "title": "Add Reports",
       "image": "assets/images/reports.png",
       "background": "assets/images/dashbard_top_border_background.png"
     },
@@ -39,6 +40,11 @@ class CoachDashboardGrid extends StatelessWidget {
     {
       "title": "Mark Attendance",
       "image": "assets/images/coach_attendance.png",
+      "background": "assets/images/dashboard_bottom_border_background.png"
+    },
+    {
+      "title": "My Profile",
+      "image": "assets/images/score_card.png",
       "background": "assets/images/dashboard_bottom_border_background.png"
     },
   ];
@@ -77,7 +83,7 @@ class CoachDashboardGrid extends StatelessWidget {
 
               Navigator.pushNamed(
                   context, AppRoutes.COACHPLAYERATTENDANCELIST);
-            }else if(item['title']=="View Reports"){
+            }else if(item['title']=="Add Reports"){
               BlocProvider.of<ReportBloc>(context).add(ResetReportStateEvent());
 
               BlocProvider.of<ReportBloc>(context).add(ReportEventGetTermsSessionCoachingPlayerEvents({}));
@@ -87,6 +93,11 @@ class CoachDashboardGrid extends StatelessWidget {
             }else if(item['title']=="View Documents"){
               Navigator.pushNamed(
                   context, AppRoutes.ADDVIEWDOCUMENT);
+            }else if(item['title']=='My Profile'){
+              BlocProvider.of<EditprofileBloc>(context)
+                  .loadUserData();
+              Navigator.pushNamed(
+                  context, AppRoutes.EDITPROFILE);
             }
             print("${item['title']} clicked");
           },

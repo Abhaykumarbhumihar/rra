@@ -9,10 +9,12 @@ class InfoRowWithIcon extends StatelessWidget {
   final double iconSize;
   final bool isShowEditIcon;
   final VoidCallback? onIconPress; // Make it optional with ?
+  final VoidCallback? onDeleteIconPress; // Make it optional with ?
 
   const InfoRowWithIcon({
     Key? key,
     required this.isShowEditIcon,
+    required this.onDeleteIconPress,
     required this.label,
     required this.value,
     required this.iconPath,
@@ -38,18 +40,33 @@ class InfoRowWithIcon extends StatelessWidget {
             ),
           ],
         ),
-        if (isShowEditIcon) // Cleaner conditional rendering
-          Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: GestureDetector(
-              onTap: onIconPress, // Use the provided callback
-              child: Image.asset(
-                iconPath,
-                width: iconSize,
-                height: iconSize,
+      Row(
+        mainAxisAlignment: MainAxisAlignment.end,
+        children: <Widget>[
+          if (isShowEditIcon) // Cleaner conditional rendering
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: GestureDetector(
+                onTap: onIconPress, // Use the provided callback
+                child: Image.asset(
+                  iconPath,
+                  width: iconSize,
+                  height: iconSize,
+                ),
               ),
             ),
-          ),
+          if (isShowEditIcon) //
+            Padding(
+              padding: const EdgeInsets.only(left: 8.0),
+              child: GestureDetector(
+                onTap: onDeleteIconPress, // Use the provided callback
+                child: Icon(Icons.delete,
+                  size: 20,
+                  color: Colors.white,),
+              ),
+            ),
+        ],
+      )
       ],
     );
   }

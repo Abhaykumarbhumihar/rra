@@ -3,6 +3,7 @@ import 'package:flutter_stripe/flutter_stripe.dart';
 import 'package:rra/common/routes/exports.dart';
 import 'package:rra/common/values/values_exports.dart';
 import 'package:rra/pages/academic/presentation/bloc/academic_bloc.dart';
+import 'package:rra/pages/parents/holiday_camp/holiday_list/presentation/bloc/camp_bloc.dart';
 import 'package:rra/pages/splash/presentation/ui/splash_component.dart';
 
 import '../../../../common/local/SharedPrefs.dart';
@@ -24,6 +25,7 @@ import '../../../coach/manage_team/presentation/bloc/manage_team_event.dart';
 import '../../../coach/view_session/presentation/bloc/view_session_bloc.dart';
 import '../../../coach/view_session/presentation/bloc/view_session_event.dart';
 import '../../../parents/document/add_view_document/presentation/bloc/add_document_event.dart';
+import '../../../parents/holiday_camp/holiday_list/presentation/bloc/camp_event.dart';
 import '../../../parents/parent_order/parent_order_list/presentation/bloc/parent_order_bloc.dart';
 import '../../../parents/parent_order/parent_order_list/presentation/bloc/parent_order_event.dart';
 import '../../../parents/session/add_detail/presentation/bloc/add_view_player_bloc.dart';
@@ -87,6 +89,7 @@ class SplashPage extends StatelessWidget {
 
             }else{
               BlocProvider.of<CoachingProgramsBloc>(context).add(GroupCoachProgramsListEvent());
+              BlocProvider.of<CampBloc>(context).add(CampListEvent({}));
               BlocProvider.of<CoachingProgramsBloc>(context).add(PrivateCoachingProgramsList());
               BlocProvider.of<AddViewPlayerBloc>(context).add(AddViewPlayerGetChildListEvent());
               BlocProvider.of<ViewSessionBloc>(context).add(GetBookedSessionListEvent({"academy_id":academyId}));

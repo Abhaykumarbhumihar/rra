@@ -34,16 +34,18 @@ class CoachViewSessioin extends StatelessWidget {
                 BlocProvider.of<AppBloc>(context).add(BookedSessionCountEvent(
                     "${state.bookedSession.data.sessions}"));
               }
-                if(BlocProvider.of<AppBloc>(context).state.userdata.data.role ==
-                    "coach"){
-                  if( state.bookedSession.data.sessions.isEmpty){
-                    context.showCustomSnackbar("No sessions found.");
+                if(state.isLoading==false){
+                  if(BlocProvider.of<AppBloc>(context).state.userdata.data.role ==
+                      "coach"){
+                    if( state.bookedSession.data.sessions.isEmpty){
+                      context.showCustomSnackbar("No sessions found.");
+                    }
                   }
-                }
-                if(BlocProvider.of<AppBloc>(context).state.userdata.data.role ==
-                    "parent"){
-                  if( state.bookedSession.data.orders.isEmpty){
-                    context.showCustomSnackbar("No sessions found.");
+                  if(BlocProvider.of<AppBloc>(context).state.userdata.data.role ==
+                      "parent"){
+                    if( state.bookedSession.data.orders.isEmpty){
+                      context.showCustomSnackbar("No sessions found.");
+                    }
                   }
                 }
 

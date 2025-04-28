@@ -38,7 +38,7 @@ class UploadedDocument with _$UploadedDocument {
     @JsonKey(name: 'coaching_program_id') CoachingProgram? coachingProgramId,
     @JsonKey(name: 'term_id') Term? termId,
     @JsonKey(name: 'session_id') Session? sessionId,
-    @JsonKey(name: 'parent_id') Player?  parentId,
+    @JsonKey(name: 'parent_id') PlayerData?  parentId,
 
 
     @JsonKey(name: 'document_image') @Default('') String documentImage,

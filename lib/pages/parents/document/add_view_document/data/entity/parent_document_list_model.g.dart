@@ -69,7 +69,7 @@ _$UploadedDocumentImpl _$$UploadedDocumentImplFromJson(
           : Session.fromJson(json['session_id'] as Map<String, dynamic>),
       parentId: json['parent_id'] == null
           ? null
-          : Player.fromJson(json['parent_id'] as Map<String, dynamic>),
+          : PlayerData.fromJson(json['parent_id'] as Map<String, dynamic>),
       documentImage: json['document_image'] as String? ?? '',
       Comments: json['Comments'] as String? ?? '',
       coachId: json['coach_id'] == null

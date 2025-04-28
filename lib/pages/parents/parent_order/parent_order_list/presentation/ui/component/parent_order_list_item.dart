@@ -35,28 +35,28 @@ class ParentOrderListItem extends StatelessWidget {
                 height: 12.0,
               ),
               InfoRowRichText(
-                label: "Order :",
-                value: " #RRA_${myOrder.uniqueId}",
+                label: "Order:",
+                value: " #DRRAU_${myOrder.id}",
               ),
               SizedBox(
                 height: 6.0,
               ),
               InfoRowRichText(
-                label: "Session Name :",
+                label: "Session Name:",
                 value: "${myOrder.sessions}",
               ),
               SizedBox(
                 height: 6.0,
               ),
               InfoRowRichText(
-                label: "Date :",
+                label: "Date:",
                 value: " ${myOrder.createdAt} ",
               ),
               SizedBox(
                 height: 6.0,
               ),
               InfoRowRichText(
-                label: "Amount :",
+                label: "Amount:",
                 value: "  ${myOrder.amount}",
               ),
               Row(

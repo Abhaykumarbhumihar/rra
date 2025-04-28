@@ -197,7 +197,11 @@ orderId: "",
           isOrderPlaceError: false,
           isOrderPlaceSuccess: false,
           paymentID: "",
+          getTotalRespone: GetTotalModel(),
           couponSuccessMessage: "Coupon apply successfully"));
+      print("LLL LDLLDLDLDLD LDLDL L L L L L L ==L L L L L L\n\n");
+      Utils.LogPrint(orderSummaryData);
+      print("LLL LDLLDLDLDLD LDLDL L L L L L L ==L L L L L L\n\n");
       var academyId = await getIt<SharedPrefs>().getString("selected_academyid");
       Map<String, dynamic> map = {
         "academy_id": academyId,
@@ -213,6 +217,8 @@ orderId: "",
         await _orderSummaryUsecase.getTotalPriceExecute(event.data);
 
     response.fold((failure) {
+      print("==_getTotalPrice=ERROR ERROR ERROR========\n\n");
+      Utils.LogPrint(failure);
       emit(state.copyWith(
           isLoading: false,
           finalPaymentDone: false,
@@ -224,9 +230,9 @@ orderId: "",
           getTotalRespone: GetTotalModel(),
           paymentID: ""));
     }, (orderSummaryData) {
-      print("==_getTotalPrice=_getTotalPrice========\n\n");
-      //  Utils.LogPrint(orderSummaryData);
-      print("==_getTotalPrice==_getTotalPrice=======\n\n");
+      print("==_getTotalPrice=_dddgetTotalPrice========\n\n");
+        Utils.LogPrint(orderSummaryData);
+      print("==_getTotalPrice==ddd_getTotalPrice=======\n\n");
       emit(state.copyWith(
           isLoading: false,
           orderId: "",

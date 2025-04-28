@@ -21,6 +21,7 @@ static const WELCOMEPAGE="/welcom_page";
  //camp
   static const HOLIDAYCAMP="/holiday_camp";
   static const HOLIDAYCAMPDETAIL="/holiday_camp_detail";
+  static const HOLIDAYCAMPCALENDAR="/holiday_camp_calendar";
 
   //calendar
   static const CALENDAR="/calendar_booking";

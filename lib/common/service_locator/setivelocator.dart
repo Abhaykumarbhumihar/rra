@@ -15,6 +15,9 @@ import '../../pages/coach/manage_team/domain/usecase/manage_team_usecase.dart';
 import '../../pages/coach/view_session/data/repo_impl/view_session_repo_impl.dart';
 import '../../pages/coach/view_session/domain/repositery/view_session_repositey.dart';
 import '../../pages/coach/view_session/domain/usecase/view_session_Usease.dart';
+import '../../pages/parents/holiday_camp/holiday_list/data/repo_impl/camp_repositery_impl.dart';
+import '../../pages/parents/holiday_camp/holiday_list/domain/repositery/camp_repositery.dart';
+import '../../pages/parents/holiday_camp/holiday_list/domain/usecase/camp_usecase.dart';
 import '../../pages/parents/parent_order/parent_order_detail/data/repo_impl/parent_myorder_detail_repo_impl.dart';
 import '../../pages/parents/parent_order/parent_order_detail/domain/repositery/parent_myorder_detail_repositery.dart';
 import '../../pages/parents/parent_order/parent_order_detail/domain/usecase/parent_my_order_detail_usecase.dart';
@@ -158,5 +161,10 @@ Future<void> serviceLocator() async {
   /*manage teams*/
   getIt.registerLazySingleton<ManageTeamRepositer>(() => ManageTeamRepositeryImpl());
   getIt.registerLazySingleton<ManageTeamUsecase>(() => ManageTeamUsecase(getIt<ManageTeamRepositer>()));
+
+
+  /*camp*/
+  getIt.registerLazySingleton<CampRepositery>(() => CampRepositeryImpl());
+  getIt.registerLazySingleton<CampUsecase>(() => CampUsecase(getIt<CampRepositery>()));
 
 }

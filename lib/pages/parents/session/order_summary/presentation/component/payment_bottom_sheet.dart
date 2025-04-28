@@ -33,7 +33,8 @@ class PaymentBottomSheet extends StatelessWidget {
       padding: const EdgeInsets.all(8.0),
       child: BlocListener<OrderSummaryBloc, OrderSummaryState>(
         listener: (context, state) {
-          // TODO: implement listener
+          print("D F D D D DD D D D D DD D D  DD D D");
+         print(state.getTotalRespone.data.registrationFees.length);
         },
         child: BlocBuilder<OrderSummaryBloc, OrderSummaryState>(
           builder: (context, state) {
@@ -73,15 +74,15 @@ class PaymentBottomSheet extends StatelessWidget {
                         ),
 
                         PaymentSummaryRow(
-                            title: "Total",
+                            title: "Session Payment",
                             value: "${state.getTotalRespone.data.total}"
                         ),
 
                         if (state.getTotalRespone.data.promocodeDetails != null &&
-                            state.getTotalRespone.data.promocodeDetails.discount.isNotEmpty)
+                            state.getTotalRespone.data.promocodeDetails!.discount.toString().isNotEmpty)
                           PaymentSummaryRow(
                             title: "Discount",
-                            value: "${state.getTotalRespone.data.promocodeDetails.discount}",
+                            value: "${state.getTotalRespone.data.promocodeDetails!.discount}",
                           ),
 
                         const SizedBox(height: 8),

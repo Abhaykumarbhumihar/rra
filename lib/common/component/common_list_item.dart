@@ -1,18 +1,19 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_widget_from_html/flutter_widget_from_html.dart';
 import 'package:rra/common/values/screenUtils.dart';
 
+import '../../pages/parents/holiday_camp/holiday_list/data/entity/camp_list/camp_list_model.dart';
 import '../values/fonts.dart';
+import 'network_image.dart';
 
 class CommonListItem extends StatelessWidget {
-  final String strImage;
-  final String coachingProgram;
+  final Camp camp;
   final VoidCallback onPressed;
 
   CommonListItem({
-    required this.strImage,
-    required this.coachingProgram,
     required this.onPressed,
+    required this.camp
   });
 
   @override
@@ -38,15 +39,16 @@ class CommonListItem extends StatelessWidget {
                 // Aligns text to top
                 children: [
                   // Left Side - Image
-                  ClipRRect(
-                    borderRadius: BorderRadius.circular(10),
-                    child: Image.asset(
-                      strImage,
-                      width: 60,
-                      height: 60,
-                      fit: BoxFit.cover,
-                    ),
-                  ),
+                  FittedBox(child:  NetworkImageWidget(
+                    imageUrl:camp.images[0].imagePath,
+                    imageWidth:80,
+                    fullimage: true,
+                    placeHolder: "assets/images/football.png",
+                    imageHeight: 80,
+                    radiusAll:10,
+                    imageFitType: BoxFit.cover,
+
+                  ),),
 
                   SizedBox(width: 8.0), // Space between Image & Text
 
@@ -54,13 +56,46 @@ class CommonListItem extends StatelessWidget {
                   Expanded(
                     child: Padding(
                       padding: const EdgeInsets.only(right: 28.0),
-                      child: Text(
-                        coachingProgram,
-                        style: TextStyle(
-                          color: Colors.white,
-                          fontSize: context.screenWidth * 0.0373,
-                          fontFamily: AppFont.interRegular,
-                        ),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            camp.name,
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontSize: context.screenWidth * 0.0373,
+                              fontFamily: AppFont.interRegular,
+                            ),
+                          ),
+
+                          ConstrainedBox(
+                            constraints: BoxConstraints(
+                              maxWidth: context.screenWidth*0.55,
+                              maxHeight: 2 * (context.screenWidth * 0.07 * 1.2), // Approximate 3 lines height
+                            ),
+                            child: HtmlWidget(
+                              camp.description.length > 100
+
+                                  ? '${camp.description.substring(0, 100)}...'
+                                  : camp.description,
+                              textStyle: TextStyle(
+                                color: Colors.white,
+                                fontSize: context.screenWidth * 0.0373,
+                                fontFamily: AppFont.interRegular,
+                              ),
+                              customStylesBuilder: (element) {
+                                return {
+                                  'display': '-webkit-box',
+                                  '-webkit-line-clamp': '2',
+                                  '-webkit-box-orient': 'vertical',
+                                  'overflow': 'hidden',
+                                  'text-overflow': 'ellipsis',
+                                };
+                              },
+                            ),
+                          )
+
+                        ],
                       ),
                     ),
                   ),

@@ -3,16 +3,15 @@ import 'package:rra/common/values/values_exports.dart';
 import '../../../../../../common/component/common_app_bar.dart';
 import '../../../../../../common/component/common_list_item.dart';
 import '../../../../../../common/routes/routes.dart';
-
-
-
-
+import '../bloc/camp_bloc.dart';
+import '../bloc/camp_event.dart';
+import '../bloc/camp_state.dart';
 
 
 class HolidayCampp extends StatelessWidget {
   HolidayCampp({super.key});
-  final List<String> coachingPrograms =
-  List.filled(6, "RRA 1:1 Coaching Session (2024)");
+
+
 
   @override
   Widget build(BuildContext context) {
@@ -32,33 +31,44 @@ class HolidayCampp extends StatelessWidget {
           padding: EdgeInsets.zero,
           decoration: CommonBackground.decoration,
 
-          child: Column(
-            children: [
-              CustomHeader(  title: "Holiday Camps",onBackPress: (){
-                Navigator.pop(context);
-              },),
-              SizedBox(height: 10,),
-              Flexible(
-                child: ListView.builder(
+          child: BlocListener<CampBloc, CampState>(
+            listener: (context, state) {
+              // TODO: implement listener
+            },
+            child: BlocBuilder<CampBloc, CampState>(
+              builder: (context, state) {
+                return Column(
+                  children: [
+                    CustomHeader(title: "Holiday Camps", onBackPress: () {
+                      Navigator.pop(context);
+                    },),
+                    SizedBox(height: 10,),
+                    Flexible(
+                      child: ListView.builder(
 
-                  padding:
-                  const EdgeInsets.symmetric(horizontal: 0.0, vertical: 0),
-                  itemCount: coachingPrograms.length,
-                  shrinkWrap: true,
+                        padding:
+                        const EdgeInsets.symmetric(
+                            horizontal: 0.0, vertical: 0),
+                        itemCount: state.campListResponse.data.camps.length,
+                        shrinkWrap: true,
 
-                  itemBuilder: (context, index) {
-                    return CommonListItem(coachingProgram: coachingPrograms[index],
-                      onPressed: (){
-                        Navigator.pushNamed(
-                            context, AppRoutes.HOLIDAYCAMPDETAIL);
-
-                      },
-                      strImage: 'assets/images/coaching_image.png',
-                    );
-                  },
-                ),
-              ),
-            ],
+                        itemBuilder: (context, index) {
+                          var data=state.campListResponse.data.camps[index];
+                          return CommonListItem(
+                            camp: data,
+                            onPressed: () {
+                              BlocProvider.of<CampBloc>(context).add(CampDetailEvent(data.id.toString(),{}));
+                               Navigator.pushNamed(
+                                   context, AppRoutes.HOLIDAYCAMPDETAIL);
+                            },
+                          );
+                        },
+                      ),
+                    ),
+                  ],
+                );
+              },
+            ),
           ),
         ),
       ),

@@ -138,7 +138,7 @@ class CalendarPage extends StatelessWidget {
                         Padding(
                           padding: const EdgeInsets.only(left: 4.0, bottom: 2),
                           child: Text(
-                            "Green highlighted dates have events. Tap to check availability.",
+                            "Dates highlighted in green are available to book.",
                             style: TextStyle(
                                 color: AppColor.appWhiteColor,
                                 fontFamily: AppFont.interRegular,

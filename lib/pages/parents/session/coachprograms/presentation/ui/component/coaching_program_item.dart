@@ -72,17 +72,7 @@ class CoachingProgramItem extends StatelessWidget {
                                 fontFamily: AppFont.interRegular,
                               ),
                             ),
-                            // HtmlWidget(
-                            //   coachingProgramResponse.description.length > 30
-                            //
-                            //       ? '${coachingProgramResponse.description.substring(0, 30)}...'
-                            //       : coachingProgramResponse.description,
-                            //   textStyle: TextStyle(
-                            //     color: Colors.white,
-                            //     fontSize: context.screenWidth * 0.0373,
-                            //     fontFamily: AppFont.interRegular,
-                            //   ),
-                            // ),
+
                             ConstrainedBox(
                               constraints: BoxConstraints(
                                 maxWidth: context.screenWidth*0.55,
@@ -117,35 +107,35 @@ class CoachingProgramItem extends StatelessWidget {
                   ],
                 ),
               ),
-              Positioned(
-                bottom: 1,
-                right: 4.0,
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    ElevatedButton(
-                      onPressed: onPressed,
-                      style: ElevatedButton.styleFrom(
-                          backgroundColor: Colors.pinkAccent, // Button color
-                          shape: RoundedRectangleBorder(
-                            borderRadius:
-                            BorderRadius.circular(20), // Rounded Button
-                          ),
-                          minimumSize: Size(4, 30)
-                        //  padding: EdgeInsets.symmetric(horizontal: 12, vertical: 12),
-                      ),
-                      child: Text(
-                        'View',
-                        style: TextStyle(
-                          color: Colors.white,
-                          fontSize: context.screenWidth * 0.032,
-                          fontFamily: AppFont.interMedium,
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
-              )
+              // Positioned(
+              //   bottom: 1,
+              //   right: 4.0,
+              //   child: Column(
+              //     mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              //     children: [
+              //       ElevatedButton(
+              //         onPressed: onPressed,
+              //         style: ElevatedButton.styleFrom(
+              //             backgroundColor: Colors.pinkAccent, // Button color
+              //             shape: RoundedRectangleBorder(
+              //               borderRadius:
+              //               BorderRadius.circular(20), // Rounded Button
+              //             ),
+              //             minimumSize: Size(4, 30)
+              //           //  padding: EdgeInsets.symmetric(horizontal: 12, vertical: 12),
+              //         ),
+              //         child: Text(
+              //           'View',
+              //           style: TextStyle(
+              //             color: Colors.white,
+              //             fontSize: context.screenWidth * 0.032,
+              //             fontFamily: AppFont.interMedium,
+              //           ),
+              //         ),
+              //       ),
+              //     ],
+              //   ),
+              // )
             ],
           ),
         ),

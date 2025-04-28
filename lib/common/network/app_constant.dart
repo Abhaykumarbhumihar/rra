@@ -80,5 +80,11 @@ static String get getCollateralList=>"collaterals/list";
   static String get getAddReport=>"add/score";
 
 
+  /*camp */
+  static String get getCampList=>"camps";
+  static String get getCampDetail=>"camp";
+  static String get getCampBookingSelectSession=>"camp/booking/select-session";
+  static String get getCampBookingSelectSessionSave=>"camp/booking/selected-dates/save";
+
 
 }

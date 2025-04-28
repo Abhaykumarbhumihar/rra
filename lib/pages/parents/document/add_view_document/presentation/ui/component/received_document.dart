@@ -41,6 +41,7 @@ class ReceivedDocument extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.start,
             children: <Widget>[
               InfoRowWithIcon(
+                onDeleteIconPress: null,
                 isShowEditIcon: false,
                 label: "Dates",
                 value: " 08-03-2025",

@@ -12,15 +12,15 @@ Widget buildPage(int index) {
   List<Widget> _widget = [
     Teams(),
     Teams(),
-    // Remove SettingsPage from here since we'll handle it with a dialog
+
   ];
 
   return _widget[index];
 }
 
 extension BottomTabsExtension on List<BottomNavigationBarItem> {
-  List<BottomNavigationBarItem> bottomTabs(double width, double height) {
-    return [
+  List<BottomNavigationBarItem> bottomTabs(double width, double height, {String? userType}) {
+    List<BottomNavigationBarItem> tabs = [
       BottomNavigationBarItem(
         label: "Programs",
         icon: SizedBox(
@@ -33,18 +33,28 @@ extension BottomTabsExtension on List<BottomNavigationBarItem> {
           child: Image.asset("assets/images/profile.png"),
         ),
       ),
-      BottomNavigationBarItem(
-        label: "Camps",
-        icon: SizedBox(
+    ];
+
+    // Only add Camps tab if user type is not the one that should hide it
+    if (userType != "coach") { // Replace with your actual condition
+      tabs.add(
+        BottomNavigationBarItem(
+          label: "Camps",
+          icon: SizedBox(
+              width: width * 0.4,
+              height: height * 0.0300,
+              child: Image.asset("assets/images/news.png")),
+          activeIcon: SizedBox(
             width: width * 0.4,
             height: height * 0.0300,
-            child: Image.asset("assets/images/news.png")),
-        activeIcon: SizedBox(
-          width: width * 0.4,
-          height: height * 0.0300,
-          child: Image.asset("assets/images/news.png"),
+            child: Image.asset("assets/images/news.png"),
+          ),
         ),
-      ),
+      );
+    }
+
+    // Add Logout tab
+    tabs.add(
       BottomNavigationBarItem(
         label: "Logout",
         icon: SizedBox(
@@ -58,6 +68,8 @@ extension BottomTabsExtension on List<BottomNavigationBarItem> {
           child: Image.asset("assets/images/logout.png",color: Colors.white,),
         ),
       ),
-    ];
+    );
+
+    return tabs;
   }
 }

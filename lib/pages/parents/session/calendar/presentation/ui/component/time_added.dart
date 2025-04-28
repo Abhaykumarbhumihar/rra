@@ -27,7 +27,7 @@ class TimeAddedView extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.only(left: 4.0, right: 6.0, top: 16.0),
               child: ScreenTitleForCalendar(
-                title: "Time Added ",
+                title: "Time Slots Added ",
                 fontSize: context.screenWidth * 0.042,
               ),
             ),
@@ -35,7 +35,7 @@ class TimeAddedView extends StatelessWidget {
 
             // Remove Expanded here, it's causing layout issues.
             SizedBox(
-              height: context.screenHeight * 0.18, // Adjust height based on content
+              height: context.screenHeight * 0.126, // Adjust height based on content
               child:state.isTimeAddedLoading? AvailablityShimmer(): ListView.builder(
                 scrollDirection: Axis.horizontal,
                 shrinkWrap: true,

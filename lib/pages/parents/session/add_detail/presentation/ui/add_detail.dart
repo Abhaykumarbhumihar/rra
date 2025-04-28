@@ -460,7 +460,7 @@ class AddDetail extends StatelessWidget {
                                                                       .styleFrom(
                                                                 backgroundColor:
                                                                     Colors
-                                                                        .pinkAccent,
+                                                                        .blue,
                                                                 shape:
                                                                     RoundedRectangleBorder(
                                                                   borderRadius:

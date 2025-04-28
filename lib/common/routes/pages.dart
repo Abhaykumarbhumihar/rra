@@ -6,6 +6,9 @@ import '../../pages/coach/manage_team/presentation/bloc/manage_team_bloc.dart';
 import '../../pages/coach/manage_team/presentation/ui/manage_team_detail.dart';
 import '../../pages/coach/view_session/presentation/bloc/view_session_bloc.dart';
 import '../../pages/parents/document/add_view_document/presentation/ui/document_detail.dart';
+import '../../pages/parents/holiday_camp/holiday_camp_calendar/presentation/bloc/holiday_camp_calendar_bloc.dart';
+import '../../pages/parents/holiday_camp/holiday_camp_calendar/presentation/ui/holiday_camp_calendar.dart';
+import '../../pages/parents/holiday_camp/holiday_list/presentation/bloc/camp_bloc.dart';
 import '../../pages/parents/parent_order/parent_order_detail/presentation/bloc/parent_myorder_detail_bloc.dart';
 import '../../pages/parents/parent_order/parent_order_list/presentation/bloc/parent_order_bloc.dart';
 import 'exports.dart';
@@ -81,6 +84,7 @@ class AppPages {
       PageEntitiy(
         route: AppRoutes.HOLIDAYCAMP,
         page: HolidayCampp(),
+          bloc: BlocProvider(create: (_) => CampBloc())
       ),
       PageEntitiy(
         route: AppRoutes.FACILITYLIST,
@@ -109,9 +113,17 @@ class AppPages {
         page: LocationListPage(),
         bloc: BlocProvider(create: (_) => LocationBloc()),
       ),
+
       PageEntitiy(
         route: AppRoutes.HOLIDAYCAMPDETAIL,
         page: HolidayDetailPage(),
+          bloc: BlocProvider(create: (_) => CampBloc())
+      ),
+
+      PageEntitiy(
+        route: AppRoutes.HOLIDAYCAMPCALENDAR,
+        page: HolidayCampCalendar(),
+          bloc: BlocProvider(create: (_) => HolidayCampCalendarBloc())
       ),
 
       //coach

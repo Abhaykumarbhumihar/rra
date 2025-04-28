@@ -120,15 +120,25 @@ class ApplicationPage extends StatelessWidget {
                         ),
                         type: BottomNavigationBarType.fixed,
                         onTap: (value) async {
-                          if (value == 2) { // Settings tab
-                            _showLogoutDialog(context);
-                          } else {
-                            _showDialogNotifier.value = false;
-                            context.read<AppBloc>().add(TriggerAppEvent(value));
+                          if(state.userdata.data.role=="parent"){
+                            if (value == 2) { // Settings tab
+                              _showLogoutDialog(context);
+                            } else {
+                              _showDialogNotifier.value = false;
+                              context.read<AppBloc>().add(TriggerAppEvent(value));
+                            }
+                          }else {
+                            if (value == 1) { // Settings tab
+                              _showLogoutDialog(context);
+                            } else {
+                              _showDialogNotifier.value = false;
+                              context.read<AppBloc>().add(TriggerAppEvent(value));
+                            }
                           }
+
                         },
                         items: <BottomNavigationBarItem>[]
-                            .bottomTabs(width, height),
+                            .bottomTabs(width, height, userType: state.userdata.data.role),
                       ),
                     ),
                   ),

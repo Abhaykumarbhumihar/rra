@@ -481,7 +481,7 @@ mixin _$UploadedDocument {
   @JsonKey(name: 'session_id')
   Session? get sessionId => throw _privateConstructorUsedError;
   @JsonKey(name: 'parent_id')
-  Player? get parentId => throw _privateConstructorUsedError;
+  PlayerData? get parentId => throw _privateConstructorUsedError;
   @JsonKey(name: 'document_image')
   String get documentImage => throw _privateConstructorUsedError;
   String? get Comments => throw _privateConstructorUsedError;
@@ -519,7 +519,7 @@ abstract class $UploadedDocumentCopyWith<$Res> {
       @JsonKey(name: 'coaching_program_id') CoachingProgram? coachingProgramId,
       @JsonKey(name: 'term_id') Term? termId,
       @JsonKey(name: 'session_id') Session? sessionId,
-      @JsonKey(name: 'parent_id') Player? parentId,
+      @JsonKey(name: 'parent_id') PlayerData? parentId,
       @JsonKey(name: 'document_image') String documentImage,
       String? Comments,
       @JsonKey(name: 'coach_id') Coach? coachId,
@@ -532,7 +532,7 @@ abstract class $UploadedDocumentCopyWith<$Res> {
   $CoachingProgramCopyWith<$Res>? get coachingProgramId;
   $TermCopyWith<$Res>? get termId;
   $SessionCopyWith<$Res>? get sessionId;
-  $PlayerCopyWith<$Res>? get parentId;
+  $PlayerDataCopyWith<$Res>? get parentId;
   $CoachCopyWith<$Res>? get coachId;
 }
 
@@ -595,7 +595,7 @@ class _$UploadedDocumentCopyWithImpl<$Res, $Val extends UploadedDocument>
       parentId: freezed == parentId
           ? _value.parentId
           : parentId // ignore: cast_nullable_to_non_nullable
-              as Player?,
+              as PlayerData?,
       documentImage: null == documentImage
           ? _value.documentImage
           : documentImage // ignore: cast_nullable_to_non_nullable
@@ -677,12 +677,12 @@ class _$UploadedDocumentCopyWithImpl<$Res, $Val extends UploadedDocument>
   /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
-  $PlayerCopyWith<$Res>? get parentId {
+  $PlayerDataCopyWith<$Res>? get parentId {
     if (_value.parentId == null) {
       return null;
     }
 
-    return $PlayerCopyWith<$Res>(_value.parentId!, (value) {
+    return $PlayerDataCopyWith<$Res>(_value.parentId!, (value) {
       return _then(_value.copyWith(parentId: value) as $Val);
     });
   }
@@ -717,7 +717,7 @@ abstract class _$$UploadedDocumentImplCopyWith<$Res>
       @JsonKey(name: 'coaching_program_id') CoachingProgram? coachingProgramId,
       @JsonKey(name: 'term_id') Term? termId,
       @JsonKey(name: 'session_id') Session? sessionId,
-      @JsonKey(name: 'parent_id') Player? parentId,
+      @JsonKey(name: 'parent_id') PlayerData? parentId,
       @JsonKey(name: 'document_image') String documentImage,
       String? Comments,
       @JsonKey(name: 'coach_id') Coach? coachId,
@@ -734,7 +734,7 @@ abstract class _$$UploadedDocumentImplCopyWith<$Res>
   @override
   $SessionCopyWith<$Res>? get sessionId;
   @override
-  $PlayerCopyWith<$Res>? get parentId;
+  $PlayerDataCopyWith<$Res>? get parentId;
   @override
   $CoachCopyWith<$Res>? get coachId;
 }
@@ -796,7 +796,7 @@ class __$$UploadedDocumentImplCopyWithImpl<$Res>
       parentId: freezed == parentId
           ? _value.parentId
           : parentId // ignore: cast_nullable_to_non_nullable
-              as Player?,
+              as PlayerData?,
       documentImage: null == documentImage
           ? _value.documentImage
           : documentImage // ignore: cast_nullable_to_non_nullable
@@ -876,7 +876,7 @@ class _$UploadedDocumentImpl implements _UploadedDocument {
   final Session? sessionId;
   @override
   @JsonKey(name: 'parent_id')
-  final Player? parentId;
+  final PlayerData? parentId;
   @override
   @JsonKey(name: 'document_image')
   final String documentImage;
@@ -984,7 +984,7 @@ abstract class _UploadedDocument implements UploadedDocument {
           final CoachingProgram? coachingProgramId,
           @JsonKey(name: 'term_id') final Term? termId,
           @JsonKey(name: 'session_id') final Session? sessionId,
-          @JsonKey(name: 'parent_id') final Player? parentId,
+          @JsonKey(name: 'parent_id') final PlayerData? parentId,
           @JsonKey(name: 'document_image') final String documentImage,
           final String? Comments,
           @JsonKey(name: 'coach_id') final Coach? coachId,
@@ -1015,7 +1015,7 @@ abstract class _UploadedDocument implements UploadedDocument {
   Session? get sessionId;
   @override
   @JsonKey(name: 'parent_id')
-  Player? get parentId;
+  PlayerData? get parentId;
   @override
   @JsonKey(name: 'document_image')
   String get documentImage;

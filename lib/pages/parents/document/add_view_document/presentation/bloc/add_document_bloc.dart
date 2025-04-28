@@ -289,6 +289,8 @@ class AddDocumentBloc extends Bloc<AddDocumentEvent, AddDocumentState> {
       final programIds = state.coachingProgram.map((p) => p.id).toList();
       final sessionIds = state.session.map((s) => s.id).toList();
       final parentId = state.player.map((s) => s.parentId).toList();
+     final coachIds=state.coaches.map((s)=>s.id).toList();
+     print(coachIds);
 
       Map<String, dynamic> map = {
         "type": "${userdata?.data.role}",
@@ -299,6 +301,7 @@ class AddDocumentBloc extends Bloc<AddDocumentEvent, AddDocumentState> {
           "coaching_program_id": programIds,
           "term_id": termIds,
         },
+        "coach_id":coachIds,
         "academy_id": int.tryParse(academyId) ?? 0,
         "title": state.title.toString(),
         "Comments": state.message.toString(),
