@@ -5,12 +5,16 @@ import '../../../../../../common/component/common_background.dart';
 import '../../../../../../common/component/custom_app_button.dart';
 import '../../../../../../common/component/loading_indicator.dart';
 import '../../../../../../common/component/screen_title.dart';
+import '../../../../../../common/routes/routes.dart';
 import '../../../../../../common/values/values_exports.dart';
+import '../../../../session/add_detail/presentation/bloc/add_view_player_bloc.dart';
+import '../../../../session/add_detail/presentation/bloc/add_view_player_event.dart';
 import '../../../holiday_list/presentation/bloc/camp_bloc.dart';
 import '../../../holiday_list/presentation/bloc/camp_state.dart';
 import '../bloc/holiday_camp_calendar_bloc.dart';
 import '../bloc/holiday_camp_calendar_state.dart';
 import 'component/holiday_camp_calendar_view.dart';
+import 'component/saved_camp_item.dart';
 
 class HolidayCampCalendar extends StatelessWidget {
   HolidayCampCalendar({super.key});
@@ -44,7 +48,17 @@ class HolidayCampCalendar extends StatelessWidget {
                 child: CustomButton(
                   text: "Continue",
                   onPressed: () async {
+                    if( BlocProvider.of<AddViewPlayerBloc>(context).state.childLisstModel.data.isEmpty){
+                      BlocProvider.of<AddViewPlayerBloc>(context).add(AddViewPlayerSelectedTabEvent(1));
+                    }else{
+                      BlocProvider.of<AddViewPlayerBloc>(context).add(AddViewPlayerSelectedTabEvent(0));
+                    }
+                    Map<String, dynamic> arguments = {
 
+
+                      "isFromCreateAccount": "camp",
+                    };
+                    Navigator.pushNamed(context, AppRoutes.ADDDETAILS,arguments: arguments);
 
                   },
                 ).animate()
@@ -134,9 +148,12 @@ class HolidayCampCalendar extends StatelessWidget {
                                       .fade(duration: 900.ms)
                                       .scaleXY(begin: 0.9, end: 1.0, duration: 800.ms, curve: Curves.easeOut),
                                 ),
-
-
                                 SizedBox(height: 20),
+                                SizedBox(
+                                  width: context.screenWidth,
+                                  height: context.screenHeight * 0.28,
+                                  child: SavedCampItem(),
+                                ),
                               ],
                             ),
                           ),

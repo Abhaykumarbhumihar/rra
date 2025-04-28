@@ -215,12 +215,6 @@ class HolidayDetailPage extends StatelessWidget {
     );
   }
 
-  String formatApiDate(String apiDate) {
-    try {
-      final parsedDate = DateTime.parse(apiDate);
-      return DateFormat('MMM d, y').format(parsedDate);
-    } catch (e) {
-      return apiDate; // Return original if parsing fails
-    }
-  }
+
+
 }

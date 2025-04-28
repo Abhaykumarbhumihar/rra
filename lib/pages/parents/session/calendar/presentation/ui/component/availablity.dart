@@ -221,7 +221,12 @@ class Availablity extends StatelessWidget {
               bloc.add(SetSelectTypeBottomSheetEvent("Select and continue"));
               bloc.add(SetSlotBooking(body));
              // blocSummary.add(ResetStateEvent());
-              Navigator.pushNamed(context, AppRoutes.ADDDETAILS);
+              Map<String, dynamic> arguments = {
+
+
+                "isFromCreateAccount": "session",
+              };
+              Navigator.pushNamed(context, AppRoutes.ADDDETAILS,arguments: arguments);
 
               //  Navigator.pushNamed(context, AppRoutes.ADDDETAILS);
             }

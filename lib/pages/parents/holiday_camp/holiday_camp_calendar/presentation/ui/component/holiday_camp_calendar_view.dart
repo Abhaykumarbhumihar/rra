@@ -2,7 +2,10 @@ import 'package:intl/intl.dart';
 import 'package:rra/common/values/values_exports.dart';
 import 'package:table_calendar/table_calendar.dart';
 
+import '../../../../../../../common/local/SharedPrefs.dart';
+import '../../../../../../../common/service_locator/setivelocator.dart';
 import '../../bloc/holiday_camp_calendar_bloc.dart';
+import '../../bloc/holiday_camp_calendar_event.dart';
 import '../../bloc/holiday_camp_calendar_state.dart';
 
 
@@ -109,7 +112,16 @@ class HolidayCampCalendarView extends StatelessWidget {
                                 day.year == availableDate.year) {
                               return InkWell(
                                 onTap: (){
+                                  String formattedDate = DateFormat('yyyy-MM-dd').format(availableDate);
+                                  print(formattedDate);
+                                  var academyId = getIt<SharedPrefs>().getString("selected_academyid");
+                                  Map<String, dynamic> map = {
+                                    "date":formattedDate,
+                                    "academy_id": academyId,
 
+                                  };
+                                  BlocProvider.of<HolidayCampCalendarBloc>(context)
+                                      .add(SaveCampEvents(map));
                                 },
                                 child: Padding(
                                   padding: const EdgeInsets.all(4.0),

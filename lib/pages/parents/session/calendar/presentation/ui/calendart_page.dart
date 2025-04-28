@@ -60,7 +60,12 @@ class CalendarPage extends StatelessWidget {
               }else{
                 BlocProvider.of<AddViewPlayerBloc>(context).add(AddViewPlayerSelectedTabEvent(0));
               }
-              Navigator.pushNamed(context, AppRoutes.ADDDETAILS);
+              Map<String, dynamic> arguments = {
+
+
+                "isFromCreateAccount": "session",
+              };
+              Navigator.pushNamed(context, AppRoutes.ADDDETAILS,arguments: arguments);
             } else {
               context.showCustomSnackbar("Please select at least $minimumCount time slots to proceed!");
             }

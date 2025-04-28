@@ -101,7 +101,7 @@ class DashboardGrid extends StatelessWidget {
               BlocProvider.of<ParentOrderBloc>(context).add(ParentMyOrderListEvent({}));
               Navigator.pushNamed(context, AppRoutes.PARENTORDERLISTPAGE);
             } else if (item['title'] == "View Players") {
-              Map<String, dynamic> arguments = {"isFromDashBoard": true};
+              Map<String, dynamic> arguments = {"isFromDashBoard": true,"isFromCreateAccount": "session",};
               Navigator.pushNamed(context, AppRoutes.ADDDETAILS, arguments: arguments);
             }else if(item['title']=='Change Password'){
               var userdata = getIt<SharedPrefs>().getModel<OtpVerificationModel>("user_model", (json) => OtpVerificationModel.fromJson(json));

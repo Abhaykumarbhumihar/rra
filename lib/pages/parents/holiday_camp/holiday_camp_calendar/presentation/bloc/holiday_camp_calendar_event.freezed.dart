@@ -21,16 +21,28 @@ mixin _$HolidayCampCalendarEvent {
   TResult when<TResult extends Object?>({
     required TResult Function(Map<String, dynamic> data)
         getHolidayCalenDarDateEvents,
+    required TResult Function(Map<String, dynamic> data) SaveCampDates,
+    required TResult Function(Map<String, dynamic> data, dynamic index)
+        removeSavedCamp,
+    required TResult Function(Map<String, dynamic> data)
+        getValidateCampSendChildId,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(Map<String, dynamic> data)? getHolidayCalenDarDateEvents,
+    TResult? Function(Map<String, dynamic> data)? SaveCampDates,
+    TResult? Function(Map<String, dynamic> data, dynamic index)?
+        removeSavedCamp,
+    TResult? Function(Map<String, dynamic> data)? getValidateCampSendChildId,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(Map<String, dynamic> data)? getHolidayCalenDarDateEvents,
+    TResult Function(Map<String, dynamic> data)? SaveCampDates,
+    TResult Function(Map<String, dynamic> data, dynamic index)? removeSavedCamp,
+    TResult Function(Map<String, dynamic> data)? getValidateCampSendChildId,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -38,18 +50,30 @@ mixin _$HolidayCampCalendarEvent {
   TResult map<TResult extends Object?>({
     required TResult Function(HolidayCampCalendarDateEvents value)
         getHolidayCalenDarDateEvents,
+    required TResult Function(SaveCampEvents value) SaveCampDates,
+    required TResult Function(RemoveSavedCampEvent value) removeSavedCamp,
+    required TResult Function(ValidateCampSendChildIdEvent value)
+        getValidateCampSendChildId,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(HolidayCampCalendarDateEvents value)?
         getHolidayCalenDarDateEvents,
+    TResult? Function(SaveCampEvents value)? SaveCampDates,
+    TResult? Function(RemoveSavedCampEvent value)? removeSavedCamp,
+    TResult? Function(ValidateCampSendChildIdEvent value)?
+        getValidateCampSendChildId,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(HolidayCampCalendarDateEvents value)?
         getHolidayCalenDarDateEvents,
+    TResult Function(SaveCampEvents value)? SaveCampDates,
+    TResult Function(RemoveSavedCampEvent value)? removeSavedCamp,
+    TResult Function(ValidateCampSendChildIdEvent value)?
+        getValidateCampSendChildId,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -182,6 +206,11 @@ class _$HolidayCampCalendarDateEventsImpl
   TResult when<TResult extends Object?>({
     required TResult Function(Map<String, dynamic> data)
         getHolidayCalenDarDateEvents,
+    required TResult Function(Map<String, dynamic> data) SaveCampDates,
+    required TResult Function(Map<String, dynamic> data, dynamic index)
+        removeSavedCamp,
+    required TResult Function(Map<String, dynamic> data)
+        getValidateCampSendChildId,
   }) {
     return getHolidayCalenDarDateEvents(data);
   }
@@ -190,6 +219,10 @@ class _$HolidayCampCalendarDateEventsImpl
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(Map<String, dynamic> data)? getHolidayCalenDarDateEvents,
+    TResult? Function(Map<String, dynamic> data)? SaveCampDates,
+    TResult? Function(Map<String, dynamic> data, dynamic index)?
+        removeSavedCamp,
+    TResult? Function(Map<String, dynamic> data)? getValidateCampSendChildId,
   }) {
     return getHolidayCalenDarDateEvents?.call(data);
   }
@@ -198,6 +231,9 @@ class _$HolidayCampCalendarDateEventsImpl
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(Map<String, dynamic> data)? getHolidayCalenDarDateEvents,
+    TResult Function(Map<String, dynamic> data)? SaveCampDates,
+    TResult Function(Map<String, dynamic> data, dynamic index)? removeSavedCamp,
+    TResult Function(Map<String, dynamic> data)? getValidateCampSendChildId,
     required TResult orElse(),
   }) {
     if (getHolidayCalenDarDateEvents != null) {
@@ -211,6 +247,10 @@ class _$HolidayCampCalendarDateEventsImpl
   TResult map<TResult extends Object?>({
     required TResult Function(HolidayCampCalendarDateEvents value)
         getHolidayCalenDarDateEvents,
+    required TResult Function(SaveCampEvents value) SaveCampDates,
+    required TResult Function(RemoveSavedCampEvent value) removeSavedCamp,
+    required TResult Function(ValidateCampSendChildIdEvent value)
+        getValidateCampSendChildId,
   }) {
     return getHolidayCalenDarDateEvents(this);
   }
@@ -220,6 +260,10 @@ class _$HolidayCampCalendarDateEventsImpl
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(HolidayCampCalendarDateEvents value)?
         getHolidayCalenDarDateEvents,
+    TResult? Function(SaveCampEvents value)? SaveCampDates,
+    TResult? Function(RemoveSavedCampEvent value)? removeSavedCamp,
+    TResult? Function(ValidateCampSendChildIdEvent value)?
+        getValidateCampSendChildId,
   }) {
     return getHolidayCalenDarDateEvents?.call(this);
   }
@@ -229,6 +273,10 @@ class _$HolidayCampCalendarDateEventsImpl
   TResult maybeMap<TResult extends Object?>({
     TResult Function(HolidayCampCalendarDateEvents value)?
         getHolidayCalenDarDateEvents,
+    TResult Function(SaveCampEvents value)? SaveCampDates,
+    TResult Function(RemoveSavedCampEvent value)? removeSavedCamp,
+    TResult Function(ValidateCampSendChildIdEvent value)?
+        getValidateCampSendChildId,
     required TResult orElse(),
   }) {
     if (getHolidayCalenDarDateEvents != null) {
@@ -252,5 +300,548 @@ abstract class HolidayCampCalendarDateEvents
   @JsonKey(includeFromJson: false, includeToJson: false)
   _$$HolidayCampCalendarDateEventsImplCopyWith<
           _$HolidayCampCalendarDateEventsImpl>
+      get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$SaveCampEventsImplCopyWith<$Res>
+    implements $HolidayCampCalendarEventCopyWith<$Res> {
+  factory _$$SaveCampEventsImplCopyWith(_$SaveCampEventsImpl value,
+          $Res Function(_$SaveCampEventsImpl) then) =
+      __$$SaveCampEventsImplCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call({Map<String, dynamic> data});
+}
+
+/// @nodoc
+class __$$SaveCampEventsImplCopyWithImpl<$Res>
+    extends _$HolidayCampCalendarEventCopyWithImpl<$Res, _$SaveCampEventsImpl>
+    implements _$$SaveCampEventsImplCopyWith<$Res> {
+  __$$SaveCampEventsImplCopyWithImpl(
+      _$SaveCampEventsImpl _value, $Res Function(_$SaveCampEventsImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of HolidayCampCalendarEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? data = null,
+  }) {
+    return _then(_$SaveCampEventsImpl(
+      null == data
+          ? _value._data
+          : data // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$SaveCampEventsImpl implements SaveCampEvents {
+  const _$SaveCampEventsImpl(final Map<String, dynamic> data) : _data = data;
+
+  final Map<String, dynamic> _data;
+  @override
+  Map<String, dynamic> get data {
+    if (_data is EqualUnmodifiableMapView) return _data;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableMapView(_data);
+  }
+
+  @override
+  String toString() {
+    return 'HolidayCampCalendarEvent.SaveCampDates(data: $data)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$SaveCampEventsImpl &&
+            const DeepCollectionEquality().equals(other._data, _data));
+  }
+
+  @override
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(_data));
+
+  /// Create a copy of HolidayCampCalendarEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$SaveCampEventsImplCopyWith<_$SaveCampEventsImpl> get copyWith =>
+      __$$SaveCampEventsImplCopyWithImpl<_$SaveCampEventsImpl>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(Map<String, dynamic> data)
+        getHolidayCalenDarDateEvents,
+    required TResult Function(Map<String, dynamic> data) SaveCampDates,
+    required TResult Function(Map<String, dynamic> data, dynamic index)
+        removeSavedCamp,
+    required TResult Function(Map<String, dynamic> data)
+        getValidateCampSendChildId,
+  }) {
+    return SaveCampDates(data);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(Map<String, dynamic> data)? getHolidayCalenDarDateEvents,
+    TResult? Function(Map<String, dynamic> data)? SaveCampDates,
+    TResult? Function(Map<String, dynamic> data, dynamic index)?
+        removeSavedCamp,
+    TResult? Function(Map<String, dynamic> data)? getValidateCampSendChildId,
+  }) {
+    return SaveCampDates?.call(data);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(Map<String, dynamic> data)? getHolidayCalenDarDateEvents,
+    TResult Function(Map<String, dynamic> data)? SaveCampDates,
+    TResult Function(Map<String, dynamic> data, dynamic index)? removeSavedCamp,
+    TResult Function(Map<String, dynamic> data)? getValidateCampSendChildId,
+    required TResult orElse(),
+  }) {
+    if (SaveCampDates != null) {
+      return SaveCampDates(data);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(HolidayCampCalendarDateEvents value)
+        getHolidayCalenDarDateEvents,
+    required TResult Function(SaveCampEvents value) SaveCampDates,
+    required TResult Function(RemoveSavedCampEvent value) removeSavedCamp,
+    required TResult Function(ValidateCampSendChildIdEvent value)
+        getValidateCampSendChildId,
+  }) {
+    return SaveCampDates(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(HolidayCampCalendarDateEvents value)?
+        getHolidayCalenDarDateEvents,
+    TResult? Function(SaveCampEvents value)? SaveCampDates,
+    TResult? Function(RemoveSavedCampEvent value)? removeSavedCamp,
+    TResult? Function(ValidateCampSendChildIdEvent value)?
+        getValidateCampSendChildId,
+  }) {
+    return SaveCampDates?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(HolidayCampCalendarDateEvents value)?
+        getHolidayCalenDarDateEvents,
+    TResult Function(SaveCampEvents value)? SaveCampDates,
+    TResult Function(RemoveSavedCampEvent value)? removeSavedCamp,
+    TResult Function(ValidateCampSendChildIdEvent value)?
+        getValidateCampSendChildId,
+    required TResult orElse(),
+  }) {
+    if (SaveCampDates != null) {
+      return SaveCampDates(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class SaveCampEvents implements HolidayCampCalendarEvent {
+  const factory SaveCampEvents(final Map<String, dynamic> data) =
+      _$SaveCampEventsImpl;
+
+  @override
+  Map<String, dynamic> get data;
+
+  /// Create a copy of HolidayCampCalendarEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$SaveCampEventsImplCopyWith<_$SaveCampEventsImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$RemoveSavedCampEventImplCopyWith<$Res>
+    implements $HolidayCampCalendarEventCopyWith<$Res> {
+  factory _$$RemoveSavedCampEventImplCopyWith(_$RemoveSavedCampEventImpl value,
+          $Res Function(_$RemoveSavedCampEventImpl) then) =
+      __$$RemoveSavedCampEventImplCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call({Map<String, dynamic> data, dynamic index});
+}
+
+/// @nodoc
+class __$$RemoveSavedCampEventImplCopyWithImpl<$Res>
+    extends _$HolidayCampCalendarEventCopyWithImpl<$Res,
+        _$RemoveSavedCampEventImpl>
+    implements _$$RemoveSavedCampEventImplCopyWith<$Res> {
+  __$$RemoveSavedCampEventImplCopyWithImpl(_$RemoveSavedCampEventImpl _value,
+      $Res Function(_$RemoveSavedCampEventImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of HolidayCampCalendarEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? data = null,
+    Object? index = freezed,
+  }) {
+    return _then(_$RemoveSavedCampEventImpl(
+      null == data
+          ? _value._data
+          : data // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>,
+      freezed == index ? _value.index! : index,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$RemoveSavedCampEventImpl implements RemoveSavedCampEvent {
+  const _$RemoveSavedCampEventImpl(final Map<String, dynamic> data, this.index)
+      : _data = data;
+
+  final Map<String, dynamic> _data;
+  @override
+  Map<String, dynamic> get data {
+    if (_data is EqualUnmodifiableMapView) return _data;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableMapView(_data);
+  }
+
+  @override
+  final dynamic index;
+
+  @override
+  String toString() {
+    return 'HolidayCampCalendarEvent.removeSavedCamp(data: $data, index: $index)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$RemoveSavedCampEventImpl &&
+            const DeepCollectionEquality().equals(other._data, _data) &&
+            const DeepCollectionEquality().equals(other.index, index));
+  }
+
+  @override
+  int get hashCode => Object.hash(
+      runtimeType,
+      const DeepCollectionEquality().hash(_data),
+      const DeepCollectionEquality().hash(index));
+
+  /// Create a copy of HolidayCampCalendarEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$RemoveSavedCampEventImplCopyWith<_$RemoveSavedCampEventImpl>
+      get copyWith =>
+          __$$RemoveSavedCampEventImplCopyWithImpl<_$RemoveSavedCampEventImpl>(
+              this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(Map<String, dynamic> data)
+        getHolidayCalenDarDateEvents,
+    required TResult Function(Map<String, dynamic> data) SaveCampDates,
+    required TResult Function(Map<String, dynamic> data, dynamic index)
+        removeSavedCamp,
+    required TResult Function(Map<String, dynamic> data)
+        getValidateCampSendChildId,
+  }) {
+    return removeSavedCamp(data, index);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(Map<String, dynamic> data)? getHolidayCalenDarDateEvents,
+    TResult? Function(Map<String, dynamic> data)? SaveCampDates,
+    TResult? Function(Map<String, dynamic> data, dynamic index)?
+        removeSavedCamp,
+    TResult? Function(Map<String, dynamic> data)? getValidateCampSendChildId,
+  }) {
+    return removeSavedCamp?.call(data, index);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(Map<String, dynamic> data)? getHolidayCalenDarDateEvents,
+    TResult Function(Map<String, dynamic> data)? SaveCampDates,
+    TResult Function(Map<String, dynamic> data, dynamic index)? removeSavedCamp,
+    TResult Function(Map<String, dynamic> data)? getValidateCampSendChildId,
+    required TResult orElse(),
+  }) {
+    if (removeSavedCamp != null) {
+      return removeSavedCamp(data, index);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(HolidayCampCalendarDateEvents value)
+        getHolidayCalenDarDateEvents,
+    required TResult Function(SaveCampEvents value) SaveCampDates,
+    required TResult Function(RemoveSavedCampEvent value) removeSavedCamp,
+    required TResult Function(ValidateCampSendChildIdEvent value)
+        getValidateCampSendChildId,
+  }) {
+    return removeSavedCamp(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(HolidayCampCalendarDateEvents value)?
+        getHolidayCalenDarDateEvents,
+    TResult? Function(SaveCampEvents value)? SaveCampDates,
+    TResult? Function(RemoveSavedCampEvent value)? removeSavedCamp,
+    TResult? Function(ValidateCampSendChildIdEvent value)?
+        getValidateCampSendChildId,
+  }) {
+    return removeSavedCamp?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(HolidayCampCalendarDateEvents value)?
+        getHolidayCalenDarDateEvents,
+    TResult Function(SaveCampEvents value)? SaveCampDates,
+    TResult Function(RemoveSavedCampEvent value)? removeSavedCamp,
+    TResult Function(ValidateCampSendChildIdEvent value)?
+        getValidateCampSendChildId,
+    required TResult orElse(),
+  }) {
+    if (removeSavedCamp != null) {
+      return removeSavedCamp(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class RemoveSavedCampEvent implements HolidayCampCalendarEvent {
+  const factory RemoveSavedCampEvent(
+          final Map<String, dynamic> data, final dynamic index) =
+      _$RemoveSavedCampEventImpl;
+
+  @override
+  Map<String, dynamic> get data;
+  dynamic get index;
+
+  /// Create a copy of HolidayCampCalendarEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$RemoveSavedCampEventImplCopyWith<_$RemoveSavedCampEventImpl>
+      get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$ValidateCampSendChildIdEventImplCopyWith<$Res>
+    implements $HolidayCampCalendarEventCopyWith<$Res> {
+  factory _$$ValidateCampSendChildIdEventImplCopyWith(
+          _$ValidateCampSendChildIdEventImpl value,
+          $Res Function(_$ValidateCampSendChildIdEventImpl) then) =
+      __$$ValidateCampSendChildIdEventImplCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call({Map<String, dynamic> data});
+}
+
+/// @nodoc
+class __$$ValidateCampSendChildIdEventImplCopyWithImpl<$Res>
+    extends _$HolidayCampCalendarEventCopyWithImpl<$Res,
+        _$ValidateCampSendChildIdEventImpl>
+    implements _$$ValidateCampSendChildIdEventImplCopyWith<$Res> {
+  __$$ValidateCampSendChildIdEventImplCopyWithImpl(
+      _$ValidateCampSendChildIdEventImpl _value,
+      $Res Function(_$ValidateCampSendChildIdEventImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of HolidayCampCalendarEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? data = null,
+  }) {
+    return _then(_$ValidateCampSendChildIdEventImpl(
+      null == data
+          ? _value._data
+          : data // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$ValidateCampSendChildIdEventImpl
+    implements ValidateCampSendChildIdEvent {
+  const _$ValidateCampSendChildIdEventImpl(final Map<String, dynamic> data)
+      : _data = data;
+
+  final Map<String, dynamic> _data;
+  @override
+  Map<String, dynamic> get data {
+    if (_data is EqualUnmodifiableMapView) return _data;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableMapView(_data);
+  }
+
+  @override
+  String toString() {
+    return 'HolidayCampCalendarEvent.getValidateCampSendChildId(data: $data)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$ValidateCampSendChildIdEventImpl &&
+            const DeepCollectionEquality().equals(other._data, _data));
+  }
+
+  @override
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(_data));
+
+  /// Create a copy of HolidayCampCalendarEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$ValidateCampSendChildIdEventImplCopyWith<
+          _$ValidateCampSendChildIdEventImpl>
+      get copyWith => __$$ValidateCampSendChildIdEventImplCopyWithImpl<
+          _$ValidateCampSendChildIdEventImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(Map<String, dynamic> data)
+        getHolidayCalenDarDateEvents,
+    required TResult Function(Map<String, dynamic> data) SaveCampDates,
+    required TResult Function(Map<String, dynamic> data, dynamic index)
+        removeSavedCamp,
+    required TResult Function(Map<String, dynamic> data)
+        getValidateCampSendChildId,
+  }) {
+    return getValidateCampSendChildId(data);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(Map<String, dynamic> data)? getHolidayCalenDarDateEvents,
+    TResult? Function(Map<String, dynamic> data)? SaveCampDates,
+    TResult? Function(Map<String, dynamic> data, dynamic index)?
+        removeSavedCamp,
+    TResult? Function(Map<String, dynamic> data)? getValidateCampSendChildId,
+  }) {
+    return getValidateCampSendChildId?.call(data);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(Map<String, dynamic> data)? getHolidayCalenDarDateEvents,
+    TResult Function(Map<String, dynamic> data)? SaveCampDates,
+    TResult Function(Map<String, dynamic> data, dynamic index)? removeSavedCamp,
+    TResult Function(Map<String, dynamic> data)? getValidateCampSendChildId,
+    required TResult orElse(),
+  }) {
+    if (getValidateCampSendChildId != null) {
+      return getValidateCampSendChildId(data);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(HolidayCampCalendarDateEvents value)
+        getHolidayCalenDarDateEvents,
+    required TResult Function(SaveCampEvents value) SaveCampDates,
+    required TResult Function(RemoveSavedCampEvent value) removeSavedCamp,
+    required TResult Function(ValidateCampSendChildIdEvent value)
+        getValidateCampSendChildId,
+  }) {
+    return getValidateCampSendChildId(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(HolidayCampCalendarDateEvents value)?
+        getHolidayCalenDarDateEvents,
+    TResult? Function(SaveCampEvents value)? SaveCampDates,
+    TResult? Function(RemoveSavedCampEvent value)? removeSavedCamp,
+    TResult? Function(ValidateCampSendChildIdEvent value)?
+        getValidateCampSendChildId,
+  }) {
+    return getValidateCampSendChildId?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(HolidayCampCalendarDateEvents value)?
+        getHolidayCalenDarDateEvents,
+    TResult Function(SaveCampEvents value)? SaveCampDates,
+    TResult Function(RemoveSavedCampEvent value)? removeSavedCamp,
+    TResult Function(ValidateCampSendChildIdEvent value)?
+        getValidateCampSendChildId,
+    required TResult orElse(),
+  }) {
+    if (getValidateCampSendChildId != null) {
+      return getValidateCampSendChildId(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class ValidateCampSendChildIdEvent
+    implements HolidayCampCalendarEvent {
+  const factory ValidateCampSendChildIdEvent(final Map<String, dynamic> data) =
+      _$ValidateCampSendChildIdEventImpl;
+
+  @override
+  Map<String, dynamic> get data;
+
+  /// Create a copy of HolidayCampCalendarEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$ValidateCampSendChildIdEventImplCopyWith<
+          _$ValidateCampSendChildIdEventImpl>
       get copyWith => throw _privateConstructorUsedError;
 }

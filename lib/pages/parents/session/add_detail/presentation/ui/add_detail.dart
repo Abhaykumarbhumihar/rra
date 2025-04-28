@@ -43,7 +43,7 @@ class AddDetail extends StatelessWidget {
         ModalRoute.of(context)?.settings.arguments as Map<String, dynamic>?;
 
     bool? isFromDashBoard = arguments?['isFromDashBoard'] ?? false;
-
+    String? isFromCampOrSession = arguments?['isFromCreateAccount'] ?? "";
     return BlocListener<AddViewPlayerBloc, AddViewPlayerState>(
       listener: (context, state) {
         if (state.isCHildListSucces) {
@@ -529,48 +529,54 @@ class AddDetail extends StatelessWidget {
                                         child: CustomButton(
                                           text: "Continue",
                                           onPressed: () async {
-
-                                            if (BlocProvider.of<
-                                                            SessionCalendarBloc>(
-                                                        context)
-                                                    .state
-                                                    .timeAddedModel
-                                                    .data
-                                                    .isEmpty ==
-                                                true) {
-                                              Navigator.of(context).pop();
-                                            } else {
-                                              if (state
-                                                  .selectedChildId.isEmpty) {
-                                                context.showCustomSnackbar(
-                                                    "Please select minimum 1 child");
+                                            if(isFromCampOrSession=="camp"){
+                                              print(state.selectedChildId);
+                                              print("IS FOR CAMP");
+                                            }else{
+                                              if (BlocProvider.of<
+                                                  SessionCalendarBloc>(
+                                                  context)
+                                                  .state
+                                                  .timeAddedModel
+                                                  .data
+                                                  .isEmpty ==
+                                                  true) {
+                                                Navigator.of(context).pop();
                                               } else {
-                                               // BlocProvider.of<OrderSummaryBloc>(context).add(const ResetStateEvent());
-                                                var academyId = await getIt<
-                                                        SharedPrefs>()
-                                                    .getString(
-                                                        "selected_academyid");
-                                                Map<String, dynamic> mapData = {
-                                                  "academy_id": academyId,
-                                                  "players":
-                                                      state.selectedChildId
-                                                };
-                                                BlocProvider.of<
-                                                            OrderSummaryBloc>(
-                                                        context)
-                                                    .add(
-                                                        ResetStatusOfPaymentAndOrderAfterErrorEvent());
+                                                if (state
+                                                    .selectedChildId.isEmpty) {
+                                                  context.showCustomSnackbar(
+                                                      "Please select minimum 1 child");
+                                                } else {
+                                                  // BlocProvider.of<OrderSummaryBloc>(context).add(const ResetStateEvent());
+
+                                                  var academyId = await getIt<
+                                                      SharedPrefs>()
+                                                      .getString(
+                                                      "selected_academyid");
+                                                  Map<String, dynamic> mapData = {
+                                                    "academy_id": academyId,
+                                                    "players":
+                                                    state.selectedChildId
+                                                  };
+                                                  BlocProvider.of<
+                                                      OrderSummaryBloc>(
+                                                      context)
+                                                      .add(
+                                                      ResetStatusOfPaymentAndOrderAfterErrorEvent());
 
 
-                                                BlocProvider.of<
-                                                            OrderSummaryBloc>(
-                                                        context)
-                                                    .add(GetOrderSummaryEvent(
-                                                        mapData));
+                                                  BlocProvider.of<
+                                                      OrderSummaryBloc>(
+                                                      context)
+                                                      .add(GetOrderSummaryEvent(
+                                                      mapData));
 
-                                                Navigator.pushNamed(context,
-                                                    AppRoutes.ORDERSUMMARY);
+                                                  Navigator.pushNamed(context,
+                                                      AppRoutes.ORDERSUMMARY);
+                                                }
                                               }
+
                                             }
                                           },
                                         )

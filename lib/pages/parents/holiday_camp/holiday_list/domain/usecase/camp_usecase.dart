@@ -4,6 +4,7 @@ import '../../../../../../common/network/failure.dart';
 import '../../data/entity/camp_calendar/camp_calendar_model.dart';
 import '../../data/entity/camp_detail/camp_detail_model.dart';
 import '../../data/entity/camp_list/camp_list_model.dart';
+import '../../data/entity/save_camp/save_camp_model.dart';
 import '../repositery/camp_repositery.dart';
 
 class CampUsecase{
@@ -18,6 +19,13 @@ class CampUsecase{
   }
   Future<Either<Failure,CampCalendarModel>>campCalendarDataExecute( Map<String, dynamic> campCalendarData)async{
     return await _campRepositery.campCalendarData(campCalendarData);
+  }
+  Future<Either<Failure,SaveCampModel>>saveCampExecute( Map<String, dynamic> campCalendarData)async{
+    return await _campRepositery.saveCamp(campCalendarData);
+  }
+
+  Future<Either<Failure,dynamic>>removeSavedCampExecute( Map<String, dynamic> campCalendarData)async{
+    return await _campRepositery.removeSavedCamp(campCalendarData);
   }
 
 }

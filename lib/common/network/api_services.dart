@@ -43,6 +43,11 @@ class ApiServices {
           ||url==AppConstant.getTotal
           ||url==AppConstant.getApplyDiscount
           ||url==AppConstant.getOrderPlace
+          ||url==AppConstant.getCampList
+          ||url==AppConstant.getCampDetail
+          ||url==AppConstant.getCampBookingSelectSession
+          ||url==AppConstant.getCampBookingSelectSessionSave
+
 
       ) {
         print("YYYYYSY${url}YSYSYSYSYSYSYSYSYSSYSYSYSYSYSYSYSYSYSYSYSYSYYSYSYSY");

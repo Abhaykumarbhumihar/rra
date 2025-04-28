@@ -38,10 +38,10 @@ class ParentOrderDetail extends StatelessWidget {
                       SizedBox(
                         height: 16,
                       ),
-                      // "Jr. Rahul > U17 > Group Coaching U17 >2025 > Coach: BHAVIN SAVALIYA, VISHAL PATEL, HIREN KUMAR PATEL",
+
                       state.isLoading == false
                           ? Text(
-                              "${state.parentMyOrderDetailModel.data.coachedName} > ${state.parentMyOrderDetailModel.data.coachingProgram} > ${state.parentMyOrderDetailModel.data.terms} > ${state.parentMyOrderDetailModel.data.childName}",
+                              "${state.parentMyOrderDetailModel.data.childName} > ${state.parentMyOrderDetailModel.data.sessionName} > ${state.parentMyOrderDetailModel.data.coachingProgram} > ${state.parentMyOrderDetailModel.data.terms}>Coach: ${state.parentMyOrderDetailModel.data.coachedName}",
                               style: AppTextStyle.semiBold(
                                   MediaQuery.of(context).size.width * 0.04266),
                             )

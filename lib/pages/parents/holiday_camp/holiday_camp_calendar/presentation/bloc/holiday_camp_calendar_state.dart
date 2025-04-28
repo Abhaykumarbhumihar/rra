@@ -1,6 +1,7 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 import '../../../holiday_list/data/entity/camp_calendar/camp_calendar_model.dart';
+import '../../../holiday_list/data/entity/save_camp/save_camp_model.dart';
 
 
 part 'holiday_camp_calendar_state.freezed.dart'; // Generated part file
@@ -16,6 +17,7 @@ class HolidayCampCalendarState with _$HolidayCampCalendarState {
      DateTime? datetime,
     @Default(false) bool isLoginApiError,
     @Default(CampCalendarModel()) CampCalendarModel campCalendarModel,
+    @Default(SaveCampModel()) SaveCampModel savedCampModel,
 
     @Default(false) bool isTimeAddedError,
     @Default(false) bool isTimeAddedSuccess,
@@ -46,6 +48,7 @@ class HolidayCampCalendarState with _$HolidayCampCalendarState {
     isTimeAddedSuccess: false,
       selectedSessionID:"",
    campCalendarModel:CampCalendarModel(),
+    savedCampModel:SaveCampModel(),
     selectedTimeAdded:const [],
     isLoading: false,
     error: null,

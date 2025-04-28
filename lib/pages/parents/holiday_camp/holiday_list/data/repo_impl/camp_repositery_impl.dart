@@ -7,7 +7,9 @@ import 'package:rra/pages/parents/holiday_camp/holiday_list/data/entity/camp_cal
 import 'package:rra/pages/parents/holiday_camp/holiday_list/data/entity/camp_detail/camp_detail_model.dart';
 
 import 'package:rra/pages/parents/holiday_camp/holiday_list/data/entity/camp_list/camp_list_model.dart';
+import 'package:rra/pages/parents/holiday_camp/holiday_list/data/entity/save_camp/save_camp_model.dart';
 
+import '../../../../../../common/local/SharedPrefs.dart';
 import '../../../../../../common/network/api_services.dart';
 import '../../../../../../common/network/app_constant.dart';
 import '../../../../../../common/network/network_eport.dart' as http;
@@ -27,6 +29,17 @@ class CampRepositeryImpl extends CampRepositery{
       print("campList campList ====${response.body}");
       if (response.statusCode == 200) {
         final Map<String, dynamic> responseData = jsonDecode(response.body);
+        if (response.headers.containsKey('set-cookie')) {
+          var cookies = response.headers['set-cookie'];
+          RegExp regExp = RegExp(r'(rajasthanroyals_session=[^;]+)');
+          Match? match = regExp.firstMatch(cookies.toString());
+          if(match!=null){
+            String sessionCookie = match.group(1)!;
+            print('Session Cookie: $sessionCookie');
+            await getIt<SharedPrefs>().setString("cookie", sessionCookie);
+          }
+
+        }
         CampListModel campListModel=CampListModel.fromJson(responseData);
         return Right(campListModel);
       } else {
@@ -87,10 +100,61 @@ class CampRepositeryImpl extends CampRepositery{
         print("campList campList campList  ====${errorMessage}");
         return Left(Failure(errorMessage));
       }
+
     } catch (e) {
       print("campList campList campList  ====${e}");
       return Left(Failure("$e"));
     }
   }
+
+  @override
+  Future<Either<Failure, SaveCampModel>> saveCamp(Map<String, dynamic> campData) async{
+    try {
+      http.Response response = await _apiServices.post(
+          AppConstant.getCampBookingSelectSessionSave,campData,
+          useDefaultHeaders: true,isJson: true);
+      print("saveCamp saveCamp ====${response.body}");
+      if (response.statusCode == 200) {
+        final Map<String, dynamic> responseData = jsonDecode(response.body);
+        SaveCampModel saveCampModel=SaveCampModel.fromJson(responseData);
+        return Right(saveCampModel);
+      } else {
+        final errorMessage = _extractErrorMessage(response.body);
+        print("saveCamp saveCamp saveCamp  ====${errorMessage}");
+        return Left(Failure(errorMessage));
+      }
+
+    } catch (e) {
+      print("saveCamp saveCamp saveCamp  ====${e}");
+      return Left(Failure("$e"));
+    }
+  }
+
+  @override
+  Future<Either<Failure, dynamic>> removeSavedCamp(Map<String, dynamic> timeAddedData)async {
+    try {
+
+      print("++++++++++++++removeSavedCamp++++++++++++++++++++++++++++++");
+      print(timeAddedData);
+      http.Response response =
+      await _apiServices.post(AppConstant.getCampBookingSelectSessionRemove, timeAddedData,useDefaultHeaders: true,isJson: true);
+      print(response.body);
+      if (response.statusCode == 200) {
+        final Map<String, dynamic> responseData = jsonDecode(response.body);
+        if(responseData['success']){
+          return Right(responseData);
+        }else{
+          return Left(Failure(responseData['message']));
+        }
+
+      } else {
+        final errorMessage = _extractErrorMessage(response.body);
+        return Left(Failure(errorMessage));
+      }
+    } catch (e) {
+      return Left(Failure("$e"));
+    }
+  }
+
 
 }

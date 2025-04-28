@@ -85,6 +85,8 @@ static String get getCollateralList=>"collaterals/list";
   static String get getCampDetail=>"camp";
   static String get getCampBookingSelectSession=>"camp/booking/select-session";
   static String get getCampBookingSelectSessionSave=>"camp/booking/selected-dates/save";
+  static String get getCampBookingSelectSessionRemove=>"camp/booking/selected-dates/remove";
+  static String get getCampValidateSendChildId=>"camp/booking/validate";
 
 
 }
