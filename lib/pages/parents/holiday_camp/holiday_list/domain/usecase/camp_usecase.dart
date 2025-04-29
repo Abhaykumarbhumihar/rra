@@ -5,6 +5,7 @@ import '../../data/entity/camp_calendar/camp_calendar_model.dart';
 import '../../data/entity/camp_detail/camp_detail_model.dart';
 import '../../data/entity/camp_list/camp_list_model.dart';
 import '../../data/entity/save_camp/save_camp_model.dart';
+import '../../data/entity/selected_camp_date/selected_camp_dates_model.dart';
 import '../repositery/camp_repositery.dart';
 
 class CampUsecase{
@@ -27,7 +28,16 @@ class CampUsecase{
   Future<Either<Failure,dynamic>>removeSavedCampExecute( Map<String, dynamic> campCalendarData)async{
     return await _campRepositery.removeSavedCamp(campCalendarData);
   }
+  Future<Either<Failure,SelectedCampDatesModel>>getSelectedCampDateExecute( Map<String, dynamic> campCalendarData)async{
+    return await _campRepositery.getSelectedCampDate(campCalendarData);
+  }
+  Future<Either<Failure,dynamic>>validateBooing( Map<String, dynamic> campCalendarData)async{
+    return await _campRepositery.getVaildateBooking(campCalendarData);
+  }
 
+  Future<Either<Failure,dynamic>>getCampBookingSummaryExecute( Map<String, dynamic> campCalendarData)async{
+    return await _campRepositery.getCampBookingSummary(campCalendarData);
+  }
 }
 
 

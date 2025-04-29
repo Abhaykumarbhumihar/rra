@@ -23,5 +23,7 @@ sealed class AddViewPlayerEvent with _$AddViewPlayerEvent {
   const factory AddViewPlayerEvent.resetAddViewPlayerEvent() = ResetAddViewEvent;
   const factory AddViewPlayerEvent.isForChildUpdate(String id) = AddViewPlayerChildForChildUpdateEvent;
   const factory AddViewPlayerEvent.deleteChild(String id) = AddViewPlayerChildDelteEvent;
+  const factory AddViewPlayerEvent.getValidateCampSendChildId(Map<String, dynamic> data) = ValidateCampSendChildIdAddDetailEvent;
+
 
 }

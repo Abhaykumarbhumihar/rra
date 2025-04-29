@@ -15,6 +15,10 @@ import '../../../../../../common/component/screen_title.dart';
 import '../../../../../../common/local/SharedPrefs.dart';
 import '../../../../../../common/routes/routes.dart';
 import '../../../../../../common/service_locator/setivelocator.dart';
+import '../../../../holiday_camp/holiday_cam_summary/presentation/bloc/camp_summary_bloc.dart';
+import '../../../../holiday_camp/holiday_cam_summary/presentation/bloc/camp_summary_event.dart';
+import '../../../../holiday_camp/holiday_camp_calendar/presentation/bloc/holiday_camp_calendar_bloc.dart';
+import '../../../../holiday_camp/holiday_camp_calendar/presentation/bloc/holiday_camp_calendar_event.dart';
 import '../../../calendar/presentation/bloc/session_calendar_event.dart';
 import '../../../coachprograms/presentation/bloc/coach_programs_bloc.dart';
 import '../../../order_summary/presentation/bloc/order_summary_bloc.dart';
@@ -51,6 +55,10 @@ class AddDetail extends StatelessWidget {
         }
         if (state.error != "") {
           context.showCustomSnackbar(state.error.toString());
+        }
+        if(state.isCampValidated==true){
+        BlocProvider.of<CampSummaryBloc>(context).add(CampGetSummaryEvents({}));
+        Navigator.pushNamed(context, AppRoutes.CAMP_ORDER_SUMMARY);
         }
       },
       child: BlocBuilder<AddViewPlayerBloc, AddViewPlayerState>(
@@ -459,8 +467,7 @@ class AddDetail extends StatelessWidget {
                                                                   ElevatedButton
                                                                       .styleFrom(
                                                                 backgroundColor:
-                                                                    Colors
-                                                                        .blue,
+                                                                    Colors.blue,
                                                                 shape:
                                                                     RoundedRectangleBorder(
                                                                   borderRadius:
@@ -529,17 +536,32 @@ class AddDetail extends StatelessWidget {
                                         child: CustomButton(
                                           text: "Continue",
                                           onPressed: () async {
-                                            if(isFromCampOrSession=="camp"){
+                                            if (isFromCampOrSession == "camp") {
+                                              var academyId =
+                                                  await getIt<SharedPrefs>()
+                                                      .getString(
+                                                          "selected_academyid");
                                               print(state.selectedChildId);
                                               print("IS FOR CAMP");
-                                            }else{
+                                              Map<String, dynamic> map = {
+                                                "players":
+                                                    state.selectedChildId,
+                                                "academy_id": academyId
+                                              };
+                                              print(map);
+                                              BlocProvider.of<
+                                                  AddViewPlayerBloc>(
+                                                      context)
+                                                  .add(
+                                                  ValidateCampSendChildIdAddDetailEvent(map));
+                                            } else {
                                               if (BlocProvider.of<
-                                                  SessionCalendarBloc>(
-                                                  context)
-                                                  .state
-                                                  .timeAddedModel
-                                                  .data
-                                                  .isEmpty ==
+                                                              SessionCalendarBloc>(
+                                                          context)
+                                                      .state
+                                                      .timeAddedModel
+                                                      .data
+                                                      .isEmpty ==
                                                   true) {
                                                 Navigator.of(context).pop();
                                               } else {
@@ -551,32 +573,31 @@ class AddDetail extends StatelessWidget {
                                                   // BlocProvider.of<OrderSummaryBloc>(context).add(const ResetStateEvent());
 
                                                   var academyId = await getIt<
-                                                      SharedPrefs>()
+                                                          SharedPrefs>()
                                                       .getString(
-                                                      "selected_academyid");
-                                                  Map<String, dynamic> mapData = {
+                                                          "selected_academyid");
+                                                  Map<String, dynamic> mapData =
+                                                      {
                                                     "academy_id": academyId,
                                                     "players":
-                                                    state.selectedChildId
+                                                        state.selectedChildId
                                                   };
                                                   BlocProvider.of<
-                                                      OrderSummaryBloc>(
-                                                      context)
+                                                              OrderSummaryBloc>(
+                                                          context)
                                                       .add(
-                                                      ResetStatusOfPaymentAndOrderAfterErrorEvent());
-
+                                                          ResetStatusOfPaymentAndOrderAfterErrorEvent());
 
                                                   BlocProvider.of<
-                                                      OrderSummaryBloc>(
-                                                      context)
+                                                              OrderSummaryBloc>(
+                                                          context)
                                                       .add(GetOrderSummaryEvent(
-                                                      mapData));
+                                                          mapData));
 
                                                   Navigator.pushNamed(context,
                                                       AppRoutes.ORDERSUMMARY);
                                                 }
                                               }
-
                                             }
                                           },
                                         )

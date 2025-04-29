@@ -6,6 +6,8 @@ import '../../pages/coach/manage_team/presentation/bloc/manage_team_bloc.dart';
 import '../../pages/coach/manage_team/presentation/ui/manage_team_detail.dart';
 import '../../pages/coach/view_session/presentation/bloc/view_session_bloc.dart';
 import '../../pages/parents/document/add_view_document/presentation/ui/document_detail.dart';
+import '../../pages/parents/holiday_camp/holiday_cam_summary/presentation/bloc/camp_summary_bloc.dart';
+import '../../pages/parents/holiday_camp/holiday_cam_summary/presentation/ui/camp_order_summary_page.dart';
 import '../../pages/parents/holiday_camp/holiday_camp_calendar/presentation/bloc/holiday_camp_calendar_bloc.dart';
 import '../../pages/parents/holiday_camp/holiday_camp_calendar/presentation/ui/holiday_camp_calendar.dart';
 import '../../pages/parents/holiday_camp/holiday_list/presentation/bloc/camp_bloc.dart';
@@ -207,6 +209,11 @@ class AppPages {
         route: AppRoutes.ORDERSUMMARY,
         page: OrderSummary(),
         bloc: BlocProvider(create: (_) => OrderSummaryBloc()),
+      ),
+      PageEntitiy(
+        route: AppRoutes.CAMP_ORDER_SUMMARY,
+        page: CampOrderSummaryPage(),
+        bloc: BlocProvider(create: (_) => CampSummaryBloc()),
       ),
     ];
   }

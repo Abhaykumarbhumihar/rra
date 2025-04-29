@@ -2,6 +2,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 
 import '../../../holiday_list/data/entity/camp_calendar/camp_calendar_model.dart';
 import '../../../holiday_list/data/entity/save_camp/save_camp_model.dart';
+import '../../../holiday_list/data/entity/selected_camp_date/selected_camp_dates_model.dart';
 
 
 part 'holiday_camp_calendar_state.freezed.dart'; // Generated part file
@@ -18,12 +19,14 @@ class HolidayCampCalendarState with _$HolidayCampCalendarState {
     @Default(false) bool isLoginApiError,
     @Default(CampCalendarModel()) CampCalendarModel campCalendarModel,
     @Default(SaveCampModel()) SaveCampModel savedCampModel,
+    @Default(SelectedCampDatesModel()) SelectedCampDatesModel selectedCampDatesModel,
 
     @Default(false) bool isTimeAddedError,
     @Default(false) bool isTimeAddedSuccess,
     @Default(false) bool isSelectForOtherDate,
     @Default(false) bool isSelectForContinue,
     @Default(false) bool isSelectForRecurring,
+    @Default(false) bool isValidated,
     @Default([]) List<String> selectedTimeAdded,
    @Default("") String selectBottomSheetType,
    @Default("") String selectedDateDayName,
@@ -40,6 +43,8 @@ class HolidayCampCalendarState with _$HolidayCampCalendarState {
     isSelectForContinue: false,
     selectedFromTime:"",
     isSelectForOtherDate: false,
+    isValidated: false,
+    selectedCampDatesModel:SelectedCampDatesModel(),
     isSelectForRecurring: false,
     selectedDateDayName:"",
     isAvailablityLoading:false,

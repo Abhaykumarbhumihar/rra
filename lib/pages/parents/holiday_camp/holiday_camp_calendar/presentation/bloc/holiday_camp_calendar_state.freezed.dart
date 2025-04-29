@@ -25,11 +25,14 @@ mixin _$HolidayCampCalendarState {
   bool get isLoginApiError => throw _privateConstructorUsedError;
   CampCalendarModel get campCalendarModel => throw _privateConstructorUsedError;
   SaveCampModel get savedCampModel => throw _privateConstructorUsedError;
+  SelectedCampDatesModel get selectedCampDatesModel =>
+      throw _privateConstructorUsedError;
   bool get isTimeAddedError => throw _privateConstructorUsedError;
   bool get isTimeAddedSuccess => throw _privateConstructorUsedError;
   bool get isSelectForOtherDate => throw _privateConstructorUsedError;
   bool get isSelectForContinue => throw _privateConstructorUsedError;
   bool get isSelectForRecurring => throw _privateConstructorUsedError;
+  bool get isValidated => throw _privateConstructorUsedError;
   List<String> get selectedTimeAdded => throw _privateConstructorUsedError;
   String get selectBottomSheetType => throw _privateConstructorUsedError;
   String get selectedDateDayName => throw _privateConstructorUsedError;
@@ -61,11 +64,13 @@ abstract class $HolidayCampCalendarStateCopyWith<$Res> {
       bool isLoginApiError,
       CampCalendarModel campCalendarModel,
       SaveCampModel savedCampModel,
+      SelectedCampDatesModel selectedCampDatesModel,
       bool isTimeAddedError,
       bool isTimeAddedSuccess,
       bool isSelectForOtherDate,
       bool isSelectForContinue,
       bool isSelectForRecurring,
+      bool isValidated,
       List<String> selectedTimeAdded,
       String selectBottomSheetType,
       String selectedDateDayName,
@@ -76,6 +81,7 @@ abstract class $HolidayCampCalendarStateCopyWith<$Res> {
 
   $CampCalendarModelCopyWith<$Res> get campCalendarModel;
   $SaveCampModelCopyWith<$Res> get savedCampModel;
+  $SelectedCampDatesModelCopyWith<$Res> get selectedCampDatesModel;
 }
 
 /// @nodoc
@@ -103,11 +109,13 @@ class _$HolidayCampCalendarStateCopyWithImpl<$Res,
     Object? isLoginApiError = null,
     Object? campCalendarModel = null,
     Object? savedCampModel = null,
+    Object? selectedCampDatesModel = null,
     Object? isTimeAddedError = null,
     Object? isTimeAddedSuccess = null,
     Object? isSelectForOtherDate = null,
     Object? isSelectForContinue = null,
     Object? isSelectForRecurring = null,
+    Object? isValidated = null,
     Object? selectedTimeAdded = null,
     Object? selectBottomSheetType = null,
     Object? selectedDateDayName = null,
@@ -153,6 +161,10 @@ class _$HolidayCampCalendarStateCopyWithImpl<$Res,
           ? _value.savedCampModel
           : savedCampModel // ignore: cast_nullable_to_non_nullable
               as SaveCampModel,
+      selectedCampDatesModel: null == selectedCampDatesModel
+          ? _value.selectedCampDatesModel
+          : selectedCampDatesModel // ignore: cast_nullable_to_non_nullable
+              as SelectedCampDatesModel,
       isTimeAddedError: null == isTimeAddedError
           ? _value.isTimeAddedError
           : isTimeAddedError // ignore: cast_nullable_to_non_nullable
@@ -172,6 +184,10 @@ class _$HolidayCampCalendarStateCopyWithImpl<$Res,
       isSelectForRecurring: null == isSelectForRecurring
           ? _value.isSelectForRecurring
           : isSelectForRecurring // ignore: cast_nullable_to_non_nullable
+              as bool,
+      isValidated: null == isValidated
+          ? _value.isValidated
+          : isValidated // ignore: cast_nullable_to_non_nullable
               as bool,
       selectedTimeAdded: null == selectedTimeAdded
           ? _value.selectedTimeAdded
@@ -223,6 +239,17 @@ class _$HolidayCampCalendarStateCopyWithImpl<$Res,
       return _then(_value.copyWith(savedCampModel: value) as $Val);
     });
   }
+
+  /// Create a copy of HolidayCampCalendarState
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $SelectedCampDatesModelCopyWith<$Res> get selectedCampDatesModel {
+    return $SelectedCampDatesModelCopyWith<$Res>(_value.selectedCampDatesModel,
+        (value) {
+      return _then(_value.copyWith(selectedCampDatesModel: value) as $Val);
+    });
+  }
 }
 
 /// @nodoc
@@ -244,11 +271,13 @@ abstract class _$$HolidayCampCalendarStateImplCopyWith<$Res>
       bool isLoginApiError,
       CampCalendarModel campCalendarModel,
       SaveCampModel savedCampModel,
+      SelectedCampDatesModel selectedCampDatesModel,
       bool isTimeAddedError,
       bool isTimeAddedSuccess,
       bool isSelectForOtherDate,
       bool isSelectForContinue,
       bool isSelectForRecurring,
+      bool isValidated,
       List<String> selectedTimeAdded,
       String selectBottomSheetType,
       String selectedDateDayName,
@@ -261,6 +290,8 @@ abstract class _$$HolidayCampCalendarStateImplCopyWith<$Res>
   $CampCalendarModelCopyWith<$Res> get campCalendarModel;
   @override
   $SaveCampModelCopyWith<$Res> get savedCampModel;
+  @override
+  $SelectedCampDatesModelCopyWith<$Res> get selectedCampDatesModel;
 }
 
 /// @nodoc
@@ -287,11 +318,13 @@ class __$$HolidayCampCalendarStateImplCopyWithImpl<$Res>
     Object? isLoginApiError = null,
     Object? campCalendarModel = null,
     Object? savedCampModel = null,
+    Object? selectedCampDatesModel = null,
     Object? isTimeAddedError = null,
     Object? isTimeAddedSuccess = null,
     Object? isSelectForOtherDate = null,
     Object? isSelectForContinue = null,
     Object? isSelectForRecurring = null,
+    Object? isValidated = null,
     Object? selectedTimeAdded = null,
     Object? selectBottomSheetType = null,
     Object? selectedDateDayName = null,
@@ -337,6 +370,10 @@ class __$$HolidayCampCalendarStateImplCopyWithImpl<$Res>
           ? _value.savedCampModel
           : savedCampModel // ignore: cast_nullable_to_non_nullable
               as SaveCampModel,
+      selectedCampDatesModel: null == selectedCampDatesModel
+          ? _value.selectedCampDatesModel
+          : selectedCampDatesModel // ignore: cast_nullable_to_non_nullable
+              as SelectedCampDatesModel,
       isTimeAddedError: null == isTimeAddedError
           ? _value.isTimeAddedError
           : isTimeAddedError // ignore: cast_nullable_to_non_nullable
@@ -356,6 +393,10 @@ class __$$HolidayCampCalendarStateImplCopyWithImpl<$Res>
       isSelectForRecurring: null == isSelectForRecurring
           ? _value.isSelectForRecurring
           : isSelectForRecurring // ignore: cast_nullable_to_non_nullable
+              as bool,
+      isValidated: null == isValidated
+          ? _value.isValidated
+          : isValidated // ignore: cast_nullable_to_non_nullable
               as bool,
       selectedTimeAdded: null == selectedTimeAdded
           ? _value._selectedTimeAdded
@@ -402,11 +443,13 @@ class _$HolidayCampCalendarStateImpl implements _HolidayCampCalendarState {
       this.isLoginApiError = false,
       this.campCalendarModel = const CampCalendarModel(),
       this.savedCampModel = const SaveCampModel(),
+      this.selectedCampDatesModel = const SelectedCampDatesModel(),
       this.isTimeAddedError = false,
       this.isTimeAddedSuccess = false,
       this.isSelectForOtherDate = false,
       this.isSelectForContinue = false,
       this.isSelectForRecurring = false,
+      this.isValidated = false,
       final List<String> selectedTimeAdded = const [],
       this.selectBottomSheetType = "",
       this.selectedDateDayName = "",
@@ -442,6 +485,9 @@ class _$HolidayCampCalendarStateImpl implements _HolidayCampCalendarState {
   final SaveCampModel savedCampModel;
   @override
   @JsonKey()
+  final SelectedCampDatesModel selectedCampDatesModel;
+  @override
+  @JsonKey()
   final bool isTimeAddedError;
   @override
   @JsonKey()
@@ -455,6 +501,9 @@ class _$HolidayCampCalendarStateImpl implements _HolidayCampCalendarState {
   @override
   @JsonKey()
   final bool isSelectForRecurring;
+  @override
+  @JsonKey()
+  final bool isValidated;
   final List<String> _selectedTimeAdded;
   @override
   @JsonKey()
@@ -486,7 +535,7 @@ class _$HolidayCampCalendarStateImpl implements _HolidayCampCalendarState {
 
   @override
   String toString() {
-    return 'HolidayCampCalendarState(isLoading: $isLoading, error: $error, success: $success, isError: $isError, countt: $countt, datetime: $datetime, isLoginApiError: $isLoginApiError, campCalendarModel: $campCalendarModel, savedCampModel: $savedCampModel, isTimeAddedError: $isTimeAddedError, isTimeAddedSuccess: $isTimeAddedSuccess, isSelectForOtherDate: $isSelectForOtherDate, isSelectForContinue: $isSelectForContinue, isSelectForRecurring: $isSelectForRecurring, selectedTimeAdded: $selectedTimeAdded, selectBottomSheetType: $selectBottomSheetType, selectedDateDayName: $selectedDateDayName, selectedSessionID: $selectedSessionID, selectedFromTime: $selectedFromTime, isAvailablityLoading: $isAvailablityLoading, isTimeAddedLoading: $isTimeAddedLoading)';
+    return 'HolidayCampCalendarState(isLoading: $isLoading, error: $error, success: $success, isError: $isError, countt: $countt, datetime: $datetime, isLoginApiError: $isLoginApiError, campCalendarModel: $campCalendarModel, savedCampModel: $savedCampModel, selectedCampDatesModel: $selectedCampDatesModel, isTimeAddedError: $isTimeAddedError, isTimeAddedSuccess: $isTimeAddedSuccess, isSelectForOtherDate: $isSelectForOtherDate, isSelectForContinue: $isSelectForContinue, isSelectForRecurring: $isSelectForRecurring, isValidated: $isValidated, selectedTimeAdded: $selectedTimeAdded, selectBottomSheetType: $selectBottomSheetType, selectedDateDayName: $selectedDateDayName, selectedSessionID: $selectedSessionID, selectedFromTime: $selectedFromTime, isAvailablityLoading: $isAvailablityLoading, isTimeAddedLoading: $isTimeAddedLoading)';
   }
 
   @override
@@ -508,6 +557,8 @@ class _$HolidayCampCalendarStateImpl implements _HolidayCampCalendarState {
                 other.campCalendarModel == campCalendarModel) &&
             (identical(other.savedCampModel, savedCampModel) ||
                 other.savedCampModel == savedCampModel) &&
+            (identical(other.selectedCampDatesModel, selectedCampDatesModel) ||
+                other.selectedCampDatesModel == selectedCampDatesModel) &&
             (identical(other.isTimeAddedError, isTimeAddedError) ||
                 other.isTimeAddedError == isTimeAddedError) &&
             (identical(other.isTimeAddedSuccess, isTimeAddedSuccess) ||
@@ -518,6 +569,8 @@ class _$HolidayCampCalendarStateImpl implements _HolidayCampCalendarState {
                 other.isSelectForContinue == isSelectForContinue) &&
             (identical(other.isSelectForRecurring, isSelectForRecurring) ||
                 other.isSelectForRecurring == isSelectForRecurring) &&
+            (identical(other.isValidated, isValidated) ||
+                other.isValidated == isValidated) &&
             const DeepCollectionEquality()
                 .equals(other._selectedTimeAdded, _selectedTimeAdded) &&
             (identical(other.selectBottomSheetType, selectBottomSheetType) ||
@@ -546,11 +599,13 @@ class _$HolidayCampCalendarStateImpl implements _HolidayCampCalendarState {
         isLoginApiError,
         campCalendarModel,
         savedCampModel,
+        selectedCampDatesModel,
         isTimeAddedError,
         isTimeAddedSuccess,
         isSelectForOtherDate,
         isSelectForContinue,
         isSelectForRecurring,
+        isValidated,
         const DeepCollectionEquality().hash(_selectedTimeAdded),
         selectBottomSheetType,
         selectedDateDayName,
@@ -581,11 +636,13 @@ abstract class _HolidayCampCalendarState implements HolidayCampCalendarState {
       final bool isLoginApiError,
       final CampCalendarModel campCalendarModel,
       final SaveCampModel savedCampModel,
+      final SelectedCampDatesModel selectedCampDatesModel,
       final bool isTimeAddedError,
       final bool isTimeAddedSuccess,
       final bool isSelectForOtherDate,
       final bool isSelectForContinue,
       final bool isSelectForRecurring,
+      final bool isValidated,
       final List<String> selectedTimeAdded,
       final String selectBottomSheetType,
       final String selectedDateDayName,
@@ -613,6 +670,8 @@ abstract class _HolidayCampCalendarState implements HolidayCampCalendarState {
   @override
   SaveCampModel get savedCampModel;
   @override
+  SelectedCampDatesModel get selectedCampDatesModel;
+  @override
   bool get isTimeAddedError;
   @override
   bool get isTimeAddedSuccess;
@@ -622,6 +681,8 @@ abstract class _HolidayCampCalendarState implements HolidayCampCalendarState {
   bool get isSelectForContinue;
   @override
   bool get isSelectForRecurring;
+  @override
+  bool get isValidated;
   @override
   List<String> get selectedTimeAdded;
   @override

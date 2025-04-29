@@ -23,6 +23,7 @@ mixin _$AddViewPlayerState {
   bool get isError => throw _privateConstructorUsedError;
   bool get isLoginApiError => throw _privateConstructorUsedError;
   File? get childProfilePhoto => throw _privateConstructorUsedError;
+  bool get isCampValidated => throw _privateConstructorUsedError;
   int? get childPhotoUseOnSocialMedia => throw _privateConstructorUsedError;
   int? get administratorFirstAidNeed => throw _privateConstructorUsedError;
   List<bool> get selectedChildren => throw _privateConstructorUsedError;
@@ -62,6 +63,7 @@ abstract class $AddViewPlayerStateCopyWith<$Res> {
       bool isError,
       bool isLoginApiError,
       File? childProfilePhoto,
+      bool isCampValidated,
       int? childPhotoUseOnSocialMedia,
       int? administratorFirstAidNeed,
       List<bool> selectedChildren,
@@ -105,6 +107,7 @@ class _$AddViewPlayerStateCopyWithImpl<$Res, $Val extends AddViewPlayerState>
     Object? isError = null,
     Object? isLoginApiError = null,
     Object? childProfilePhoto = freezed,
+    Object? isCampValidated = null,
     Object? childPhotoUseOnSocialMedia = freezed,
     Object? administratorFirstAidNeed = freezed,
     Object? selectedChildren = null,
@@ -152,6 +155,10 @@ class _$AddViewPlayerStateCopyWithImpl<$Res, $Val extends AddViewPlayerState>
           ? _value.childProfilePhoto
           : childProfilePhoto // ignore: cast_nullable_to_non_nullable
               as File?,
+      isCampValidated: null == isCampValidated
+          ? _value.isCampValidated
+          : isCampValidated // ignore: cast_nullable_to_non_nullable
+              as bool,
       childPhotoUseOnSocialMedia: freezed == childPhotoUseOnSocialMedia
           ? _value.childPhotoUseOnSocialMedia
           : childPhotoUseOnSocialMedia // ignore: cast_nullable_to_non_nullable
@@ -250,6 +257,7 @@ abstract class _$$AddViewPlayerStateImplCopyWith<$Res>
       bool isError,
       bool isLoginApiError,
       File? childProfilePhoto,
+      bool isCampValidated,
       int? childPhotoUseOnSocialMedia,
       int? administratorFirstAidNeed,
       List<bool> selectedChildren,
@@ -292,6 +300,7 @@ class __$$AddViewPlayerStateImplCopyWithImpl<$Res>
     Object? isError = null,
     Object? isLoginApiError = null,
     Object? childProfilePhoto = freezed,
+    Object? isCampValidated = null,
     Object? childPhotoUseOnSocialMedia = freezed,
     Object? administratorFirstAidNeed = freezed,
     Object? selectedChildren = null,
@@ -339,6 +348,10 @@ class __$$AddViewPlayerStateImplCopyWithImpl<$Res>
           ? _value.childProfilePhoto
           : childProfilePhoto // ignore: cast_nullable_to_non_nullable
               as File?,
+      isCampValidated: null == isCampValidated
+          ? _value.isCampValidated
+          : isCampValidated // ignore: cast_nullable_to_non_nullable
+              as bool,
       childPhotoUseOnSocialMedia: freezed == childPhotoUseOnSocialMedia
           ? _value.childPhotoUseOnSocialMedia
           : childPhotoUseOnSocialMedia // ignore: cast_nullable_to_non_nullable
@@ -422,6 +435,7 @@ class _$AddViewPlayerStateImpl implements _AddViewPlayerState {
       this.isError = false,
       this.isLoginApiError = false,
       this.childProfilePhoto,
+      this.isCampValidated = false,
       this.childPhotoUseOnSocialMedia,
       this.administratorFirstAidNeed,
       final List<bool> selectedChildren = const [],
@@ -460,6 +474,9 @@ class _$AddViewPlayerStateImpl implements _AddViewPlayerState {
   final bool isLoginApiError;
   @override
   final File? childProfilePhoto;
+  @override
+  @JsonKey()
+  final bool isCampValidated;
   @override
   final int? childPhotoUseOnSocialMedia;
   @override
@@ -525,7 +542,7 @@ class _$AddViewPlayerStateImpl implements _AddViewPlayerState {
 
   @override
   String toString() {
-    return 'AddViewPlayerState(selectedTab: $selectedTab, isLoading: $isLoading, error: $error, success: $success, isError: $isError, isLoginApiError: $isLoginApiError, childProfilePhoto: $childProfilePhoto, childPhotoUseOnSocialMedia: $childPhotoUseOnSocialMedia, administratorFirstAidNeed: $administratorFirstAidNeed, selectedChildren: $selectedChildren, childName: $childName, childId: $childId, netWorkImage: $netWorkImage, dob: $dob, age: $age, schoolName: $schoolName, clubName: $clubName, medicalConditionTessUs: $medicalConditionTessUs, selectedChildId: $selectedChildId, isChildSuccess: $isChildSuccess, isChildError: $isChildError, isCHildListSucces: $isCHildListSucces, isCHildListError: $isCHildListError, childLisstModel: $childLisstModel)';
+    return 'AddViewPlayerState(selectedTab: $selectedTab, isLoading: $isLoading, error: $error, success: $success, isError: $isError, isLoginApiError: $isLoginApiError, childProfilePhoto: $childProfilePhoto, isCampValidated: $isCampValidated, childPhotoUseOnSocialMedia: $childPhotoUseOnSocialMedia, administratorFirstAidNeed: $administratorFirstAidNeed, selectedChildren: $selectedChildren, childName: $childName, childId: $childId, netWorkImage: $netWorkImage, dob: $dob, age: $age, schoolName: $schoolName, clubName: $clubName, medicalConditionTessUs: $medicalConditionTessUs, selectedChildId: $selectedChildId, isChildSuccess: $isChildSuccess, isChildError: $isChildError, isCHildListSucces: $isCHildListSucces, isCHildListError: $isCHildListError, childLisstModel: $childLisstModel)';
   }
 
   @override
@@ -544,6 +561,8 @@ class _$AddViewPlayerStateImpl implements _AddViewPlayerState {
                 other.isLoginApiError == isLoginApiError) &&
             (identical(other.childProfilePhoto, childProfilePhoto) ||
                 other.childProfilePhoto == childProfilePhoto) &&
+            (identical(other.isCampValidated, isCampValidated) ||
+                other.isCampValidated == isCampValidated) &&
             (identical(other.childPhotoUseOnSocialMedia,
                     childPhotoUseOnSocialMedia) ||
                 other.childPhotoUseOnSocialMedia ==
@@ -590,6 +609,7 @@ class _$AddViewPlayerStateImpl implements _AddViewPlayerState {
         isError,
         isLoginApiError,
         childProfilePhoto,
+        isCampValidated,
         childPhotoUseOnSocialMedia,
         administratorFirstAidNeed,
         const DeepCollectionEquality().hash(_selectedChildren),
@@ -628,6 +648,7 @@ abstract class _AddViewPlayerState implements AddViewPlayerState {
       final bool isError,
       final bool isLoginApiError,
       final File? childProfilePhoto,
+      final bool isCampValidated,
       final int? childPhotoUseOnSocialMedia,
       final int? administratorFirstAidNeed,
       final List<bool> selectedChildren,
@@ -660,6 +681,8 @@ abstract class _AddViewPlayerState implements AddViewPlayerState {
   bool get isLoginApiError;
   @override
   File? get childProfilePhoto;
+  @override
+  bool get isCampValidated;
   @override
   int? get childPhotoUseOnSocialMedia;
   @override

@@ -50,9 +50,9 @@ class SavedCampItem extends StatelessWidget {
               child:state.isTimeAddedLoading? AvailablityShimmer(): ListView.builder(
                 scrollDirection: Axis.horizontal,
                 shrinkWrap: true,
-                itemCount: state.savedCampModel.data.dates.length,
+                itemCount: state.selectedCampDatesModel.data.dates.length,
                 itemBuilder: (context, index) {
-                  var data = state.savedCampModel.data.dates[index];
+                  var data =state.selectedCampDatesModel.data.dates[index];
 
                   return Padding(
                     padding: const EdgeInsets.only(left: 4.0, right: 4.0),
@@ -80,7 +80,7 @@ class SavedCampItem extends StatelessWidget {
                                 child: Padding(
                                   padding: const EdgeInsets.only(top: 10.0),
                                   child: TimeAdded(
-                                    title: data+"\n"+ "${state.savedCampModel.data.session.fromTime.toFormattedTime} - ${state.savedCampModel.data.session.toTime.toFormattedTime}", // Ensure this widget allows multiline text
+                                    title: data+"\n"+ "${state.selectedCampDatesModel.data.session.fromTime.toFormattedTime} - ${state.selectedCampDatesModel.data.session.toTime.toFormattedTime}", // Ensure this widget allows multiline text
                                   ),
                                 ),
                               ),
@@ -93,7 +93,7 @@ class SavedCampItem extends StatelessWidget {
                                 child: Padding(
                                   padding: const EdgeInsets.symmetric(horizontal: 6.0,vertical: 6),
                                   child: Text(
-                                    "Price: ${state.savedCampModel.data.session.sessionDisplayPrice}",
+                                    "Price: ${state.selectedCampDatesModel.data.session.sessionDisplayPrice}",
                                     style: TextStyle(fontSize: 12, fontWeight: FontWeight.w500),
                                   ),
                                 ),
@@ -113,11 +113,8 @@ class SavedCampItem extends StatelessWidget {
                                   yes: () async {
                                     var academyId = getIt<SharedPrefs>().getString("selected_academyid");
                                     Map<String, dynamic> map = {
-
-
                                       "date": data,
                                        "academy_id":academyId
-
                                     };
                                     BlocProvider.of<HolidayCampCalendarBloc>(
                                         context)

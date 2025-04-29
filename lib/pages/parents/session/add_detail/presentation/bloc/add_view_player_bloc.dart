@@ -4,8 +4,12 @@ import 'dart:io';
 import 'package:bloc/bloc.dart';
 import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:rra/common/network/connectivity_extension.dart';
+import 'package:rra/common/values/snack_bar.dart';
 import '../../../../../../common/local/SharedPrefs.dart';
 import '../../../../../../common/service_locator/setivelocator.dart';
+import '../../../../../../common/values/app_color.dart';
+import '../../../../../../main.dart';
+import '../../../../holiday_camp/holiday_list/domain/usecase/camp_usecase.dart';
 import '../../domain/usecase/add_view_player_usecase.dart';
 import 'add_view_player_event.dart';
 import 'add_view_player_state.dart';
@@ -13,6 +17,9 @@ import 'add_view_player_state.dart';
 class AddViewPlayerBloc extends Bloc<AddViewPlayerEvent, AddViewPlayerState> {
   final AddViewPlayerUsecase _addViewPlayerUsecase =
       getIt<AddViewPlayerUsecase>();
+  final CampUsecase _campUsecase =
+  getIt<CampUsecase>();
+
   AddViewPlayerBloc() : super(AddViewPlayerState.initial()) {
     on<AddViewPlayerSelectedTabEvent>(tabSelect);
     on<AddViewPlayerChildNameEvent>(_childNameChanged);
@@ -31,6 +38,39 @@ class AddViewPlayerBloc extends Bloc<AddViewPlayerEvent, AddViewPlayerState> {
     on<ResetAddViewEvent>(resetEvent);
     on<AddViewPlayerChildProfilePhotoEvent>(_handleChangeProfilePic);
     on<AddViewPlayerChildDelteEvent>(_deleteChild);
+    on<ValidateCampSendChildIdAddDetailEvent>(_valiateBooking);
+  }
+
+  Future<void> _valiateBooking(ValidateCampSendChildIdAddDetailEvent event,
+      Emitter<AddViewPlayerState> emit) async {
+emit(state.copyWith(isCampValidated: false));
+
+    // Execute the use case to get the response
+    final response =
+    await _campUsecase.validateBooing(event.data);
+
+    response.fold(
+          (failure) {
+        emit(state.copyWith(
+          isError: true,
+          isCampValidated: false,
+          error: failure.message,
+
+        ));
+        navigatorKey!.currentContext!.showCustomSnackbar(failure.message,
+            backgroundColor: AppColor.appcolor);
+        //yaha pe error show krna hai
+      },
+          (removeSessionByDate) async {
+        emit(state.copyWith(
+          isError: false,
+          isCampValidated: true,
+
+        ));
+
+        //yaha pe order summary ka api call hoga
+      },
+    );
   }
 
   Future<void> resetEvent(
@@ -127,6 +167,7 @@ class AddViewPlayerBloc extends Bloc<AddViewPlayerEvent, AddViewPlayerState> {
 
     // Emit the updated state
     emit(state.copyWith(
+      isCampValidated: false,
         selectedChildren: updatedSelection,
         selectedChildId: updatedSelectedIds,
         error: ""));
@@ -388,13 +429,14 @@ class AddViewPlayerBloc extends Bloc<AddViewPlayerEvent, AddViewPlayerState> {
   // Handle tab selection
   Future<void> tabSelect(AddViewPlayerSelectedTabEvent event,
       Emitter<AddViewPlayerState> emit) async {
-    emit(state.copyWith(selectedTab: event.tabno, error: ""));
+    emit(state.copyWith(selectedTab: event.tabno, error: "",isCampValidated: false));
   }
 
   // Handle photo consent status change
   Future<void> photoConsent(AddViewPlayerChiclPhotoConsentEvent event,
       Emitter<AddViewPlayerState> emit) async {
     emit(state.copyWith(
+        isCampValidated: false,
         childPhotoUseOnSocialMedia: event.consentStatus,
         success: false,
         isLoginApiError: false,
@@ -407,7 +449,7 @@ class AddViewPlayerBloc extends Bloc<AddViewPlayerEvent, AddViewPlayerState> {
   Future<void> firstAddAdministrator(
       AddViewPlayeAdministratorFirstAidEvent event,
       Emitter<AddViewPlayerState> emit) async {
-    emit(state.copyWith(
+    emit(state.copyWith(isCampValidated: false,
         administratorFirstAidNeed: event.firstAidStatus,
         success: false,
         isLoginApiError: false,
@@ -422,6 +464,7 @@ class AddViewPlayerBloc extends Bloc<AddViewPlayerEvent, AddViewPlayerState> {
     print("CODE IS RUNNING HERE HERE HERE ...");
     print(event.childName);
     emit(state.copyWith(
+      isCampValidated: false,
       childName: event.childName,
       error: "",
     ));
@@ -431,7 +474,7 @@ class AddViewPlayerBloc extends Bloc<AddViewPlayerEvent, AddViewPlayerState> {
   Future<void> childAgeChanged(AddViewPlayerChildAgeEvent event,
       Emitter<AddViewPlayerState> emit) async {
     emit(state.copyWith(
-        age: event.age,
+        age: event.age,isCampValidated: false,
         error: "",
         success: false,
         isLoginApiError: false,
@@ -442,7 +485,7 @@ class AddViewPlayerBloc extends Bloc<AddViewPlayerEvent, AddViewPlayerState> {
   // Handle child date of birth change
   Future<void> childDobChanged(AddViewPlayerChildDobEvent event,
       Emitter<AddViewPlayerState> emit) async {
-    emit(state.copyWith(
+    emit(state.copyWith(isCampValidated: false,
         dob: event.dob,
         error: "",
         success: false,
@@ -454,7 +497,7 @@ class AddViewPlayerBloc extends Bloc<AddViewPlayerEvent, AddViewPlayerState> {
   // Handle school name change
   Future<void> schoolNameChanged(AddViewPlayerSchoolNameEvent event,
       Emitter<AddViewPlayerState> emit) async {
-    emit(state.copyWith(
+    emit(state.copyWith(isCampValidated: false,
         schoolName: event.schoolName,
         success: false,
         error: "",
@@ -466,7 +509,7 @@ class AddViewPlayerBloc extends Bloc<AddViewPlayerEvent, AddViewPlayerState> {
   // Handle club name change
   Future<void> clubNameChanged(AddViewPlayerClubNameEvent event,
       Emitter<AddViewPlayerState> emit) async {
-    emit(state.copyWith(
+    emit(state.copyWith(isCampValidated: false,
         clubName: event.clubName,
         success: false,
         isLoginApiError: false,
@@ -479,7 +522,7 @@ class AddViewPlayerBloc extends Bloc<AddViewPlayerEvent, AddViewPlayerState> {
   Future<void> medicalConditionChanged(
       AddViewPlayerTessUsMedicalConditionEvent event,
       Emitter<AddViewPlayerState> emit) async {
-    emit(state.copyWith(
+    emit(state.copyWith(isCampValidated: false,
         medicalConditionTessUs: event.medicalCondition,
         success: false,
         isLoginApiError: false,

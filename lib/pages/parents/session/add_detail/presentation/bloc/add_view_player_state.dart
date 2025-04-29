@@ -19,7 +19,7 @@ class AddViewPlayerState with _$AddViewPlayerState {
     @Default(false) bool isError,
     @Default(false) bool isLoginApiError,
     File? childProfilePhoto,
-
+@Default(false) bool isCampValidated,
     int? childPhotoUseOnSocialMedia,
     int? administratorFirstAidNeed,
 
@@ -46,6 +46,7 @@ class AddViewPlayerState with _$AddViewPlayerState {
     error: null,
     success: null,
     isError: false,
+    isCampValidated:false,
     isLoginApiError: false,
     childPhotoUseOnSocialMedia: null,
     administratorFirstAidNeed: null,

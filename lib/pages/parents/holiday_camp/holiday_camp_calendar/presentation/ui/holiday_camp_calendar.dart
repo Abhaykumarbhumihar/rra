@@ -9,6 +9,8 @@ import '../../../../../../common/routes/routes.dart';
 import '../../../../../../common/values/values_exports.dart';
 import '../../../../session/add_detail/presentation/bloc/add_view_player_bloc.dart';
 import '../../../../session/add_detail/presentation/bloc/add_view_player_event.dart';
+import '../../../holiday_cam_summary/presentation/bloc/camp_summary_bloc.dart';
+import '../../../holiday_cam_summary/presentation/bloc/camp_summary_event.dart';
 import '../../../holiday_list/presentation/bloc/camp_bloc.dart';
 import '../../../holiday_list/presentation/bloc/camp_state.dart';
 import '../bloc/holiday_camp_calendar_bloc.dart';
@@ -36,6 +38,9 @@ class HolidayCampCalendar extends StatelessWidget {
         if( state.isTimeAddedSuccess){
           _scrollToBottom();
         }
+        // if(state.isValidated){
+        //   BlocProvider.of<CampSummaryBloc>(context).add(CampGetSummaryEvents({}));
+        // }
       },
       child: BlocBuilder<HolidayCampCalendarBloc, HolidayCampCalendarState>(
         builder: (context, state) {

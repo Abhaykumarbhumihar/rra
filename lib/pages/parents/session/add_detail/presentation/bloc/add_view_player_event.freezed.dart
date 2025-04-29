@@ -35,6 +35,8 @@ mixin _$AddViewPlayerEvent {
     required TResult Function() resetAddViewPlayerEvent,
     required TResult Function(String id) isForChildUpdate,
     required TResult Function(String id) deleteChild,
+    required TResult Function(Map<String, dynamic> data)
+        getValidateCampSendChildId,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -56,6 +58,7 @@ mixin _$AddViewPlayerEvent {
     TResult? Function()? resetAddViewPlayerEvent,
     TResult? Function(String id)? isForChildUpdate,
     TResult? Function(String id)? deleteChild,
+    TResult? Function(Map<String, dynamic> data)? getValidateCampSendChildId,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -77,6 +80,7 @@ mixin _$AddViewPlayerEvent {
     TResult Function()? resetAddViewPlayerEvent,
     TResult Function(String id)? isForChildUpdate,
     TResult Function(String id)? deleteChild,
+    TResult Function(Map<String, dynamic> data)? getValidateCampSendChildId,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -108,6 +112,8 @@ mixin _$AddViewPlayerEvent {
     required TResult Function(AddViewPlayerChildForChildUpdateEvent value)
         isForChildUpdate,
     required TResult Function(AddViewPlayerChildDelteEvent value) deleteChild,
+    required TResult Function(ValidateCampSendChildIdAddDetailEvent value)
+        getValidateCampSendChildId,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -137,6 +143,8 @@ mixin _$AddViewPlayerEvent {
     TResult? Function(AddViewPlayerChildForChildUpdateEvent value)?
         isForChildUpdate,
     TResult? Function(AddViewPlayerChildDelteEvent value)? deleteChild,
+    TResult? Function(ValidateCampSendChildIdAddDetailEvent value)?
+        getValidateCampSendChildId,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -166,6 +174,8 @@ mixin _$AddViewPlayerEvent {
     TResult Function(AddViewPlayerChildForChildUpdateEvent value)?
         isForChildUpdate,
     TResult Function(AddViewPlayerChildDelteEvent value)? deleteChild,
+    TResult Function(ValidateCampSendChildIdAddDetailEvent value)?
+        getValidateCampSendChildId,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -283,6 +293,8 @@ class _$AddViewPlayerSelectedTabEventImpl
     required TResult Function() resetAddViewPlayerEvent,
     required TResult Function(String id) isForChildUpdate,
     required TResult Function(String id) deleteChild,
+    required TResult Function(Map<String, dynamic> data)
+        getValidateCampSendChildId,
   }) {
     return selectedTab(tabno);
   }
@@ -307,6 +319,7 @@ class _$AddViewPlayerSelectedTabEventImpl
     TResult? Function()? resetAddViewPlayerEvent,
     TResult? Function(String id)? isForChildUpdate,
     TResult? Function(String id)? deleteChild,
+    TResult? Function(Map<String, dynamic> data)? getValidateCampSendChildId,
   }) {
     return selectedTab?.call(tabno);
   }
@@ -331,6 +344,7 @@ class _$AddViewPlayerSelectedTabEventImpl
     TResult Function()? resetAddViewPlayerEvent,
     TResult Function(String id)? isForChildUpdate,
     TResult Function(String id)? deleteChild,
+    TResult Function(Map<String, dynamic> data)? getValidateCampSendChildId,
     required TResult orElse(),
   }) {
     if (selectedTab != null) {
@@ -368,6 +382,8 @@ class _$AddViewPlayerSelectedTabEventImpl
     required TResult Function(AddViewPlayerChildForChildUpdateEvent value)
         isForChildUpdate,
     required TResult Function(AddViewPlayerChildDelteEvent value) deleteChild,
+    required TResult Function(ValidateCampSendChildIdAddDetailEvent value)
+        getValidateCampSendChildId,
   }) {
     return selectedTab(this);
   }
@@ -400,6 +416,8 @@ class _$AddViewPlayerSelectedTabEventImpl
     TResult? Function(AddViewPlayerChildForChildUpdateEvent value)?
         isForChildUpdate,
     TResult? Function(AddViewPlayerChildDelteEvent value)? deleteChild,
+    TResult? Function(ValidateCampSendChildIdAddDetailEvent value)?
+        getValidateCampSendChildId,
   }) {
     return selectedTab?.call(this);
   }
@@ -432,6 +450,8 @@ class _$AddViewPlayerSelectedTabEventImpl
     TResult Function(AddViewPlayerChildForChildUpdateEvent value)?
         isForChildUpdate,
     TResult Function(AddViewPlayerChildDelteEvent value)? deleteChild,
+    TResult Function(ValidateCampSendChildIdAddDetailEvent value)?
+        getValidateCampSendChildId,
     required TResult orElse(),
   }) {
     if (selectedTab != null) {
@@ -547,6 +567,8 @@ class _$AddViewPlayerChiclPhotoConsentEventImpl
     required TResult Function() resetAddViewPlayerEvent,
     required TResult Function(String id) isForChildUpdate,
     required TResult Function(String id) deleteChild,
+    required TResult Function(Map<String, dynamic> data)
+        getValidateCampSendChildId,
   }) {
     return childPhotoConsent(consentStatus);
   }
@@ -571,6 +593,7 @@ class _$AddViewPlayerChiclPhotoConsentEventImpl
     TResult? Function()? resetAddViewPlayerEvent,
     TResult? Function(String id)? isForChildUpdate,
     TResult? Function(String id)? deleteChild,
+    TResult? Function(Map<String, dynamic> data)? getValidateCampSendChildId,
   }) {
     return childPhotoConsent?.call(consentStatus);
   }
@@ -595,6 +618,7 @@ class _$AddViewPlayerChiclPhotoConsentEventImpl
     TResult Function()? resetAddViewPlayerEvent,
     TResult Function(String id)? isForChildUpdate,
     TResult Function(String id)? deleteChild,
+    TResult Function(Map<String, dynamic> data)? getValidateCampSendChildId,
     required TResult orElse(),
   }) {
     if (childPhotoConsent != null) {
@@ -632,6 +656,8 @@ class _$AddViewPlayerChiclPhotoConsentEventImpl
     required TResult Function(AddViewPlayerChildForChildUpdateEvent value)
         isForChildUpdate,
     required TResult Function(AddViewPlayerChildDelteEvent value) deleteChild,
+    required TResult Function(ValidateCampSendChildIdAddDetailEvent value)
+        getValidateCampSendChildId,
   }) {
     return childPhotoConsent(this);
   }
@@ -664,6 +690,8 @@ class _$AddViewPlayerChiclPhotoConsentEventImpl
     TResult? Function(AddViewPlayerChildForChildUpdateEvent value)?
         isForChildUpdate,
     TResult? Function(AddViewPlayerChildDelteEvent value)? deleteChild,
+    TResult? Function(ValidateCampSendChildIdAddDetailEvent value)?
+        getValidateCampSendChildId,
   }) {
     return childPhotoConsent?.call(this);
   }
@@ -696,6 +724,8 @@ class _$AddViewPlayerChiclPhotoConsentEventImpl
     TResult Function(AddViewPlayerChildForChildUpdateEvent value)?
         isForChildUpdate,
     TResult Function(AddViewPlayerChildDelteEvent value)? deleteChild,
+    TResult Function(ValidateCampSendChildIdAddDetailEvent value)?
+        getValidateCampSendChildId,
     required TResult orElse(),
   }) {
     if (childPhotoConsent != null) {
@@ -813,6 +843,8 @@ class _$AddViewPlayeAdministratorFirstAidEventImpl
     required TResult Function() resetAddViewPlayerEvent,
     required TResult Function(String id) isForChildUpdate,
     required TResult Function(String id) deleteChild,
+    required TResult Function(Map<String, dynamic> data)
+        getValidateCampSendChildId,
   }) {
     return administratorFirstAid(firstAidStatus);
   }
@@ -837,6 +869,7 @@ class _$AddViewPlayeAdministratorFirstAidEventImpl
     TResult? Function()? resetAddViewPlayerEvent,
     TResult? Function(String id)? isForChildUpdate,
     TResult? Function(String id)? deleteChild,
+    TResult? Function(Map<String, dynamic> data)? getValidateCampSendChildId,
   }) {
     return administratorFirstAid?.call(firstAidStatus);
   }
@@ -861,6 +894,7 @@ class _$AddViewPlayeAdministratorFirstAidEventImpl
     TResult Function()? resetAddViewPlayerEvent,
     TResult Function(String id)? isForChildUpdate,
     TResult Function(String id)? deleteChild,
+    TResult Function(Map<String, dynamic> data)? getValidateCampSendChildId,
     required TResult orElse(),
   }) {
     if (administratorFirstAid != null) {
@@ -898,6 +932,8 @@ class _$AddViewPlayeAdministratorFirstAidEventImpl
     required TResult Function(AddViewPlayerChildForChildUpdateEvent value)
         isForChildUpdate,
     required TResult Function(AddViewPlayerChildDelteEvent value) deleteChild,
+    required TResult Function(ValidateCampSendChildIdAddDetailEvent value)
+        getValidateCampSendChildId,
   }) {
     return administratorFirstAid(this);
   }
@@ -930,6 +966,8 @@ class _$AddViewPlayeAdministratorFirstAidEventImpl
     TResult? Function(AddViewPlayerChildForChildUpdateEvent value)?
         isForChildUpdate,
     TResult? Function(AddViewPlayerChildDelteEvent value)? deleteChild,
+    TResult? Function(ValidateCampSendChildIdAddDetailEvent value)?
+        getValidateCampSendChildId,
   }) {
     return administratorFirstAid?.call(this);
   }
@@ -962,6 +1000,8 @@ class _$AddViewPlayeAdministratorFirstAidEventImpl
     TResult Function(AddViewPlayerChildForChildUpdateEvent value)?
         isForChildUpdate,
     TResult Function(AddViewPlayerChildDelteEvent value)? deleteChild,
+    TResult Function(ValidateCampSendChildIdAddDetailEvent value)?
+        getValidateCampSendChildId,
     required TResult orElse(),
   }) {
     if (administratorFirstAid != null) {
@@ -1076,6 +1116,8 @@ class _$AddViewPlayerChildNameEventImpl implements AddViewPlayerChildNameEvent {
     required TResult Function() resetAddViewPlayerEvent,
     required TResult Function(String id) isForChildUpdate,
     required TResult Function(String id) deleteChild,
+    required TResult Function(Map<String, dynamic> data)
+        getValidateCampSendChildId,
   }) {
     return childName(this.childName);
   }
@@ -1100,6 +1142,7 @@ class _$AddViewPlayerChildNameEventImpl implements AddViewPlayerChildNameEvent {
     TResult? Function()? resetAddViewPlayerEvent,
     TResult? Function(String id)? isForChildUpdate,
     TResult? Function(String id)? deleteChild,
+    TResult? Function(Map<String, dynamic> data)? getValidateCampSendChildId,
   }) {
     return childName?.call(this.childName);
   }
@@ -1124,6 +1167,7 @@ class _$AddViewPlayerChildNameEventImpl implements AddViewPlayerChildNameEvent {
     TResult Function()? resetAddViewPlayerEvent,
     TResult Function(String id)? isForChildUpdate,
     TResult Function(String id)? deleteChild,
+    TResult Function(Map<String, dynamic> data)? getValidateCampSendChildId,
     required TResult orElse(),
   }) {
     if (childName != null) {
@@ -1161,6 +1205,8 @@ class _$AddViewPlayerChildNameEventImpl implements AddViewPlayerChildNameEvent {
     required TResult Function(AddViewPlayerChildForChildUpdateEvent value)
         isForChildUpdate,
     required TResult Function(AddViewPlayerChildDelteEvent value) deleteChild,
+    required TResult Function(ValidateCampSendChildIdAddDetailEvent value)
+        getValidateCampSendChildId,
   }) {
     return childName(this);
   }
@@ -1193,6 +1239,8 @@ class _$AddViewPlayerChildNameEventImpl implements AddViewPlayerChildNameEvent {
     TResult? Function(AddViewPlayerChildForChildUpdateEvent value)?
         isForChildUpdate,
     TResult? Function(AddViewPlayerChildDelteEvent value)? deleteChild,
+    TResult? Function(ValidateCampSendChildIdAddDetailEvent value)?
+        getValidateCampSendChildId,
   }) {
     return childName?.call(this);
   }
@@ -1225,6 +1273,8 @@ class _$AddViewPlayerChildNameEventImpl implements AddViewPlayerChildNameEvent {
     TResult Function(AddViewPlayerChildForChildUpdateEvent value)?
         isForChildUpdate,
     TResult Function(AddViewPlayerChildDelteEvent value)? deleteChild,
+    TResult Function(ValidateCampSendChildIdAddDetailEvent value)?
+        getValidateCampSendChildId,
     required TResult orElse(),
   }) {
     if (childName != null) {
@@ -1336,6 +1386,8 @@ class _$AddViewPlayerChildAgeEventImpl implements AddViewPlayerChildAgeEvent {
     required TResult Function() resetAddViewPlayerEvent,
     required TResult Function(String id) isForChildUpdate,
     required TResult Function(String id) deleteChild,
+    required TResult Function(Map<String, dynamic> data)
+        getValidateCampSendChildId,
   }) {
     return childAge(age);
   }
@@ -1360,6 +1412,7 @@ class _$AddViewPlayerChildAgeEventImpl implements AddViewPlayerChildAgeEvent {
     TResult? Function()? resetAddViewPlayerEvent,
     TResult? Function(String id)? isForChildUpdate,
     TResult? Function(String id)? deleteChild,
+    TResult? Function(Map<String, dynamic> data)? getValidateCampSendChildId,
   }) {
     return childAge?.call(age);
   }
@@ -1384,6 +1437,7 @@ class _$AddViewPlayerChildAgeEventImpl implements AddViewPlayerChildAgeEvent {
     TResult Function()? resetAddViewPlayerEvent,
     TResult Function(String id)? isForChildUpdate,
     TResult Function(String id)? deleteChild,
+    TResult Function(Map<String, dynamic> data)? getValidateCampSendChildId,
     required TResult orElse(),
   }) {
     if (childAge != null) {
@@ -1421,6 +1475,8 @@ class _$AddViewPlayerChildAgeEventImpl implements AddViewPlayerChildAgeEvent {
     required TResult Function(AddViewPlayerChildForChildUpdateEvent value)
         isForChildUpdate,
     required TResult Function(AddViewPlayerChildDelteEvent value) deleteChild,
+    required TResult Function(ValidateCampSendChildIdAddDetailEvent value)
+        getValidateCampSendChildId,
   }) {
     return childAge(this);
   }
@@ -1453,6 +1509,8 @@ class _$AddViewPlayerChildAgeEventImpl implements AddViewPlayerChildAgeEvent {
     TResult? Function(AddViewPlayerChildForChildUpdateEvent value)?
         isForChildUpdate,
     TResult? Function(AddViewPlayerChildDelteEvent value)? deleteChild,
+    TResult? Function(ValidateCampSendChildIdAddDetailEvent value)?
+        getValidateCampSendChildId,
   }) {
     return childAge?.call(this);
   }
@@ -1485,6 +1543,8 @@ class _$AddViewPlayerChildAgeEventImpl implements AddViewPlayerChildAgeEvent {
     TResult Function(AddViewPlayerChildForChildUpdateEvent value)?
         isForChildUpdate,
     TResult Function(AddViewPlayerChildDelteEvent value)? deleteChild,
+    TResult Function(ValidateCampSendChildIdAddDetailEvent value)?
+        getValidateCampSendChildId,
     required TResult orElse(),
   }) {
     if (childAge != null) {
@@ -1596,6 +1656,8 @@ class _$AddViewPlayerChildDobEventImpl implements AddViewPlayerChildDobEvent {
     required TResult Function() resetAddViewPlayerEvent,
     required TResult Function(String id) isForChildUpdate,
     required TResult Function(String id) deleteChild,
+    required TResult Function(Map<String, dynamic> data)
+        getValidateCampSendChildId,
   }) {
     return childDob(dob);
   }
@@ -1620,6 +1682,7 @@ class _$AddViewPlayerChildDobEventImpl implements AddViewPlayerChildDobEvent {
     TResult? Function()? resetAddViewPlayerEvent,
     TResult? Function(String id)? isForChildUpdate,
     TResult? Function(String id)? deleteChild,
+    TResult? Function(Map<String, dynamic> data)? getValidateCampSendChildId,
   }) {
     return childDob?.call(dob);
   }
@@ -1644,6 +1707,7 @@ class _$AddViewPlayerChildDobEventImpl implements AddViewPlayerChildDobEvent {
     TResult Function()? resetAddViewPlayerEvent,
     TResult Function(String id)? isForChildUpdate,
     TResult Function(String id)? deleteChild,
+    TResult Function(Map<String, dynamic> data)? getValidateCampSendChildId,
     required TResult orElse(),
   }) {
     if (childDob != null) {
@@ -1681,6 +1745,8 @@ class _$AddViewPlayerChildDobEventImpl implements AddViewPlayerChildDobEvent {
     required TResult Function(AddViewPlayerChildForChildUpdateEvent value)
         isForChildUpdate,
     required TResult Function(AddViewPlayerChildDelteEvent value) deleteChild,
+    required TResult Function(ValidateCampSendChildIdAddDetailEvent value)
+        getValidateCampSendChildId,
   }) {
     return childDob(this);
   }
@@ -1713,6 +1779,8 @@ class _$AddViewPlayerChildDobEventImpl implements AddViewPlayerChildDobEvent {
     TResult? Function(AddViewPlayerChildForChildUpdateEvent value)?
         isForChildUpdate,
     TResult? Function(AddViewPlayerChildDelteEvent value)? deleteChild,
+    TResult? Function(ValidateCampSendChildIdAddDetailEvent value)?
+        getValidateCampSendChildId,
   }) {
     return childDob?.call(this);
   }
@@ -1745,6 +1813,8 @@ class _$AddViewPlayerChildDobEventImpl implements AddViewPlayerChildDobEvent {
     TResult Function(AddViewPlayerChildForChildUpdateEvent value)?
         isForChildUpdate,
     TResult Function(AddViewPlayerChildDelteEvent value)? deleteChild,
+    TResult Function(ValidateCampSendChildIdAddDetailEvent value)?
+        getValidateCampSendChildId,
     required TResult orElse(),
   }) {
     if (childDob != null) {
@@ -1859,6 +1929,8 @@ class _$AddViewPlayerSchoolNameEventImpl
     required TResult Function() resetAddViewPlayerEvent,
     required TResult Function(String id) isForChildUpdate,
     required TResult Function(String id) deleteChild,
+    required TResult Function(Map<String, dynamic> data)
+        getValidateCampSendChildId,
   }) {
     return schoolName(this.schoolName);
   }
@@ -1883,6 +1955,7 @@ class _$AddViewPlayerSchoolNameEventImpl
     TResult? Function()? resetAddViewPlayerEvent,
     TResult? Function(String id)? isForChildUpdate,
     TResult? Function(String id)? deleteChild,
+    TResult? Function(Map<String, dynamic> data)? getValidateCampSendChildId,
   }) {
     return schoolName?.call(this.schoolName);
   }
@@ -1907,6 +1980,7 @@ class _$AddViewPlayerSchoolNameEventImpl
     TResult Function()? resetAddViewPlayerEvent,
     TResult Function(String id)? isForChildUpdate,
     TResult Function(String id)? deleteChild,
+    TResult Function(Map<String, dynamic> data)? getValidateCampSendChildId,
     required TResult orElse(),
   }) {
     if (schoolName != null) {
@@ -1944,6 +2018,8 @@ class _$AddViewPlayerSchoolNameEventImpl
     required TResult Function(AddViewPlayerChildForChildUpdateEvent value)
         isForChildUpdate,
     required TResult Function(AddViewPlayerChildDelteEvent value) deleteChild,
+    required TResult Function(ValidateCampSendChildIdAddDetailEvent value)
+        getValidateCampSendChildId,
   }) {
     return schoolName(this);
   }
@@ -1976,6 +2052,8 @@ class _$AddViewPlayerSchoolNameEventImpl
     TResult? Function(AddViewPlayerChildForChildUpdateEvent value)?
         isForChildUpdate,
     TResult? Function(AddViewPlayerChildDelteEvent value)? deleteChild,
+    TResult? Function(ValidateCampSendChildIdAddDetailEvent value)?
+        getValidateCampSendChildId,
   }) {
     return schoolName?.call(this);
   }
@@ -2008,6 +2086,8 @@ class _$AddViewPlayerSchoolNameEventImpl
     TResult Function(AddViewPlayerChildForChildUpdateEvent value)?
         isForChildUpdate,
     TResult Function(AddViewPlayerChildDelteEvent value)? deleteChild,
+    TResult Function(ValidateCampSendChildIdAddDetailEvent value)?
+        getValidateCampSendChildId,
     required TResult orElse(),
   }) {
     if (schoolName != null) {
@@ -2121,6 +2201,8 @@ class _$AddViewPlayerClubNameEventImpl implements AddViewPlayerClubNameEvent {
     required TResult Function() resetAddViewPlayerEvent,
     required TResult Function(String id) isForChildUpdate,
     required TResult Function(String id) deleteChild,
+    required TResult Function(Map<String, dynamic> data)
+        getValidateCampSendChildId,
   }) {
     return clubName(this.clubName);
   }
@@ -2145,6 +2227,7 @@ class _$AddViewPlayerClubNameEventImpl implements AddViewPlayerClubNameEvent {
     TResult? Function()? resetAddViewPlayerEvent,
     TResult? Function(String id)? isForChildUpdate,
     TResult? Function(String id)? deleteChild,
+    TResult? Function(Map<String, dynamic> data)? getValidateCampSendChildId,
   }) {
     return clubName?.call(this.clubName);
   }
@@ -2169,6 +2252,7 @@ class _$AddViewPlayerClubNameEventImpl implements AddViewPlayerClubNameEvent {
     TResult Function()? resetAddViewPlayerEvent,
     TResult Function(String id)? isForChildUpdate,
     TResult Function(String id)? deleteChild,
+    TResult Function(Map<String, dynamic> data)? getValidateCampSendChildId,
     required TResult orElse(),
   }) {
     if (clubName != null) {
@@ -2206,6 +2290,8 @@ class _$AddViewPlayerClubNameEventImpl implements AddViewPlayerClubNameEvent {
     required TResult Function(AddViewPlayerChildForChildUpdateEvent value)
         isForChildUpdate,
     required TResult Function(AddViewPlayerChildDelteEvent value) deleteChild,
+    required TResult Function(ValidateCampSendChildIdAddDetailEvent value)
+        getValidateCampSendChildId,
   }) {
     return clubName(this);
   }
@@ -2238,6 +2324,8 @@ class _$AddViewPlayerClubNameEventImpl implements AddViewPlayerClubNameEvent {
     TResult? Function(AddViewPlayerChildForChildUpdateEvent value)?
         isForChildUpdate,
     TResult? Function(AddViewPlayerChildDelteEvent value)? deleteChild,
+    TResult? Function(ValidateCampSendChildIdAddDetailEvent value)?
+        getValidateCampSendChildId,
   }) {
     return clubName?.call(this);
   }
@@ -2270,6 +2358,8 @@ class _$AddViewPlayerClubNameEventImpl implements AddViewPlayerClubNameEvent {
     TResult Function(AddViewPlayerChildForChildUpdateEvent value)?
         isForChildUpdate,
     TResult Function(AddViewPlayerChildDelteEvent value)? deleteChild,
+    TResult Function(ValidateCampSendChildIdAddDetailEvent value)?
+        getValidateCampSendChildId,
     required TResult orElse(),
   }) {
     if (clubName != null) {
@@ -2385,6 +2475,8 @@ class _$AddViewPlayerTessUsMedicalConditionEventImpl
     required TResult Function() resetAddViewPlayerEvent,
     required TResult Function(String id) isForChildUpdate,
     required TResult Function(String id) deleteChild,
+    required TResult Function(Map<String, dynamic> data)
+        getValidateCampSendChildId,
   }) {
     return medicalCondition(this.medicalCondition);
   }
@@ -2409,6 +2501,7 @@ class _$AddViewPlayerTessUsMedicalConditionEventImpl
     TResult? Function()? resetAddViewPlayerEvent,
     TResult? Function(String id)? isForChildUpdate,
     TResult? Function(String id)? deleteChild,
+    TResult? Function(Map<String, dynamic> data)? getValidateCampSendChildId,
   }) {
     return medicalCondition?.call(this.medicalCondition);
   }
@@ -2433,6 +2526,7 @@ class _$AddViewPlayerTessUsMedicalConditionEventImpl
     TResult Function()? resetAddViewPlayerEvent,
     TResult Function(String id)? isForChildUpdate,
     TResult Function(String id)? deleteChild,
+    TResult Function(Map<String, dynamic> data)? getValidateCampSendChildId,
     required TResult orElse(),
   }) {
     if (medicalCondition != null) {
@@ -2470,6 +2564,8 @@ class _$AddViewPlayerTessUsMedicalConditionEventImpl
     required TResult Function(AddViewPlayerChildForChildUpdateEvent value)
         isForChildUpdate,
     required TResult Function(AddViewPlayerChildDelteEvent value) deleteChild,
+    required TResult Function(ValidateCampSendChildIdAddDetailEvent value)
+        getValidateCampSendChildId,
   }) {
     return medicalCondition(this);
   }
@@ -2502,6 +2598,8 @@ class _$AddViewPlayerTessUsMedicalConditionEventImpl
     TResult? Function(AddViewPlayerChildForChildUpdateEvent value)?
         isForChildUpdate,
     TResult? Function(AddViewPlayerChildDelteEvent value)? deleteChild,
+    TResult? Function(ValidateCampSendChildIdAddDetailEvent value)?
+        getValidateCampSendChildId,
   }) {
     return medicalCondition?.call(this);
   }
@@ -2534,6 +2632,8 @@ class _$AddViewPlayerTessUsMedicalConditionEventImpl
     TResult Function(AddViewPlayerChildForChildUpdateEvent value)?
         isForChildUpdate,
     TResult Function(AddViewPlayerChildDelteEvent value)? deleteChild,
+    TResult Function(ValidateCampSendChildIdAddDetailEvent value)?
+        getValidateCampSendChildId,
     required TResult orElse(),
   }) {
     if (medicalCondition != null) {
@@ -2622,6 +2722,8 @@ class _$AddViewPlayerSubmitButtonPressEventImpl
     required TResult Function() resetAddViewPlayerEvent,
     required TResult Function(String id) isForChildUpdate,
     required TResult Function(String id) deleteChild,
+    required TResult Function(Map<String, dynamic> data)
+        getValidateCampSendChildId,
   }) {
     return submitButtonPress();
   }
@@ -2646,6 +2748,7 @@ class _$AddViewPlayerSubmitButtonPressEventImpl
     TResult? Function()? resetAddViewPlayerEvent,
     TResult? Function(String id)? isForChildUpdate,
     TResult? Function(String id)? deleteChild,
+    TResult? Function(Map<String, dynamic> data)? getValidateCampSendChildId,
   }) {
     return submitButtonPress?.call();
   }
@@ -2670,6 +2773,7 @@ class _$AddViewPlayerSubmitButtonPressEventImpl
     TResult Function()? resetAddViewPlayerEvent,
     TResult Function(String id)? isForChildUpdate,
     TResult Function(String id)? deleteChild,
+    TResult Function(Map<String, dynamic> data)? getValidateCampSendChildId,
     required TResult orElse(),
   }) {
     if (submitButtonPress != null) {
@@ -2707,6 +2811,8 @@ class _$AddViewPlayerSubmitButtonPressEventImpl
     required TResult Function(AddViewPlayerChildForChildUpdateEvent value)
         isForChildUpdate,
     required TResult Function(AddViewPlayerChildDelteEvent value) deleteChild,
+    required TResult Function(ValidateCampSendChildIdAddDetailEvent value)
+        getValidateCampSendChildId,
   }) {
     return submitButtonPress(this);
   }
@@ -2739,6 +2845,8 @@ class _$AddViewPlayerSubmitButtonPressEventImpl
     TResult? Function(AddViewPlayerChildForChildUpdateEvent value)?
         isForChildUpdate,
     TResult? Function(AddViewPlayerChildDelteEvent value)? deleteChild,
+    TResult? Function(ValidateCampSendChildIdAddDetailEvent value)?
+        getValidateCampSendChildId,
   }) {
     return submitButtonPress?.call(this);
   }
@@ -2771,6 +2879,8 @@ class _$AddViewPlayerSubmitButtonPressEventImpl
     TResult Function(AddViewPlayerChildForChildUpdateEvent value)?
         isForChildUpdate,
     TResult Function(AddViewPlayerChildDelteEvent value)? deleteChild,
+    TResult Function(ValidateCampSendChildIdAddDetailEvent value)?
+        getValidateCampSendChildId,
     required TResult orElse(),
   }) {
     if (submitButtonPress != null) {
@@ -2849,6 +2959,8 @@ class _$AddViewPlayerGetChildListEventImpl
     required TResult Function() resetAddViewPlayerEvent,
     required TResult Function(String id) isForChildUpdate,
     required TResult Function(String id) deleteChild,
+    required TResult Function(Map<String, dynamic> data)
+        getValidateCampSendChildId,
   }) {
     return getChildListEvent();
   }
@@ -2873,6 +2985,7 @@ class _$AddViewPlayerGetChildListEventImpl
     TResult? Function()? resetAddViewPlayerEvent,
     TResult? Function(String id)? isForChildUpdate,
     TResult? Function(String id)? deleteChild,
+    TResult? Function(Map<String, dynamic> data)? getValidateCampSendChildId,
   }) {
     return getChildListEvent?.call();
   }
@@ -2897,6 +3010,7 @@ class _$AddViewPlayerGetChildListEventImpl
     TResult Function()? resetAddViewPlayerEvent,
     TResult Function(String id)? isForChildUpdate,
     TResult Function(String id)? deleteChild,
+    TResult Function(Map<String, dynamic> data)? getValidateCampSendChildId,
     required TResult orElse(),
   }) {
     if (getChildListEvent != null) {
@@ -2934,6 +3048,8 @@ class _$AddViewPlayerGetChildListEventImpl
     required TResult Function(AddViewPlayerChildForChildUpdateEvent value)
         isForChildUpdate,
     required TResult Function(AddViewPlayerChildDelteEvent value) deleteChild,
+    required TResult Function(ValidateCampSendChildIdAddDetailEvent value)
+        getValidateCampSendChildId,
   }) {
     return getChildListEvent(this);
   }
@@ -2966,6 +3082,8 @@ class _$AddViewPlayerGetChildListEventImpl
     TResult? Function(AddViewPlayerChildForChildUpdateEvent value)?
         isForChildUpdate,
     TResult? Function(AddViewPlayerChildDelteEvent value)? deleteChild,
+    TResult? Function(ValidateCampSendChildIdAddDetailEvent value)?
+        getValidateCampSendChildId,
   }) {
     return getChildListEvent?.call(this);
   }
@@ -2998,6 +3116,8 @@ class _$AddViewPlayerGetChildListEventImpl
     TResult Function(AddViewPlayerChildForChildUpdateEvent value)?
         isForChildUpdate,
     TResult Function(AddViewPlayerChildDelteEvent value)? deleteChild,
+    TResult Function(ValidateCampSendChildIdAddDetailEvent value)?
+        getValidateCampSendChildId,
     required TResult orElse(),
   }) {
     if (getChildListEvent != null) {
@@ -3104,6 +3224,8 @@ class _$AddViewPlayerChildSelectionToggleEventImpl
     required TResult Function() resetAddViewPlayerEvent,
     required TResult Function(String id) isForChildUpdate,
     required TResult Function(String id) deleteChild,
+    required TResult Function(Map<String, dynamic> data)
+        getValidateCampSendChildId,
   }) {
     return childSelectionToggle(index);
   }
@@ -3128,6 +3250,7 @@ class _$AddViewPlayerChildSelectionToggleEventImpl
     TResult? Function()? resetAddViewPlayerEvent,
     TResult? Function(String id)? isForChildUpdate,
     TResult? Function(String id)? deleteChild,
+    TResult? Function(Map<String, dynamic> data)? getValidateCampSendChildId,
   }) {
     return childSelectionToggle?.call(index);
   }
@@ -3152,6 +3275,7 @@ class _$AddViewPlayerChildSelectionToggleEventImpl
     TResult Function()? resetAddViewPlayerEvent,
     TResult Function(String id)? isForChildUpdate,
     TResult Function(String id)? deleteChild,
+    TResult Function(Map<String, dynamic> data)? getValidateCampSendChildId,
     required TResult orElse(),
   }) {
     if (childSelectionToggle != null) {
@@ -3189,6 +3313,8 @@ class _$AddViewPlayerChildSelectionToggleEventImpl
     required TResult Function(AddViewPlayerChildForChildUpdateEvent value)
         isForChildUpdate,
     required TResult Function(AddViewPlayerChildDelteEvent value) deleteChild,
+    required TResult Function(ValidateCampSendChildIdAddDetailEvent value)
+        getValidateCampSendChildId,
   }) {
     return childSelectionToggle(this);
   }
@@ -3221,6 +3347,8 @@ class _$AddViewPlayerChildSelectionToggleEventImpl
     TResult? Function(AddViewPlayerChildForChildUpdateEvent value)?
         isForChildUpdate,
     TResult? Function(AddViewPlayerChildDelteEvent value)? deleteChild,
+    TResult? Function(ValidateCampSendChildIdAddDetailEvent value)?
+        getValidateCampSendChildId,
   }) {
     return childSelectionToggle?.call(this);
   }
@@ -3253,6 +3381,8 @@ class _$AddViewPlayerChildSelectionToggleEventImpl
     TResult Function(AddViewPlayerChildForChildUpdateEvent value)?
         isForChildUpdate,
     TResult Function(AddViewPlayerChildDelteEvent value)? deleteChild,
+    TResult Function(ValidateCampSendChildIdAddDetailEvent value)?
+        getValidateCampSendChildId,
     required TResult orElse(),
   }) {
     if (childSelectionToggle != null) {
@@ -3368,6 +3498,8 @@ class _$AddViewPlayerChildProfilePhotoEventImpl
     required TResult Function() resetAddViewPlayerEvent,
     required TResult Function(String id) isForChildUpdate,
     required TResult Function(String id) deleteChild,
+    required TResult Function(Map<String, dynamic> data)
+        getValidateCampSendChildId,
   }) {
     return setChileProfilePic(file);
   }
@@ -3392,6 +3524,7 @@ class _$AddViewPlayerChildProfilePhotoEventImpl
     TResult? Function()? resetAddViewPlayerEvent,
     TResult? Function(String id)? isForChildUpdate,
     TResult? Function(String id)? deleteChild,
+    TResult? Function(Map<String, dynamic> data)? getValidateCampSendChildId,
   }) {
     return setChileProfilePic?.call(file);
   }
@@ -3416,6 +3549,7 @@ class _$AddViewPlayerChildProfilePhotoEventImpl
     TResult Function()? resetAddViewPlayerEvent,
     TResult Function(String id)? isForChildUpdate,
     TResult Function(String id)? deleteChild,
+    TResult Function(Map<String, dynamic> data)? getValidateCampSendChildId,
     required TResult orElse(),
   }) {
     if (setChileProfilePic != null) {
@@ -3453,6 +3587,8 @@ class _$AddViewPlayerChildProfilePhotoEventImpl
     required TResult Function(AddViewPlayerChildForChildUpdateEvent value)
         isForChildUpdate,
     required TResult Function(AddViewPlayerChildDelteEvent value) deleteChild,
+    required TResult Function(ValidateCampSendChildIdAddDetailEvent value)
+        getValidateCampSendChildId,
   }) {
     return setChileProfilePic(this);
   }
@@ -3485,6 +3621,8 @@ class _$AddViewPlayerChildProfilePhotoEventImpl
     TResult? Function(AddViewPlayerChildForChildUpdateEvent value)?
         isForChildUpdate,
     TResult? Function(AddViewPlayerChildDelteEvent value)? deleteChild,
+    TResult? Function(ValidateCampSendChildIdAddDetailEvent value)?
+        getValidateCampSendChildId,
   }) {
     return setChileProfilePic?.call(this);
   }
@@ -3517,6 +3655,8 @@ class _$AddViewPlayerChildProfilePhotoEventImpl
     TResult Function(AddViewPlayerChildForChildUpdateEvent value)?
         isForChildUpdate,
     TResult Function(AddViewPlayerChildDelteEvent value)? deleteChild,
+    TResult Function(ValidateCampSendChildIdAddDetailEvent value)?
+        getValidateCampSendChildId,
     required TResult orElse(),
   }) {
     if (setChileProfilePic != null) {
@@ -3633,6 +3773,8 @@ class _$AddViewPlayerChildNetworkImageEventImpl
     required TResult Function() resetAddViewPlayerEvent,
     required TResult Function(String id) isForChildUpdate,
     required TResult Function(String id) deleteChild,
+    required TResult Function(Map<String, dynamic> data)
+        getValidateCampSendChildId,
   }) {
     return setNetWorkChildImage(imageUrl);
   }
@@ -3657,6 +3799,7 @@ class _$AddViewPlayerChildNetworkImageEventImpl
     TResult? Function()? resetAddViewPlayerEvent,
     TResult? Function(String id)? isForChildUpdate,
     TResult? Function(String id)? deleteChild,
+    TResult? Function(Map<String, dynamic> data)? getValidateCampSendChildId,
   }) {
     return setNetWorkChildImage?.call(imageUrl);
   }
@@ -3681,6 +3824,7 @@ class _$AddViewPlayerChildNetworkImageEventImpl
     TResult Function()? resetAddViewPlayerEvent,
     TResult Function(String id)? isForChildUpdate,
     TResult Function(String id)? deleteChild,
+    TResult Function(Map<String, dynamic> data)? getValidateCampSendChildId,
     required TResult orElse(),
   }) {
     if (setNetWorkChildImage != null) {
@@ -3718,6 +3862,8 @@ class _$AddViewPlayerChildNetworkImageEventImpl
     required TResult Function(AddViewPlayerChildForChildUpdateEvent value)
         isForChildUpdate,
     required TResult Function(AddViewPlayerChildDelteEvent value) deleteChild,
+    required TResult Function(ValidateCampSendChildIdAddDetailEvent value)
+        getValidateCampSendChildId,
   }) {
     return setNetWorkChildImage(this);
   }
@@ -3750,6 +3896,8 @@ class _$AddViewPlayerChildNetworkImageEventImpl
     TResult? Function(AddViewPlayerChildForChildUpdateEvent value)?
         isForChildUpdate,
     TResult? Function(AddViewPlayerChildDelteEvent value)? deleteChild,
+    TResult? Function(ValidateCampSendChildIdAddDetailEvent value)?
+        getValidateCampSendChildId,
   }) {
     return setNetWorkChildImage?.call(this);
   }
@@ -3782,6 +3930,8 @@ class _$AddViewPlayerChildNetworkImageEventImpl
     TResult Function(AddViewPlayerChildForChildUpdateEvent value)?
         isForChildUpdate,
     TResult Function(AddViewPlayerChildDelteEvent value)? deleteChild,
+    TResult Function(ValidateCampSendChildIdAddDetailEvent value)?
+        getValidateCampSendChildId,
     required TResult orElse(),
   }) {
     if (setNetWorkChildImage != null) {
@@ -3864,6 +4014,8 @@ class _$ResetAddViewEventImpl implements ResetAddViewEvent {
     required TResult Function() resetAddViewPlayerEvent,
     required TResult Function(String id) isForChildUpdate,
     required TResult Function(String id) deleteChild,
+    required TResult Function(Map<String, dynamic> data)
+        getValidateCampSendChildId,
   }) {
     return resetAddViewPlayerEvent();
   }
@@ -3888,6 +4040,7 @@ class _$ResetAddViewEventImpl implements ResetAddViewEvent {
     TResult? Function()? resetAddViewPlayerEvent,
     TResult? Function(String id)? isForChildUpdate,
     TResult? Function(String id)? deleteChild,
+    TResult? Function(Map<String, dynamic> data)? getValidateCampSendChildId,
   }) {
     return resetAddViewPlayerEvent?.call();
   }
@@ -3912,6 +4065,7 @@ class _$ResetAddViewEventImpl implements ResetAddViewEvent {
     TResult Function()? resetAddViewPlayerEvent,
     TResult Function(String id)? isForChildUpdate,
     TResult Function(String id)? deleteChild,
+    TResult Function(Map<String, dynamic> data)? getValidateCampSendChildId,
     required TResult orElse(),
   }) {
     if (resetAddViewPlayerEvent != null) {
@@ -3949,6 +4103,8 @@ class _$ResetAddViewEventImpl implements ResetAddViewEvent {
     required TResult Function(AddViewPlayerChildForChildUpdateEvent value)
         isForChildUpdate,
     required TResult Function(AddViewPlayerChildDelteEvent value) deleteChild,
+    required TResult Function(ValidateCampSendChildIdAddDetailEvent value)
+        getValidateCampSendChildId,
   }) {
     return resetAddViewPlayerEvent(this);
   }
@@ -3981,6 +4137,8 @@ class _$ResetAddViewEventImpl implements ResetAddViewEvent {
     TResult? Function(AddViewPlayerChildForChildUpdateEvent value)?
         isForChildUpdate,
     TResult? Function(AddViewPlayerChildDelteEvent value)? deleteChild,
+    TResult? Function(ValidateCampSendChildIdAddDetailEvent value)?
+        getValidateCampSendChildId,
   }) {
     return resetAddViewPlayerEvent?.call(this);
   }
@@ -4013,6 +4171,8 @@ class _$ResetAddViewEventImpl implements ResetAddViewEvent {
     TResult Function(AddViewPlayerChildForChildUpdateEvent value)?
         isForChildUpdate,
     TResult Function(AddViewPlayerChildDelteEvent value)? deleteChild,
+    TResult Function(ValidateCampSendChildIdAddDetailEvent value)?
+        getValidateCampSendChildId,
     required TResult orElse(),
   }) {
     if (resetAddViewPlayerEvent != null) {
@@ -4117,6 +4277,8 @@ class _$AddViewPlayerChildForChildUpdateEventImpl
     required TResult Function() resetAddViewPlayerEvent,
     required TResult Function(String id) isForChildUpdate,
     required TResult Function(String id) deleteChild,
+    required TResult Function(Map<String, dynamic> data)
+        getValidateCampSendChildId,
   }) {
     return isForChildUpdate(id);
   }
@@ -4141,6 +4303,7 @@ class _$AddViewPlayerChildForChildUpdateEventImpl
     TResult? Function()? resetAddViewPlayerEvent,
     TResult? Function(String id)? isForChildUpdate,
     TResult? Function(String id)? deleteChild,
+    TResult? Function(Map<String, dynamic> data)? getValidateCampSendChildId,
   }) {
     return isForChildUpdate?.call(id);
   }
@@ -4165,6 +4328,7 @@ class _$AddViewPlayerChildForChildUpdateEventImpl
     TResult Function()? resetAddViewPlayerEvent,
     TResult Function(String id)? isForChildUpdate,
     TResult Function(String id)? deleteChild,
+    TResult Function(Map<String, dynamic> data)? getValidateCampSendChildId,
     required TResult orElse(),
   }) {
     if (isForChildUpdate != null) {
@@ -4202,6 +4366,8 @@ class _$AddViewPlayerChildForChildUpdateEventImpl
     required TResult Function(AddViewPlayerChildForChildUpdateEvent value)
         isForChildUpdate,
     required TResult Function(AddViewPlayerChildDelteEvent value) deleteChild,
+    required TResult Function(ValidateCampSendChildIdAddDetailEvent value)
+        getValidateCampSendChildId,
   }) {
     return isForChildUpdate(this);
   }
@@ -4234,6 +4400,8 @@ class _$AddViewPlayerChildForChildUpdateEventImpl
     TResult? Function(AddViewPlayerChildForChildUpdateEvent value)?
         isForChildUpdate,
     TResult? Function(AddViewPlayerChildDelteEvent value)? deleteChild,
+    TResult? Function(ValidateCampSendChildIdAddDetailEvent value)?
+        getValidateCampSendChildId,
   }) {
     return isForChildUpdate?.call(this);
   }
@@ -4266,6 +4434,8 @@ class _$AddViewPlayerChildForChildUpdateEventImpl
     TResult Function(AddViewPlayerChildForChildUpdateEvent value)?
         isForChildUpdate,
     TResult Function(AddViewPlayerChildDelteEvent value)? deleteChild,
+    TResult Function(ValidateCampSendChildIdAddDetailEvent value)?
+        getValidateCampSendChildId,
     required TResult orElse(),
   }) {
     if (isForChildUpdate != null) {
@@ -4381,6 +4551,8 @@ class _$AddViewPlayerChildDelteEventImpl
     required TResult Function() resetAddViewPlayerEvent,
     required TResult Function(String id) isForChildUpdate,
     required TResult Function(String id) deleteChild,
+    required TResult Function(Map<String, dynamic> data)
+        getValidateCampSendChildId,
   }) {
     return deleteChild(id);
   }
@@ -4405,6 +4577,7 @@ class _$AddViewPlayerChildDelteEventImpl
     TResult? Function()? resetAddViewPlayerEvent,
     TResult? Function(String id)? isForChildUpdate,
     TResult? Function(String id)? deleteChild,
+    TResult? Function(Map<String, dynamic> data)? getValidateCampSendChildId,
   }) {
     return deleteChild?.call(id);
   }
@@ -4429,6 +4602,7 @@ class _$AddViewPlayerChildDelteEventImpl
     TResult Function()? resetAddViewPlayerEvent,
     TResult Function(String id)? isForChildUpdate,
     TResult Function(String id)? deleteChild,
+    TResult Function(Map<String, dynamic> data)? getValidateCampSendChildId,
     required TResult orElse(),
   }) {
     if (deleteChild != null) {
@@ -4466,6 +4640,8 @@ class _$AddViewPlayerChildDelteEventImpl
     required TResult Function(AddViewPlayerChildForChildUpdateEvent value)
         isForChildUpdate,
     required TResult Function(AddViewPlayerChildDelteEvent value) deleteChild,
+    required TResult Function(ValidateCampSendChildIdAddDetailEvent value)
+        getValidateCampSendChildId,
   }) {
     return deleteChild(this);
   }
@@ -4498,6 +4674,8 @@ class _$AddViewPlayerChildDelteEventImpl
     TResult? Function(AddViewPlayerChildForChildUpdateEvent value)?
         isForChildUpdate,
     TResult? Function(AddViewPlayerChildDelteEvent value)? deleteChild,
+    TResult? Function(ValidateCampSendChildIdAddDetailEvent value)?
+        getValidateCampSendChildId,
   }) {
     return deleteChild?.call(this);
   }
@@ -4530,6 +4708,8 @@ class _$AddViewPlayerChildDelteEventImpl
     TResult Function(AddViewPlayerChildForChildUpdateEvent value)?
         isForChildUpdate,
     TResult Function(AddViewPlayerChildDelteEvent value)? deleteChild,
+    TResult Function(ValidateCampSendChildIdAddDetailEvent value)?
+        getValidateCampSendChildId,
     required TResult orElse(),
   }) {
     if (deleteChild != null) {
@@ -4550,5 +4730,288 @@ abstract class AddViewPlayerChildDelteEvent implements AddViewPlayerEvent {
   @JsonKey(includeFromJson: false, includeToJson: false)
   _$$AddViewPlayerChildDelteEventImplCopyWith<
           _$AddViewPlayerChildDelteEventImpl>
+      get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$ValidateCampSendChildIdAddDetailEventImplCopyWith<$Res> {
+  factory _$$ValidateCampSendChildIdAddDetailEventImplCopyWith(
+          _$ValidateCampSendChildIdAddDetailEventImpl value,
+          $Res Function(_$ValidateCampSendChildIdAddDetailEventImpl) then) =
+      __$$ValidateCampSendChildIdAddDetailEventImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({Map<String, dynamic> data});
+}
+
+/// @nodoc
+class __$$ValidateCampSendChildIdAddDetailEventImplCopyWithImpl<$Res>
+    extends _$AddViewPlayerEventCopyWithImpl<$Res,
+        _$ValidateCampSendChildIdAddDetailEventImpl>
+    implements _$$ValidateCampSendChildIdAddDetailEventImplCopyWith<$Res> {
+  __$$ValidateCampSendChildIdAddDetailEventImplCopyWithImpl(
+      _$ValidateCampSendChildIdAddDetailEventImpl _value,
+      $Res Function(_$ValidateCampSendChildIdAddDetailEventImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of AddViewPlayerEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? data = null,
+  }) {
+    return _then(_$ValidateCampSendChildIdAddDetailEventImpl(
+      null == data
+          ? _value._data
+          : data // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$ValidateCampSendChildIdAddDetailEventImpl
+    implements ValidateCampSendChildIdAddDetailEvent {
+  const _$ValidateCampSendChildIdAddDetailEventImpl(
+      final Map<String, dynamic> data)
+      : _data = data;
+
+  final Map<String, dynamic> _data;
+  @override
+  Map<String, dynamic> get data {
+    if (_data is EqualUnmodifiableMapView) return _data;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableMapView(_data);
+  }
+
+  @override
+  String toString() {
+    return 'AddViewPlayerEvent.getValidateCampSendChildId(data: $data)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$ValidateCampSendChildIdAddDetailEventImpl &&
+            const DeepCollectionEquality().equals(other._data, _data));
+  }
+
+  @override
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(_data));
+
+  /// Create a copy of AddViewPlayerEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$ValidateCampSendChildIdAddDetailEventImplCopyWith<
+          _$ValidateCampSendChildIdAddDetailEventImpl>
+      get copyWith => __$$ValidateCampSendChildIdAddDetailEventImplCopyWithImpl<
+          _$ValidateCampSendChildIdAddDetailEventImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(int tabno) selectedTab,
+    required TResult Function(int consentStatus) childPhotoConsent,
+    required TResult Function(int firstAidStatus) administratorFirstAid,
+    required TResult Function(String childName) childName,
+    required TResult Function(String age) childAge,
+    required TResult Function(String dob) childDob,
+    required TResult Function(String schoolName) schoolName,
+    required TResult Function(String clubName) clubName,
+    required TResult Function(String medicalCondition) medicalCondition,
+    required TResult Function() submitButtonPress,
+    required TResult Function() getChildListEvent,
+    required TResult Function(int index) childSelectionToggle,
+    required TResult Function(File file) setChileProfilePic,
+    required TResult Function(String imageUrl) setNetWorkChildImage,
+    required TResult Function() resetAddViewPlayerEvent,
+    required TResult Function(String id) isForChildUpdate,
+    required TResult Function(String id) deleteChild,
+    required TResult Function(Map<String, dynamic> data)
+        getValidateCampSendChildId,
+  }) {
+    return getValidateCampSendChildId(data);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(int tabno)? selectedTab,
+    TResult? Function(int consentStatus)? childPhotoConsent,
+    TResult? Function(int firstAidStatus)? administratorFirstAid,
+    TResult? Function(String childName)? childName,
+    TResult? Function(String age)? childAge,
+    TResult? Function(String dob)? childDob,
+    TResult? Function(String schoolName)? schoolName,
+    TResult? Function(String clubName)? clubName,
+    TResult? Function(String medicalCondition)? medicalCondition,
+    TResult? Function()? submitButtonPress,
+    TResult? Function()? getChildListEvent,
+    TResult? Function(int index)? childSelectionToggle,
+    TResult? Function(File file)? setChileProfilePic,
+    TResult? Function(String imageUrl)? setNetWorkChildImage,
+    TResult? Function()? resetAddViewPlayerEvent,
+    TResult? Function(String id)? isForChildUpdate,
+    TResult? Function(String id)? deleteChild,
+    TResult? Function(Map<String, dynamic> data)? getValidateCampSendChildId,
+  }) {
+    return getValidateCampSendChildId?.call(data);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(int tabno)? selectedTab,
+    TResult Function(int consentStatus)? childPhotoConsent,
+    TResult Function(int firstAidStatus)? administratorFirstAid,
+    TResult Function(String childName)? childName,
+    TResult Function(String age)? childAge,
+    TResult Function(String dob)? childDob,
+    TResult Function(String schoolName)? schoolName,
+    TResult Function(String clubName)? clubName,
+    TResult Function(String medicalCondition)? medicalCondition,
+    TResult Function()? submitButtonPress,
+    TResult Function()? getChildListEvent,
+    TResult Function(int index)? childSelectionToggle,
+    TResult Function(File file)? setChileProfilePic,
+    TResult Function(String imageUrl)? setNetWorkChildImage,
+    TResult Function()? resetAddViewPlayerEvent,
+    TResult Function(String id)? isForChildUpdate,
+    TResult Function(String id)? deleteChild,
+    TResult Function(Map<String, dynamic> data)? getValidateCampSendChildId,
+    required TResult orElse(),
+  }) {
+    if (getValidateCampSendChildId != null) {
+      return getValidateCampSendChildId(data);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(AddViewPlayerSelectedTabEvent value) selectedTab,
+    required TResult Function(AddViewPlayerChiclPhotoConsentEvent value)
+        childPhotoConsent,
+    required TResult Function(AddViewPlayeAdministratorFirstAidEvent value)
+        administratorFirstAid,
+    required TResult Function(AddViewPlayerChildNameEvent value) childName,
+    required TResult Function(AddViewPlayerChildAgeEvent value) childAge,
+    required TResult Function(AddViewPlayerChildDobEvent value) childDob,
+    required TResult Function(AddViewPlayerSchoolNameEvent value) schoolName,
+    required TResult Function(AddViewPlayerClubNameEvent value) clubName,
+    required TResult Function(AddViewPlayerTessUsMedicalConditionEvent value)
+        medicalCondition,
+    required TResult Function(AddViewPlayerSubmitButtonPressEvent value)
+        submitButtonPress,
+    required TResult Function(AddViewPlayerGetChildListEvent value)
+        getChildListEvent,
+    required TResult Function(AddViewPlayerChildSelectionToggleEvent value)
+        childSelectionToggle,
+    required TResult Function(AddViewPlayerChildProfilePhotoEvent value)
+        setChileProfilePic,
+    required TResult Function(AddViewPlayerChildNetworkImageEvent value)
+        setNetWorkChildImage,
+    required TResult Function(ResetAddViewEvent value) resetAddViewPlayerEvent,
+    required TResult Function(AddViewPlayerChildForChildUpdateEvent value)
+        isForChildUpdate,
+    required TResult Function(AddViewPlayerChildDelteEvent value) deleteChild,
+    required TResult Function(ValidateCampSendChildIdAddDetailEvent value)
+        getValidateCampSendChildId,
+  }) {
+    return getValidateCampSendChildId(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(AddViewPlayerSelectedTabEvent value)? selectedTab,
+    TResult? Function(AddViewPlayerChiclPhotoConsentEvent value)?
+        childPhotoConsent,
+    TResult? Function(AddViewPlayeAdministratorFirstAidEvent value)?
+        administratorFirstAid,
+    TResult? Function(AddViewPlayerChildNameEvent value)? childName,
+    TResult? Function(AddViewPlayerChildAgeEvent value)? childAge,
+    TResult? Function(AddViewPlayerChildDobEvent value)? childDob,
+    TResult? Function(AddViewPlayerSchoolNameEvent value)? schoolName,
+    TResult? Function(AddViewPlayerClubNameEvent value)? clubName,
+    TResult? Function(AddViewPlayerTessUsMedicalConditionEvent value)?
+        medicalCondition,
+    TResult? Function(AddViewPlayerSubmitButtonPressEvent value)?
+        submitButtonPress,
+    TResult? Function(AddViewPlayerGetChildListEvent value)? getChildListEvent,
+    TResult? Function(AddViewPlayerChildSelectionToggleEvent value)?
+        childSelectionToggle,
+    TResult? Function(AddViewPlayerChildProfilePhotoEvent value)?
+        setChileProfilePic,
+    TResult? Function(AddViewPlayerChildNetworkImageEvent value)?
+        setNetWorkChildImage,
+    TResult? Function(ResetAddViewEvent value)? resetAddViewPlayerEvent,
+    TResult? Function(AddViewPlayerChildForChildUpdateEvent value)?
+        isForChildUpdate,
+    TResult? Function(AddViewPlayerChildDelteEvent value)? deleteChild,
+    TResult? Function(ValidateCampSendChildIdAddDetailEvent value)?
+        getValidateCampSendChildId,
+  }) {
+    return getValidateCampSendChildId?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(AddViewPlayerSelectedTabEvent value)? selectedTab,
+    TResult Function(AddViewPlayerChiclPhotoConsentEvent value)?
+        childPhotoConsent,
+    TResult Function(AddViewPlayeAdministratorFirstAidEvent value)?
+        administratorFirstAid,
+    TResult Function(AddViewPlayerChildNameEvent value)? childName,
+    TResult Function(AddViewPlayerChildAgeEvent value)? childAge,
+    TResult Function(AddViewPlayerChildDobEvent value)? childDob,
+    TResult Function(AddViewPlayerSchoolNameEvent value)? schoolName,
+    TResult Function(AddViewPlayerClubNameEvent value)? clubName,
+    TResult Function(AddViewPlayerTessUsMedicalConditionEvent value)?
+        medicalCondition,
+    TResult Function(AddViewPlayerSubmitButtonPressEvent value)?
+        submitButtonPress,
+    TResult Function(AddViewPlayerGetChildListEvent value)? getChildListEvent,
+    TResult Function(AddViewPlayerChildSelectionToggleEvent value)?
+        childSelectionToggle,
+    TResult Function(AddViewPlayerChildProfilePhotoEvent value)?
+        setChileProfilePic,
+    TResult Function(AddViewPlayerChildNetworkImageEvent value)?
+        setNetWorkChildImage,
+    TResult Function(ResetAddViewEvent value)? resetAddViewPlayerEvent,
+    TResult Function(AddViewPlayerChildForChildUpdateEvent value)?
+        isForChildUpdate,
+    TResult Function(AddViewPlayerChildDelteEvent value)? deleteChild,
+    TResult Function(ValidateCampSendChildIdAddDetailEvent value)?
+        getValidateCampSendChildId,
+    required TResult orElse(),
+  }) {
+    if (getValidateCampSendChildId != null) {
+      return getValidateCampSendChildId(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class ValidateCampSendChildIdAddDetailEvent
+    implements AddViewPlayerEvent {
+  const factory ValidateCampSendChildIdAddDetailEvent(
+          final Map<String, dynamic> data) =
+      _$ValidateCampSendChildIdAddDetailEventImpl;
+
+  Map<String, dynamic> get data;
+
+  /// Create a copy of AddViewPlayerEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$ValidateCampSendChildIdAddDetailEventImplCopyWith<
+          _$ValidateCampSendChildIdAddDetailEventImpl>
       get copyWith => throw _privateConstructorUsedError;
 }

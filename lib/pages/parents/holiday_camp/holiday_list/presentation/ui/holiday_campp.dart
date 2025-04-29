@@ -1,4 +1,5 @@
 import 'package:rra/common/component/common_background.dart';
+import 'package:rra/common/component/loading_indicator.dart';
 import 'package:rra/common/values/values_exports.dart';
 import '../../../../../../common/component/common_app_bar.dart';
 import '../../../../../../common/component/common_list_item.dart';
@@ -37,34 +38,41 @@ class HolidayCampp extends StatelessWidget {
             },
             child: BlocBuilder<CampBloc, CampState>(
               builder: (context, state) {
-                return Column(
+                return Stack(
                   children: [
-                    CustomHeader(title: "Holiday Camps", onBackPress: () {
-                      Navigator.pop(context);
-                    },),
-                    SizedBox(height: 10,),
-                    Flexible(
-                      child: ListView.builder(
+                    Column(
+                      children: [
+                        CustomHeader(title: "Holiday Camps", onBackPress: () {
+                          Navigator.pop(context);
+                        },),
+                        SizedBox(height: 10,),
+                        Flexible(
+                          child: ListView.builder(
 
-                        padding:
-                        const EdgeInsets.symmetric(
-                            horizontal: 0.0, vertical: 0),
-                        itemCount: state.campListResponse.data.camps.length,
-                        shrinkWrap: true,
+                            padding:
+                            const EdgeInsets.symmetric(
+                                horizontal: 0.0, vertical: 0),
+                            itemCount: state.campListResponse.data.camps.length,
+                            shrinkWrap: true,
 
-                        itemBuilder: (context, index) {
-                          var data=state.campListResponse.data.camps[index];
-                          return CommonListItem(
-                            camp: data,
-                            onPressed: () {
-                              BlocProvider.of<CampBloc>(context).add(CampDetailEvent(data.id.toString(),{}));
-                               Navigator.pushNamed(
-                                   context, AppRoutes.HOLIDAYCAMPDETAIL);
+                            itemBuilder: (context, index) {
+                              var data=state.campListResponse.data.camps[index];
+                              return CommonListItem(
+                                camp: data,
+                                onPressed: () {
+                                  BlocProvider.of<CampBloc>(context).add(CampDetailEvent(data.id.toString(),{}));
+                                   Navigator.pushNamed(
+                                       context, AppRoutes.HOLIDAYCAMPDETAIL);
+                                },
+                              );
                             },
-                          );
-                        },
-                      ),
+                          ),
+                        ),
+
+                      ],
                     ),
+                    if(state.isLoading)
+                      LoadingIndicator()
                   ],
                 );
               },

@@ -15,6 +15,8 @@ import '../../../../../../common/network/app_constant.dart';
 import '../../../../../../common/network/network_eport.dart' as http;
 import '../../../../../../common/service_locator/setivelocator.dart';
 import '../../domain/repositery/camp_repositery.dart';
+import '../entity/camp_order_summary/camp_order_summary_model.dart';
+import '../entity/selected_camp_date/selected_camp_dates_model.dart';
 
 class CampRepositeryImpl extends CampRepositery{
   final ApiServices _apiServices = getIt<ApiServices>();
@@ -52,14 +54,6 @@ class CampRepositeryImpl extends CampRepositery{
       return Left(Failure("$e"));
     }
 
-  }
-  String _extractErrorMessage(String responseBody) {
-    try {
-      final Map<String, dynamic> errorData = jsonDecode(responseBody);
-      return errorData['message'] ?? 'Unknown error occurred';
-    } catch (e) {
-      return 'Something goes wrong';
-    }
   }
 
   @override
@@ -156,5 +150,88 @@ class CampRepositeryImpl extends CampRepositery{
     }
   }
 
+  @override
+  Future<Either<Failure, SelectedCampDatesModel>> getSelectedCampDate(Map<String, dynamic> campData) async{
+    try {
+      http.Response response = await _apiServices.post(
+          AppConstant.getSelectedCampDates,campData,
+          useDefaultHeaders: true,isJson: true);
+      print("saveCamp saveCamp ====${response.body}");
+      if (response.statusCode == 200) {
+        final Map<String, dynamic> responseData = jsonDecode(response.body);
+        SelectedCampDatesModel saveCampModel=SelectedCampDatesModel.fromJson(responseData);
+        return Right(saveCampModel);
+      } else {
+        final errorMessage = _extractErrorMessage(response.body);
+        print("saveCamp saveCamp saveCamp  ====${errorMessage}");
+        return Left(Failure(errorMessage));
+      }
+
+    } catch (e) {
+      print("saveCamp saveCamp saveCamp  ====${e}");
+      return Left(Failure("$e"));
+    }
+  }
+
+  @override
+  Future<Either<Failure, CampOrderSummaryModel>> getCampBookingSummary(Map<String, dynamic> campData) async{
+    try {
+      http.Response response = await _apiServices.post(
+          AppConstant.getCampBookingSummary,campData,
+          useDefaultHeaders: true,isJson: true);
+      print("getCampBookingSummary getCampBookingSummary ====${response.body}");
+      if (response.statusCode == 200) {
+        final Map<String, dynamic> responseData = jsonDecode(response.body);
+        CampOrderSummaryModel campOrderSummaryModel=CampOrderSummaryModel.fromJson(responseData);
+        return Right(campOrderSummaryModel);
+      } else {
+        final errorMessage = _extractErrorMessage(response.body);
+        print("getCampBookingSummary getCampBookingSummary getCampBookingSummary  ====${errorMessage}");
+        return Left(Failure(errorMessage));
+      }
+
+    } catch (e) {
+      print("getCampBookingSummary getCampBookingSummary getCampBookingSummary  ====${e}");
+      return Left(Failure("$e"));
+    }
+  }
+
+
+  @override
+  Future<Either<Failure, dynamic>> getVaildateBooking(Map<String, dynamic> validateBooking)async {
+    try {
+
+      print("++++++++++++++getVaildateBooking++++++++++++++++++++++++++++++");
+      print(validateBooking);
+      http.Response response =
+      await _apiServices.post(AppConstant.getCampValidateSendChildId, validateBooking,useDefaultHeaders: true,isJson: false);
+      print(response.body);
+      if (response.statusCode == 200) {
+        final Map<String, dynamic> responseData = jsonDecode(response.body);
+        if(responseData['success']){
+          return Right(responseData);
+        }else{
+          return Left(Failure(responseData['message']));
+        }
+
+      } else {
+        final errorMessage = _extractErrorMessage(response.body);
+        return Left(Failure(errorMessage));
+      }
+    } catch (e) {
+      return Left(Failure("$e"));
+    }
+  }
+
+
+
+  String _extractErrorMessage(String responseBody) {
+    try {
+      final Map<String, dynamic> errorData = jsonDecode(responseBody);
+      return errorData['message'] ?? 'Unknown error occurred';
+    } catch (e) {
+      return 'Something goes wrong';
+    }
+  }
 
 }
