@@ -12,6 +12,7 @@ class AddDocumentEvent with _$AddDocumentEvent {
   const factory AddDocumentEvent.selectTabEvent(int tabno) = SelectedTabEvent;
   const factory AddDocumentEvent.getParentUploadedDocument(Map<String,dynamic>data) = GetUploadedParentDocument;
   const factory AddDocumentEvent.getTermsSessionPlayer(Map<String,dynamic>data) = GetTermsSessionCoachingPlayerEvents;
+  const factory AddDocumentEvent.getDeleteDociument(Map<String,dynamic>data) = GetDeleteDocumentEvents;
   const factory AddDocumentEvent.setTitle(String title) = SetTitleParentDocumentEvent;
   const factory AddDocumentEvent.setMessage(String message) = SetMessageParentDocumentEvent;
   const factory AddDocumentEvent.setSelectedCoachId(Coach caoch) = SetSelectedCoachIdParentDocumentEvent;

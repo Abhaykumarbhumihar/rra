@@ -111,25 +111,24 @@ class ParentDocumentRepoImpl implements ParentDocumentRepositery {
   @override
   Future<Either<Failure, dynamic>> deleteDocument(Map<String, dynamic> documentData) async{
     try {
-      print("code is running here getDocumentList");
+      print("code is running here deleteDocument");
 
       http.Response response = await _apiServices.post(
-          AppConstant.getParentUploadDocumentList, documentData,
+          AppConstant.getParentUploadDocumentDelete, documentData,
           useDefaultHeaders: true,isJson: true);
-      print("getDocumentList == ${documentData}");
+      print("deleteDocument == ${documentData}  ${response.body}");
       if (response.statusCode == 200) {
-        print("getDocumentList SUCCESS SUCCESSS  == ${response.body}");
+        print("deleteDocument SUCCESS SUCCESSS  == ${response.body}");
         final Map<String, dynamic> responseData = jsonDecode(response.body);
-        ParentDocumentListModel parentDocumentListModel = ParentDocumentListModel
-            .fromJson(responseData);
-        return Right(parentDocumentListModel);
+
+        return Right(responseData);
       } else {
-        print("getDocumentList ERROR ERROR  == ${documentData}");
+        print("deleteDocument ERROR ERROR  == ${documentData}");
         final errorMessage = _extractErrorMessage(response.body);
         return Left(Failure(errorMessage));
       }
     } catch (e) {
-      print("getDocumentList error ${AppConstant.updateUserProfile} $e");
+      print("deleteDocument error ${AppConstant.updateUserProfile} $e");
 
       return Left(Failure("$e"));
     }

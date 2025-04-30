@@ -41,6 +41,7 @@ class AppConstant {
   /*document*/
   static String get getParentUploadDocument=> "parent/document/store";
   static String get getParentUploadDocumentList=> "parent/documents/list";
+  static String get getParentUploadDocumentDelete=> "parent/document/delete";
 
 
   static String get getStateList => "user/myfinds/state";

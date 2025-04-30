@@ -62,10 +62,12 @@ class AddViewDocumenPage extends StatelessWidget {
               height: height,
               padding: EdgeInsets.zero,
               decoration: CommonBackground.decoration,
+
               child: Stack(
                 children: [
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
+                    mainAxisAlignment: MainAxisAlignment.start,
                     children: [
                       CustomHeader(
                         title: "Documents",
@@ -73,7 +75,6 @@ class AddViewDocumenPage extends StatelessWidget {
                           Navigator.pop(context);
                         },
                       ),
-
                       Padding(
                         padding: EdgeInsets.symmetric(
                             horizontal: context.screenWidth * 0.03,
@@ -87,9 +88,10 @@ class AddViewDocumenPage extends StatelessWidget {
                             'Received\nDocuments'
                           ],
                           onTabChanged: (index) {
-                            BlocProvider.of<AddDocumentBloc>(context).add(GetUploadedParentDocument({}));
-                              BlocProvider.of<AddDocumentBloc>(context)
-                                  .add(ResetAfterDocumentUploadEvent());
+                            BlocProvider.of<AddDocumentBloc>(context)
+                                .add(GetUploadedParentDocument({}));
+                            BlocProvider.of<AddDocumentBloc>(context)
+                                .add(ResetAfterDocumentUploadEvent());
 
                             BlocProvider.of<AddDocumentBloc>(context)
                                 .add(AddDocumentEvent.selectTabEvent(index));
@@ -98,7 +100,6 @@ class AddViewDocumenPage extends StatelessWidget {
                           },
                         ),
                       ),
-
                       Expanded(
                         child: AnimatedSwitcher(
                           duration: const Duration(milliseconds: 300),
@@ -136,22 +137,30 @@ class AddViewDocumenPage extends StatelessWidget {
                                         padding: EdgeInsets.zero,
                                         itemBuilder: (context, index) {
                                           return DocumentItem(
-                                            onDeleteIconPress: (){
-
+                                            onDeleteIconPress: () {
                                               ConfirmationDialog.show(
                                                 context: context,
                                                 title: 'Delete Document?',
-                                                description: 'Are you sure you want to delete this document?',
+                                                description:
+                                                    'Are you sure you want to delete this document?',
                                                 confirmButtonText: 'Delete',
                                                 onCancel: () {
                                                   print('Cancelled');
                                                 },
                                                 onConfirm: () async {
-
-
+                                                  BlocProvider.of<
+                                                              AddDocumentBloc>(
+                                                          context)
+                                                      .add(
+                                                          GetDeleteDocumentEvents({
+                                                    "id": state
+                                                        .parentDocumentListModel
+                                                        .data
+                                                        .uploaded[index]
+                                                        .id
+                                                  }));
                                                 },
-                                              ).then((_) {
-                                              });
+                                              ).then((_) {});
                                             },
                                             onIconPress: () {
                                               print(state
@@ -179,11 +188,9 @@ class AddViewDocumenPage extends StatelessWidget {
                                                               data!.coachId!));
                                                 }
                                               }
-                                              BlocProvider.of<
-                                                  AddDocumentBloc>(
-                                                  context)
-                                                  .add(
-                                                  DocumentIdSetForUpload(
+                                              BlocProvider.of<AddDocumentBloc>(
+                                                      context)
+                                                  .add(DocumentIdSetForUpload(
                                                       data!.id.toString()));
 
                                               /*set terms*/
@@ -221,7 +228,7 @@ class AddViewDocumenPage extends StatelessWidget {
                                                         context)
                                                     .add(
                                                         setSelectedPlayerDocumentEvent(
-                                                            data.parentId! ));
+                                                            data.parentId!));
                                               }
 
                                               BlocProvider.of<AddDocumentBloc>(
@@ -282,7 +289,8 @@ class AddViewDocumenPage extends StatelessWidget {
                       state.selectedTab == 0
                           ? Padding(
                               padding: EdgeInsets.symmetric(
-                                  horizontal: context.screenWidth * 0.05,vertical: 0),
+                                  horizontal: context.screenWidth * 0.05,
+                                  vertical: 0),
                               child: CustomButton(
                                 text: "Continue",
                                 onPressed: () async {
@@ -299,7 +307,9 @@ class AddViewDocumenPage extends StatelessWidget {
                               ),
                             )
                           : SizedBox(),
-                      SizedBox(height: 20,)
+                      SizedBox(
+                        height: 20,
+                      )
                     ],
                   ),
                   if (state.isLoading) LoadingIndicator()
@@ -311,12 +321,6 @@ class AddViewDocumenPage extends StatelessWidget {
       ),
     );
   }
-
-
-
-
-
-
 
   Future<void> _handlePickFile(context) async {
     CameraFileUtility utility = CameraFileUtility();

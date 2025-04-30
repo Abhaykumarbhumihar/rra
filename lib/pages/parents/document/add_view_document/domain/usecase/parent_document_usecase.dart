@@ -24,4 +24,7 @@ class ParentDocumentUsecase {
     return _parentDocumentRepositery.getTermsSessionPlayerCoaching( termsData);
   }
 
+  Future<Either<Failure, dynamic>> deleteDocumentExecute(Map<String, dynamic> termsData) async {
+    return _parentDocumentRepositery.deleteDocument( termsData);
+  }
 }

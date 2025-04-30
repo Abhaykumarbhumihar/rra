@@ -21,7 +21,7 @@ class ImageDialog extends StatelessWidget {
           NetworkImageWidget(
 fullimage: true,
               imageUrl: imageUrl,
-               imageFitType: BoxFit.fill,
+               imageFitType: BoxFit.none,
               imageHeight: context.screenHeight*2,
               imageWidth: context.screenWidth),
           // Positioned.fill(

@@ -22,6 +22,7 @@ mixin _$AddDocumentEvent {
     required TResult Function(Map<String, dynamic> data)
         getParentUploadedDocument,
     required TResult Function(Map<String, dynamic> data) getTermsSessionPlayer,
+    required TResult Function(Map<String, dynamic> data) getDeleteDociument,
     required TResult Function(String title) setTitle,
     required TResult Function(String message) setMessage,
     required TResult Function(Coach caoch) setSelectedCoachId,
@@ -47,6 +48,7 @@ mixin _$AddDocumentEvent {
     TResult? Function(int tabno)? selectTabEvent,
     TResult? Function(Map<String, dynamic> data)? getParentUploadedDocument,
     TResult? Function(Map<String, dynamic> data)? getTermsSessionPlayer,
+    TResult? Function(Map<String, dynamic> data)? getDeleteDociument,
     TResult? Function(String title)? setTitle,
     TResult? Function(String message)? setMessage,
     TResult? Function(Coach caoch)? setSelectedCoachId,
@@ -72,6 +74,7 @@ mixin _$AddDocumentEvent {
     TResult Function(int tabno)? selectTabEvent,
     TResult Function(Map<String, dynamic> data)? getParentUploadedDocument,
     TResult Function(Map<String, dynamic> data)? getTermsSessionPlayer,
+    TResult Function(Map<String, dynamic> data)? getDeleteDociument,
     TResult Function(String title)? setTitle,
     TResult Function(String message)? setMessage,
     TResult Function(Coach caoch)? setSelectedCoachId,
@@ -99,6 +102,7 @@ mixin _$AddDocumentEvent {
         getParentUploadedDocument,
     required TResult Function(GetTermsSessionCoachingPlayerEvents value)
         getTermsSessionPlayer,
+    required TResult Function(GetDeleteDocumentEvents value) getDeleteDociument,
     required TResult Function(SetTitleParentDocumentEvent value) setTitle,
     required TResult Function(SetMessageParentDocumentEvent value) setMessage,
     required TResult Function(SetSelectedCoachIdParentDocumentEvent value)
@@ -137,6 +141,7 @@ mixin _$AddDocumentEvent {
         getParentUploadedDocument,
     TResult? Function(GetTermsSessionCoachingPlayerEvents value)?
         getTermsSessionPlayer,
+    TResult? Function(GetDeleteDocumentEvents value)? getDeleteDociument,
     TResult? Function(SetTitleParentDocumentEvent value)? setTitle,
     TResult? Function(SetMessageParentDocumentEvent value)? setMessage,
     TResult? Function(SetSelectedCoachIdParentDocumentEvent value)?
@@ -168,6 +173,7 @@ mixin _$AddDocumentEvent {
         getParentUploadedDocument,
     TResult Function(GetTermsSessionCoachingPlayerEvents value)?
         getTermsSessionPlayer,
+    TResult Function(GetDeleteDocumentEvents value)? getDeleteDociument,
     TResult Function(SetTitleParentDocumentEvent value)? setTitle,
     TResult Function(SetMessageParentDocumentEvent value)? setMessage,
     TResult Function(SetSelectedCoachIdParentDocumentEvent value)?
@@ -287,6 +293,7 @@ class _$SelectedTabEventImpl implements SelectedTabEvent {
     required TResult Function(Map<String, dynamic> data)
         getParentUploadedDocument,
     required TResult Function(Map<String, dynamic> data) getTermsSessionPlayer,
+    required TResult Function(Map<String, dynamic> data) getDeleteDociument,
     required TResult Function(String title) setTitle,
     required TResult Function(String message) setMessage,
     required TResult Function(Coach caoch) setSelectedCoachId,
@@ -315,6 +322,7 @@ class _$SelectedTabEventImpl implements SelectedTabEvent {
     TResult? Function(int tabno)? selectTabEvent,
     TResult? Function(Map<String, dynamic> data)? getParentUploadedDocument,
     TResult? Function(Map<String, dynamic> data)? getTermsSessionPlayer,
+    TResult? Function(Map<String, dynamic> data)? getDeleteDociument,
     TResult? Function(String title)? setTitle,
     TResult? Function(String message)? setMessage,
     TResult? Function(Coach caoch)? setSelectedCoachId,
@@ -343,6 +351,7 @@ class _$SelectedTabEventImpl implements SelectedTabEvent {
     TResult Function(int tabno)? selectTabEvent,
     TResult Function(Map<String, dynamic> data)? getParentUploadedDocument,
     TResult Function(Map<String, dynamic> data)? getTermsSessionPlayer,
+    TResult Function(Map<String, dynamic> data)? getDeleteDociument,
     TResult Function(String title)? setTitle,
     TResult Function(String message)? setMessage,
     TResult Function(Coach caoch)? setSelectedCoachId,
@@ -376,6 +385,7 @@ class _$SelectedTabEventImpl implements SelectedTabEvent {
         getParentUploadedDocument,
     required TResult Function(GetTermsSessionCoachingPlayerEvents value)
         getTermsSessionPlayer,
+    required TResult Function(GetDeleteDocumentEvents value) getDeleteDociument,
     required TResult Function(SetTitleParentDocumentEvent value) setTitle,
     required TResult Function(SetMessageParentDocumentEvent value) setMessage,
     required TResult Function(SetSelectedCoachIdParentDocumentEvent value)
@@ -417,6 +427,7 @@ class _$SelectedTabEventImpl implements SelectedTabEvent {
         getParentUploadedDocument,
     TResult? Function(GetTermsSessionCoachingPlayerEvents value)?
         getTermsSessionPlayer,
+    TResult? Function(GetDeleteDocumentEvents value)? getDeleteDociument,
     TResult? Function(SetTitleParentDocumentEvent value)? setTitle,
     TResult? Function(SetMessageParentDocumentEvent value)? setMessage,
     TResult? Function(SetSelectedCoachIdParentDocumentEvent value)?
@@ -451,6 +462,7 @@ class _$SelectedTabEventImpl implements SelectedTabEvent {
         getParentUploadedDocument,
     TResult Function(GetTermsSessionCoachingPlayerEvents value)?
         getTermsSessionPlayer,
+    TResult Function(GetDeleteDocumentEvents value)? getDeleteDociument,
     TResult Function(SetTitleParentDocumentEvent value)? setTitle,
     TResult Function(SetMessageParentDocumentEvent value)? setMessage,
     TResult Function(SetSelectedCoachIdParentDocumentEvent value)?
@@ -575,6 +587,7 @@ class _$GetUploadedParentDocumentImpl implements GetUploadedParentDocument {
     required TResult Function(Map<String, dynamic> data)
         getParentUploadedDocument,
     required TResult Function(Map<String, dynamic> data) getTermsSessionPlayer,
+    required TResult Function(Map<String, dynamic> data) getDeleteDociument,
     required TResult Function(String title) setTitle,
     required TResult Function(String message) setMessage,
     required TResult Function(Coach caoch) setSelectedCoachId,
@@ -603,6 +616,7 @@ class _$GetUploadedParentDocumentImpl implements GetUploadedParentDocument {
     TResult? Function(int tabno)? selectTabEvent,
     TResult? Function(Map<String, dynamic> data)? getParentUploadedDocument,
     TResult? Function(Map<String, dynamic> data)? getTermsSessionPlayer,
+    TResult? Function(Map<String, dynamic> data)? getDeleteDociument,
     TResult? Function(String title)? setTitle,
     TResult? Function(String message)? setMessage,
     TResult? Function(Coach caoch)? setSelectedCoachId,
@@ -631,6 +645,7 @@ class _$GetUploadedParentDocumentImpl implements GetUploadedParentDocument {
     TResult Function(int tabno)? selectTabEvent,
     TResult Function(Map<String, dynamic> data)? getParentUploadedDocument,
     TResult Function(Map<String, dynamic> data)? getTermsSessionPlayer,
+    TResult Function(Map<String, dynamic> data)? getDeleteDociument,
     TResult Function(String title)? setTitle,
     TResult Function(String message)? setMessage,
     TResult Function(Coach caoch)? setSelectedCoachId,
@@ -664,6 +679,7 @@ class _$GetUploadedParentDocumentImpl implements GetUploadedParentDocument {
         getParentUploadedDocument,
     required TResult Function(GetTermsSessionCoachingPlayerEvents value)
         getTermsSessionPlayer,
+    required TResult Function(GetDeleteDocumentEvents value) getDeleteDociument,
     required TResult Function(SetTitleParentDocumentEvent value) setTitle,
     required TResult Function(SetMessageParentDocumentEvent value) setMessage,
     required TResult Function(SetSelectedCoachIdParentDocumentEvent value)
@@ -705,6 +721,7 @@ class _$GetUploadedParentDocumentImpl implements GetUploadedParentDocument {
         getParentUploadedDocument,
     TResult? Function(GetTermsSessionCoachingPlayerEvents value)?
         getTermsSessionPlayer,
+    TResult? Function(GetDeleteDocumentEvents value)? getDeleteDociument,
     TResult? Function(SetTitleParentDocumentEvent value)? setTitle,
     TResult? Function(SetMessageParentDocumentEvent value)? setMessage,
     TResult? Function(SetSelectedCoachIdParentDocumentEvent value)?
@@ -739,6 +756,7 @@ class _$GetUploadedParentDocumentImpl implements GetUploadedParentDocument {
         getParentUploadedDocument,
     TResult Function(GetTermsSessionCoachingPlayerEvents value)?
         getTermsSessionPlayer,
+    TResult Function(GetDeleteDocumentEvents value)? getDeleteDociument,
     TResult Function(SetTitleParentDocumentEvent value)? setTitle,
     TResult Function(SetMessageParentDocumentEvent value)? setMessage,
     TResult Function(SetSelectedCoachIdParentDocumentEvent value)?
@@ -867,6 +885,7 @@ class _$GetTermsSessionCoachingPlayerEventsImpl
     required TResult Function(Map<String, dynamic> data)
         getParentUploadedDocument,
     required TResult Function(Map<String, dynamic> data) getTermsSessionPlayer,
+    required TResult Function(Map<String, dynamic> data) getDeleteDociument,
     required TResult Function(String title) setTitle,
     required TResult Function(String message) setMessage,
     required TResult Function(Coach caoch) setSelectedCoachId,
@@ -895,6 +914,7 @@ class _$GetTermsSessionCoachingPlayerEventsImpl
     TResult? Function(int tabno)? selectTabEvent,
     TResult? Function(Map<String, dynamic> data)? getParentUploadedDocument,
     TResult? Function(Map<String, dynamic> data)? getTermsSessionPlayer,
+    TResult? Function(Map<String, dynamic> data)? getDeleteDociument,
     TResult? Function(String title)? setTitle,
     TResult? Function(String message)? setMessage,
     TResult? Function(Coach caoch)? setSelectedCoachId,
@@ -923,6 +943,7 @@ class _$GetTermsSessionCoachingPlayerEventsImpl
     TResult Function(int tabno)? selectTabEvent,
     TResult Function(Map<String, dynamic> data)? getParentUploadedDocument,
     TResult Function(Map<String, dynamic> data)? getTermsSessionPlayer,
+    TResult Function(Map<String, dynamic> data)? getDeleteDociument,
     TResult Function(String title)? setTitle,
     TResult Function(String message)? setMessage,
     TResult Function(Coach caoch)? setSelectedCoachId,
@@ -956,6 +977,7 @@ class _$GetTermsSessionCoachingPlayerEventsImpl
         getParentUploadedDocument,
     required TResult Function(GetTermsSessionCoachingPlayerEvents value)
         getTermsSessionPlayer,
+    required TResult Function(GetDeleteDocumentEvents value) getDeleteDociument,
     required TResult Function(SetTitleParentDocumentEvent value) setTitle,
     required TResult Function(SetMessageParentDocumentEvent value) setMessage,
     required TResult Function(SetSelectedCoachIdParentDocumentEvent value)
@@ -997,6 +1019,7 @@ class _$GetTermsSessionCoachingPlayerEventsImpl
         getParentUploadedDocument,
     TResult? Function(GetTermsSessionCoachingPlayerEvents value)?
         getTermsSessionPlayer,
+    TResult? Function(GetDeleteDocumentEvents value)? getDeleteDociument,
     TResult? Function(SetTitleParentDocumentEvent value)? setTitle,
     TResult? Function(SetMessageParentDocumentEvent value)? setMessage,
     TResult? Function(SetSelectedCoachIdParentDocumentEvent value)?
@@ -1031,6 +1054,7 @@ class _$GetTermsSessionCoachingPlayerEventsImpl
         getParentUploadedDocument,
     TResult Function(GetTermsSessionCoachingPlayerEvents value)?
         getTermsSessionPlayer,
+    TResult Function(GetDeleteDocumentEvents value)? getDeleteDociument,
     TResult Function(SetTitleParentDocumentEvent value)? setTitle,
     TResult Function(SetMessageParentDocumentEvent value)? setMessage,
     TResult Function(SetSelectedCoachIdParentDocumentEvent value)?
@@ -1072,6 +1096,300 @@ abstract class GetTermsSessionCoachingPlayerEvents implements AddDocumentEvent {
   @JsonKey(includeFromJson: false, includeToJson: false)
   _$$GetTermsSessionCoachingPlayerEventsImplCopyWith<
           _$GetTermsSessionCoachingPlayerEventsImpl>
+      get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$GetDeleteDocumentEventsImplCopyWith<$Res> {
+  factory _$$GetDeleteDocumentEventsImplCopyWith(
+          _$GetDeleteDocumentEventsImpl value,
+          $Res Function(_$GetDeleteDocumentEventsImpl) then) =
+      __$$GetDeleteDocumentEventsImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({Map<String, dynamic> data});
+}
+
+/// @nodoc
+class __$$GetDeleteDocumentEventsImplCopyWithImpl<$Res>
+    extends _$AddDocumentEventCopyWithImpl<$Res, _$GetDeleteDocumentEventsImpl>
+    implements _$$GetDeleteDocumentEventsImplCopyWith<$Res> {
+  __$$GetDeleteDocumentEventsImplCopyWithImpl(
+      _$GetDeleteDocumentEventsImpl _value,
+      $Res Function(_$GetDeleteDocumentEventsImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of AddDocumentEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? data = null,
+  }) {
+    return _then(_$GetDeleteDocumentEventsImpl(
+      null == data
+          ? _value._data
+          : data // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$GetDeleteDocumentEventsImpl implements GetDeleteDocumentEvents {
+  const _$GetDeleteDocumentEventsImpl(final Map<String, dynamic> data)
+      : _data = data;
+
+  final Map<String, dynamic> _data;
+  @override
+  Map<String, dynamic> get data {
+    if (_data is EqualUnmodifiableMapView) return _data;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableMapView(_data);
+  }
+
+  @override
+  String toString() {
+    return 'AddDocumentEvent.getDeleteDociument(data: $data)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$GetDeleteDocumentEventsImpl &&
+            const DeepCollectionEquality().equals(other._data, _data));
+  }
+
+  @override
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(_data));
+
+  /// Create a copy of AddDocumentEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$GetDeleteDocumentEventsImplCopyWith<_$GetDeleteDocumentEventsImpl>
+      get copyWith => __$$GetDeleteDocumentEventsImplCopyWithImpl<
+          _$GetDeleteDocumentEventsImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(int tabno) selectTabEvent,
+    required TResult Function(Map<String, dynamic> data)
+        getParentUploadedDocument,
+    required TResult Function(Map<String, dynamic> data) getTermsSessionPlayer,
+    required TResult Function(Map<String, dynamic> data) getDeleteDociument,
+    required TResult Function(String title) setTitle,
+    required TResult Function(String message) setMessage,
+    required TResult Function(Coach caoch) setSelectedCoachId,
+    required TResult Function(Term terms) setSelectedTerm,
+    required TResult Function(CoachingProgram programs) setSelectedProgram,
+    required TResult Function(Session session) setSelectedSession,
+    required TResult Function(PlayerData player) setSelectedPlayer,
+    required TResult Function(String fileName, File? documentFile)
+        setDoucmentForUpload,
+    required TResult Function() submitDocument,
+    required TResult Function(Coach coach) removeSelectedCoach,
+    required TResult Function(Term term) removeSelectedTerms,
+    required TResult Function(CoachingProgram program) removeSelectedProgram,
+    required TResult Function(Session session) removeSelectedSession,
+    required TResult Function(PlayerData player) removeSelectedPlayer,
+    required TResult Function(int coachParentSelect) selectParentOrCoach,
+    required TResult Function() resetAfterUploadDocument,
+    required TResult Function(String docid) setDocumentId,
+  }) {
+    return getDeleteDociument(data);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(int tabno)? selectTabEvent,
+    TResult? Function(Map<String, dynamic> data)? getParentUploadedDocument,
+    TResult? Function(Map<String, dynamic> data)? getTermsSessionPlayer,
+    TResult? Function(Map<String, dynamic> data)? getDeleteDociument,
+    TResult? Function(String title)? setTitle,
+    TResult? Function(String message)? setMessage,
+    TResult? Function(Coach caoch)? setSelectedCoachId,
+    TResult? Function(Term terms)? setSelectedTerm,
+    TResult? Function(CoachingProgram programs)? setSelectedProgram,
+    TResult? Function(Session session)? setSelectedSession,
+    TResult? Function(PlayerData player)? setSelectedPlayer,
+    TResult? Function(String fileName, File? documentFile)?
+        setDoucmentForUpload,
+    TResult? Function()? submitDocument,
+    TResult? Function(Coach coach)? removeSelectedCoach,
+    TResult? Function(Term term)? removeSelectedTerms,
+    TResult? Function(CoachingProgram program)? removeSelectedProgram,
+    TResult? Function(Session session)? removeSelectedSession,
+    TResult? Function(PlayerData player)? removeSelectedPlayer,
+    TResult? Function(int coachParentSelect)? selectParentOrCoach,
+    TResult? Function()? resetAfterUploadDocument,
+    TResult? Function(String docid)? setDocumentId,
+  }) {
+    return getDeleteDociument?.call(data);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(int tabno)? selectTabEvent,
+    TResult Function(Map<String, dynamic> data)? getParentUploadedDocument,
+    TResult Function(Map<String, dynamic> data)? getTermsSessionPlayer,
+    TResult Function(Map<String, dynamic> data)? getDeleteDociument,
+    TResult Function(String title)? setTitle,
+    TResult Function(String message)? setMessage,
+    TResult Function(Coach caoch)? setSelectedCoachId,
+    TResult Function(Term terms)? setSelectedTerm,
+    TResult Function(CoachingProgram programs)? setSelectedProgram,
+    TResult Function(Session session)? setSelectedSession,
+    TResult Function(PlayerData player)? setSelectedPlayer,
+    TResult Function(String fileName, File? documentFile)? setDoucmentForUpload,
+    TResult Function()? submitDocument,
+    TResult Function(Coach coach)? removeSelectedCoach,
+    TResult Function(Term term)? removeSelectedTerms,
+    TResult Function(CoachingProgram program)? removeSelectedProgram,
+    TResult Function(Session session)? removeSelectedSession,
+    TResult Function(PlayerData player)? removeSelectedPlayer,
+    TResult Function(int coachParentSelect)? selectParentOrCoach,
+    TResult Function()? resetAfterUploadDocument,
+    TResult Function(String docid)? setDocumentId,
+    required TResult orElse(),
+  }) {
+    if (getDeleteDociument != null) {
+      return getDeleteDociument(data);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(SelectedTabEvent value) selectTabEvent,
+    required TResult Function(GetUploadedParentDocument value)
+        getParentUploadedDocument,
+    required TResult Function(GetTermsSessionCoachingPlayerEvents value)
+        getTermsSessionPlayer,
+    required TResult Function(GetDeleteDocumentEvents value) getDeleteDociument,
+    required TResult Function(SetTitleParentDocumentEvent value) setTitle,
+    required TResult Function(SetMessageParentDocumentEvent value) setMessage,
+    required TResult Function(SetSelectedCoachIdParentDocumentEvent value)
+        setSelectedCoachId,
+    required TResult Function(setSelectedTermDocumentEvent value)
+        setSelectedTerm,
+    required TResult Function(setSelectedProgramDocumentEvent value)
+        setSelectedProgram,
+    required TResult Function(setSelectedSessionDocumentEvent value)
+        setSelectedSession,
+    required TResult Function(setSelectedPlayerDocumentEvent value)
+        setSelectedPlayer,
+    required TResult Function(SetDocumentForParentDocumentEvent value)
+        setDoucmentForUpload,
+    required TResult Function(SubmitParentDocumentEvent value) submitDocument,
+    required TResult Function(RemoveSelectedCoachEvent value)
+        removeSelectedCoach,
+    required TResult Function(RemoveSelectedTermsvent value)
+        removeSelectedTerms,
+    required TResult Function(RemoveSelectedProgramvent value)
+        removeSelectedProgram,
+    required TResult Function(RemoveSelectedSessionvent value)
+        removeSelectedSession,
+    required TResult Function(RemoveSelectedPlayervent value)
+        removeSelectedPlayer,
+    required TResult Function(SelectParentCoachEvent value) selectParentOrCoach,
+    required TResult Function(ResetAfterDocumentUploadEvent value)
+        resetAfterUploadDocument,
+    required TResult Function(DocumentIdSetForUpload value) setDocumentId,
+  }) {
+    return getDeleteDociument(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(SelectedTabEvent value)? selectTabEvent,
+    TResult? Function(GetUploadedParentDocument value)?
+        getParentUploadedDocument,
+    TResult? Function(GetTermsSessionCoachingPlayerEvents value)?
+        getTermsSessionPlayer,
+    TResult? Function(GetDeleteDocumentEvents value)? getDeleteDociument,
+    TResult? Function(SetTitleParentDocumentEvent value)? setTitle,
+    TResult? Function(SetMessageParentDocumentEvent value)? setMessage,
+    TResult? Function(SetSelectedCoachIdParentDocumentEvent value)?
+        setSelectedCoachId,
+    TResult? Function(setSelectedTermDocumentEvent value)? setSelectedTerm,
+    TResult? Function(setSelectedProgramDocumentEvent value)?
+        setSelectedProgram,
+    TResult? Function(setSelectedSessionDocumentEvent value)?
+        setSelectedSession,
+    TResult? Function(setSelectedPlayerDocumentEvent value)? setSelectedPlayer,
+    TResult? Function(SetDocumentForParentDocumentEvent value)?
+        setDoucmentForUpload,
+    TResult? Function(SubmitParentDocumentEvent value)? submitDocument,
+    TResult? Function(RemoveSelectedCoachEvent value)? removeSelectedCoach,
+    TResult? Function(RemoveSelectedTermsvent value)? removeSelectedTerms,
+    TResult? Function(RemoveSelectedProgramvent value)? removeSelectedProgram,
+    TResult? Function(RemoveSelectedSessionvent value)? removeSelectedSession,
+    TResult? Function(RemoveSelectedPlayervent value)? removeSelectedPlayer,
+    TResult? Function(SelectParentCoachEvent value)? selectParentOrCoach,
+    TResult? Function(ResetAfterDocumentUploadEvent value)?
+        resetAfterUploadDocument,
+    TResult? Function(DocumentIdSetForUpload value)? setDocumentId,
+  }) {
+    return getDeleteDociument?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(SelectedTabEvent value)? selectTabEvent,
+    TResult Function(GetUploadedParentDocument value)?
+        getParentUploadedDocument,
+    TResult Function(GetTermsSessionCoachingPlayerEvents value)?
+        getTermsSessionPlayer,
+    TResult Function(GetDeleteDocumentEvents value)? getDeleteDociument,
+    TResult Function(SetTitleParentDocumentEvent value)? setTitle,
+    TResult Function(SetMessageParentDocumentEvent value)? setMessage,
+    TResult Function(SetSelectedCoachIdParentDocumentEvent value)?
+        setSelectedCoachId,
+    TResult Function(setSelectedTermDocumentEvent value)? setSelectedTerm,
+    TResult Function(setSelectedProgramDocumentEvent value)? setSelectedProgram,
+    TResult Function(setSelectedSessionDocumentEvent value)? setSelectedSession,
+    TResult Function(setSelectedPlayerDocumentEvent value)? setSelectedPlayer,
+    TResult Function(SetDocumentForParentDocumentEvent value)?
+        setDoucmentForUpload,
+    TResult Function(SubmitParentDocumentEvent value)? submitDocument,
+    TResult Function(RemoveSelectedCoachEvent value)? removeSelectedCoach,
+    TResult Function(RemoveSelectedTermsvent value)? removeSelectedTerms,
+    TResult Function(RemoveSelectedProgramvent value)? removeSelectedProgram,
+    TResult Function(RemoveSelectedSessionvent value)? removeSelectedSession,
+    TResult Function(RemoveSelectedPlayervent value)? removeSelectedPlayer,
+    TResult Function(SelectParentCoachEvent value)? selectParentOrCoach,
+    TResult Function(ResetAfterDocumentUploadEvent value)?
+        resetAfterUploadDocument,
+    TResult Function(DocumentIdSetForUpload value)? setDocumentId,
+    required TResult orElse(),
+  }) {
+    if (getDeleteDociument != null) {
+      return getDeleteDociument(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class GetDeleteDocumentEvents implements AddDocumentEvent {
+  const factory GetDeleteDocumentEvents(final Map<String, dynamic> data) =
+      _$GetDeleteDocumentEventsImpl;
+
+  Map<String, dynamic> get data;
+
+  /// Create a copy of AddDocumentEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$GetDeleteDocumentEventsImplCopyWith<_$GetDeleteDocumentEventsImpl>
       get copyWith => throw _privateConstructorUsedError;
 }
 
@@ -1151,6 +1469,7 @@ class _$SetTitleParentDocumentEventImpl implements SetTitleParentDocumentEvent {
     required TResult Function(Map<String, dynamic> data)
         getParentUploadedDocument,
     required TResult Function(Map<String, dynamic> data) getTermsSessionPlayer,
+    required TResult Function(Map<String, dynamic> data) getDeleteDociument,
     required TResult Function(String title) setTitle,
     required TResult Function(String message) setMessage,
     required TResult Function(Coach caoch) setSelectedCoachId,
@@ -1179,6 +1498,7 @@ class _$SetTitleParentDocumentEventImpl implements SetTitleParentDocumentEvent {
     TResult? Function(int tabno)? selectTabEvent,
     TResult? Function(Map<String, dynamic> data)? getParentUploadedDocument,
     TResult? Function(Map<String, dynamic> data)? getTermsSessionPlayer,
+    TResult? Function(Map<String, dynamic> data)? getDeleteDociument,
     TResult? Function(String title)? setTitle,
     TResult? Function(String message)? setMessage,
     TResult? Function(Coach caoch)? setSelectedCoachId,
@@ -1207,6 +1527,7 @@ class _$SetTitleParentDocumentEventImpl implements SetTitleParentDocumentEvent {
     TResult Function(int tabno)? selectTabEvent,
     TResult Function(Map<String, dynamic> data)? getParentUploadedDocument,
     TResult Function(Map<String, dynamic> data)? getTermsSessionPlayer,
+    TResult Function(Map<String, dynamic> data)? getDeleteDociument,
     TResult Function(String title)? setTitle,
     TResult Function(String message)? setMessage,
     TResult Function(Coach caoch)? setSelectedCoachId,
@@ -1240,6 +1561,7 @@ class _$SetTitleParentDocumentEventImpl implements SetTitleParentDocumentEvent {
         getParentUploadedDocument,
     required TResult Function(GetTermsSessionCoachingPlayerEvents value)
         getTermsSessionPlayer,
+    required TResult Function(GetDeleteDocumentEvents value) getDeleteDociument,
     required TResult Function(SetTitleParentDocumentEvent value) setTitle,
     required TResult Function(SetMessageParentDocumentEvent value) setMessage,
     required TResult Function(SetSelectedCoachIdParentDocumentEvent value)
@@ -1281,6 +1603,7 @@ class _$SetTitleParentDocumentEventImpl implements SetTitleParentDocumentEvent {
         getParentUploadedDocument,
     TResult? Function(GetTermsSessionCoachingPlayerEvents value)?
         getTermsSessionPlayer,
+    TResult? Function(GetDeleteDocumentEvents value)? getDeleteDociument,
     TResult? Function(SetTitleParentDocumentEvent value)? setTitle,
     TResult? Function(SetMessageParentDocumentEvent value)? setMessage,
     TResult? Function(SetSelectedCoachIdParentDocumentEvent value)?
@@ -1315,6 +1638,7 @@ class _$SetTitleParentDocumentEventImpl implements SetTitleParentDocumentEvent {
         getParentUploadedDocument,
     TResult Function(GetTermsSessionCoachingPlayerEvents value)?
         getTermsSessionPlayer,
+    TResult Function(GetDeleteDocumentEvents value)? getDeleteDociument,
     TResult Function(SetTitleParentDocumentEvent value)? setTitle,
     TResult Function(SetMessageParentDocumentEvent value)? setMessage,
     TResult Function(SetSelectedCoachIdParentDocumentEvent value)?
@@ -1435,6 +1759,7 @@ class _$SetMessageParentDocumentEventImpl
     required TResult Function(Map<String, dynamic> data)
         getParentUploadedDocument,
     required TResult Function(Map<String, dynamic> data) getTermsSessionPlayer,
+    required TResult Function(Map<String, dynamic> data) getDeleteDociument,
     required TResult Function(String title) setTitle,
     required TResult Function(String message) setMessage,
     required TResult Function(Coach caoch) setSelectedCoachId,
@@ -1463,6 +1788,7 @@ class _$SetMessageParentDocumentEventImpl
     TResult? Function(int tabno)? selectTabEvent,
     TResult? Function(Map<String, dynamic> data)? getParentUploadedDocument,
     TResult? Function(Map<String, dynamic> data)? getTermsSessionPlayer,
+    TResult? Function(Map<String, dynamic> data)? getDeleteDociument,
     TResult? Function(String title)? setTitle,
     TResult? Function(String message)? setMessage,
     TResult? Function(Coach caoch)? setSelectedCoachId,
@@ -1491,6 +1817,7 @@ class _$SetMessageParentDocumentEventImpl
     TResult Function(int tabno)? selectTabEvent,
     TResult Function(Map<String, dynamic> data)? getParentUploadedDocument,
     TResult Function(Map<String, dynamic> data)? getTermsSessionPlayer,
+    TResult Function(Map<String, dynamic> data)? getDeleteDociument,
     TResult Function(String title)? setTitle,
     TResult Function(String message)? setMessage,
     TResult Function(Coach caoch)? setSelectedCoachId,
@@ -1524,6 +1851,7 @@ class _$SetMessageParentDocumentEventImpl
         getParentUploadedDocument,
     required TResult Function(GetTermsSessionCoachingPlayerEvents value)
         getTermsSessionPlayer,
+    required TResult Function(GetDeleteDocumentEvents value) getDeleteDociument,
     required TResult Function(SetTitleParentDocumentEvent value) setTitle,
     required TResult Function(SetMessageParentDocumentEvent value) setMessage,
     required TResult Function(SetSelectedCoachIdParentDocumentEvent value)
@@ -1565,6 +1893,7 @@ class _$SetMessageParentDocumentEventImpl
         getParentUploadedDocument,
     TResult? Function(GetTermsSessionCoachingPlayerEvents value)?
         getTermsSessionPlayer,
+    TResult? Function(GetDeleteDocumentEvents value)? getDeleteDociument,
     TResult? Function(SetTitleParentDocumentEvent value)? setTitle,
     TResult? Function(SetMessageParentDocumentEvent value)? setMessage,
     TResult? Function(SetSelectedCoachIdParentDocumentEvent value)?
@@ -1599,6 +1928,7 @@ class _$SetMessageParentDocumentEventImpl
         getParentUploadedDocument,
     TResult Function(GetTermsSessionCoachingPlayerEvents value)?
         getTermsSessionPlayer,
+    TResult Function(GetDeleteDocumentEvents value)? getDeleteDociument,
     TResult Function(SetTitleParentDocumentEvent value)? setTitle,
     TResult Function(SetMessageParentDocumentEvent value)? setMessage,
     TResult Function(SetSelectedCoachIdParentDocumentEvent value)?
@@ -1732,6 +2062,7 @@ class _$SetSelectedCoachIdParentDocumentEventImpl
     required TResult Function(Map<String, dynamic> data)
         getParentUploadedDocument,
     required TResult Function(Map<String, dynamic> data) getTermsSessionPlayer,
+    required TResult Function(Map<String, dynamic> data) getDeleteDociument,
     required TResult Function(String title) setTitle,
     required TResult Function(String message) setMessage,
     required TResult Function(Coach caoch) setSelectedCoachId,
@@ -1760,6 +2091,7 @@ class _$SetSelectedCoachIdParentDocumentEventImpl
     TResult? Function(int tabno)? selectTabEvent,
     TResult? Function(Map<String, dynamic> data)? getParentUploadedDocument,
     TResult? Function(Map<String, dynamic> data)? getTermsSessionPlayer,
+    TResult? Function(Map<String, dynamic> data)? getDeleteDociument,
     TResult? Function(String title)? setTitle,
     TResult? Function(String message)? setMessage,
     TResult? Function(Coach caoch)? setSelectedCoachId,
@@ -1788,6 +2120,7 @@ class _$SetSelectedCoachIdParentDocumentEventImpl
     TResult Function(int tabno)? selectTabEvent,
     TResult Function(Map<String, dynamic> data)? getParentUploadedDocument,
     TResult Function(Map<String, dynamic> data)? getTermsSessionPlayer,
+    TResult Function(Map<String, dynamic> data)? getDeleteDociument,
     TResult Function(String title)? setTitle,
     TResult Function(String message)? setMessage,
     TResult Function(Coach caoch)? setSelectedCoachId,
@@ -1821,6 +2154,7 @@ class _$SetSelectedCoachIdParentDocumentEventImpl
         getParentUploadedDocument,
     required TResult Function(GetTermsSessionCoachingPlayerEvents value)
         getTermsSessionPlayer,
+    required TResult Function(GetDeleteDocumentEvents value) getDeleteDociument,
     required TResult Function(SetTitleParentDocumentEvent value) setTitle,
     required TResult Function(SetMessageParentDocumentEvent value) setMessage,
     required TResult Function(SetSelectedCoachIdParentDocumentEvent value)
@@ -1862,6 +2196,7 @@ class _$SetSelectedCoachIdParentDocumentEventImpl
         getParentUploadedDocument,
     TResult? Function(GetTermsSessionCoachingPlayerEvents value)?
         getTermsSessionPlayer,
+    TResult? Function(GetDeleteDocumentEvents value)? getDeleteDociument,
     TResult? Function(SetTitleParentDocumentEvent value)? setTitle,
     TResult? Function(SetMessageParentDocumentEvent value)? setMessage,
     TResult? Function(SetSelectedCoachIdParentDocumentEvent value)?
@@ -1896,6 +2231,7 @@ class _$SetSelectedCoachIdParentDocumentEventImpl
         getParentUploadedDocument,
     TResult Function(GetTermsSessionCoachingPlayerEvents value)?
         getTermsSessionPlayer,
+    TResult Function(GetDeleteDocumentEvents value)? getDeleteDociument,
     TResult Function(SetTitleParentDocumentEvent value)? setTitle,
     TResult Function(SetMessageParentDocumentEvent value)? setMessage,
     TResult Function(SetSelectedCoachIdParentDocumentEvent value)?
@@ -2030,6 +2366,7 @@ class _$setSelectedTermDocumentEventImpl
     required TResult Function(Map<String, dynamic> data)
         getParentUploadedDocument,
     required TResult Function(Map<String, dynamic> data) getTermsSessionPlayer,
+    required TResult Function(Map<String, dynamic> data) getDeleteDociument,
     required TResult Function(String title) setTitle,
     required TResult Function(String message) setMessage,
     required TResult Function(Coach caoch) setSelectedCoachId,
@@ -2058,6 +2395,7 @@ class _$setSelectedTermDocumentEventImpl
     TResult? Function(int tabno)? selectTabEvent,
     TResult? Function(Map<String, dynamic> data)? getParentUploadedDocument,
     TResult? Function(Map<String, dynamic> data)? getTermsSessionPlayer,
+    TResult? Function(Map<String, dynamic> data)? getDeleteDociument,
     TResult? Function(String title)? setTitle,
     TResult? Function(String message)? setMessage,
     TResult? Function(Coach caoch)? setSelectedCoachId,
@@ -2086,6 +2424,7 @@ class _$setSelectedTermDocumentEventImpl
     TResult Function(int tabno)? selectTabEvent,
     TResult Function(Map<String, dynamic> data)? getParentUploadedDocument,
     TResult Function(Map<String, dynamic> data)? getTermsSessionPlayer,
+    TResult Function(Map<String, dynamic> data)? getDeleteDociument,
     TResult Function(String title)? setTitle,
     TResult Function(String message)? setMessage,
     TResult Function(Coach caoch)? setSelectedCoachId,
@@ -2119,6 +2458,7 @@ class _$setSelectedTermDocumentEventImpl
         getParentUploadedDocument,
     required TResult Function(GetTermsSessionCoachingPlayerEvents value)
         getTermsSessionPlayer,
+    required TResult Function(GetDeleteDocumentEvents value) getDeleteDociument,
     required TResult Function(SetTitleParentDocumentEvent value) setTitle,
     required TResult Function(SetMessageParentDocumentEvent value) setMessage,
     required TResult Function(SetSelectedCoachIdParentDocumentEvent value)
@@ -2160,6 +2500,7 @@ class _$setSelectedTermDocumentEventImpl
         getParentUploadedDocument,
     TResult? Function(GetTermsSessionCoachingPlayerEvents value)?
         getTermsSessionPlayer,
+    TResult? Function(GetDeleteDocumentEvents value)? getDeleteDociument,
     TResult? Function(SetTitleParentDocumentEvent value)? setTitle,
     TResult? Function(SetMessageParentDocumentEvent value)? setMessage,
     TResult? Function(SetSelectedCoachIdParentDocumentEvent value)?
@@ -2194,6 +2535,7 @@ class _$setSelectedTermDocumentEventImpl
         getParentUploadedDocument,
     TResult Function(GetTermsSessionCoachingPlayerEvents value)?
         getTermsSessionPlayer,
+    TResult Function(GetDeleteDocumentEvents value)? getDeleteDociument,
     TResult Function(SetTitleParentDocumentEvent value)? setTitle,
     TResult Function(SetMessageParentDocumentEvent value)? setMessage,
     TResult Function(SetSelectedCoachIdParentDocumentEvent value)?
@@ -2328,6 +2670,7 @@ class _$setSelectedProgramDocumentEventImpl
     required TResult Function(Map<String, dynamic> data)
         getParentUploadedDocument,
     required TResult Function(Map<String, dynamic> data) getTermsSessionPlayer,
+    required TResult Function(Map<String, dynamic> data) getDeleteDociument,
     required TResult Function(String title) setTitle,
     required TResult Function(String message) setMessage,
     required TResult Function(Coach caoch) setSelectedCoachId,
@@ -2356,6 +2699,7 @@ class _$setSelectedProgramDocumentEventImpl
     TResult? Function(int tabno)? selectTabEvent,
     TResult? Function(Map<String, dynamic> data)? getParentUploadedDocument,
     TResult? Function(Map<String, dynamic> data)? getTermsSessionPlayer,
+    TResult? Function(Map<String, dynamic> data)? getDeleteDociument,
     TResult? Function(String title)? setTitle,
     TResult? Function(String message)? setMessage,
     TResult? Function(Coach caoch)? setSelectedCoachId,
@@ -2384,6 +2728,7 @@ class _$setSelectedProgramDocumentEventImpl
     TResult Function(int tabno)? selectTabEvent,
     TResult Function(Map<String, dynamic> data)? getParentUploadedDocument,
     TResult Function(Map<String, dynamic> data)? getTermsSessionPlayer,
+    TResult Function(Map<String, dynamic> data)? getDeleteDociument,
     TResult Function(String title)? setTitle,
     TResult Function(String message)? setMessage,
     TResult Function(Coach caoch)? setSelectedCoachId,
@@ -2417,6 +2762,7 @@ class _$setSelectedProgramDocumentEventImpl
         getParentUploadedDocument,
     required TResult Function(GetTermsSessionCoachingPlayerEvents value)
         getTermsSessionPlayer,
+    required TResult Function(GetDeleteDocumentEvents value) getDeleteDociument,
     required TResult Function(SetTitleParentDocumentEvent value) setTitle,
     required TResult Function(SetMessageParentDocumentEvent value) setMessage,
     required TResult Function(SetSelectedCoachIdParentDocumentEvent value)
@@ -2458,6 +2804,7 @@ class _$setSelectedProgramDocumentEventImpl
         getParentUploadedDocument,
     TResult? Function(GetTermsSessionCoachingPlayerEvents value)?
         getTermsSessionPlayer,
+    TResult? Function(GetDeleteDocumentEvents value)? getDeleteDociument,
     TResult? Function(SetTitleParentDocumentEvent value)? setTitle,
     TResult? Function(SetMessageParentDocumentEvent value)? setMessage,
     TResult? Function(SetSelectedCoachIdParentDocumentEvent value)?
@@ -2492,6 +2839,7 @@ class _$setSelectedProgramDocumentEventImpl
         getParentUploadedDocument,
     TResult Function(GetTermsSessionCoachingPlayerEvents value)?
         getTermsSessionPlayer,
+    TResult Function(GetDeleteDocumentEvents value)? getDeleteDociument,
     TResult Function(SetTitleParentDocumentEvent value)? setTitle,
     TResult Function(SetMessageParentDocumentEvent value)? setMessage,
     TResult Function(SetSelectedCoachIdParentDocumentEvent value)?
@@ -2625,6 +2973,7 @@ class _$setSelectedSessionDocumentEventImpl
     required TResult Function(Map<String, dynamic> data)
         getParentUploadedDocument,
     required TResult Function(Map<String, dynamic> data) getTermsSessionPlayer,
+    required TResult Function(Map<String, dynamic> data) getDeleteDociument,
     required TResult Function(String title) setTitle,
     required TResult Function(String message) setMessage,
     required TResult Function(Coach caoch) setSelectedCoachId,
@@ -2653,6 +3002,7 @@ class _$setSelectedSessionDocumentEventImpl
     TResult? Function(int tabno)? selectTabEvent,
     TResult? Function(Map<String, dynamic> data)? getParentUploadedDocument,
     TResult? Function(Map<String, dynamic> data)? getTermsSessionPlayer,
+    TResult? Function(Map<String, dynamic> data)? getDeleteDociument,
     TResult? Function(String title)? setTitle,
     TResult? Function(String message)? setMessage,
     TResult? Function(Coach caoch)? setSelectedCoachId,
@@ -2681,6 +3031,7 @@ class _$setSelectedSessionDocumentEventImpl
     TResult Function(int tabno)? selectTabEvent,
     TResult Function(Map<String, dynamic> data)? getParentUploadedDocument,
     TResult Function(Map<String, dynamic> data)? getTermsSessionPlayer,
+    TResult Function(Map<String, dynamic> data)? getDeleteDociument,
     TResult Function(String title)? setTitle,
     TResult Function(String message)? setMessage,
     TResult Function(Coach caoch)? setSelectedCoachId,
@@ -2714,6 +3065,7 @@ class _$setSelectedSessionDocumentEventImpl
         getParentUploadedDocument,
     required TResult Function(GetTermsSessionCoachingPlayerEvents value)
         getTermsSessionPlayer,
+    required TResult Function(GetDeleteDocumentEvents value) getDeleteDociument,
     required TResult Function(SetTitleParentDocumentEvent value) setTitle,
     required TResult Function(SetMessageParentDocumentEvent value) setMessage,
     required TResult Function(SetSelectedCoachIdParentDocumentEvent value)
@@ -2755,6 +3107,7 @@ class _$setSelectedSessionDocumentEventImpl
         getParentUploadedDocument,
     TResult? Function(GetTermsSessionCoachingPlayerEvents value)?
         getTermsSessionPlayer,
+    TResult? Function(GetDeleteDocumentEvents value)? getDeleteDociument,
     TResult? Function(SetTitleParentDocumentEvent value)? setTitle,
     TResult? Function(SetMessageParentDocumentEvent value)? setMessage,
     TResult? Function(SetSelectedCoachIdParentDocumentEvent value)?
@@ -2789,6 +3142,7 @@ class _$setSelectedSessionDocumentEventImpl
         getParentUploadedDocument,
     TResult Function(GetTermsSessionCoachingPlayerEvents value)?
         getTermsSessionPlayer,
+    TResult Function(GetDeleteDocumentEvents value)? getDeleteDociument,
     TResult Function(SetTitleParentDocumentEvent value)? setTitle,
     TResult Function(SetMessageParentDocumentEvent value)? setMessage,
     TResult Function(SetSelectedCoachIdParentDocumentEvent value)?
@@ -2922,6 +3276,7 @@ class _$setSelectedPlayerDocumentEventImpl
     required TResult Function(Map<String, dynamic> data)
         getParentUploadedDocument,
     required TResult Function(Map<String, dynamic> data) getTermsSessionPlayer,
+    required TResult Function(Map<String, dynamic> data) getDeleteDociument,
     required TResult Function(String title) setTitle,
     required TResult Function(String message) setMessage,
     required TResult Function(Coach caoch) setSelectedCoachId,
@@ -2950,6 +3305,7 @@ class _$setSelectedPlayerDocumentEventImpl
     TResult? Function(int tabno)? selectTabEvent,
     TResult? Function(Map<String, dynamic> data)? getParentUploadedDocument,
     TResult? Function(Map<String, dynamic> data)? getTermsSessionPlayer,
+    TResult? Function(Map<String, dynamic> data)? getDeleteDociument,
     TResult? Function(String title)? setTitle,
     TResult? Function(String message)? setMessage,
     TResult? Function(Coach caoch)? setSelectedCoachId,
@@ -2978,6 +3334,7 @@ class _$setSelectedPlayerDocumentEventImpl
     TResult Function(int tabno)? selectTabEvent,
     TResult Function(Map<String, dynamic> data)? getParentUploadedDocument,
     TResult Function(Map<String, dynamic> data)? getTermsSessionPlayer,
+    TResult Function(Map<String, dynamic> data)? getDeleteDociument,
     TResult Function(String title)? setTitle,
     TResult Function(String message)? setMessage,
     TResult Function(Coach caoch)? setSelectedCoachId,
@@ -3011,6 +3368,7 @@ class _$setSelectedPlayerDocumentEventImpl
         getParentUploadedDocument,
     required TResult Function(GetTermsSessionCoachingPlayerEvents value)
         getTermsSessionPlayer,
+    required TResult Function(GetDeleteDocumentEvents value) getDeleteDociument,
     required TResult Function(SetTitleParentDocumentEvent value) setTitle,
     required TResult Function(SetMessageParentDocumentEvent value) setMessage,
     required TResult Function(SetSelectedCoachIdParentDocumentEvent value)
@@ -3052,6 +3410,7 @@ class _$setSelectedPlayerDocumentEventImpl
         getParentUploadedDocument,
     TResult? Function(GetTermsSessionCoachingPlayerEvents value)?
         getTermsSessionPlayer,
+    TResult? Function(GetDeleteDocumentEvents value)? getDeleteDociument,
     TResult? Function(SetTitleParentDocumentEvent value)? setTitle,
     TResult? Function(SetMessageParentDocumentEvent value)? setMessage,
     TResult? Function(SetSelectedCoachIdParentDocumentEvent value)?
@@ -3086,6 +3445,7 @@ class _$setSelectedPlayerDocumentEventImpl
         getParentUploadedDocument,
     TResult Function(GetTermsSessionCoachingPlayerEvents value)?
         getTermsSessionPlayer,
+    TResult Function(GetDeleteDocumentEvents value)? getDeleteDociument,
     TResult Function(SetTitleParentDocumentEvent value)? setTitle,
     TResult Function(SetMessageParentDocumentEvent value)? setMessage,
     TResult Function(SetSelectedCoachIdParentDocumentEvent value)?
@@ -3218,6 +3578,7 @@ class _$SetDocumentForParentDocumentEventImpl
     required TResult Function(Map<String, dynamic> data)
         getParentUploadedDocument,
     required TResult Function(Map<String, dynamic> data) getTermsSessionPlayer,
+    required TResult Function(Map<String, dynamic> data) getDeleteDociument,
     required TResult Function(String title) setTitle,
     required TResult Function(String message) setMessage,
     required TResult Function(Coach caoch) setSelectedCoachId,
@@ -3246,6 +3607,7 @@ class _$SetDocumentForParentDocumentEventImpl
     TResult? Function(int tabno)? selectTabEvent,
     TResult? Function(Map<String, dynamic> data)? getParentUploadedDocument,
     TResult? Function(Map<String, dynamic> data)? getTermsSessionPlayer,
+    TResult? Function(Map<String, dynamic> data)? getDeleteDociument,
     TResult? Function(String title)? setTitle,
     TResult? Function(String message)? setMessage,
     TResult? Function(Coach caoch)? setSelectedCoachId,
@@ -3274,6 +3636,7 @@ class _$SetDocumentForParentDocumentEventImpl
     TResult Function(int tabno)? selectTabEvent,
     TResult Function(Map<String, dynamic> data)? getParentUploadedDocument,
     TResult Function(Map<String, dynamic> data)? getTermsSessionPlayer,
+    TResult Function(Map<String, dynamic> data)? getDeleteDociument,
     TResult Function(String title)? setTitle,
     TResult Function(String message)? setMessage,
     TResult Function(Coach caoch)? setSelectedCoachId,
@@ -3307,6 +3670,7 @@ class _$SetDocumentForParentDocumentEventImpl
         getParentUploadedDocument,
     required TResult Function(GetTermsSessionCoachingPlayerEvents value)
         getTermsSessionPlayer,
+    required TResult Function(GetDeleteDocumentEvents value) getDeleteDociument,
     required TResult Function(SetTitleParentDocumentEvent value) setTitle,
     required TResult Function(SetMessageParentDocumentEvent value) setMessage,
     required TResult Function(SetSelectedCoachIdParentDocumentEvent value)
@@ -3348,6 +3712,7 @@ class _$SetDocumentForParentDocumentEventImpl
         getParentUploadedDocument,
     TResult? Function(GetTermsSessionCoachingPlayerEvents value)?
         getTermsSessionPlayer,
+    TResult? Function(GetDeleteDocumentEvents value)? getDeleteDociument,
     TResult? Function(SetTitleParentDocumentEvent value)? setTitle,
     TResult? Function(SetMessageParentDocumentEvent value)? setMessage,
     TResult? Function(SetSelectedCoachIdParentDocumentEvent value)?
@@ -3382,6 +3747,7 @@ class _$SetDocumentForParentDocumentEventImpl
         getParentUploadedDocument,
     TResult Function(GetTermsSessionCoachingPlayerEvents value)?
         getTermsSessionPlayer,
+    TResult Function(GetDeleteDocumentEvents value)? getDeleteDociument,
     TResult Function(SetTitleParentDocumentEvent value)? setTitle,
     TResult Function(SetMessageParentDocumentEvent value)? setMessage,
     TResult Function(SetSelectedCoachIdParentDocumentEvent value)?
@@ -3476,6 +3842,7 @@ class _$SubmitParentDocumentEventImpl implements SubmitParentDocumentEvent {
     required TResult Function(Map<String, dynamic> data)
         getParentUploadedDocument,
     required TResult Function(Map<String, dynamic> data) getTermsSessionPlayer,
+    required TResult Function(Map<String, dynamic> data) getDeleteDociument,
     required TResult Function(String title) setTitle,
     required TResult Function(String message) setMessage,
     required TResult Function(Coach caoch) setSelectedCoachId,
@@ -3504,6 +3871,7 @@ class _$SubmitParentDocumentEventImpl implements SubmitParentDocumentEvent {
     TResult? Function(int tabno)? selectTabEvent,
     TResult? Function(Map<String, dynamic> data)? getParentUploadedDocument,
     TResult? Function(Map<String, dynamic> data)? getTermsSessionPlayer,
+    TResult? Function(Map<String, dynamic> data)? getDeleteDociument,
     TResult? Function(String title)? setTitle,
     TResult? Function(String message)? setMessage,
     TResult? Function(Coach caoch)? setSelectedCoachId,
@@ -3532,6 +3900,7 @@ class _$SubmitParentDocumentEventImpl implements SubmitParentDocumentEvent {
     TResult Function(int tabno)? selectTabEvent,
     TResult Function(Map<String, dynamic> data)? getParentUploadedDocument,
     TResult Function(Map<String, dynamic> data)? getTermsSessionPlayer,
+    TResult Function(Map<String, dynamic> data)? getDeleteDociument,
     TResult Function(String title)? setTitle,
     TResult Function(String message)? setMessage,
     TResult Function(Coach caoch)? setSelectedCoachId,
@@ -3565,6 +3934,7 @@ class _$SubmitParentDocumentEventImpl implements SubmitParentDocumentEvent {
         getParentUploadedDocument,
     required TResult Function(GetTermsSessionCoachingPlayerEvents value)
         getTermsSessionPlayer,
+    required TResult Function(GetDeleteDocumentEvents value) getDeleteDociument,
     required TResult Function(SetTitleParentDocumentEvent value) setTitle,
     required TResult Function(SetMessageParentDocumentEvent value) setMessage,
     required TResult Function(SetSelectedCoachIdParentDocumentEvent value)
@@ -3606,6 +3976,7 @@ class _$SubmitParentDocumentEventImpl implements SubmitParentDocumentEvent {
         getParentUploadedDocument,
     TResult? Function(GetTermsSessionCoachingPlayerEvents value)?
         getTermsSessionPlayer,
+    TResult? Function(GetDeleteDocumentEvents value)? getDeleteDociument,
     TResult? Function(SetTitleParentDocumentEvent value)? setTitle,
     TResult? Function(SetMessageParentDocumentEvent value)? setMessage,
     TResult? Function(SetSelectedCoachIdParentDocumentEvent value)?
@@ -3640,6 +4011,7 @@ class _$SubmitParentDocumentEventImpl implements SubmitParentDocumentEvent {
         getParentUploadedDocument,
     TResult Function(GetTermsSessionCoachingPlayerEvents value)?
         getTermsSessionPlayer,
+    TResult Function(GetDeleteDocumentEvents value)? getDeleteDociument,
     TResult Function(SetTitleParentDocumentEvent value)? setTitle,
     TResult Function(SetMessageParentDocumentEvent value)? setMessage,
     TResult Function(SetSelectedCoachIdParentDocumentEvent value)?
@@ -3760,6 +4132,7 @@ class _$RemoveSelectedCoachEventImpl implements RemoveSelectedCoachEvent {
     required TResult Function(Map<String, dynamic> data)
         getParentUploadedDocument,
     required TResult Function(Map<String, dynamic> data) getTermsSessionPlayer,
+    required TResult Function(Map<String, dynamic> data) getDeleteDociument,
     required TResult Function(String title) setTitle,
     required TResult Function(String message) setMessage,
     required TResult Function(Coach caoch) setSelectedCoachId,
@@ -3788,6 +4161,7 @@ class _$RemoveSelectedCoachEventImpl implements RemoveSelectedCoachEvent {
     TResult? Function(int tabno)? selectTabEvent,
     TResult? Function(Map<String, dynamic> data)? getParentUploadedDocument,
     TResult? Function(Map<String, dynamic> data)? getTermsSessionPlayer,
+    TResult? Function(Map<String, dynamic> data)? getDeleteDociument,
     TResult? Function(String title)? setTitle,
     TResult? Function(String message)? setMessage,
     TResult? Function(Coach caoch)? setSelectedCoachId,
@@ -3816,6 +4190,7 @@ class _$RemoveSelectedCoachEventImpl implements RemoveSelectedCoachEvent {
     TResult Function(int tabno)? selectTabEvent,
     TResult Function(Map<String, dynamic> data)? getParentUploadedDocument,
     TResult Function(Map<String, dynamic> data)? getTermsSessionPlayer,
+    TResult Function(Map<String, dynamic> data)? getDeleteDociument,
     TResult Function(String title)? setTitle,
     TResult Function(String message)? setMessage,
     TResult Function(Coach caoch)? setSelectedCoachId,
@@ -3849,6 +4224,7 @@ class _$RemoveSelectedCoachEventImpl implements RemoveSelectedCoachEvent {
         getParentUploadedDocument,
     required TResult Function(GetTermsSessionCoachingPlayerEvents value)
         getTermsSessionPlayer,
+    required TResult Function(GetDeleteDocumentEvents value) getDeleteDociument,
     required TResult Function(SetTitleParentDocumentEvent value) setTitle,
     required TResult Function(SetMessageParentDocumentEvent value) setMessage,
     required TResult Function(SetSelectedCoachIdParentDocumentEvent value)
@@ -3890,6 +4266,7 @@ class _$RemoveSelectedCoachEventImpl implements RemoveSelectedCoachEvent {
         getParentUploadedDocument,
     TResult? Function(GetTermsSessionCoachingPlayerEvents value)?
         getTermsSessionPlayer,
+    TResult? Function(GetDeleteDocumentEvents value)? getDeleteDociument,
     TResult? Function(SetTitleParentDocumentEvent value)? setTitle,
     TResult? Function(SetMessageParentDocumentEvent value)? setMessage,
     TResult? Function(SetSelectedCoachIdParentDocumentEvent value)?
@@ -3924,6 +4301,7 @@ class _$RemoveSelectedCoachEventImpl implements RemoveSelectedCoachEvent {
         getParentUploadedDocument,
     TResult Function(GetTermsSessionCoachingPlayerEvents value)?
         getTermsSessionPlayer,
+    TResult Function(GetDeleteDocumentEvents value)? getDeleteDociument,
     TResult Function(SetTitleParentDocumentEvent value)? setTitle,
     TResult Function(SetMessageParentDocumentEvent value)? setMessage,
     TResult Function(SetSelectedCoachIdParentDocumentEvent value)?
@@ -4053,6 +4431,7 @@ class _$RemoveSelectedTermsventImpl implements RemoveSelectedTermsvent {
     required TResult Function(Map<String, dynamic> data)
         getParentUploadedDocument,
     required TResult Function(Map<String, dynamic> data) getTermsSessionPlayer,
+    required TResult Function(Map<String, dynamic> data) getDeleteDociument,
     required TResult Function(String title) setTitle,
     required TResult Function(String message) setMessage,
     required TResult Function(Coach caoch) setSelectedCoachId,
@@ -4081,6 +4460,7 @@ class _$RemoveSelectedTermsventImpl implements RemoveSelectedTermsvent {
     TResult? Function(int tabno)? selectTabEvent,
     TResult? Function(Map<String, dynamic> data)? getParentUploadedDocument,
     TResult? Function(Map<String, dynamic> data)? getTermsSessionPlayer,
+    TResult? Function(Map<String, dynamic> data)? getDeleteDociument,
     TResult? Function(String title)? setTitle,
     TResult? Function(String message)? setMessage,
     TResult? Function(Coach caoch)? setSelectedCoachId,
@@ -4109,6 +4489,7 @@ class _$RemoveSelectedTermsventImpl implements RemoveSelectedTermsvent {
     TResult Function(int tabno)? selectTabEvent,
     TResult Function(Map<String, dynamic> data)? getParentUploadedDocument,
     TResult Function(Map<String, dynamic> data)? getTermsSessionPlayer,
+    TResult Function(Map<String, dynamic> data)? getDeleteDociument,
     TResult Function(String title)? setTitle,
     TResult Function(String message)? setMessage,
     TResult Function(Coach caoch)? setSelectedCoachId,
@@ -4142,6 +4523,7 @@ class _$RemoveSelectedTermsventImpl implements RemoveSelectedTermsvent {
         getParentUploadedDocument,
     required TResult Function(GetTermsSessionCoachingPlayerEvents value)
         getTermsSessionPlayer,
+    required TResult Function(GetDeleteDocumentEvents value) getDeleteDociument,
     required TResult Function(SetTitleParentDocumentEvent value) setTitle,
     required TResult Function(SetMessageParentDocumentEvent value) setMessage,
     required TResult Function(SetSelectedCoachIdParentDocumentEvent value)
@@ -4183,6 +4565,7 @@ class _$RemoveSelectedTermsventImpl implements RemoveSelectedTermsvent {
         getParentUploadedDocument,
     TResult? Function(GetTermsSessionCoachingPlayerEvents value)?
         getTermsSessionPlayer,
+    TResult? Function(GetDeleteDocumentEvents value)? getDeleteDociument,
     TResult? Function(SetTitleParentDocumentEvent value)? setTitle,
     TResult? Function(SetMessageParentDocumentEvent value)? setMessage,
     TResult? Function(SetSelectedCoachIdParentDocumentEvent value)?
@@ -4217,6 +4600,7 @@ class _$RemoveSelectedTermsventImpl implements RemoveSelectedTermsvent {
         getParentUploadedDocument,
     TResult Function(GetTermsSessionCoachingPlayerEvents value)?
         getTermsSessionPlayer,
+    TResult Function(GetDeleteDocumentEvents value)? getDeleteDociument,
     TResult Function(SetTitleParentDocumentEvent value)? setTitle,
     TResult Function(SetMessageParentDocumentEvent value)? setMessage,
     TResult Function(SetSelectedCoachIdParentDocumentEvent value)?
@@ -4347,6 +4731,7 @@ class _$RemoveSelectedProgramventImpl implements RemoveSelectedProgramvent {
     required TResult Function(Map<String, dynamic> data)
         getParentUploadedDocument,
     required TResult Function(Map<String, dynamic> data) getTermsSessionPlayer,
+    required TResult Function(Map<String, dynamic> data) getDeleteDociument,
     required TResult Function(String title) setTitle,
     required TResult Function(String message) setMessage,
     required TResult Function(Coach caoch) setSelectedCoachId,
@@ -4375,6 +4760,7 @@ class _$RemoveSelectedProgramventImpl implements RemoveSelectedProgramvent {
     TResult? Function(int tabno)? selectTabEvent,
     TResult? Function(Map<String, dynamic> data)? getParentUploadedDocument,
     TResult? Function(Map<String, dynamic> data)? getTermsSessionPlayer,
+    TResult? Function(Map<String, dynamic> data)? getDeleteDociument,
     TResult? Function(String title)? setTitle,
     TResult? Function(String message)? setMessage,
     TResult? Function(Coach caoch)? setSelectedCoachId,
@@ -4403,6 +4789,7 @@ class _$RemoveSelectedProgramventImpl implements RemoveSelectedProgramvent {
     TResult Function(int tabno)? selectTabEvent,
     TResult Function(Map<String, dynamic> data)? getParentUploadedDocument,
     TResult Function(Map<String, dynamic> data)? getTermsSessionPlayer,
+    TResult Function(Map<String, dynamic> data)? getDeleteDociument,
     TResult Function(String title)? setTitle,
     TResult Function(String message)? setMessage,
     TResult Function(Coach caoch)? setSelectedCoachId,
@@ -4436,6 +4823,7 @@ class _$RemoveSelectedProgramventImpl implements RemoveSelectedProgramvent {
         getParentUploadedDocument,
     required TResult Function(GetTermsSessionCoachingPlayerEvents value)
         getTermsSessionPlayer,
+    required TResult Function(GetDeleteDocumentEvents value) getDeleteDociument,
     required TResult Function(SetTitleParentDocumentEvent value) setTitle,
     required TResult Function(SetMessageParentDocumentEvent value) setMessage,
     required TResult Function(SetSelectedCoachIdParentDocumentEvent value)
@@ -4477,6 +4865,7 @@ class _$RemoveSelectedProgramventImpl implements RemoveSelectedProgramvent {
         getParentUploadedDocument,
     TResult? Function(GetTermsSessionCoachingPlayerEvents value)?
         getTermsSessionPlayer,
+    TResult? Function(GetDeleteDocumentEvents value)? getDeleteDociument,
     TResult? Function(SetTitleParentDocumentEvent value)? setTitle,
     TResult? Function(SetMessageParentDocumentEvent value)? setMessage,
     TResult? Function(SetSelectedCoachIdParentDocumentEvent value)?
@@ -4511,6 +4900,7 @@ class _$RemoveSelectedProgramventImpl implements RemoveSelectedProgramvent {
         getParentUploadedDocument,
     TResult Function(GetTermsSessionCoachingPlayerEvents value)?
         getTermsSessionPlayer,
+    TResult Function(GetDeleteDocumentEvents value)? getDeleteDociument,
     TResult Function(SetTitleParentDocumentEvent value)? setTitle,
     TResult Function(SetMessageParentDocumentEvent value)? setMessage,
     TResult Function(SetSelectedCoachIdParentDocumentEvent value)?
@@ -4641,6 +5031,7 @@ class _$RemoveSelectedSessionventImpl implements RemoveSelectedSessionvent {
     required TResult Function(Map<String, dynamic> data)
         getParentUploadedDocument,
     required TResult Function(Map<String, dynamic> data) getTermsSessionPlayer,
+    required TResult Function(Map<String, dynamic> data) getDeleteDociument,
     required TResult Function(String title) setTitle,
     required TResult Function(String message) setMessage,
     required TResult Function(Coach caoch) setSelectedCoachId,
@@ -4669,6 +5060,7 @@ class _$RemoveSelectedSessionventImpl implements RemoveSelectedSessionvent {
     TResult? Function(int tabno)? selectTabEvent,
     TResult? Function(Map<String, dynamic> data)? getParentUploadedDocument,
     TResult? Function(Map<String, dynamic> data)? getTermsSessionPlayer,
+    TResult? Function(Map<String, dynamic> data)? getDeleteDociument,
     TResult? Function(String title)? setTitle,
     TResult? Function(String message)? setMessage,
     TResult? Function(Coach caoch)? setSelectedCoachId,
@@ -4697,6 +5089,7 @@ class _$RemoveSelectedSessionventImpl implements RemoveSelectedSessionvent {
     TResult Function(int tabno)? selectTabEvent,
     TResult Function(Map<String, dynamic> data)? getParentUploadedDocument,
     TResult Function(Map<String, dynamic> data)? getTermsSessionPlayer,
+    TResult Function(Map<String, dynamic> data)? getDeleteDociument,
     TResult Function(String title)? setTitle,
     TResult Function(String message)? setMessage,
     TResult Function(Coach caoch)? setSelectedCoachId,
@@ -4730,6 +5123,7 @@ class _$RemoveSelectedSessionventImpl implements RemoveSelectedSessionvent {
         getParentUploadedDocument,
     required TResult Function(GetTermsSessionCoachingPlayerEvents value)
         getTermsSessionPlayer,
+    required TResult Function(GetDeleteDocumentEvents value) getDeleteDociument,
     required TResult Function(SetTitleParentDocumentEvent value) setTitle,
     required TResult Function(SetMessageParentDocumentEvent value) setMessage,
     required TResult Function(SetSelectedCoachIdParentDocumentEvent value)
@@ -4771,6 +5165,7 @@ class _$RemoveSelectedSessionventImpl implements RemoveSelectedSessionvent {
         getParentUploadedDocument,
     TResult? Function(GetTermsSessionCoachingPlayerEvents value)?
         getTermsSessionPlayer,
+    TResult? Function(GetDeleteDocumentEvents value)? getDeleteDociument,
     TResult? Function(SetTitleParentDocumentEvent value)? setTitle,
     TResult? Function(SetMessageParentDocumentEvent value)? setMessage,
     TResult? Function(SetSelectedCoachIdParentDocumentEvent value)?
@@ -4805,6 +5200,7 @@ class _$RemoveSelectedSessionventImpl implements RemoveSelectedSessionvent {
         getParentUploadedDocument,
     TResult Function(GetTermsSessionCoachingPlayerEvents value)?
         getTermsSessionPlayer,
+    TResult Function(GetDeleteDocumentEvents value)? getDeleteDociument,
     TResult Function(SetTitleParentDocumentEvent value)? setTitle,
     TResult Function(SetMessageParentDocumentEvent value)? setMessage,
     TResult Function(SetSelectedCoachIdParentDocumentEvent value)?
@@ -4934,6 +5330,7 @@ class _$RemoveSelectedPlayerventImpl implements RemoveSelectedPlayervent {
     required TResult Function(Map<String, dynamic> data)
         getParentUploadedDocument,
     required TResult Function(Map<String, dynamic> data) getTermsSessionPlayer,
+    required TResult Function(Map<String, dynamic> data) getDeleteDociument,
     required TResult Function(String title) setTitle,
     required TResult Function(String message) setMessage,
     required TResult Function(Coach caoch) setSelectedCoachId,
@@ -4962,6 +5359,7 @@ class _$RemoveSelectedPlayerventImpl implements RemoveSelectedPlayervent {
     TResult? Function(int tabno)? selectTabEvent,
     TResult? Function(Map<String, dynamic> data)? getParentUploadedDocument,
     TResult? Function(Map<String, dynamic> data)? getTermsSessionPlayer,
+    TResult? Function(Map<String, dynamic> data)? getDeleteDociument,
     TResult? Function(String title)? setTitle,
     TResult? Function(String message)? setMessage,
     TResult? Function(Coach caoch)? setSelectedCoachId,
@@ -4990,6 +5388,7 @@ class _$RemoveSelectedPlayerventImpl implements RemoveSelectedPlayervent {
     TResult Function(int tabno)? selectTabEvent,
     TResult Function(Map<String, dynamic> data)? getParentUploadedDocument,
     TResult Function(Map<String, dynamic> data)? getTermsSessionPlayer,
+    TResult Function(Map<String, dynamic> data)? getDeleteDociument,
     TResult Function(String title)? setTitle,
     TResult Function(String message)? setMessage,
     TResult Function(Coach caoch)? setSelectedCoachId,
@@ -5023,6 +5422,7 @@ class _$RemoveSelectedPlayerventImpl implements RemoveSelectedPlayervent {
         getParentUploadedDocument,
     required TResult Function(GetTermsSessionCoachingPlayerEvents value)
         getTermsSessionPlayer,
+    required TResult Function(GetDeleteDocumentEvents value) getDeleteDociument,
     required TResult Function(SetTitleParentDocumentEvent value) setTitle,
     required TResult Function(SetMessageParentDocumentEvent value) setMessage,
     required TResult Function(SetSelectedCoachIdParentDocumentEvent value)
@@ -5064,6 +5464,7 @@ class _$RemoveSelectedPlayerventImpl implements RemoveSelectedPlayervent {
         getParentUploadedDocument,
     TResult? Function(GetTermsSessionCoachingPlayerEvents value)?
         getTermsSessionPlayer,
+    TResult? Function(GetDeleteDocumentEvents value)? getDeleteDociument,
     TResult? Function(SetTitleParentDocumentEvent value)? setTitle,
     TResult? Function(SetMessageParentDocumentEvent value)? setMessage,
     TResult? Function(SetSelectedCoachIdParentDocumentEvent value)?
@@ -5098,6 +5499,7 @@ class _$RemoveSelectedPlayerventImpl implements RemoveSelectedPlayervent {
         getParentUploadedDocument,
     TResult Function(GetTermsSessionCoachingPlayerEvents value)?
         getTermsSessionPlayer,
+    TResult Function(GetDeleteDocumentEvents value)? getDeleteDociument,
     TResult Function(SetTitleParentDocumentEvent value)? setTitle,
     TResult Function(SetMessageParentDocumentEvent value)? setMessage,
     TResult Function(SetSelectedCoachIdParentDocumentEvent value)?
@@ -5216,6 +5618,7 @@ class _$SelectParentCoachEventImpl implements SelectParentCoachEvent {
     required TResult Function(Map<String, dynamic> data)
         getParentUploadedDocument,
     required TResult Function(Map<String, dynamic> data) getTermsSessionPlayer,
+    required TResult Function(Map<String, dynamic> data) getDeleteDociument,
     required TResult Function(String title) setTitle,
     required TResult Function(String message) setMessage,
     required TResult Function(Coach caoch) setSelectedCoachId,
@@ -5244,6 +5647,7 @@ class _$SelectParentCoachEventImpl implements SelectParentCoachEvent {
     TResult? Function(int tabno)? selectTabEvent,
     TResult? Function(Map<String, dynamic> data)? getParentUploadedDocument,
     TResult? Function(Map<String, dynamic> data)? getTermsSessionPlayer,
+    TResult? Function(Map<String, dynamic> data)? getDeleteDociument,
     TResult? Function(String title)? setTitle,
     TResult? Function(String message)? setMessage,
     TResult? Function(Coach caoch)? setSelectedCoachId,
@@ -5272,6 +5676,7 @@ class _$SelectParentCoachEventImpl implements SelectParentCoachEvent {
     TResult Function(int tabno)? selectTabEvent,
     TResult Function(Map<String, dynamic> data)? getParentUploadedDocument,
     TResult Function(Map<String, dynamic> data)? getTermsSessionPlayer,
+    TResult Function(Map<String, dynamic> data)? getDeleteDociument,
     TResult Function(String title)? setTitle,
     TResult Function(String message)? setMessage,
     TResult Function(Coach caoch)? setSelectedCoachId,
@@ -5305,6 +5710,7 @@ class _$SelectParentCoachEventImpl implements SelectParentCoachEvent {
         getParentUploadedDocument,
     required TResult Function(GetTermsSessionCoachingPlayerEvents value)
         getTermsSessionPlayer,
+    required TResult Function(GetDeleteDocumentEvents value) getDeleteDociument,
     required TResult Function(SetTitleParentDocumentEvent value) setTitle,
     required TResult Function(SetMessageParentDocumentEvent value) setMessage,
     required TResult Function(SetSelectedCoachIdParentDocumentEvent value)
@@ -5346,6 +5752,7 @@ class _$SelectParentCoachEventImpl implements SelectParentCoachEvent {
         getParentUploadedDocument,
     TResult? Function(GetTermsSessionCoachingPlayerEvents value)?
         getTermsSessionPlayer,
+    TResult? Function(GetDeleteDocumentEvents value)? getDeleteDociument,
     TResult? Function(SetTitleParentDocumentEvent value)? setTitle,
     TResult? Function(SetMessageParentDocumentEvent value)? setMessage,
     TResult? Function(SetSelectedCoachIdParentDocumentEvent value)?
@@ -5380,6 +5787,7 @@ class _$SelectParentCoachEventImpl implements SelectParentCoachEvent {
         getParentUploadedDocument,
     TResult Function(GetTermsSessionCoachingPlayerEvents value)?
         getTermsSessionPlayer,
+    TResult Function(GetDeleteDocumentEvents value)? getDeleteDociument,
     TResult Function(SetTitleParentDocumentEvent value)? setTitle,
     TResult Function(SetMessageParentDocumentEvent value)? setMessage,
     TResult Function(SetSelectedCoachIdParentDocumentEvent value)?
@@ -5472,6 +5880,7 @@ class _$ResetAfterDocumentUploadEventImpl
     required TResult Function(Map<String, dynamic> data)
         getParentUploadedDocument,
     required TResult Function(Map<String, dynamic> data) getTermsSessionPlayer,
+    required TResult Function(Map<String, dynamic> data) getDeleteDociument,
     required TResult Function(String title) setTitle,
     required TResult Function(String message) setMessage,
     required TResult Function(Coach caoch) setSelectedCoachId,
@@ -5500,6 +5909,7 @@ class _$ResetAfterDocumentUploadEventImpl
     TResult? Function(int tabno)? selectTabEvent,
     TResult? Function(Map<String, dynamic> data)? getParentUploadedDocument,
     TResult? Function(Map<String, dynamic> data)? getTermsSessionPlayer,
+    TResult? Function(Map<String, dynamic> data)? getDeleteDociument,
     TResult? Function(String title)? setTitle,
     TResult? Function(String message)? setMessage,
     TResult? Function(Coach caoch)? setSelectedCoachId,
@@ -5528,6 +5938,7 @@ class _$ResetAfterDocumentUploadEventImpl
     TResult Function(int tabno)? selectTabEvent,
     TResult Function(Map<String, dynamic> data)? getParentUploadedDocument,
     TResult Function(Map<String, dynamic> data)? getTermsSessionPlayer,
+    TResult Function(Map<String, dynamic> data)? getDeleteDociument,
     TResult Function(String title)? setTitle,
     TResult Function(String message)? setMessage,
     TResult Function(Coach caoch)? setSelectedCoachId,
@@ -5561,6 +5972,7 @@ class _$ResetAfterDocumentUploadEventImpl
         getParentUploadedDocument,
     required TResult Function(GetTermsSessionCoachingPlayerEvents value)
         getTermsSessionPlayer,
+    required TResult Function(GetDeleteDocumentEvents value) getDeleteDociument,
     required TResult Function(SetTitleParentDocumentEvent value) setTitle,
     required TResult Function(SetMessageParentDocumentEvent value) setMessage,
     required TResult Function(SetSelectedCoachIdParentDocumentEvent value)
@@ -5602,6 +6014,7 @@ class _$ResetAfterDocumentUploadEventImpl
         getParentUploadedDocument,
     TResult? Function(GetTermsSessionCoachingPlayerEvents value)?
         getTermsSessionPlayer,
+    TResult? Function(GetDeleteDocumentEvents value)? getDeleteDociument,
     TResult? Function(SetTitleParentDocumentEvent value)? setTitle,
     TResult? Function(SetMessageParentDocumentEvent value)? setMessage,
     TResult? Function(SetSelectedCoachIdParentDocumentEvent value)?
@@ -5636,6 +6049,7 @@ class _$ResetAfterDocumentUploadEventImpl
         getParentUploadedDocument,
     TResult Function(GetTermsSessionCoachingPlayerEvents value)?
         getTermsSessionPlayer,
+    TResult Function(GetDeleteDocumentEvents value)? getDeleteDociument,
     TResult Function(SetTitleParentDocumentEvent value)? setTitle,
     TResult Function(SetMessageParentDocumentEvent value)? setMessage,
     TResult Function(SetSelectedCoachIdParentDocumentEvent value)?
@@ -5745,6 +6159,7 @@ class _$DocumentIdSetForUploadImpl implements DocumentIdSetForUpload {
     required TResult Function(Map<String, dynamic> data)
         getParentUploadedDocument,
     required TResult Function(Map<String, dynamic> data) getTermsSessionPlayer,
+    required TResult Function(Map<String, dynamic> data) getDeleteDociument,
     required TResult Function(String title) setTitle,
     required TResult Function(String message) setMessage,
     required TResult Function(Coach caoch) setSelectedCoachId,
@@ -5773,6 +6188,7 @@ class _$DocumentIdSetForUploadImpl implements DocumentIdSetForUpload {
     TResult? Function(int tabno)? selectTabEvent,
     TResult? Function(Map<String, dynamic> data)? getParentUploadedDocument,
     TResult? Function(Map<String, dynamic> data)? getTermsSessionPlayer,
+    TResult? Function(Map<String, dynamic> data)? getDeleteDociument,
     TResult? Function(String title)? setTitle,
     TResult? Function(String message)? setMessage,
     TResult? Function(Coach caoch)? setSelectedCoachId,
@@ -5801,6 +6217,7 @@ class _$DocumentIdSetForUploadImpl implements DocumentIdSetForUpload {
     TResult Function(int tabno)? selectTabEvent,
     TResult Function(Map<String, dynamic> data)? getParentUploadedDocument,
     TResult Function(Map<String, dynamic> data)? getTermsSessionPlayer,
+    TResult Function(Map<String, dynamic> data)? getDeleteDociument,
     TResult Function(String title)? setTitle,
     TResult Function(String message)? setMessage,
     TResult Function(Coach caoch)? setSelectedCoachId,
@@ -5834,6 +6251,7 @@ class _$DocumentIdSetForUploadImpl implements DocumentIdSetForUpload {
         getParentUploadedDocument,
     required TResult Function(GetTermsSessionCoachingPlayerEvents value)
         getTermsSessionPlayer,
+    required TResult Function(GetDeleteDocumentEvents value) getDeleteDociument,
     required TResult Function(SetTitleParentDocumentEvent value) setTitle,
     required TResult Function(SetMessageParentDocumentEvent value) setMessage,
     required TResult Function(SetSelectedCoachIdParentDocumentEvent value)
@@ -5875,6 +6293,7 @@ class _$DocumentIdSetForUploadImpl implements DocumentIdSetForUpload {
         getParentUploadedDocument,
     TResult? Function(GetTermsSessionCoachingPlayerEvents value)?
         getTermsSessionPlayer,
+    TResult? Function(GetDeleteDocumentEvents value)? getDeleteDociument,
     TResult? Function(SetTitleParentDocumentEvent value)? setTitle,
     TResult? Function(SetMessageParentDocumentEvent value)? setMessage,
     TResult? Function(SetSelectedCoachIdParentDocumentEvent value)?
@@ -5909,6 +6328,7 @@ class _$DocumentIdSetForUploadImpl implements DocumentIdSetForUpload {
         getParentUploadedDocument,
     TResult Function(GetTermsSessionCoachingPlayerEvents value)?
         getTermsSessionPlayer,
+    TResult Function(GetDeleteDocumentEvents value)? getDeleteDociument,
     TResult Function(SetTitleParentDocumentEvent value)? setTitle,
     TResult Function(SetMessageParentDocumentEvent value)? setMessage,
     TResult Function(SetSelectedCoachIdParentDocumentEvent value)?

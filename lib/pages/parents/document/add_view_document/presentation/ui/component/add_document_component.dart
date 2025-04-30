@@ -78,6 +78,8 @@ class AddDocumentComponent extends StatelessWidget {
                   isPass: false,
                   isSuffix: false,
                   isPrefix: false,
+                  maxLines: 1,
+                  minLine: 1,
                   hint: 'Enter Title',
                   keyBoardType: TextInputType.name,
                   errorMessage: "",

@@ -42,6 +42,7 @@ class AddDocumentBloc extends Bloc<AddDocumentEvent, AddDocumentState> {
     on<SelectParentCoachEvent>(photoConsent);
     on<GetTermsSessionCoachingPlayerEvents>(_getTermsSessioCoachingPlayer);
     on<ResetAfterDocumentUploadEvent>(_restAfterUploadDocument);
+    on<GetDeleteDocumentEvents>(_deleteDocument);
   }
 
   // Handle photo consent status change
@@ -482,4 +483,90 @@ class AddDocumentBloc extends Bloc<AddDocumentEvent, AddDocumentState> {
     String base64String = base64Encode(fileBytes);
     return base64String;
   }
+
+
+  Future<void> _deleteDocument(
+      GetDeleteDocumentEvents event, Emitter<AddDocumentState> emit) async {
+
+
+    // if (state.coaches.isEmpty) {
+    //   emit(state.copyWith(
+    //       isError: true,
+    //       isLoading: false,
+    //       infoMessage: "Please select a coach."));
+    //   return;
+    // }
+
+    // if (state.selectedFileName.isEmpty || state.document == null) {
+    //   emit(state.copyWith(
+    //       isError: true,
+    //       isLoading: false,
+    //       isUploadSuccess: false,
+    //       infoMessage: "Please select a file to upload."));
+    //   return;
+    // }
+
+    // if (state.message.isEmpty) {
+    //   emit(state.copyWith(
+    //       isError: true,
+    //       isUploadSuccess: false,
+    //       isLoading: false,
+    //       infoMessage: "Please enter a message."));
+    //   return;
+    // }
+    if (!(await Connectivity().isConnected)) {
+      emit(state.copyWith(
+          isLoading: false,
+          isUploadSuccess: false,
+          isError: true,
+          infoMessage: "No internet connection."));
+    }
+
+    try {
+      emit(state.copyWith(
+          isLoading: true,
+          isError: false,
+          isUploadError: false,
+          isUploadSuccess: false,
+          infoMessage: ""));
+
+      final academyId = await getIt<SharedPrefs>().getString("selected_academyid");
+      // Call the use case to submit the document
+      final response = await _parentDocumentUsecase.deleteDocumentExecute(event.data);
+
+      response.fold(
+            (failure) {
+          emit(state.copyWith(
+            infoMessage: failure.message,
+            isLoading: false,
+            isError: true,
+            isUploadSuccess: false,
+            isUploadError: true,
+          ));
+        },
+            (success) {
+          emit(state.copyWith(
+              isLoading: false,
+              isUploadSuccess: true,
+              selectedTab: 1,
+              isError: false,
+              isUploadError: false,
+              isSuccess: false,
+              document: null,
+              infoMessage: "Document deleted successfully."));
+
+          add(GetUploadedParentDocument({}));
+        },
+      );
+    } catch (e) {
+      emit(state.copyWith(
+        isLoading: false,
+        isError: true,
+        isUploadSuccess: false,
+        isUploadError: true,
+      ));
+      rethrow;
+    }
+  }
+
 }
