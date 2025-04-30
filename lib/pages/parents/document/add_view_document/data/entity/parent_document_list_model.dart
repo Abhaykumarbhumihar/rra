@@ -47,6 +47,7 @@ class UploadedDocument with _$UploadedDocument {
     @Default(0) int status,
     @Default('') String type,
     @JsonKey(name: 'created_at') @Default('') String createdAt,
+    @JsonKey(name: 'name') @Default('') String name,
     @JsonKey(name: 'updated_at') @Default('') String updatedAt,
     @JsonKey(name: 'image_url') @Default('') String imageUrl,
   }) = _UploadedDocument;

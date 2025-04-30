@@ -31,9 +31,9 @@ class OrderSummaryBloc extends Bloc<OrderSummaryEvent, OrderSummaryState> {
     on<OrderPlaceEvent>(_order_place);
     on<OrderPlaceMentWithPaymentIdEvent>(_order_placeWithPaymentId);
     on<ResetStatusOfPaymentAndOrderAfterErrorEvent>(_resetStatusOfPaymentAndOrderAfterError);
-    // on<ResetStateEvent>((event, emit) {
-    //   emit(OrderSummaryState.initial());
-    // });
+    on<ResetStateEvent>((event, emit) {
+      emit(OrderSummaryState.initial());
+    });
   }
 
   Future<void> _resetStatusOfPaymentAndOrderAfterError(

@@ -58,6 +58,7 @@ class AddDetail extends StatelessWidget {
         }
         if(state.isCampValidated==true){
         BlocProvider.of<CampSummaryBloc>(context).add(CampGetSummaryEvents({}));
+        BlocProvider.of<CampSummaryBloc>(context).add(CampGetSummaryEvents({}));
         Navigator.pushNamed(context, AppRoutes.CAMP_ORDER_SUMMARY);
         }
       },
