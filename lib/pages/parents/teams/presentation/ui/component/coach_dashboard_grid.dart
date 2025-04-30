@@ -28,7 +28,7 @@ class CoachDashboardGrid extends StatelessWidget {
       "background": "assets/images/dashboard_bottom_border_background.png"
     },
     {
-      "title": "Add Reports",
+      "title": "Add Scores",
       "image": "assets/images/reports.png",
       "background": "assets/images/dashbard_top_border_background.png"
     },
@@ -83,7 +83,7 @@ class CoachDashboardGrid extends StatelessWidget {
 
               Navigator.pushNamed(
                   context, AppRoutes.COACHPLAYERATTENDANCELIST);
-            }else if(item['title']=="Add Reports"){
+            }else if(item['title']=="Add Scores"){
               BlocProvider.of<ReportBloc>(context).add(ResetReportStateEvent());
 
               BlocProvider.of<ReportBloc>(context).add(ReportEventGetTermsSessionCoachingPlayerEvents({}));

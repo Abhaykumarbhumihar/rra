@@ -288,12 +288,103 @@ class CameraFileUtility {
     }
   }
 
+  static Future<bool> _ddcheckAndRequestStoragePermission(BuildContext context) async {
+    try {
+      // Check current permission status
+      var status = await Permission.storage.status;
+      print('Current storage permission status: $status');
+
+      // If permission is already granted
+      if (status.isGranted) {
+        print('Storage permission already granted');
+        return true;
+      }
+      if (!status.isGranted) {
+        await Permission.storage.request();
+        return true;
+      }
+
+      // If permanently denied, show settings dialog
+      if (status.isPermanentlyDenied) {
+        print('Storage permission permanently denied');
+        if (context.mounted) {
+          showPermissionDeniedDialog(context, "Storage");
+        }
+        return false;
+      }
+
+      // Show explanation dialog for first request or after denial
+      if (status.isDenied || status.isRestricted) {
+        print('Showing permission rationale dialog');
+        final shouldRequest = await showDialog<bool>(
+          context: context,
+          barrierDismissible: false,
+          builder: (context) => AlertDialog(
+            title: const Text("Storage Permission Required"),
+            content: const Text(
+                "This app needs access to your storage to select files and images"),
+            actions: [
+              TextButton(
+                onPressed: () {
+                  print('User cancelled permission request');
+                  Navigator.pop(context, false);
+                },
+                child: const Text("Cancel"),
+              ),
+              TextButton(
+                onPressed: () {
+                  Navigator.pop(context, true);
+                },
+                child: const Text("Allow"),
+              ),
+            ],
+          ),
+        ) ?? false;
+
+        if (!shouldRequest) {
+          print('User declined permission request');
+          return false;
+        }
+      }
+
+      // Request the permission
+      print('Requesting storage permission...');
+      status = await Permission.storage.request();
+      print('New permission status after request: $status');
+
+      // Handle limited permission on Android (if needed)
+      if (status.isLimited) {
+        print('Storage permission granted as limited (Android)');
+        return true;
+      }
+
+      return status.isGranted;
+    } catch (e) {
+      print("Permission error: $e");
+      return false;
+    }
+  }
+
   Future<Map<String, dynamic>?> pickDocumentWithFileName(BuildContext context) async {
     try {
-      // Check and request permission first
-      final hasPermission = await _checkAndRequestStoragePermission(context);
-      if (!hasPermission) return null;
+      //Check and request permission first
+      final hasPermission = await _ddcheckAndRequestStoragePermission(context);
+      if (!hasPermission){
 
+        if (!hasPermission) return null;
+      };
+
+      // // Request storage permission
+      // final permissionStatus = await _requestStoragePermission(context);
+      // if (permissionStatus != PermissionStatus.granted) {
+      //   if (context.mounted) {
+      //     ScaffoldMessenger.of(context).showSnackBar(
+      //       const SnackBar(content: Text("Permission denied. Cannot access files.Please give permission")),
+      //     );
+      //     openAppSettings();
+      //   }
+      //   return null;
+      // }
       // Now proceed with file picking
       FilePickerResult? result = await FilePicker.platform.pickFiles(
         type: FileType.any,
@@ -316,74 +407,21 @@ class CameraFileUtility {
     return null;
   }
 
-  // Future<Map<String, dynamic>?> pickDocumentWithFileName(BuildContext context) async {
-  //   try {
-  //     // Check and request storage permission
-  //     final status = await Permission.storage.request();
-  //     if (!status.isGranted) {
-  //       if (context.mounted) {
-  //         showPermissionDeniedDialog(context, "Storage");
-  //       }
-  //       return null;
-  //     }
-  //     FilePickerResult? result = await FilePicker.platform.pickFiles(
-  //       type: FileType.custom,
-  //      /// allowedExtensions: ['pdf', 'doc', 'docx', 'xls', 'xlsx', 'ppt', 'pptx'],
-  //     );
-  //   //  FilePickerResult? result = await FilePicker.platform.pickFiles();
-  //     if (result != null && result.files.single.path != null) {
-  //       String fileName = result.files.single.name;
-  //       File file = File(result.files.single.path!);
-  //       return {'file': file, 'fileName': fileName};
-  //     }
-  //   } catch (err) {
-  //     showPermissionDeniedDialog(context, "File System");
-  //   }
-  //   return null;
-  // }
-  //
-  // Future<bool> requestFilePermissions(BuildContext context) async {
-  //   try {
-  //     // Check current status
-  //     var status = await Permission.storage.status;
-  //
-  //     // If permanently denied, show dialog to open settings
-  //     if (status.isPermanentlyDenied) {
-  //       if (context.mounted) {
-  //         showPermissionDeniedDialog(context, "Storage");
-  //       }
-  //       return false;
-  //     }
-  //
-  //     // If denied (but not permanently), show rationale
-  //     if (status.isDenied) {
-  //       // Show a dialog explaining why you need the permission
-  //       bool shouldRequest = await showDialog(
-  //         context: context,
-  //         builder: (context) => AlertDialog(
-  //           title: Text("Permission Needed"),
-  //           content: Text("We need storage permission to access files on your device"),
-  //           actions: [
-  //             TextButton(
-  //               onPressed: () => Navigator.pop(context, false),
-  //               child: Text("Cancel"),
-  //             ),
-  //             TextButton(
-  //               onPressed: () => Navigator.pop(context, true),
-  //               child: Text("Continue"),
-  //             ),
-  //           ],
-  //         ),
-  //       ) ?? false;
-  //
-  //       if (!shouldRequest) return false;
-  //     }
-  //
-  //     // Request the permission
-  //     status = await Permission.storage.request();
-  //     return status.isGranted;
-  //   } catch (e) {
-  //     return false;
-  //   }
-  // }
+  // Helper function to request storage permission
+  Future<PermissionStatus> _requestStoragePermission(BuildContext context) async {
+    if (Platform.isAndroid) {
+      // On Android, request MANAGE_EXTERNAL_STORAGE for API 30+ (Android 11+)
+      if (await Permission.manageExternalStorage.isDenied) {
+        await Permission.manageExternalStorage.request();
+      }
+      // Also request regular storage permission
+      return await Permission.storage.request();
+    } else if (Platform.isIOS) {
+      // On iOS, request photos permission for images and documents
+      return await Permission.photos.request();
+    }
+    return PermissionStatus.granted; // Default for other platforms
+  }
+
+
 }

@@ -27,38 +27,55 @@ class PlayerInfoCard extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  InfoRow(
-                    label: "Term Name:",
-                    value: " ${reportData.data.term}",
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: <Widget>[
+                  Row(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        "Term Name:",
+                        style: AppTextStyle.semiBold(
+                            MediaQuery.of(context).size.width * 0.0373),
+                      ),
+                      Text(
+                        " ${reportData.data.term}",
+                        style: AppTextStyle.regular(
+                            MediaQuery.of(context).size.width * 0.0373),
+                      ),
+                    ],
                   ),
-                  InfoRow(
-                    label: "Session:",
-                    value: " ${reportData.data.sessionName}",
-                  ),
-                  InfoRow(
-                    label: "Player:",
-                    value: " ${reportData.data.childName}",
-                  ),
-                  InfoRow(
-                    label: "Coaching program:",
-                    value: " ${reportData.data.coachingProgram}",
-                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.end,
+                    children: <Widget>[
+                      reportData.data.isWebviewData
+                          ? CommonSmallElevatedButton(
+                              padding: const EdgeInsets.symmetric(
+                                  horizontal: 16.0, vertical: 6.0),
+                              label: "View Report",
+                              onPressed: onViewReport,
+                              color: Colors.blue,
+                            )
+                          : SizedBox()
+                    ],
+                  )
                 ],
               ),
-              reportData.data.isWebviewData? CommonSmallElevatedButton(
-                padding: const EdgeInsets.symmetric(
-                    horizontal: 16.0, vertical: 6.0),
-                label: "View Report",
-                onPressed: onViewReport,
-                color: Colors.blue,
-              ):SizedBox()
+              InfoRow(
+                label: "Session:",
+                value: " ${reportData.data.sessionName}",
+              ),
+              InfoRow(
+                label: "Player:",
+                value: " ${reportData.data.childName}",
+              ),
+              InfoRow(
+                label: "Coaching program:",
+                value: " ${reportData.data.coachingProgram}",
+              ),
             ],
           )
         ],

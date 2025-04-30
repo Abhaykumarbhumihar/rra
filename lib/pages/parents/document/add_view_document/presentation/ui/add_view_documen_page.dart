@@ -327,6 +327,7 @@ class AddViewDocumenPage extends StatelessWidget {
 
     // final hasPermission = await utility.requestFilePermissions(context);
     // if (!hasPermission) return;
+
     var bloc = BlocProvider.of<AddDocumentBloc>(context);
     Map<String, dynamic>? result =
         await utility.pickDocumentWithFileName(context);
