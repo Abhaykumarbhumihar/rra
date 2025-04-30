@@ -38,6 +38,11 @@ class CampUsecase{
   Future<Either<Failure,dynamic>>getCampBookingSummaryExecute( Map<String, dynamic> campCalendarData)async{
     return await _campRepositery.getCampBookingSummary(campCalendarData);
   }
+
+  Future<Either<Failure, dynamic>> appLyCouponsExecute(
+      Map<String, dynamic> couponData) async {
+    return _campRepositery.appLyCoupons(couponData);
+  }
 }
 
 

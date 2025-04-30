@@ -14,7 +14,7 @@ class CampSummaryState with _$CampSummaryState {
     @Default(false) bool isError,
     @Default('') String couponSuccessMessage,
     @Default('') String couponErrorMessage,
-
+    @Default("") String couponCode,
     @Default(false) bool isLoginApiError,
     @Default(CampOrderSummaryModel()) CampOrderSummaryModel campOrderSummary,
 
@@ -28,6 +28,6 @@ class CampSummaryState with _$CampSummaryState {
     success: null,
     isError: false,
     isLoginApiError: false,
-
+      couponCode:""
   );
 }

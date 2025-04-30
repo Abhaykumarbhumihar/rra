@@ -51,6 +51,7 @@ class ApiServices {
           ||url==AppConstant.getCampBookingSelectSessionRemove
           ||url==AppConstant.getCampValidateSendChildId
           ||url==AppConstant.getCampBookingSummary
+          ||url==AppConstant.getCAMPBOOKINGAPPLYCOUPON
 
       ) {
         print("YYYYYSY${url}YSYSYSYSYSYSYSYSYSSYSYSYSYSYSYSYSYSYSYSYSYSYYSYSYSY");

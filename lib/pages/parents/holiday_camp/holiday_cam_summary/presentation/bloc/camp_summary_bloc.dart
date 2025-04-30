@@ -5,6 +5,7 @@ import 'package:rra/common/network/connectivity_extension.dart';
 
 import '../../../../../../common/local/SharedPrefs.dart';
 import '../../../../../../common/service_locator/setivelocator.dart';
+import '../../../../../../common/values/utils.dart';
 import '../../../holiday_list/data/entity/camp_order_summary/camp_order_summary_model.dart';
 import '../../../holiday_list/domain/usecase/camp_usecase.dart';
 import 'camp_summary_event.dart';
@@ -18,8 +19,62 @@ class CampSummaryBloc extends Bloc<CampSummaryEvent, CampSummaryState> {
 
   CampSummaryBloc() : super(CampSummaryState.initial()) {
     on<CampGetSummaryEvents>(_campOrderSummary);
+    on<StoreCouponCodeCampSummaryEvent>(_storeCouponCode);
+    on<ApplyCouponCampSummaryEvent>(_applyCoupons);
   }
 
+  Future<void> _applyCoupons(
+      ApplyCouponCampSummaryEvent event, Emitter<CampSummaryState> emit) async {
+    emit(state.copyWith(
+
+
+        isLoading: true,
+        couponErrorMessage: '',
+        couponSuccessMessage: '',
+
+        error: "",
+        ));
+    final response = await _campUsecase.appLyCouponsExecute(event.data);
+
+    response.fold((failure) {
+      print("SS S S S S S S${failure.message}");
+      emit(state.copyWith(
+          error: "",
+          isLoading: false,
+
+
+          couponErrorMessage: failure.message,
+          couponSuccessMessage: ''));
+    }, (orderSummaryData) async {
+      print("==_applyCoupons=_applyCoupons========\n\n");
+
+      emit(state.copyWith(
+          isLoading: false,
+          error: "",
+          couponErrorMessage: '',
+
+
+          couponSuccessMessage: "Coupon apply successfully"));
+      print("LLL LDLLDLDLDLD LDLDL L L L L L L ==L L L L L L\n\n");
+      Utils.LogPrint(orderSummaryData);
+      print("LLL LDLLDLDLDLD LDLDL L L L L L L ==L L L L L L\n\n");
+      var academyId = await getIt<SharedPrefs>().getString("selected_academyid");
+      Map<String, dynamic> map = {
+        "academy_id": academyId,
+      };
+      add(CampGetSummaryEvents(map));
+    });
+  }
+
+  Future<void> _storeCouponCode(
+      StoreCouponCodeCampSummaryEvent event, Emitter<CampSummaryState> emit) async {
+    emit(state.copyWith(
+
+        couponCode: event.couponCode,
+        couponErrorMessage: "",
+      error: "",
+        ));
+  }
   Future<void> _campOrderSummary(
       CampGetSummaryEvents event, Emitter<CampSummaryState> emit) async {
     try {

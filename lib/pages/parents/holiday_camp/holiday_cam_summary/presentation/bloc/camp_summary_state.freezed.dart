@@ -22,6 +22,7 @@ mixin _$CampSummaryState {
   bool get isError => throw _privateConstructorUsedError;
   String get couponSuccessMessage => throw _privateConstructorUsedError;
   String get couponErrorMessage => throw _privateConstructorUsedError;
+  String get couponCode => throw _privateConstructorUsedError;
   bool get isLoginApiError => throw _privateConstructorUsedError;
   CampOrderSummaryModel get campOrderSummary =>
       throw _privateConstructorUsedError;
@@ -46,6 +47,7 @@ abstract class $CampSummaryStateCopyWith<$Res> {
       bool isError,
       String couponSuccessMessage,
       String couponErrorMessage,
+      String couponCode,
       bool isLoginApiError,
       CampOrderSummaryModel campOrderSummary});
 
@@ -73,6 +75,7 @@ class _$CampSummaryStateCopyWithImpl<$Res, $Val extends CampSummaryState>
     Object? isError = null,
     Object? couponSuccessMessage = null,
     Object? couponErrorMessage = null,
+    Object? couponCode = null,
     Object? isLoginApiError = null,
     Object? campOrderSummary = null,
   }) {
@@ -100,6 +103,10 @@ class _$CampSummaryStateCopyWithImpl<$Res, $Val extends CampSummaryState>
       couponErrorMessage: null == couponErrorMessage
           ? _value.couponErrorMessage
           : couponErrorMessage // ignore: cast_nullable_to_non_nullable
+              as String,
+      couponCode: null == couponCode
+          ? _value.couponCode
+          : couponCode // ignore: cast_nullable_to_non_nullable
               as String,
       isLoginApiError: null == isLoginApiError
           ? _value.isLoginApiError
@@ -139,6 +146,7 @@ abstract class _$$CampSummaryStateImplCopyWith<$Res>
       bool isError,
       String couponSuccessMessage,
       String couponErrorMessage,
+      String couponCode,
       bool isLoginApiError,
       CampOrderSummaryModel campOrderSummary});
 
@@ -165,6 +173,7 @@ class __$$CampSummaryStateImplCopyWithImpl<$Res>
     Object? isError = null,
     Object? couponSuccessMessage = null,
     Object? couponErrorMessage = null,
+    Object? couponCode = null,
     Object? isLoginApiError = null,
     Object? campOrderSummary = null,
   }) {
@@ -193,6 +202,10 @@ class __$$CampSummaryStateImplCopyWithImpl<$Res>
           ? _value.couponErrorMessage
           : couponErrorMessage // ignore: cast_nullable_to_non_nullable
               as String,
+      couponCode: null == couponCode
+          ? _value.couponCode
+          : couponCode // ignore: cast_nullable_to_non_nullable
+              as String,
       isLoginApiError: null == isLoginApiError
           ? _value.isLoginApiError
           : isLoginApiError // ignore: cast_nullable_to_non_nullable
@@ -215,6 +228,7 @@ class _$CampSummaryStateImpl implements _CampSummaryState {
       this.isError = false,
       this.couponSuccessMessage = '',
       this.couponErrorMessage = '',
+      this.couponCode = "",
       this.isLoginApiError = false,
       this.campOrderSummary = const CampOrderSummaryModel()});
 
@@ -236,6 +250,9 @@ class _$CampSummaryStateImpl implements _CampSummaryState {
   final String couponErrorMessage;
   @override
   @JsonKey()
+  final String couponCode;
+  @override
+  @JsonKey()
   final bool isLoginApiError;
   @override
   @JsonKey()
@@ -243,7 +260,7 @@ class _$CampSummaryStateImpl implements _CampSummaryState {
 
   @override
   String toString() {
-    return 'CampSummaryState(isLoading: $isLoading, error: $error, success: $success, isError: $isError, couponSuccessMessage: $couponSuccessMessage, couponErrorMessage: $couponErrorMessage, isLoginApiError: $isLoginApiError, campOrderSummary: $campOrderSummary)';
+    return 'CampSummaryState(isLoading: $isLoading, error: $error, success: $success, isError: $isError, couponSuccessMessage: $couponSuccessMessage, couponErrorMessage: $couponErrorMessage, couponCode: $couponCode, isLoginApiError: $isLoginApiError, campOrderSummary: $campOrderSummary)';
   }
 
   @override
@@ -260,6 +277,8 @@ class _$CampSummaryStateImpl implements _CampSummaryState {
                 other.couponSuccessMessage == couponSuccessMessage) &&
             (identical(other.couponErrorMessage, couponErrorMessage) ||
                 other.couponErrorMessage == couponErrorMessage) &&
+            (identical(other.couponCode, couponCode) ||
+                other.couponCode == couponCode) &&
             (identical(other.isLoginApiError, isLoginApiError) ||
                 other.isLoginApiError == isLoginApiError) &&
             (identical(other.campOrderSummary, campOrderSummary) ||
@@ -275,6 +294,7 @@ class _$CampSummaryStateImpl implements _CampSummaryState {
       isError,
       couponSuccessMessage,
       couponErrorMessage,
+      couponCode,
       isLoginApiError,
       campOrderSummary);
 
@@ -296,6 +316,7 @@ abstract class _CampSummaryState implements CampSummaryState {
       final bool isError,
       final String couponSuccessMessage,
       final String couponErrorMessage,
+      final String couponCode,
       final bool isLoginApiError,
       final CampOrderSummaryModel campOrderSummary}) = _$CampSummaryStateImpl;
 
@@ -311,6 +332,8 @@ abstract class _CampSummaryState implements CampSummaryState {
   String get couponSuccessMessage;
   @override
   String get couponErrorMessage;
+  @override
+  String get couponCode;
   @override
   bool get isLoginApiError;
   @override

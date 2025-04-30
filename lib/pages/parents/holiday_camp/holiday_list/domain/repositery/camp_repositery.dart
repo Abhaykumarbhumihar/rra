@@ -17,4 +17,6 @@ abstract class CampRepositery{
   Future<Either<Failure,SelectedCampDatesModel>> getSelectedCampDate(Map<String, dynamic> removeCamp);
   Future<Either<Failure,dynamic>> getVaildateBooking(Map<String, dynamic> validateBooking);
   Future<Either<Failure,CampOrderSummaryModel>> getCampBookingSummary(Map<String, dynamic> bookingSummary);
+  Future<Either<Failure,dynamic>> appLyCoupons(Map<String, dynamic> couponData);
+
 }

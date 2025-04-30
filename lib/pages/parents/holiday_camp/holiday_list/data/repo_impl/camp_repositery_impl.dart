@@ -14,6 +14,7 @@ import '../../../../../../common/network/api_services.dart';
 import '../../../../../../common/network/app_constant.dart';
 import '../../../../../../common/network/network_eport.dart' as http;
 import '../../../../../../common/service_locator/setivelocator.dart';
+import '../../../../../../common/values/utils.dart';
 import '../../domain/repositery/camp_repositery.dart';
 import '../entity/camp_order_summary/camp_order_summary_model.dart';
 import '../entity/selected_camp_date/selected_camp_dates_model.dart';
@@ -204,7 +205,7 @@ class CampRepositeryImpl extends CampRepositery{
       print("++++++++++++++getVaildateBooking++++++++++++++++++++++++++++++");
       print(validateBooking);
       http.Response response =
-      await _apiServices.post(AppConstant.getCampValidateSendChildId, validateBooking,useDefaultHeaders: true,isJson: false);
+      await _apiServices.post(AppConstant.getCAMPBOOKINGAPPLYCOUPON, validateBooking,useDefaultHeaders: true,isJson: false);
       print(response.body);
       if (response.statusCode == 200) {
         final Map<String, dynamic> responseData = jsonDecode(response.body);
@@ -223,7 +224,41 @@ class CampRepositeryImpl extends CampRepositery{
     }
   }
 
+  @override
+  Future<Either<Failure, dynamic>> appLyCoupons(Map<String, dynamic> couponData)async {
+    try {
 
+      print("+++++++couponData++++++++++++++couponData++++++++++couponData+++++++++++++++++++");
+      print(couponData);
+      http.Response response =
+      await _apiServices.post(AppConstant.getApplyDiscount, couponData,useDefaultHeaders: true,isJson: false);
+      print("nvnvnvnv+++vnvnv++++++++\n\n");
+
+      print(response.body);
+      if (response.statusCode == 200) {
+        final Map<String, dynamic> responseData = jsonDecode(response.body);
+
+
+        if(responseData['success']){
+          print("couponData $responseData");//here my code is running
+
+          Utils.LogPrint(responseData);
+          return Right(responseData);
+
+        }else{
+          print("CODE IS RU NNNNNNNN");
+          return Left(Failure(responseData['message']));
+        }
+
+      } else {
+        final errorMessage = _extractErrorMessage(response.body);
+        return Left(Failure(errorMessage));
+      }
+
+    } catch (e) {
+      return Left(Failure("$e"));
+    }
+  }
 
   String _extractErrorMessage(String responseBody) {
     try {
