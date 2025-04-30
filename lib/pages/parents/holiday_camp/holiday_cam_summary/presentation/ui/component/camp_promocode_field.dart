@@ -1,4 +1,6 @@
 import '../../../../../../../common/values/values_exports.dart';
+import '../../bloc/camp_summary_bloc.dart';
+import '../../bloc/camp_summary_event.dart';
 
 class CampPromocodeField extends StatelessWidget {
   final VoidCallback? onApply;
@@ -43,8 +45,8 @@ class CampPromocodeField extends StatelessWidget {
                 fontFamily: AppFont.interRegular,
               ),
               onChanged: (value) {
-                // BlocProvider.of<OrderSummaryBloc>(context)
-                //     .add(StoreCouponCode(value));
+                BlocProvider.of<CampSummaryBloc>(context)
+                    .add(StoreCouponCodeCampSummaryEvent(value));
               },
             ),
           ),

@@ -9,6 +9,7 @@ import '../../../../../../common/service_locator/setivelocator.dart';
 import '../../../../../../common/values/values_exports.dart';
 import '../../../../session/order_summary/presentation/component/order_summary_shimmer.dart';
 import '../bloc/camp_summary_bloc.dart';
+import '../bloc/camp_summary_event.dart';
 import '../bloc/camp_summary_state.dart';
 import 'component/camp_order_summary.dart';
 import 'component/cap_payment_bottom_sheet.dart';
@@ -185,9 +186,9 @@ class CampOrderSummaryPage extends StatelessWidget {
                                       "promo_code": "${promoCodeController.text}"
                                     };
                                     //
-                                    // BlocProvider.of<OrderSummaryBloc>(
-                                    //     context)
-                                    //     .add(ApplyCoupon(map));
+                                    BlocProvider.of<CampSummaryBloc>(
+                                        context)
+                                        .add(ApplyCouponCampSummaryEvent(map));
                                   });
 
                               print("code is running here");
