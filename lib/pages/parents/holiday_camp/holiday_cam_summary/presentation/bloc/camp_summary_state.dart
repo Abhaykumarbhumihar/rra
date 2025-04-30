@@ -12,7 +12,8 @@ class CampSummaryState with _$CampSummaryState {
     String? error,
     dynamic success,
     @Default(false) bool isError,
-
+    @Default('') String couponSuccessMessage,
+    @Default('') String couponErrorMessage,
 
     @Default(false) bool isLoginApiError,
     @Default(CampOrderSummaryModel()) CampOrderSummaryModel campOrderSummary,

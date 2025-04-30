@@ -4,11 +4,14 @@ import '../../../../../../common/component/common_app_bar.dart';
 import '../../../../../../common/component/common_background.dart';
 import '../../../../../../common/component/custom_app_button.dart';
 import '../../../../../../common/component/screen_title.dart';
+import '../../../../../../common/local/SharedPrefs.dart';
+import '../../../../../../common/service_locator/setivelocator.dart';
 import '../../../../../../common/values/values_exports.dart';
 import '../../../../session/order_summary/presentation/component/order_summary_shimmer.dart';
 import '../bloc/camp_summary_bloc.dart';
 import '../bloc/camp_summary_state.dart';
 import 'component/camp_order_summary.dart';
+import 'component/cap_payment_bottom_sheet.dart';
 
 class CampOrderSummaryPage extends StatelessWidget {
   CampOrderSummaryPage({super.key});
@@ -145,10 +148,47 @@ class CampOrderSummaryPage extends StatelessWidget {
                               right: context.screenWidth * 0.05,
                               top: 10,bottom: 20),
                           child: CustomButton(
-                            text: "Submit",
+                            text: "Proceed",
                             onPressed: () {
 
+                              showPaymentBottomSheet(context,
+                                  checkOutAction: () async {
+                                    Navigator.pop(context);
+                                    print(
+                                        "SS S S S S S S S S S S S S S ");
+                                    var academyId =
+                                    await getIt<SharedPrefs>().getString(
+                                        "selected_academyid");
 
+                                    Map<String, dynamic> map = {
+                                      "academy_id": academyId,
+                                      "notes": "This is a test order"
+                                    };
+                                    // BlocProvider.of<OrderSummaryBloc>(
+                                    //     context)
+                                    //     .add(OrderPlaceEvent(map));
+                                    //
+
+                                    print(
+                                        "PAYMENT BUTTON PRESSED PAYMENT BUTTON PRESSED");
+                                  },
+                                  couponApplyAction: () async {
+                                    FocusScope.of(context).unfocus();
+                                    print(
+                                        "Entered Promo Code: ${promoCodeController.text}");
+                                    var academyId =
+                                    await getIt<SharedPrefs>().getString(
+                                        "selected_academyid");
+
+                                    Map<String, dynamic> map = {
+                                      "academy_id": academyId,
+                                      "promo_code": "${promoCodeController.text}"
+                                    };
+                                    //
+                                    // BlocProvider.of<OrderSummaryBloc>(
+                                    //     context)
+                                    //     .add(ApplyCoupon(map));
+                                  });
 
                               print("code is running here");
                             },
@@ -162,6 +202,23 @@ class CampOrderSummaryPage extends StatelessWidget {
             ),
           );
         },
+      ),
+    );
+  }
+
+  void showPaymentBottomSheet(BuildContext context,
+      {required VoidCallback checkOutAction, VoidCallback? couponApplyAction}) {
+    showModalBottomSheet(
+      context: context,
+      isScrollControlled: true, // All
+      shape: const RoundedRectangleBorder(
+        borderRadius: BorderRadius.vertical(top: Radius.circular(40)),
+      ),
+      clipBehavior: Clip.antiAlias,
+      builder: (context) => CapPaymentBottomSheet(
+        checkOutAction: checkOutAction,
+        promoCodeController: promoCodeController,
+        couponApplyAction: couponApplyAction,
       ),
     );
   }

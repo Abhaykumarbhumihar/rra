@@ -20,6 +20,8 @@ mixin _$CampSummaryState {
   String? get error => throw _privateConstructorUsedError;
   dynamic get success => throw _privateConstructorUsedError;
   bool get isError => throw _privateConstructorUsedError;
+  String get couponSuccessMessage => throw _privateConstructorUsedError;
+  String get couponErrorMessage => throw _privateConstructorUsedError;
   bool get isLoginApiError => throw _privateConstructorUsedError;
   CampOrderSummaryModel get campOrderSummary =>
       throw _privateConstructorUsedError;
@@ -42,6 +44,8 @@ abstract class $CampSummaryStateCopyWith<$Res> {
       String? error,
       dynamic success,
       bool isError,
+      String couponSuccessMessage,
+      String couponErrorMessage,
       bool isLoginApiError,
       CampOrderSummaryModel campOrderSummary});
 
@@ -67,6 +71,8 @@ class _$CampSummaryStateCopyWithImpl<$Res, $Val extends CampSummaryState>
     Object? error = freezed,
     Object? success = freezed,
     Object? isError = null,
+    Object? couponSuccessMessage = null,
+    Object? couponErrorMessage = null,
     Object? isLoginApiError = null,
     Object? campOrderSummary = null,
   }) {
@@ -87,6 +93,14 @@ class _$CampSummaryStateCopyWithImpl<$Res, $Val extends CampSummaryState>
           ? _value.isError
           : isError // ignore: cast_nullable_to_non_nullable
               as bool,
+      couponSuccessMessage: null == couponSuccessMessage
+          ? _value.couponSuccessMessage
+          : couponSuccessMessage // ignore: cast_nullable_to_non_nullable
+              as String,
+      couponErrorMessage: null == couponErrorMessage
+          ? _value.couponErrorMessage
+          : couponErrorMessage // ignore: cast_nullable_to_non_nullable
+              as String,
       isLoginApiError: null == isLoginApiError
           ? _value.isLoginApiError
           : isLoginApiError // ignore: cast_nullable_to_non_nullable
@@ -123,6 +137,8 @@ abstract class _$$CampSummaryStateImplCopyWith<$Res>
       String? error,
       dynamic success,
       bool isError,
+      String couponSuccessMessage,
+      String couponErrorMessage,
       bool isLoginApiError,
       CampOrderSummaryModel campOrderSummary});
 
@@ -147,6 +163,8 @@ class __$$CampSummaryStateImplCopyWithImpl<$Res>
     Object? error = freezed,
     Object? success = freezed,
     Object? isError = null,
+    Object? couponSuccessMessage = null,
+    Object? couponErrorMessage = null,
     Object? isLoginApiError = null,
     Object? campOrderSummary = null,
   }) {
@@ -167,6 +185,14 @@ class __$$CampSummaryStateImplCopyWithImpl<$Res>
           ? _value.isError
           : isError // ignore: cast_nullable_to_non_nullable
               as bool,
+      couponSuccessMessage: null == couponSuccessMessage
+          ? _value.couponSuccessMessage
+          : couponSuccessMessage // ignore: cast_nullable_to_non_nullable
+              as String,
+      couponErrorMessage: null == couponErrorMessage
+          ? _value.couponErrorMessage
+          : couponErrorMessage // ignore: cast_nullable_to_non_nullable
+              as String,
       isLoginApiError: null == isLoginApiError
           ? _value.isLoginApiError
           : isLoginApiError // ignore: cast_nullable_to_non_nullable
@@ -187,6 +213,8 @@ class _$CampSummaryStateImpl implements _CampSummaryState {
       this.error,
       this.success,
       this.isError = false,
+      this.couponSuccessMessage = '',
+      this.couponErrorMessage = '',
       this.isLoginApiError = false,
       this.campOrderSummary = const CampOrderSummaryModel()});
 
@@ -202,6 +230,12 @@ class _$CampSummaryStateImpl implements _CampSummaryState {
   final bool isError;
   @override
   @JsonKey()
+  final String couponSuccessMessage;
+  @override
+  @JsonKey()
+  final String couponErrorMessage;
+  @override
+  @JsonKey()
   final bool isLoginApiError;
   @override
   @JsonKey()
@@ -209,7 +243,7 @@ class _$CampSummaryStateImpl implements _CampSummaryState {
 
   @override
   String toString() {
-    return 'CampSummaryState(isLoading: $isLoading, error: $error, success: $success, isError: $isError, isLoginApiError: $isLoginApiError, campOrderSummary: $campOrderSummary)';
+    return 'CampSummaryState(isLoading: $isLoading, error: $error, success: $success, isError: $isError, couponSuccessMessage: $couponSuccessMessage, couponErrorMessage: $couponErrorMessage, isLoginApiError: $isLoginApiError, campOrderSummary: $campOrderSummary)';
   }
 
   @override
@@ -222,6 +256,10 @@ class _$CampSummaryStateImpl implements _CampSummaryState {
             (identical(other.error, error) || other.error == error) &&
             const DeepCollectionEquality().equals(other.success, success) &&
             (identical(other.isError, isError) || other.isError == isError) &&
+            (identical(other.couponSuccessMessage, couponSuccessMessage) ||
+                other.couponSuccessMessage == couponSuccessMessage) &&
+            (identical(other.couponErrorMessage, couponErrorMessage) ||
+                other.couponErrorMessage == couponErrorMessage) &&
             (identical(other.isLoginApiError, isLoginApiError) ||
                 other.isLoginApiError == isLoginApiError) &&
             (identical(other.campOrderSummary, campOrderSummary) ||
@@ -235,6 +273,8 @@ class _$CampSummaryStateImpl implements _CampSummaryState {
       error,
       const DeepCollectionEquality().hash(success),
       isError,
+      couponSuccessMessage,
+      couponErrorMessage,
       isLoginApiError,
       campOrderSummary);
 
@@ -254,6 +294,8 @@ abstract class _CampSummaryState implements CampSummaryState {
       final String? error,
       final dynamic success,
       final bool isError,
+      final String couponSuccessMessage,
+      final String couponErrorMessage,
       final bool isLoginApiError,
       final CampOrderSummaryModel campOrderSummary}) = _$CampSummaryStateImpl;
 
@@ -265,6 +307,10 @@ abstract class _CampSummaryState implements CampSummaryState {
   dynamic get success;
   @override
   bool get isError;
+  @override
+  String get couponSuccessMessage;
+  @override
+  String get couponErrorMessage;
   @override
   bool get isLoginApiError;
   @override

@@ -290,7 +290,8 @@ class OrderSummary extends StatelessWidget {
                   //                                             StripeService.instance.makePayment(18);
                                     print(
                                         "PAYMENT BUTTON PRESSED PAYMENT BUTTON PRESSED");
-                                  }, couponApplyAction: () async {
+                                  },
+                                  couponApplyAction: () async {
                                     FocusScope.of(context).unfocus();
                                     print(
                                         "Entered Promo Code: ${promoCodeController.text}");
