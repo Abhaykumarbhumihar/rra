@@ -78,6 +78,7 @@ _$UploadedDocumentImpl _$$UploadedDocumentImplFromJson(
       status: (json['status'] as num?)?.toInt() ?? 0,
       type: json['type'] as String? ?? '',
       createdAt: json['created_at'] as String? ?? '',
+      name: json['name'] as String? ?? '',
       updatedAt: json['updated_at'] as String? ?? '',
       imageUrl: json['image_url'] as String? ?? '',
     );
@@ -98,6 +99,7 @@ Map<String, dynamic> _$$UploadedDocumentImplToJson(
       'status': instance.status,
       'type': instance.type,
       'created_at': instance.createdAt,
+      'name': instance.name,
       'updated_at': instance.updatedAt,
       'image_url': instance.imageUrl,
     };

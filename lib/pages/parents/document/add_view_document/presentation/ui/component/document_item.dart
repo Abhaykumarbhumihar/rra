@@ -20,18 +20,7 @@ class DocumentItem extends StatelessWidget {
     required this.coaches, // Require coaches list
   });
 
-  // Helper method to find coach name by ID
-  String _getCoachName(int coachId) {
-    try {
-      final coach = coaches.firstWhere(
-        (coach) => coach.id.toString() == coachId.toString(),
-        orElse: () => Coach(),
-      );
-      return coach.name.isNotEmpty ? coach.name : 'No Coach';
-    } catch (e) {
-      return 'No Coach';
-    }
-  }
+
   String formatDate(String isoDate) {
     DateTime dateTime = DateTime.parse(isoDate);
     return DateFormat('dd-MM-yyyy').format(dateTime);
@@ -70,12 +59,12 @@ class DocumentItem extends StatelessWidget {
                 ),
 
                 InfoRow(
-                  label: "Title",
+                  label: "Title:",
                   value: " ${uploadedDocument.title}",
                 ),
                 InfoRow(
-                  label: "Coach :",
-                  value: " ${uploadedDocument.coachId!.name??""}",
+                  label: BlocProvider.of<AppBloc>(context).state.userdata.data.role=="coach"?"Parent/Coach:":"Coach",
+                  value: " ${uploadedDocument.name}",
                 ),
                 // InfoRow(
                 //   label: "Comments :",
@@ -86,7 +75,7 @@ class DocumentItem extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      "Comments :",
+                      "Comments:",
                       style: AppTextStyle.semiBold(
                           MediaQuery.of(context).size.width * 0.0373),
                     ),

@@ -491,6 +491,8 @@ mixin _$UploadedDocument {
   String get type => throw _privateConstructorUsedError;
   @JsonKey(name: 'created_at')
   String get createdAt => throw _privateConstructorUsedError;
+  @JsonKey(name: 'name')
+  String get name => throw _privateConstructorUsedError;
   @JsonKey(name: 'updated_at')
   String get updatedAt => throw _privateConstructorUsedError;
   @JsonKey(name: 'image_url')
@@ -526,6 +528,7 @@ abstract class $UploadedDocumentCopyWith<$Res> {
       int status,
       String type,
       @JsonKey(name: 'created_at') String createdAt,
+      @JsonKey(name: 'name') String name,
       @JsonKey(name: 'updated_at') String updatedAt,
       @JsonKey(name: 'image_url') String imageUrl});
 
@@ -564,6 +567,7 @@ class _$UploadedDocumentCopyWithImpl<$Res, $Val extends UploadedDocument>
     Object? status = null,
     Object? type = null,
     Object? createdAt = null,
+    Object? name = null,
     Object? updatedAt = null,
     Object? imageUrl = null,
   }) {
@@ -619,6 +623,10 @@ class _$UploadedDocumentCopyWithImpl<$Res, $Val extends UploadedDocument>
       createdAt: null == createdAt
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
+              as String,
+      name: null == name
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
               as String,
       updatedAt: null == updatedAt
           ? _value.updatedAt
@@ -724,6 +732,7 @@ abstract class _$$UploadedDocumentImplCopyWith<$Res>
       int status,
       String type,
       @JsonKey(name: 'created_at') String createdAt,
+      @JsonKey(name: 'name') String name,
       @JsonKey(name: 'updated_at') String updatedAt,
       @JsonKey(name: 'image_url') String imageUrl});
 
@@ -765,6 +774,7 @@ class __$$UploadedDocumentImplCopyWithImpl<$Res>
     Object? status = null,
     Object? type = null,
     Object? createdAt = null,
+    Object? name = null,
     Object? updatedAt = null,
     Object? imageUrl = null,
   }) {
@@ -821,6 +831,10 @@ class __$$UploadedDocumentImplCopyWithImpl<$Res>
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
               as String,
+      name: null == name
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
+              as String,
       updatedAt: null == updatedAt
           ? _value.updatedAt
           : updatedAt // ignore: cast_nullable_to_non_nullable
@@ -850,6 +864,7 @@ class _$UploadedDocumentImpl implements _UploadedDocument {
       this.status = 0,
       this.type = '',
       @JsonKey(name: 'created_at') this.createdAt = '',
+      @JsonKey(name: 'name') this.name = '',
       @JsonKey(name: 'updated_at') this.updatedAt = '',
       @JsonKey(name: 'image_url') this.imageUrl = ''});
 
@@ -896,6 +911,9 @@ class _$UploadedDocumentImpl implements _UploadedDocument {
   @JsonKey(name: 'created_at')
   final String createdAt;
   @override
+  @JsonKey(name: 'name')
+  final String name;
+  @override
   @JsonKey(name: 'updated_at')
   final String updatedAt;
   @override
@@ -904,7 +922,7 @@ class _$UploadedDocumentImpl implements _UploadedDocument {
 
   @override
   String toString() {
-    return 'UploadedDocument(id: $id, academy_id: $academy_id, title: $title, coachingProgramId: $coachingProgramId, termId: $termId, sessionId: $sessionId, parentId: $parentId, documentImage: $documentImage, Comments: $Comments, coachId: $coachId, status: $status, type: $type, createdAt: $createdAt, updatedAt: $updatedAt, imageUrl: $imageUrl)';
+    return 'UploadedDocument(id: $id, academy_id: $academy_id, title: $title, coachingProgramId: $coachingProgramId, termId: $termId, sessionId: $sessionId, parentId: $parentId, documentImage: $documentImage, Comments: $Comments, coachId: $coachId, status: $status, type: $type, createdAt: $createdAt, name: $name, updatedAt: $updatedAt, imageUrl: $imageUrl)';
   }
 
   @override
@@ -932,6 +950,7 @@ class _$UploadedDocumentImpl implements _UploadedDocument {
             (identical(other.type, type) || other.type == type) &&
             (identical(other.createdAt, createdAt) ||
                 other.createdAt == createdAt) &&
+            (identical(other.name, name) || other.name == name) &&
             (identical(other.updatedAt, updatedAt) ||
                 other.updatedAt == updatedAt) &&
             (identical(other.imageUrl, imageUrl) ||
@@ -955,6 +974,7 @@ class _$UploadedDocumentImpl implements _UploadedDocument {
       status,
       type,
       createdAt,
+      name,
       updatedAt,
       imageUrl);
 
@@ -991,6 +1011,7 @@ abstract class _UploadedDocument implements UploadedDocument {
           final int status,
           final String type,
           @JsonKey(name: 'created_at') final String createdAt,
+          @JsonKey(name: 'name') final String name,
           @JsonKey(name: 'updated_at') final String updatedAt,
           @JsonKey(name: 'image_url') final String imageUrl}) =
       _$UploadedDocumentImpl;
@@ -1031,6 +1052,9 @@ abstract class _UploadedDocument implements UploadedDocument {
   @override
   @JsonKey(name: 'created_at')
   String get createdAt;
+  @override
+  @JsonKey(name: 'name')
+  String get name;
   @override
   @JsonKey(name: 'updated_at')
   String get updatedAt;

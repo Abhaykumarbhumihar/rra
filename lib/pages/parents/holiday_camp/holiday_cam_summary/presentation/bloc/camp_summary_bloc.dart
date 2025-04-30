@@ -17,9 +17,7 @@ class CampSummaryBloc extends Bloc<CampSummaryEvent, CampSummaryState> {
   getIt<CampUsecase>();
 
   CampSummaryBloc() : super(CampSummaryState.initial()) {
-    on<CampSummaryEvent>((event, emit) {
-      on<CampGetSummaryEvents>(_campOrderSummary);
-    });
+    on<CampGetSummaryEvents>(_campOrderSummary);
   }
 
   Future<void> _campOrderSummary(
@@ -64,7 +62,6 @@ class CampSummaryBloc extends Bloc<CampSummaryEvent, CampSummaryState> {
             isLoginApiError: false,
             isLoading: false,
             campOrderSummary:campSummaryData ,
-
             success: true));
 
       });
