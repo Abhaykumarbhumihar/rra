@@ -8,7 +8,7 @@ import 'package:rra/common/network/connectivity_extension.dart';
 import 'package:rra/common/service_locator/setivelocator.dart';
 import 'package:rra/common/values/snack_bar.dart';
 import 'package:rra/main.dart';
-
+import  'package:path/path.dart' as path;
 import '../../../../../../common/local/SharedPrefs.dart';
 import '../../../../../auth/otpverification/data/entity/otp_verification_model.dart';
 import '../../data/entity/parent_document_list_model.dart';
@@ -277,10 +277,14 @@ class AddDocumentBloc extends Bloc<AddDocumentEvent, AddDocumentState> {
 
       // Prepare the data for submission
       String? base64Image;
+      var fileType="";
       if(state.document!=null){
+        fileType= _getMimeType(state.document!.path);
+
 
         base64Image = await convertFileToBase64(state.document!);
       }
+
 
       final academyId = await getIt<SharedPrefs>().getString("selected_academyid");
       var userdata = await getIt<SharedPrefs>().getModel<OtpVerificationModel>(
@@ -292,6 +296,7 @@ class AddDocumentBloc extends Bloc<AddDocumentEvent, AddDocumentState> {
       final parentId = state.player.map((s) => s.parentId).toList();
      final coachIds=state.coaches.map((s)=>s.id).toList();
      print(coachIds);
+
 
       Map<String, dynamic> map = {
         "type": "${userdata?.data.role}",
@@ -309,7 +314,7 @@ class AddDocumentBloc extends Bloc<AddDocumentEvent, AddDocumentState> {
         if (state.documentIds != "")
           "id": state.documentIds,
         if (base64Image != null)
-          "document_image": "data:image/png;base64," + base64Image,
+          "document_image": "data:$fileType;base64," + base64Image,
       };
 
       // Call the use case to submit the document
@@ -357,7 +362,48 @@ class AddDocumentBloc extends Bloc<AddDocumentEvent, AddDocumentState> {
       rethrow;
     }
   }
+  String _getMimeType(String filePath) {
+    final extension = path.extension(filePath).toLowerCase();
 
+    switch (extension) {
+      case '.jpg':
+      case '.jpeg':
+        return 'image/jpeg';
+      case '.png':
+        return 'image/png';
+      case '.gif':
+        return 'image/gif';
+      case '.pdf':
+        return 'application/pdf';
+      case '.txt':
+        return 'text/plain';
+      case '.mp4':
+        return 'video/mp4';
+      case '.mov':
+        return 'video/quicktime';
+      case '.MOV':
+        return 'video/quicktime';
+
+      case '.avi':
+        return 'video/x-msvideo';
+      case '.wmv':
+        return 'video/x-ms-wmv';
+      case '.flv':
+        return 'video/x-flv';
+      case '.webm':
+        return 'video/webm';
+      case '.mkv':
+        return 'video/x-matroska';
+      case '.3gp':
+        return 'video/3gpp';
+      case '.ts':
+        return 'video/mp2t';
+
+    // Add more file types as needed
+      default:
+        return 'application/octet-stream'; // Fallback for unknown types
+    }
+  }
   Future<void> _getTermsSessioCoachingPlayer(
       GetTermsSessionCoachingPlayerEvents event,
       Emitter<AddDocumentState> emit) async {

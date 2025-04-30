@@ -231,6 +231,19 @@ CampOrderSummaryData _$CampOrderSummaryDataFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$CampOrderSummaryData {
   List<PlayerDetail> get playerDetail => throw _privateConstructorUsedError;
+  String? get promocode => throw _privateConstructorUsedError;
+  int get subtotal => throw _privateConstructorUsedError;
+  @JsonKey(name: 'display_subtotal')
+  String get displaySubtotal => throw _privateConstructorUsedError;
+  String? get discount => throw _privateConstructorUsedError;
+  @JsonKey(name: 'display_discount')
+  String get displayDiscount => throw _privateConstructorUsedError;
+  int get tax => throw _privateConstructorUsedError;
+  @JsonKey(name: 'display_tax')
+  String get displayTax => throw _privateConstructorUsedError;
+  int get total => throw _privateConstructorUsedError;
+  @JsonKey(name: 'display_total')
+  String get displayTotal => throw _privateConstructorUsedError;
 
   /// Serializes this CampOrderSummaryData to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -248,7 +261,17 @@ abstract class $CampOrderSummaryDataCopyWith<$Res> {
           $Res Function(CampOrderSummaryData) then) =
       _$CampOrderSummaryDataCopyWithImpl<$Res, CampOrderSummaryData>;
   @useResult
-  $Res call({List<PlayerDetail> playerDetail});
+  $Res call(
+      {List<PlayerDetail> playerDetail,
+      String? promocode,
+      int subtotal,
+      @JsonKey(name: 'display_subtotal') String displaySubtotal,
+      String? discount,
+      @JsonKey(name: 'display_discount') String displayDiscount,
+      int tax,
+      @JsonKey(name: 'display_tax') String displayTax,
+      int total,
+      @JsonKey(name: 'display_total') String displayTotal});
 }
 
 /// @nodoc
@@ -268,12 +291,57 @@ class _$CampOrderSummaryDataCopyWithImpl<$Res,
   @override
   $Res call({
     Object? playerDetail = null,
+    Object? promocode = freezed,
+    Object? subtotal = null,
+    Object? displaySubtotal = null,
+    Object? discount = freezed,
+    Object? displayDiscount = null,
+    Object? tax = null,
+    Object? displayTax = null,
+    Object? total = null,
+    Object? displayTotal = null,
   }) {
     return _then(_value.copyWith(
       playerDetail: null == playerDetail
           ? _value.playerDetail
           : playerDetail // ignore: cast_nullable_to_non_nullable
               as List<PlayerDetail>,
+      promocode: freezed == promocode
+          ? _value.promocode
+          : promocode // ignore: cast_nullable_to_non_nullable
+              as String?,
+      subtotal: null == subtotal
+          ? _value.subtotal
+          : subtotal // ignore: cast_nullable_to_non_nullable
+              as int,
+      displaySubtotal: null == displaySubtotal
+          ? _value.displaySubtotal
+          : displaySubtotal // ignore: cast_nullable_to_non_nullable
+              as String,
+      discount: freezed == discount
+          ? _value.discount
+          : discount // ignore: cast_nullable_to_non_nullable
+              as String?,
+      displayDiscount: null == displayDiscount
+          ? _value.displayDiscount
+          : displayDiscount // ignore: cast_nullable_to_non_nullable
+              as String,
+      tax: null == tax
+          ? _value.tax
+          : tax // ignore: cast_nullable_to_non_nullable
+              as int,
+      displayTax: null == displayTax
+          ? _value.displayTax
+          : displayTax // ignore: cast_nullable_to_non_nullable
+              as String,
+      total: null == total
+          ? _value.total
+          : total // ignore: cast_nullable_to_non_nullable
+              as int,
+      displayTotal: null == displayTotal
+          ? _value.displayTotal
+          : displayTotal // ignore: cast_nullable_to_non_nullable
+              as String,
     ) as $Val);
   }
 }
@@ -286,7 +354,17 @@ abstract class _$$CampOrderSummaryDataImplCopyWith<$Res>
       __$$CampOrderSummaryDataImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({List<PlayerDetail> playerDetail});
+  $Res call(
+      {List<PlayerDetail> playerDetail,
+      String? promocode,
+      int subtotal,
+      @JsonKey(name: 'display_subtotal') String displaySubtotal,
+      String? discount,
+      @JsonKey(name: 'display_discount') String displayDiscount,
+      int tax,
+      @JsonKey(name: 'display_tax') String displayTax,
+      int total,
+      @JsonKey(name: 'display_total') String displayTotal});
 }
 
 /// @nodoc
@@ -303,12 +381,57 @@ class __$$CampOrderSummaryDataImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? playerDetail = null,
+    Object? promocode = freezed,
+    Object? subtotal = null,
+    Object? displaySubtotal = null,
+    Object? discount = freezed,
+    Object? displayDiscount = null,
+    Object? tax = null,
+    Object? displayTax = null,
+    Object? total = null,
+    Object? displayTotal = null,
   }) {
     return _then(_$CampOrderSummaryDataImpl(
       playerDetail: null == playerDetail
           ? _value._playerDetail
           : playerDetail // ignore: cast_nullable_to_non_nullable
               as List<PlayerDetail>,
+      promocode: freezed == promocode
+          ? _value.promocode
+          : promocode // ignore: cast_nullable_to_non_nullable
+              as String?,
+      subtotal: null == subtotal
+          ? _value.subtotal
+          : subtotal // ignore: cast_nullable_to_non_nullable
+              as int,
+      displaySubtotal: null == displaySubtotal
+          ? _value.displaySubtotal
+          : displaySubtotal // ignore: cast_nullable_to_non_nullable
+              as String,
+      discount: freezed == discount
+          ? _value.discount
+          : discount // ignore: cast_nullable_to_non_nullable
+              as String?,
+      displayDiscount: null == displayDiscount
+          ? _value.displayDiscount
+          : displayDiscount // ignore: cast_nullable_to_non_nullable
+              as String,
+      tax: null == tax
+          ? _value.tax
+          : tax // ignore: cast_nullable_to_non_nullable
+              as int,
+      displayTax: null == displayTax
+          ? _value.displayTax
+          : displayTax // ignore: cast_nullable_to_non_nullable
+              as String,
+      total: null == total
+          ? _value.total
+          : total // ignore: cast_nullable_to_non_nullable
+              as int,
+      displayTotal: null == displayTotal
+          ? _value.displayTotal
+          : displayTotal // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
   }
 }
@@ -317,7 +440,16 @@ class __$$CampOrderSummaryDataImplCopyWithImpl<$Res>
 @JsonSerializable()
 class _$CampOrderSummaryDataImpl implements _CampOrderSummaryData {
   const _$CampOrderSummaryDataImpl(
-      {final List<PlayerDetail> playerDetail = const []})
+      {final List<PlayerDetail> playerDetail = const [],
+      this.promocode,
+      this.subtotal = 0,
+      @JsonKey(name: 'display_subtotal') this.displaySubtotal = '',
+      this.discount,
+      @JsonKey(name: 'display_discount') this.displayDiscount = '',
+      this.tax = 0,
+      @JsonKey(name: 'display_tax') this.displayTax = '',
+      this.total = 0,
+      @JsonKey(name: 'display_total') this.displayTotal = ''})
       : _playerDetail = playerDetail;
 
   factory _$CampOrderSummaryDataImpl.fromJson(Map<String, dynamic> json) =>
@@ -333,8 +465,34 @@ class _$CampOrderSummaryDataImpl implements _CampOrderSummaryData {
   }
 
   @override
+  final String? promocode;
+  @override
+  @JsonKey()
+  final int subtotal;
+  @override
+  @JsonKey(name: 'display_subtotal')
+  final String displaySubtotal;
+  @override
+  final String? discount;
+  @override
+  @JsonKey(name: 'display_discount')
+  final String displayDiscount;
+  @override
+  @JsonKey()
+  final int tax;
+  @override
+  @JsonKey(name: 'display_tax')
+  final String displayTax;
+  @override
+  @JsonKey()
+  final int total;
+  @override
+  @JsonKey(name: 'display_total')
+  final String displayTotal;
+
+  @override
   String toString() {
-    return 'CampOrderSummaryData(playerDetail: $playerDetail)';
+    return 'CampOrderSummaryData(playerDetail: $playerDetail, promocode: $promocode, subtotal: $subtotal, displaySubtotal: $displaySubtotal, discount: $discount, displayDiscount: $displayDiscount, tax: $tax, displayTax: $displayTax, total: $total, displayTotal: $displayTotal)';
   }
 
   @override
@@ -343,13 +501,39 @@ class _$CampOrderSummaryDataImpl implements _CampOrderSummaryData {
         (other.runtimeType == runtimeType &&
             other is _$CampOrderSummaryDataImpl &&
             const DeepCollectionEquality()
-                .equals(other._playerDetail, _playerDetail));
+                .equals(other._playerDetail, _playerDetail) &&
+            (identical(other.promocode, promocode) ||
+                other.promocode == promocode) &&
+            (identical(other.subtotal, subtotal) ||
+                other.subtotal == subtotal) &&
+            (identical(other.displaySubtotal, displaySubtotal) ||
+                other.displaySubtotal == displaySubtotal) &&
+            (identical(other.discount, discount) ||
+                other.discount == discount) &&
+            (identical(other.displayDiscount, displayDiscount) ||
+                other.displayDiscount == displayDiscount) &&
+            (identical(other.tax, tax) || other.tax == tax) &&
+            (identical(other.displayTax, displayTax) ||
+                other.displayTax == displayTax) &&
+            (identical(other.total, total) || other.total == total) &&
+            (identical(other.displayTotal, displayTotal) ||
+                other.displayTotal == displayTotal));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(
-      runtimeType, const DeepCollectionEquality().hash(_playerDetail));
+      runtimeType,
+      const DeepCollectionEquality().hash(_playerDetail),
+      promocode,
+      subtotal,
+      displaySubtotal,
+      discount,
+      displayDiscount,
+      tax,
+      displayTax,
+      total,
+      displayTotal);
 
   /// Create a copy of CampOrderSummaryData
   /// with the given fields replaced by the non-null parameter values.
@@ -370,7 +554,17 @@ class _$CampOrderSummaryDataImpl implements _CampOrderSummaryData {
 }
 
 abstract class _CampOrderSummaryData implements CampOrderSummaryData {
-  const factory _CampOrderSummaryData({final List<PlayerDetail> playerDetail}) =
+  const factory _CampOrderSummaryData(
+          {final List<PlayerDetail> playerDetail,
+          final String? promocode,
+          final int subtotal,
+          @JsonKey(name: 'display_subtotal') final String displaySubtotal,
+          final String? discount,
+          @JsonKey(name: 'display_discount') final String displayDiscount,
+          final int tax,
+          @JsonKey(name: 'display_tax') final String displayTax,
+          final int total,
+          @JsonKey(name: 'display_total') final String displayTotal}) =
       _$CampOrderSummaryDataImpl;
 
   factory _CampOrderSummaryData.fromJson(Map<String, dynamic> json) =
@@ -378,6 +572,28 @@ abstract class _CampOrderSummaryData implements CampOrderSummaryData {
 
   @override
   List<PlayerDetail> get playerDetail;
+  @override
+  String? get promocode;
+  @override
+  int get subtotal;
+  @override
+  @JsonKey(name: 'display_subtotal')
+  String get displaySubtotal;
+  @override
+  String? get discount;
+  @override
+  @JsonKey(name: 'display_discount')
+  String get displayDiscount;
+  @override
+  int get tax;
+  @override
+  @JsonKey(name: 'display_tax')
+  String get displayTax;
+  @override
+  int get total;
+  @override
+  @JsonKey(name: 'display_total')
+  String get displayTotal;
 
   /// Create a copy of CampOrderSummaryData
   /// with the given fields replaced by the non-null parameter values.

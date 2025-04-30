@@ -105,7 +105,7 @@ class HolidayDetailPage extends StatelessWidget {
                                                   context.screenWidth * 0.0373),
                                             ),
                                             Text(
-                                              "${data.fromDate.toFormattedDate} - ${data.toDate.toFormattedDate}",
+                                              "${data.fromDate} - ${data.toDate}",
                                               style: AppTextStyle.regular(
                                                   context.screenWidth * 0.0373),
                                             ),
@@ -119,7 +119,7 @@ class HolidayDetailPage extends StatelessWidget {
                                                   context.screenWidth * 0.0373),
                                             ),
                                             Text(
-                                              "${data.fromTime.toFormattedTime} - ${data.toTime.toFormattedTime}",
+                                              "${data.fromTime} - ${data.toTime}",
                                               style: AppTextStyle.regular(
                                                   context.screenWidth * 0.0373),
                                             ),

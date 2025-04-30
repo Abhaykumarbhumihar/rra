@@ -6,6 +6,7 @@ import 'package:rra/common/component/app_text_style.dart';
 import 'package:rra/common/component/common_background.dart';
 import 'package:rra/common/component/loading_indicator.dart';
 import 'package:rra/common/values/values_exports.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 import '../../../../../../common/component/common_app_bar.dart';
 import '../../../../../../common/component/common_toggle_tab.dart';
@@ -103,13 +104,14 @@ class DocumentDetail extends StatelessWidget {
                             ),
                             InkWell(
                               onTap: (){
-                                showDialog(
-                                  context: context,
-                                  builder: (context) => ImageDialog(
-                                    imageUrl: '${uploadedDocument.imageUrl}',
-                                    onClose: () => Navigator.of(context).pop(),
-                                  ),
-                                );
+                                _launchUrl(Uri.parse(uploadedDocument.imageUrl));
+                                // showDialog(
+                                //   context: context,
+                                //   builder: (context) => ImageDialog(
+                                //     imageUrl: '${uploadedDocument.imageUrl}',
+                                //     onClose: () => Navigator.of(context).pop(),
+                                //   ),
+                                // );
                               },
                               child: InfoRowWithOnlyIcon(
                                 label: "Document",
@@ -133,17 +135,34 @@ class DocumentDetail extends StatelessWidget {
     );
   }
 
-  // Helper method to find coach name by ID
-  String _getCoachName(int coachId,coaches) {
-    try {
-      final coach = coaches.firstWhere(
-            (coach) => coach.id.toString() == coachId.toString(),
-        orElse: () => Coach(),
-      );
-      return coach.name.isNotEmpty ? coach.name : 'No Coach';
-    } catch (e) {
-      return 'No Coach';
+  Future<void> _launchUrl(url) async {
+    if (!await launchUrl(url)) {
+      throw Exception('Could not launch $url');
     }
   }
 
-}
+  Future<void> _launchInAppWithBrowserOptions(Uri url) async {
+    if (!await launchUrl(
+      url,
+      mode: LaunchMode.inAppBrowserView,
+      browserConfiguration: const BrowserConfiguration(showTitle: true),
+    )) {
+      throw Exception('Could not launch $url');
+    }
+  }
+
+
+    // Helper method to find coach name by ID
+    String _getCoachName(int coachId, coaches) {
+      try {
+        final coach = coaches.firstWhere(
+              (coach) => coach.id.toString() == coachId.toString(),
+          orElse: () => Coach(),
+        );
+        return coach.name.isNotEmpty ? coach.name : 'No Coach';
+      } catch (e) {
+        return 'No Coach';
+      }
+    }
+  }
+

@@ -19,6 +19,15 @@ class CampOrderSummaryModel with _$CampOrderSummaryModel {
 class CampOrderSummaryData with _$CampOrderSummaryData {
   const factory CampOrderSummaryData({
     @Default([]) List<PlayerDetail> playerDetail,
+    String? promocode,
+    @Default(0) int subtotal,
+    @JsonKey(name: 'display_subtotal') @Default('') String displaySubtotal,
+    String? discount,
+    @JsonKey(name: 'display_discount') @Default('') String displayDiscount,
+    @Default(0) int tax,
+    @JsonKey(name: 'display_tax') @Default('') String displayTax,
+    @Default(0) int total,
+    @JsonKey(name: 'display_total') @Default('') String displayTotal,
   }) = _CampOrderSummaryData;
 
   factory CampOrderSummaryData.fromJson(Map<String, dynamic> json) =>
