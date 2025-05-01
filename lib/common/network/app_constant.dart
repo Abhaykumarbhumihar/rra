@@ -94,6 +94,8 @@ static String get getCollateralList=>"collaterals/list";
   static String get getCAMPORDERPACE=>"camp/order/place";
   static String get getCampOrderPaymentSaveStripe=>"camp/booking/payment/save";
 
+  static String get getBookedCampList=>"camp/orders";
+
 
 
 }
