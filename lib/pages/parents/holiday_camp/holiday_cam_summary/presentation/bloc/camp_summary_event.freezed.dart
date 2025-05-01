@@ -22,6 +22,7 @@ mixin _$CampSummaryEvent {
         getHolidayCalenDarDateEvents,
     required TResult Function(Map<String, dynamic> data) applyCoupon,
     required TResult Function(String couponCode) storeCouponCode,
+    required TResult Function() resetState,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -29,6 +30,7 @@ mixin _$CampSummaryEvent {
     TResult? Function(Map<String, dynamic> data)? getHolidayCalenDarDateEvents,
     TResult? Function(Map<String, dynamic> data)? applyCoupon,
     TResult? Function(String couponCode)? storeCouponCode,
+    TResult? Function()? resetState,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -36,6 +38,7 @@ mixin _$CampSummaryEvent {
     TResult Function(Map<String, dynamic> data)? getHolidayCalenDarDateEvents,
     TResult Function(Map<String, dynamic> data)? applyCoupon,
     TResult Function(String couponCode)? storeCouponCode,
+    TResult Function()? resetState,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -46,6 +49,7 @@ mixin _$CampSummaryEvent {
     required TResult Function(ApplyCouponCampSummaryEvent value) applyCoupon,
     required TResult Function(StoreCouponCodeCampSummaryEvent value)
         storeCouponCode,
+    required TResult Function(ResetCampSummaryState value) resetState,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -53,6 +57,7 @@ mixin _$CampSummaryEvent {
     TResult? Function(CampGetSummaryEvents value)? getHolidayCalenDarDateEvents,
     TResult? Function(ApplyCouponCampSummaryEvent value)? applyCoupon,
     TResult? Function(StoreCouponCodeCampSummaryEvent value)? storeCouponCode,
+    TResult? Function(ResetCampSummaryState value)? resetState,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -60,6 +65,7 @@ mixin _$CampSummaryEvent {
     TResult Function(CampGetSummaryEvents value)? getHolidayCalenDarDateEvents,
     TResult Function(ApplyCouponCampSummaryEvent value)? applyCoupon,
     TResult Function(StoreCouponCodeCampSummaryEvent value)? storeCouponCode,
+    TResult Function(ResetCampSummaryState value)? resetState,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -167,6 +173,7 @@ class _$CampGetSummaryEventsImpl implements CampGetSummaryEvents {
         getHolidayCalenDarDateEvents,
     required TResult Function(Map<String, dynamic> data) applyCoupon,
     required TResult Function(String couponCode) storeCouponCode,
+    required TResult Function() resetState,
   }) {
     return getHolidayCalenDarDateEvents(data);
   }
@@ -177,6 +184,7 @@ class _$CampGetSummaryEventsImpl implements CampGetSummaryEvents {
     TResult? Function(Map<String, dynamic> data)? getHolidayCalenDarDateEvents,
     TResult? Function(Map<String, dynamic> data)? applyCoupon,
     TResult? Function(String couponCode)? storeCouponCode,
+    TResult? Function()? resetState,
   }) {
     return getHolidayCalenDarDateEvents?.call(data);
   }
@@ -187,6 +195,7 @@ class _$CampGetSummaryEventsImpl implements CampGetSummaryEvents {
     TResult Function(Map<String, dynamic> data)? getHolidayCalenDarDateEvents,
     TResult Function(Map<String, dynamic> data)? applyCoupon,
     TResult Function(String couponCode)? storeCouponCode,
+    TResult Function()? resetState,
     required TResult orElse(),
   }) {
     if (getHolidayCalenDarDateEvents != null) {
@@ -203,6 +212,7 @@ class _$CampGetSummaryEventsImpl implements CampGetSummaryEvents {
     required TResult Function(ApplyCouponCampSummaryEvent value) applyCoupon,
     required TResult Function(StoreCouponCodeCampSummaryEvent value)
         storeCouponCode,
+    required TResult Function(ResetCampSummaryState value) resetState,
   }) {
     return getHolidayCalenDarDateEvents(this);
   }
@@ -213,6 +223,7 @@ class _$CampGetSummaryEventsImpl implements CampGetSummaryEvents {
     TResult? Function(CampGetSummaryEvents value)? getHolidayCalenDarDateEvents,
     TResult? Function(ApplyCouponCampSummaryEvent value)? applyCoupon,
     TResult? Function(StoreCouponCodeCampSummaryEvent value)? storeCouponCode,
+    TResult? Function(ResetCampSummaryState value)? resetState,
   }) {
     return getHolidayCalenDarDateEvents?.call(this);
   }
@@ -223,6 +234,7 @@ class _$CampGetSummaryEventsImpl implements CampGetSummaryEvents {
     TResult Function(CampGetSummaryEvents value)? getHolidayCalenDarDateEvents,
     TResult Function(ApplyCouponCampSummaryEvent value)? applyCoupon,
     TResult Function(StoreCouponCodeCampSummaryEvent value)? storeCouponCode,
+    TResult Function(ResetCampSummaryState value)? resetState,
     required TResult orElse(),
   }) {
     if (getHolidayCalenDarDateEvents != null) {
@@ -328,6 +340,7 @@ class _$ApplyCouponCampSummaryEventImpl implements ApplyCouponCampSummaryEvent {
         getHolidayCalenDarDateEvents,
     required TResult Function(Map<String, dynamic> data) applyCoupon,
     required TResult Function(String couponCode) storeCouponCode,
+    required TResult Function() resetState,
   }) {
     return applyCoupon(data);
   }
@@ -338,6 +351,7 @@ class _$ApplyCouponCampSummaryEventImpl implements ApplyCouponCampSummaryEvent {
     TResult? Function(Map<String, dynamic> data)? getHolidayCalenDarDateEvents,
     TResult? Function(Map<String, dynamic> data)? applyCoupon,
     TResult? Function(String couponCode)? storeCouponCode,
+    TResult? Function()? resetState,
   }) {
     return applyCoupon?.call(data);
   }
@@ -348,6 +362,7 @@ class _$ApplyCouponCampSummaryEventImpl implements ApplyCouponCampSummaryEvent {
     TResult Function(Map<String, dynamic> data)? getHolidayCalenDarDateEvents,
     TResult Function(Map<String, dynamic> data)? applyCoupon,
     TResult Function(String couponCode)? storeCouponCode,
+    TResult Function()? resetState,
     required TResult orElse(),
   }) {
     if (applyCoupon != null) {
@@ -364,6 +379,7 @@ class _$ApplyCouponCampSummaryEventImpl implements ApplyCouponCampSummaryEvent {
     required TResult Function(ApplyCouponCampSummaryEvent value) applyCoupon,
     required TResult Function(StoreCouponCodeCampSummaryEvent value)
         storeCouponCode,
+    required TResult Function(ResetCampSummaryState value) resetState,
   }) {
     return applyCoupon(this);
   }
@@ -374,6 +390,7 @@ class _$ApplyCouponCampSummaryEventImpl implements ApplyCouponCampSummaryEvent {
     TResult? Function(CampGetSummaryEvents value)? getHolidayCalenDarDateEvents,
     TResult? Function(ApplyCouponCampSummaryEvent value)? applyCoupon,
     TResult? Function(StoreCouponCodeCampSummaryEvent value)? storeCouponCode,
+    TResult? Function(ResetCampSummaryState value)? resetState,
   }) {
     return applyCoupon?.call(this);
   }
@@ -384,6 +401,7 @@ class _$ApplyCouponCampSummaryEventImpl implements ApplyCouponCampSummaryEvent {
     TResult Function(CampGetSummaryEvents value)? getHolidayCalenDarDateEvents,
     TResult Function(ApplyCouponCampSummaryEvent value)? applyCoupon,
     TResult Function(StoreCouponCodeCampSummaryEvent value)? storeCouponCode,
+    TResult Function(ResetCampSummaryState value)? resetState,
     required TResult orElse(),
   }) {
     if (applyCoupon != null) {
@@ -485,6 +503,7 @@ class _$StoreCouponCodeCampSummaryEventImpl
         getHolidayCalenDarDateEvents,
     required TResult Function(Map<String, dynamic> data) applyCoupon,
     required TResult Function(String couponCode) storeCouponCode,
+    required TResult Function() resetState,
   }) {
     return storeCouponCode(couponCode);
   }
@@ -495,6 +514,7 @@ class _$StoreCouponCodeCampSummaryEventImpl
     TResult? Function(Map<String, dynamic> data)? getHolidayCalenDarDateEvents,
     TResult? Function(Map<String, dynamic> data)? applyCoupon,
     TResult? Function(String couponCode)? storeCouponCode,
+    TResult? Function()? resetState,
   }) {
     return storeCouponCode?.call(couponCode);
   }
@@ -505,6 +525,7 @@ class _$StoreCouponCodeCampSummaryEventImpl
     TResult Function(Map<String, dynamic> data)? getHolidayCalenDarDateEvents,
     TResult Function(Map<String, dynamic> data)? applyCoupon,
     TResult Function(String couponCode)? storeCouponCode,
+    TResult Function()? resetState,
     required TResult orElse(),
   }) {
     if (storeCouponCode != null) {
@@ -521,6 +542,7 @@ class _$StoreCouponCodeCampSummaryEventImpl
     required TResult Function(ApplyCouponCampSummaryEvent value) applyCoupon,
     required TResult Function(StoreCouponCodeCampSummaryEvent value)
         storeCouponCode,
+    required TResult Function(ResetCampSummaryState value) resetState,
   }) {
     return storeCouponCode(this);
   }
@@ -531,6 +553,7 @@ class _$StoreCouponCodeCampSummaryEventImpl
     TResult? Function(CampGetSummaryEvents value)? getHolidayCalenDarDateEvents,
     TResult? Function(ApplyCouponCampSummaryEvent value)? applyCoupon,
     TResult? Function(StoreCouponCodeCampSummaryEvent value)? storeCouponCode,
+    TResult? Function(ResetCampSummaryState value)? resetState,
   }) {
     return storeCouponCode?.call(this);
   }
@@ -541,6 +564,7 @@ class _$StoreCouponCodeCampSummaryEventImpl
     TResult Function(CampGetSummaryEvents value)? getHolidayCalenDarDateEvents,
     TResult Function(ApplyCouponCampSummaryEvent value)? applyCoupon,
     TResult Function(StoreCouponCodeCampSummaryEvent value)? storeCouponCode,
+    TResult Function(ResetCampSummaryState value)? resetState,
     required TResult orElse(),
   }) {
     if (storeCouponCode != null) {
@@ -562,4 +586,126 @@ abstract class StoreCouponCodeCampSummaryEvent implements CampSummaryEvent {
   _$$StoreCouponCodeCampSummaryEventImplCopyWith<
           _$StoreCouponCodeCampSummaryEventImpl>
       get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$ResetCampSummaryStateImplCopyWith<$Res> {
+  factory _$$ResetCampSummaryStateImplCopyWith(
+          _$ResetCampSummaryStateImpl value,
+          $Res Function(_$ResetCampSummaryStateImpl) then) =
+      __$$ResetCampSummaryStateImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$ResetCampSummaryStateImplCopyWithImpl<$Res>
+    extends _$CampSummaryEventCopyWithImpl<$Res, _$ResetCampSummaryStateImpl>
+    implements _$$ResetCampSummaryStateImplCopyWith<$Res> {
+  __$$ResetCampSummaryStateImplCopyWithImpl(_$ResetCampSummaryStateImpl _value,
+      $Res Function(_$ResetCampSummaryStateImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of CampSummaryEvent
+  /// with the given fields replaced by the non-null parameter values.
+}
+
+/// @nodoc
+
+class _$ResetCampSummaryStateImpl implements ResetCampSummaryState {
+  const _$ResetCampSummaryStateImpl();
+
+  @override
+  String toString() {
+    return 'CampSummaryEvent.resetState()';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$ResetCampSummaryStateImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(Map<String, dynamic> data)
+        getHolidayCalenDarDateEvents,
+    required TResult Function(Map<String, dynamic> data) applyCoupon,
+    required TResult Function(String couponCode) storeCouponCode,
+    required TResult Function() resetState,
+  }) {
+    return resetState();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(Map<String, dynamic> data)? getHolidayCalenDarDateEvents,
+    TResult? Function(Map<String, dynamic> data)? applyCoupon,
+    TResult? Function(String couponCode)? storeCouponCode,
+    TResult? Function()? resetState,
+  }) {
+    return resetState?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(Map<String, dynamic> data)? getHolidayCalenDarDateEvents,
+    TResult Function(Map<String, dynamic> data)? applyCoupon,
+    TResult Function(String couponCode)? storeCouponCode,
+    TResult Function()? resetState,
+    required TResult orElse(),
+  }) {
+    if (resetState != null) {
+      return resetState();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(CampGetSummaryEvents value)
+        getHolidayCalenDarDateEvents,
+    required TResult Function(ApplyCouponCampSummaryEvent value) applyCoupon,
+    required TResult Function(StoreCouponCodeCampSummaryEvent value)
+        storeCouponCode,
+    required TResult Function(ResetCampSummaryState value) resetState,
+  }) {
+    return resetState(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(CampGetSummaryEvents value)? getHolidayCalenDarDateEvents,
+    TResult? Function(ApplyCouponCampSummaryEvent value)? applyCoupon,
+    TResult? Function(StoreCouponCodeCampSummaryEvent value)? storeCouponCode,
+    TResult? Function(ResetCampSummaryState value)? resetState,
+  }) {
+    return resetState?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(CampGetSummaryEvents value)? getHolidayCalenDarDateEvents,
+    TResult Function(ApplyCouponCampSummaryEvent value)? applyCoupon,
+    TResult Function(StoreCouponCodeCampSummaryEvent value)? storeCouponCode,
+    TResult Function(ResetCampSummaryState value)? resetState,
+    required TResult orElse(),
+  }) {
+    if (resetState != null) {
+      return resetState(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class ResetCampSummaryState implements CampSummaryEvent {
+  const factory ResetCampSummaryState() = _$ResetCampSummaryStateImpl;
 }

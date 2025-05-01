@@ -18,5 +18,6 @@ abstract class CampRepositery{
   Future<Either<Failure,dynamic>> getVaildateBooking(Map<String, dynamic> validateBooking);
   Future<Either<Failure,CampOrderSummaryModel>> getCampBookingSummary(Map<String, dynamic> bookingSummary);
   Future<Either<Failure,dynamic>> appLyCoupons(Map<String, dynamic> couponData);
+  Future<Either<Failure,dynamic>> placeOrder(Map<String, dynamic> placeOrderData);
 
 }

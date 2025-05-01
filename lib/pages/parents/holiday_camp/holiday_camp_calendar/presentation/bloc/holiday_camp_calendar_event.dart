@@ -15,5 +15,6 @@ class HolidayCampCalendarEvent with _$HolidayCampCalendarEvent {
   const factory HolidayCampCalendarEvent.setCurrentDate( DateTime data,String dayname) = HolidayCampCurrentDateEvent;
   const factory HolidayCampCalendarEvent.getSelectedCampDates( Map<String, dynamic> data) = GetSelectedCampDateHolidayCampEvent;
   const factory HolidayCampCalendarEvent.getBookingValidateHolidaycamp( Map<String, dynamic> data) = BooingValidateHolidayCampEvent;
-
+// Add this to your HolidayCampCalendarEvent class
+  const factory HolidayCampCalendarEvent.resetState() = ResetHolidayCampCalendarState;
 }

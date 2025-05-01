@@ -39,8 +39,16 @@ class HolidayCampCalendarBloc
     on<HolidayCampCurrentDateEvent>(_setCurrentDate);
     on<GetSelectedCampDateHolidayCampEvent>(_getSavedCampDates);
     on<BooingValidateHolidayCampEvent>(_valiateBooking);
+    on<ResetHolidayCampCalendarState>(_resetState);
 
 
+  }
+  // Add this method to your bloc class
+  Future<void> _resetState(
+      ResetHolidayCampCalendarState event,
+      Emitter<HolidayCampCalendarState> emit
+      ) async {
+    emit(HolidayCampCalendarState.initial());
   }
 
   Future<void> _setCurrentDate(

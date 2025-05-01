@@ -53,14 +53,14 @@ class HolidayCampCalendar extends StatelessWidget {
                 child: CustomButton(
                   text: "Continue",
                   onPressed: () async {
+                    BlocProvider.of<AddViewPlayerBloc>(context).add(ResetAddViewEvent());
+                    BlocProvider.of<AddViewPlayerBloc>(context).add(AddViewPlayerGetChildListEvent());
                     if( BlocProvider.of<AddViewPlayerBloc>(context).state.childLisstModel.data.isEmpty){
                       BlocProvider.of<AddViewPlayerBloc>(context).add(AddViewPlayerSelectedTabEvent(1));
                     }else{
                       BlocProvider.of<AddViewPlayerBloc>(context).add(AddViewPlayerSelectedTabEvent(0));
                     }
                     Map<String, dynamic> arguments = {
-
-
                       "isFromCreateAccount": "camp",
                     };
                     Navigator.pushNamed(context, AppRoutes.ADDDETAILS,arguments: arguments);

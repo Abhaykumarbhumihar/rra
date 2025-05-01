@@ -21,8 +21,14 @@ class CampSummaryBloc extends Bloc<CampSummaryEvent, CampSummaryState> {
     on<CampGetSummaryEvents>(_campOrderSummary);
     on<StoreCouponCodeCampSummaryEvent>(_storeCouponCode);
     on<ApplyCouponCampSummaryEvent>(_applyCoupons);
+    on<ResetCampSummaryState>(_resetState);
   }
-
+  Future<void> _resetState(
+      ResetCampSummaryState event,
+      Emitter<CampSummaryState> emit
+      ) async {
+    emit(CampSummaryState.initial());
+  }
   Future<void> _applyCoupons(
       ApplyCouponCampSummaryEvent event, Emitter<CampSummaryState> emit) async {
     emit(state.copyWith(

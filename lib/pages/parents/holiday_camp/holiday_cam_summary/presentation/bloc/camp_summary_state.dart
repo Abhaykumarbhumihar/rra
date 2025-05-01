@@ -28,6 +28,6 @@ class CampSummaryState with _$CampSummaryState {
     success: null,
     isError: false,
     isLoginApiError: false,
-      couponCode:""
+      couponCode:"",couponErrorMessage:"",couponSuccessMessage:""
   );
 }

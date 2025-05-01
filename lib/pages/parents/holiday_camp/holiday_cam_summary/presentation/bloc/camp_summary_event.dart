@@ -10,5 +10,6 @@ class CampSummaryEvent with _$CampSummaryEvent {
   const factory CampSummaryEvent.getHolidayCalenDarDateEvents( Map<String, dynamic> data) =CampGetSummaryEvents;
   const factory CampSummaryEvent.applyCoupon(Map<String, dynamic> data) = ApplyCouponCampSummaryEvent;
   const factory CampSummaryEvent.storeCouponCode(String couponCode) = StoreCouponCodeCampSummaryEvent;
+  const factory CampSummaryEvent.resetState() = ResetCampSummaryState; // Add this line
 
 }

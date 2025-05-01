@@ -205,7 +205,7 @@ class CampRepositeryImpl extends CampRepositery{
       print("++++++++++++++getVaildateBooking++++++++++++++++++++++++++++++");
       print(validateBooking);
       http.Response response =
-      await _apiServices.post(AppConstant.getCAMPBOOKINGAPPLYCOUPON, validateBooking,useDefaultHeaders: true,isJson: false);
+      await _apiServices.post(AppConstant.getCampValidateSendChildId, validateBooking,useDefaultHeaders: true,isJson: false);
       print(response.body);
       if (response.statusCode == 200) {
         final Map<String, dynamic> responseData = jsonDecode(response.body);
@@ -231,7 +231,7 @@ class CampRepositeryImpl extends CampRepositery{
       print("+++++++couponData++++++++++++++couponData++++++++++couponData+++++++++++++++++++");
       print(couponData);
       http.Response response =
-      await _apiServices.post(AppConstant.getApplyDiscount, couponData,useDefaultHeaders: true,isJson: false);
+      await _apiServices.post(AppConstant.getCAMPBOOKINGAPPLYCOUPON, couponData,useDefaultHeaders: true,isJson: false);
       print("nvnvnvnv+++vnvnv++++++++\n\n");
 
       print(response.body);
@@ -255,6 +255,32 @@ class CampRepositeryImpl extends CampRepositery{
         return Left(Failure(errorMessage));
       }
 
+    } catch (e) {
+      return Left(Failure("$e"));
+    }
+  }
+
+  @override
+  Future<Either<Failure, dynamic>> placeOrder(Map<String, dynamic> placeOrderData)async {
+    try {
+
+      print("++++++++++++++placeOrder++++++++++++++++++++++++++++++");
+      print(placeOrderData);
+      http.Response response =
+      await _apiServices.post(AppConstant.getCAMPORDERPACE, placeOrderData,useDefaultHeaders: true,isJson: true);
+      print(response.body);
+      if (response.statusCode == 200) {
+        final Map<String, dynamic> responseData = jsonDecode(response.body);
+        if(responseData['success']){
+          return Right(responseData);
+        }else{
+          return Left(Failure(responseData['message']));
+        }
+
+      } else {
+        final errorMessage = _extractErrorMessage(response.body);
+        return Left(Failure(errorMessage));
+      }
     } catch (e) {
       return Left(Failure("$e"));
     }

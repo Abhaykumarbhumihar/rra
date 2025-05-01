@@ -47,6 +47,7 @@ class CapPaymentBottomSheet extends StatelessWidget {
                   ),
                   child: SingleChildScrollView( // Make it scrollable if content exceeds
                     child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
                       mainAxisSize: MainAxisSize.min, // Takes only needed space
                       children: [
                         const SizedBox(height: 24),
@@ -54,9 +55,9 @@ class CapPaymentBottomSheet extends StatelessWidget {
                           controller: promoCodeController,
                           onApply: couponApplyAction,
                         ),
-                        // state.couponErrorMessage.isNotEmpty
-                        //     ? Text(state.couponErrorMessage)
-                        //     : const SizedBox(),
+                        state.couponErrorMessage.isNotEmpty
+                            ? Text(state.couponErrorMessage)
+                            : const SizedBox(),
 
                         const SizedBox(height: 24),
 
@@ -71,12 +72,11 @@ class CapPaymentBottomSheet extends StatelessWidget {
                             value: "${state.campOrderSummary.data.displayTax}"
                         ),
 
-                        // if (state.getTotalRespone.data.promocodeDetails != null &&
-                        //     state.getTotalRespone.data.promocodeDetails!.discount.toString().isNotEmpty)
-                        //   PaymentSummaryRow(
-                        //     title: "Discount",
-                        //     value: "${state.getTotalRespone.data.promocodeDetails!.discount}",
-                        //   ),
+                        if (state.campOrderSummary.data.discount != null )
+                          PaymentSummaryRow(
+                            title: "Discount",
+                            value: "${state.campOrderSummary.data.displayDiscount}",
+                          ),
 
 
                         const SizedBox(height: 8),

@@ -43,6 +43,10 @@ class CampUsecase{
       Map<String, dynamic> couponData) async {
     return _campRepositery.appLyCoupons(couponData);
   }
+  Future<Either<Failure, dynamic>> placeOrderExecute(
+      Map<String, dynamic> placeOrderData) async {
+    return _campRepositery.placeOrder(placeOrderData);
+  }
 }
 
 

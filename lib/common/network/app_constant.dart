@@ -91,6 +91,7 @@ static String get getCollateralList=>"collaterals/list";
   static String get getSelectedCampDates=>"camp/booking/selected-dates";
   static String get getCampBookingSummary=>"camp/booking/summery";
   static String get getCAMPBOOKINGAPPLYCOUPON=>"camp/booking/promocode/apply";
+  static String get getCAMPORDERPACE=>"camp/order/place";
 
 
 }

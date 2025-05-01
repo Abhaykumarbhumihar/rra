@@ -168,6 +168,7 @@ class HolidayDetailPage extends StatelessWidget {
                                                 "session":data.id,
                                                 "academy_id":academyId
                                               };
+                                              BlocProvider.of<HolidayCampCalendarBloc>(context).add(ResetHolidayCampCalendarState());
 
                                               BlocProvider.of<HolidayCampCalendarBloc>(context).add(HolidayCampCalendarDateEvents(campData));
                                               Navigator.pushNamed(

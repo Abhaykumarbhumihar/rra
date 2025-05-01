@@ -16,7 +16,6 @@ final _privateConstructorUsedError = UnsupportedError(
 
 /// @nodoc
 mixin _$HolidayCampCalendarEvent {
-  Object get data => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(Map<String, dynamic> data)
@@ -30,6 +29,7 @@ mixin _$HolidayCampCalendarEvent {
     required TResult Function(Map<String, dynamic> data) getSelectedCampDates,
     required TResult Function(Map<String, dynamic> data)
         getBookingValidateHolidaycamp,
+    required TResult Function() resetState,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -42,6 +42,7 @@ mixin _$HolidayCampCalendarEvent {
     TResult? Function(DateTime data, String dayname)? setCurrentDate,
     TResult? Function(Map<String, dynamic> data)? getSelectedCampDates,
     TResult? Function(Map<String, dynamic> data)? getBookingValidateHolidaycamp,
+    TResult? Function()? resetState,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -53,6 +54,7 @@ mixin _$HolidayCampCalendarEvent {
     TResult Function(DateTime data, String dayname)? setCurrentDate,
     TResult Function(Map<String, dynamic> data)? getSelectedCampDates,
     TResult Function(Map<String, dynamic> data)? getBookingValidateHolidaycamp,
+    TResult Function()? resetState,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -69,6 +71,7 @@ mixin _$HolidayCampCalendarEvent {
         getSelectedCampDates,
     required TResult Function(BooingValidateHolidayCampEvent value)
         getBookingValidateHolidaycamp,
+    required TResult Function(ResetHolidayCampCalendarState value) resetState,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -84,6 +87,7 @@ mixin _$HolidayCampCalendarEvent {
         getSelectedCampDates,
     TResult? Function(BooingValidateHolidayCampEvent value)?
         getBookingValidateHolidaycamp,
+    TResult? Function(ResetHolidayCampCalendarState value)? resetState,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -99,6 +103,7 @@ mixin _$HolidayCampCalendarEvent {
         getSelectedCampDates,
     TResult Function(BooingValidateHolidayCampEvent value)?
         getBookingValidateHolidaycamp,
+    TResult Function(ResetHolidayCampCalendarState value)? resetState,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -218,6 +223,7 @@ class _$HolidayCampCalendarDateEventsImpl
     required TResult Function(Map<String, dynamic> data) getSelectedCampDates,
     required TResult Function(Map<String, dynamic> data)
         getBookingValidateHolidaycamp,
+    required TResult Function() resetState,
   }) {
     return getHolidayCalenDarDateEvents(data);
   }
@@ -233,6 +239,7 @@ class _$HolidayCampCalendarDateEventsImpl
     TResult? Function(DateTime data, String dayname)? setCurrentDate,
     TResult? Function(Map<String, dynamic> data)? getSelectedCampDates,
     TResult? Function(Map<String, dynamic> data)? getBookingValidateHolidaycamp,
+    TResult? Function()? resetState,
   }) {
     return getHolidayCalenDarDateEvents?.call(data);
   }
@@ -247,6 +254,7 @@ class _$HolidayCampCalendarDateEventsImpl
     TResult Function(DateTime data, String dayname)? setCurrentDate,
     TResult Function(Map<String, dynamic> data)? getSelectedCampDates,
     TResult Function(Map<String, dynamic> data)? getBookingValidateHolidaycamp,
+    TResult Function()? resetState,
     required TResult orElse(),
   }) {
     if (getHolidayCalenDarDateEvents != null) {
@@ -269,6 +277,7 @@ class _$HolidayCampCalendarDateEventsImpl
         getSelectedCampDates,
     required TResult Function(BooingValidateHolidayCampEvent value)
         getBookingValidateHolidaycamp,
+    required TResult Function(ResetHolidayCampCalendarState value) resetState,
   }) {
     return getHolidayCalenDarDateEvents(this);
   }
@@ -287,6 +296,7 @@ class _$HolidayCampCalendarDateEventsImpl
         getSelectedCampDates,
     TResult? Function(BooingValidateHolidayCampEvent value)?
         getBookingValidateHolidaycamp,
+    TResult? Function(ResetHolidayCampCalendarState value)? resetState,
   }) {
     return getHolidayCalenDarDateEvents?.call(this);
   }
@@ -305,6 +315,7 @@ class _$HolidayCampCalendarDateEventsImpl
         getSelectedCampDates,
     TResult Function(BooingValidateHolidayCampEvent value)?
         getBookingValidateHolidaycamp,
+    TResult Function(ResetHolidayCampCalendarState value)? resetState,
     required TResult orElse(),
   }) {
     if (getHolidayCalenDarDateEvents != null) {
@@ -319,7 +330,6 @@ abstract class HolidayCampCalendarDateEvents
   const factory HolidayCampCalendarDateEvents(final Map<String, dynamic> data) =
       _$HolidayCampCalendarDateEventsImpl;
 
-  @override
   Map<String, dynamic> get data;
 
   /// Create a copy of HolidayCampCalendarEvent
@@ -416,6 +426,7 @@ class _$SaveCampEventsImpl implements SaveCampEvents {
     required TResult Function(Map<String, dynamic> data) getSelectedCampDates,
     required TResult Function(Map<String, dynamic> data)
         getBookingValidateHolidaycamp,
+    required TResult Function() resetState,
   }) {
     return SaveCampDates(data);
   }
@@ -431,6 +442,7 @@ class _$SaveCampEventsImpl implements SaveCampEvents {
     TResult? Function(DateTime data, String dayname)? setCurrentDate,
     TResult? Function(Map<String, dynamic> data)? getSelectedCampDates,
     TResult? Function(Map<String, dynamic> data)? getBookingValidateHolidaycamp,
+    TResult? Function()? resetState,
   }) {
     return SaveCampDates?.call(data);
   }
@@ -445,6 +457,7 @@ class _$SaveCampEventsImpl implements SaveCampEvents {
     TResult Function(DateTime data, String dayname)? setCurrentDate,
     TResult Function(Map<String, dynamic> data)? getSelectedCampDates,
     TResult Function(Map<String, dynamic> data)? getBookingValidateHolidaycamp,
+    TResult Function()? resetState,
     required TResult orElse(),
   }) {
     if (SaveCampDates != null) {
@@ -467,6 +480,7 @@ class _$SaveCampEventsImpl implements SaveCampEvents {
         getSelectedCampDates,
     required TResult Function(BooingValidateHolidayCampEvent value)
         getBookingValidateHolidaycamp,
+    required TResult Function(ResetHolidayCampCalendarState value) resetState,
   }) {
     return SaveCampDates(this);
   }
@@ -485,6 +499,7 @@ class _$SaveCampEventsImpl implements SaveCampEvents {
         getSelectedCampDates,
     TResult? Function(BooingValidateHolidayCampEvent value)?
         getBookingValidateHolidaycamp,
+    TResult? Function(ResetHolidayCampCalendarState value)? resetState,
   }) {
     return SaveCampDates?.call(this);
   }
@@ -503,6 +518,7 @@ class _$SaveCampEventsImpl implements SaveCampEvents {
         getSelectedCampDates,
     TResult Function(BooingValidateHolidayCampEvent value)?
         getBookingValidateHolidaycamp,
+    TResult Function(ResetHolidayCampCalendarState value)? resetState,
     required TResult orElse(),
   }) {
     if (SaveCampDates != null) {
@@ -516,7 +532,6 @@ abstract class SaveCampEvents implements HolidayCampCalendarEvent {
   const factory SaveCampEvents(final Map<String, dynamic> data) =
       _$SaveCampEventsImpl;
 
-  @override
   Map<String, dynamic> get data;
 
   /// Create a copy of HolidayCampCalendarEvent
@@ -623,6 +638,7 @@ class _$RemoveSavedCampEventImpl implements RemoveSavedCampEvent {
     required TResult Function(Map<String, dynamic> data) getSelectedCampDates,
     required TResult Function(Map<String, dynamic> data)
         getBookingValidateHolidaycamp,
+    required TResult Function() resetState,
   }) {
     return removeSavedCamp(data, index);
   }
@@ -638,6 +654,7 @@ class _$RemoveSavedCampEventImpl implements RemoveSavedCampEvent {
     TResult? Function(DateTime data, String dayname)? setCurrentDate,
     TResult? Function(Map<String, dynamic> data)? getSelectedCampDates,
     TResult? Function(Map<String, dynamic> data)? getBookingValidateHolidaycamp,
+    TResult? Function()? resetState,
   }) {
     return removeSavedCamp?.call(data, index);
   }
@@ -652,6 +669,7 @@ class _$RemoveSavedCampEventImpl implements RemoveSavedCampEvent {
     TResult Function(DateTime data, String dayname)? setCurrentDate,
     TResult Function(Map<String, dynamic> data)? getSelectedCampDates,
     TResult Function(Map<String, dynamic> data)? getBookingValidateHolidaycamp,
+    TResult Function()? resetState,
     required TResult orElse(),
   }) {
     if (removeSavedCamp != null) {
@@ -674,6 +692,7 @@ class _$RemoveSavedCampEventImpl implements RemoveSavedCampEvent {
         getSelectedCampDates,
     required TResult Function(BooingValidateHolidayCampEvent value)
         getBookingValidateHolidaycamp,
+    required TResult Function(ResetHolidayCampCalendarState value) resetState,
   }) {
     return removeSavedCamp(this);
   }
@@ -692,6 +711,7 @@ class _$RemoveSavedCampEventImpl implements RemoveSavedCampEvent {
         getSelectedCampDates,
     TResult? Function(BooingValidateHolidayCampEvent value)?
         getBookingValidateHolidaycamp,
+    TResult? Function(ResetHolidayCampCalendarState value)? resetState,
   }) {
     return removeSavedCamp?.call(this);
   }
@@ -710,6 +730,7 @@ class _$RemoveSavedCampEventImpl implements RemoveSavedCampEvent {
         getSelectedCampDates,
     TResult Function(BooingValidateHolidayCampEvent value)?
         getBookingValidateHolidaycamp,
+    TResult Function(ResetHolidayCampCalendarState value)? resetState,
     required TResult orElse(),
   }) {
     if (removeSavedCamp != null) {
@@ -724,7 +745,6 @@ abstract class RemoveSavedCampEvent implements HolidayCampCalendarEvent {
           final Map<String, dynamic> data, final dynamic index) =
       _$RemoveSavedCampEventImpl;
 
-  @override
   Map<String, dynamic> get data;
   dynamic get index;
 
@@ -827,6 +847,7 @@ class _$ValidateCampSendChildIdEventImpl
     required TResult Function(Map<String, dynamic> data) getSelectedCampDates,
     required TResult Function(Map<String, dynamic> data)
         getBookingValidateHolidaycamp,
+    required TResult Function() resetState,
   }) {
     return getValidateCampSendChildId(data);
   }
@@ -842,6 +863,7 @@ class _$ValidateCampSendChildIdEventImpl
     TResult? Function(DateTime data, String dayname)? setCurrentDate,
     TResult? Function(Map<String, dynamic> data)? getSelectedCampDates,
     TResult? Function(Map<String, dynamic> data)? getBookingValidateHolidaycamp,
+    TResult? Function()? resetState,
   }) {
     return getValidateCampSendChildId?.call(data);
   }
@@ -856,6 +878,7 @@ class _$ValidateCampSendChildIdEventImpl
     TResult Function(DateTime data, String dayname)? setCurrentDate,
     TResult Function(Map<String, dynamic> data)? getSelectedCampDates,
     TResult Function(Map<String, dynamic> data)? getBookingValidateHolidaycamp,
+    TResult Function()? resetState,
     required TResult orElse(),
   }) {
     if (getValidateCampSendChildId != null) {
@@ -878,6 +901,7 @@ class _$ValidateCampSendChildIdEventImpl
         getSelectedCampDates,
     required TResult Function(BooingValidateHolidayCampEvent value)
         getBookingValidateHolidaycamp,
+    required TResult Function(ResetHolidayCampCalendarState value) resetState,
   }) {
     return getValidateCampSendChildId(this);
   }
@@ -896,6 +920,7 @@ class _$ValidateCampSendChildIdEventImpl
         getSelectedCampDates,
     TResult? Function(BooingValidateHolidayCampEvent value)?
         getBookingValidateHolidaycamp,
+    TResult? Function(ResetHolidayCampCalendarState value)? resetState,
   }) {
     return getValidateCampSendChildId?.call(this);
   }
@@ -914,6 +939,7 @@ class _$ValidateCampSendChildIdEventImpl
         getSelectedCampDates,
     TResult Function(BooingValidateHolidayCampEvent value)?
         getBookingValidateHolidaycamp,
+    TResult Function(ResetHolidayCampCalendarState value)? resetState,
     required TResult orElse(),
   }) {
     if (getValidateCampSendChildId != null) {
@@ -928,7 +954,6 @@ abstract class ValidateCampSendChildIdEvent
   const factory ValidateCampSendChildIdEvent(final Map<String, dynamic> data) =
       _$ValidateCampSendChildIdEventImpl;
 
-  @override
   Map<String, dynamic> get data;
 
   /// Create a copy of HolidayCampCalendarEvent
@@ -1030,6 +1055,7 @@ class _$HolidayCampCurrentDateEventImpl implements HolidayCampCurrentDateEvent {
     required TResult Function(Map<String, dynamic> data) getSelectedCampDates,
     required TResult Function(Map<String, dynamic> data)
         getBookingValidateHolidaycamp,
+    required TResult Function() resetState,
   }) {
     return setCurrentDate(data, dayname);
   }
@@ -1045,6 +1071,7 @@ class _$HolidayCampCurrentDateEventImpl implements HolidayCampCurrentDateEvent {
     TResult? Function(DateTime data, String dayname)? setCurrentDate,
     TResult? Function(Map<String, dynamic> data)? getSelectedCampDates,
     TResult? Function(Map<String, dynamic> data)? getBookingValidateHolidaycamp,
+    TResult? Function()? resetState,
   }) {
     return setCurrentDate?.call(data, dayname);
   }
@@ -1059,6 +1086,7 @@ class _$HolidayCampCurrentDateEventImpl implements HolidayCampCurrentDateEvent {
     TResult Function(DateTime data, String dayname)? setCurrentDate,
     TResult Function(Map<String, dynamic> data)? getSelectedCampDates,
     TResult Function(Map<String, dynamic> data)? getBookingValidateHolidaycamp,
+    TResult Function()? resetState,
     required TResult orElse(),
   }) {
     if (setCurrentDate != null) {
@@ -1081,6 +1109,7 @@ class _$HolidayCampCurrentDateEventImpl implements HolidayCampCurrentDateEvent {
         getSelectedCampDates,
     required TResult Function(BooingValidateHolidayCampEvent value)
         getBookingValidateHolidaycamp,
+    required TResult Function(ResetHolidayCampCalendarState value) resetState,
   }) {
     return setCurrentDate(this);
   }
@@ -1099,6 +1128,7 @@ class _$HolidayCampCurrentDateEventImpl implements HolidayCampCurrentDateEvent {
         getSelectedCampDates,
     TResult? Function(BooingValidateHolidayCampEvent value)?
         getBookingValidateHolidaycamp,
+    TResult? Function(ResetHolidayCampCalendarState value)? resetState,
   }) {
     return setCurrentDate?.call(this);
   }
@@ -1117,6 +1147,7 @@ class _$HolidayCampCurrentDateEventImpl implements HolidayCampCurrentDateEvent {
         getSelectedCampDates,
     TResult Function(BooingValidateHolidayCampEvent value)?
         getBookingValidateHolidaycamp,
+    TResult Function(ResetHolidayCampCalendarState value)? resetState,
     required TResult orElse(),
   }) {
     if (setCurrentDate != null) {
@@ -1131,7 +1162,6 @@ abstract class HolidayCampCurrentDateEvent implements HolidayCampCalendarEvent {
           final DateTime data, final String dayname) =
       _$HolidayCampCurrentDateEventImpl;
 
-  @override
   DateTime get data;
   String get dayname;
 
@@ -1235,6 +1265,7 @@ class _$GetSelectedCampDateHolidayCampEventImpl
     required TResult Function(Map<String, dynamic> data) getSelectedCampDates,
     required TResult Function(Map<String, dynamic> data)
         getBookingValidateHolidaycamp,
+    required TResult Function() resetState,
   }) {
     return getSelectedCampDates(data);
   }
@@ -1250,6 +1281,7 @@ class _$GetSelectedCampDateHolidayCampEventImpl
     TResult? Function(DateTime data, String dayname)? setCurrentDate,
     TResult? Function(Map<String, dynamic> data)? getSelectedCampDates,
     TResult? Function(Map<String, dynamic> data)? getBookingValidateHolidaycamp,
+    TResult? Function()? resetState,
   }) {
     return getSelectedCampDates?.call(data);
   }
@@ -1264,6 +1296,7 @@ class _$GetSelectedCampDateHolidayCampEventImpl
     TResult Function(DateTime data, String dayname)? setCurrentDate,
     TResult Function(Map<String, dynamic> data)? getSelectedCampDates,
     TResult Function(Map<String, dynamic> data)? getBookingValidateHolidaycamp,
+    TResult Function()? resetState,
     required TResult orElse(),
   }) {
     if (getSelectedCampDates != null) {
@@ -1286,6 +1319,7 @@ class _$GetSelectedCampDateHolidayCampEventImpl
         getSelectedCampDates,
     required TResult Function(BooingValidateHolidayCampEvent value)
         getBookingValidateHolidaycamp,
+    required TResult Function(ResetHolidayCampCalendarState value) resetState,
   }) {
     return getSelectedCampDates(this);
   }
@@ -1304,6 +1338,7 @@ class _$GetSelectedCampDateHolidayCampEventImpl
         getSelectedCampDates,
     TResult? Function(BooingValidateHolidayCampEvent value)?
         getBookingValidateHolidaycamp,
+    TResult? Function(ResetHolidayCampCalendarState value)? resetState,
   }) {
     return getSelectedCampDates?.call(this);
   }
@@ -1322,6 +1357,7 @@ class _$GetSelectedCampDateHolidayCampEventImpl
         getSelectedCampDates,
     TResult Function(BooingValidateHolidayCampEvent value)?
         getBookingValidateHolidaycamp,
+    TResult Function(ResetHolidayCampCalendarState value)? resetState,
     required TResult orElse(),
   }) {
     if (getSelectedCampDates != null) {
@@ -1337,7 +1373,6 @@ abstract class GetSelectedCampDateHolidayCampEvent
           final Map<String, dynamic> data) =
       _$GetSelectedCampDateHolidayCampEventImpl;
 
-  @override
   Map<String, dynamic> get data;
 
   /// Create a copy of HolidayCampCalendarEvent
@@ -1440,6 +1475,7 @@ class _$BooingValidateHolidayCampEventImpl
     required TResult Function(Map<String, dynamic> data) getSelectedCampDates,
     required TResult Function(Map<String, dynamic> data)
         getBookingValidateHolidaycamp,
+    required TResult Function() resetState,
   }) {
     return getBookingValidateHolidaycamp(data);
   }
@@ -1455,6 +1491,7 @@ class _$BooingValidateHolidayCampEventImpl
     TResult? Function(DateTime data, String dayname)? setCurrentDate,
     TResult? Function(Map<String, dynamic> data)? getSelectedCampDates,
     TResult? Function(Map<String, dynamic> data)? getBookingValidateHolidaycamp,
+    TResult? Function()? resetState,
   }) {
     return getBookingValidateHolidaycamp?.call(data);
   }
@@ -1469,6 +1506,7 @@ class _$BooingValidateHolidayCampEventImpl
     TResult Function(DateTime data, String dayname)? setCurrentDate,
     TResult Function(Map<String, dynamic> data)? getSelectedCampDates,
     TResult Function(Map<String, dynamic> data)? getBookingValidateHolidaycamp,
+    TResult Function()? resetState,
     required TResult orElse(),
   }) {
     if (getBookingValidateHolidaycamp != null) {
@@ -1491,6 +1529,7 @@ class _$BooingValidateHolidayCampEventImpl
         getSelectedCampDates,
     required TResult Function(BooingValidateHolidayCampEvent value)
         getBookingValidateHolidaycamp,
+    required TResult Function(ResetHolidayCampCalendarState value) resetState,
   }) {
     return getBookingValidateHolidaycamp(this);
   }
@@ -1509,6 +1548,7 @@ class _$BooingValidateHolidayCampEventImpl
         getSelectedCampDates,
     TResult? Function(BooingValidateHolidayCampEvent value)?
         getBookingValidateHolidaycamp,
+    TResult? Function(ResetHolidayCampCalendarState value)? resetState,
   }) {
     return getBookingValidateHolidaycamp?.call(this);
   }
@@ -1527,6 +1567,7 @@ class _$BooingValidateHolidayCampEventImpl
         getSelectedCampDates,
     TResult Function(BooingValidateHolidayCampEvent value)?
         getBookingValidateHolidaycamp,
+    TResult Function(ResetHolidayCampCalendarState value)? resetState,
     required TResult orElse(),
   }) {
     if (getBookingValidateHolidaycamp != null) {
@@ -1541,7 +1582,6 @@ abstract class BooingValidateHolidayCampEvent
   const factory BooingValidateHolidayCampEvent(
       final Map<String, dynamic> data) = _$BooingValidateHolidayCampEventImpl;
 
-  @override
   Map<String, dynamic> get data;
 
   /// Create a copy of HolidayCampCalendarEvent
@@ -1550,4 +1590,169 @@ abstract class BooingValidateHolidayCampEvent
   _$$BooingValidateHolidayCampEventImplCopyWith<
           _$BooingValidateHolidayCampEventImpl>
       get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$ResetHolidayCampCalendarStateImplCopyWith<$Res> {
+  factory _$$ResetHolidayCampCalendarStateImplCopyWith(
+          _$ResetHolidayCampCalendarStateImpl value,
+          $Res Function(_$ResetHolidayCampCalendarStateImpl) then) =
+      __$$ResetHolidayCampCalendarStateImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$ResetHolidayCampCalendarStateImplCopyWithImpl<$Res>
+    extends _$HolidayCampCalendarEventCopyWithImpl<$Res,
+        _$ResetHolidayCampCalendarStateImpl>
+    implements _$$ResetHolidayCampCalendarStateImplCopyWith<$Res> {
+  __$$ResetHolidayCampCalendarStateImplCopyWithImpl(
+      _$ResetHolidayCampCalendarStateImpl _value,
+      $Res Function(_$ResetHolidayCampCalendarStateImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of HolidayCampCalendarEvent
+  /// with the given fields replaced by the non-null parameter values.
+}
+
+/// @nodoc
+
+class _$ResetHolidayCampCalendarStateImpl
+    implements ResetHolidayCampCalendarState {
+  const _$ResetHolidayCampCalendarStateImpl();
+
+  @override
+  String toString() {
+    return 'HolidayCampCalendarEvent.resetState()';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$ResetHolidayCampCalendarStateImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(Map<String, dynamic> data)
+        getHolidayCalenDarDateEvents,
+    required TResult Function(Map<String, dynamic> data) SaveCampDates,
+    required TResult Function(Map<String, dynamic> data, dynamic index)
+        removeSavedCamp,
+    required TResult Function(Map<String, dynamic> data)
+        getValidateCampSendChildId,
+    required TResult Function(DateTime data, String dayname) setCurrentDate,
+    required TResult Function(Map<String, dynamic> data) getSelectedCampDates,
+    required TResult Function(Map<String, dynamic> data)
+        getBookingValidateHolidaycamp,
+    required TResult Function() resetState,
+  }) {
+    return resetState();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(Map<String, dynamic> data)? getHolidayCalenDarDateEvents,
+    TResult? Function(Map<String, dynamic> data)? SaveCampDates,
+    TResult? Function(Map<String, dynamic> data, dynamic index)?
+        removeSavedCamp,
+    TResult? Function(Map<String, dynamic> data)? getValidateCampSendChildId,
+    TResult? Function(DateTime data, String dayname)? setCurrentDate,
+    TResult? Function(Map<String, dynamic> data)? getSelectedCampDates,
+    TResult? Function(Map<String, dynamic> data)? getBookingValidateHolidaycamp,
+    TResult? Function()? resetState,
+  }) {
+    return resetState?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(Map<String, dynamic> data)? getHolidayCalenDarDateEvents,
+    TResult Function(Map<String, dynamic> data)? SaveCampDates,
+    TResult Function(Map<String, dynamic> data, dynamic index)? removeSavedCamp,
+    TResult Function(Map<String, dynamic> data)? getValidateCampSendChildId,
+    TResult Function(DateTime data, String dayname)? setCurrentDate,
+    TResult Function(Map<String, dynamic> data)? getSelectedCampDates,
+    TResult Function(Map<String, dynamic> data)? getBookingValidateHolidaycamp,
+    TResult Function()? resetState,
+    required TResult orElse(),
+  }) {
+    if (resetState != null) {
+      return resetState();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(HolidayCampCalendarDateEvents value)
+        getHolidayCalenDarDateEvents,
+    required TResult Function(SaveCampEvents value) SaveCampDates,
+    required TResult Function(RemoveSavedCampEvent value) removeSavedCamp,
+    required TResult Function(ValidateCampSendChildIdEvent value)
+        getValidateCampSendChildId,
+    required TResult Function(HolidayCampCurrentDateEvent value) setCurrentDate,
+    required TResult Function(GetSelectedCampDateHolidayCampEvent value)
+        getSelectedCampDates,
+    required TResult Function(BooingValidateHolidayCampEvent value)
+        getBookingValidateHolidaycamp,
+    required TResult Function(ResetHolidayCampCalendarState value) resetState,
+  }) {
+    return resetState(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(HolidayCampCalendarDateEvents value)?
+        getHolidayCalenDarDateEvents,
+    TResult? Function(SaveCampEvents value)? SaveCampDates,
+    TResult? Function(RemoveSavedCampEvent value)? removeSavedCamp,
+    TResult? Function(ValidateCampSendChildIdEvent value)?
+        getValidateCampSendChildId,
+    TResult? Function(HolidayCampCurrentDateEvent value)? setCurrentDate,
+    TResult? Function(GetSelectedCampDateHolidayCampEvent value)?
+        getSelectedCampDates,
+    TResult? Function(BooingValidateHolidayCampEvent value)?
+        getBookingValidateHolidaycamp,
+    TResult? Function(ResetHolidayCampCalendarState value)? resetState,
+  }) {
+    return resetState?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(HolidayCampCalendarDateEvents value)?
+        getHolidayCalenDarDateEvents,
+    TResult Function(SaveCampEvents value)? SaveCampDates,
+    TResult Function(RemoveSavedCampEvent value)? removeSavedCamp,
+    TResult Function(ValidateCampSendChildIdEvent value)?
+        getValidateCampSendChildId,
+    TResult Function(HolidayCampCurrentDateEvent value)? setCurrentDate,
+    TResult Function(GetSelectedCampDateHolidayCampEvent value)?
+        getSelectedCampDates,
+    TResult Function(BooingValidateHolidayCampEvent value)?
+        getBookingValidateHolidaycamp,
+    TResult Function(ResetHolidayCampCalendarState value)? resetState,
+    required TResult orElse(),
+  }) {
+    if (resetState != null) {
+      return resetState(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class ResetHolidayCampCalendarState
+    implements HolidayCampCalendarEvent {
+  const factory ResetHolidayCampCalendarState() =
+      _$ResetHolidayCampCalendarStateImpl;
 }
