@@ -11,6 +11,7 @@ class CampSummaryEvent with _$CampSummaryEvent {
   const factory CampSummaryEvent.applyCoupon(Map<String, dynamic> data) = ApplyCouponCampSummaryEvent;
   const factory CampSummaryEvent.storeCouponCode(String couponCode) = StoreCouponCodeCampSummaryEvent;
   const factory CampSummaryEvent.placeOrder(Map<String, dynamic> data) = PlaceOrderCampSummaryEvent;
+  const factory CampSummaryEvent.placeOrderPaymentSaveStripe(Map<String, dynamic> data) = PlaceOrderPaymentSaveStripeCampSummaryEvent;
   const factory CampSummaryEvent.resetState() = ResetCampSummaryState; // Add this line
 
 }

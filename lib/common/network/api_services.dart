@@ -53,6 +53,7 @@ class ApiServices {
           ||url==AppConstant.getCampBookingSummary
           ||url==AppConstant.getCAMPBOOKINGAPPLYCOUPON
           ||url==AppConstant.getCAMPORDERPACE
+          ||url==AppConstant.getCampOrderPaymentSaveStripe
 
       ) {
         print("YYYYYSY${url}YSYSYSYSYSYSYSYSYSSYSYSYSYSYSYSYSYSYSYSYSYSYYSYSYSY");

@@ -48,6 +48,11 @@ class CampUsecase{
       Map<String, dynamic> placeOrderData) async {
     return _campRepositery.placeOrder(placeOrderData);
   }
+
+  Future<Either<Failure, dynamic>>placeOrderPaymentSaveStripeExecute(
+      Map<String, dynamic> placeOrderData) async {
+    return _campRepositery.placeOrderPaymentSaveStripe(placeOrderData);
+  }
 }
 
 

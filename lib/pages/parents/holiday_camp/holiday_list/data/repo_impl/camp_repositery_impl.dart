@@ -288,6 +288,33 @@ class CampRepositeryImpl extends CampRepositery{
     }
   }
 
+  @override
+  Future<Either<Failure, dynamic>> placeOrderPaymentSaveStripe(Map<String, dynamic> placeOrderPaymentSaveStripeData)async {
+    try {
+
+      print("++++++++++++++placeOrderPaymentSaveStripe++++++++++++++++++++++++++++++");
+      print(placeOrderPaymentSaveStripeData);
+      http.Response response =
+      await _apiServices.post(AppConstant.getCampOrderPaymentSaveStripe, placeOrderPaymentSaveStripeData,useDefaultHeaders: true,isJson: true);
+      print(response.body);
+      if (response.statusCode == 200) {
+        final Map<String, dynamic> responseData = jsonDecode(response.body);
+        if(responseData['success']){
+
+          return Right(responseData);
+        }else{
+          return Left(Failure(responseData['message']));
+        }
+
+      } else {
+        final errorMessage = _extractErrorMessage(response.body);
+        return Left(Failure(errorMessage));
+      }
+    } catch (e) {
+      return Left(Failure("$e"));
+    }
+  }
+
   String _extractErrorMessage(String responseBody) {
     try {
       final Map<String, dynamic> errorData = jsonDecode(responseBody);

@@ -20,5 +20,6 @@ abstract class CampRepositery{
   Future<Either<Failure,CampOrderSummaryModel>> getCampBookingSummary(Map<String, dynamic> bookingSummary);
   Future<Either<Failure,dynamic>> appLyCoupons(Map<String, dynamic> couponData);
   Future<Either<Failure,PlaceOrderModel>> placeOrder(Map<String, dynamic> placeOrderData);
+  Future<Either<Failure,dynamic>> placeOrderPaymentSaveStripe(Map<String, dynamic> placeOrderPaymentSaveStripeData);
 
 }

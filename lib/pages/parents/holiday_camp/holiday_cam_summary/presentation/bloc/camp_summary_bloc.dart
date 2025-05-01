@@ -23,6 +23,7 @@ class CampSummaryBloc extends Bloc<CampSummaryEvent, CampSummaryState> {
     on<StoreCouponCodeCampSummaryEvent>(_storeCouponCode);
     on<ApplyCouponCampSummaryEvent>(_applyCoupons);
     on<PlaceOrderCampSummaryEvent>(_placeCampOrder);
+    on<PlaceOrderPaymentSaveStripeCampSummaryEvent>(_placeCampOrderPaymentSaveStripe);
     on<ResetCampSummaryState>(_resetState);
   }
 
@@ -191,6 +192,61 @@ class CampSummaryBloc extends Bloc<CampSummaryEvent, CampSummaryState> {
     } catch (error) {
       // Handle the error and show error messages
       emit(state.copyWith(isLoading: false, error: error.toString()));
+    }
+  }
+
+  Future<void> _placeCampOrderPaymentSaveStripe(
+      PlaceOrderPaymentSaveStripeCampSummaryEvent event, Emitter<CampSummaryState> emit) async {
+    try {
+      if (!(await Connectivity().isConnected)) {
+        emit(state.copyWith(
+          finalPaymentDone:false,
+          error:
+          'No internet connection. Please check your connection \nand try again.',
+          isLoginApiError: true,
+          isError: true,
+        ));
+        return;
+      }
+
+      emit(state.copyWith(
+          finalPaymentDone:false,
+          isLoading: true,
+          isError: false,
+          isLoginApiError: false,
+          success: false,
+          error: '',
+        placeOrder: PlaceOrderModel(),
+
+      ));
+      final response =
+      await _campUsecase.placeOrderPaymentSaveStripeExecute(event.data);
+      response.fold((failure) {
+        emit(state.copyWith(
+            error: failure.message,
+            isError: true,
+            isLoginApiError: true,
+            placeOrder: PlaceOrderModel(),
+            finalPaymentDone:false,
+            isLoading: false,
+            success: false));
+      }, (placeOrderPaymentSaveData) async {
+        print("======check =====check =====check \n\n");
+        print(placeOrderPaymentSaveData);
+        print("======check =====check =====check \n\n");
+        emit(state.copyWith(
+            error: '',
+            isError: false,
+            isLoginApiError: false,
+            finalPaymentDone:true,
+            isLoading: false,
+            placeOrder: PlaceOrderModel(),
+            success: true));
+
+      });
+    } catch (error) {
+      // Handle the error and show error messages
+      emit(state.copyWith(isLoading: false,finalPaymentDone: false, error: error.toString()));
     }
   }
 }
