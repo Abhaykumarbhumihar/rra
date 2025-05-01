@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_stripe/flutter_stripe.dart';
 import 'package:http/http.dart' as http;
+import 'package:rra/common/values/utils.dart';
 import 'dart:convert';
 
 import '../local/SharedPrefs.dart';
@@ -141,6 +142,7 @@ class StripeService {
 
       final responseBody = json.decode(response.body);
       if (response.statusCode == 200) {
+        Utils.LogPrint(responseBody);
         return {
           "id": responseBody["id"],
           "client_secret": responseBody["client_secret"],
@@ -171,11 +173,12 @@ class StripeService {
         },
       );
 
-      debugPrint("Stripe API Response: ${response.body}");
+
 
       final responseBody = json.decode(response.body);
 
       if (response.statusCode == 200) {
+        debugPrint("Stripe API Response: ${response.body}");
         return responseBody["client_secret"];
       } else {
         throw Exception("Stripe API Error: ${responseBody['error']}");
