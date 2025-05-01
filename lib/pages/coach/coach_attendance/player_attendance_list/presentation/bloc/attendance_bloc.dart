@@ -33,8 +33,13 @@ class AttendanceBloc extends Bloc<AttendanceEvent, AttendanceState> {
     on<ProgramSelectedEvent>(_programSelected);
     on<StoreTapUserId>(_storeTapUserId);
     on<ResetStateEvent>(_resetState);
+    on<SaveListViewScroolToIndex>(_saveScrollIndex);
   }
 
+  Future<void> _saveScrollIndex(
+      SaveListViewScroolToIndex event, Emitter<AttendanceState> emit) async {
+    emit(state.copyWith(index: event.index));
+  }
   Future<void> _resetState(
       ResetStateEvent event, Emitter<AttendanceState> emit) async {
     emit(AttendanceState.initial());
@@ -44,6 +49,7 @@ class AttendanceBloc extends Bloc<AttendanceEvent, AttendanceState> {
       TermSelectedEvent event, Emitter<AttendanceState> emit) async {
     emit(state.copyWith(
         termsId: event.term,
+        index: null,
         sessionId: Session(),
         coachingProgramId: CoachingProgram()));
   }
@@ -52,19 +58,23 @@ class AttendanceBloc extends Bloc<AttendanceEvent, AttendanceState> {
       PlayerselectedSelectedEvent event, Emitter<AttendanceState> emit) async {
     emit(state.copyWith(
       player: event.player,
+      index: null,
       sessionId: Session(),
     ));
   }
 
   Future<void> _sessionSelected(
       SessionSelectedEvent event, Emitter<AttendanceState> emit) async {
-    emit(state.copyWith(sessionId: event.session));
+    emit(state.copyWith(
+        index: null,
+        sessionId: event.session));
     FilterAttendanceListEvent({});
   }
 
   Future<void> _programSelected(
       ProgramSelectedEvent event, Emitter<AttendanceState> emit) async {
     emit(state.copyWith(
+      index: null,
       coachingProgramId: event.program,
       sessionId: Session(),
     ));
@@ -167,6 +177,7 @@ class AttendanceBloc extends Bloc<AttendanceEvent, AttendanceState> {
       emit(state.copyWith(
           isLoading: false,
           isError: false,
+          index: null,
           isStatusUpdated: false,
           message: ""));
 
@@ -219,6 +230,7 @@ class AttendanceBloc extends Bloc<AttendanceEvent, AttendanceState> {
         emit(state.copyWith(
             isLoading: false,
             isError: true,
+            index: null,
             isStatusUpdated: false,
             termsProgramSessionPlayerModelData:
                 TermsProgramSessionPlayerModel()));
@@ -226,6 +238,7 @@ class AttendanceBloc extends Bloc<AttendanceEvent, AttendanceState> {
         emit(state.copyWith(
             isLoading: false,
             isError: false,
+            index: null,
             termsProgramSessionPlayerModelData: filterData,
             isStatusUpdated: false,
             message: ""));
@@ -316,59 +329,137 @@ class AttendanceBloc extends Bloc<AttendanceEvent, AttendanceState> {
   }
 
   Future<void> _updateStatusOfAttendanceEvent(
-      UpdateAttendanceEvent event, Emitter<AttendanceState> emit) async {
+      UpdateAttendanceEvent event,
+      Emitter<AttendanceState> emit,
+      ) async {
     try {
-      print("CLICKING HEREE ");
-      emit(state.copyWith(
-          isLoading: true,
-          isError: false,
-          isStatusUpdated: false,
-          message: ""));
+      emit(state.copyWith(isLoading: true));
 
-      if (!(await Connectivity().isConnected)) {
-        emit(state.copyWith(
-          message:
-              'No internet connection. Please check your connection \nand try again.',
-          isLoading: true,
-          isError: false,
-          isStatusUpdated: false,
-        ));
-        return;
-      }
+      final response = await _playerattendanceusease.updateAttendanceStatusExecute(event.data);
 
-      emit(state.copyWith(
-          isLoading: true,
-          isError: false,
-          isStatusUpdated: false,
-          message: ""));
+      response.fold(
+            (failure) => emit(state.copyWith(
+          isLoading: false,
+          isError: true,
+          message: 'Update failed',
+        )),
+            (successResponse) {
+          final currentResponse = state.attendancePlayerListResponse;
+          final currentPlayers = currentResponse.data.players;
+          final playerToUpdate = currentPlayers[event.playerIndex];
+          final currentRecords = playerToUpdate.attendanceRecords;
+          final newStatus = event.data['status'] as String;
 
-      final response = await _playerattendanceusease
-          .updateAttendanceStatusExecute(event.data);
-      response.fold((failure) {
-        emit(state.copyWith(
+          // Solution 1: Using asMap()
+          final updatedRecords = currentRecords
+              .asMap()
+              .map((index, record) => MapEntry(
+            index,
+            index == event.recordIndex
+                ? record.copyWith(attendanceStatus: newStatus)
+                : record,
+          ))
+              .values
+              .toList();
+
+          final updatedPlayer = playerToUpdate.copyWith(
+            attendanceRecords: updatedRecords,
+            attendedSessions: calculateNewAttendedCount(
+              playerToUpdate.attendedSessions,
+              currentRecords[event.recordIndex].attendanceStatus,
+              newStatus,
+            ),
+          );
+
+          final updatedResponse = currentResponse.copyWith(
+            data: currentResponse.data.copyWith(
+              players: currentPlayers.map((p) =>
+              p.id == updatedPlayer.id ? updatedPlayer : p
+              ).toList(),
+            ),
+          );
+
+          emit(state.copyWith(
             isLoading: false,
-            isError: true,
-            isStatusUpdated: false,
-            message: ""));
-      }, (useResult) async {
-        emit(state.copyWith(
-            isLoading: false,
-            isError: false,
-            isStatusUpdated: false,
-            message: ""));
-
-        var academyId =
-            await getIt<SharedPrefs>().getString("selected_academyid");
-        Map<String, dynamic> mapForGetDetail = {
-          "academy_id": academyId,
-          "player_id": state.selectedPlayerid
-        };
-        add(GetAttendanceListEvent({}));
-        // Map<String, dynamic> map = {"academy_id": academyId};
-        // add(GetDetailOfOneChildAttendanceEvent(mapForGetDetail));
-      });
+            isStatusUpdated: true,
+            attendancePlayerListResponse: updatedResponse,
+            message: 'Status updated successfully',
+          ));
+        },
+      );
     } catch (error) {
-      emit(state.copyWith(isLoading: false, message: error.toString()));
+      emit(state.copyWith(
+        isLoading: false,
+        isError: true,
+        message: error.toString(),
+      ));
     }
   }
+
+  int calculateNewAttendedCount(
+      int currentCount,
+      String oldStatus,
+      String newStatus
+      ) {
+    if (oldStatus == "Present" && newStatus != "Present") return currentCount - 1;
+    if (oldStatus != "Present" && newStatus == "Present") return currentCount + 1;
+    return currentCount;
+  }
+  // Future<void> _updateStatusOfAttendanceEvent(
+  //     UpdateAttendanceEvent event, Emitter<AttendanceState> emit) async {
+  //   try {
+  //     print("CLICKING HEREE ");
+  //     emit(state.copyWith(
+  //         isLoading: true,
+  //         index: null,
+  //         isError: false,
+  //         isStatusUpdated: false,
+  //         message: ""));
+  //
+  //     if (!(await Connectivity().isConnected)) {
+  //       emit(state.copyWith(
+  //         message:
+  //             'No internet connection. Please check your connection \nand try again.',
+  //         isLoading: true,
+  //         isError: false,
+  //         isStatusUpdated: false,
+  //       ));
+  //       return;
+  //     }
+  //
+  //     emit(state.copyWith(
+  //         isLoading: true,
+  //         isError: false,
+  //         isStatusUpdated: false,
+  //         message: ""));
+  //
+  //     final response = await _playerattendanceusease
+  //         .updateAttendanceStatusExecute(event.data);
+  //     response.fold((failure) {
+  //       emit(state.copyWith(
+  //           isLoading: false,
+  //           isError: true,
+  //           isStatusUpdated: false,
+  //           message: ""));
+  //     }, (useResult) async {
+  //       emit(state.copyWith(
+  //           isLoading: false,
+  //           isError: false,
+  //           isStatusUpdated: false,
+  //           message: ""));
+  //
+  //       var academyId =
+  //           await getIt<SharedPrefs>().getString("selected_academyid");
+  //       Map<String, dynamic> mapForGetDetail = {
+  //         "academy_id": academyId,
+  //         "player_id": state.selectedPlayerid
+  //       };
+  //       add(GetAttendanceListEvent({}));
+  //       // Map<String, dynamic> map = {"academy_id": academyId};
+  //       // add(GetDetailOfOneChildAttendanceEvent(mapForGetDetail));
+  //     });
+  //   } catch (error) {
+  //     emit(state.copyWith(isLoading: false, message: error.toString()));
+  //   }
+  // }
 }

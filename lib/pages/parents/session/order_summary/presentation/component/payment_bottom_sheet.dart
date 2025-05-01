@@ -49,6 +49,7 @@ class PaymentBottomSheet extends StatelessWidget {
                   child: SingleChildScrollView( // Make it scrollable if content exceeds
                     child: Column(
                       mainAxisSize: MainAxisSize.min, // Takes only needed space
+                      crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         const SizedBox(height: 24),
                         PromoCodeField(

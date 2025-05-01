@@ -17,6 +17,7 @@ class AttendanceState with _$AttendanceState {
     @Default("") String selectedPlayerid,
     @Default(TermsProgramSessionPlayerModel()) TermsProgramSessionPlayerModel termsProgramSessionPlayerModelData,
     @Default(Term()) Term termsId,
+    int? index,
     @Default(Session()) Session sessionId,
     @Default(PlayerData()) PlayerData player,
     @Default(CoachingProgram()) CoachingProgram coachingProgramId,

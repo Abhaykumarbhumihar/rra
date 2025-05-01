@@ -22,13 +22,16 @@ mixin _$AttendanceEvent {
     required TResult Function(Map<String, dynamic> data) getAttenDanceListData,
     required TResult Function(Map<String, dynamic> data)
         getDetailOfChildAttendance,
-    required TResult Function(Map<String, dynamic> data) updateAttendanceStatus,
+    required TResult Function(
+            Map<String, dynamic> data, int playerIndex, int recordIndex)
+        updateAttendanceStatus,
     required TResult Function(String id) storeTapUserId,
     required TResult Function(Term term) getTermSelected,
     required TResult Function(CoachingProgram program) getProgramSelected,
     required TResult Function(Session session) getSessionSelected,
     required TResult Function(PlayerData player) getPlayerSelected,
     required TResult Function() resetState,
+    required TResult Function(int index) saveScrollToIndex,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -36,13 +39,16 @@ mixin _$AttendanceEvent {
     TResult? Function(Map<String, dynamic> data)? filterAttendaceList,
     TResult? Function(Map<String, dynamic> data)? getAttenDanceListData,
     TResult? Function(Map<String, dynamic> data)? getDetailOfChildAttendance,
-    TResult? Function(Map<String, dynamic> data)? updateAttendanceStatus,
+    TResult? Function(
+            Map<String, dynamic> data, int playerIndex, int recordIndex)?
+        updateAttendanceStatus,
     TResult? Function(String id)? storeTapUserId,
     TResult? Function(Term term)? getTermSelected,
     TResult? Function(CoachingProgram program)? getProgramSelected,
     TResult? Function(Session session)? getSessionSelected,
     TResult? Function(PlayerData player)? getPlayerSelected,
     TResult? Function()? resetState,
+    TResult? Function(int index)? saveScrollToIndex,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -50,13 +56,16 @@ mixin _$AttendanceEvent {
     TResult Function(Map<String, dynamic> data)? filterAttendaceList,
     TResult Function(Map<String, dynamic> data)? getAttenDanceListData,
     TResult Function(Map<String, dynamic> data)? getDetailOfChildAttendance,
-    TResult Function(Map<String, dynamic> data)? updateAttendanceStatus,
+    TResult Function(
+            Map<String, dynamic> data, int playerIndex, int recordIndex)?
+        updateAttendanceStatus,
     TResult Function(String id)? storeTapUserId,
     TResult Function(Term term)? getTermSelected,
     TResult Function(CoachingProgram program)? getProgramSelected,
     TResult Function(Session session)? getSessionSelected,
     TResult Function(PlayerData player)? getPlayerSelected,
     TResult Function()? resetState,
+    TResult Function(int index)? saveScrollToIndex,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -77,6 +86,8 @@ mixin _$AttendanceEvent {
     required TResult Function(PlayerselectedSelectedEvent value)
         getPlayerSelected,
     required TResult Function(ResetStateEvent value) resetState,
+    required TResult Function(SaveListViewScroolToIndex value)
+        saveScrollToIndex,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -92,6 +103,7 @@ mixin _$AttendanceEvent {
     TResult? Function(SessionSelectedEvent value)? getSessionSelected,
     TResult? Function(PlayerselectedSelectedEvent value)? getPlayerSelected,
     TResult? Function(ResetStateEvent value)? resetState,
+    TResult? Function(SaveListViewScroolToIndex value)? saveScrollToIndex,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -107,6 +119,7 @@ mixin _$AttendanceEvent {
     TResult Function(SessionSelectedEvent value)? getSessionSelected,
     TResult Function(PlayerselectedSelectedEvent value)? getPlayerSelected,
     TResult Function(ResetStateEvent value)? resetState,
+    TResult Function(SaveListViewScroolToIndex value)? saveScrollToIndex,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -215,13 +228,16 @@ class _$FilterAttendanceListEventImpl implements FilterAttendanceListEvent {
     required TResult Function(Map<String, dynamic> data) getAttenDanceListData,
     required TResult Function(Map<String, dynamic> data)
         getDetailOfChildAttendance,
-    required TResult Function(Map<String, dynamic> data) updateAttendanceStatus,
+    required TResult Function(
+            Map<String, dynamic> data, int playerIndex, int recordIndex)
+        updateAttendanceStatus,
     required TResult Function(String id) storeTapUserId,
     required TResult Function(Term term) getTermSelected,
     required TResult Function(CoachingProgram program) getProgramSelected,
     required TResult Function(Session session) getSessionSelected,
     required TResult Function(PlayerData player) getPlayerSelected,
     required TResult Function() resetState,
+    required TResult Function(int index) saveScrollToIndex,
   }) {
     return filterAttendaceList(data);
   }
@@ -232,13 +248,16 @@ class _$FilterAttendanceListEventImpl implements FilterAttendanceListEvent {
     TResult? Function(Map<String, dynamic> data)? filterAttendaceList,
     TResult? Function(Map<String, dynamic> data)? getAttenDanceListData,
     TResult? Function(Map<String, dynamic> data)? getDetailOfChildAttendance,
-    TResult? Function(Map<String, dynamic> data)? updateAttendanceStatus,
+    TResult? Function(
+            Map<String, dynamic> data, int playerIndex, int recordIndex)?
+        updateAttendanceStatus,
     TResult? Function(String id)? storeTapUserId,
     TResult? Function(Term term)? getTermSelected,
     TResult? Function(CoachingProgram program)? getProgramSelected,
     TResult? Function(Session session)? getSessionSelected,
     TResult? Function(PlayerData player)? getPlayerSelected,
     TResult? Function()? resetState,
+    TResult? Function(int index)? saveScrollToIndex,
   }) {
     return filterAttendaceList?.call(data);
   }
@@ -249,13 +268,16 @@ class _$FilterAttendanceListEventImpl implements FilterAttendanceListEvent {
     TResult Function(Map<String, dynamic> data)? filterAttendaceList,
     TResult Function(Map<String, dynamic> data)? getAttenDanceListData,
     TResult Function(Map<String, dynamic> data)? getDetailOfChildAttendance,
-    TResult Function(Map<String, dynamic> data)? updateAttendanceStatus,
+    TResult Function(
+            Map<String, dynamic> data, int playerIndex, int recordIndex)?
+        updateAttendanceStatus,
     TResult Function(String id)? storeTapUserId,
     TResult Function(Term term)? getTermSelected,
     TResult Function(CoachingProgram program)? getProgramSelected,
     TResult Function(Session session)? getSessionSelected,
     TResult Function(PlayerData player)? getPlayerSelected,
     TResult Function()? resetState,
+    TResult Function(int index)? saveScrollToIndex,
     required TResult orElse(),
   }) {
     if (filterAttendaceList != null) {
@@ -282,6 +304,8 @@ class _$FilterAttendanceListEventImpl implements FilterAttendanceListEvent {
     required TResult Function(PlayerselectedSelectedEvent value)
         getPlayerSelected,
     required TResult Function(ResetStateEvent value) resetState,
+    required TResult Function(SaveListViewScroolToIndex value)
+        saveScrollToIndex,
   }) {
     return filterAttendaceList(this);
   }
@@ -300,6 +324,7 @@ class _$FilterAttendanceListEventImpl implements FilterAttendanceListEvent {
     TResult? Function(SessionSelectedEvent value)? getSessionSelected,
     TResult? Function(PlayerselectedSelectedEvent value)? getPlayerSelected,
     TResult? Function(ResetStateEvent value)? resetState,
+    TResult? Function(SaveListViewScroolToIndex value)? saveScrollToIndex,
   }) {
     return filterAttendaceList?.call(this);
   }
@@ -318,6 +343,7 @@ class _$FilterAttendanceListEventImpl implements FilterAttendanceListEvent {
     TResult Function(SessionSelectedEvent value)? getSessionSelected,
     TResult Function(PlayerselectedSelectedEvent value)? getPlayerSelected,
     TResult Function(ResetStateEvent value)? resetState,
+    TResult Function(SaveListViewScroolToIndex value)? saveScrollToIndex,
     required TResult orElse(),
   }) {
     if (filterAttendaceList != null) {
@@ -422,13 +448,16 @@ class _$GetAttendanceListEventImpl implements GetAttendanceListEvent {
     required TResult Function(Map<String, dynamic> data) getAttenDanceListData,
     required TResult Function(Map<String, dynamic> data)
         getDetailOfChildAttendance,
-    required TResult Function(Map<String, dynamic> data) updateAttendanceStatus,
+    required TResult Function(
+            Map<String, dynamic> data, int playerIndex, int recordIndex)
+        updateAttendanceStatus,
     required TResult Function(String id) storeTapUserId,
     required TResult Function(Term term) getTermSelected,
     required TResult Function(CoachingProgram program) getProgramSelected,
     required TResult Function(Session session) getSessionSelected,
     required TResult Function(PlayerData player) getPlayerSelected,
     required TResult Function() resetState,
+    required TResult Function(int index) saveScrollToIndex,
   }) {
     return getAttenDanceListData(data);
   }
@@ -439,13 +468,16 @@ class _$GetAttendanceListEventImpl implements GetAttendanceListEvent {
     TResult? Function(Map<String, dynamic> data)? filterAttendaceList,
     TResult? Function(Map<String, dynamic> data)? getAttenDanceListData,
     TResult? Function(Map<String, dynamic> data)? getDetailOfChildAttendance,
-    TResult? Function(Map<String, dynamic> data)? updateAttendanceStatus,
+    TResult? Function(
+            Map<String, dynamic> data, int playerIndex, int recordIndex)?
+        updateAttendanceStatus,
     TResult? Function(String id)? storeTapUserId,
     TResult? Function(Term term)? getTermSelected,
     TResult? Function(CoachingProgram program)? getProgramSelected,
     TResult? Function(Session session)? getSessionSelected,
     TResult? Function(PlayerData player)? getPlayerSelected,
     TResult? Function()? resetState,
+    TResult? Function(int index)? saveScrollToIndex,
   }) {
     return getAttenDanceListData?.call(data);
   }
@@ -456,13 +488,16 @@ class _$GetAttendanceListEventImpl implements GetAttendanceListEvent {
     TResult Function(Map<String, dynamic> data)? filterAttendaceList,
     TResult Function(Map<String, dynamic> data)? getAttenDanceListData,
     TResult Function(Map<String, dynamic> data)? getDetailOfChildAttendance,
-    TResult Function(Map<String, dynamic> data)? updateAttendanceStatus,
+    TResult Function(
+            Map<String, dynamic> data, int playerIndex, int recordIndex)?
+        updateAttendanceStatus,
     TResult Function(String id)? storeTapUserId,
     TResult Function(Term term)? getTermSelected,
     TResult Function(CoachingProgram program)? getProgramSelected,
     TResult Function(Session session)? getSessionSelected,
     TResult Function(PlayerData player)? getPlayerSelected,
     TResult Function()? resetState,
+    TResult Function(int index)? saveScrollToIndex,
     required TResult orElse(),
   }) {
     if (getAttenDanceListData != null) {
@@ -489,6 +524,8 @@ class _$GetAttendanceListEventImpl implements GetAttendanceListEvent {
     required TResult Function(PlayerselectedSelectedEvent value)
         getPlayerSelected,
     required TResult Function(ResetStateEvent value) resetState,
+    required TResult Function(SaveListViewScroolToIndex value)
+        saveScrollToIndex,
   }) {
     return getAttenDanceListData(this);
   }
@@ -507,6 +544,7 @@ class _$GetAttendanceListEventImpl implements GetAttendanceListEvent {
     TResult? Function(SessionSelectedEvent value)? getSessionSelected,
     TResult? Function(PlayerselectedSelectedEvent value)? getPlayerSelected,
     TResult? Function(ResetStateEvent value)? resetState,
+    TResult? Function(SaveListViewScroolToIndex value)? saveScrollToIndex,
   }) {
     return getAttenDanceListData?.call(this);
   }
@@ -525,6 +563,7 @@ class _$GetAttendanceListEventImpl implements GetAttendanceListEvent {
     TResult Function(SessionSelectedEvent value)? getSessionSelected,
     TResult Function(PlayerselectedSelectedEvent value)? getPlayerSelected,
     TResult Function(ResetStateEvent value)? resetState,
+    TResult Function(SaveListViewScroolToIndex value)? saveScrollToIndex,
     required TResult orElse(),
   }) {
     if (getAttenDanceListData != null) {
@@ -633,13 +672,16 @@ class _$GetDetailOfOneChildAttendanceEventImpl
     required TResult Function(Map<String, dynamic> data) getAttenDanceListData,
     required TResult Function(Map<String, dynamic> data)
         getDetailOfChildAttendance,
-    required TResult Function(Map<String, dynamic> data) updateAttendanceStatus,
+    required TResult Function(
+            Map<String, dynamic> data, int playerIndex, int recordIndex)
+        updateAttendanceStatus,
     required TResult Function(String id) storeTapUserId,
     required TResult Function(Term term) getTermSelected,
     required TResult Function(CoachingProgram program) getProgramSelected,
     required TResult Function(Session session) getSessionSelected,
     required TResult Function(PlayerData player) getPlayerSelected,
     required TResult Function() resetState,
+    required TResult Function(int index) saveScrollToIndex,
   }) {
     return getDetailOfChildAttendance(data);
   }
@@ -650,13 +692,16 @@ class _$GetDetailOfOneChildAttendanceEventImpl
     TResult? Function(Map<String, dynamic> data)? filterAttendaceList,
     TResult? Function(Map<String, dynamic> data)? getAttenDanceListData,
     TResult? Function(Map<String, dynamic> data)? getDetailOfChildAttendance,
-    TResult? Function(Map<String, dynamic> data)? updateAttendanceStatus,
+    TResult? Function(
+            Map<String, dynamic> data, int playerIndex, int recordIndex)?
+        updateAttendanceStatus,
     TResult? Function(String id)? storeTapUserId,
     TResult? Function(Term term)? getTermSelected,
     TResult? Function(CoachingProgram program)? getProgramSelected,
     TResult? Function(Session session)? getSessionSelected,
     TResult? Function(PlayerData player)? getPlayerSelected,
     TResult? Function()? resetState,
+    TResult? Function(int index)? saveScrollToIndex,
   }) {
     return getDetailOfChildAttendance?.call(data);
   }
@@ -667,13 +712,16 @@ class _$GetDetailOfOneChildAttendanceEventImpl
     TResult Function(Map<String, dynamic> data)? filterAttendaceList,
     TResult Function(Map<String, dynamic> data)? getAttenDanceListData,
     TResult Function(Map<String, dynamic> data)? getDetailOfChildAttendance,
-    TResult Function(Map<String, dynamic> data)? updateAttendanceStatus,
+    TResult Function(
+            Map<String, dynamic> data, int playerIndex, int recordIndex)?
+        updateAttendanceStatus,
     TResult Function(String id)? storeTapUserId,
     TResult Function(Term term)? getTermSelected,
     TResult Function(CoachingProgram program)? getProgramSelected,
     TResult Function(Session session)? getSessionSelected,
     TResult Function(PlayerData player)? getPlayerSelected,
     TResult Function()? resetState,
+    TResult Function(int index)? saveScrollToIndex,
     required TResult orElse(),
   }) {
     if (getDetailOfChildAttendance != null) {
@@ -700,6 +748,8 @@ class _$GetDetailOfOneChildAttendanceEventImpl
     required TResult Function(PlayerselectedSelectedEvent value)
         getPlayerSelected,
     required TResult Function(ResetStateEvent value) resetState,
+    required TResult Function(SaveListViewScroolToIndex value)
+        saveScrollToIndex,
   }) {
     return getDetailOfChildAttendance(this);
   }
@@ -718,6 +768,7 @@ class _$GetDetailOfOneChildAttendanceEventImpl
     TResult? Function(SessionSelectedEvent value)? getSessionSelected,
     TResult? Function(PlayerselectedSelectedEvent value)? getPlayerSelected,
     TResult? Function(ResetStateEvent value)? resetState,
+    TResult? Function(SaveListViewScroolToIndex value)? saveScrollToIndex,
   }) {
     return getDetailOfChildAttendance?.call(this);
   }
@@ -736,6 +787,7 @@ class _$GetDetailOfOneChildAttendanceEventImpl
     TResult Function(SessionSelectedEvent value)? getSessionSelected,
     TResult Function(PlayerselectedSelectedEvent value)? getPlayerSelected,
     TResult Function(ResetStateEvent value)? resetState,
+    TResult Function(SaveListViewScroolToIndex value)? saveScrollToIndex,
     required TResult orElse(),
   }) {
     if (getDetailOfChildAttendance != null) {
@@ -767,7 +819,7 @@ abstract class _$$UpdateAttendanceEventImplCopyWith<$Res> {
           $Res Function(_$UpdateAttendanceEventImpl) then) =
       __$$UpdateAttendanceEventImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({Map<String, dynamic> data});
+  $Res call({Map<String, dynamic> data, int playerIndex, int recordIndex});
 }
 
 /// @nodoc
@@ -784,12 +836,22 @@ class __$$UpdateAttendanceEventImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? data = null,
+    Object? playerIndex = null,
+    Object? recordIndex = null,
   }) {
     return _then(_$UpdateAttendanceEventImpl(
       null == data
           ? _value._data
           : data // ignore: cast_nullable_to_non_nullable
               as Map<String, dynamic>,
+      null == playerIndex
+          ? _value.playerIndex
+          : playerIndex // ignore: cast_nullable_to_non_nullable
+              as int,
+      null == recordIndex
+          ? _value.recordIndex
+          : recordIndex // ignore: cast_nullable_to_non_nullable
+              as int,
     ));
   }
 }
@@ -797,7 +859,8 @@ class __$$UpdateAttendanceEventImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$UpdateAttendanceEventImpl implements UpdateAttendanceEvent {
-  const _$UpdateAttendanceEventImpl(final Map<String, dynamic> data)
+  const _$UpdateAttendanceEventImpl(
+      final Map<String, dynamic> data, this.playerIndex, this.recordIndex)
       : _data = data;
 
   final Map<String, dynamic> _data;
@@ -809,8 +872,13 @@ class _$UpdateAttendanceEventImpl implements UpdateAttendanceEvent {
   }
 
   @override
+  final int playerIndex;
+  @override
+  final int recordIndex;
+
+  @override
   String toString() {
-    return 'AttendanceEvent.updateAttendanceStatus(data: $data)';
+    return 'AttendanceEvent.updateAttendanceStatus(data: $data, playerIndex: $playerIndex, recordIndex: $recordIndex)';
   }
 
   @override
@@ -818,12 +886,16 @@ class _$UpdateAttendanceEventImpl implements UpdateAttendanceEvent {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$UpdateAttendanceEventImpl &&
-            const DeepCollectionEquality().equals(other._data, _data));
+            const DeepCollectionEquality().equals(other._data, _data) &&
+            (identical(other.playerIndex, playerIndex) ||
+                other.playerIndex == playerIndex) &&
+            (identical(other.recordIndex, recordIndex) ||
+                other.recordIndex == recordIndex));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(_data));
+  int get hashCode => Object.hash(runtimeType,
+      const DeepCollectionEquality().hash(_data), playerIndex, recordIndex);
 
   /// Create a copy of AttendanceEvent
   /// with the given fields replaced by the non-null parameter values.
@@ -841,15 +913,18 @@ class _$UpdateAttendanceEventImpl implements UpdateAttendanceEvent {
     required TResult Function(Map<String, dynamic> data) getAttenDanceListData,
     required TResult Function(Map<String, dynamic> data)
         getDetailOfChildAttendance,
-    required TResult Function(Map<String, dynamic> data) updateAttendanceStatus,
+    required TResult Function(
+            Map<String, dynamic> data, int playerIndex, int recordIndex)
+        updateAttendanceStatus,
     required TResult Function(String id) storeTapUserId,
     required TResult Function(Term term) getTermSelected,
     required TResult Function(CoachingProgram program) getProgramSelected,
     required TResult Function(Session session) getSessionSelected,
     required TResult Function(PlayerData player) getPlayerSelected,
     required TResult Function() resetState,
+    required TResult Function(int index) saveScrollToIndex,
   }) {
-    return updateAttendanceStatus(data);
+    return updateAttendanceStatus(data, playerIndex, recordIndex);
   }
 
   @override
@@ -858,15 +933,18 @@ class _$UpdateAttendanceEventImpl implements UpdateAttendanceEvent {
     TResult? Function(Map<String, dynamic> data)? filterAttendaceList,
     TResult? Function(Map<String, dynamic> data)? getAttenDanceListData,
     TResult? Function(Map<String, dynamic> data)? getDetailOfChildAttendance,
-    TResult? Function(Map<String, dynamic> data)? updateAttendanceStatus,
+    TResult? Function(
+            Map<String, dynamic> data, int playerIndex, int recordIndex)?
+        updateAttendanceStatus,
     TResult? Function(String id)? storeTapUserId,
     TResult? Function(Term term)? getTermSelected,
     TResult? Function(CoachingProgram program)? getProgramSelected,
     TResult? Function(Session session)? getSessionSelected,
     TResult? Function(PlayerData player)? getPlayerSelected,
     TResult? Function()? resetState,
+    TResult? Function(int index)? saveScrollToIndex,
   }) {
-    return updateAttendanceStatus?.call(data);
+    return updateAttendanceStatus?.call(data, playerIndex, recordIndex);
   }
 
   @override
@@ -875,17 +953,20 @@ class _$UpdateAttendanceEventImpl implements UpdateAttendanceEvent {
     TResult Function(Map<String, dynamic> data)? filterAttendaceList,
     TResult Function(Map<String, dynamic> data)? getAttenDanceListData,
     TResult Function(Map<String, dynamic> data)? getDetailOfChildAttendance,
-    TResult Function(Map<String, dynamic> data)? updateAttendanceStatus,
+    TResult Function(
+            Map<String, dynamic> data, int playerIndex, int recordIndex)?
+        updateAttendanceStatus,
     TResult Function(String id)? storeTapUserId,
     TResult Function(Term term)? getTermSelected,
     TResult Function(CoachingProgram program)? getProgramSelected,
     TResult Function(Session session)? getSessionSelected,
     TResult Function(PlayerData player)? getPlayerSelected,
     TResult Function()? resetState,
+    TResult Function(int index)? saveScrollToIndex,
     required TResult orElse(),
   }) {
     if (updateAttendanceStatus != null) {
-      return updateAttendanceStatus(data);
+      return updateAttendanceStatus(data, playerIndex, recordIndex);
     }
     return orElse();
   }
@@ -908,6 +989,8 @@ class _$UpdateAttendanceEventImpl implements UpdateAttendanceEvent {
     required TResult Function(PlayerselectedSelectedEvent value)
         getPlayerSelected,
     required TResult Function(ResetStateEvent value) resetState,
+    required TResult Function(SaveListViewScroolToIndex value)
+        saveScrollToIndex,
   }) {
     return updateAttendanceStatus(this);
   }
@@ -926,6 +1009,7 @@ class _$UpdateAttendanceEventImpl implements UpdateAttendanceEvent {
     TResult? Function(SessionSelectedEvent value)? getSessionSelected,
     TResult? Function(PlayerselectedSelectedEvent value)? getPlayerSelected,
     TResult? Function(ResetStateEvent value)? resetState,
+    TResult? Function(SaveListViewScroolToIndex value)? saveScrollToIndex,
   }) {
     return updateAttendanceStatus?.call(this);
   }
@@ -944,6 +1028,7 @@ class _$UpdateAttendanceEventImpl implements UpdateAttendanceEvent {
     TResult Function(SessionSelectedEvent value)? getSessionSelected,
     TResult Function(PlayerselectedSelectedEvent value)? getPlayerSelected,
     TResult Function(ResetStateEvent value)? resetState,
+    TResult Function(SaveListViewScroolToIndex value)? saveScrollToIndex,
     required TResult orElse(),
   }) {
     if (updateAttendanceStatus != null) {
@@ -954,10 +1039,14 @@ class _$UpdateAttendanceEventImpl implements UpdateAttendanceEvent {
 }
 
 abstract class UpdateAttendanceEvent implements AttendanceEvent {
-  const factory UpdateAttendanceEvent(final Map<String, dynamic> data) =
-      _$UpdateAttendanceEventImpl;
+  const factory UpdateAttendanceEvent(
+      final Map<String, dynamic> data,
+      final int playerIndex,
+      final int recordIndex) = _$UpdateAttendanceEventImpl;
 
   Map<String, dynamic> get data;
+  int get playerIndex;
+  int get recordIndex;
 
   /// Create a copy of AttendanceEvent
   /// with the given fields replaced by the non-null parameter values.
@@ -1039,13 +1128,16 @@ class _$StoreTapUserIdImpl implements StoreTapUserId {
     required TResult Function(Map<String, dynamic> data) getAttenDanceListData,
     required TResult Function(Map<String, dynamic> data)
         getDetailOfChildAttendance,
-    required TResult Function(Map<String, dynamic> data) updateAttendanceStatus,
+    required TResult Function(
+            Map<String, dynamic> data, int playerIndex, int recordIndex)
+        updateAttendanceStatus,
     required TResult Function(String id) storeTapUserId,
     required TResult Function(Term term) getTermSelected,
     required TResult Function(CoachingProgram program) getProgramSelected,
     required TResult Function(Session session) getSessionSelected,
     required TResult Function(PlayerData player) getPlayerSelected,
     required TResult Function() resetState,
+    required TResult Function(int index) saveScrollToIndex,
   }) {
     return storeTapUserId(id);
   }
@@ -1056,13 +1148,16 @@ class _$StoreTapUserIdImpl implements StoreTapUserId {
     TResult? Function(Map<String, dynamic> data)? filterAttendaceList,
     TResult? Function(Map<String, dynamic> data)? getAttenDanceListData,
     TResult? Function(Map<String, dynamic> data)? getDetailOfChildAttendance,
-    TResult? Function(Map<String, dynamic> data)? updateAttendanceStatus,
+    TResult? Function(
+            Map<String, dynamic> data, int playerIndex, int recordIndex)?
+        updateAttendanceStatus,
     TResult? Function(String id)? storeTapUserId,
     TResult? Function(Term term)? getTermSelected,
     TResult? Function(CoachingProgram program)? getProgramSelected,
     TResult? Function(Session session)? getSessionSelected,
     TResult? Function(PlayerData player)? getPlayerSelected,
     TResult? Function()? resetState,
+    TResult? Function(int index)? saveScrollToIndex,
   }) {
     return storeTapUserId?.call(id);
   }
@@ -1073,13 +1168,16 @@ class _$StoreTapUserIdImpl implements StoreTapUserId {
     TResult Function(Map<String, dynamic> data)? filterAttendaceList,
     TResult Function(Map<String, dynamic> data)? getAttenDanceListData,
     TResult Function(Map<String, dynamic> data)? getDetailOfChildAttendance,
-    TResult Function(Map<String, dynamic> data)? updateAttendanceStatus,
+    TResult Function(
+            Map<String, dynamic> data, int playerIndex, int recordIndex)?
+        updateAttendanceStatus,
     TResult Function(String id)? storeTapUserId,
     TResult Function(Term term)? getTermSelected,
     TResult Function(CoachingProgram program)? getProgramSelected,
     TResult Function(Session session)? getSessionSelected,
     TResult Function(PlayerData player)? getPlayerSelected,
     TResult Function()? resetState,
+    TResult Function(int index)? saveScrollToIndex,
     required TResult orElse(),
   }) {
     if (storeTapUserId != null) {
@@ -1106,6 +1204,8 @@ class _$StoreTapUserIdImpl implements StoreTapUserId {
     required TResult Function(PlayerselectedSelectedEvent value)
         getPlayerSelected,
     required TResult Function(ResetStateEvent value) resetState,
+    required TResult Function(SaveListViewScroolToIndex value)
+        saveScrollToIndex,
   }) {
     return storeTapUserId(this);
   }
@@ -1124,6 +1224,7 @@ class _$StoreTapUserIdImpl implements StoreTapUserId {
     TResult? Function(SessionSelectedEvent value)? getSessionSelected,
     TResult? Function(PlayerselectedSelectedEvent value)? getPlayerSelected,
     TResult? Function(ResetStateEvent value)? resetState,
+    TResult? Function(SaveListViewScroolToIndex value)? saveScrollToIndex,
   }) {
     return storeTapUserId?.call(this);
   }
@@ -1142,6 +1243,7 @@ class _$StoreTapUserIdImpl implements StoreTapUserId {
     TResult Function(SessionSelectedEvent value)? getSessionSelected,
     TResult Function(PlayerselectedSelectedEvent value)? getPlayerSelected,
     TResult Function(ResetStateEvent value)? resetState,
+    TResult Function(SaveListViewScroolToIndex value)? saveScrollToIndex,
     required TResult orElse(),
   }) {
     if (storeTapUserId != null) {
@@ -1248,13 +1350,16 @@ class _$TermSelectedEventImpl implements TermSelectedEvent {
     required TResult Function(Map<String, dynamic> data) getAttenDanceListData,
     required TResult Function(Map<String, dynamic> data)
         getDetailOfChildAttendance,
-    required TResult Function(Map<String, dynamic> data) updateAttendanceStatus,
+    required TResult Function(
+            Map<String, dynamic> data, int playerIndex, int recordIndex)
+        updateAttendanceStatus,
     required TResult Function(String id) storeTapUserId,
     required TResult Function(Term term) getTermSelected,
     required TResult Function(CoachingProgram program) getProgramSelected,
     required TResult Function(Session session) getSessionSelected,
     required TResult Function(PlayerData player) getPlayerSelected,
     required TResult Function() resetState,
+    required TResult Function(int index) saveScrollToIndex,
   }) {
     return getTermSelected(term);
   }
@@ -1265,13 +1370,16 @@ class _$TermSelectedEventImpl implements TermSelectedEvent {
     TResult? Function(Map<String, dynamic> data)? filterAttendaceList,
     TResult? Function(Map<String, dynamic> data)? getAttenDanceListData,
     TResult? Function(Map<String, dynamic> data)? getDetailOfChildAttendance,
-    TResult? Function(Map<String, dynamic> data)? updateAttendanceStatus,
+    TResult? Function(
+            Map<String, dynamic> data, int playerIndex, int recordIndex)?
+        updateAttendanceStatus,
     TResult? Function(String id)? storeTapUserId,
     TResult? Function(Term term)? getTermSelected,
     TResult? Function(CoachingProgram program)? getProgramSelected,
     TResult? Function(Session session)? getSessionSelected,
     TResult? Function(PlayerData player)? getPlayerSelected,
     TResult? Function()? resetState,
+    TResult? Function(int index)? saveScrollToIndex,
   }) {
     return getTermSelected?.call(term);
   }
@@ -1282,13 +1390,16 @@ class _$TermSelectedEventImpl implements TermSelectedEvent {
     TResult Function(Map<String, dynamic> data)? filterAttendaceList,
     TResult Function(Map<String, dynamic> data)? getAttenDanceListData,
     TResult Function(Map<String, dynamic> data)? getDetailOfChildAttendance,
-    TResult Function(Map<String, dynamic> data)? updateAttendanceStatus,
+    TResult Function(
+            Map<String, dynamic> data, int playerIndex, int recordIndex)?
+        updateAttendanceStatus,
     TResult Function(String id)? storeTapUserId,
     TResult Function(Term term)? getTermSelected,
     TResult Function(CoachingProgram program)? getProgramSelected,
     TResult Function(Session session)? getSessionSelected,
     TResult Function(PlayerData player)? getPlayerSelected,
     TResult Function()? resetState,
+    TResult Function(int index)? saveScrollToIndex,
     required TResult orElse(),
   }) {
     if (getTermSelected != null) {
@@ -1315,6 +1426,8 @@ class _$TermSelectedEventImpl implements TermSelectedEvent {
     required TResult Function(PlayerselectedSelectedEvent value)
         getPlayerSelected,
     required TResult Function(ResetStateEvent value) resetState,
+    required TResult Function(SaveListViewScroolToIndex value)
+        saveScrollToIndex,
   }) {
     return getTermSelected(this);
   }
@@ -1333,6 +1446,7 @@ class _$TermSelectedEventImpl implements TermSelectedEvent {
     TResult? Function(SessionSelectedEvent value)? getSessionSelected,
     TResult? Function(PlayerselectedSelectedEvent value)? getPlayerSelected,
     TResult? Function(ResetStateEvent value)? resetState,
+    TResult? Function(SaveListViewScroolToIndex value)? saveScrollToIndex,
   }) {
     return getTermSelected?.call(this);
   }
@@ -1351,6 +1465,7 @@ class _$TermSelectedEventImpl implements TermSelectedEvent {
     TResult Function(SessionSelectedEvent value)? getSessionSelected,
     TResult Function(PlayerselectedSelectedEvent value)? getPlayerSelected,
     TResult Function(ResetStateEvent value)? resetState,
+    TResult Function(SaveListViewScroolToIndex value)? saveScrollToIndex,
     required TResult orElse(),
   }) {
     if (getTermSelected != null) {
@@ -1458,13 +1573,16 @@ class _$ProgramSelectedEventImpl implements ProgramSelectedEvent {
     required TResult Function(Map<String, dynamic> data) getAttenDanceListData,
     required TResult Function(Map<String, dynamic> data)
         getDetailOfChildAttendance,
-    required TResult Function(Map<String, dynamic> data) updateAttendanceStatus,
+    required TResult Function(
+            Map<String, dynamic> data, int playerIndex, int recordIndex)
+        updateAttendanceStatus,
     required TResult Function(String id) storeTapUserId,
     required TResult Function(Term term) getTermSelected,
     required TResult Function(CoachingProgram program) getProgramSelected,
     required TResult Function(Session session) getSessionSelected,
     required TResult Function(PlayerData player) getPlayerSelected,
     required TResult Function() resetState,
+    required TResult Function(int index) saveScrollToIndex,
   }) {
     return getProgramSelected(program);
   }
@@ -1475,13 +1593,16 @@ class _$ProgramSelectedEventImpl implements ProgramSelectedEvent {
     TResult? Function(Map<String, dynamic> data)? filterAttendaceList,
     TResult? Function(Map<String, dynamic> data)? getAttenDanceListData,
     TResult? Function(Map<String, dynamic> data)? getDetailOfChildAttendance,
-    TResult? Function(Map<String, dynamic> data)? updateAttendanceStatus,
+    TResult? Function(
+            Map<String, dynamic> data, int playerIndex, int recordIndex)?
+        updateAttendanceStatus,
     TResult? Function(String id)? storeTapUserId,
     TResult? Function(Term term)? getTermSelected,
     TResult? Function(CoachingProgram program)? getProgramSelected,
     TResult? Function(Session session)? getSessionSelected,
     TResult? Function(PlayerData player)? getPlayerSelected,
     TResult? Function()? resetState,
+    TResult? Function(int index)? saveScrollToIndex,
   }) {
     return getProgramSelected?.call(program);
   }
@@ -1492,13 +1613,16 @@ class _$ProgramSelectedEventImpl implements ProgramSelectedEvent {
     TResult Function(Map<String, dynamic> data)? filterAttendaceList,
     TResult Function(Map<String, dynamic> data)? getAttenDanceListData,
     TResult Function(Map<String, dynamic> data)? getDetailOfChildAttendance,
-    TResult Function(Map<String, dynamic> data)? updateAttendanceStatus,
+    TResult Function(
+            Map<String, dynamic> data, int playerIndex, int recordIndex)?
+        updateAttendanceStatus,
     TResult Function(String id)? storeTapUserId,
     TResult Function(Term term)? getTermSelected,
     TResult Function(CoachingProgram program)? getProgramSelected,
     TResult Function(Session session)? getSessionSelected,
     TResult Function(PlayerData player)? getPlayerSelected,
     TResult Function()? resetState,
+    TResult Function(int index)? saveScrollToIndex,
     required TResult orElse(),
   }) {
     if (getProgramSelected != null) {
@@ -1525,6 +1649,8 @@ class _$ProgramSelectedEventImpl implements ProgramSelectedEvent {
     required TResult Function(PlayerselectedSelectedEvent value)
         getPlayerSelected,
     required TResult Function(ResetStateEvent value) resetState,
+    required TResult Function(SaveListViewScroolToIndex value)
+        saveScrollToIndex,
   }) {
     return getProgramSelected(this);
   }
@@ -1543,6 +1669,7 @@ class _$ProgramSelectedEventImpl implements ProgramSelectedEvent {
     TResult? Function(SessionSelectedEvent value)? getSessionSelected,
     TResult? Function(PlayerselectedSelectedEvent value)? getPlayerSelected,
     TResult? Function(ResetStateEvent value)? resetState,
+    TResult? Function(SaveListViewScroolToIndex value)? saveScrollToIndex,
   }) {
     return getProgramSelected?.call(this);
   }
@@ -1561,6 +1688,7 @@ class _$ProgramSelectedEventImpl implements ProgramSelectedEvent {
     TResult Function(SessionSelectedEvent value)? getSessionSelected,
     TResult Function(PlayerselectedSelectedEvent value)? getPlayerSelected,
     TResult Function(ResetStateEvent value)? resetState,
+    TResult Function(SaveListViewScroolToIndex value)? saveScrollToIndex,
     required TResult orElse(),
   }) {
     if (getProgramSelected != null) {
@@ -1669,13 +1797,16 @@ class _$SessionSelectedEventImpl implements SessionSelectedEvent {
     required TResult Function(Map<String, dynamic> data) getAttenDanceListData,
     required TResult Function(Map<String, dynamic> data)
         getDetailOfChildAttendance,
-    required TResult Function(Map<String, dynamic> data) updateAttendanceStatus,
+    required TResult Function(
+            Map<String, dynamic> data, int playerIndex, int recordIndex)
+        updateAttendanceStatus,
     required TResult Function(String id) storeTapUserId,
     required TResult Function(Term term) getTermSelected,
     required TResult Function(CoachingProgram program) getProgramSelected,
     required TResult Function(Session session) getSessionSelected,
     required TResult Function(PlayerData player) getPlayerSelected,
     required TResult Function() resetState,
+    required TResult Function(int index) saveScrollToIndex,
   }) {
     return getSessionSelected(session);
   }
@@ -1686,13 +1817,16 @@ class _$SessionSelectedEventImpl implements SessionSelectedEvent {
     TResult? Function(Map<String, dynamic> data)? filterAttendaceList,
     TResult? Function(Map<String, dynamic> data)? getAttenDanceListData,
     TResult? Function(Map<String, dynamic> data)? getDetailOfChildAttendance,
-    TResult? Function(Map<String, dynamic> data)? updateAttendanceStatus,
+    TResult? Function(
+            Map<String, dynamic> data, int playerIndex, int recordIndex)?
+        updateAttendanceStatus,
     TResult? Function(String id)? storeTapUserId,
     TResult? Function(Term term)? getTermSelected,
     TResult? Function(CoachingProgram program)? getProgramSelected,
     TResult? Function(Session session)? getSessionSelected,
     TResult? Function(PlayerData player)? getPlayerSelected,
     TResult? Function()? resetState,
+    TResult? Function(int index)? saveScrollToIndex,
   }) {
     return getSessionSelected?.call(session);
   }
@@ -1703,13 +1837,16 @@ class _$SessionSelectedEventImpl implements SessionSelectedEvent {
     TResult Function(Map<String, dynamic> data)? filterAttendaceList,
     TResult Function(Map<String, dynamic> data)? getAttenDanceListData,
     TResult Function(Map<String, dynamic> data)? getDetailOfChildAttendance,
-    TResult Function(Map<String, dynamic> data)? updateAttendanceStatus,
+    TResult Function(
+            Map<String, dynamic> data, int playerIndex, int recordIndex)?
+        updateAttendanceStatus,
     TResult Function(String id)? storeTapUserId,
     TResult Function(Term term)? getTermSelected,
     TResult Function(CoachingProgram program)? getProgramSelected,
     TResult Function(Session session)? getSessionSelected,
     TResult Function(PlayerData player)? getPlayerSelected,
     TResult Function()? resetState,
+    TResult Function(int index)? saveScrollToIndex,
     required TResult orElse(),
   }) {
     if (getSessionSelected != null) {
@@ -1736,6 +1873,8 @@ class _$SessionSelectedEventImpl implements SessionSelectedEvent {
     required TResult Function(PlayerselectedSelectedEvent value)
         getPlayerSelected,
     required TResult Function(ResetStateEvent value) resetState,
+    required TResult Function(SaveListViewScroolToIndex value)
+        saveScrollToIndex,
   }) {
     return getSessionSelected(this);
   }
@@ -1754,6 +1893,7 @@ class _$SessionSelectedEventImpl implements SessionSelectedEvent {
     TResult? Function(SessionSelectedEvent value)? getSessionSelected,
     TResult? Function(PlayerselectedSelectedEvent value)? getPlayerSelected,
     TResult? Function(ResetStateEvent value)? resetState,
+    TResult? Function(SaveListViewScroolToIndex value)? saveScrollToIndex,
   }) {
     return getSessionSelected?.call(this);
   }
@@ -1772,6 +1912,7 @@ class _$SessionSelectedEventImpl implements SessionSelectedEvent {
     TResult Function(SessionSelectedEvent value)? getSessionSelected,
     TResult Function(PlayerselectedSelectedEvent value)? getPlayerSelected,
     TResult Function(ResetStateEvent value)? resetState,
+    TResult Function(SaveListViewScroolToIndex value)? saveScrollToIndex,
     required TResult orElse(),
   }) {
     if (getSessionSelected != null) {
@@ -1882,13 +2023,16 @@ class _$PlayerselectedSelectedEventImpl implements PlayerselectedSelectedEvent {
     required TResult Function(Map<String, dynamic> data) getAttenDanceListData,
     required TResult Function(Map<String, dynamic> data)
         getDetailOfChildAttendance,
-    required TResult Function(Map<String, dynamic> data) updateAttendanceStatus,
+    required TResult Function(
+            Map<String, dynamic> data, int playerIndex, int recordIndex)
+        updateAttendanceStatus,
     required TResult Function(String id) storeTapUserId,
     required TResult Function(Term term) getTermSelected,
     required TResult Function(CoachingProgram program) getProgramSelected,
     required TResult Function(Session session) getSessionSelected,
     required TResult Function(PlayerData player) getPlayerSelected,
     required TResult Function() resetState,
+    required TResult Function(int index) saveScrollToIndex,
   }) {
     return getPlayerSelected(player);
   }
@@ -1899,13 +2043,16 @@ class _$PlayerselectedSelectedEventImpl implements PlayerselectedSelectedEvent {
     TResult? Function(Map<String, dynamic> data)? filterAttendaceList,
     TResult? Function(Map<String, dynamic> data)? getAttenDanceListData,
     TResult? Function(Map<String, dynamic> data)? getDetailOfChildAttendance,
-    TResult? Function(Map<String, dynamic> data)? updateAttendanceStatus,
+    TResult? Function(
+            Map<String, dynamic> data, int playerIndex, int recordIndex)?
+        updateAttendanceStatus,
     TResult? Function(String id)? storeTapUserId,
     TResult? Function(Term term)? getTermSelected,
     TResult? Function(CoachingProgram program)? getProgramSelected,
     TResult? Function(Session session)? getSessionSelected,
     TResult? Function(PlayerData player)? getPlayerSelected,
     TResult? Function()? resetState,
+    TResult? Function(int index)? saveScrollToIndex,
   }) {
     return getPlayerSelected?.call(player);
   }
@@ -1916,13 +2063,16 @@ class _$PlayerselectedSelectedEventImpl implements PlayerselectedSelectedEvent {
     TResult Function(Map<String, dynamic> data)? filterAttendaceList,
     TResult Function(Map<String, dynamic> data)? getAttenDanceListData,
     TResult Function(Map<String, dynamic> data)? getDetailOfChildAttendance,
-    TResult Function(Map<String, dynamic> data)? updateAttendanceStatus,
+    TResult Function(
+            Map<String, dynamic> data, int playerIndex, int recordIndex)?
+        updateAttendanceStatus,
     TResult Function(String id)? storeTapUserId,
     TResult Function(Term term)? getTermSelected,
     TResult Function(CoachingProgram program)? getProgramSelected,
     TResult Function(Session session)? getSessionSelected,
     TResult Function(PlayerData player)? getPlayerSelected,
     TResult Function()? resetState,
+    TResult Function(int index)? saveScrollToIndex,
     required TResult orElse(),
   }) {
     if (getPlayerSelected != null) {
@@ -1949,6 +2099,8 @@ class _$PlayerselectedSelectedEventImpl implements PlayerselectedSelectedEvent {
     required TResult Function(PlayerselectedSelectedEvent value)
         getPlayerSelected,
     required TResult Function(ResetStateEvent value) resetState,
+    required TResult Function(SaveListViewScroolToIndex value)
+        saveScrollToIndex,
   }) {
     return getPlayerSelected(this);
   }
@@ -1967,6 +2119,7 @@ class _$PlayerselectedSelectedEventImpl implements PlayerselectedSelectedEvent {
     TResult? Function(SessionSelectedEvent value)? getSessionSelected,
     TResult? Function(PlayerselectedSelectedEvent value)? getPlayerSelected,
     TResult? Function(ResetStateEvent value)? resetState,
+    TResult? Function(SaveListViewScroolToIndex value)? saveScrollToIndex,
   }) {
     return getPlayerSelected?.call(this);
   }
@@ -1985,6 +2138,7 @@ class _$PlayerselectedSelectedEventImpl implements PlayerselectedSelectedEvent {
     TResult Function(SessionSelectedEvent value)? getSessionSelected,
     TResult Function(PlayerselectedSelectedEvent value)? getPlayerSelected,
     TResult Function(ResetStateEvent value)? resetState,
+    TResult Function(SaveListViewScroolToIndex value)? saveScrollToIndex,
     required TResult orElse(),
   }) {
     if (getPlayerSelected != null) {
@@ -2052,13 +2206,16 @@ class _$ResetStateEventImpl implements ResetStateEvent {
     required TResult Function(Map<String, dynamic> data) getAttenDanceListData,
     required TResult Function(Map<String, dynamic> data)
         getDetailOfChildAttendance,
-    required TResult Function(Map<String, dynamic> data) updateAttendanceStatus,
+    required TResult Function(
+            Map<String, dynamic> data, int playerIndex, int recordIndex)
+        updateAttendanceStatus,
     required TResult Function(String id) storeTapUserId,
     required TResult Function(Term term) getTermSelected,
     required TResult Function(CoachingProgram program) getProgramSelected,
     required TResult Function(Session session) getSessionSelected,
     required TResult Function(PlayerData player) getPlayerSelected,
     required TResult Function() resetState,
+    required TResult Function(int index) saveScrollToIndex,
   }) {
     return resetState();
   }
@@ -2069,13 +2226,16 @@ class _$ResetStateEventImpl implements ResetStateEvent {
     TResult? Function(Map<String, dynamic> data)? filterAttendaceList,
     TResult? Function(Map<String, dynamic> data)? getAttenDanceListData,
     TResult? Function(Map<String, dynamic> data)? getDetailOfChildAttendance,
-    TResult? Function(Map<String, dynamic> data)? updateAttendanceStatus,
+    TResult? Function(
+            Map<String, dynamic> data, int playerIndex, int recordIndex)?
+        updateAttendanceStatus,
     TResult? Function(String id)? storeTapUserId,
     TResult? Function(Term term)? getTermSelected,
     TResult? Function(CoachingProgram program)? getProgramSelected,
     TResult? Function(Session session)? getSessionSelected,
     TResult? Function(PlayerData player)? getPlayerSelected,
     TResult? Function()? resetState,
+    TResult? Function(int index)? saveScrollToIndex,
   }) {
     return resetState?.call();
   }
@@ -2086,13 +2246,16 @@ class _$ResetStateEventImpl implements ResetStateEvent {
     TResult Function(Map<String, dynamic> data)? filterAttendaceList,
     TResult Function(Map<String, dynamic> data)? getAttenDanceListData,
     TResult Function(Map<String, dynamic> data)? getDetailOfChildAttendance,
-    TResult Function(Map<String, dynamic> data)? updateAttendanceStatus,
+    TResult Function(
+            Map<String, dynamic> data, int playerIndex, int recordIndex)?
+        updateAttendanceStatus,
     TResult Function(String id)? storeTapUserId,
     TResult Function(Term term)? getTermSelected,
     TResult Function(CoachingProgram program)? getProgramSelected,
     TResult Function(Session session)? getSessionSelected,
     TResult Function(PlayerData player)? getPlayerSelected,
     TResult Function()? resetState,
+    TResult Function(int index)? saveScrollToIndex,
     required TResult orElse(),
   }) {
     if (resetState != null) {
@@ -2119,6 +2282,8 @@ class _$ResetStateEventImpl implements ResetStateEvent {
     required TResult Function(PlayerselectedSelectedEvent value)
         getPlayerSelected,
     required TResult Function(ResetStateEvent value) resetState,
+    required TResult Function(SaveListViewScroolToIndex value)
+        saveScrollToIndex,
   }) {
     return resetState(this);
   }
@@ -2137,6 +2302,7 @@ class _$ResetStateEventImpl implements ResetStateEvent {
     TResult? Function(SessionSelectedEvent value)? getSessionSelected,
     TResult? Function(PlayerselectedSelectedEvent value)? getPlayerSelected,
     TResult? Function(ResetStateEvent value)? resetState,
+    TResult? Function(SaveListViewScroolToIndex value)? saveScrollToIndex,
   }) {
     return resetState?.call(this);
   }
@@ -2155,6 +2321,7 @@ class _$ResetStateEventImpl implements ResetStateEvent {
     TResult Function(SessionSelectedEvent value)? getSessionSelected,
     TResult Function(PlayerselectedSelectedEvent value)? getPlayerSelected,
     TResult Function(ResetStateEvent value)? resetState,
+    TResult Function(SaveListViewScroolToIndex value)? saveScrollToIndex,
     required TResult orElse(),
   }) {
     if (resetState != null) {
@@ -2166,4 +2333,217 @@ class _$ResetStateEventImpl implements ResetStateEvent {
 
 abstract class ResetStateEvent implements AttendanceEvent {
   const factory ResetStateEvent() = _$ResetStateEventImpl;
+}
+
+/// @nodoc
+abstract class _$$SaveListViewScroolToIndexImplCopyWith<$Res> {
+  factory _$$SaveListViewScroolToIndexImplCopyWith(
+          _$SaveListViewScroolToIndexImpl value,
+          $Res Function(_$SaveListViewScroolToIndexImpl) then) =
+      __$$SaveListViewScroolToIndexImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({int index});
+}
+
+/// @nodoc
+class __$$SaveListViewScroolToIndexImplCopyWithImpl<$Res>
+    extends _$AttendanceEventCopyWithImpl<$Res, _$SaveListViewScroolToIndexImpl>
+    implements _$$SaveListViewScroolToIndexImplCopyWith<$Res> {
+  __$$SaveListViewScroolToIndexImplCopyWithImpl(
+      _$SaveListViewScroolToIndexImpl _value,
+      $Res Function(_$SaveListViewScroolToIndexImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of AttendanceEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? index = null,
+  }) {
+    return _then(_$SaveListViewScroolToIndexImpl(
+      null == index
+          ? _value.index
+          : index // ignore: cast_nullable_to_non_nullable
+              as int,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$SaveListViewScroolToIndexImpl implements SaveListViewScroolToIndex {
+  const _$SaveListViewScroolToIndexImpl(this.index);
+
+  @override
+  final int index;
+
+  @override
+  String toString() {
+    return 'AttendanceEvent.saveScrollToIndex(index: $index)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$SaveListViewScroolToIndexImpl &&
+            (identical(other.index, index) || other.index == index));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, index);
+
+  /// Create a copy of AttendanceEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$SaveListViewScroolToIndexImplCopyWith<_$SaveListViewScroolToIndexImpl>
+      get copyWith => __$$SaveListViewScroolToIndexImplCopyWithImpl<
+          _$SaveListViewScroolToIndexImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(Map<String, dynamic> data) filterAttendaceList,
+    required TResult Function(Map<String, dynamic> data) getAttenDanceListData,
+    required TResult Function(Map<String, dynamic> data)
+        getDetailOfChildAttendance,
+    required TResult Function(
+            Map<String, dynamic> data, int playerIndex, int recordIndex)
+        updateAttendanceStatus,
+    required TResult Function(String id) storeTapUserId,
+    required TResult Function(Term term) getTermSelected,
+    required TResult Function(CoachingProgram program) getProgramSelected,
+    required TResult Function(Session session) getSessionSelected,
+    required TResult Function(PlayerData player) getPlayerSelected,
+    required TResult Function() resetState,
+    required TResult Function(int index) saveScrollToIndex,
+  }) {
+    return saveScrollToIndex(index);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(Map<String, dynamic> data)? filterAttendaceList,
+    TResult? Function(Map<String, dynamic> data)? getAttenDanceListData,
+    TResult? Function(Map<String, dynamic> data)? getDetailOfChildAttendance,
+    TResult? Function(
+            Map<String, dynamic> data, int playerIndex, int recordIndex)?
+        updateAttendanceStatus,
+    TResult? Function(String id)? storeTapUserId,
+    TResult? Function(Term term)? getTermSelected,
+    TResult? Function(CoachingProgram program)? getProgramSelected,
+    TResult? Function(Session session)? getSessionSelected,
+    TResult? Function(PlayerData player)? getPlayerSelected,
+    TResult? Function()? resetState,
+    TResult? Function(int index)? saveScrollToIndex,
+  }) {
+    return saveScrollToIndex?.call(index);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(Map<String, dynamic> data)? filterAttendaceList,
+    TResult Function(Map<String, dynamic> data)? getAttenDanceListData,
+    TResult Function(Map<String, dynamic> data)? getDetailOfChildAttendance,
+    TResult Function(
+            Map<String, dynamic> data, int playerIndex, int recordIndex)?
+        updateAttendanceStatus,
+    TResult Function(String id)? storeTapUserId,
+    TResult Function(Term term)? getTermSelected,
+    TResult Function(CoachingProgram program)? getProgramSelected,
+    TResult Function(Session session)? getSessionSelected,
+    TResult Function(PlayerData player)? getPlayerSelected,
+    TResult Function()? resetState,
+    TResult Function(int index)? saveScrollToIndex,
+    required TResult orElse(),
+  }) {
+    if (saveScrollToIndex != null) {
+      return saveScrollToIndex(index);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(FilterAttendanceListEvent value)
+        filterAttendaceList,
+    required TResult Function(GetAttendanceListEvent value)
+        getAttenDanceListData,
+    required TResult Function(GetDetailOfOneChildAttendanceEvent value)
+        getDetailOfChildAttendance,
+    required TResult Function(UpdateAttendanceEvent value)
+        updateAttendanceStatus,
+    required TResult Function(StoreTapUserId value) storeTapUserId,
+    required TResult Function(TermSelectedEvent value) getTermSelected,
+    required TResult Function(ProgramSelectedEvent value) getProgramSelected,
+    required TResult Function(SessionSelectedEvent value) getSessionSelected,
+    required TResult Function(PlayerselectedSelectedEvent value)
+        getPlayerSelected,
+    required TResult Function(ResetStateEvent value) resetState,
+    required TResult Function(SaveListViewScroolToIndex value)
+        saveScrollToIndex,
+  }) {
+    return saveScrollToIndex(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(FilterAttendanceListEvent value)? filterAttendaceList,
+    TResult? Function(GetAttendanceListEvent value)? getAttenDanceListData,
+    TResult? Function(GetDetailOfOneChildAttendanceEvent value)?
+        getDetailOfChildAttendance,
+    TResult? Function(UpdateAttendanceEvent value)? updateAttendanceStatus,
+    TResult? Function(StoreTapUserId value)? storeTapUserId,
+    TResult? Function(TermSelectedEvent value)? getTermSelected,
+    TResult? Function(ProgramSelectedEvent value)? getProgramSelected,
+    TResult? Function(SessionSelectedEvent value)? getSessionSelected,
+    TResult? Function(PlayerselectedSelectedEvent value)? getPlayerSelected,
+    TResult? Function(ResetStateEvent value)? resetState,
+    TResult? Function(SaveListViewScroolToIndex value)? saveScrollToIndex,
+  }) {
+    return saveScrollToIndex?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(FilterAttendanceListEvent value)? filterAttendaceList,
+    TResult Function(GetAttendanceListEvent value)? getAttenDanceListData,
+    TResult Function(GetDetailOfOneChildAttendanceEvent value)?
+        getDetailOfChildAttendance,
+    TResult Function(UpdateAttendanceEvent value)? updateAttendanceStatus,
+    TResult Function(StoreTapUserId value)? storeTapUserId,
+    TResult Function(TermSelectedEvent value)? getTermSelected,
+    TResult Function(ProgramSelectedEvent value)? getProgramSelected,
+    TResult Function(SessionSelectedEvent value)? getSessionSelected,
+    TResult Function(PlayerselectedSelectedEvent value)? getPlayerSelected,
+    TResult Function(ResetStateEvent value)? resetState,
+    TResult Function(SaveListViewScroolToIndex value)? saveScrollToIndex,
+    required TResult orElse(),
+  }) {
+    if (saveScrollToIndex != null) {
+      return saveScrollToIndex(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class SaveListViewScroolToIndex implements AttendanceEvent {
+  const factory SaveListViewScroolToIndex(final int index) =
+      _$SaveListViewScroolToIndexImpl;
+
+  int get index;
+
+  /// Create a copy of AttendanceEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$SaveListViewScroolToIndexImplCopyWith<_$SaveListViewScroolToIndexImpl>
+      get copyWith => throw _privateConstructorUsedError;
 }

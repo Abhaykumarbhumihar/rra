@@ -11,14 +11,13 @@ import '../../bloc/attendance_event.dart';
 import '../../bloc/attendance_state.dart';
 
 class PlayerAttendanceList extends StatelessWidget {
-  const PlayerAttendanceList({super.key});
+  PlayerAttendanceList({super.key});
 
   @override
   Widget build(BuildContext context) {
+    //final horizontalScrollController = ScrollController();
     return BlocListener<AttendanceBloc, AttendanceState>(
-      listener: (context, state) {
-        // TODO: implement listener
-      },
+      listener: (context, state) {},
       child: BlocBuilder<AttendanceBloc, AttendanceState>(
         builder: (context, state) {
           return ListView.builder(
@@ -26,9 +25,10 @@ class PlayerAttendanceList extends StatelessWidget {
               shrinkWrap: true,
               physics: BouncingScrollPhysics(),
               itemCount: state.attendancePlayerListResponse.data.players.length,
-              itemBuilder: (context, index) {
-                var data =
-                    state.attendancePlayerListResponse.data.players[index];
+              itemBuilder: (context, Playerindex) {
+                var data = state
+                    .attendancePlayerListResponse.data.players[Playerindex];
+
                 return Padding(
                   padding: const EdgeInsets.all(4.0),
                   child: Center(
@@ -117,7 +117,9 @@ class PlayerAttendanceList extends StatelessWidget {
                                   )
                                 ],
                               ),
-                              SizedBox(height: 5,),
+                              SizedBox(
+                                height: 5,
+                              ),
                               SizedBox(
                                 height: 75,
                                 child: ConstrainedBox(
@@ -136,11 +138,15 @@ class PlayerAttendanceList extends StatelessWidget {
                                         elevation: 2,
                                         color: Colors.white12,
                                         shape: RoundedRectangleBorder(
-                                          borderRadius: BorderRadius.circular(4),
+                                          borderRadius:
+                                              BorderRadius.circular(4),
                                         ),
                                         child: Padding(
                                           padding: const EdgeInsets.only(
-                                              right: 6.0, left: 6.0,top: 4,bottom: 4),
+                                              right: 6.0,
+                                              left: 6.0,
+                                              top: 4,
+                                              bottom: 4),
                                           child: Column(
                                             children: [
                                               Text("${attendanceData.date}",
@@ -150,173 +156,255 @@ class PlayerAttendanceList extends StatelessWidget {
                                                               .width *
                                                           0.0373)),
                                               AttendanceCommonSmallElevatedButton(
-                                                label:
-                                                    "${attendanceData?.attendanceStatus}",
+                                                label:"${showAttendanceStatus(attendanceData?.attendanceStatus??"")}",
+
                                                 onPressed: () async {
-                                                  if(attendanceData.attendanceStatus!="N/A"){
-                                                    // First check if the date is in the past
-                                                    final attendanceDateStr = attendanceData?.date;
-                                                    if (attendanceDateStr != null) {
-                                                      try {
-                                                        // Split the date string into components
-                                                        final parts = attendanceDateStr.split('-');
-                                                        if (parts.length != 3) {
-                                                          throw FormatException('Invalid date format');
-                                                        }
+                                                  var userdata = await getIt<
+                                                          SharedPrefs>()
+                                                      .getModel<
+                                                              OtpVerificationModel>(
+                                                          "user_model",
+                                                          (json) =>
+                                                              OtpVerificationModel
+                                                                  .fromJson(
+                                                                      json));
+                                                  if (userdata?.data.role ==
+                                                      "coach") {
+                                                    if (attendanceData
+                                                            .attendanceStatus !=
+                                                        "N/A") {
+                                                      // First check if the date is in the past
+                                                      // First check if the date is in the past
+                                                      final attendanceDateStr =
+                                                          attendanceData?.date;
+                                                      if (attendanceDateStr !=
+                                                          null) {
+                                                        try {
+                                                          // Split the date string into components
+                                                          final parts =
+                                                              attendanceDateStr
+                                                                  .split('-');
+                                                          if (parts.length !=
+                                                              3) {
+                                                            throw FormatException(
+                                                                'Invalid date format');
+                                                          }
 
-                                                        // Parse components - note the 20 prefix for the year to handle 2-digit year
-                                                        final day = int.parse(parts[0]);
-                                                        final month = int.parse(parts[1]);
-                                                        final year = 2000 + int.parse(parts[2]); // Assuming 25 means 2025
+                                                          // Correct parsing for MM-DD-YY format
+                                                          final month =
+                                                              int.parse(parts[
+                                                                  0]); // First part is month
+                                                          final day = int.parse(
+                                                              parts[
+                                                                  1]); // Second part is day
+                                                          final year = 2000 +
+                                                              int.parse(parts[
+                                                                  2]); // Third part is year (20XX)
 
-                                                        final attendanceDate = DateTime(year, month, day);
-                                                        final currentDate = DateTime.now();
+                                                          final attendanceDate =
+                                                              DateTime(year,
+                                                                  month, day);
+                                                          final currentDate =
+                                                              DateTime.now();
 
-                                                        // Normalize dates (ignore time components)
-                                                        final normalizedAttDate = DateTime(attendanceDate.year, attendanceDate.month, attendanceDate.day);
-                                                        final normalizedCurrentDate = DateTime(currentDate.year, currentDate.month, currentDate.day);
+                                                          // Normalize dates (ignore time components)
+                                                          final normalizedAttDate =
+                                                              DateTime(
+                                                                  attendanceDate
+                                                                      .year,
+                                                                  attendanceDate
+                                                                      .month,
+                                                                  attendanceDate
+                                                                      .day);
+                                                          final normalizedCurrentDate =
+                                                              DateTime(
+                                                                  currentDate
+                                                                      .year,
+                                                                  currentDate
+                                                                      .month,
+                                                                  currentDate
+                                                                      .day);
 
-                                                        // If date is not in the past, show snackbar and return
-                                                        if (!normalizedAttDate.isBefore(normalizedCurrentDate)) {
-                                                          ScaffoldMessenger.of(context).showSnackBar(
-                                                            SnackBar(content: Text("Attendance can only be updated for past dates")),
+                                                          // If date is not in the past, show snackbar and return
+                                                          if (!normalizedAttDate
+                                                              .isBefore(
+                                                                  normalizedCurrentDate)) {
+                                                            print(
+                                                                "normalizedAttDate: $normalizedAttDate");
+                                                            print(
+                                                                "API date: ${attendanceData?.date}");
+                                                            print(
+                                                                "normalizedCurrentDate: $normalizedCurrentDate");
+                                                            ScaffoldMessenger
+                                                                    .of(context)
+                                                                .showSnackBar(
+                                                              SnackBar(
+                                                                  content: Text(
+                                                                      "Attendance can only be updated for past dates")),
+                                                            );
+                                                            return;
+                                                          }
+                                                        } catch (e) {
+                                                          // Handle parsing errors
+                                                          ScaffoldMessenger.of(
+                                                                  context)
+                                                              .showSnackBar(
+                                                            SnackBar(
+                                                                content: Text(
+                                                                    "Invalid date format: ${e.toString()}")),
                                                           );
                                                           return;
                                                         }
-                                                      } catch (e) {
-                                                        // Handle parsing errors
-                                                        ScaffoldMessenger.of(context).showSnackBar(
-                                                          SnackBar(content: Text("Invalid date format")),
-                                                        );
-                                                        return;
                                                       }
-                                                    }
-                                                    var userdata = await getIt<
-                                                        SharedPrefs>()
-                                                        .getModel<
-                                                        OtpVerificationModel>(
-                                                        "user_model",
-                                                            (json) =>
-                                                            OtpVerificationModel
-                                                                .fromJson(
-                                                                json));
-                                                    if (userdata?.data.role ==
-                                                        "coach") {
-                                                      final selectedStatus =
-                                                      await showModalBottomSheet<
-                                                          String>(
-                                                        context: context,
-                                                        backgroundColor:
-                                                        Colors.transparent,
-                                                        // Makes the rounded corners visible
-                                                        builder: (context) {
-                                                          return Container(
-                                                            decoration:
-                                                            const BoxDecoration(
-                                                              color: Colors.white,
-                                                              borderRadius:
-                                                              BorderRadius.only(
-                                                                topLeft:
-                                                                Radius.circular(
-                                                                    20),
-                                                                topRight:
-                                                                Radius.circular(
-                                                                    20),
+                                                      var userdata = await getIt<
+                                                              SharedPrefs>()
+                                                          .getModel<
+                                                                  OtpVerificationModel>(
+                                                              "user_model",
+                                                              (json) =>
+                                                                  OtpVerificationModel
+                                                                      .fromJson(
+                                                                          json));
+                                                      if (userdata?.data.role ==
+                                                          "coach") {
+                                                        final selectedStatus =
+                                                            await showModalBottomSheet<
+                                                                String>(
+                                                          context: context,
+                                                          backgroundColor:
+                                                              Colors
+                                                                  .transparent,
+                                                          // Makes the rounded corners visible
+                                                          builder: (context) {
+                                                            return Container(
+                                                              decoration:
+                                                                  const BoxDecoration(
+                                                                color: Colors
+                                                                    .white,
+                                                                borderRadius:
+                                                                    BorderRadius
+                                                                        .only(
+                                                                  topLeft: Radius
+                                                                      .circular(
+                                                                          20),
+                                                                  topRight: Radius
+                                                                      .circular(
+                                                                          20),
+                                                                ),
                                                               ),
-                                                            ),
-                                                            child: Column(
-                                                              mainAxisSize:
-                                                              MainAxisSize.min,
-                                                              children: [
-                                                                const Padding(
-                                                                  padding: EdgeInsets
-                                                                      .only(
-                                                                      top: 16,
-                                                                      bottom:
-                                                                      8),
-                                                                  child: Text(
-                                                                    'Select Attendance Status',
-                                                                    style:
-                                                                    TextStyle(
-                                                                      fontSize: 18,
-                                                                      fontWeight:
-                                                                      FontWeight
-                                                                          .bold,
-                                                                      color: Colors
-                                                                          .black87,
+                                                              child: Column(
+                                                                mainAxisSize:
+                                                                    MainAxisSize
+                                                                        .min,
+                                                                children: [
+                                                                  const Padding(
+                                                                    padding: EdgeInsets.only(
+                                                                        top: 16,
+                                                                        bottom:
+                                                                            8),
+                                                                    child: Text(
+                                                                      'Select Attendance Status',
+                                                                      style:
+                                                                          TextStyle(
+                                                                        fontSize:
+                                                                            18,
+                                                                        fontWeight:
+                                                                            FontWeight.bold,
+                                                                        color: Colors
+                                                                            .black87,
+                                                                      ),
                                                                     ),
                                                                   ),
-                                                                ),
-                                                                const Divider(
-                                                                    height: 1,
-                                                                    thickness: 1),
-                                                                _buildStatusItem(
-                                                                    context,
-                                                                    'Present',
-                                                                    Icons
-                                                                        .check_circle,
-                                                                    Colors.green),
-                                                                _buildStatusItem(
-                                                                    context,
-                                                                    'Absent',
-                                                                    Icons.cancel,
-                                                                    Colors.red),
-                                                                // _buildStatusItem(
-                                                                //     context,
-                                                                //     'Cancel',
-                                                                //     Icons.block,
-                                                                //     Colors.orange),
-                                                                _buildStatusItem(
-                                                                    context,
-                                                                    'Not Marked',
-                                                                    Icons
-                                                                        .help_outline,
-                                                                    Colors.grey),
-                                                                const SizedBox(
-                                                                    height: 8),
-                                                              ],
-                                                            ),
-                                                          );
-                                                        },
-                                                      );
+                                                                  const Divider(
+                                                                      height: 1,
+                                                                      thickness:
+                                                                          1),
+                                                                  _buildStatusItem(
+                                                                      context,
+                                                                      'Present',
+                                                                      Icons
+                                                                          .check_circle,
+                                                                      Colors
+                                                                          .green),
+                                                                  _buildStatusItem(
+                                                                      context,
+                                                                      'Absent',
+                                                                      Icons
+                                                                          .cancel,
+                                                                      Colors
+                                                                          .red),
+                                                                  // _buildStatusItem(
+                                                                  //     context,
+                                                                  //     'Cancel',
+                                                                  //     Icons.block,
+                                                                  //     Colors.orange),
+                                                                  _buildStatusItem(
+                                                                      context,
+                                                                      'Not Marked',
+                                                                      Icons
+                                                                          .help_outline,
+                                                                      Colors
+                                                                          .grey),
+                                                                  const SizedBox(
+                                                                      height:
+                                                                          8),
+                                                                ],
+                                                              ),
+                                                            );
+                                                          },
+                                                        );
 
-                                                      if (selectedStatus != null) {
-                                                        var academyId = await getIt<
-                                                            SharedPrefs>()
-                                                            .getString(
-                                                            "selected_academyid");
-                                                        var status="";
-                                                        if(selectedStatus=="Not Marked"){
-                                                          status="Cancel";
-                                                        }else{
-                                                          status=selectedStatus;
+                                                        if (selectedStatus !=
+                                                            null) {
+                                                          var academyId = await getIt<
+                                                                  SharedPrefs>()
+                                                              .getString(
+                                                                  "selected_academyid");
+                                                          var status = "";
+                                                          if (selectedStatus ==
+                                                              "Not Marked") {
+                                                            status = "Cancel";
+                                                          } else {
+                                                            status =
+                                                                selectedStatus;
+                                                          }
+
+                                                          Map<String, dynamic>
+                                                              map = {
+                                                            "player_id":
+                                                                data.id,
+                                                            "session_id":
+                                                                attendanceData
+                                                                    ?.sessionId,
+                                                            "academy_id":
+                                                                academyId,
+                                                            "date": attendanceData
+                                                                ?.requestDate,
+                                                            "status": status,
+                                                          };
+                                                          BlocProvider.of<
+                                                                      AttendanceBloc>(
+                                                                  context)
+                                                              .add(UpdateAttendanceEvent(
+                                                                  map,
+                                                                  Playerindex,
+                                                                  index));
+
+                                                          BlocProvider.of<
+                                                                      AttendanceBloc>(
+                                                                  context)
+                                                              .add(
+                                                                  SaveListViewScroolToIndex(
+                                                                      index));
                                                         }
-                                                        Map<String, dynamic> map = {
-                                                          "player_id": data.id,
-                                                          "session_id":
-                                                          attendanceData
-                                                              ?.sessionId,
-                                                          "academy_id": academyId,
-                                                          "date":
-                                                          attendanceData?.date,
-
-                                                          "status": status,
-                                                        };
-                                                        BlocProvider.of<
-                                                            AttendanceBloc>(
-                                                            context)
-                                                            .add(
-                                                            UpdateAttendanceEvent(
-                                                                map));
                                                       }
                                                     }
                                                   }
-
-
-                                                  },
+                                                },
                                                 color: AttendanceButtonUtils
-                                                    .getButtonColor(attendanceData
-                                                        ?.attendanceStatus),
+                                                    .getButtonColor(
+                                                        attendanceData
+                                                            ?.attendanceStatus),
                                                 textColor: AttendanceButtonUtils
                                                     .getTextColor(attendanceData
                                                         ?.attendanceStatus),
@@ -329,7 +417,9 @@ class PlayerAttendanceList extends StatelessWidget {
                                   ),
                                 ),
                               ),
-                              SizedBox(height: 5,),
+                              SizedBox(
+                                height: 5,
+                              ),
                             ],
                           ),
                         ),
@@ -341,6 +431,19 @@ class PlayerAttendanceList extends StatelessWidget {
         },
       ),
     );
+  }
+
+  String showAttendanceStatus(String status)
+  {
+  if(status=="N/A"){
+  return "N/A";
+  }else if(status=="Present"){
+    return "Present";
+  }else if(status=="Absent"){
+    return "Absent";
+  }else if(status=="Not Marked"){
+    return "Not Marked";
+  }else return "Not Marked";
   }
 
   Widget _buildStatusItem(

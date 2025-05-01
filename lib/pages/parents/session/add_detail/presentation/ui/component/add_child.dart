@@ -59,7 +59,7 @@ class AddChild extends StatelessWidget {
         ),
         CustomTextInputMobile(
           controller: firstNameController,
-          title: "Child Name *",
+          title: "Child Name*",
           isShowTitle: true,
           isPass: false,
           isSuffix: false,
@@ -80,7 +80,7 @@ class AddChild extends StatelessWidget {
         ),
         CustomTextInputMobile(
           controller: dobController,
-          title: "Child Date Of Birth *",
+          title: "Child Date Of Birth*",
           isShowTitle: true,
           isPass: false,
           isSuffix: false,
@@ -104,7 +104,7 @@ class AddChild extends StatelessWidget {
 
             if (pickedDate != null) {
               // Format the date as a string
-              String formattedDate = DateFormat('yyyy-MM-dd')
+              String formattedDate = DateFormat('dd/MM/yyyy')
                   .format(pickedDate);
 
               // Update the text field with the selected date
@@ -178,7 +178,7 @@ class AddChild extends StatelessWidget {
         Padding(
           padding: EdgeInsets.only(left: width * 0.015, bottom: 4.0),
           child: Text(
-            "Do you consent to us using your child’s photo on our social media and/or website? *",
+            "Do you consent to us using your child’s photo on our social media and/or website?*",
             style: TextStyle(
               color: AppColor.appWhiteColor,
               fontFamily: AppFont.interRegular,
@@ -222,7 +222,7 @@ class AddChild extends StatelessWidget {
         Padding(
           padding: EdgeInsets.only(left: width * 0.015, bottom: 4.0),
           child: Text(
-            "Permission to administer first aid if needed *",
+            "Permission to administer first aid if needed*",
             style: TextStyle(
               color: AppColor.appWhiteColor,
               fontFamily: AppFont.interRegular,

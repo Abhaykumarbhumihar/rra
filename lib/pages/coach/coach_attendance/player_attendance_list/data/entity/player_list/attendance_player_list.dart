@@ -62,6 +62,7 @@ class AttendanceRecord with _$AttendanceRecord {
   const factory AttendanceRecord({
     @JsonKey(name: 'session_id') required int sessionId,
     @JsonKey(name: 'date') required String date,
+    @JsonKey(name: 'request_date') required String requestDate,
     @JsonKey(name: 'attendance_status') required String attendanceStatus,
   }) = _AttendanceRecord;
 

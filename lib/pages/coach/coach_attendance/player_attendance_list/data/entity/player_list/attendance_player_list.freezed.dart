@@ -1038,6 +1038,8 @@ mixin _$AttendanceRecord {
   int get sessionId => throw _privateConstructorUsedError;
   @JsonKey(name: 'date')
   String get date => throw _privateConstructorUsedError;
+  @JsonKey(name: 'request_date')
+  String get requestDate => throw _privateConstructorUsedError;
   @JsonKey(name: 'attendance_status')
   String get attendanceStatus => throw _privateConstructorUsedError;
 
@@ -1060,6 +1062,7 @@ abstract class $AttendanceRecordCopyWith<$Res> {
   $Res call(
       {@JsonKey(name: 'session_id') int sessionId,
       @JsonKey(name: 'date') String date,
+      @JsonKey(name: 'request_date') String requestDate,
       @JsonKey(name: 'attendance_status') String attendanceStatus});
 }
 
@@ -1080,6 +1083,7 @@ class _$AttendanceRecordCopyWithImpl<$Res, $Val extends AttendanceRecord>
   $Res call({
     Object? sessionId = null,
     Object? date = null,
+    Object? requestDate = null,
     Object? attendanceStatus = null,
   }) {
     return _then(_value.copyWith(
@@ -1090,6 +1094,10 @@ class _$AttendanceRecordCopyWithImpl<$Res, $Val extends AttendanceRecord>
       date: null == date
           ? _value.date
           : date // ignore: cast_nullable_to_non_nullable
+              as String,
+      requestDate: null == requestDate
+          ? _value.requestDate
+          : requestDate // ignore: cast_nullable_to_non_nullable
               as String,
       attendanceStatus: null == attendanceStatus
           ? _value.attendanceStatus
@@ -1110,6 +1118,7 @@ abstract class _$$AttendanceRecordImplCopyWith<$Res>
   $Res call(
       {@JsonKey(name: 'session_id') int sessionId,
       @JsonKey(name: 'date') String date,
+      @JsonKey(name: 'request_date') String requestDate,
       @JsonKey(name: 'attendance_status') String attendanceStatus});
 }
 
@@ -1128,6 +1137,7 @@ class __$$AttendanceRecordImplCopyWithImpl<$Res>
   $Res call({
     Object? sessionId = null,
     Object? date = null,
+    Object? requestDate = null,
     Object? attendanceStatus = null,
   }) {
     return _then(_$AttendanceRecordImpl(
@@ -1138,6 +1148,10 @@ class __$$AttendanceRecordImplCopyWithImpl<$Res>
       date: null == date
           ? _value.date
           : date // ignore: cast_nullable_to_non_nullable
+              as String,
+      requestDate: null == requestDate
+          ? _value.requestDate
+          : requestDate // ignore: cast_nullable_to_non_nullable
               as String,
       attendanceStatus: null == attendanceStatus
           ? _value.attendanceStatus
@@ -1153,6 +1167,7 @@ class _$AttendanceRecordImpl implements _AttendanceRecord {
   const _$AttendanceRecordImpl(
       {@JsonKey(name: 'session_id') required this.sessionId,
       @JsonKey(name: 'date') required this.date,
+      @JsonKey(name: 'request_date') required this.requestDate,
       @JsonKey(name: 'attendance_status') required this.attendanceStatus});
 
   factory _$AttendanceRecordImpl.fromJson(Map<String, dynamic> json) =>
@@ -1165,12 +1180,15 @@ class _$AttendanceRecordImpl implements _AttendanceRecord {
   @JsonKey(name: 'date')
   final String date;
   @override
+  @JsonKey(name: 'request_date')
+  final String requestDate;
+  @override
   @JsonKey(name: 'attendance_status')
   final String attendanceStatus;
 
   @override
   String toString() {
-    return 'AttendanceRecord(sessionId: $sessionId, date: $date, attendanceStatus: $attendanceStatus)';
+    return 'AttendanceRecord(sessionId: $sessionId, date: $date, requestDate: $requestDate, attendanceStatus: $attendanceStatus)';
   }
 
   @override
@@ -1181,6 +1199,8 @@ class _$AttendanceRecordImpl implements _AttendanceRecord {
             (identical(other.sessionId, sessionId) ||
                 other.sessionId == sessionId) &&
             (identical(other.date, date) || other.date == date) &&
+            (identical(other.requestDate, requestDate) ||
+                other.requestDate == requestDate) &&
             (identical(other.attendanceStatus, attendanceStatus) ||
                 other.attendanceStatus == attendanceStatus));
   }
@@ -1188,7 +1208,7 @@ class _$AttendanceRecordImpl implements _AttendanceRecord {
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode =>
-      Object.hash(runtimeType, sessionId, date, attendanceStatus);
+      Object.hash(runtimeType, sessionId, date, requestDate, attendanceStatus);
 
   /// Create a copy of AttendanceRecord
   /// with the given fields replaced by the non-null parameter values.
@@ -1211,6 +1231,7 @@ abstract class _AttendanceRecord implements AttendanceRecord {
   const factory _AttendanceRecord(
       {@JsonKey(name: 'session_id') required final int sessionId,
       @JsonKey(name: 'date') required final String date,
+      @JsonKey(name: 'request_date') required final String requestDate,
       @JsonKey(name: 'attendance_status')
       required final String attendanceStatus}) = _$AttendanceRecordImpl;
 
@@ -1223,6 +1244,9 @@ abstract class _AttendanceRecord implements AttendanceRecord {
   @override
   @JsonKey(name: 'date')
   String get date;
+  @override
+  @JsonKey(name: 'request_date')
+  String get requestDate;
   @override
   @JsonKey(name: 'attendance_status')
   String get attendanceStatus;

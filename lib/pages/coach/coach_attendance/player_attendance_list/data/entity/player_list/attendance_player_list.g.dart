@@ -95,6 +95,7 @@ _$AttendanceRecordImpl _$$AttendanceRecordImplFromJson(
     _$AttendanceRecordImpl(
       sessionId: (json['session_id'] as num).toInt(),
       date: json['date'] as String,
+      requestDate: json['request_date'] as String,
       attendanceStatus: json['attendance_status'] as String,
     );
 
@@ -103,5 +104,6 @@ Map<String, dynamic> _$$AttendanceRecordImplToJson(
     <String, dynamic>{
       'session_id': instance.sessionId,
       'date': instance.date,
+      'request_date': instance.requestDate,
       'attendance_status': instance.attendanceStatus,
     };

@@ -121,7 +121,7 @@ class PlayerAttendanceRecord extends StatelessWidget {
                                       "date": data?.date,
                                       "status": selectedStatus,
                                     };
-                                    BlocProvider.of<AttendanceBloc>(context).add(UpdateAttendanceEvent(map));
+                                    BlocProvider.of<AttendanceBloc>(context).add(UpdateAttendanceEvent(map,0,0));
                                   }
                                 }
 
