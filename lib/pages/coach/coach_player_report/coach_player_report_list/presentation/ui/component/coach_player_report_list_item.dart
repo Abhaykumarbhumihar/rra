@@ -81,14 +81,14 @@ class CoachPlayerReportListItem extends StatelessWidget {
                               height: 4.0,
                             ),
                             InfoRow(
-                              label: "Term Name :",
+                              label: "Term Name:",
                               value: " ${data.term}",
                             ),
                             SizedBox(
                               height: 4.0,
                             ),
                             InfoRow(
-                              label: "Session :",
+                              label: "Session:",
                               value: " ${data.session}",
                             ),
 

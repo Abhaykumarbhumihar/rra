@@ -156,8 +156,8 @@ class PlayerAttendanceList extends StatelessWidget {
                                                               .width *
                                                           0.0373)),
                                               AttendanceCommonSmallElevatedButton(
-                                                label:"${showAttendanceStatus(attendanceData?.attendanceStatus??"")}",
-
+                                                label:
+                                                    "${showAttendanceStatus(attendanceData?.attendanceStatus ?? "")}",
                                                 onPressed: () async {
                                                   var userdata = await getIt<
                                                           SharedPrefs>()
@@ -433,17 +433,19 @@ class PlayerAttendanceList extends StatelessWidget {
     );
   }
 
-  String showAttendanceStatus(String status)
-  {
-  if(status=="N/A"){
-  return "N/A";
-  }else if(status=="Present"){
-    return "Present";
-  }else if(status=="Absent"){
-    return "Absent";
-  }else if(status=="Not Marked"){
-    return "Not Marked";
-  }else return "Not Marked";
+  String showAttendanceStatus(String status) {
+    if (status == "N/A") {
+      return "N/A";
+    } else if (status == "Present") {
+      return "Present";
+    } else if (status == "Absent") {
+      return "Absent";
+    } else if (status == "Not Marked") {
+      return "Not Marked";
+    }else if (status == "") {
+      return "           ";
+    } else
+      return "Not Marked";
   }
 
   Widget _buildStatusItem(
