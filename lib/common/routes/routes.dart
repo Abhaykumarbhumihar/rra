@@ -69,34 +69,13 @@ static const WELCOMEPAGE="/welcom_page";
   static const MYPROFILE="/myprofile";
   static const EDITPROFILE="/edit_profile";
 
-  //finddetail
-  static const FINDDETAIL="/find_detail";
-
-  static const TERMCONDITION="/term_condition";
-  static const PRIVACYPAGE="/privacy_page";
-  static const COPYRIGHTPAGE="/copyright_page";
-  static const FAQPAGE="/faq_page";
-
-  static const NOTIFICATIONPAGE="/notification_page";
-  static const MYSAVEDPAGE="/my_saved_page";
-  static const SEEALLREPLIES="/see_all_replies";
-  static const SEEALLCOMMENTS="/see_all_comments";
 
 
-  static const CATEGORY_DETAIL="/category_details";
-  static const MYCOMMENT="/my_comment";
-  static const BEST_FIND="/best_find";
-  static const FIND_OF_THE_DAY="/find_of_the_day";
-
-  static const MY_FIND="/my_find";
-  static const EDIT_FIND="/edit_find";
-
-  static const NEWIMAGEFILE="/new_imaeg_file";
-  static const SEARCHBYCATEGORIES="/search_by_categories";
-
-  static const CONTACT_US="/contact_us";
 
   static const MANAGE_TEAM_DETAIL="/manage_team_detail";
   static const CAMP_ORDER_SUMMARY="/camp_order_summary";
+  static const BOOK_CAMP_ORDER_LIST="/book_camp_order_list";
+  static const BOOK_CAMP_ORDER_DETAIL="/book_camp_order_detail";
+
 
 }

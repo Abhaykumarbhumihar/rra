@@ -41,6 +41,15 @@ _$BookedCampOrderDetailDataImpl _$$BookedCampOrderDetailDataImplFromJson(
               ?.map((e) => PlayerDetail.fromJson(e as Map<String, dynamic>))
               .toList() ??
           const [],
+      promocode: json['promocode'] ?? null,
+      subtotal: (json['subtotal'] as num?)?.toInt() ?? 0,
+      displaySubtotal: json['display_subtotal'] as String? ?? '',
+      discount: json['discount'] ?? null,
+      displayDiscount: json['display_discount'] as String? ?? '',
+      tax: (json['tax'] as num?)?.toInt() ?? 0,
+      displayTax: json['display_tax'] as String? ?? '',
+      total: json['total'] as String? ?? '',
+      displayTotal: json['display_total'] as String? ?? '',
     );
 
 Map<String, dynamic> _$$BookedCampOrderDetailDataImplToJson(
@@ -49,6 +58,15 @@ Map<String, dynamic> _$$BookedCampOrderDetailDataImplToJson(
       'campBookedOrderDetail': instance.campBookedOrderDetail,
       'camp': instance.camp,
       'playerDetail': instance.playerDetail,
+      'promocode': instance.promocode,
+      'subtotal': instance.subtotal,
+      'display_subtotal': instance.displaySubtotal,
+      'discount': instance.discount,
+      'display_discount': instance.displayDiscount,
+      'tax': instance.tax,
+      'display_tax': instance.displayTax,
+      'total': instance.total,
+      'display_total': instance.displayTotal,
     };
 
 _$CampBookedOrderDetailImpl _$$CampBookedOrderDetailImplFromJson(

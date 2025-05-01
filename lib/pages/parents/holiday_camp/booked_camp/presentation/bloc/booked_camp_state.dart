@@ -3,8 +3,8 @@
 
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-import '../data/enitity/booked_camp_list/booked_camp_list_model.dart';
-import '../data/enitity/booked_camp_order_detail/booked_camp_order_detail_model.dart';
+import '../../data/enitity/booked_camp_list/booked_camp_list_model.dart';
+import '../../data/enitity/booked_camp_order_detail/booked_camp_order_detail_model.dart';
 
 part 'booked_camp_state.freezed.dart';
 

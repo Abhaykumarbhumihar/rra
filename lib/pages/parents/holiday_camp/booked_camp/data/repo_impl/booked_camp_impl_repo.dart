@@ -22,7 +22,7 @@ class BookedCampImplRepo extends BookedCampRepositery{
 
     try {
       http.Response response = await _apiServices.post(
-          http.AppConstant.getCampList+"/${parentId}",dashboardData,
+          http.AppConstant.getBookedCampList+"/${parentId}",dashboardData,
           useDefaultHeaders: true,isJson: true);
       print("campList campList ====${response.body}");
       if (response.statusCode == 200) {
@@ -56,7 +56,7 @@ class BookedCampImplRepo extends BookedCampRepositery{
   Future<Either<Failure, BookedCampOrderDetailModel>> getBookedCampDetail(Map<String, dynamic> campData,String campId)async {
     try {
       http.Response response = await _apiServices.post(
-          AppConstant.getBookedCampList+"/${campId}",campData,
+          AppConstant.getBookedCampDetail+"/${campId}",campData,
           useDefaultHeaders: true,isJson: true);
       print("campList campList ====${response.body}");
       if (response.statusCode == 200) {

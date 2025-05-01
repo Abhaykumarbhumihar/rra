@@ -262,6 +262,21 @@ mixin _$BookedCampOrderDetailData {
   CampDetail get camp => throw _privateConstructorUsedError;
   @JsonKey(name: 'playerDetail')
   List<PlayerDetail> get playerDetail => throw _privateConstructorUsedError;
+  dynamic get promocode =>
+      throw _privateConstructorUsedError; // Can be null or potentially an object
+  int get subtotal => throw _privateConstructorUsedError;
+  @JsonKey(name: 'display_subtotal')
+  String get displaySubtotal => throw _privateConstructorUsedError;
+  dynamic get discount =>
+      throw _privateConstructorUsedError; // Can be null or potentially an object
+  @JsonKey(name: 'display_discount')
+  String get displayDiscount => throw _privateConstructorUsedError;
+  int get tax => throw _privateConstructorUsedError;
+  @JsonKey(name: 'display_tax')
+  String get displayTax => throw _privateConstructorUsedError;
+  String get total => throw _privateConstructorUsedError;
+  @JsonKey(name: 'display_total')
+  String get displayTotal => throw _privateConstructorUsedError;
 
   /// Serializes this BookedCampOrderDetailData to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -283,7 +298,16 @@ abstract class $BookedCampOrderDetailDataCopyWith<$Res> {
       {@JsonKey(name: 'campBookedOrderDetail')
       CampBookedOrderDetail campBookedOrderDetail,
       CampDetail camp,
-      @JsonKey(name: 'playerDetail') List<PlayerDetail> playerDetail});
+      @JsonKey(name: 'playerDetail') List<PlayerDetail> playerDetail,
+      dynamic promocode,
+      int subtotal,
+      @JsonKey(name: 'display_subtotal') String displaySubtotal,
+      dynamic discount,
+      @JsonKey(name: 'display_discount') String displayDiscount,
+      int tax,
+      @JsonKey(name: 'display_tax') String displayTax,
+      String total,
+      @JsonKey(name: 'display_total') String displayTotal});
 
   $CampBookedOrderDetailCopyWith<$Res> get campBookedOrderDetail;
   $CampDetailCopyWith<$Res> get camp;
@@ -308,6 +332,15 @@ class _$BookedCampOrderDetailDataCopyWithImpl<$Res,
     Object? campBookedOrderDetail = null,
     Object? camp = null,
     Object? playerDetail = null,
+    Object? promocode = freezed,
+    Object? subtotal = null,
+    Object? displaySubtotal = null,
+    Object? discount = freezed,
+    Object? displayDiscount = null,
+    Object? tax = null,
+    Object? displayTax = null,
+    Object? total = null,
+    Object? displayTotal = null,
   }) {
     return _then(_value.copyWith(
       campBookedOrderDetail: null == campBookedOrderDetail
@@ -322,6 +355,42 @@ class _$BookedCampOrderDetailDataCopyWithImpl<$Res,
           ? _value.playerDetail
           : playerDetail // ignore: cast_nullable_to_non_nullable
               as List<PlayerDetail>,
+      promocode: freezed == promocode
+          ? _value.promocode
+          : promocode // ignore: cast_nullable_to_non_nullable
+              as dynamic,
+      subtotal: null == subtotal
+          ? _value.subtotal
+          : subtotal // ignore: cast_nullable_to_non_nullable
+              as int,
+      displaySubtotal: null == displaySubtotal
+          ? _value.displaySubtotal
+          : displaySubtotal // ignore: cast_nullable_to_non_nullable
+              as String,
+      discount: freezed == discount
+          ? _value.discount
+          : discount // ignore: cast_nullable_to_non_nullable
+              as dynamic,
+      displayDiscount: null == displayDiscount
+          ? _value.displayDiscount
+          : displayDiscount // ignore: cast_nullable_to_non_nullable
+              as String,
+      tax: null == tax
+          ? _value.tax
+          : tax // ignore: cast_nullable_to_non_nullable
+              as int,
+      displayTax: null == displayTax
+          ? _value.displayTax
+          : displayTax // ignore: cast_nullable_to_non_nullable
+              as String,
+      total: null == total
+          ? _value.total
+          : total // ignore: cast_nullable_to_non_nullable
+              as String,
+      displayTotal: null == displayTotal
+          ? _value.displayTotal
+          : displayTotal // ignore: cast_nullable_to_non_nullable
+              as String,
     ) as $Val);
   }
 
@@ -360,7 +429,16 @@ abstract class _$$BookedCampOrderDetailDataImplCopyWith<$Res>
       {@JsonKey(name: 'campBookedOrderDetail')
       CampBookedOrderDetail campBookedOrderDetail,
       CampDetail camp,
-      @JsonKey(name: 'playerDetail') List<PlayerDetail> playerDetail});
+      @JsonKey(name: 'playerDetail') List<PlayerDetail> playerDetail,
+      dynamic promocode,
+      int subtotal,
+      @JsonKey(name: 'display_subtotal') String displaySubtotal,
+      dynamic discount,
+      @JsonKey(name: 'display_discount') String displayDiscount,
+      int tax,
+      @JsonKey(name: 'display_tax') String displayTax,
+      String total,
+      @JsonKey(name: 'display_total') String displayTotal});
 
   @override
   $CampBookedOrderDetailCopyWith<$Res> get campBookedOrderDetail;
@@ -386,6 +464,15 @@ class __$$BookedCampOrderDetailDataImplCopyWithImpl<$Res>
     Object? campBookedOrderDetail = null,
     Object? camp = null,
     Object? playerDetail = null,
+    Object? promocode = freezed,
+    Object? subtotal = null,
+    Object? displaySubtotal = null,
+    Object? discount = freezed,
+    Object? displayDiscount = null,
+    Object? tax = null,
+    Object? displayTax = null,
+    Object? total = null,
+    Object? displayTotal = null,
   }) {
     return _then(_$BookedCampOrderDetailDataImpl(
       campBookedOrderDetail: null == campBookedOrderDetail
@@ -400,6 +487,42 @@ class __$$BookedCampOrderDetailDataImplCopyWithImpl<$Res>
           ? _value._playerDetail
           : playerDetail // ignore: cast_nullable_to_non_nullable
               as List<PlayerDetail>,
+      promocode: freezed == promocode
+          ? _value.promocode
+          : promocode // ignore: cast_nullable_to_non_nullable
+              as dynamic,
+      subtotal: null == subtotal
+          ? _value.subtotal
+          : subtotal // ignore: cast_nullable_to_non_nullable
+              as int,
+      displaySubtotal: null == displaySubtotal
+          ? _value.displaySubtotal
+          : displaySubtotal // ignore: cast_nullable_to_non_nullable
+              as String,
+      discount: freezed == discount
+          ? _value.discount
+          : discount // ignore: cast_nullable_to_non_nullable
+              as dynamic,
+      displayDiscount: null == displayDiscount
+          ? _value.displayDiscount
+          : displayDiscount // ignore: cast_nullable_to_non_nullable
+              as String,
+      tax: null == tax
+          ? _value.tax
+          : tax // ignore: cast_nullable_to_non_nullable
+              as int,
+      displayTax: null == displayTax
+          ? _value.displayTax
+          : displayTax // ignore: cast_nullable_to_non_nullable
+              as String,
+      total: null == total
+          ? _value.total
+          : total // ignore: cast_nullable_to_non_nullable
+              as String,
+      displayTotal: null == displayTotal
+          ? _value.displayTotal
+          : displayTotal // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
   }
 }
@@ -412,7 +535,16 @@ class _$BookedCampOrderDetailDataImpl implements _BookedCampOrderDetailData {
       this.campBookedOrderDetail = const CampBookedOrderDetail(),
       this.camp = const CampDetail(),
       @JsonKey(name: 'playerDetail')
-      final List<PlayerDetail> playerDetail = const []})
+      final List<PlayerDetail> playerDetail = const [],
+      this.promocode = null,
+      this.subtotal = 0,
+      @JsonKey(name: 'display_subtotal') this.displaySubtotal = '',
+      this.discount = null,
+      @JsonKey(name: 'display_discount') this.displayDiscount = '',
+      this.tax = 0,
+      @JsonKey(name: 'display_tax') this.displayTax = '',
+      this.total = '',
+      @JsonKey(name: 'display_total') this.displayTotal = ''})
       : _playerDetail = playerDetail;
 
   factory _$BookedCampOrderDetailDataImpl.fromJson(Map<String, dynamic> json) =>
@@ -434,8 +566,38 @@ class _$BookedCampOrderDetailDataImpl implements _BookedCampOrderDetailData {
   }
 
   @override
+  @JsonKey()
+  final dynamic promocode;
+// Can be null or potentially an object
+  @override
+  @JsonKey()
+  final int subtotal;
+  @override
+  @JsonKey(name: 'display_subtotal')
+  final String displaySubtotal;
+  @override
+  @JsonKey()
+  final dynamic discount;
+// Can be null or potentially an object
+  @override
+  @JsonKey(name: 'display_discount')
+  final String displayDiscount;
+  @override
+  @JsonKey()
+  final int tax;
+  @override
+  @JsonKey(name: 'display_tax')
+  final String displayTax;
+  @override
+  @JsonKey()
+  final String total;
+  @override
+  @JsonKey(name: 'display_total')
+  final String displayTotal;
+
+  @override
   String toString() {
-    return 'BookedCampOrderDetailData(campBookedOrderDetail: $campBookedOrderDetail, camp: $camp, playerDetail: $playerDetail)';
+    return 'BookedCampOrderDetailData(campBookedOrderDetail: $campBookedOrderDetail, camp: $camp, playerDetail: $playerDetail, promocode: $promocode, subtotal: $subtotal, displaySubtotal: $displaySubtotal, discount: $discount, displayDiscount: $displayDiscount, tax: $tax, displayTax: $displayTax, total: $total, displayTotal: $displayTotal)';
   }
 
   @override
@@ -447,13 +609,39 @@ class _$BookedCampOrderDetailDataImpl implements _BookedCampOrderDetailData {
                 other.campBookedOrderDetail == campBookedOrderDetail) &&
             (identical(other.camp, camp) || other.camp == camp) &&
             const DeepCollectionEquality()
-                .equals(other._playerDetail, _playerDetail));
+                .equals(other._playerDetail, _playerDetail) &&
+            const DeepCollectionEquality().equals(other.promocode, promocode) &&
+            (identical(other.subtotal, subtotal) ||
+                other.subtotal == subtotal) &&
+            (identical(other.displaySubtotal, displaySubtotal) ||
+                other.displaySubtotal == displaySubtotal) &&
+            const DeepCollectionEquality().equals(other.discount, discount) &&
+            (identical(other.displayDiscount, displayDiscount) ||
+                other.displayDiscount == displayDiscount) &&
+            (identical(other.tax, tax) || other.tax == tax) &&
+            (identical(other.displayTax, displayTax) ||
+                other.displayTax == displayTax) &&
+            (identical(other.total, total) || other.total == total) &&
+            (identical(other.displayTotal, displayTotal) ||
+                other.displayTotal == displayTotal));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  int get hashCode => Object.hash(runtimeType, campBookedOrderDetail, camp,
-      const DeepCollectionEquality().hash(_playerDetail));
+  int get hashCode => Object.hash(
+      runtimeType,
+      campBookedOrderDetail,
+      camp,
+      const DeepCollectionEquality().hash(_playerDetail),
+      const DeepCollectionEquality().hash(promocode),
+      subtotal,
+      displaySubtotal,
+      const DeepCollectionEquality().hash(discount),
+      displayDiscount,
+      tax,
+      displayTax,
+      total,
+      displayTotal);
 
   /// Create a copy of BookedCampOrderDetailData
   /// with the given fields replaced by the non-null parameter values.
@@ -474,11 +662,20 @@ class _$BookedCampOrderDetailDataImpl implements _BookedCampOrderDetailData {
 
 abstract class _BookedCampOrderDetailData implements BookedCampOrderDetailData {
   const factory _BookedCampOrderDetailData(
-      {@JsonKey(name: 'campBookedOrderDetail')
-      final CampBookedOrderDetail campBookedOrderDetail,
-      final CampDetail camp,
-      @JsonKey(name: 'playerDetail')
-      final List<PlayerDetail> playerDetail}) = _$BookedCampOrderDetailDataImpl;
+          {@JsonKey(name: 'campBookedOrderDetail')
+          final CampBookedOrderDetail campBookedOrderDetail,
+          final CampDetail camp,
+          @JsonKey(name: 'playerDetail') final List<PlayerDetail> playerDetail,
+          final dynamic promocode,
+          final int subtotal,
+          @JsonKey(name: 'display_subtotal') final String displaySubtotal,
+          final dynamic discount,
+          @JsonKey(name: 'display_discount') final String displayDiscount,
+          final int tax,
+          @JsonKey(name: 'display_tax') final String displayTax,
+          final String total,
+          @JsonKey(name: 'display_total') final String displayTotal}) =
+      _$BookedCampOrderDetailDataImpl;
 
   factory _BookedCampOrderDetailData.fromJson(Map<String, dynamic> json) =
       _$BookedCampOrderDetailDataImpl.fromJson;
@@ -491,6 +688,28 @@ abstract class _BookedCampOrderDetailData implements BookedCampOrderDetailData {
   @override
   @JsonKey(name: 'playerDetail')
   List<PlayerDetail> get playerDetail;
+  @override
+  dynamic get promocode; // Can be null or potentially an object
+  @override
+  int get subtotal;
+  @override
+  @JsonKey(name: 'display_subtotal')
+  String get displaySubtotal;
+  @override
+  dynamic get discount; // Can be null or potentially an object
+  @override
+  @JsonKey(name: 'display_discount')
+  String get displayDiscount;
+  @override
+  int get tax;
+  @override
+  @JsonKey(name: 'display_tax')
+  String get displayTax;
+  @override
+  String get total;
+  @override
+  @JsonKey(name: 'display_total')
+  String get displayTotal;
 
   /// Create a copy of BookedCampOrderDetailData
   /// with the given fields replaced by the non-null parameter values.

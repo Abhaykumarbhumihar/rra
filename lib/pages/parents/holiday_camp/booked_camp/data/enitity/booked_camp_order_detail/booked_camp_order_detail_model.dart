@@ -26,11 +26,22 @@ class BookedCampOrderDetailData with _$BookedCampOrderDetailData {
     @JsonKey(name: 'playerDetail')
     @Default([])
     List<PlayerDetail> playerDetail,
+    @Default(null) dynamic promocode, // Can be null or potentially an object
+    @Default(0) int subtotal,
+    @JsonKey(name: 'display_subtotal') @Default('') String displaySubtotal,
+    @Default(null) dynamic discount, // Can be null or potentially an object
+    @JsonKey(name: 'display_discount') @Default('') String displayDiscount,
+    @Default(0) int tax,
+    @JsonKey(name: 'display_tax') @Default('') String displayTax,
+    @Default('') String total,
+    @JsonKey(name: 'display_total') @Default('') String displayTotal,
   }) = _BookedCampOrderDetailData;
 
   factory BookedCampOrderDetailData.fromJson(Map<String, dynamic> json) =>
       _$BookedCampOrderDetailDataFromJson(json);
 }
+
+// The rest of your model classes remain the same as they were:
 
 @freezed
 class CampBookedOrderDetail with _$CampBookedOrderDetail {

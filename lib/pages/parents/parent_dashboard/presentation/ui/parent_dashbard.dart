@@ -3,6 +3,8 @@ import 'package:rra/common/values/values_exports.dart';
 
 import '../../../../../common/component/custom_session_card.dart';
 import '../../../../../common/routes/routes.dart';
+import '../../../holiday_camp/booked_camp/presentation/bloc/booked_camp_bloc.dart';
+import '../../../holiday_camp/booked_camp/presentation/bloc/booked_camp_event.dart';
 import '../../../holiday_camp/holiday_list/presentation/bloc/camp_bloc.dart';
 import '../../../holiday_camp/holiday_list/presentation/bloc/camp_event.dart';
 import '../../../teams/presentation/ui/component/book_sessions.dart';
@@ -55,10 +57,12 @@ class ParentDashbard extends StatelessWidget {
                 buttonText2: "Book Camp",
                 onButtonClick1: () {
                   print("View Session clicked");
+                  BlocProvider.of<BookedCampBloc>(context).add(GetBookedCampListBookedCampEvent({},""));
+                  Navigator.pushNamed(
+                      context, AppRoutes.BOOK_CAMP_ORDER_LIST);
                 },
                 onButtonClick2: () {
                   BlocProvider.of<CampBloc>(context).add(CampListEvent({}));
-
                   Navigator.pushNamed(
                       context, AppRoutes.HOLIDAYCAMP);
                   print("Book Facility clicked");
