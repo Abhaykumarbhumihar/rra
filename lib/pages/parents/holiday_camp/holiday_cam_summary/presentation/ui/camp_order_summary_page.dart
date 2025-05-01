@@ -6,6 +6,7 @@ import '../../../../../../common/component/custom_app_button.dart';
 import '../../../../../../common/component/screen_title.dart';
 import '../../../../../../common/local/SharedPrefs.dart';
 import '../../../../../../common/service_locator/setivelocator.dart';
+import '../../../../../../common/stripe/stripe_service.dart';
 import '../../../../../../common/values/values_exports.dart';
 import '../../../../session/order_summary/presentation/component/order_summary_shimmer.dart';
 import '../bloc/camp_summary_bloc.dart';
@@ -30,7 +31,53 @@ class CampOrderSummaryPage extends StatelessWidget {
 
     return BlocListener<CampSummaryBloc, CampSummaryState>(
       listener: (context, state) async {
-        print(state);
+
+        if(state.placeOrder.code==200){
+          if(state.placeOrder.data.orderId!=0){
+            final price = double.tryParse(state.placeOrder.data.total.toString()) ?? -1;
+            if(price<1){
+              var academyId = await getIt<SharedPrefs>().getString("selected_academyid");
+              Map<String, dynamic> paymentStatusUpdate = {
+                "academy_id": academyId,
+                "order_id": "${state.placeOrder.data.orderId}",
+                "payment_response": {
+                  "id": "_0payment",
+                  "status": "succeeded"
+                }
+              };
+
+            }else{
+              StripeService.instance.setPublishableKey();
+              var amountInCents = (double.parse(state.placeOrder.data.total.toString()) * 100).toInt();
+              print("Final Payment Amount in Cents: $amountInCents"); // Debuggin
+              var payMentData =
+              await StripeService.instance.makePayment(amountInCents);
+              if (payMentData != null && payMentData.containsKey("client_secret")) {
+                print("========================================");
+                print("Client Secret: ${payMentData["client_secret"]}");
+                print("ORDER ID IS ${state.placeOrder.data.orderId}");
+                var academyId = await getIt<SharedPrefs>().getString("selected_academyid");
+
+                Map<String, dynamic> paymentStatusUpdate = {
+                  "academy_id": academyId,
+                  "order_id": "${state.placeOrder.data.orderId}",
+                  "payment_response": {
+                    "id": "${payMentData["client_secret"]}",
+                    "status": "succeeded"
+                  }
+                };
+                // BlocProvider.of<OrderSummaryBloc>(context)
+                //     .add(OrderPlaceMentWithPaymentIdEvent(paymentStatusUpdate));
+
+                print("========================================");
+              } else {
+                print("Client Secret not found!");
+              }
+            }
+
+
+          }
+        }
       },
       child: BlocBuilder<CampSummaryBloc, CampSummaryState>(
 
@@ -153,6 +200,7 @@ class CampOrderSummaryPage extends StatelessWidget {
                             onPressed: () {
 
                               showPaymentBottomSheet(context,
+
                                   checkOutAction: () async {
                                     Navigator.pop(context);
                                     print(
@@ -163,16 +211,16 @@ class CampOrderSummaryPage extends StatelessWidget {
 
                                     Map<String, dynamic> map = {
                                       "academy_id": academyId,
-                                      "notes": "This is a test order"
+
                                     };
-                                    // BlocProvider.of<OrderSummaryBloc>(
-                                    //     context)
-                                    //     .add(OrderPlaceEvent(map));
-                                    //
+                                    BlocProvider.of<CampSummaryBloc>(
+                                        context)
+                                        .add(PlaceOrderCampSummaryEvent(map));
 
                                     print(
                                         "PAYMENT BUTTON PRESSED PAYMENT BUTTON PRESSED");
                                   },
+
                                   couponApplyAction: () async {
                                     FocusScope.of(context).unfocus();
                                     print(

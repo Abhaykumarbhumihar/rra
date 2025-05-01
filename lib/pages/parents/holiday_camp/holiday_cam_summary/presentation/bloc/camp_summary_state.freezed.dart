@@ -20,12 +20,14 @@ mixin _$CampSummaryState {
   String? get error => throw _privateConstructorUsedError;
   dynamic get success => throw _privateConstructorUsedError;
   bool get isError => throw _privateConstructorUsedError;
+  bool get finalPaymentDone => throw _privateConstructorUsedError;
   String get couponSuccessMessage => throw _privateConstructorUsedError;
   String get couponErrorMessage => throw _privateConstructorUsedError;
   String get couponCode => throw _privateConstructorUsedError;
   bool get isLoginApiError => throw _privateConstructorUsedError;
   CampOrderSummaryModel get campOrderSummary =>
       throw _privateConstructorUsedError;
+  PlaceOrderModel get placeOrder => throw _privateConstructorUsedError;
 
   /// Create a copy of CampSummaryState
   /// with the given fields replaced by the non-null parameter values.
@@ -45,13 +47,16 @@ abstract class $CampSummaryStateCopyWith<$Res> {
       String? error,
       dynamic success,
       bool isError,
+      bool finalPaymentDone,
       String couponSuccessMessage,
       String couponErrorMessage,
       String couponCode,
       bool isLoginApiError,
-      CampOrderSummaryModel campOrderSummary});
+      CampOrderSummaryModel campOrderSummary,
+      PlaceOrderModel placeOrder});
 
   $CampOrderSummaryModelCopyWith<$Res> get campOrderSummary;
+  $PlaceOrderModelCopyWith<$Res> get placeOrder;
 }
 
 /// @nodoc
@@ -73,11 +78,13 @@ class _$CampSummaryStateCopyWithImpl<$Res, $Val extends CampSummaryState>
     Object? error = freezed,
     Object? success = freezed,
     Object? isError = null,
+    Object? finalPaymentDone = null,
     Object? couponSuccessMessage = null,
     Object? couponErrorMessage = null,
     Object? couponCode = null,
     Object? isLoginApiError = null,
     Object? campOrderSummary = null,
+    Object? placeOrder = null,
   }) {
     return _then(_value.copyWith(
       isLoading: null == isLoading
@@ -95,6 +102,10 @@ class _$CampSummaryStateCopyWithImpl<$Res, $Val extends CampSummaryState>
       isError: null == isError
           ? _value.isError
           : isError // ignore: cast_nullable_to_non_nullable
+              as bool,
+      finalPaymentDone: null == finalPaymentDone
+          ? _value.finalPaymentDone
+          : finalPaymentDone // ignore: cast_nullable_to_non_nullable
               as bool,
       couponSuccessMessage: null == couponSuccessMessage
           ? _value.couponSuccessMessage
@@ -116,6 +127,10 @@ class _$CampSummaryStateCopyWithImpl<$Res, $Val extends CampSummaryState>
           ? _value.campOrderSummary
           : campOrderSummary // ignore: cast_nullable_to_non_nullable
               as CampOrderSummaryModel,
+      placeOrder: null == placeOrder
+          ? _value.placeOrder
+          : placeOrder // ignore: cast_nullable_to_non_nullable
+              as PlaceOrderModel,
     ) as $Val);
   }
 
@@ -127,6 +142,16 @@ class _$CampSummaryStateCopyWithImpl<$Res, $Val extends CampSummaryState>
     return $CampOrderSummaryModelCopyWith<$Res>(_value.campOrderSummary,
         (value) {
       return _then(_value.copyWith(campOrderSummary: value) as $Val);
+    });
+  }
+
+  /// Create a copy of CampSummaryState
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $PlaceOrderModelCopyWith<$Res> get placeOrder {
+    return $PlaceOrderModelCopyWith<$Res>(_value.placeOrder, (value) {
+      return _then(_value.copyWith(placeOrder: value) as $Val);
     });
   }
 }
@@ -144,14 +169,18 @@ abstract class _$$CampSummaryStateImplCopyWith<$Res>
       String? error,
       dynamic success,
       bool isError,
+      bool finalPaymentDone,
       String couponSuccessMessage,
       String couponErrorMessage,
       String couponCode,
       bool isLoginApiError,
-      CampOrderSummaryModel campOrderSummary});
+      CampOrderSummaryModel campOrderSummary,
+      PlaceOrderModel placeOrder});
 
   @override
   $CampOrderSummaryModelCopyWith<$Res> get campOrderSummary;
+  @override
+  $PlaceOrderModelCopyWith<$Res> get placeOrder;
 }
 
 /// @nodoc
@@ -171,11 +200,13 @@ class __$$CampSummaryStateImplCopyWithImpl<$Res>
     Object? error = freezed,
     Object? success = freezed,
     Object? isError = null,
+    Object? finalPaymentDone = null,
     Object? couponSuccessMessage = null,
     Object? couponErrorMessage = null,
     Object? couponCode = null,
     Object? isLoginApiError = null,
     Object? campOrderSummary = null,
+    Object? placeOrder = null,
   }) {
     return _then(_$CampSummaryStateImpl(
       isLoading: null == isLoading
@@ -193,6 +224,10 @@ class __$$CampSummaryStateImplCopyWithImpl<$Res>
       isError: null == isError
           ? _value.isError
           : isError // ignore: cast_nullable_to_non_nullable
+              as bool,
+      finalPaymentDone: null == finalPaymentDone
+          ? _value.finalPaymentDone
+          : finalPaymentDone // ignore: cast_nullable_to_non_nullable
               as bool,
       couponSuccessMessage: null == couponSuccessMessage
           ? _value.couponSuccessMessage
@@ -214,6 +249,10 @@ class __$$CampSummaryStateImplCopyWithImpl<$Res>
           ? _value.campOrderSummary
           : campOrderSummary // ignore: cast_nullable_to_non_nullable
               as CampOrderSummaryModel,
+      placeOrder: null == placeOrder
+          ? _value.placeOrder
+          : placeOrder // ignore: cast_nullable_to_non_nullable
+              as PlaceOrderModel,
     ));
   }
 }
@@ -226,11 +265,13 @@ class _$CampSummaryStateImpl implements _CampSummaryState {
       this.error,
       this.success,
       this.isError = false,
+      this.finalPaymentDone = false,
       this.couponSuccessMessage = '',
       this.couponErrorMessage = '',
       this.couponCode = "",
       this.isLoginApiError = false,
-      this.campOrderSummary = const CampOrderSummaryModel()});
+      this.campOrderSummary = const CampOrderSummaryModel(),
+      this.placeOrder = const PlaceOrderModel()});
 
   @override
   @JsonKey()
@@ -242,6 +283,9 @@ class _$CampSummaryStateImpl implements _CampSummaryState {
   @override
   @JsonKey()
   final bool isError;
+  @override
+  @JsonKey()
+  final bool finalPaymentDone;
   @override
   @JsonKey()
   final String couponSuccessMessage;
@@ -257,10 +301,13 @@ class _$CampSummaryStateImpl implements _CampSummaryState {
   @override
   @JsonKey()
   final CampOrderSummaryModel campOrderSummary;
+  @override
+  @JsonKey()
+  final PlaceOrderModel placeOrder;
 
   @override
   String toString() {
-    return 'CampSummaryState(isLoading: $isLoading, error: $error, success: $success, isError: $isError, couponSuccessMessage: $couponSuccessMessage, couponErrorMessage: $couponErrorMessage, couponCode: $couponCode, isLoginApiError: $isLoginApiError, campOrderSummary: $campOrderSummary)';
+    return 'CampSummaryState(isLoading: $isLoading, error: $error, success: $success, isError: $isError, finalPaymentDone: $finalPaymentDone, couponSuccessMessage: $couponSuccessMessage, couponErrorMessage: $couponErrorMessage, couponCode: $couponCode, isLoginApiError: $isLoginApiError, campOrderSummary: $campOrderSummary, placeOrder: $placeOrder)';
   }
 
   @override
@@ -273,6 +320,8 @@ class _$CampSummaryStateImpl implements _CampSummaryState {
             (identical(other.error, error) || other.error == error) &&
             const DeepCollectionEquality().equals(other.success, success) &&
             (identical(other.isError, isError) || other.isError == isError) &&
+            (identical(other.finalPaymentDone, finalPaymentDone) ||
+                other.finalPaymentDone == finalPaymentDone) &&
             (identical(other.couponSuccessMessage, couponSuccessMessage) ||
                 other.couponSuccessMessage == couponSuccessMessage) &&
             (identical(other.couponErrorMessage, couponErrorMessage) ||
@@ -282,7 +331,9 @@ class _$CampSummaryStateImpl implements _CampSummaryState {
             (identical(other.isLoginApiError, isLoginApiError) ||
                 other.isLoginApiError == isLoginApiError) &&
             (identical(other.campOrderSummary, campOrderSummary) ||
-                other.campOrderSummary == campOrderSummary));
+                other.campOrderSummary == campOrderSummary) &&
+            (identical(other.placeOrder, placeOrder) ||
+                other.placeOrder == placeOrder));
   }
 
   @override
@@ -292,11 +343,13 @@ class _$CampSummaryStateImpl implements _CampSummaryState {
       error,
       const DeepCollectionEquality().hash(success),
       isError,
+      finalPaymentDone,
       couponSuccessMessage,
       couponErrorMessage,
       couponCode,
       isLoginApiError,
-      campOrderSummary);
+      campOrderSummary,
+      placeOrder);
 
   /// Create a copy of CampSummaryState
   /// with the given fields replaced by the non-null parameter values.
@@ -314,11 +367,13 @@ abstract class _CampSummaryState implements CampSummaryState {
       final String? error,
       final dynamic success,
       final bool isError,
+      final bool finalPaymentDone,
       final String couponSuccessMessage,
       final String couponErrorMessage,
       final String couponCode,
       final bool isLoginApiError,
-      final CampOrderSummaryModel campOrderSummary}) = _$CampSummaryStateImpl;
+      final CampOrderSummaryModel campOrderSummary,
+      final PlaceOrderModel placeOrder}) = _$CampSummaryStateImpl;
 
   @override
   bool get isLoading;
@@ -329,6 +384,8 @@ abstract class _CampSummaryState implements CampSummaryState {
   @override
   bool get isError;
   @override
+  bool get finalPaymentDone;
+  @override
   String get couponSuccessMessage;
   @override
   String get couponErrorMessage;
@@ -338,6 +395,8 @@ abstract class _CampSummaryState implements CampSummaryState {
   bool get isLoginApiError;
   @override
   CampOrderSummaryModel get campOrderSummary;
+  @override
+  PlaceOrderModel get placeOrder;
 
   /// Create a copy of CampSummaryState
   /// with the given fields replaced by the non-null parameter values.

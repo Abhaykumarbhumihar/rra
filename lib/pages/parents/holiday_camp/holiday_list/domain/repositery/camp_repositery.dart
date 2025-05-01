@@ -5,6 +5,7 @@ import '../../data/entity/camp_calendar/camp_calendar_model.dart';
 import '../../data/entity/camp_detail/camp_detail_model.dart';
 import '../../data/entity/camp_list/camp_list_model.dart';
 import '../../data/entity/camp_order_summary/camp_order_summary_model.dart';
+import '../../data/entity/place_order/place_order_model.dart';
 import '../../data/entity/save_camp/save_camp_model.dart';
 import '../../data/entity/selected_camp_date/selected_camp_dates_model.dart';
 
@@ -18,6 +19,6 @@ abstract class CampRepositery{
   Future<Either<Failure,dynamic>> getVaildateBooking(Map<String, dynamic> validateBooking);
   Future<Either<Failure,CampOrderSummaryModel>> getCampBookingSummary(Map<String, dynamic> bookingSummary);
   Future<Either<Failure,dynamic>> appLyCoupons(Map<String, dynamic> couponData);
-  Future<Either<Failure,dynamic>> placeOrder(Map<String, dynamic> placeOrderData);
+  Future<Either<Failure,PlaceOrderModel>> placeOrder(Map<String, dynamic> placeOrderData);
 
 }

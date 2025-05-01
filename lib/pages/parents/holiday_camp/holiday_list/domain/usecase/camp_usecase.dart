@@ -4,6 +4,7 @@ import '../../../../../../common/network/failure.dart';
 import '../../data/entity/camp_calendar/camp_calendar_model.dart';
 import '../../data/entity/camp_detail/camp_detail_model.dart';
 import '../../data/entity/camp_list/camp_list_model.dart';
+import '../../data/entity/place_order/place_order_model.dart';
 import '../../data/entity/save_camp/save_camp_model.dart';
 import '../../data/entity/selected_camp_date/selected_camp_dates_model.dart';
 import '../repositery/camp_repositery.dart';
@@ -43,7 +44,7 @@ class CampUsecase{
       Map<String, dynamic> couponData) async {
     return _campRepositery.appLyCoupons(couponData);
   }
-  Future<Either<Failure, dynamic>> placeOrderExecute(
+  Future<Either<Failure, PlaceOrderModel>> placeOrderExecute(
       Map<String, dynamic> placeOrderData) async {
     return _campRepositery.placeOrder(placeOrderData);
   }

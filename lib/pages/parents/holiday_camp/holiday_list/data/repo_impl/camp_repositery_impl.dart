@@ -17,6 +17,7 @@ import '../../../../../../common/service_locator/setivelocator.dart';
 import '../../../../../../common/values/utils.dart';
 import '../../domain/repositery/camp_repositery.dart';
 import '../entity/camp_order_summary/camp_order_summary_model.dart';
+import '../entity/place_order/place_order_model.dart';
 import '../entity/selected_camp_date/selected_camp_dates_model.dart';
 
 class CampRepositeryImpl extends CampRepositery{
@@ -261,7 +262,7 @@ class CampRepositeryImpl extends CampRepositery{
   }
 
   @override
-  Future<Either<Failure, dynamic>> placeOrder(Map<String, dynamic> placeOrderData)async {
+  Future<Either<Failure, PlaceOrderModel>> placeOrder(Map<String, dynamic> placeOrderData)async {
     try {
 
       print("++++++++++++++placeOrder++++++++++++++++++++++++++++++");
@@ -272,7 +273,8 @@ class CampRepositeryImpl extends CampRepositery{
       if (response.statusCode == 200) {
         final Map<String, dynamic> responseData = jsonDecode(response.body);
         if(responseData['success']){
-          return Right(responseData);
+          PlaceOrderModel placeOrderModel=PlaceOrderModel.fromJson(responseData);
+          return Right(placeOrderModel);
         }else{
           return Left(Failure(responseData['message']));
         }
