@@ -38,7 +38,7 @@ class SavedCampItem extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.only(left: 4.0, right: 6.0, top: 16.0),
               child: ScreenTitleForCalendar(
-                title: "Time Slots Added ",
+                title: "Selected Days",
                 fontSize: context.screenWidth * 0.042,
               ),
             ),

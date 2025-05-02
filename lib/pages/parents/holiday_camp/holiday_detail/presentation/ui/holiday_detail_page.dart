@@ -55,7 +55,7 @@ class HolidayDetailPage extends StatelessWidget {
                             imageUrl: state.campDetailModel.data.campBanner,
                             imageWidth: double.infinity,
                             fullimage: true,
-                            placeHolder: "assets/images/football.png",
+                            placeHolder: "assets/images/appicon.png",
                             imageHeight: height * 0.3,
                             radiusAll: 10,
                             imageFitType: BoxFit.cover,

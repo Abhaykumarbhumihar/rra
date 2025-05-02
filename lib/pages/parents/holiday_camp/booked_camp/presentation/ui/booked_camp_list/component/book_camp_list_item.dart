@@ -8,10 +8,10 @@ import '../../../bloc/booked_camp_event.dart';
 
 
 
-class BookOrderListItem extends StatelessWidget {
+class BookCampListItem extends StatelessWidget {
   final CampOrder myOrder;
 
-  const BookOrderListItem({super.key, required this.myOrder});
+  const BookCampListItem({super.key, required this.myOrder});
 
   @override
   Widget build(BuildContext context) {
@@ -32,9 +32,29 @@ class BookOrderListItem extends StatelessWidget {
               SizedBox(
                 height: 12.0,
               ),
-              InfoRowRichText(
-                label: "Order:",
-                value: " #CMP_DRRAU_${myOrder.id}",
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: <Widget>[
+                  InfoRowRichText(
+                    label: "Order:",
+                    value: " #CMP_DRRAU_${myOrder.id}",
+                  ),
+                  CommonSmallElevatedButtonActivePending(
+
+                    padding: EdgeInsets.symmetric(
+                        horizontal: 20.0, vertical: 6.0),
+
+                    isActive: myOrder.status.toString(),
+
+                    label:myOrder.status.toString()=="1"? "active":"pending",
+                      color:myOrder.status.toString()=="1"?Colors.blue:Colors.orangeAccent,
+                    onPressed: () {
+
+
+                    },
+                   // color: AppColor.appButtonColor,
+                  ),
+                ],
               ),
               SizedBox(
                 height: 6.0,
@@ -42,6 +62,13 @@ class BookOrderListItem extends StatelessWidget {
               InfoRowRichText(
                 label: "Camp:",
                 value: "${myOrder.camps.name}",
+              ),
+              SizedBox(
+                height: 6.0,
+              ),
+              InfoRowRichText(
+                label: "Child:",
+                value: myOrder.player.map((p) => p.childName).join(', '),
               ),
               SizedBox(
                 height: 6.0,
@@ -65,7 +92,8 @@ class BookOrderListItem extends StatelessWidget {
                        CommonSmallElevatedButton(
                     padding: EdgeInsets.symmetric(
                         horizontal: 20.0, vertical: 6.0),
-                    label:myOrder.status.toString()=="1"? "active":"pending",
+                   // label:myOrder.status.toString()=="1"? "active":"pending",
+                    label:"Cancel",
                     onPressed: () {
                       if(myOrder.status=="success"){
                         // ConfirmationDialog.show(

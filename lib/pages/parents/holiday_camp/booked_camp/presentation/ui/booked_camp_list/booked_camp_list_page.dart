@@ -4,7 +4,7 @@ import 'package:rra/common/component/component_export.dart';
 
 import '../../bloc/booked_camp_bloc.dart';
 import '../../bloc/booked_camp_state.dart';
-import 'component/book_order_list_item.dart';
+import 'component/book_camp_list_item.dart';
 
 
 
@@ -41,7 +41,7 @@ class BookedCampListPage extends StatelessWidget {
                           itemBuilder: (context, index) {
                             var data =
                             state.bookedCampList.data.totalCampOrders[index];
-                            return BookOrderListItem(
+                            return BookCampListItem(
                               myOrder: data,
                             );
                           }),

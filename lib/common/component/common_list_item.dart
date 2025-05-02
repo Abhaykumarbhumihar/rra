@@ -43,7 +43,7 @@ class CommonListItem extends StatelessWidget {
                     imageUrl:camp.images[0].imagePath,
                     imageWidth:80,
                     fullimage: true,
-                    placeHolder: "assets/images/football.png",
+                    placeHolder: "assets/images/appicon.png",
                     imageHeight: 80,
                     radiusAll:10,
                     imageFitType: BoxFit.cover,

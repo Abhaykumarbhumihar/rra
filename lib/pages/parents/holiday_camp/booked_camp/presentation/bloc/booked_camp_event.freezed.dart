@@ -23,6 +23,8 @@ mixin _$BookedCampEvent {
         getBookedCampList,
     required TResult Function(Map<String, dynamic> data, String orderId)
         getBookedCampDetail,
+    required TResult Function(Map<String, dynamic> data, String orderId)
+        getBookedCampCancel,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -31,6 +33,8 @@ mixin _$BookedCampEvent {
         getBookedCampList,
     TResult? Function(Map<String, dynamic> data, String orderId)?
         getBookedCampDetail,
+    TResult? Function(Map<String, dynamic> data, String orderId)?
+        getBookedCampCancel,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -39,6 +43,8 @@ mixin _$BookedCampEvent {
         getBookedCampList,
     TResult Function(Map<String, dynamic> data, String orderId)?
         getBookedCampDetail,
+    TResult Function(Map<String, dynamic> data, String orderId)?
+        getBookedCampCancel,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -48,6 +54,7 @@ mixin _$BookedCampEvent {
         getBookedCampList,
     required TResult Function(GetBookedCampDetailBookedCampEvent value)
         getBookedCampDetail,
+    required TResult Function(CancelBookedCampEvent value) getBookedCampCancel,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -56,6 +63,7 @@ mixin _$BookedCampEvent {
         getBookedCampList,
     TResult? Function(GetBookedCampDetailBookedCampEvent value)?
         getBookedCampDetail,
+    TResult? Function(CancelBookedCampEvent value)? getBookedCampCancel,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -63,6 +71,7 @@ mixin _$BookedCampEvent {
     TResult Function(GetBookedCampListBookedCampEvent value)? getBookedCampList,
     TResult Function(GetBookedCampDetailBookedCampEvent value)?
         getBookedCampDetail,
+    TResult Function(CancelBookedCampEvent value)? getBookedCampCancel,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -207,6 +216,8 @@ class _$GetBookedCampListBookedCampEventImpl
         getBookedCampList,
     required TResult Function(Map<String, dynamic> data, String orderId)
         getBookedCampDetail,
+    required TResult Function(Map<String, dynamic> data, String orderId)
+        getBookedCampCancel,
   }) {
     return getBookedCampList(data, parentId);
   }
@@ -218,6 +229,8 @@ class _$GetBookedCampListBookedCampEventImpl
         getBookedCampList,
     TResult? Function(Map<String, dynamic> data, String orderId)?
         getBookedCampDetail,
+    TResult? Function(Map<String, dynamic> data, String orderId)?
+        getBookedCampCancel,
   }) {
     return getBookedCampList?.call(data, parentId);
   }
@@ -229,6 +242,8 @@ class _$GetBookedCampListBookedCampEventImpl
         getBookedCampList,
     TResult Function(Map<String, dynamic> data, String orderId)?
         getBookedCampDetail,
+    TResult Function(Map<String, dynamic> data, String orderId)?
+        getBookedCampCancel,
     required TResult orElse(),
   }) {
     if (getBookedCampList != null) {
@@ -244,6 +259,7 @@ class _$GetBookedCampListBookedCampEventImpl
         getBookedCampList,
     required TResult Function(GetBookedCampDetailBookedCampEvent value)
         getBookedCampDetail,
+    required TResult Function(CancelBookedCampEvent value) getBookedCampCancel,
   }) {
     return getBookedCampList(this);
   }
@@ -255,6 +271,7 @@ class _$GetBookedCampListBookedCampEventImpl
         getBookedCampList,
     TResult? Function(GetBookedCampDetailBookedCampEvent value)?
         getBookedCampDetail,
+    TResult? Function(CancelBookedCampEvent value)? getBookedCampCancel,
   }) {
     return getBookedCampList?.call(this);
   }
@@ -265,6 +282,7 @@ class _$GetBookedCampListBookedCampEventImpl
     TResult Function(GetBookedCampListBookedCampEvent value)? getBookedCampList,
     TResult Function(GetBookedCampDetailBookedCampEvent value)?
         getBookedCampDetail,
+    TResult Function(CancelBookedCampEvent value)? getBookedCampCancel,
     required TResult orElse(),
   }) {
     if (getBookedCampList != null) {
@@ -389,6 +407,8 @@ class _$GetBookedCampDetailBookedCampEventImpl
         getBookedCampList,
     required TResult Function(Map<String, dynamic> data, String orderId)
         getBookedCampDetail,
+    required TResult Function(Map<String, dynamic> data, String orderId)
+        getBookedCampCancel,
   }) {
     return getBookedCampDetail(data, orderId);
   }
@@ -400,6 +420,8 @@ class _$GetBookedCampDetailBookedCampEventImpl
         getBookedCampList,
     TResult? Function(Map<String, dynamic> data, String orderId)?
         getBookedCampDetail,
+    TResult? Function(Map<String, dynamic> data, String orderId)?
+        getBookedCampCancel,
   }) {
     return getBookedCampDetail?.call(data, orderId);
   }
@@ -411,6 +433,8 @@ class _$GetBookedCampDetailBookedCampEventImpl
         getBookedCampList,
     TResult Function(Map<String, dynamic> data, String orderId)?
         getBookedCampDetail,
+    TResult Function(Map<String, dynamic> data, String orderId)?
+        getBookedCampCancel,
     required TResult orElse(),
   }) {
     if (getBookedCampDetail != null) {
@@ -426,6 +450,7 @@ class _$GetBookedCampDetailBookedCampEventImpl
         getBookedCampList,
     required TResult Function(GetBookedCampDetailBookedCampEvent value)
         getBookedCampDetail,
+    required TResult Function(CancelBookedCampEvent value) getBookedCampCancel,
   }) {
     return getBookedCampDetail(this);
   }
@@ -437,6 +462,7 @@ class _$GetBookedCampDetailBookedCampEventImpl
         getBookedCampList,
     TResult? Function(GetBookedCampDetailBookedCampEvent value)?
         getBookedCampDetail,
+    TResult? Function(CancelBookedCampEvent value)? getBookedCampCancel,
   }) {
     return getBookedCampDetail?.call(this);
   }
@@ -447,6 +473,7 @@ class _$GetBookedCampDetailBookedCampEventImpl
     TResult Function(GetBookedCampListBookedCampEvent value)? getBookedCampList,
     TResult Function(GetBookedCampDetailBookedCampEvent value)?
         getBookedCampDetail,
+    TResult Function(CancelBookedCampEvent value)? getBookedCampCancel,
     required TResult orElse(),
   }) {
     if (getBookedCampDetail != null) {
@@ -471,5 +498,191 @@ abstract class GetBookedCampDetailBookedCampEvent implements BookedCampEvent {
   @JsonKey(includeFromJson: false, includeToJson: false)
   _$$GetBookedCampDetailBookedCampEventImplCopyWith<
           _$GetBookedCampDetailBookedCampEventImpl>
+      get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$CancelBookedCampEventImplCopyWith<$Res>
+    implements $BookedCampEventCopyWith<$Res> {
+  factory _$$CancelBookedCampEventImplCopyWith(
+          _$CancelBookedCampEventImpl value,
+          $Res Function(_$CancelBookedCampEventImpl) then) =
+      __$$CancelBookedCampEventImplCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call({Map<String, dynamic> data, String orderId});
+}
+
+/// @nodoc
+class __$$CancelBookedCampEventImplCopyWithImpl<$Res>
+    extends _$BookedCampEventCopyWithImpl<$Res, _$CancelBookedCampEventImpl>
+    implements _$$CancelBookedCampEventImplCopyWith<$Res> {
+  __$$CancelBookedCampEventImplCopyWithImpl(_$CancelBookedCampEventImpl _value,
+      $Res Function(_$CancelBookedCampEventImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of BookedCampEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? data = null,
+    Object? orderId = null,
+  }) {
+    return _then(_$CancelBookedCampEventImpl(
+      null == data
+          ? _value._data
+          : data // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>,
+      null == orderId
+          ? _value.orderId
+          : orderId // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$CancelBookedCampEventImpl implements CancelBookedCampEvent {
+  const _$CancelBookedCampEventImpl(
+      final Map<String, dynamic> data, this.orderId)
+      : _data = data;
+
+  final Map<String, dynamic> _data;
+  @override
+  Map<String, dynamic> get data {
+    if (_data is EqualUnmodifiableMapView) return _data;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableMapView(_data);
+  }
+
+  @override
+  final String orderId;
+
+  @override
+  String toString() {
+    return 'BookedCampEvent.getBookedCampCancel(data: $data, orderId: $orderId)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$CancelBookedCampEventImpl &&
+            const DeepCollectionEquality().equals(other._data, _data) &&
+            (identical(other.orderId, orderId) || other.orderId == orderId));
+  }
+
+  @override
+  int get hashCode => Object.hash(
+      runtimeType, const DeepCollectionEquality().hash(_data), orderId);
+
+  /// Create a copy of BookedCampEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$CancelBookedCampEventImplCopyWith<_$CancelBookedCampEventImpl>
+      get copyWith => __$$CancelBookedCampEventImplCopyWithImpl<
+          _$CancelBookedCampEventImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(Map<String, dynamic> data, String parentId)
+        getBookedCampList,
+    required TResult Function(Map<String, dynamic> data, String orderId)
+        getBookedCampDetail,
+    required TResult Function(Map<String, dynamic> data, String orderId)
+        getBookedCampCancel,
+  }) {
+    return getBookedCampCancel(data, orderId);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(Map<String, dynamic> data, String parentId)?
+        getBookedCampList,
+    TResult? Function(Map<String, dynamic> data, String orderId)?
+        getBookedCampDetail,
+    TResult? Function(Map<String, dynamic> data, String orderId)?
+        getBookedCampCancel,
+  }) {
+    return getBookedCampCancel?.call(data, orderId);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(Map<String, dynamic> data, String parentId)?
+        getBookedCampList,
+    TResult Function(Map<String, dynamic> data, String orderId)?
+        getBookedCampDetail,
+    TResult Function(Map<String, dynamic> data, String orderId)?
+        getBookedCampCancel,
+    required TResult orElse(),
+  }) {
+    if (getBookedCampCancel != null) {
+      return getBookedCampCancel(data, orderId);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(GetBookedCampListBookedCampEvent value)
+        getBookedCampList,
+    required TResult Function(GetBookedCampDetailBookedCampEvent value)
+        getBookedCampDetail,
+    required TResult Function(CancelBookedCampEvent value) getBookedCampCancel,
+  }) {
+    return getBookedCampCancel(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(GetBookedCampListBookedCampEvent value)?
+        getBookedCampList,
+    TResult? Function(GetBookedCampDetailBookedCampEvent value)?
+        getBookedCampDetail,
+    TResult? Function(CancelBookedCampEvent value)? getBookedCampCancel,
+  }) {
+    return getBookedCampCancel?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(GetBookedCampListBookedCampEvent value)? getBookedCampList,
+    TResult Function(GetBookedCampDetailBookedCampEvent value)?
+        getBookedCampDetail,
+    TResult Function(CancelBookedCampEvent value)? getBookedCampCancel,
+    required TResult orElse(),
+  }) {
+    if (getBookedCampCancel != null) {
+      return getBookedCampCancel(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class CancelBookedCampEvent implements BookedCampEvent {
+  const factory CancelBookedCampEvent(
+          final Map<String, dynamic> data, final String orderId) =
+      _$CancelBookedCampEventImpl;
+
+  @override
+  Map<String, dynamic> get data;
+  String get orderId;
+
+  /// Create a copy of BookedCampEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$CancelBookedCampEventImplCopyWith<_$CancelBookedCampEventImpl>
       get copyWith => throw _privateConstructorUsedError;
 }

@@ -58,7 +58,7 @@ class BookedCampDetail extends StatelessWidget {
                        crossAxisAlignment: CrossAxisAlignment.start,
                        children: <Widget>[
                          SizedBox(height: 24,),
-                         Text("Order Detail",style: TextStyle(color: Colors.blue,fontFamily: AppFont.interMedium,fontSize: context.screenWidth*0.054),),
+                         Text("Order Total",style: TextStyle(color: Colors.blue,fontFamily: AppFont.interMedium,fontSize: context.screenWidth*0.054),),
                          Row(
                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
                            children: [

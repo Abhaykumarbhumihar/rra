@@ -81,7 +81,7 @@ class HolidayCampCalendar extends StatelessWidget {
                       children: [
                         // 🧍 Static (non-scrollable) content
                         CustomHeader(
-                          title: "Coaching Programs",
+                          title: "Select Days",
                           onBackPress: () {
                             Navigator.pop(context);
                           },

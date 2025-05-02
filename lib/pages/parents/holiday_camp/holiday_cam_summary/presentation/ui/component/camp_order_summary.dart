@@ -95,50 +95,7 @@ class AddedCampSlotListItem extends StatelessWidget {
                                           fontSize: context.screenWidth * 0.028,
                                         ),
                                       ),
-                                      InkWell(
-                                        onTap: () {
-                                          showLogoutConfirmationDialog(
-                                              context: context,
-                                              onCancel: () {
-                                                //  Navigator.pop(context);
-                                              },
-                                              yes: () async {
-                                                // List<String> parts =
-                                                // data.split(" - ");
-                                                // String datePart = parts[
-                                                // 0]; // "January 2, 2025"
-                                                //
-                                                // // Parse the input date
-                                                // DateTime parsedDate =
-                                                // DateFormat("MMMM d, yyyy")
-                                                //     .parse(datePart);
-                                                //
-                                                // // Format into "yyyy-MM-dd"
-                                                // String formattedDate =
-                                                // DateFormat("yyyy-MM-dd")
-                                                //     .format(parsedDate);
-                                                // Map<String, dynamic> map = {
-                                                //   "session_id": sessionID,
-                                                //   "date": formattedDate,
-                                                //   "from_time": fromTime,
-                                                //   "to_time": toTime
-                                                // };
-                                                // print(
-                                                //     "CANCLE BUTTON PRESS CANCLE BUTTON PRESS CANCLE BUTTON PRESS CANCLE BUTTON PRESS");
-                                                // BlocProvider.of<
-                                                //     OrderSummaryBloc>(
-                                                //     context)
-                                                //     .add(RemoveSlotEvent(map));
-                                              });
-                                        },
-                                        child: Image.asset(
-                                          "assets/images/circle_close.png",
-                                          width: 16,
-                                          height: 16,
-                                          color: AppColor.appWhiteColor
-                                              .withOpacity(0.5),
-                                        ),
-                                      )
+
                                     ],
                                   ),
                                   SizedBox(height: 6),
