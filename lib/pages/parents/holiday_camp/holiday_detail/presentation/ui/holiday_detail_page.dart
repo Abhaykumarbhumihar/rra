@@ -28,6 +28,7 @@ class HolidayDetailPage extends StatelessWidget {
 
     return Scaffold(
       backgroundColor: Colors.transparent,
+      resizeToAvoidBottomInset: false,
       body: BlocListener<CampBloc, CampState>(
         listener: (context, state) {},
         child: BlocBuilder<CampBloc, CampState>(
@@ -37,185 +38,187 @@ class HolidayDetailPage extends StatelessWidget {
               height: height,
               padding: EdgeInsets.zero,
               decoration: CommonBackground.decoration,
-              child: SingleChildScrollView(
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    CustomHeader(
-                      title: "Camp Detail",
-                      onBackPress: () {
-                        Navigator.pop(context);
-                      },
-                    ),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  CustomHeader(
+                    title: "Camp Detail",
+                    onBackPress: () {
+                      Navigator.pop(context);
+                    },
+                  ),
 
-                    Padding(
+                  Expanded(
+                    child: Padding(
                       padding: EdgeInsets.all(14),
                       child: Stack(
                         children: [
-                          Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: <Widget>[
-                              NetworkImageWidget(
-                                imageUrl: state.campDetailModel.data.campBanner,
-                                imageWidth: double.infinity,
-                                fullimage: true,
-                                placeHolder: "assets/images/appicon.png",
-                                imageHeight: height * 0.3,
-                                radiusAll: 10,
-                                imageFitType: BoxFit.cover,
-                              ),
-                              SizedBox(height: height * 0.02),
-                              Text(
-                                "${state.campDetailModel.data.camp.name}",
-                                textAlign: TextAlign.start,
-                                style: AppTextStyle.camDetailTitle(
-                                    context.screenWidth),
-                              ),
-                              SizedBox(height: height * 0.02),
-                              ListView.builder(
-                                  shrinkWrap: true,
-                                  physics: NeverScrollableScrollPhysics(),
-                                  padding: EdgeInsets.zero,
-                                  itemCount:
-                                      state.campDetailModel.data.campDetails.length,
-                                  itemBuilder: (context, index) {
-                                    var data = state
-                                        .campDetailModel.data.campDetails[index];
-                                    return Padding(
-                                      padding: const EdgeInsets.only(
-                                          top: 8.0, bottom: 8.0),
-                                      child: Container(
-                                        width: context.screenWidth,
-                                        padding: EdgeInsets.all(12),
-                                        decoration: BoxDecoration(
-                                          image: DecorationImage(
-                                            image: AssetImage(
-                                                "assets/images/graphic_coaching_background.png"),
-                                            fit: BoxFit.cover, // Background image
-                                          ),
-                                          //color: AppColor.gradientMidColor,
-                                          borderRadius: BorderRadius.circular(6),
-                                        ),
-                                        child: Column(
-                                          crossAxisAlignment:
-                                              CrossAxisAlignment.start,
-                                          children: [
-                                            SizedBox(height: 4),
-                                            Row(
-                                              children: [
-                                                Text(
-                                                  "Dates: ",
-                                                  style: AppTextStyle.medium(
-                                                      context.screenWidth * 0.0373),
-                                                ),
-                                                Text(
-                                                  "${data.fromDate} - ${data.toDate}",
-                                                  style: AppTextStyle.regular(
-                                                      context.screenWidth * 0.0373),
-                                                ),
-                                              ],
-                                            ),
-                                            Row(
-                                              children: [
-                                                Text(
-                                                  "Session: ",
-                                                  style: AppTextStyle.medium(
-                                                      context.screenWidth * 0.0373),
-                                                ),
-                                                Text(
-                                                  "${data.fromTime} - ${data.toTime}",
-                                                  style: AppTextStyle.regular(
-                                                      context.screenWidth * 0.0373),
-                                                ),
-                                              ],
-                                            ),
-                                            Row(
-                                              children: [
-                                                Text(
-                                                  "Age Groups: ",
-                                                  style: AppTextStyle.medium(
-                                                      context.screenWidth * 0.0373),
-                                                ),
-                                                Text(
-                                                  "Under 9, Under 7",
-                                                  style: AppTextStyle.regular(
-                                                      context.screenWidth * 0.0373),
-                                                ),
-                                              ],
-                                            ),
-                                            Row(
-                                              children: [
-                                                Text(
-                                                  "Per Day: ",
-                                                  style: AppTextStyle.medium(
-                                                      context.screenWidth * 0.0373),
-                                                ),
-                                                Text(
-                                                  "${data.perdaysCost}",
-                                                  style: AppTextStyle.regular(
-                                                      context.screenWidth * 0.0373),
-                                                ),
-                                              ],
-                                            ),
-                                            Padding(
-                                              padding: const EdgeInsets.only(
-                                                  left: 18.0,
-                                                  right: 18.0,
-                                                  top: 8.0,
-                                                  bottom: 8.0),
-                                              child: CustomButtonThin(
-                                                text: "Book This Camp",
-                                                onPressed: () async {
-                                                  var academyId = await getIt<SharedPrefs>().getString("selected_academyid");
-
-                                                  Map<String,dynamic>campData={
-                                                    "session":data.id,
-                                                    "academy_id":academyId
-                                                  };
-                                                  BlocProvider.of<HolidayCampCalendarBloc>(context).add(ResetHolidayCampCalendarState());
-
-                                                  BlocProvider.of<HolidayCampCalendarBloc>(context).add(HolidayCampCalendarDateEvents(campData));
-                                                  Navigator.pushNamed(
-                                                      context, AppRoutes.HOLIDAYCAMPCALENDAR);
-                                                },
-                                              ),
-                                            ),
-                                          ],
-                                        ),
-                                      ),
-                                    );
-                                  }),
-                              Padding(
-                                padding: const EdgeInsets.all(8.0),
-                                child: HtmlWidget(
-                                  "${state.campDetailModel.data.camp.description}",
-                                  textStyle: TextStyle(
-                                    color: Colors.white,
-                                    fontSize: context.screenWidth * 0.0373,
-                                    fontFamily: AppFont.interRegular,
-                                  ),
-                                  customStylesBuilder: (element) {
-                                    return {
-                                      'display': '-webkit-box',
-                                      '-webkit-line-clamp': '2',
-                                      '-webkit-box-orient': 'vertical',
-                                      'overflow': 'hidden',
-                                      'text-overflow': 'ellipsis',
-                                    };
-                                  },
+                          SingleChildScrollView(
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: <Widget>[
+                                NetworkImageWidget(
+                                  imageUrl: state.campDetailModel.data.campBanner,
+                                  imageWidth: double.infinity,
+                                  fullimage: true,
+                                  placeHolder: "assets/images/appicon.png",
+                                  imageHeight: height * 0.3,
+                                  radiusAll: 10,
+                                  imageFitType: BoxFit.cover,
                                 ),
-                              ),
-                              SizedBox(height: 16),
-                              SizedBox(height: 10),
-                            ],
+                                SizedBox(height: height * 0.02),
+                                Text(
+                                  "${state.campDetailModel.data.camp.name}",
+                                  textAlign: TextAlign.start,
+                                  style: AppTextStyle.camDetailTitle(
+                                      context.screenWidth),
+                                ),
+                                SizedBox(height: height * 0.02),
+                                ListView.builder(
+                                    shrinkWrap: true,
+                                    physics: NeverScrollableScrollPhysics(),
+                                    padding: EdgeInsets.zero,
+                                    itemCount:
+                                        state.campDetailModel.data.campDetails.length,
+                                    itemBuilder: (context, index) {
+                                      var data = state
+                                          .campDetailModel.data.campDetails[index];
+                                      return Padding(
+                                        padding: const EdgeInsets.only(
+                                            top: 8.0, bottom: 8.0),
+                                        child: Container(
+                                          width: context.screenWidth,
+                                          padding: EdgeInsets.all(12),
+                                          decoration: BoxDecoration(
+                                            image: DecorationImage(
+                                              image: AssetImage(
+                                                  "assets/images/graphic_coaching_background.png"),
+                                              fit: BoxFit.cover, // Background image
+                                            ),
+                                            //color: AppColor.gradientMidColor,
+                                            borderRadius: BorderRadius.circular(6),
+                                          ),
+                                          child: Column(
+                                            crossAxisAlignment:
+                                                CrossAxisAlignment.start,
+                                            children: [
+                                              SizedBox(height: 4),
+                                              Row(
+                                                children: [
+                                                  Text(
+                                                    "Dates: ",
+                                                    style: AppTextStyle.medium(
+                                                        context.screenWidth * 0.0373),
+                                                  ),
+                                                  Text(
+                                                    "${data.fromDate} - ${data.toDate}",
+                                                    style: AppTextStyle.regular(
+                                                        context.screenWidth * 0.0373),
+                                                  ),
+                                                ],
+                                              ),
+                                              Row(
+                                                children: [
+                                                  Text(
+                                                    "Session: ",
+                                                    style: AppTextStyle.medium(
+                                                        context.screenWidth * 0.0373),
+                                                  ),
+                                                  Text(
+                                                    "${data.fromTime} - ${data.toTime}",
+                                                    style: AppTextStyle.regular(
+                                                        context.screenWidth * 0.0373),
+                                                  ),
+                                                ],
+                                              ),
+                                              Row(
+                                                children: [
+                                                  Text(
+                                                    "Age Groups: ",
+                                                    style: AppTextStyle.medium(
+                                                        context.screenWidth * 0.0373),
+                                                  ),
+                                                  Text(
+                                                    "Under 9, Under 7",
+                                                    style: AppTextStyle.regular(
+                                                        context.screenWidth * 0.0373),
+                                                  ),
+                                                ],
+                                              ),
+                                              Row(
+                                                children: [
+                                                  Text(
+                                                    "Per Day: ",
+                                                    style: AppTextStyle.medium(
+                                                        context.screenWidth * 0.0373),
+                                                  ),
+                                                  Text(
+                                                    "${data.perdaysCost}",
+                                                    style: AppTextStyle.regular(
+                                                        context.screenWidth * 0.0373),
+                                                  ),
+                                                ],
+                                              ),
+                                              Padding(
+                                                padding: const EdgeInsets.only(
+                                                    left: 18.0,
+                                                    right: 18.0,
+                                                    top: 8.0,
+                                                    bottom: 8.0),
+                                                child: CustomButtonThin(
+                                                  text: "Book This Camp",
+                                                  onPressed: () async {
+                                                    var academyId = await getIt<SharedPrefs>().getString("selected_academyid");
+                    
+                                                    Map<String,dynamic>campData={
+                                                      "session":data.id,
+                                                      "academy_id":academyId
+                                                    };
+                                                    BlocProvider.of<HolidayCampCalendarBloc>(context).add(ResetHolidayCampCalendarState());
+                    
+                                                    BlocProvider.of<HolidayCampCalendarBloc>(context).add(HolidayCampCalendarDateEvents(campData));
+                                                    Navigator.pushNamed(
+                                                        context, AppRoutes.HOLIDAYCAMPCALENDAR);
+                                                  },
+                                                ),
+                                              ),
+                                            ],
+                                          ),
+                                        ),
+                                      );
+                                    }),
+                                Padding(
+                                  padding: const EdgeInsets.all(8.0),
+                                  child: HtmlWidget(
+                                    "${state.campDetailModel.data.camp.description}",
+                                    textStyle: TextStyle(
+                                      color: Colors.white,
+                                      fontSize: context.screenWidth * 0.0373,
+                                      fontFamily: AppFont.interRegular,
+                                    ),
+                                    customStylesBuilder: (element) {
+                                      return {
+                                        'display': '-webkit-box',
+                                        '-webkit-line-clamp': '2',
+                                        '-webkit-box-orient': 'vertical',
+                                        'overflow': 'hidden',
+                                        'text-overflow': 'ellipsis',
+                                      };
+                                    },
+                                  ),
+                                ),
+                                SizedBox(height: 16),
+                                SizedBox(height: 10),
+                              ],
+                            ),
                           ),
                           if(state.isLoading)
                             LoadingIndicator()
                         ],
                       ),
                     ),
-                  ],
-                ),
+                  ),
+                ],
               ),
             );
           },
