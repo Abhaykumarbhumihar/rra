@@ -1,10 +1,7 @@
 import 'package:flutter_widget_from_html/flutter_widget_from_html.dart';
-import 'package:intl/intl.dart';
 import 'package:rra/common/component/app_text_style.dart';
 import 'package:rra/common/component/common_background.dart';
 import 'package:rra/common/component/loading_indicator.dart';
-import 'package:rra/common/values/date_formatting.dart';
-import 'package:rra/common/values/time_formatting.dart';
 import 'package:rra/common/values/values_exports.dart';
 
 import '../../../../../../common/component/common_app_bar.dart';
