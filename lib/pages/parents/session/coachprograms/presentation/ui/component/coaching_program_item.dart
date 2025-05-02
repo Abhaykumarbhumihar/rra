@@ -60,7 +60,7 @@ class CoachingProgramItem extends StatelessWidget {
                     // Middle - Text (Aligned to Top)
                     Expanded(
                       child: Padding(
-                        padding: const EdgeInsets.only(right: 28.0),
+                        padding: const EdgeInsets.only(right: 5.0),
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
@@ -73,12 +73,13 @@ class CoachingProgramItem extends StatelessWidget {
                               ),
                             ),
 
-                            ConstrainedBox(
-                              constraints: BoxConstraints(
-                                maxWidth: context.screenWidth*0.55,
-                                maxHeight: 2 * (context.screenWidth * 0.07 * 1.2), // Approximate 3 lines height
-                              ),
-                              child: HtmlWidget(
+                            //ConstrainedBox(
+                            //  constraints: BoxConstraints(
+                            //    maxWidth: context.screenWidth*0.55,
+                            //    maxHeight: 2 * (context.screenWidth * 0.07 * 1.2), // Approximate 3 lines height
+                            //  ),
+                            //  child:
+                              HtmlWidget(
                                 coachingProgramResponse.description.length > 100
 
                                     ? '${coachingProgramResponse.description.substring(0, 100)}...'
@@ -98,7 +99,7 @@ class CoachingProgramItem extends StatelessWidget {
                                   };
                                 },
                               ),
-                            )
+                            //)
 
                           ],
                         ),
