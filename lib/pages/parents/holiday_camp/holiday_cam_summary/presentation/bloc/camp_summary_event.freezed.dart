@@ -25,6 +25,8 @@ mixin _$CampSummaryEvent {
     required TResult Function(Map<String, dynamic> data) placeOrder,
     required TResult Function(Map<String, dynamic> data)
         placeOrderPaymentSaveStripe,
+    required TResult Function(Map<String, dynamic> data, String orderid)
+        placeOrderWithoutPrice,
     required TResult Function() resetState,
   }) =>
       throw _privateConstructorUsedError;
@@ -35,6 +37,8 @@ mixin _$CampSummaryEvent {
     TResult? Function(String couponCode)? storeCouponCode,
     TResult? Function(Map<String, dynamic> data)? placeOrder,
     TResult? Function(Map<String, dynamic> data)? placeOrderPaymentSaveStripe,
+    TResult? Function(Map<String, dynamic> data, String orderid)?
+        placeOrderWithoutPrice,
     TResult? Function()? resetState,
   }) =>
       throw _privateConstructorUsedError;
@@ -45,6 +49,8 @@ mixin _$CampSummaryEvent {
     TResult Function(String couponCode)? storeCouponCode,
     TResult Function(Map<String, dynamic> data)? placeOrder,
     TResult Function(Map<String, dynamic> data)? placeOrderPaymentSaveStripe,
+    TResult Function(Map<String, dynamic> data, String orderid)?
+        placeOrderWithoutPrice,
     TResult Function()? resetState,
     required TResult orElse(),
   }) =>
@@ -59,6 +65,8 @@ mixin _$CampSummaryEvent {
     required TResult Function(PlaceOrderCampSummaryEvent value) placeOrder,
     required TResult Function(PlaceOrderPaymentSaveStripeCampSummaryEvent value)
         placeOrderPaymentSaveStripe,
+    required TResult Function(PlaceOrderWithOutPrice value)
+        placeOrderWithoutPrice,
     required TResult Function(ResetCampSummaryState value) resetState,
   }) =>
       throw _privateConstructorUsedError;
@@ -70,6 +78,7 @@ mixin _$CampSummaryEvent {
     TResult? Function(PlaceOrderCampSummaryEvent value)? placeOrder,
     TResult? Function(PlaceOrderPaymentSaveStripeCampSummaryEvent value)?
         placeOrderPaymentSaveStripe,
+    TResult? Function(PlaceOrderWithOutPrice value)? placeOrderWithoutPrice,
     TResult? Function(ResetCampSummaryState value)? resetState,
   }) =>
       throw _privateConstructorUsedError;
@@ -81,6 +90,7 @@ mixin _$CampSummaryEvent {
     TResult Function(PlaceOrderCampSummaryEvent value)? placeOrder,
     TResult Function(PlaceOrderPaymentSaveStripeCampSummaryEvent value)?
         placeOrderPaymentSaveStripe,
+    TResult Function(PlaceOrderWithOutPrice value)? placeOrderWithoutPrice,
     TResult Function(ResetCampSummaryState value)? resetState,
     required TResult orElse(),
   }) =>
@@ -192,6 +202,8 @@ class _$CampGetSummaryEventsImpl implements CampGetSummaryEvents {
     required TResult Function(Map<String, dynamic> data) placeOrder,
     required TResult Function(Map<String, dynamic> data)
         placeOrderPaymentSaveStripe,
+    required TResult Function(Map<String, dynamic> data, String orderid)
+        placeOrderWithoutPrice,
     required TResult Function() resetState,
   }) {
     return getHolidayCalenDarDateEvents(data);
@@ -205,6 +217,8 @@ class _$CampGetSummaryEventsImpl implements CampGetSummaryEvents {
     TResult? Function(String couponCode)? storeCouponCode,
     TResult? Function(Map<String, dynamic> data)? placeOrder,
     TResult? Function(Map<String, dynamic> data)? placeOrderPaymentSaveStripe,
+    TResult? Function(Map<String, dynamic> data, String orderid)?
+        placeOrderWithoutPrice,
     TResult? Function()? resetState,
   }) {
     return getHolidayCalenDarDateEvents?.call(data);
@@ -218,6 +232,8 @@ class _$CampGetSummaryEventsImpl implements CampGetSummaryEvents {
     TResult Function(String couponCode)? storeCouponCode,
     TResult Function(Map<String, dynamic> data)? placeOrder,
     TResult Function(Map<String, dynamic> data)? placeOrderPaymentSaveStripe,
+    TResult Function(Map<String, dynamic> data, String orderid)?
+        placeOrderWithoutPrice,
     TResult Function()? resetState,
     required TResult orElse(),
   }) {
@@ -238,6 +254,8 @@ class _$CampGetSummaryEventsImpl implements CampGetSummaryEvents {
     required TResult Function(PlaceOrderCampSummaryEvent value) placeOrder,
     required TResult Function(PlaceOrderPaymentSaveStripeCampSummaryEvent value)
         placeOrderPaymentSaveStripe,
+    required TResult Function(PlaceOrderWithOutPrice value)
+        placeOrderWithoutPrice,
     required TResult Function(ResetCampSummaryState value) resetState,
   }) {
     return getHolidayCalenDarDateEvents(this);
@@ -252,6 +270,7 @@ class _$CampGetSummaryEventsImpl implements CampGetSummaryEvents {
     TResult? Function(PlaceOrderCampSummaryEvent value)? placeOrder,
     TResult? Function(PlaceOrderPaymentSaveStripeCampSummaryEvent value)?
         placeOrderPaymentSaveStripe,
+    TResult? Function(PlaceOrderWithOutPrice value)? placeOrderWithoutPrice,
     TResult? Function(ResetCampSummaryState value)? resetState,
   }) {
     return getHolidayCalenDarDateEvents?.call(this);
@@ -266,6 +285,7 @@ class _$CampGetSummaryEventsImpl implements CampGetSummaryEvents {
     TResult Function(PlaceOrderCampSummaryEvent value)? placeOrder,
     TResult Function(PlaceOrderPaymentSaveStripeCampSummaryEvent value)?
         placeOrderPaymentSaveStripe,
+    TResult Function(PlaceOrderWithOutPrice value)? placeOrderWithoutPrice,
     TResult Function(ResetCampSummaryState value)? resetState,
     required TResult orElse(),
   }) {
@@ -375,6 +395,8 @@ class _$ApplyCouponCampSummaryEventImpl implements ApplyCouponCampSummaryEvent {
     required TResult Function(Map<String, dynamic> data) placeOrder,
     required TResult Function(Map<String, dynamic> data)
         placeOrderPaymentSaveStripe,
+    required TResult Function(Map<String, dynamic> data, String orderid)
+        placeOrderWithoutPrice,
     required TResult Function() resetState,
   }) {
     return applyCoupon(data);
@@ -388,6 +410,8 @@ class _$ApplyCouponCampSummaryEventImpl implements ApplyCouponCampSummaryEvent {
     TResult? Function(String couponCode)? storeCouponCode,
     TResult? Function(Map<String, dynamic> data)? placeOrder,
     TResult? Function(Map<String, dynamic> data)? placeOrderPaymentSaveStripe,
+    TResult? Function(Map<String, dynamic> data, String orderid)?
+        placeOrderWithoutPrice,
     TResult? Function()? resetState,
   }) {
     return applyCoupon?.call(data);
@@ -401,6 +425,8 @@ class _$ApplyCouponCampSummaryEventImpl implements ApplyCouponCampSummaryEvent {
     TResult Function(String couponCode)? storeCouponCode,
     TResult Function(Map<String, dynamic> data)? placeOrder,
     TResult Function(Map<String, dynamic> data)? placeOrderPaymentSaveStripe,
+    TResult Function(Map<String, dynamic> data, String orderid)?
+        placeOrderWithoutPrice,
     TResult Function()? resetState,
     required TResult orElse(),
   }) {
@@ -421,6 +447,8 @@ class _$ApplyCouponCampSummaryEventImpl implements ApplyCouponCampSummaryEvent {
     required TResult Function(PlaceOrderCampSummaryEvent value) placeOrder,
     required TResult Function(PlaceOrderPaymentSaveStripeCampSummaryEvent value)
         placeOrderPaymentSaveStripe,
+    required TResult Function(PlaceOrderWithOutPrice value)
+        placeOrderWithoutPrice,
     required TResult Function(ResetCampSummaryState value) resetState,
   }) {
     return applyCoupon(this);
@@ -435,6 +463,7 @@ class _$ApplyCouponCampSummaryEventImpl implements ApplyCouponCampSummaryEvent {
     TResult? Function(PlaceOrderCampSummaryEvent value)? placeOrder,
     TResult? Function(PlaceOrderPaymentSaveStripeCampSummaryEvent value)?
         placeOrderPaymentSaveStripe,
+    TResult? Function(PlaceOrderWithOutPrice value)? placeOrderWithoutPrice,
     TResult? Function(ResetCampSummaryState value)? resetState,
   }) {
     return applyCoupon?.call(this);
@@ -449,6 +478,7 @@ class _$ApplyCouponCampSummaryEventImpl implements ApplyCouponCampSummaryEvent {
     TResult Function(PlaceOrderCampSummaryEvent value)? placeOrder,
     TResult Function(PlaceOrderPaymentSaveStripeCampSummaryEvent value)?
         placeOrderPaymentSaveStripe,
+    TResult Function(PlaceOrderWithOutPrice value)? placeOrderWithoutPrice,
     TResult Function(ResetCampSummaryState value)? resetState,
     required TResult orElse(),
   }) {
@@ -554,6 +584,8 @@ class _$StoreCouponCodeCampSummaryEventImpl
     required TResult Function(Map<String, dynamic> data) placeOrder,
     required TResult Function(Map<String, dynamic> data)
         placeOrderPaymentSaveStripe,
+    required TResult Function(Map<String, dynamic> data, String orderid)
+        placeOrderWithoutPrice,
     required TResult Function() resetState,
   }) {
     return storeCouponCode(couponCode);
@@ -567,6 +599,8 @@ class _$StoreCouponCodeCampSummaryEventImpl
     TResult? Function(String couponCode)? storeCouponCode,
     TResult? Function(Map<String, dynamic> data)? placeOrder,
     TResult? Function(Map<String, dynamic> data)? placeOrderPaymentSaveStripe,
+    TResult? Function(Map<String, dynamic> data, String orderid)?
+        placeOrderWithoutPrice,
     TResult? Function()? resetState,
   }) {
     return storeCouponCode?.call(couponCode);
@@ -580,6 +614,8 @@ class _$StoreCouponCodeCampSummaryEventImpl
     TResult Function(String couponCode)? storeCouponCode,
     TResult Function(Map<String, dynamic> data)? placeOrder,
     TResult Function(Map<String, dynamic> data)? placeOrderPaymentSaveStripe,
+    TResult Function(Map<String, dynamic> data, String orderid)?
+        placeOrderWithoutPrice,
     TResult Function()? resetState,
     required TResult orElse(),
   }) {
@@ -600,6 +636,8 @@ class _$StoreCouponCodeCampSummaryEventImpl
     required TResult Function(PlaceOrderCampSummaryEvent value) placeOrder,
     required TResult Function(PlaceOrderPaymentSaveStripeCampSummaryEvent value)
         placeOrderPaymentSaveStripe,
+    required TResult Function(PlaceOrderWithOutPrice value)
+        placeOrderWithoutPrice,
     required TResult Function(ResetCampSummaryState value) resetState,
   }) {
     return storeCouponCode(this);
@@ -614,6 +652,7 @@ class _$StoreCouponCodeCampSummaryEventImpl
     TResult? Function(PlaceOrderCampSummaryEvent value)? placeOrder,
     TResult? Function(PlaceOrderPaymentSaveStripeCampSummaryEvent value)?
         placeOrderPaymentSaveStripe,
+    TResult? Function(PlaceOrderWithOutPrice value)? placeOrderWithoutPrice,
     TResult? Function(ResetCampSummaryState value)? resetState,
   }) {
     return storeCouponCode?.call(this);
@@ -628,6 +667,7 @@ class _$StoreCouponCodeCampSummaryEventImpl
     TResult Function(PlaceOrderCampSummaryEvent value)? placeOrder,
     TResult Function(PlaceOrderPaymentSaveStripeCampSummaryEvent value)?
         placeOrderPaymentSaveStripe,
+    TResult Function(PlaceOrderWithOutPrice value)? placeOrderWithoutPrice,
     TResult Function(ResetCampSummaryState value)? resetState,
     required TResult orElse(),
   }) {
@@ -738,6 +778,8 @@ class _$PlaceOrderCampSummaryEventImpl implements PlaceOrderCampSummaryEvent {
     required TResult Function(Map<String, dynamic> data) placeOrder,
     required TResult Function(Map<String, dynamic> data)
         placeOrderPaymentSaveStripe,
+    required TResult Function(Map<String, dynamic> data, String orderid)
+        placeOrderWithoutPrice,
     required TResult Function() resetState,
   }) {
     return placeOrder(data);
@@ -751,6 +793,8 @@ class _$PlaceOrderCampSummaryEventImpl implements PlaceOrderCampSummaryEvent {
     TResult? Function(String couponCode)? storeCouponCode,
     TResult? Function(Map<String, dynamic> data)? placeOrder,
     TResult? Function(Map<String, dynamic> data)? placeOrderPaymentSaveStripe,
+    TResult? Function(Map<String, dynamic> data, String orderid)?
+        placeOrderWithoutPrice,
     TResult? Function()? resetState,
   }) {
     return placeOrder?.call(data);
@@ -764,6 +808,8 @@ class _$PlaceOrderCampSummaryEventImpl implements PlaceOrderCampSummaryEvent {
     TResult Function(String couponCode)? storeCouponCode,
     TResult Function(Map<String, dynamic> data)? placeOrder,
     TResult Function(Map<String, dynamic> data)? placeOrderPaymentSaveStripe,
+    TResult Function(Map<String, dynamic> data, String orderid)?
+        placeOrderWithoutPrice,
     TResult Function()? resetState,
     required TResult orElse(),
   }) {
@@ -784,6 +830,8 @@ class _$PlaceOrderCampSummaryEventImpl implements PlaceOrderCampSummaryEvent {
     required TResult Function(PlaceOrderCampSummaryEvent value) placeOrder,
     required TResult Function(PlaceOrderPaymentSaveStripeCampSummaryEvent value)
         placeOrderPaymentSaveStripe,
+    required TResult Function(PlaceOrderWithOutPrice value)
+        placeOrderWithoutPrice,
     required TResult Function(ResetCampSummaryState value) resetState,
   }) {
     return placeOrder(this);
@@ -798,6 +846,7 @@ class _$PlaceOrderCampSummaryEventImpl implements PlaceOrderCampSummaryEvent {
     TResult? Function(PlaceOrderCampSummaryEvent value)? placeOrder,
     TResult? Function(PlaceOrderPaymentSaveStripeCampSummaryEvent value)?
         placeOrderPaymentSaveStripe,
+    TResult? Function(PlaceOrderWithOutPrice value)? placeOrderWithoutPrice,
     TResult? Function(ResetCampSummaryState value)? resetState,
   }) {
     return placeOrder?.call(this);
@@ -812,6 +861,7 @@ class _$PlaceOrderCampSummaryEventImpl implements PlaceOrderCampSummaryEvent {
     TResult Function(PlaceOrderCampSummaryEvent value)? placeOrder,
     TResult Function(PlaceOrderPaymentSaveStripeCampSummaryEvent value)?
         placeOrderPaymentSaveStripe,
+    TResult Function(PlaceOrderWithOutPrice value)? placeOrderWithoutPrice,
     TResult Function(ResetCampSummaryState value)? resetState,
     required TResult orElse(),
   }) {
@@ -929,6 +979,8 @@ class _$PlaceOrderPaymentSaveStripeCampSummaryEventImpl
     required TResult Function(Map<String, dynamic> data) placeOrder,
     required TResult Function(Map<String, dynamic> data)
         placeOrderPaymentSaveStripe,
+    required TResult Function(Map<String, dynamic> data, String orderid)
+        placeOrderWithoutPrice,
     required TResult Function() resetState,
   }) {
     return placeOrderPaymentSaveStripe(data);
@@ -942,6 +994,8 @@ class _$PlaceOrderPaymentSaveStripeCampSummaryEventImpl
     TResult? Function(String couponCode)? storeCouponCode,
     TResult? Function(Map<String, dynamic> data)? placeOrder,
     TResult? Function(Map<String, dynamic> data)? placeOrderPaymentSaveStripe,
+    TResult? Function(Map<String, dynamic> data, String orderid)?
+        placeOrderWithoutPrice,
     TResult? Function()? resetState,
   }) {
     return placeOrderPaymentSaveStripe?.call(data);
@@ -955,6 +1009,8 @@ class _$PlaceOrderPaymentSaveStripeCampSummaryEventImpl
     TResult Function(String couponCode)? storeCouponCode,
     TResult Function(Map<String, dynamic> data)? placeOrder,
     TResult Function(Map<String, dynamic> data)? placeOrderPaymentSaveStripe,
+    TResult Function(Map<String, dynamic> data, String orderid)?
+        placeOrderWithoutPrice,
     TResult Function()? resetState,
     required TResult orElse(),
   }) {
@@ -975,6 +1031,8 @@ class _$PlaceOrderPaymentSaveStripeCampSummaryEventImpl
     required TResult Function(PlaceOrderCampSummaryEvent value) placeOrder,
     required TResult Function(PlaceOrderPaymentSaveStripeCampSummaryEvent value)
         placeOrderPaymentSaveStripe,
+    required TResult Function(PlaceOrderWithOutPrice value)
+        placeOrderWithoutPrice,
     required TResult Function(ResetCampSummaryState value) resetState,
   }) {
     return placeOrderPaymentSaveStripe(this);
@@ -989,6 +1047,7 @@ class _$PlaceOrderPaymentSaveStripeCampSummaryEventImpl
     TResult? Function(PlaceOrderCampSummaryEvent value)? placeOrder,
     TResult? Function(PlaceOrderPaymentSaveStripeCampSummaryEvent value)?
         placeOrderPaymentSaveStripe,
+    TResult? Function(PlaceOrderWithOutPrice value)? placeOrderWithoutPrice,
     TResult? Function(ResetCampSummaryState value)? resetState,
   }) {
     return placeOrderPaymentSaveStripe?.call(this);
@@ -1003,6 +1062,7 @@ class _$PlaceOrderPaymentSaveStripeCampSummaryEventImpl
     TResult Function(PlaceOrderCampSummaryEvent value)? placeOrder,
     TResult Function(PlaceOrderPaymentSaveStripeCampSummaryEvent value)?
         placeOrderPaymentSaveStripe,
+    TResult Function(PlaceOrderWithOutPrice value)? placeOrderWithoutPrice,
     TResult Function(ResetCampSummaryState value)? resetState,
     required TResult orElse(),
   }) {
@@ -1026,6 +1086,210 @@ abstract class PlaceOrderPaymentSaveStripeCampSummaryEvent
   @JsonKey(includeFromJson: false, includeToJson: false)
   _$$PlaceOrderPaymentSaveStripeCampSummaryEventImplCopyWith<
           _$PlaceOrderPaymentSaveStripeCampSummaryEventImpl>
+      get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$PlaceOrderWithOutPriceImplCopyWith<$Res> {
+  factory _$$PlaceOrderWithOutPriceImplCopyWith(
+          _$PlaceOrderWithOutPriceImpl value,
+          $Res Function(_$PlaceOrderWithOutPriceImpl) then) =
+      __$$PlaceOrderWithOutPriceImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({Map<String, dynamic> data, String orderid});
+}
+
+/// @nodoc
+class __$$PlaceOrderWithOutPriceImplCopyWithImpl<$Res>
+    extends _$CampSummaryEventCopyWithImpl<$Res, _$PlaceOrderWithOutPriceImpl>
+    implements _$$PlaceOrderWithOutPriceImplCopyWith<$Res> {
+  __$$PlaceOrderWithOutPriceImplCopyWithImpl(
+      _$PlaceOrderWithOutPriceImpl _value,
+      $Res Function(_$PlaceOrderWithOutPriceImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of CampSummaryEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? data = null,
+    Object? orderid = null,
+  }) {
+    return _then(_$PlaceOrderWithOutPriceImpl(
+      null == data
+          ? _value._data
+          : data // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>,
+      null == orderid
+          ? _value.orderid
+          : orderid // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$PlaceOrderWithOutPriceImpl implements PlaceOrderWithOutPrice {
+  const _$PlaceOrderWithOutPriceImpl(
+      final Map<String, dynamic> data, this.orderid)
+      : _data = data;
+
+  final Map<String, dynamic> _data;
+  @override
+  Map<String, dynamic> get data {
+    if (_data is EqualUnmodifiableMapView) return _data;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableMapView(_data);
+  }
+
+  @override
+  final String orderid;
+
+  @override
+  String toString() {
+    return 'CampSummaryEvent.placeOrderWithoutPrice(data: $data, orderid: $orderid)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$PlaceOrderWithOutPriceImpl &&
+            const DeepCollectionEquality().equals(other._data, _data) &&
+            (identical(other.orderid, orderid) || other.orderid == orderid));
+  }
+
+  @override
+  int get hashCode => Object.hash(
+      runtimeType, const DeepCollectionEquality().hash(_data), orderid);
+
+  /// Create a copy of CampSummaryEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$PlaceOrderWithOutPriceImplCopyWith<_$PlaceOrderWithOutPriceImpl>
+      get copyWith => __$$PlaceOrderWithOutPriceImplCopyWithImpl<
+          _$PlaceOrderWithOutPriceImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(Map<String, dynamic> data)
+        getHolidayCalenDarDateEvents,
+    required TResult Function(Map<String, dynamic> data) applyCoupon,
+    required TResult Function(String couponCode) storeCouponCode,
+    required TResult Function(Map<String, dynamic> data) placeOrder,
+    required TResult Function(Map<String, dynamic> data)
+        placeOrderPaymentSaveStripe,
+    required TResult Function(Map<String, dynamic> data, String orderid)
+        placeOrderWithoutPrice,
+    required TResult Function() resetState,
+  }) {
+    return placeOrderWithoutPrice(data, orderid);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(Map<String, dynamic> data)? getHolidayCalenDarDateEvents,
+    TResult? Function(Map<String, dynamic> data)? applyCoupon,
+    TResult? Function(String couponCode)? storeCouponCode,
+    TResult? Function(Map<String, dynamic> data)? placeOrder,
+    TResult? Function(Map<String, dynamic> data)? placeOrderPaymentSaveStripe,
+    TResult? Function(Map<String, dynamic> data, String orderid)?
+        placeOrderWithoutPrice,
+    TResult? Function()? resetState,
+  }) {
+    return placeOrderWithoutPrice?.call(data, orderid);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(Map<String, dynamic> data)? getHolidayCalenDarDateEvents,
+    TResult Function(Map<String, dynamic> data)? applyCoupon,
+    TResult Function(String couponCode)? storeCouponCode,
+    TResult Function(Map<String, dynamic> data)? placeOrder,
+    TResult Function(Map<String, dynamic> data)? placeOrderPaymentSaveStripe,
+    TResult Function(Map<String, dynamic> data, String orderid)?
+        placeOrderWithoutPrice,
+    TResult Function()? resetState,
+    required TResult orElse(),
+  }) {
+    if (placeOrderWithoutPrice != null) {
+      return placeOrderWithoutPrice(data, orderid);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(CampGetSummaryEvents value)
+        getHolidayCalenDarDateEvents,
+    required TResult Function(ApplyCouponCampSummaryEvent value) applyCoupon,
+    required TResult Function(StoreCouponCodeCampSummaryEvent value)
+        storeCouponCode,
+    required TResult Function(PlaceOrderCampSummaryEvent value) placeOrder,
+    required TResult Function(PlaceOrderPaymentSaveStripeCampSummaryEvent value)
+        placeOrderPaymentSaveStripe,
+    required TResult Function(PlaceOrderWithOutPrice value)
+        placeOrderWithoutPrice,
+    required TResult Function(ResetCampSummaryState value) resetState,
+  }) {
+    return placeOrderWithoutPrice(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(CampGetSummaryEvents value)? getHolidayCalenDarDateEvents,
+    TResult? Function(ApplyCouponCampSummaryEvent value)? applyCoupon,
+    TResult? Function(StoreCouponCodeCampSummaryEvent value)? storeCouponCode,
+    TResult? Function(PlaceOrderCampSummaryEvent value)? placeOrder,
+    TResult? Function(PlaceOrderPaymentSaveStripeCampSummaryEvent value)?
+        placeOrderPaymentSaveStripe,
+    TResult? Function(PlaceOrderWithOutPrice value)? placeOrderWithoutPrice,
+    TResult? Function(ResetCampSummaryState value)? resetState,
+  }) {
+    return placeOrderWithoutPrice?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(CampGetSummaryEvents value)? getHolidayCalenDarDateEvents,
+    TResult Function(ApplyCouponCampSummaryEvent value)? applyCoupon,
+    TResult Function(StoreCouponCodeCampSummaryEvent value)? storeCouponCode,
+    TResult Function(PlaceOrderCampSummaryEvent value)? placeOrder,
+    TResult Function(PlaceOrderPaymentSaveStripeCampSummaryEvent value)?
+        placeOrderPaymentSaveStripe,
+    TResult Function(PlaceOrderWithOutPrice value)? placeOrderWithoutPrice,
+    TResult Function(ResetCampSummaryState value)? resetState,
+    required TResult orElse(),
+  }) {
+    if (placeOrderWithoutPrice != null) {
+      return placeOrderWithoutPrice(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class PlaceOrderWithOutPrice implements CampSummaryEvent {
+  const factory PlaceOrderWithOutPrice(
+          final Map<String, dynamic> data, final String orderid) =
+      _$PlaceOrderWithOutPriceImpl;
+
+  Map<String, dynamic> get data;
+  String get orderid;
+
+  /// Create a copy of CampSummaryEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$PlaceOrderWithOutPriceImplCopyWith<_$PlaceOrderWithOutPriceImpl>
       get copyWith => throw _privateConstructorUsedError;
 }
 
@@ -1079,6 +1343,8 @@ class _$ResetCampSummaryStateImpl implements ResetCampSummaryState {
     required TResult Function(Map<String, dynamic> data) placeOrder,
     required TResult Function(Map<String, dynamic> data)
         placeOrderPaymentSaveStripe,
+    required TResult Function(Map<String, dynamic> data, String orderid)
+        placeOrderWithoutPrice,
     required TResult Function() resetState,
   }) {
     return resetState();
@@ -1092,6 +1358,8 @@ class _$ResetCampSummaryStateImpl implements ResetCampSummaryState {
     TResult? Function(String couponCode)? storeCouponCode,
     TResult? Function(Map<String, dynamic> data)? placeOrder,
     TResult? Function(Map<String, dynamic> data)? placeOrderPaymentSaveStripe,
+    TResult? Function(Map<String, dynamic> data, String orderid)?
+        placeOrderWithoutPrice,
     TResult? Function()? resetState,
   }) {
     return resetState?.call();
@@ -1105,6 +1373,8 @@ class _$ResetCampSummaryStateImpl implements ResetCampSummaryState {
     TResult Function(String couponCode)? storeCouponCode,
     TResult Function(Map<String, dynamic> data)? placeOrder,
     TResult Function(Map<String, dynamic> data)? placeOrderPaymentSaveStripe,
+    TResult Function(Map<String, dynamic> data, String orderid)?
+        placeOrderWithoutPrice,
     TResult Function()? resetState,
     required TResult orElse(),
   }) {
@@ -1125,6 +1395,8 @@ class _$ResetCampSummaryStateImpl implements ResetCampSummaryState {
     required TResult Function(PlaceOrderCampSummaryEvent value) placeOrder,
     required TResult Function(PlaceOrderPaymentSaveStripeCampSummaryEvent value)
         placeOrderPaymentSaveStripe,
+    required TResult Function(PlaceOrderWithOutPrice value)
+        placeOrderWithoutPrice,
     required TResult Function(ResetCampSummaryState value) resetState,
   }) {
     return resetState(this);
@@ -1139,6 +1411,7 @@ class _$ResetCampSummaryStateImpl implements ResetCampSummaryState {
     TResult? Function(PlaceOrderCampSummaryEvent value)? placeOrder,
     TResult? Function(PlaceOrderPaymentSaveStripeCampSummaryEvent value)?
         placeOrderPaymentSaveStripe,
+    TResult? Function(PlaceOrderWithOutPrice value)? placeOrderWithoutPrice,
     TResult? Function(ResetCampSummaryState value)? resetState,
   }) {
     return resetState?.call(this);
@@ -1153,6 +1426,7 @@ class _$ResetCampSummaryStateImpl implements ResetCampSummaryState {
     TResult Function(PlaceOrderCampSummaryEvent value)? placeOrder,
     TResult Function(PlaceOrderPaymentSaveStripeCampSummaryEvent value)?
         placeOrderPaymentSaveStripe,
+    TResult Function(PlaceOrderWithOutPrice value)? placeOrderWithoutPrice,
     TResult Function(ResetCampSummaryState value)? resetState,
     required TResult orElse(),
   }) {

@@ -38,17 +38,20 @@ class CampOrderSummaryPage extends StatelessWidget {
             if(state.placeOrder.data.orderId!=0){
               final price = double.tryParse(state.placeOrder.data.total.toString()) ?? -1;
               if(price<1){
+                /*A
+                agr price 0 hoga to direct status success update krna hai
+                * 1 ka matlab place hai
+                * 0 ka matlab cancel hai
+                * 2 ka matlab payment pending hai*/
                 var academyId = await getIt<SharedPrefs>().getString("selected_academyid");
                 Map<String, dynamic> paymentStatusUpdate = {
                   "academy_id": academyId,
-                  "order_id": "${state.placeOrder.data.orderId}",
-                  "payment_response": {
-                    "id": "_0payment",
-                    "status": "succeeded"
+                  "data": {
+                    "status": "1",
                   }
                 };
-
-
+                BlocProvider.of<CampSummaryBloc>(context)
+                    .add(PlaceOrderWithOutPrice(paymentStatusUpdate,"${state.placeOrder.data.orderId}"));
               }else{
                 StripeService.instance.setPublishableKey();
                 var amountInCents = (double.parse(state.placeOrder.data.total.toString()) * 100).toInt();

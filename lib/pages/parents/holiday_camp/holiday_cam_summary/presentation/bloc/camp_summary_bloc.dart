@@ -6,6 +6,7 @@ import 'package:rra/common/network/connectivity_extension.dart';
 import '../../../../../../common/local/SharedPrefs.dart';
 import '../../../../../../common/service_locator/setivelocator.dart';
 import '../../../../../../common/values/utils.dart';
+import '../../../booked_camp/domain/usecase/booked_camp_usecase.dart';
 import '../../../holiday_list/data/entity/camp_order_summary/camp_order_summary_model.dart';
 import '../../../holiday_list/data/entity/place_order/place_order_model.dart';
 import '../../../holiday_list/domain/usecase/camp_usecase.dart';
@@ -18,12 +19,14 @@ class CampSummaryBloc extends Bloc<CampSummaryEvent, CampSummaryState> {
   final CampUsecase _campUsecase =
   getIt<CampUsecase>();
 
+  final BookedCampUsecase _bookedCampUsecase = getIt<BookedCampUsecase>();
   CampSummaryBloc() : super(CampSummaryState.initial()) {
     on<CampGetSummaryEvents>(_campOrderSummary);
     on<StoreCouponCodeCampSummaryEvent>(_storeCouponCode);
     on<ApplyCouponCampSummaryEvent>(_applyCoupons);
     on<PlaceOrderCampSummaryEvent>(_placeCampOrder);
     on<PlaceOrderPaymentSaveStripeCampSummaryEvent>(_placeCampOrderPaymentSaveStripe);
+    on<PlaceOrderWithOutPrice>(_placeCampOrderWithoutPrice);
     on<ResetCampSummaryState>(_resetState);
   }
 
@@ -172,6 +175,7 @@ class CampSummaryBloc extends Bloc<CampSummaryEvent, CampSummaryState> {
         emit(state.copyWith(
             error: failure.message,
             isError: true,
+            finalPaymentDone:false,
             isLoginApiError: true,
             isLoading: false,
             campOrderSummary: CampOrderSummaryModel(),
@@ -184,6 +188,7 @@ class CampSummaryBloc extends Bloc<CampSummaryEvent, CampSummaryState> {
             error: '',
             isError: false,
             isLoginApiError: false,
+            finalPaymentDone:false,
             isLoading: false,
             placeOrder:placeOrderData ,
             success: true));
@@ -221,6 +226,62 @@ class CampSummaryBloc extends Bloc<CampSummaryEvent, CampSummaryState> {
       ));
       final response =
       await _campUsecase.placeOrderPaymentSaveStripeExecute(event.data);
+      response.fold((failure) {
+        emit(state.copyWith(
+            error: failure.message,
+            isError: true,
+            isLoginApiError: true,
+            placeOrder: PlaceOrderModel(),
+            finalPaymentDone:false,
+            isLoading: false,
+            success: false));
+      }, (placeOrderPaymentSaveData) async {
+        print("======check =====check =====check \n\n");
+        print(placeOrderPaymentSaveData);
+        print("======check =====check =====check \n\n");
+        emit(state.copyWith(
+            error: '',
+            isError: false,
+            isLoginApiError: false,
+            finalPaymentDone:true,
+            isLoading: false,
+            placeOrder: PlaceOrderModel(),
+            success: true));
+
+      });
+    } catch (error) {
+      // Handle the error and show error messages
+      emit(state.copyWith(isLoading: false,finalPaymentDone: false, error: error.toString()));
+    }
+  }
+
+
+  Future<void> _placeCampOrderWithoutPrice(
+      PlaceOrderWithOutPrice event, Emitter<CampSummaryState> emit) async {
+    try {
+      if (!(await Connectivity().isConnected)) {
+        emit(state.copyWith(
+          finalPaymentDone:false,
+          error:
+          'No internet connection. Please check your connection \nand try again.',
+          isLoginApiError: true,
+          isError: true,
+        ));
+        return;
+      }
+
+      emit(state.copyWith(
+        finalPaymentDone:false,
+        isLoading: true,
+        isError: false,
+        isLoginApiError: false,
+        success: false,
+        error: '',
+        placeOrder: PlaceOrderModel(),
+
+      ));
+      final response =
+      await _bookedCampUsecase.updateStatusOfCampBookingExecute(event.data,event.orderid);
       response.fold((failure) {
         emit(state.copyWith(
             error: failure.message,

@@ -12,6 +12,7 @@ import '../../../../../../common/service_locator/setivelocator.dart';
 import '../../domain/repositery/booked_camp_repositery.dart';
 import '../enitity/booked_camp_list/booked_camp_list_model.dart';
 import '../enitity/booked_camp_order_detail/booked_camp_order_detail_model.dart';
+import '../enitity/update_order_status/update_camp_order_status.dart';
 
 class BookedCampImplRepo extends BookedCampRepositery{
   final ApiServices _apiServices = getIt<ApiServices>();
@@ -70,6 +71,28 @@ class BookedCampImplRepo extends BookedCampRepositery{
       }
     } catch (e) {
       print("campList campList campList  ====${e}");
+      return Left(Failure("$e"));
+    }
+  }
+
+  @override
+  Future<Either<Failure, UpdateCampOrderStatusResponse>> updateStatusOfCampBooking(Map<String, dynamic> statusData,String campId)async {
+    try {
+      http.Response response = await _apiServices.post(
+          AppConstant.getBookedCampDetail+"/${campId}/update",statusData,
+          useDefaultHeaders: true,isJson: true);
+      print("updateStatusOfCampBooking updateStatusOfCampBooking ====${response.body}");
+      if (response.statusCode == 200) {
+        final Map<String, dynamic> responseData = jsonDecode(response.body);
+        UpdateCampOrderStatusResponse updateCampOrderStatusResponse=UpdateCampOrderStatusResponse.fromJson(responseData);
+        return Right(updateCampOrderStatusResponse);
+      } else {
+        final errorMessage = _extractErrorMessage(response.body);
+        print("updateStatusOfCampBooking updateStatusOfCampBooking updateStatusOfCampBooking  ====${errorMessage}");
+        return Left(Failure(errorMessage));
+      }
+    } catch (e) {
+      print("updateStatusOfCampBooking updateStatusOfCampBooking updateStatusOfCampBooking  ====${e}");
       return Left(Failure("$e"));
     }
   }

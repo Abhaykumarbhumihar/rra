@@ -4,9 +4,11 @@ import 'dart:io';
 import 'package:bloc/bloc.dart';
 import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:meta/meta.dart';
+import 'package:mime/mime.dart';
 import 'package:rra/common/network/connectivity_extension.dart';
 import 'package:rra/common/service_locator/setivelocator.dart';
 import 'package:rra/common/values/snack_bar.dart';
+import 'package:rra/common/values/utils.dart';
 import 'package:rra/main.dart';
 import  'package:path/path.dart' as path;
 import '../../../../../../common/local/SharedPrefs.dart';
@@ -224,6 +226,11 @@ class AddDocumentBloc extends Bloc<AddDocumentEvent, AddDocumentState> {
 // Add this method to your bloc class
   Future<void> _submitDocument(
       SubmitParentDocumentEvent event, Emitter<AddDocumentState> emit) async {
+    print("SDF SDF DSF ");
+    String? base64Image;
+
+
+
     // Validate all fields
     if (state.title.isEmpty) {
       emit(state.copyWith(
@@ -276,15 +283,14 @@ class AddDocumentBloc extends Bloc<AddDocumentEvent, AddDocumentState> {
           infoMessage: ""));
 
       // Prepare the data for submission
-      String? base64Image;
-      var fileType="";
+
       if(state.document!=null){
-        fileType= _getMimeType(state.document!.path);
 
 
-        base64Image = await convertFileToBase64(state.document!);
+
+        base64Image = await convertFileToDataUri(state.document!);
+        Utils.LogPrint(base64Image);
       }
-
 
       final academyId = await getIt<SharedPrefs>().getString("selected_academyid");
       var userdata = await getIt<SharedPrefs>().getModel<OtpVerificationModel>(
@@ -314,7 +320,7 @@ class AddDocumentBloc extends Bloc<AddDocumentEvent, AddDocumentState> {
         if (state.documentIds != "")
           "id": state.documentIds,
         if (base64Image != null)
-          "document_image": "data:$fileType;base64," + base64Image,
+          "document_image":base64Image,
       };
 
       // Call the use case to submit the document
@@ -362,48 +368,7 @@ class AddDocumentBloc extends Bloc<AddDocumentEvent, AddDocumentState> {
       rethrow;
     }
   }
-  String _getMimeType(String filePath) {
-    final extension = path.extension(filePath).toLowerCase();
 
-    switch (extension) {
-      case '.jpg':
-      case '.jpeg':
-        return 'image/jpeg';
-      case '.png':
-        return 'image/png';
-      case '.gif':
-        return 'image/gif';
-      case '.pdf':
-        return 'application/pdf';
-      case '.txt':
-        return 'text/plain';
-      case '.mp4':
-        return 'video/mp4';
-      case '.mov':
-        return 'video/quicktime';
-      case '.MOV':
-        return 'video/quicktime';
-
-      case '.avi':
-        return 'video/x-msvideo';
-      case '.wmv':
-        return 'video/x-ms-wmv';
-      case '.flv':
-        return 'video/x-flv';
-      case '.webm':
-        return 'video/webm';
-      case '.mkv':
-        return 'video/x-matroska';
-      case '.3gp':
-        return 'video/3gpp';
-      case '.ts':
-        return 'video/mp2t';
-
-    // Add more file types as needed
-      default:
-        return 'application/octet-stream'; // Fallback for unknown types
-    }
-  }
   Future<void> _getTermsSessioCoachingPlayer(
       GetTermsSessionCoachingPlayerEvents event,
       Emitter<AddDocumentState> emit) async {
@@ -530,6 +495,20 @@ class AddDocumentBloc extends Bloc<AddDocumentEvent, AddDocumentState> {
     return base64String;
   }
 
+  Future<String> convertFileToDataUri(File file) async {
+    // Read file bytes
+    List<int> fileBytes = await file.readAsBytes();
+
+    // Get MIME type of the file
+    final mimeType = lookupMimeType(file.path);
+
+    // If MIME type is unknown, default to 'application/octet-stream'
+    final contentType = mimeType ?? 'application/octet-stream';
+
+    // Encode to base64 and create Data URI
+    String base64String = await convertFileToBase64(file);
+    return 'data:$contentType;base64,$base64String';
+  }
 
   Future<void> _deleteDocument(
       GetDeleteDocumentEvents event, Emitter<AddDocumentState> emit) async {

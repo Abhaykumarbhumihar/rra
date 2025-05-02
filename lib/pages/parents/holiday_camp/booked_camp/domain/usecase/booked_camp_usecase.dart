@@ -3,6 +3,7 @@ import 'package:either_dart/either.dart';
 import '../../../../../../common/network/failure.dart';
 import '../../data/enitity/booked_camp_list/booked_camp_list_model.dart';
 import '../../data/enitity/booked_camp_order_detail/booked_camp_order_detail_model.dart';
+import '../../data/enitity/update_order_status/update_camp_order_status.dart';
 import '../repositery/booked_camp_repositery.dart';
 
 class BookedCampUsecase{
@@ -12,8 +13,13 @@ class BookedCampUsecase{
   Future<Either<Failure,BookedCampListModel>>getBookedCampListExecute( Map<String, dynamic> dashboardData,String parentId)async{
     return await _bookedCampRepositery.getBookedCampList(dashboardData,parentId);
   }
+
   Future<Either<Failure,BookedCampOrderDetailModel>>getBookedCampDetailExecute( Map<String, dynamic> dashboardData,String campId)async{
     return await _bookedCampRepositery.getBookedCampDetail(dashboardData,campId);
+  }
+
+  Future<Either<Failure,UpdateCampOrderStatusResponse>>updateStatusOfCampBookingExecute( Map<String, dynamic> dashboardData,String campId)async{
+    return await _bookedCampRepositery.updateStatusOfCampBooking(dashboardData,campId);
   }
 
 
