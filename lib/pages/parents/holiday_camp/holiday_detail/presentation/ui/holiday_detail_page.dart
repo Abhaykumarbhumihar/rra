@@ -6,6 +6,7 @@ import 'package:rra/common/values/values_exports.dart';
 
 import '../../../../../../common/component/common_app_bar.dart';
 import '../../../../../../common/component/custom_app_button.dart';
+import '../../../../../../common/component/info_row.dart';
 import '../../../../../../common/component/network_image.dart';
 import '../../../../../../common/local/SharedPrefs.dart';
 import '../../../../../../common/routes/routes.dart';
@@ -100,62 +101,80 @@ class HolidayDetailPage extends StatelessWidget {
                                                 CrossAxisAlignment.start,
                                             children: [
                                               SizedBox(height: 4),
-                                              Row(
-                                                children: [
-                                                  Text(
-                                                    "Dates: ",
-                                                    style: AppTextStyle.medium(
-                                                        context.screenWidth * 0.0373),
-                                                  ),
-                                                  Text(
-                                                    "${data.fromDate} - ${data.toDate}",
-                                                    style: AppTextStyle.regular(
-                                                        context.screenWidth * 0.0373),
-                                                  ),
-                                                ],
+                                              // Row(
+                                              //   children: [
+                                              //     Text(
+                                              //       "Dates: ",
+                                              //       style: AppTextStyle.medium(
+                                              //           context.screenWidth * 0.0373),
+                                              //     ),
+                                              //     Text(
+                                              //       "${data.fromDate} - ${data.toDate}",
+                                              //       style: AppTextStyle.regular(
+                                              //           context.screenWidth * 0.0373),
+                                              //     ),
+                                              //   ],
+                                              // ),
+
+                                              InfoRowRichTextTwo(
+                                                label: "Dates: ",
+                                                value: "${data.fromDate} - ${data.toDate}",
                                               ),
-                                              Row(
-                                                children: [
-                                                  Text(
-                                                    "Session: ",
-                                                    style: AppTextStyle.medium(
-                                                        context.screenWidth * 0.0373),
-                                                  ),
-                                                  Text(
-                                                    "${data.fromTime} - ${data.toTime}",
-                                                    style: AppTextStyle.regular(
-                                                        context.screenWidth * 0.0373),
-                                                  ),
-                                                ],
+                                              // Row(
+                                              //   children: [
+                                              //     Text(
+                                              //       "Session: ",
+                                              //       style: AppTextStyle.medium(
+                                              //           context.screenWidth * 0.0373),
+                                              //     ),
+                                              //     Text(
+                                              //       "${data.fromTime} - ${data.toTime}",
+                                              //       style: AppTextStyle.regular(
+                                              //           context.screenWidth * 0.0373),
+                                              //     ),
+                                              //   ],
+                                              // ),
+
+                                              InfoRowRichTextTwo(
+                                                label:  "Session: ",
+                                                value:  "${data.fromTime} - ${data.toTime}",
                                               ),
-                                              Row(
-                                                children: [
-                                                  Text(
-                                                    "Age Groups: ",
-                                                    style: AppTextStyle.medium(
-                                                        context.screenWidth * 0.0373),
-                                                  ),
-                                                  Text(
-                                                    "Under 9, Under 7",
-                                                    style: AppTextStyle.regular(
-                                                        context.screenWidth * 0.0373),
-                                                  ),
-                                                ],
+                                              // Row(
+                                              //   children: [
+                                              //     Text(
+                                              //       "Age Groups: ",
+                                              //       style: AppTextStyle.medium(
+                                              //           context.screenWidth * 0.0373),
+                                              //     ),
+                                              //     Text(
+                                              //       "Under 9, Under 7",
+                                              //       style: AppTextStyle.regular(
+                                              //           context.screenWidth * 0.0373),
+                                              //     ),
+                                              //   ],
+                                              // ),
+                                              // InfoRowRichTextTwo(
+                                              //   label:  "Age Groups: ",
+                                              //   value:  "${data.fromTime} - ${data.toTime}",
+                                              // ),
+                                              InfoRowRichTextTwo(
+                                                label:   "Per Day: ",
+                                                value:  "${data.perdaysCost}",
                                               ),
-                                              Row(
-                                                children: [
-                                                  Text(
-                                                    "Per Day: ",
-                                                    style: AppTextStyle.medium(
-                                                        context.screenWidth * 0.0373),
-                                                  ),
-                                                  Text(
-                                                    "${data.perdaysCost}",
-                                                    style: AppTextStyle.regular(
-                                                        context.screenWidth * 0.0373),
-                                                  ),
-                                                ],
-                                              ),
+                                              // Row(
+                                              //   children: [
+                                              //     Text(
+                                              //       "Per Day: ",
+                                              //       style: AppTextStyle.medium(
+                                              //           context.screenWidth * 0.0373),
+                                              //     ),
+                                              //     Text(
+                                              //       "${data.perdaysCost}",
+                                              //       style: AppTextStyle.regular(
+                                              //           context.screenWidth * 0.0373),
+                                              //     ),
+                                              //   ],
+                                              // ),
                                               Padding(
                                                 padding: const EdgeInsets.only(
                                                     left: 18.0,

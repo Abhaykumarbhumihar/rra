@@ -157,15 +157,17 @@ class CalendarPage extends StatelessWidget {
                               .fade(duration: 900.ms)
                               .scaleXY(begin: 0.9, end: 1.0, duration: 800.ms, curve: Curves.easeOut),
                         ),
-                        SizedBox(
+                        Container(
                           width: context.screenWidth,
-                          height: context.screenHeight * 0.28,
+                          height: context.screenHeight * 0.3,
                           child: Availablity(_scrollController),
                         ),
+                        SizedBox(height: 4,),
                         if (state.timeAddedModel.data.isNotEmpty)
-                          SizedBox(
+                          Container(
                             width: context.screenWidth,
-                            height: context.screenHeight * 0.28,
+                            height: context.screenHeight * 0.22,
+                            padding: EdgeInsets.zero,
                             child: TimeAddedView(),
                           ),
 

@@ -110,13 +110,16 @@ class AddedSlotListItem extends StatelessWidget {
                                   Row(
                                     mainAxisAlignment:
                                         MainAxisAlignment.spaceBetween,
+                                    crossAxisAlignment: CrossAxisAlignment.start,
                                     children: <Widget>[
-                                      Text(
-                                        "${data} at ${dateTime}",
-                                        style: TextStyle(
-                                          color: AppColor.appWhiteColor,
-                                          fontFamily: AppFont.interRegular,
-                                          fontSize: context.screenWidth * 0.028,
+                                      Flexible(
+                                        child: Text(
+                                          "${data} at ${dateTime}",
+                                          style: TextStyle(
+                                            color: AppColor.appWhiteColor,
+                                            fontFamily: AppFont.interRegular,
+                                            fontSize: context.screenWidth * 0.028,
+                                          ),
                                         ),
                                       ),
                                       InkWell(

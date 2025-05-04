@@ -114,7 +114,7 @@ class AvailablitTime extends StatelessWidget {
       style: TextStyle(
         color: AppColor.appWhiteColor,
         fontFamily: AppFont.interSemiBold,
-        fontSize: fontSize ?? (width * 0.032), // Use passed fontSize or default
+        fontSize: fontSize ?? (width * 0.030), // Use passed fontSize or default
       ),
     );
   }
@@ -162,7 +162,7 @@ class TimeAdded extends StatelessWidget {
       style: TextStyle(
         color: AppColor.appWhiteColor,
         fontFamily: AppFont.interRegular,
-        fontSize: fontSize ?? (width * 0.0373), // Use passed fontSize or default
+        fontSize: fontSize ?? (width * 0.025), // Use passed fontSize or default
       ),
     );
   }

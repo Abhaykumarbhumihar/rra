@@ -48,7 +48,7 @@ class ParentDashbard extends StatelessWidget {
                 },
               ).animate().fade().slideX(begin: 0.5, end: 0, duration: 500.ms),
               SizedBox(
-                width: 20.0,
+                width: 15.0,
               ),
               CustomSessionCard(
                 sessionCount: "0",

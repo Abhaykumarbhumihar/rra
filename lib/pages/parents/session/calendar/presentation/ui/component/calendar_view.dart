@@ -44,32 +44,34 @@ class CalendarView extends StatelessWidget {
                       lastDay: DateTime(2060),
                       calendarStyle: CalendarStyle(
                         todayTextStyle: TextStyle(
-                          fontSize: MediaQuery.of(context).size.width * 0.03,
+                          fontSize: MediaQuery.of(context).size.width * 0.025,
                           color: Colors.white,
                           fontFamily: AppFont.interRegular,
                         ),
                         weekendTextStyle: TextStyle(
-                          fontSize: MediaQuery.of(context).size.width * 0.03,
+                          fontSize: MediaQuery.of(context).size.width * 0.025,
                           color: Colors.white,
                           fontFamily: AppFont.interRegular,
                         ),
                         outsideTextStyle: TextStyle(
-                          fontSize: MediaQuery.of(context).size.width * 0.03,
+                          fontSize: MediaQuery.of(context).size.width * 0.025,
                           color: Colors.white,
                           fontFamily: AppFont.interRegular,
                         ),
                         defaultTextStyle: TextStyle(
-                          fontSize: MediaQuery.of(context).size.width * 0.03,
+                          fontSize: MediaQuery.of(context).size.width * 0.025,
                           color: Colors.white,
                           fontFamily: AppFont.interRegular,
                         ),
                       ),
                       daysOfWeekStyle: DaysOfWeekStyle(
                         weekdayStyle: TextStyle(
+                          fontSize: MediaQuery.of(context).size.width * 0.025,
                           color: Colors.white,
                           fontFamily: AppFont.interRegular,
                         ),
                         weekendStyle: TextStyle(
+                          fontSize: MediaQuery.of(context).size.width * 0.025,
                           color: Colors.white,
                           fontFamily: AppFont.interRegular,
                         ),
@@ -82,7 +84,7 @@ class CalendarView extends StatelessWidget {
                             DateFormat.yMMM(locale).format(date),
                         formatButtonVisible: false,
                         titleTextStyle: TextStyle(
-                          fontSize: MediaQuery.of(context).size.width * 0.05,
+                          fontSize: MediaQuery.of(context).size.width * 0.03,
                           color: Colors.white,
                           fontFamily: AppFont.interBold,
                         ),
@@ -144,6 +146,7 @@ class CalendarView extends StatelessWidget {
                                         child: Text(
                                           '${day.day}',
                                           style: TextStyle(
+                                            fontSize: MediaQuery.of(context).size.width * 0.025,
                                             color: Colors.white,
                                             fontFamily: AppFont.interMedium,
                                           ),

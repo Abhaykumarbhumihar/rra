@@ -30,7 +30,7 @@ class CustomSessionCard extends StatelessWidget {
         ),
         child: Padding(
           padding: EdgeInsets.symmetric(
-            horizontal: context.screenWidth * 0.047,
+            horizontal: context.screenWidth * 0.02,
             vertical: context.screenHeight * 0.02,
           ),
           child: Column(
@@ -78,7 +78,7 @@ class CustomSessionCard extends StatelessWidget {
                       ),
                       child: Padding(
                         padding: EdgeInsets.symmetric(
-                          horizontal: context.screenWidth * 0.058,
+                          horizontal: context.screenWidth * 0.035,
                           vertical: 6.0,
                         ),
                         child: Text(
@@ -105,7 +105,7 @@ class CustomSessionCard extends StatelessWidget {
                       ),
                       child: Padding(
                         padding: EdgeInsets.symmetric(
-                          horizontal: context.screenWidth * 0.07,
+                          horizontal: context.screenWidth * 0.046,
                           vertical: 6.0,
                         ),
                         child: Text(

@@ -21,9 +21,6 @@ class CoachProgramsScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var width = context.screenWidth;
-    var height = context.screenHeight;
-
     return CommonPageFormat(
       isScrollable: false,
       title: "Coaching Programs",
@@ -34,37 +31,51 @@ class CoachProgramsScreen extends StatelessWidget {
         listener: (context, state) async {},
         child: BlocBuilder<CoachingProgramsBloc, CoachProgramsState>(
           builder: (context, state) {
+            // Check if private coaching programs exist
+            final hasPrivatePrograms =
+                state.privateCoachProgramList.data.isNotEmpty;
+
+            // Only show tabs if private programs exist, otherwise just show group
+            final showTabs = hasPrivatePrograms;
 
             return Column(
               children: [
-                SizedBox(
-                  height: 10,
-                ),
-                Padding(
-                  padding: EdgeInsets.symmetric(
-                      horizontal: context.screenWidth * 0.03, vertical: 0),
-                  child: CustomToggleSwitch(
-                    selectedTabIndex: context
-                        .read<CoachingProgramsBloc>()
-                        .state
-                        .selectedTab,
-                    tabNames: ['Group\nCoaching','Private\nCoaching'],
-                    onTabChanged: (index) {
-                      context
-                          .read<CoachingProgramsBloc>()
-                          .add(AllCoachProgramsSelectedTabEvent(index));
-                      print(index);
-                      if(index==0){
-                        BlocProvider.of<CoachingProgramsBloc>(context).add(GroupCoachProgramsListEvent());
-                      }else{
-                        BlocProvider.of<CoachingProgramsBloc>(context).add(PrivateCoachingProgramsList());
-
-                      }
-                    },
+                const SizedBox(height: 10),
+                if (showTabs) // Only show toggle if private programs exist
+                  Padding(
+                    padding: EdgeInsets.symmetric(
+                      horizontal: context.screenWidth * 0.03,
+                      vertical: 0,
+                    ),
+                    child: CustomToggleSwitch(
+                      selectedTabIndex: state.selectedTab,
+                      tabNames: [
+                        'Group\nCoaching',
+                        'Private\nCoaching',
+                      ],
+                      onTabChanged: (index) {
+                        context.read<CoachingProgramsBloc>().add(
+                          AllCoachProgramsSelectedTabEvent(index),
+                        );
+                        if (index == 0) {
+                          BlocProvider.of<CoachingProgramsBloc>(context)
+                              .add(GroupCoachProgramsListEvent());
+                        } else {
+                          BlocProvider.of<CoachingProgramsBloc>(context)
+                              .add(PrivateCoachingProgramsList());
+                        }
+                      },
+                    ),
                   ),
-                ),
-                if (state.selectedTab == 1) state.isLoading?CoachingProgramListShimmer(): PrivateCoachingProgramList(),
-                if (state.selectedTab == 0)  state.isLoading?CoachingProgramListShimmer():GroupCoachingProgramList(),
+                // Always show content based on selected tab or default to group
+                if (!showTabs || state.selectedTab == 0)
+                  state.isLoading
+                      ? CoachingProgramListShimmer()
+                      : GroupCoachingProgramList(),
+                if (showTabs && state.selectedTab == 1)
+                  state.isLoading
+                      ? CoachingProgramListShimmer()
+                      : PrivateCoachingProgramList(),
               ],
             );
           },

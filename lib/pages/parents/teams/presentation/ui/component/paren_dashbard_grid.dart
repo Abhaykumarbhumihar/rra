@@ -73,7 +73,7 @@ class DashboardGrid extends StatelessWidget {
       physics: BouncingScrollPhysics(),
       gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
         crossAxisCount: 2,
-        mainAxisSpacing: 12.0,
+        mainAxisSpacing: 14.0,
         crossAxisSpacing: 20.0,
         childAspectRatio: 1.1,
       ),
@@ -133,14 +133,16 @@ class DashboardGrid extends StatelessWidget {
               children: [
                 Circle(imagePath: item["image"]!),
                 SizedBox(height: 10),
-                Text(
-                  item["title"]!,
-                  style: TextStyle(
-                    fontSize: context.screenWidth * 0.0373,
-                    color: AppColor.appWhiteColor,
-                    fontFamily: AppFont.interSemiBold,
+                Flexible(
+                  child: Text(
+                    item["title"]!,
+                    style: TextStyle(
+                      fontSize: context.screenWidth * 0.0373,
+                      color: AppColor.appWhiteColor,
+                      fontFamily: AppFont.interSemiBold,
+                    ),
+                    textAlign: TextAlign.center,
                   ),
-                  textAlign: TextAlign.center,
                 ),
               ],
             ),

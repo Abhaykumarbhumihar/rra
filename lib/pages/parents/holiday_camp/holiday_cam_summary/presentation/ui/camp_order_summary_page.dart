@@ -276,10 +276,16 @@ class CampOrderSummaryPage extends StatelessWidget {
         borderRadius: BorderRadius.vertical(top: Radius.circular(40)),
       ),
       clipBehavior: Clip.antiAlias,
-      builder: (context) => CapPaymentBottomSheet(
-        checkOutAction: checkOutAction,
-        promoCodeController: promoCodeController,
-        couponApplyAction: couponApplyAction,
+      builder: (context) => Padding(
+        padding: EdgeInsets.only(
+          bottom: MediaQuery.of(context).viewInsets.bottom,
+          left: 6,right: 6
+        ),
+        child: CapPaymentBottomSheet(
+          checkOutAction: checkOutAction,
+          promoCodeController: promoCodeController,
+          couponApplyAction: couponApplyAction,
+        ),
       ),
     );
   }

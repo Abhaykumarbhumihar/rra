@@ -121,14 +121,16 @@ class CoachDashboardGrid extends StatelessWidget {
                   imagePath: item["image"]!,
                 ),
                 SizedBox(height: 10),
-                Text(
-                  item["title"]!,
-                  style: TextStyle(
-                    fontSize: context.screenWidth * 0.0373,
-                    color: AppColor.appWhiteColor,
-                    fontFamily: AppFont.interSemiBold,
+                Flexible(
+                  child: Text(
+                    item["title"]!,
+                    style: TextStyle(
+                      fontSize: context.screenWidth * 0.0373,
+                      color: AppColor.appWhiteColor,
+                      fontFamily: AppFont.interSemiBold,
+                    ),
+                    textAlign: TextAlign.center,
                   ),
-                  textAlign: TextAlign.center,
                 ),
               ],
             ),

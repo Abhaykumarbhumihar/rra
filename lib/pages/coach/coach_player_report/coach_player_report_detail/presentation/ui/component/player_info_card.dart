@@ -72,7 +72,7 @@ class PlayerInfoCard extends StatelessWidget {
                 label: "Player:",
                 value: " ${reportData.data.childName}",
               ),
-              InfoRow(
+              InfoRowRichText(
                 label: "Coaching program:",
                 value: " ${reportData.data.coachingProgram}",
               ),

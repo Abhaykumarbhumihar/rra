@@ -25,7 +25,7 @@ class TimeAddedView extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
             Padding(
-              padding: const EdgeInsets.only(left: 4.0, right: 6.0, top: 16.0),
+              padding: const EdgeInsets.only(left: 4.0, right: 6.0, top: 1.0),
               child: ScreenTitleForCalendar(
                 title: "Time Slots Added ",
                 fontSize: context.screenWidth * 0.042,
@@ -35,10 +35,11 @@ class TimeAddedView extends StatelessWidget {
 
             // Remove Expanded here, it's causing layout issues.
             SizedBox(
-              height: context.screenHeight * 0.126, // Adjust height based on content
+              height: context.screenHeight * 0.14, // Adjust height based on content
               child:state.isTimeAddedLoading? AvailablityShimmer(): ListView.builder(
                 scrollDirection: Axis.horizontal,
                 shrinkWrap: true,
+                padding: EdgeInsets.zero,
                 itemCount: state.timeAddedModel.data.length,
                 itemBuilder: (context, index) {
                   var data = state.timeAddedModel.data[index];
@@ -80,10 +81,10 @@ class TimeAddedView extends StatelessWidget {
                                  borderRadius: BorderRadius.circular(4.0),
                                ),
                                child: Padding(
-                                 padding: const EdgeInsets.symmetric(horizontal: 6.0,vertical: 6),
+                                 padding: const EdgeInsets.symmetric(horizontal: 6.0,vertical: 3),
                                  child: Text(
                                    "Price: ${data.price}",
-                                   style: TextStyle(fontSize: 12, fontWeight: FontWeight.w500),
+                                   style: TextStyle(fontSize: 9, fontWeight: FontWeight.w500),
                                  ),
                                ),
                              ),

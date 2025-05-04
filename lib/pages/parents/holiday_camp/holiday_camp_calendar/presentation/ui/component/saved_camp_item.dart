@@ -46,7 +46,7 @@ class SavedCampItem extends StatelessWidget {
 
             // Remove Expanded here, it's causing layout issues.
             SizedBox(
-              height: context.screenHeight * 0.145, // Adjust height based on content
+              height: context.screenHeight * 0.14, // Adjust height based on content
               child:state.isTimeAddedLoading? AvailablityShimmer(): ListView.builder(
                 scrollDirection: Axis.horizontal,
                 shrinkWrap: true,
@@ -91,10 +91,10 @@ class SavedCampItem extends StatelessWidget {
                                   borderRadius: BorderRadius.circular(4.0),
                                 ),
                                 child: Padding(
-                                  padding: const EdgeInsets.symmetric(horizontal: 6.0,vertical: 6),
+                                  padding: const EdgeInsets.symmetric(horizontal: 6.0,vertical: 3),
                                   child: Text(
                                     "Price: ${state.selectedCampDatesModel.data.session.sessionDisplayPrice}",
-                                    style: TextStyle(fontSize: 12, fontWeight: FontWeight.w500),
+                                    style: TextStyle(fontSize: 9, fontWeight: FontWeight.w500),
                                   ),
                                 ),
                               ),
