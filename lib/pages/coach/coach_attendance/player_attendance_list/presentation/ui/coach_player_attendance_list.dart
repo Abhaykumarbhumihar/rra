@@ -36,7 +36,7 @@ class CoachPlayerAttendanceList extends StatelessWidget {
         ),
         child: BlocListener<AttendanceBloc, AttendanceState>(
           listener: (context, state) {
-            // TODO: implement listener
+
           },
           child: BlocBuilder<AttendanceBloc, AttendanceState>(
             builder: (context, state) {
@@ -44,9 +44,6 @@ class CoachPlayerAttendanceList extends StatelessWidget {
                 children: [
                   Column(
                     children: [
-                      SizedBox(
-                        height: 4,
-                      ),
 
                       if(BlocProvider.of<AppBloc>(context).state.userdata.data.role=="coach")
                       DropdownSelectionField(

@@ -1,3 +1,4 @@
+import '../../../../../../../common/component/network_image.dart';
 import '../../../../../../../common/values/values_exports.dart';
 
 class FacilityImage extends StatelessWidget {
@@ -6,14 +7,17 @@ class FacilityImage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ClipRRect(
-      borderRadius: BorderRadius.circular(15),
-      child: Image.asset(
-        imagePath,
-        width: double.infinity,
-        height: context.screenHeight * 0.24,
-        fit: BoxFit.cover,
-      ),
+    return  NetworkImageWidget(
+      imageUrl:imagePath,
+      imageWidth:double.infinity,
+      fullimage: true,
+      placeHolder: "assets/images/appicon.png",
+      imageHeight: context.screenHeight * 0.24,
+      radiusAll:10,
+      imageFitType: BoxFit.cover,
+
     );
+
+
   }
 }

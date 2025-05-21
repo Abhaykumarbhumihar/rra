@@ -37,7 +37,7 @@ class SaveCampSession with _$SaveCampSession {
     @JsonKey(name: 'from_date') @Default('') String fromDate,
     @JsonKey(name: 'to_date') @Default('') String toDate,
     @JsonKey(name: 'days_excluded') dynamic daysExcluded,
-    @JsonKey(name: 'perdays_cost') @Default(0) int perdaysCost,
+    @JsonKey(name: 'perdays_cost') @Default(0) dynamic perdaysCost,
     @JsonKey(name: 'per_week_cost') dynamic perWeekCost,
     @Default(0) int thresold,
     @Default(0) int seats,
@@ -51,7 +51,7 @@ class SaveCampSession with _$SaveCampSession {
     @JsonKey(name: 'discount_price') @Default('') String discountPrice,
     @JsonKey(name: 'minimum_day_discount') @Default(0) int minimumDayDiscount,
     @JsonKey(name: 'past_days') @Default('') String pastDays,
-    @JsonKey(name: 'session_price') @Default('') String sessionPrice,
+    @JsonKey(name: 'session_price') @Default('') dynamic sessionPrice,
     @JsonKey(name: 'session_display_price') @Default('') String sessionDisplayPrice,
   }) = _SaveCampSession;
 

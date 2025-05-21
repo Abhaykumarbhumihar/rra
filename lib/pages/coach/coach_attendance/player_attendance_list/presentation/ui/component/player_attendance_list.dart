@@ -20,6 +20,8 @@ class PlayerAttendanceList extends StatelessWidget {
       listener: (context, state) {},
       child: BlocBuilder<AttendanceBloc, AttendanceState>(
         builder: (context, state) {
+          print("CHECK HERE LLLLDLLDLDLDLDLD");
+          print(state.attendancePlayerListResponse.data.players.length);
           return ListView.builder(
               padding: EdgeInsets.zero,
               shrinkWrap: true,
@@ -173,6 +175,7 @@ class PlayerAttendanceList extends StatelessWidget {
                                                     if (attendanceData
                                                             .attendanceStatus !=
                                                         "N/A") {
+                                                      print("C C C C C CC C C C C C C C C C  C C----c-c-c-c-c-c-c-cc-c-");
                                                       // First check if the date is in the past
                                                       // First check if the date is in the past
                                                       final attendanceDateStr =
@@ -235,24 +238,14 @@ class PlayerAttendanceList extends StatelessWidget {
                                                                 "API date: ${attendanceData?.date}");
                                                             print(
                                                                 "normalizedCurrentDate: $normalizedCurrentDate");
-                                                            ScaffoldMessenger
-                                                                    .of(context)
-                                                                .showSnackBar(
-                                                              SnackBar(
-                                                                  content: Text(
-                                                                      "Attendance can only be updated for past dates")),
-                                                            );
+                                                            context.showCustomSnackbar("Attendance can only be updated for past dates");
+
                                                             return;
                                                           }
                                                         } catch (e) {
                                                           // Handle parsing errors
-                                                          ScaffoldMessenger.of(
-                                                                  context)
-                                                              .showSnackBar(
-                                                            SnackBar(
-                                                                content: Text(
-                                                                    "Invalid date format: ${e.toString()}")),
-                                                          );
+                                                          context.showCustomSnackbar("Something goes wrong");
+
                                                           return;
                                                         }
                                                       }

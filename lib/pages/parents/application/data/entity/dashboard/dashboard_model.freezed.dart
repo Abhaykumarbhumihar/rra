@@ -264,8 +264,12 @@ DashboardData _$DashboardDataFromJson(Map<String, dynamic> json) {
 mixin _$DashboardData {
   @JsonKey(name: 'ordercount')
   int get orderCount => throw _privateConstructorUsedError;
+  @JsonKey(name: 'campOrderCount')
+  int get campOrderCount => throw _privateConstructorUsedError;
   @JsonKey(name: 'sessioncount')
   int get sessionCount => throw _privateConstructorUsedError;
+  @JsonKey(name: 'facilityOrderCount')
+  int get facilityOrderCount => throw _privateConstructorUsedError;
   @JsonKey(name: 'user')
   DashboardUser get user => throw _privateConstructorUsedError;
 
@@ -287,7 +291,9 @@ abstract class $DashboardDataCopyWith<$Res> {
   @useResult
   $Res call(
       {@JsonKey(name: 'ordercount') int orderCount,
+      @JsonKey(name: 'campOrderCount') int campOrderCount,
       @JsonKey(name: 'sessioncount') int sessionCount,
+      @JsonKey(name: 'facilityOrderCount') int facilityOrderCount,
       @JsonKey(name: 'user') DashboardUser user});
 
   $DashboardUserCopyWith<$Res> get user;
@@ -309,7 +315,9 @@ class _$DashboardDataCopyWithImpl<$Res, $Val extends DashboardData>
   @override
   $Res call({
     Object? orderCount = null,
+    Object? campOrderCount = null,
     Object? sessionCount = null,
+    Object? facilityOrderCount = null,
     Object? user = null,
   }) {
     return _then(_value.copyWith(
@@ -317,9 +325,17 @@ class _$DashboardDataCopyWithImpl<$Res, $Val extends DashboardData>
           ? _value.orderCount
           : orderCount // ignore: cast_nullable_to_non_nullable
               as int,
+      campOrderCount: null == campOrderCount
+          ? _value.campOrderCount
+          : campOrderCount // ignore: cast_nullable_to_non_nullable
+              as int,
       sessionCount: null == sessionCount
           ? _value.sessionCount
           : sessionCount // ignore: cast_nullable_to_non_nullable
+              as int,
+      facilityOrderCount: null == facilityOrderCount
+          ? _value.facilityOrderCount
+          : facilityOrderCount // ignore: cast_nullable_to_non_nullable
               as int,
       user: null == user
           ? _value.user
@@ -349,7 +365,9 @@ abstract class _$$DashboardDataImplCopyWith<$Res>
   @useResult
   $Res call(
       {@JsonKey(name: 'ordercount') int orderCount,
+      @JsonKey(name: 'campOrderCount') int campOrderCount,
       @JsonKey(name: 'sessioncount') int sessionCount,
+      @JsonKey(name: 'facilityOrderCount') int facilityOrderCount,
       @JsonKey(name: 'user') DashboardUser user});
 
   @override
@@ -370,7 +388,9 @@ class __$$DashboardDataImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? orderCount = null,
+    Object? campOrderCount = null,
     Object? sessionCount = null,
+    Object? facilityOrderCount = null,
     Object? user = null,
   }) {
     return _then(_$DashboardDataImpl(
@@ -378,9 +398,17 @@ class __$$DashboardDataImplCopyWithImpl<$Res>
           ? _value.orderCount
           : orderCount // ignore: cast_nullable_to_non_nullable
               as int,
+      campOrderCount: null == campOrderCount
+          ? _value.campOrderCount
+          : campOrderCount // ignore: cast_nullable_to_non_nullable
+              as int,
       sessionCount: null == sessionCount
           ? _value.sessionCount
           : sessionCount // ignore: cast_nullable_to_non_nullable
+              as int,
+      facilityOrderCount: null == facilityOrderCount
+          ? _value.facilityOrderCount
+          : facilityOrderCount // ignore: cast_nullable_to_non_nullable
               as int,
       user: null == user
           ? _value.user
@@ -395,7 +423,9 @@ class __$$DashboardDataImplCopyWithImpl<$Res>
 class _$DashboardDataImpl implements _DashboardData {
   const _$DashboardDataImpl(
       {@JsonKey(name: 'ordercount') this.orderCount = 0,
+      @JsonKey(name: 'campOrderCount') this.campOrderCount = 0,
       @JsonKey(name: 'sessioncount') this.sessionCount = 0,
+      @JsonKey(name: 'facilityOrderCount') this.facilityOrderCount = 0,
       @JsonKey(name: 'user') this.user = const DashboardUser()});
 
   factory _$DashboardDataImpl.fromJson(Map<String, dynamic> json) =>
@@ -405,15 +435,21 @@ class _$DashboardDataImpl implements _DashboardData {
   @JsonKey(name: 'ordercount')
   final int orderCount;
   @override
+  @JsonKey(name: 'campOrderCount')
+  final int campOrderCount;
+  @override
   @JsonKey(name: 'sessioncount')
   final int sessionCount;
+  @override
+  @JsonKey(name: 'facilityOrderCount')
+  final int facilityOrderCount;
   @override
   @JsonKey(name: 'user')
   final DashboardUser user;
 
   @override
   String toString() {
-    return 'DashboardData(orderCount: $orderCount, sessionCount: $sessionCount, user: $user)';
+    return 'DashboardData(orderCount: $orderCount, campOrderCount: $campOrderCount, sessionCount: $sessionCount, facilityOrderCount: $facilityOrderCount, user: $user)';
   }
 
   @override
@@ -423,14 +459,19 @@ class _$DashboardDataImpl implements _DashboardData {
             other is _$DashboardDataImpl &&
             (identical(other.orderCount, orderCount) ||
                 other.orderCount == orderCount) &&
+            (identical(other.campOrderCount, campOrderCount) ||
+                other.campOrderCount == campOrderCount) &&
             (identical(other.sessionCount, sessionCount) ||
                 other.sessionCount == sessionCount) &&
+            (identical(other.facilityOrderCount, facilityOrderCount) ||
+                other.facilityOrderCount == facilityOrderCount) &&
             (identical(other.user, user) || other.user == user));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  int get hashCode => Object.hash(runtimeType, orderCount, sessionCount, user);
+  int get hashCode => Object.hash(runtimeType, orderCount, campOrderCount,
+      sessionCount, facilityOrderCount, user);
 
   /// Create a copy of DashboardData
   /// with the given fields replaced by the non-null parameter values.
@@ -451,7 +492,9 @@ class _$DashboardDataImpl implements _DashboardData {
 abstract class _DashboardData implements DashboardData {
   const factory _DashboardData(
       {@JsonKey(name: 'ordercount') final int orderCount,
+      @JsonKey(name: 'campOrderCount') final int campOrderCount,
       @JsonKey(name: 'sessioncount') final int sessionCount,
+      @JsonKey(name: 'facilityOrderCount') final int facilityOrderCount,
       @JsonKey(name: 'user') final DashboardUser user}) = _$DashboardDataImpl;
 
   factory _DashboardData.fromJson(Map<String, dynamic> json) =
@@ -461,8 +504,14 @@ abstract class _DashboardData implements DashboardData {
   @JsonKey(name: 'ordercount')
   int get orderCount;
   @override
+  @JsonKey(name: 'campOrderCount')
+  int get campOrderCount;
+  @override
   @JsonKey(name: 'sessioncount')
   int get sessionCount;
+  @override
+  @JsonKey(name: 'facilityOrderCount')
+  int get facilityOrderCount;
   @override
   @JsonKey(name: 'user')
   DashboardUser get user;

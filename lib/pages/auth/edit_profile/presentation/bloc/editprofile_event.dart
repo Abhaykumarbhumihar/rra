@@ -76,3 +76,8 @@ class LogoutEventEditprofileEvent extends EditprofileEvent {
   @override
   List<Object?> get props => [];
 }
+
+class DeleteuserProfileEvent extends EditprofileEvent {
+  @override
+  List<Object?> get props => [];
+}

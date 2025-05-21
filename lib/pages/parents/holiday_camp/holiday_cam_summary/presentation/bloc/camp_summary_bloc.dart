@@ -45,7 +45,7 @@ class CampSummaryBloc extends Bloc<CampSummaryEvent, CampSummaryState> {
         isLoading: true,
         couponErrorMessage: '',
         couponSuccessMessage: '',
-
+      placeOrder: PlaceOrderModel(),
         error: "",
         ));
     final response = await _campUsecase.appLyCouponsExecute(event.data);
@@ -56,7 +56,7 @@ class CampSummaryBloc extends Bloc<CampSummaryEvent, CampSummaryState> {
           error: "",
           isLoading: false,
 
-
+          placeOrder: PlaceOrderModel(),
           couponErrorMessage: failure.message,
           couponSuccessMessage: ''));
     }, (orderSummaryData) async {
@@ -67,7 +67,7 @@ class CampSummaryBloc extends Bloc<CampSummaryEvent, CampSummaryState> {
           error: "",
           couponErrorMessage: '',
 
-
+          placeOrder: PlaceOrderModel(),
           couponSuccessMessage: "Coupon apply successfully"));
       print("LLL LDLLDLDLDLD LDLDL L L L L L L ==L L L L L L\n\n");
       Utils.LogPrint(orderSummaryData);
@@ -87,6 +87,7 @@ class CampSummaryBloc extends Bloc<CampSummaryEvent, CampSummaryState> {
         couponCode: event.couponCode,
         couponErrorMessage: "",
       error: "",
+      placeOrder: PlaceOrderModel(),
         ));
   }
 

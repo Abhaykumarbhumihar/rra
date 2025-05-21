@@ -66,7 +66,8 @@ orderId: "",
         isOrderPlaceError: false,
         isOrderPlaceSuccess: false,
         error: "",
-        paymentID: ""));
+        paymentID: "",
+    ));
   }
 
   Future<void> _storeCardNumber(
@@ -249,14 +250,15 @@ orderId: "",
   Future<void> _getOrderSummary(
       GetOrderSummaryEvent event, Emitter<OrderSummaryState> emit) async {
     emit(state.copyWith(
+        finalPaymentDone: false,
+        couponErrorMessage: "",
+        isOrderPlaceError: false,
+        isOrderPlaceSuccess: false,
         isLoading: true,
         orderId: "",
         orderPayment: "",
-        finalPaymentDone: false,
         isSlotRemoveLoading: false,
         error: "",
-        isOrderPlaceError: false,
-        isOrderPlaceSuccess: false,
         paymentID: ""));
     print("C C C C C C CC C C${event.data} C C C C C C C C");
     final response =

@@ -110,18 +110,22 @@ class CampRepositeryImpl extends CampRepositery{
           AppConstant.getCampBookingSelectSessionSave,campData,
           useDefaultHeaders: true,isJson: true);
       print("saveCamp saveCamp ====${response.body}");
+      print("============\n\n");
+      Utils.LogPrint(response.body);
+      print("============\n\n");
+      print(AppConstant.getCampBookingSelectSessionSave);
       if (response.statusCode == 200) {
         final Map<String, dynamic> responseData = jsonDecode(response.body);
         SaveCampModel saveCampModel=SaveCampModel.fromJson(responseData);
         return Right(saveCampModel);
       } else {
         final errorMessage = _extractErrorMessage(response.body);
-        print("saveCamp saveCamp saveCamp  ====${errorMessage}");
+        print("dddsaveCamp saveCamp saveCamp  ====${errorMessage}");
         return Left(Failure(errorMessage));
       }
 
     } catch (e) {
-      print("saveCamp saveCamp saveCamp  ====${e}");
+      print("saaaaaveCamp saveCamp saveCamp  ====${e}");
       return Left(Failure("$e"));
     }
   }

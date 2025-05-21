@@ -56,8 +56,6 @@ class CampDetail with _$CampDetail {
     @JsonKey(name: 'from_date') @Default('') String fromDate,
     @JsonKey(name: 'to_date') @Default('') String toDate,
     @JsonKey(name: 'days_excluded') @Default('') String daysExcluded,
-    @JsonKey(name: 'perdays_cost') @Default(0.0) double perdaysCost,
-    @JsonKey(name: 'per_week_cost') @Default(0.0) double perWeekCost,
     @JsonKey(name: 'thresold') @Default(0) int thresold,
     @JsonKey(name: 'seats') @Default(0) int seats,
     @JsonKey(name: 'is_locked') @Default('') String isLocked,
@@ -70,8 +68,31 @@ class CampDetail with _$CampDetail {
     @JsonKey(name: 'discount_price') @Default('0') String discountPrice,
     @JsonKey(name: 'minimum_day_discount') @Default(0) int minimumDayDiscount,
     @JsonKey(name: 'past_days') @Default('[]') String pastDays,
+
+    @StringToDoubleConverter()
+    @JsonKey(name: 'perdays_cost') @Default('') String perdaysCost,
+
+    @StringToDoubleConverter()
+    @JsonKey(name: 'per_week_cost') @Default('') String perWeekCost
   }) = _CampDetail;
 
   factory CampDetail.fromJson(Map<String, dynamic> json) =>
       _$CampDetailFromJson(json);
+}
+
+class StringToDoubleConverter implements JsonConverter<double, dynamic> {
+  const StringToDoubleConverter();
+
+  @override
+  double fromJson(dynamic json) {
+    if (json is num) return json.toDouble();
+    if (json is String) {
+      final clean = json.replaceAll(RegExp(r'[^0-9.]'), '');
+      return double.tryParse(clean) ?? 0.0;
+    }
+    return 0.0;
+  }
+
+  @override
+  dynamic toJson(double value) => value;
 }

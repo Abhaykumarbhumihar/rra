@@ -36,7 +36,7 @@ class SessionModel with _$SessionModel {
     @JsonKey(name: 'from_date') @Default('') String fromDate,
     @JsonKey(name: 'to_date') @Default('') String toDate,
     @JsonKey(name: 'days_excluded') @Default('') dynamic daysExcluded,
-    @JsonKey(name: 'perdays_cost') @Default(0) int perdaysCost,
+    @JsonKey(name: 'perdays_cost') @Default('') dynamic perdaysCost,
     @JsonKey(name: 'per_week_cost') @Default(0) dynamic perWeekCost,
     @JsonKey(name: 'thresold') @Default(0) int thresold,
     @JsonKey(name: 'seats') @Default(0) int seats,
@@ -50,7 +50,7 @@ class SessionModel with _$SessionModel {
     @JsonKey(name: 'discount_price') @Default('') String discountPrice,
     @JsonKey(name: 'minimum_day_discount') @Default(0) int minimumDayDiscount,
     @JsonKey(name: 'past_days') @Default('') String pastDays,
-    @JsonKey(name: 'session_price') @Default('') String sessionPrice,
+    @JsonKey(name: 'session_price') @Default(0) int sessionPrice,
     @JsonKey(name: 'session_display_price') @Default('') String sessionDisplayPrice,
   }) = _SessionModel;
 

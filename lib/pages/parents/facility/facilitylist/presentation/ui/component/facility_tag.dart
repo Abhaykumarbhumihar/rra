@@ -14,7 +14,7 @@ class FacilityTag extends StatelessWidget {
         borderRadius: BorderRadius.circular(8),
       ),
       child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 8.0, vertical: 8.0),
+        padding: const EdgeInsets.symmetric(horizontal: 2.0, vertical: 8.0),
         child: Center(child: Text(text, style: AppTextStyle.bold(
             context.screenWidth*0.032),)),
       ),

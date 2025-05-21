@@ -22,7 +22,7 @@ extension BottomTabsExtension on List<BottomNavigationBarItem> {
   List<BottomNavigationBarItem> bottomTabs(double width, double height, {String? userType}) {
     List<BottomNavigationBarItem> tabs = [
       BottomNavigationBarItem(
-        label: "Programs",
+        label: userType == "coach"?"My Sessions":"Programs",
         icon: SizedBox(
             width: width * 0.4,
             height: height * 0.0300,

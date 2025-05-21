@@ -32,9 +32,9 @@ _$CampOrderSummaryDataImpl _$$CampOrderSummaryDataImplFromJson(
               .toList() ??
           const [],
       promocode: json['promocode'] as String?,
-      subtotal: (json['subtotal'] as num?)?.toInt() ?? 0,
+      subtotal: json['subtotal'] ?? 0,
       displaySubtotal: json['display_subtotal'] as String? ?? '',
-      discount: json['discount'] as String?,
+      discount: json['discount'],
       displayDiscount: json['display_discount'] as String? ?? '',
       tax: (json['tax'] as num?)?.toInt() ?? 0,
       displayTax: json['display_tax'] as String? ?? '',

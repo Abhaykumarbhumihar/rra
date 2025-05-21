@@ -1,28 +1,14 @@
 import 'package:auto_height_grid_view/auto_height_grid_view.dart';
 import 'package:rra/common/values/values_exports.dart';
 import 'package:rra/common/component/app_text_style.dart';
+import 'package:rra/pages/parents/facility/facilitylist/data/entity/facilities_detail/facilities_detail_model.dart';
+
+import '../../../../facilitylist/data/entity/facility_description/facility_decription_model.dart';
 
 class AminitiesLis extends StatelessWidget {
-   AminitiesLis({super.key});
+  List<AmenityDescription> aminities;
+   AminitiesLis(this.aminities, {super.key});
 
-   final List<Map<String, String>> items = [
-     {
-       "title": "Free parking",
-     },
-     {
-       "title": "Changing room",
-
-     },
-     {
-       "title": "Restroom",
-
-     },
-
-     {
-       "title": "Air-conditioned court",
-
-     },
-   ];
 
   @override
   Widget build(BuildContext context) {
@@ -33,11 +19,11 @@ class AminitiesLis extends StatelessWidget {
       crossAxisCount: 2,
       mainAxisSpacing: 6.0,
       crossAxisSpacing: 1.0,
-      itemCount: items.length, // Use items list length
+      itemCount: aminities.length, // Use items list length
       builder: (context, index) {
-        final item = items[index]; // Get current item
+        final item = aminities[index]; // Get current item
 
-        return Amenities(item['title']!);
+        return Amenities(item.title);
       },
     );;
   }

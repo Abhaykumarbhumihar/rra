@@ -47,34 +47,34 @@ class HolidayCampCalendarView extends StatelessWidget {
                       lastDay: DateTime(2060),
                       calendarStyle: CalendarStyle(
                         todayTextStyle: TextStyle(
-                          fontSize: MediaQuery.of(context).size.width * 0.025,
+                          fontSize: MediaQuery.of(context).size.width * 0.035,
                           color: Colors.white,
                           fontFamily: AppFont.interRegular,
                         ),
                         weekendTextStyle: TextStyle(
-                          fontSize: MediaQuery.of(context).size.width * 0.025,
+                          fontSize: MediaQuery.of(context).size.width * 0.035,
                           color: Colors.white,
                           fontFamily: AppFont.interRegular,
                         ),
                         outsideTextStyle: TextStyle(
-                          fontSize: MediaQuery.of(context).size.width * 0.025,
+                          fontSize: MediaQuery.of(context).size.width * 0.035,
                           color: Colors.white,
                           fontFamily: AppFont.interRegular,
                         ),
                         defaultTextStyle: TextStyle(
-                          fontSize: MediaQuery.of(context).size.width * 0.025,
+                          fontSize: MediaQuery.of(context).size.width * 0.035,
                           color: Colors.white,
                           fontFamily: AppFont.interRegular,
                         ),
                       ),
                       daysOfWeekStyle: DaysOfWeekStyle(
                         weekdayStyle: TextStyle(
-                          fontSize: MediaQuery.of(context).size.width * 0.025,
+                          fontSize: MediaQuery.of(context).size.width * 0.035,
                           color: Colors.white,
                           fontFamily: AppFont.interRegular,
                         ),
                         weekendStyle: TextStyle(
-                          fontSize: MediaQuery.of(context).size.width * 0.025,
+                          fontSize: MediaQuery.of(context).size.width * 0.035,
                           color: Colors.white,
                           fontFamily: AppFont.interRegular,
                         ),
@@ -87,12 +87,12 @@ class HolidayCampCalendarView extends StatelessWidget {
                             DateFormat.yMMM(locale).format(date),
                         formatButtonVisible: false,
                         titleTextStyle: TextStyle(
-                          fontSize: MediaQuery.of(context).size.width * 0.03,
+                          fontSize: MediaQuery.of(context).size.width * 0.035,
                           color: Colors.white,
                           fontFamily: AppFont.interBold,
                         ),
-                        leftChevronIcon: Icon(Icons.chevron_left, color: Colors.white),
-                        rightChevronIcon: Icon(Icons.chevron_right, color: Colors.white),
+                        leftChevronIcon: Icon(Icons.chevron_left, color: Colors.white,size: 16,),
+                        rightChevronIcon: Icon(Icons.chevron_right, color: Colors.white,size: 16,),
                         decoration: BoxDecoration(color: Colors.transparent),
                       ),
                       shouldFillViewport: true,
@@ -143,7 +143,7 @@ class HolidayCampCalendarView extends StatelessWidget {
                                         child: Text(
                                           '${day.day}',
                                           style: TextStyle(
-                                            fontSize: MediaQuery.of(context).size.width * 0.025,
+                                            fontSize: MediaQuery.of(context).size.width * 0.035,
                                             color: Colors.white,
                                             fontFamily: AppFont.interMedium,
                                           ),

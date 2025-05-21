@@ -20,7 +20,9 @@ class DashboardResponse with _$DashboardResponse {
 class DashboardData with _$DashboardData {
   const factory DashboardData({
     @JsonKey(name: 'ordercount') @Default(0) int orderCount,
+    @JsonKey(name: 'campOrderCount') @Default(0) int campOrderCount,
     @JsonKey(name: 'sessioncount') @Default(0) int sessionCount,
+    @JsonKey(name: 'facilityOrderCount') @Default(0) int facilityOrderCount,
     @JsonKey(name: 'user') @Default(DashboardUser()) DashboardUser user,
   }) = _DashboardData;
 

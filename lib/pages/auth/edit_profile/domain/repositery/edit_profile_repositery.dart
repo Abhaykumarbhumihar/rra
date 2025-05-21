@@ -8,4 +8,5 @@ import '../../../otpverification/data/entity/otp_verification_model.dart';
 
 abstract class EditProfileRepositery{
   Future<Either<Failure,OtpVerificationModel>> updateProfile(Map<String, String> userData);
+  Future<Either<Failure,dynamic>> deleteUserProfile(Map<String, String> userData);
 }

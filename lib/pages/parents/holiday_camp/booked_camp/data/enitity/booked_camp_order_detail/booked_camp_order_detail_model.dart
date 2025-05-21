@@ -29,9 +29,9 @@ class BookedCampOrderDetailData with _$BookedCampOrderDetailData {
     @Default(null) dynamic promocode, // Can be null or potentially an object
     @Default(0) int subtotal,
     @JsonKey(name: 'display_subtotal') @Default('') String displaySubtotal,
-    @Default(null) dynamic discount, // Can be null or potentially an object
+    @Default('') dynamic discount, // Can be null or potentially an object
     @JsonKey(name: 'display_discount') @Default('') String displayDiscount,
-    @Default(0) int tax,
+    @Default('') String tax,
     @JsonKey(name: 'display_tax') @Default('') String displayTax,
     @Default('') String total,
     @JsonKey(name: 'display_total') @Default('') String displayTotal,

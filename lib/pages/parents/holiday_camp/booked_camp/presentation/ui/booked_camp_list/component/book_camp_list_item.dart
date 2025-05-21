@@ -39,21 +39,21 @@ class BookCampListItem extends StatelessWidget {
                     label: "Order:",
                     value: " #CMP_DRRAU_${myOrder.id}",
                   ),
-                  CommonSmallElevatedButtonActivePending(
-
-                    padding: EdgeInsets.symmetric(
-                        horizontal: 20.0, vertical: 6.0),
-
-                    isActive: myOrder.status.toString(),
-
-                    label:myOrder.status.toString()=="1"? "active":"pending",
-                      color:myOrder.status.toString()=="1"?Colors.blue:Colors.orangeAccent,
-                    onPressed: () {
-
-
-                    },
-                   // color: AppColor.appButtonColor,
-                  ),
+                  // CommonSmallElevatedButtonActivePending(
+                  //
+                  //   padding: EdgeInsets.symmetric(
+                  //       horizontal: 20.0, vertical: 6.0),
+                  //
+                  //   isActive: myOrder.status.toString(),
+                  //
+                  //   label:myOrder.status.toString()=="1"? "active":"pending",
+                  //     color:myOrder.status.toString()=="1"?Colors.blue:Colors.orangeAccent,
+                  //   onPressed: () {
+                  //
+                  //
+                  //   },
+                  //  // color: AppColor.appButtonColor,
+                  // ),
                 ],
               ),
               SizedBox(
@@ -61,20 +61,20 @@ class BookCampListItem extends StatelessWidget {
               ),
               InfoRowRichText(
                 label: "Camp:",
-                value: "${myOrder.camps.name}",
+                value: " ${myOrder.camps.name}",
               ),
               SizedBox(
                 height: 6.0,
               ),
               InfoRowRichText(
-                label: "Child:",
+                label: "Child:  ",
                 value: myOrder.player.map((p) => p.childName).join(', '),
               ),
               SizedBox(
                 height: 6.0,
               ),
               InfoRowRichText(
-                label: "Date:",
+                label: "Date: ",
                 value: " ${myOrder.bookingDates} ",
               ),
               SizedBox(
@@ -89,38 +89,38 @@ class BookCampListItem extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.end,
                 children: <Widget>[
 
-                       CommonSmallElevatedButton(
-                    padding: EdgeInsets.symmetric(
-                        horizontal: 20.0, vertical: 6.0),
-                   // label:myOrder.status.toString()=="1"? "active":"pending",
-                    label:"Cancel",
-                    onPressed: () {
-                      if(myOrder.status=="success"){
-                        // ConfirmationDialog.show(
-                        //   context: context,
-                        //   title: 'Cancel Order!',
-                        //   description:
-                        //   'Are you sure you want to cancel this order?',
-                        //   confirmButtonText: 'Yes',
-                        //   onCancel: () {
-                        //     print('Cancelled');
-                        //   },
-                        //   onConfirm: () async {
-                        //     BlocProvider.of<ParentOrderBloc>(context).add(
-                        //         CancelOrderEvent({
-                        //           "order_id": myOrder.id.toString()
-                        //         }));
-                        //   },
-                        // ).then((_) {
-                        //   // This ensures the overlay is removed if dialog is dismissed by tapping outside
-                        // });
-                      }else{
-                        context.showCustomSnackbar("You have cancelled this order.");
-                      }
-
-                    },
-                    color: AppColor.appButtonColor,
-                  ),
+                  //      CommonSmallElevatedButton(
+                  //   padding: EdgeInsets.symmetric(
+                  //       horizontal: 20.0, vertical: 6.0),
+                  //  // label:myOrder.status.toString()=="1"? "active":"pending",
+                  //   label:"Cancel",
+                  //   onPressed: () {
+                  //     if(myOrder.status=="success"){
+                  //       // ConfirmationDialog.show(
+                  //       //   context: context,
+                  //       //   title: 'Cancel Order!',
+                  //       //   description:
+                  //       //   'Are you sure you want to cancel this order?',
+                  //       //   confirmButtonText: 'Yes',
+                  //       //   onCancel: () {
+                  //       //     print('Cancelled');
+                  //       //   },
+                  //       //   onConfirm: () async {
+                  //       //     BlocProvider.of<ParentOrderBloc>(context).add(
+                  //       //         CancelOrderEvent({
+                  //       //           "order_id": myOrder.id.toString()
+                  //       //         }));
+                  //       //   },
+                  //       // ).then((_) {
+                  //       //   // This ensures the overlay is removed if dialog is dismissed by tapping outside
+                  //       // });
+                  //     }else{
+                  //       context.showCustomSnackbar("You have cancelled this order.");
+                  //     }
+                  //
+                  //   },
+                  //   color: AppColor.appButtonColor,
+                  // ),
 
                   SizedBox(
                     width: 8.0,
@@ -140,7 +140,7 @@ class BookCampListItem extends StatelessWidget {
                       Navigator.pushNamed(
                           context, AppRoutes.BOOK_CAMP_ORDER_DETAIL);
                     },
-                    color: AppColor.appWhiteColor.withOpacity(0.2),
+                    color: Colors.blue,
                   ),
                   SizedBox(
                     height: 2.0,

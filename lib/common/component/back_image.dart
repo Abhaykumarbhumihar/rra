@@ -18,3 +18,23 @@ class AssetImageWidget extends StatelessWidget {
     );
   }
 }
+
+class AssetImageWidget1 extends StatelessWidget {
+  const AssetImageWidget1({
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return SafeArea(
+      child: Center(
+        child: Image.asset(
+          "assets/images/back_icon.png",
+          width: 45,
+          height: 45,
+          color: Colors.white,
+        ),
+      ),
+    );
+  }
+}

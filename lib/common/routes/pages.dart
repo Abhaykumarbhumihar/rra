@@ -6,6 +6,14 @@ import '../../pages/coach/manage_team/presentation/bloc/manage_team_bloc.dart';
 import '../../pages/coach/manage_team/presentation/ui/manage_team_detail.dart';
 import '../../pages/coach/view_session/presentation/bloc/view_session_bloc.dart';
 import '../../pages/parents/document/add_view_document/presentation/ui/document_detail.dart';
+import '../../pages/parents/facility/bulk_coroporate/presentation/bloc/bulk_corporate_bloc.dart';
+import '../../pages/parents/facility/bulk_coroporate/presentation/ui/bulk_corporate_form_page.dart';
+import '../../pages/parents/facility/facility_calendar/presentation/bloc/facilities_calendar_bloc.dart';
+import '../../pages/parents/facility/facility_calendar/presentation/ui/facilities_calendar_page.dart';
+import '../../pages/parents/facility/facilitylist/presentation/bloc/facilities_list_bloc.dart';
+import '../../pages/parents/facility/view_facilities/presentation/bloc/booked_facilities_bloc.dart';
+import '../../pages/parents/facility/view_facilities/presentation/presentation/ui/booked_facilities_detail/booked_facilities_detail_page.dart';
+import '../../pages/parents/facility/view_facilities/presentation/presentation/ui/booked_facility_list/booked_facility_list_page.dart';
 import '../../pages/parents/holiday_camp/booked_camp/presentation/bloc/booked_camp_bloc.dart';
 import '../../pages/parents/holiday_camp/booked_camp/presentation/ui/booked_camp_detail/booked_camp_detail.dart';
 import '../../pages/parents/holiday_camp/booked_camp/presentation/ui/booked_camp_list/booked_camp_list_page.dart';
@@ -31,6 +39,24 @@ class AppPages {
         route: AppRoutes.ACADEMICLISTPAGE,
         page: const AcademicListPage(),
         bloc: BlocProvider(create: (_) => AcademicBloc()),
+      ),
+      PageEntitiy(
+        route: AppRoutes.FACILITY_BULK_CORPORATE,
+        page:  BulkCorporateFormPage(),
+        bloc: BlocProvider(create: (_) => BulkCorporateBloc()),
+      ),
+
+
+      PageEntitiy(
+        route: AppRoutes.FACILITY_BOOKED_LIST,
+        page:  BookedFacilityListPage(),
+        bloc: BlocProvider(create: (_) => BookedFacilitiesBloc()),
+      ),
+
+      PageEntitiy(
+        route: AppRoutes.FACILITY_BOOKED_DETAIL,
+        page:  BookedFacilitiesDetailPage(),
+        bloc: BlocProvider(create: (_) => BookedFacilitiesBloc()),
       ),
 
       PageEntitiy(
@@ -89,14 +115,23 @@ class AppPages {
       PageEntitiy(
           route: AppRoutes.HOLIDAYCAMP,
           page: HolidayCampp(),
-          bloc: BlocProvider(create: (_) => CampBloc())),
+          bloc: BlocProvider(create: (_) => CampBloc())
+      ),
       PageEntitiy(
         route: AppRoutes.FACILITYLIST,
         page: FacilityList(),
-      ),
+    bloc: BlocProvider(create: (_) => FacilitiesListBloc())
+    ),
+
       PageEntitiy(
         route: AppRoutes.FACILITYDETAIL,
         page: FacilityDetailPage(),
+          bloc: BlocProvider(create: (_) => FacilitiesListBloc())
+      ),
+      PageEntitiy(
+        route: AppRoutes.FACILITYCALENDARPAGE,
+        page: FacilitiesCalendarPage(),
+          bloc: BlocProvider(create: (_) => FacilitiesCalendarBloc())
       ),
       PageEntitiy(
         route: AppRoutes.FACILITADDTOCARTPAGE,

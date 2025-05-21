@@ -23,6 +23,7 @@ mixin _$EditprofileState {
   String get phoneNo => throw _privateConstructorUsedError;
   bool get isLoading => throw _privateConstructorUsedError;
   bool get isSuccess => throw _privateConstructorUsedError;
+  bool get accountdeleted => throw _privateConstructorUsedError;
   String get errorMessage => throw _privateConstructorUsedError;
   String get successMessage => throw _privateConstructorUsedError;
   File? get profilePhoto => throw _privateConstructorUsedError;
@@ -50,6 +51,7 @@ abstract class $EditprofileStateCopyWith<$Res> {
       String phoneNo,
       bool isLoading,
       bool isSuccess,
+      bool accountdeleted,
       String errorMessage,
       String successMessage,
       File? profilePhoto,
@@ -81,6 +83,7 @@ class _$EditprofileStateCopyWithImpl<$Res, $Val extends EditprofileState>
     Object? phoneNo = null,
     Object? isLoading = null,
     Object? isSuccess = null,
+    Object? accountdeleted = null,
     Object? errorMessage = null,
     Object? successMessage = null,
     Object? profilePhoto = freezed,
@@ -115,6 +118,10 @@ class _$EditprofileStateCopyWithImpl<$Res, $Val extends EditprofileState>
       isSuccess: null == isSuccess
           ? _value.isSuccess
           : isSuccess // ignore: cast_nullable_to_non_nullable
+              as bool,
+      accountdeleted: null == accountdeleted
+          ? _value.accountdeleted
+          : accountdeleted // ignore: cast_nullable_to_non_nullable
               as bool,
       errorMessage: null == errorMessage
           ? _value.errorMessage
@@ -166,6 +173,7 @@ abstract class _$$EditprofileStateImplCopyWith<$Res>
       String phoneNo,
       bool isLoading,
       bool isSuccess,
+      bool accountdeleted,
       String errorMessage,
       String successMessage,
       File? profilePhoto,
@@ -196,6 +204,7 @@ class __$$EditprofileStateImplCopyWithImpl<$Res>
     Object? phoneNo = null,
     Object? isLoading = null,
     Object? isSuccess = null,
+    Object? accountdeleted = null,
     Object? errorMessage = null,
     Object? successMessage = null,
     Object? profilePhoto = freezed,
@@ -230,6 +239,10 @@ class __$$EditprofileStateImplCopyWithImpl<$Res>
       isSuccess: null == isSuccess
           ? _value.isSuccess
           : isSuccess // ignore: cast_nullable_to_non_nullable
+              as bool,
+      accountdeleted: null == accountdeleted
+          ? _value.accountdeleted
+          : accountdeleted // ignore: cast_nullable_to_non_nullable
               as bool,
       errorMessage: null == errorMessage
           ? _value.errorMessage
@@ -266,6 +279,7 @@ class _$EditprofileStateImpl implements _EditprofileState {
       this.phoneNo = '',
       this.isLoading = false,
       this.isSuccess = false,
+      this.accountdeleted = false,
       this.errorMessage = '',
       this.successMessage = '',
       this.profilePhoto,
@@ -295,6 +309,9 @@ class _$EditprofileStateImpl implements _EditprofileState {
   final bool isSuccess;
   @override
   @JsonKey()
+  final bool accountdeleted;
+  @override
+  @JsonKey()
   final String errorMessage;
   @override
   @JsonKey()
@@ -310,7 +327,7 @@ class _$EditprofileStateImpl implements _EditprofileState {
 
   @override
   String toString() {
-    return 'EditprofileState(firstName: $firstName, lastName: $lastName, email: $email, gender: $gender, phoneNo: $phoneNo, isLoading: $isLoading, isSuccess: $isSuccess, errorMessage: $errorMessage, successMessage: $successMessage, profilePhoto: $profilePhoto, userdata: $userdata, isServerError: $isServerError)';
+    return 'EditprofileState(firstName: $firstName, lastName: $lastName, email: $email, gender: $gender, phoneNo: $phoneNo, isLoading: $isLoading, isSuccess: $isSuccess, accountdeleted: $accountdeleted, errorMessage: $errorMessage, successMessage: $successMessage, profilePhoto: $profilePhoto, userdata: $userdata, isServerError: $isServerError)';
   }
 
   @override
@@ -329,6 +346,8 @@ class _$EditprofileStateImpl implements _EditprofileState {
                 other.isLoading == isLoading) &&
             (identical(other.isSuccess, isSuccess) ||
                 other.isSuccess == isSuccess) &&
+            (identical(other.accountdeleted, accountdeleted) ||
+                other.accountdeleted == accountdeleted) &&
             (identical(other.errorMessage, errorMessage) ||
                 other.errorMessage == errorMessage) &&
             (identical(other.successMessage, successMessage) ||
@@ -351,6 +370,7 @@ class _$EditprofileStateImpl implements _EditprofileState {
       phoneNo,
       isLoading,
       isSuccess,
+      accountdeleted,
       errorMessage,
       successMessage,
       profilePhoto,
@@ -376,6 +396,7 @@ abstract class _EditprofileState implements EditprofileState {
       final String phoneNo,
       final bool isLoading,
       final bool isSuccess,
+      final bool accountdeleted,
       final String errorMessage,
       final String successMessage,
       final File? profilePhoto,
@@ -396,6 +417,8 @@ abstract class _EditprofileState implements EditprofileState {
   bool get isLoading;
   @override
   bool get isSuccess;
+  @override
+  bool get accountdeleted;
   @override
   String get errorMessage;
   @override

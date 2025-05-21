@@ -3,6 +3,7 @@ import 'dart:io';
 import 'package:bloc/bloc.dart';
 import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:equatable/equatable.dart';
+import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:rra/common/network/connectivity_extension.dart';
 
 
@@ -82,15 +83,15 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
         return;
       }
 
-      if (!RegExp(
-              r'^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{6,}$')
-          .hasMatch(state.password.trim())) {
-        emit(state.copyWith(
-            error:
-                'Password must be at least 6 characters long and include at least one uppercase letter, one lowercase letter, one number, and one special character.',
-            isLoginApiError: false));
-        return;
-      }
+      // if (!RegExp(
+      //         r'^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{6,}$')
+      //     .hasMatch(state.password.trim())) {
+      //   emit(state.copyWith(
+      //       error:
+      //           'Password must be at least 6 characters long and include at least one uppercase letter, one lowercase letter, one number, and one special character.',
+      //       isLoginApiError: false));
+      //   return;
+      // }
       // Validate email format
       if (!RegExp(r'^[^@]+@[^@]+\.[^@]+')
           .hasMatch(state.email.toString().trim())) {
@@ -110,13 +111,18 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
         ));
         return;
       }
+      FirebaseMessaging.instance.getToken().then((token) {
+        print('This is Token: ' '${token}');
+      });
+
+      String? token = await FirebaseMessaging.instance.getToken();
 
       var academyId = await getIt<SharedPrefs>().getString("selected_academyid");
       Map<String, dynamic> userRegistrationMap = {
         'password': state.password ?? "",
         'email': state.email.toString().toLowerCase().trim(),
         'academy_id': academyId,
-        'fcm_token':"sdfdsfsdf"
+        'fcm_token':"hhh"
       };
       emit(state.copyWith(
           isLoading: true,

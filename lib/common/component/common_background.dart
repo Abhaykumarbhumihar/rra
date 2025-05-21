@@ -22,4 +22,12 @@ class CommonBackground {
       ],
     );
   }
+
+  static BackButtonImage11(BuildContext context){
+    return Row(
+      children: <Widget>[
+        AssetImageWidget1()
+      ],
+    );
+  }
 }

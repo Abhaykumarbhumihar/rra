@@ -34,7 +34,9 @@ class HolidayCampp extends StatelessWidget {
 
           child: BlocListener<CampBloc, CampState>(
             listener: (context, state) {
-              // TODO: implement listener
+            if(state.isLoading==false && state.campListResponse.data.camps.isEmpty){
+              context.showCustomSnackbar("No Camps Found");
+            }
             },
             child: BlocBuilder<CampBloc, CampState>(
               builder: (context, state) {
@@ -45,7 +47,6 @@ class HolidayCampp extends StatelessWidget {
                         CustomHeader(title: "Holiday Camps", onBackPress: () {
                           Navigator.pop(context);
                         },),
-                        SizedBox(height: 10,),
                         Flexible(
                           child: ListView.builder(
 

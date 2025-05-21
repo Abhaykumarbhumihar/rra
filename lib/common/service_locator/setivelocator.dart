@@ -15,6 +15,15 @@ import '../../pages/coach/manage_team/domain/usecase/manage_team_usecase.dart';
 import '../../pages/coach/view_session/data/repo_impl/view_session_repo_impl.dart';
 import '../../pages/coach/view_session/domain/repositery/view_session_repositey.dart';
 import '../../pages/coach/view_session/domain/usecase/view_session_Usease.dart';
+import '../../pages/parents/facility/facility_calendar/data/repo_impl/facilities_calendar_repositery_impl.dart';
+import '../../pages/parents/facility/facility_calendar/domain/repositery/facilities_calendar_repositery.dart';
+import '../../pages/parents/facility/facility_calendar/domain/usecase/facilities_calendar_usecase.dart';
+import '../../pages/parents/facility/facilitylist/data/repo_impl/facilities_repositery_impl.dart';
+import '../../pages/parents/facility/facilitylist/domain/repositery/facilities_repositery.dart';
+import '../../pages/parents/facility/facilitylist/domain/usecase/facilities_usecase.dart';
+import '../../pages/parents/facility/view_facilities/data/repo_impl/view_facilities_repositery_impl.dart';
+import '../../pages/parents/facility/view_facilities/domain/repositery/view_facilities_repositery.dart';
+import '../../pages/parents/facility/view_facilities/domain/usecase/view_facilities_usecase.dart';
 import '../../pages/parents/holiday_camp/booked_camp/data/repo_impl/booked_camp_impl_repo.dart';
 import '../../pages/parents/holiday_camp/booked_camp/domain/repositery/booked_camp_repositery.dart';
 import '../../pages/parents/holiday_camp/booked_camp/domain/usecase/booked_camp_usecase.dart';
@@ -174,5 +183,16 @@ Future<void> serviceLocator() async {
   /*campDetail*/
   getIt.registerLazySingleton<BookedCampRepositery>(() => BookedCampImplRepo());
   getIt.registerLazySingleton<BookedCampUsecase>(() => BookedCampUsecase(getIt<BookedCampRepositery>()));
+ /*Facilities*/
+  getIt.registerLazySingleton<FacilitiesRepositery>(() => FacilitiesRepositoryImpl());
+  getIt.registerLazySingleton<FacilitiesUsecase>(() => FacilitiesUsecase(getIt<FacilitiesRepositery>()));
+  /*Facilities calendar*/
+  getIt.registerLazySingleton<FacilitiesCalendarRepositery>(() => FacilitiesCalendarRepositeryImpl());
+  getIt.registerLazySingleton<FacilitiesCalendarUsecase>(() => FacilitiesCalendarUsecase(getIt<FacilitiesCalendarRepositery>()));
+
+
+  /*Booked Facilities*/
+  getIt.registerLazySingleton<ViewFacilitiesRepositery>(() => ViewFacilitiesRepositeryImpl());
+  getIt.registerLazySingleton<ViewFacilitiesUsecase>(() => ViewFacilitiesUsecase(getIt<ViewFacilitiesRepositery>()));
 
 }

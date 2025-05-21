@@ -35,7 +35,7 @@ class TimeAddedView extends StatelessWidget {
 
             // Remove Expanded here, it's causing layout issues.
             SizedBox(
-              height: context.screenHeight * 0.14, // Adjust height based on content
+              height: context.screenHeight * 0.11, // Adjust height based on content
               child:state.isTimeAddedLoading? AvailablityShimmer(): ListView.builder(
                 scrollDirection: Axis.horizontal,
                 shrinkWrap: true,

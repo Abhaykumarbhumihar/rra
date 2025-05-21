@@ -83,8 +83,6 @@ _$CampDetailImpl _$$CampDetailImplFromJson(Map<String, dynamic> json) =>
       fromDate: json['from_date'] as String? ?? '',
       toDate: json['to_date'] as String? ?? '',
       daysExcluded: json['days_excluded'] as String? ?? '',
-      perdaysCost: (json['perdays_cost'] as num?)?.toDouble() ?? 0.0,
-      perWeekCost: (json['per_week_cost'] as num?)?.toDouble() ?? 0.0,
       thresold: (json['thresold'] as num?)?.toInt() ?? 0,
       seats: (json['seats'] as num?)?.toInt() ?? 0,
       isLocked: json['is_locked'] as String? ?? '',
@@ -97,6 +95,8 @@ _$CampDetailImpl _$$CampDetailImplFromJson(Map<String, dynamic> json) =>
       discountPrice: json['discount_price'] as String? ?? '0',
       minimumDayDiscount: (json['minimum_day_discount'] as num?)?.toInt() ?? 0,
       pastDays: json['past_days'] as String? ?? '[]',
+      perdaysCost: json['perdays_cost'] as String? ?? '',
+      perWeekCost: json['per_week_cost'] as String? ?? '',
     );
 
 Map<String, dynamic> _$$CampDetailImplToJson(_$CampDetailImpl instance) =>
@@ -106,8 +106,6 @@ Map<String, dynamic> _$$CampDetailImplToJson(_$CampDetailImpl instance) =>
       'from_date': instance.fromDate,
       'to_date': instance.toDate,
       'days_excluded': instance.daysExcluded,
-      'perdays_cost': instance.perdaysCost,
-      'per_week_cost': instance.perWeekCost,
       'thresold': instance.thresold,
       'seats': instance.seats,
       'is_locked': instance.isLocked,
@@ -120,4 +118,6 @@ Map<String, dynamic> _$$CampDetailImplToJson(_$CampDetailImpl instance) =>
       'discount_price': instance.discountPrice,
       'minimum_day_discount': instance.minimumDayDiscount,
       'past_days': instance.pastDays,
+      'perdays_cost': instance.perdaysCost,
+      'per_week_cost': instance.perWeekCost,
     };

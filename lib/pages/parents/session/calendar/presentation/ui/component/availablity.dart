@@ -62,7 +62,7 @@ class Availablity extends StatelessWidget {
               ),
               state.isAvailablityLoading?Expanded(child: AvailablityShimmer()):SizedBox(
                 width: double.infinity,
-                height: context.screenHeight*0.19,
+                height: context.screenHeight*0.14,
                 child: ListView.builder(
                     shrinkWrap: true,
                     padding: EdgeInsets.zero,

@@ -71,6 +71,19 @@ class CoachPlayerReportDetailPage extends StatelessWidget {
                               _handleAddScore(context,data.addScore!,data),
                         );
                       }),
+                  state.reportDetailModel.data.isWebviewData
+                      ? CustomButtonBlue(
+
+                    onPressed: (){
+                      Map<String, ReportDetail> arguments = {
+                        "childReportData": state.reportDetailModel,
+
+                      };
+                      Navigator.pushNamed(context, AppRoutes.COACHPLAYERREPOORTWEBVIEWPAGE,arguments: arguments);
+                    },
+                    text: 'View Report',
+                  )
+                      : SizedBox()
                   //  _buildScoreCards(reportData,context),
                 ],
               ),

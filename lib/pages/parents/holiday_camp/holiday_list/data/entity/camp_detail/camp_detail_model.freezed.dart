@@ -923,10 +923,6 @@ mixin _$CampDetail {
   String get toDate => throw _privateConstructorUsedError;
   @JsonKey(name: 'days_excluded')
   String get daysExcluded => throw _privateConstructorUsedError;
-  @JsonKey(name: 'perdays_cost')
-  double get perdaysCost => throw _privateConstructorUsedError;
-  @JsonKey(name: 'per_week_cost')
-  double get perWeekCost => throw _privateConstructorUsedError;
   @JsonKey(name: 'thresold')
   int get thresold => throw _privateConstructorUsedError;
   @JsonKey(name: 'seats')
@@ -951,6 +947,12 @@ mixin _$CampDetail {
   int get minimumDayDiscount => throw _privateConstructorUsedError;
   @JsonKey(name: 'past_days')
   String get pastDays => throw _privateConstructorUsedError;
+  @StringToDoubleConverter()
+  @JsonKey(name: 'perdays_cost')
+  String get perdaysCost => throw _privateConstructorUsedError;
+  @StringToDoubleConverter()
+  @JsonKey(name: 'per_week_cost')
+  String get perWeekCost => throw _privateConstructorUsedError;
 
   /// Serializes this CampDetail to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -974,8 +976,6 @@ abstract class $CampDetailCopyWith<$Res> {
       @JsonKey(name: 'from_date') String fromDate,
       @JsonKey(name: 'to_date') String toDate,
       @JsonKey(name: 'days_excluded') String daysExcluded,
-      @JsonKey(name: 'perdays_cost') double perdaysCost,
-      @JsonKey(name: 'per_week_cost') double perWeekCost,
       @JsonKey(name: 'thresold') int thresold,
       @JsonKey(name: 'seats') int seats,
       @JsonKey(name: 'is_locked') String isLocked,
@@ -987,7 +987,13 @@ abstract class $CampDetailCopyWith<$Res> {
       @JsonKey(name: 'updated_at') String updatedAt,
       @JsonKey(name: 'discount_price') String discountPrice,
       @JsonKey(name: 'minimum_day_discount') int minimumDayDiscount,
-      @JsonKey(name: 'past_days') String pastDays});
+      @JsonKey(name: 'past_days') String pastDays,
+      @StringToDoubleConverter()
+      @JsonKey(name: 'perdays_cost')
+      String perdaysCost,
+      @StringToDoubleConverter()
+      @JsonKey(name: 'per_week_cost')
+      String perWeekCost});
 }
 
 /// @nodoc
@@ -1010,8 +1016,6 @@ class _$CampDetailCopyWithImpl<$Res, $Val extends CampDetail>
     Object? fromDate = null,
     Object? toDate = null,
     Object? daysExcluded = null,
-    Object? perdaysCost = null,
-    Object? perWeekCost = null,
     Object? thresold = null,
     Object? seats = null,
     Object? isLocked = null,
@@ -1024,6 +1028,8 @@ class _$CampDetailCopyWithImpl<$Res, $Val extends CampDetail>
     Object? discountPrice = null,
     Object? minimumDayDiscount = null,
     Object? pastDays = null,
+    Object? perdaysCost = null,
+    Object? perWeekCost = null,
   }) {
     return _then(_value.copyWith(
       id: null == id
@@ -1046,14 +1052,6 @@ class _$CampDetailCopyWithImpl<$Res, $Val extends CampDetail>
           ? _value.daysExcluded
           : daysExcluded // ignore: cast_nullable_to_non_nullable
               as String,
-      perdaysCost: null == perdaysCost
-          ? _value.perdaysCost
-          : perdaysCost // ignore: cast_nullable_to_non_nullable
-              as double,
-      perWeekCost: null == perWeekCost
-          ? _value.perWeekCost
-          : perWeekCost // ignore: cast_nullable_to_non_nullable
-              as double,
       thresold: null == thresold
           ? _value.thresold
           : thresold // ignore: cast_nullable_to_non_nullable
@@ -1102,6 +1100,14 @@ class _$CampDetailCopyWithImpl<$Res, $Val extends CampDetail>
           ? _value.pastDays
           : pastDays // ignore: cast_nullable_to_non_nullable
               as String,
+      perdaysCost: null == perdaysCost
+          ? _value.perdaysCost
+          : perdaysCost // ignore: cast_nullable_to_non_nullable
+              as String,
+      perWeekCost: null == perWeekCost
+          ? _value.perWeekCost
+          : perWeekCost // ignore: cast_nullable_to_non_nullable
+              as String,
     ) as $Val);
   }
 }
@@ -1120,8 +1126,6 @@ abstract class _$$CampDetailImplCopyWith<$Res>
       @JsonKey(name: 'from_date') String fromDate,
       @JsonKey(name: 'to_date') String toDate,
       @JsonKey(name: 'days_excluded') String daysExcluded,
-      @JsonKey(name: 'perdays_cost') double perdaysCost,
-      @JsonKey(name: 'per_week_cost') double perWeekCost,
       @JsonKey(name: 'thresold') int thresold,
       @JsonKey(name: 'seats') int seats,
       @JsonKey(name: 'is_locked') String isLocked,
@@ -1133,7 +1137,13 @@ abstract class _$$CampDetailImplCopyWith<$Res>
       @JsonKey(name: 'updated_at') String updatedAt,
       @JsonKey(name: 'discount_price') String discountPrice,
       @JsonKey(name: 'minimum_day_discount') int minimumDayDiscount,
-      @JsonKey(name: 'past_days') String pastDays});
+      @JsonKey(name: 'past_days') String pastDays,
+      @StringToDoubleConverter()
+      @JsonKey(name: 'perdays_cost')
+      String perdaysCost,
+      @StringToDoubleConverter()
+      @JsonKey(name: 'per_week_cost')
+      String perWeekCost});
 }
 
 /// @nodoc
@@ -1154,8 +1164,6 @@ class __$$CampDetailImplCopyWithImpl<$Res>
     Object? fromDate = null,
     Object? toDate = null,
     Object? daysExcluded = null,
-    Object? perdaysCost = null,
-    Object? perWeekCost = null,
     Object? thresold = null,
     Object? seats = null,
     Object? isLocked = null,
@@ -1168,6 +1176,8 @@ class __$$CampDetailImplCopyWithImpl<$Res>
     Object? discountPrice = null,
     Object? minimumDayDiscount = null,
     Object? pastDays = null,
+    Object? perdaysCost = null,
+    Object? perWeekCost = null,
   }) {
     return _then(_$CampDetailImpl(
       id: null == id
@@ -1190,14 +1200,6 @@ class __$$CampDetailImplCopyWithImpl<$Res>
           ? _value.daysExcluded
           : daysExcluded // ignore: cast_nullable_to_non_nullable
               as String,
-      perdaysCost: null == perdaysCost
-          ? _value.perdaysCost
-          : perdaysCost // ignore: cast_nullable_to_non_nullable
-              as double,
-      perWeekCost: null == perWeekCost
-          ? _value.perWeekCost
-          : perWeekCost // ignore: cast_nullable_to_non_nullable
-              as double,
       thresold: null == thresold
           ? _value.thresold
           : thresold // ignore: cast_nullable_to_non_nullable
@@ -1246,6 +1248,14 @@ class __$$CampDetailImplCopyWithImpl<$Res>
           ? _value.pastDays
           : pastDays // ignore: cast_nullable_to_non_nullable
               as String,
+      perdaysCost: null == perdaysCost
+          ? _value.perdaysCost
+          : perdaysCost // ignore: cast_nullable_to_non_nullable
+              as String,
+      perWeekCost: null == perWeekCost
+          ? _value.perWeekCost
+          : perWeekCost // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
   }
 }
@@ -1259,8 +1269,6 @@ class _$CampDetailImpl implements _CampDetail {
       @JsonKey(name: 'from_date') this.fromDate = '',
       @JsonKey(name: 'to_date') this.toDate = '',
       @JsonKey(name: 'days_excluded') this.daysExcluded = '',
-      @JsonKey(name: 'perdays_cost') this.perdaysCost = 0.0,
-      @JsonKey(name: 'per_week_cost') this.perWeekCost = 0.0,
       @JsonKey(name: 'thresold') this.thresold = 0,
       @JsonKey(name: 'seats') this.seats = 0,
       @JsonKey(name: 'is_locked') this.isLocked = '',
@@ -1272,7 +1280,13 @@ class _$CampDetailImpl implements _CampDetail {
       @JsonKey(name: 'updated_at') this.updatedAt = '',
       @JsonKey(name: 'discount_price') this.discountPrice = '0',
       @JsonKey(name: 'minimum_day_discount') this.minimumDayDiscount = 0,
-      @JsonKey(name: 'past_days') this.pastDays = '[]'});
+      @JsonKey(name: 'past_days') this.pastDays = '[]',
+      @StringToDoubleConverter()
+      @JsonKey(name: 'perdays_cost')
+      this.perdaysCost = '',
+      @StringToDoubleConverter()
+      @JsonKey(name: 'per_week_cost')
+      this.perWeekCost = ''});
 
   factory _$CampDetailImpl.fromJson(Map<String, dynamic> json) =>
       _$$CampDetailImplFromJson(json);
@@ -1292,12 +1306,6 @@ class _$CampDetailImpl implements _CampDetail {
   @override
   @JsonKey(name: 'days_excluded')
   final String daysExcluded;
-  @override
-  @JsonKey(name: 'perdays_cost')
-  final double perdaysCost;
-  @override
-  @JsonKey(name: 'per_week_cost')
-  final double perWeekCost;
   @override
   @JsonKey(name: 'thresold')
   final int thresold;
@@ -1334,10 +1342,18 @@ class _$CampDetailImpl implements _CampDetail {
   @override
   @JsonKey(name: 'past_days')
   final String pastDays;
+  @override
+  @StringToDoubleConverter()
+  @JsonKey(name: 'perdays_cost')
+  final String perdaysCost;
+  @override
+  @StringToDoubleConverter()
+  @JsonKey(name: 'per_week_cost')
+  final String perWeekCost;
 
   @override
   String toString() {
-    return 'CampDetail(id: $id, campId: $campId, fromDate: $fromDate, toDate: $toDate, daysExcluded: $daysExcluded, perdaysCost: $perdaysCost, perWeekCost: $perWeekCost, thresold: $thresold, seats: $seats, isLocked: $isLocked, status: $status, thresholdMail: $thresholdMail, createdAt: $createdAt, fromTime: $fromTime, toTime: $toTime, updatedAt: $updatedAt, discountPrice: $discountPrice, minimumDayDiscount: $minimumDayDiscount, pastDays: $pastDays)';
+    return 'CampDetail(id: $id, campId: $campId, fromDate: $fromDate, toDate: $toDate, daysExcluded: $daysExcluded, thresold: $thresold, seats: $seats, isLocked: $isLocked, status: $status, thresholdMail: $thresholdMail, createdAt: $createdAt, fromTime: $fromTime, toTime: $toTime, updatedAt: $updatedAt, discountPrice: $discountPrice, minimumDayDiscount: $minimumDayDiscount, pastDays: $pastDays, perdaysCost: $perdaysCost, perWeekCost: $perWeekCost)';
   }
 
   @override
@@ -1352,10 +1368,6 @@ class _$CampDetailImpl implements _CampDetail {
             (identical(other.toDate, toDate) || other.toDate == toDate) &&
             (identical(other.daysExcluded, daysExcluded) ||
                 other.daysExcluded == daysExcluded) &&
-            (identical(other.perdaysCost, perdaysCost) ||
-                other.perdaysCost == perdaysCost) &&
-            (identical(other.perWeekCost, perWeekCost) ||
-                other.perWeekCost == perWeekCost) &&
             (identical(other.thresold, thresold) ||
                 other.thresold == thresold) &&
             (identical(other.seats, seats) || other.seats == seats) &&
@@ -1376,7 +1388,11 @@ class _$CampDetailImpl implements _CampDetail {
             (identical(other.minimumDayDiscount, minimumDayDiscount) ||
                 other.minimumDayDiscount == minimumDayDiscount) &&
             (identical(other.pastDays, pastDays) ||
-                other.pastDays == pastDays));
+                other.pastDays == pastDays) &&
+            (identical(other.perdaysCost, perdaysCost) ||
+                other.perdaysCost == perdaysCost) &&
+            (identical(other.perWeekCost, perWeekCost) ||
+                other.perWeekCost == perWeekCost));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
@@ -1388,8 +1404,6 @@ class _$CampDetailImpl implements _CampDetail {
         fromDate,
         toDate,
         daysExcluded,
-        perdaysCost,
-        perWeekCost,
         thresold,
         seats,
         isLocked,
@@ -1401,7 +1415,9 @@ class _$CampDetailImpl implements _CampDetail {
         updatedAt,
         discountPrice,
         minimumDayDiscount,
-        pastDays
+        pastDays,
+        perdaysCost,
+        perWeekCost
       ]);
 
   /// Create a copy of CampDetail
@@ -1427,8 +1443,6 @@ abstract class _CampDetail implements CampDetail {
       @JsonKey(name: 'from_date') final String fromDate,
       @JsonKey(name: 'to_date') final String toDate,
       @JsonKey(name: 'days_excluded') final String daysExcluded,
-      @JsonKey(name: 'perdays_cost') final double perdaysCost,
-      @JsonKey(name: 'per_week_cost') final double perWeekCost,
       @JsonKey(name: 'thresold') final int thresold,
       @JsonKey(name: 'seats') final int seats,
       @JsonKey(name: 'is_locked') final String isLocked,
@@ -1440,7 +1454,13 @@ abstract class _CampDetail implements CampDetail {
       @JsonKey(name: 'updated_at') final String updatedAt,
       @JsonKey(name: 'discount_price') final String discountPrice,
       @JsonKey(name: 'minimum_day_discount') final int minimumDayDiscount,
-      @JsonKey(name: 'past_days') final String pastDays}) = _$CampDetailImpl;
+      @JsonKey(name: 'past_days') final String pastDays,
+      @StringToDoubleConverter()
+      @JsonKey(name: 'perdays_cost')
+      final String perdaysCost,
+      @StringToDoubleConverter()
+      @JsonKey(name: 'per_week_cost')
+      final String perWeekCost}) = _$CampDetailImpl;
 
   factory _CampDetail.fromJson(Map<String, dynamic> json) =
       _$CampDetailImpl.fromJson;
@@ -1460,12 +1480,6 @@ abstract class _CampDetail implements CampDetail {
   @override
   @JsonKey(name: 'days_excluded')
   String get daysExcluded;
-  @override
-  @JsonKey(name: 'perdays_cost')
-  double get perdaysCost;
-  @override
-  @JsonKey(name: 'per_week_cost')
-  double get perWeekCost;
   @override
   @JsonKey(name: 'thresold')
   int get thresold;
@@ -1502,6 +1516,14 @@ abstract class _CampDetail implements CampDetail {
   @override
   @JsonKey(name: 'past_days')
   String get pastDays;
+  @override
+  @StringToDoubleConverter()
+  @JsonKey(name: 'perdays_cost')
+  String get perdaysCost;
+  @override
+  @StringToDoubleConverter()
+  @JsonKey(name: 'per_week_cost')
+  String get perWeekCost;
 
   /// Create a copy of CampDetail
   /// with the given fields replaced by the non-null parameter values.

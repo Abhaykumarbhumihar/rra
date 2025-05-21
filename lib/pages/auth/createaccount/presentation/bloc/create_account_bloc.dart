@@ -193,6 +193,7 @@ class CreateAccountBloc extends Bloc<CreateAccountEvent, CreateAccountState> {
         'mobile': state.phoneNo,
         'email': state.email.toString().toLowerCase().trim(),
         'password': state.password,
+        'fcm_token':"ddsfdf"
       };
       emit(state.copyWith(
           isLoading: true,

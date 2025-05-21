@@ -203,3 +203,50 @@ class RecurringActionButton extends StatelessWidget {
     );
   }
 }
+class CustomButtonBlue extends StatelessWidget {
+  final String text;
+  final VoidCallback onPressed;
+
+  CustomButtonBlue({
+    required this.text,
+    required this.onPressed,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    var width = context.screenWidth;
+    var height = context.screenHeight;
+
+
+    double buttonWidth = width;
+    double buttonHeight = width * 0.1282;
+
+    return InkWell(
+      onTap: onPressed,
+      child: Container(
+        width: buttonWidth,
+        //height: height*0.062,
+        padding: EdgeInsets.symmetric(vertical:  height*0.018),
+        decoration: BoxDecoration(
+        color: Colors.blue,
+          borderRadius: BorderRadius.circular(buttonHeight * 0.6),
+        ),
+        child: Material(
+          color: Colors.transparent,
+          child: Padding(
+            padding: const EdgeInsets.only(left: 8.0,right: 8.0),
+            child: Text(
+              text,
+              textAlign: TextAlign.center,
+              style: TextStyle(
+                fontSize: Platform.isAndroid? width *0.0426:width *0.0426,
+                color: Colors.white,
+                fontFamily: AppFont.interMedium,
+              ),
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+}

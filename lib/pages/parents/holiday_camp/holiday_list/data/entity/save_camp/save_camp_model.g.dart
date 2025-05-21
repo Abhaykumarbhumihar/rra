@@ -50,7 +50,7 @@ _$SaveCampSessionImpl _$$SaveCampSessionImplFromJson(
       fromDate: json['from_date'] as String? ?? '',
       toDate: json['to_date'] as String? ?? '',
       daysExcluded: json['days_excluded'],
-      perdaysCost: (json['perdays_cost'] as num?)?.toInt() ?? 0,
+      perdaysCost: json['perdays_cost'] ?? 0,
       perWeekCost: json['per_week_cost'],
       thresold: (json['thresold'] as num?)?.toInt() ?? 0,
       seats: (json['seats'] as num?)?.toInt() ?? 0,
@@ -64,7 +64,7 @@ _$SaveCampSessionImpl _$$SaveCampSessionImplFromJson(
       discountPrice: json['discount_price'] as String? ?? '',
       minimumDayDiscount: (json['minimum_day_discount'] as num?)?.toInt() ?? 0,
       pastDays: json['past_days'] as String? ?? '',
-      sessionPrice: json['session_price'] as String? ?? '',
+      sessionPrice: json['session_price'] ?? '',
       sessionDisplayPrice: json['session_display_price'] as String? ?? '',
     );
 

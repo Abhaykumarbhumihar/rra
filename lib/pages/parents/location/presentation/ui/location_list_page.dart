@@ -2,7 +2,7 @@ import 'dart:convert';
 
 import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:flutter/cupertino.dart';
-import 'package:geolocator/geolocator.dart';
+//import 'package:geolocator/geolocator.dart';
 import 'package:rra/common/component/auth_text_field.dart';
 import 'package:rra/common/component/common_page_format.dart';
 import 'package:rra/common/network/connectivity_extension.dart';
@@ -82,24 +82,24 @@ class LocationListPage extends StatelessWidget {
                     children: <Widget>[
                       InkWell(
                         onTap: () async {
-                          context
-                              .read<LocationBloc>()
-                              .add(ShowLoadingForFetchLocation());
-                          var bloc = BlocProvider.of<LocationBloc>(context);
-
-                          Map<String, dynamic>? locationData =
-                              await fetchUserLocation(context);
-                          if (locationData != null) {
-                            double latitude = locationData['lat'];
-                            double longitude = locationData['lng'];
-                            String address = locationData['address'];
-                            print("Latitude: $latitude");
-                            print("Longitude: $longitude");
-                            context.read<LocationBloc>().add(
-                                  UpdateAddressEvent(address),
-                                );
-                            addressController.text = address;
-                          }
+                          // context
+                          //     .read<LocationBloc>()
+                          //     .add(ShowLoadingForFetchLocation());
+                          // var bloc = BlocProvider.of<LocationBloc>(context);
+                          //
+                          // Map<String, dynamic>? locationData =
+                          //     await fetchUserLocation(context);
+                          // if (locationData != null) {
+                          //   double latitude = locationData['lat'];
+                          //   double longitude = locationData['lng'];
+                          //   String address = locationData['address'];
+                          //   print("Latitude: $latitude");
+                          //   print("Longitude: $longitude");
+                          //   context.read<LocationBloc>().add(
+                          //         UpdateAddressEvent(address),
+                          //       );
+                          //   addressController.text = address;
+                          // }
                         },
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.start,
@@ -241,112 +241,112 @@ class LocationListPage extends StatelessWidget {
     );
   }
 
-  Future<Map<String, dynamic>?> fetchUserLocation(BuildContext context) async {
-    print("Fetching user's location...");
-    bool serviceEnabled = await Geolocator.isLocationServiceEnabled();
-
-    if (!serviceEnabled) {
-      print('Location services are disabled.');
-      Geolocator.openLocationSettings();
-      return null;
-    }
-
-    LocationPermission permission = await Geolocator.checkPermission();
-    if (permission == LocationPermission.denied) {
-      permission = await Geolocator.requestPermission();
-      if (permission == LocationPermission.denied) {
-        print('Location permissions are denied.');
-        CameraFileUtility.showPermissionDeniedDialog(context, "Location");
-        return null;
-      }
-    }
-
-    if (permission == LocationPermission.deniedForever) {
-      print('Location permissions are permanently denied.');
-      CameraFileUtility.showPermissionDeniedDialog(context, "Location");
-      return null;
-    }
-
-    try {
-      Position? position = await Geolocator.getLastKnownPosition();
-
-      if (position == null) {
-        position = await Geolocator.getCurrentPosition(
-            desiredAccuracy: LocationAccuracy.bestForNavigation);
-      }
-
-      // Fetch address with timeout
-      String? address = await getAddressFromLatLng(
-          context, position.latitude, position.longitude);
-
-      print(">>>>>>>>>>>>>>>>>>>>>$address");
-
-      if (address != null) {
-        return {
-          'lat': position.latitude,
-          'lng': position.longitude,
-          'address': address,
-        };
-      } else {
-        print("Address not found, returning coordinates only");
-        return {
-          'lat': position.latitude,
-          'lng': position.longitude,
-          'address': 'Coordinates: ${position.latitude}, ${position.longitude}',
-        };
-      }
-    } catch (e) {
-      print('Error fetching location: $e');
-      return null;
-    }
-  }
-
-  Future<String?> getAddressFromLatLng(
-      BuildContext context, double lat, double lng) async {
-    print("Fetching address for coordinates: $lat, $lng");
-
-    String _host = 'https://maps.google.com/maps/api/geocode/json';
-    final url =
-        '$_host?key=AIzaSyAbcVfeiTr0sdz1M8eCYzNeUKqyU4XDMIc&language=en&latlng=$lat,$lng';
-
-    if (lat != null && lng != null) {
-      try {
-        var response = await http.get(Uri.parse(url));
-        if (response.statusCode == 200) {
-          Map data = jsonDecode(response.body);
-          print(
-              "dataaddressdatadatadatadatada n tadatadatadatadatadatadatadata: $data");
-
-          String formattedAddress = data["results"][0]["formatted_address"];
-          print("Formatted address: $formattedAddress");
-          List<String> addressParts =
-              formattedAddress.split(",").map((e) => e.trim()).toList();
-
-          if (addressParts.length >= 3) {
-            String city = addressParts[addressParts.length - 3]; // Extract city
-            String state =
-                addressParts[addressParts.length - 2]; // Extract state
-
-            // Remove pin code if present (typically a number at the end)
-            state = state.replaceAll(RegExp(r'\d+$'), "").trim();
-
-            print("City: $city");
-            print("State: $state");
-
-            return "$city, $state";
-          }
-          // return formattedAddress;
-        } else {
-          print("Failed to fetch address. Status code: ${response.statusCode}");
-          return null;
-        }
-      } catch (e) {
-        print("Error fetching address: $e");
-        return null;
-      }
-    } else {
-      print("Invalid coordinates for address fetch");
-      return null;
-    }
-  }
+  // Future<Map<String, dynamic>?> fetchUserLocation(BuildContext context) async {
+  //   print("Fetching user's location...");
+  //   bool serviceEnabled = await Geolocator.isLocationServiceEnabled();
+  //
+  //   if (!serviceEnabled) {
+  //     print('Location services are disabled.');
+  //     Geolocator.openLocationSettings();
+  //     return null;
+  //   }
+  //
+  //   LocationPermission permission = await Geolocator.checkPermission();
+  //   if (permission == LocationPermission.denied) {
+  //     permission = await Geolocator.requestPermission();
+  //     if (permission == LocationPermission.denied) {
+  //       print('Location permissions are denied.');
+  //       CameraFileUtility.showPermissionDeniedDialog(context, "Location");
+  //       return null;
+  //     }
+  //   }
+  //
+  //   if (permission == LocationPermission.deniedForever) {
+  //     print('Location permissions are permanently denied.');
+  //     CameraFileUtility.showPermissionDeniedDialog(context, "Location");
+  //     return null;
+  //   }
+  //
+  //   try {
+  //     Position? position = await Geolocator.getLastKnownPosition();
+  //
+  //     if (position == null) {
+  //       position = await Geolocator.getCurrentPosition(
+  //           desiredAccuracy: LocationAccuracy.bestForNavigation);
+  //     }
+  //
+  //     // Fetch address with timeout
+  //     String? address = await getAddressFromLatLng(
+  //         context, position.latitude, position.longitude);
+  //
+  //     print(">>>>>>>>>>>>>>>>>>>>>$address");
+  //
+  //     if (address != null) {
+  //       return {
+  //         'lat': position.latitude,
+  //         'lng': position.longitude,
+  //         'address': address,
+  //       };
+  //     } else {
+  //       print("Address not found, returning coordinates only");
+  //       return {
+  //         'lat': position.latitude,
+  //         'lng': position.longitude,
+  //         'address': 'Coordinates: ${position.latitude}, ${position.longitude}',
+  //       };
+  //     }
+  //   } catch (e) {
+  //     print('Error fetching location: $e');
+  //     return null;
+  //   }
+  // }
+  //
+  // Future<String?> getAddressFromLatLng(
+  //     BuildContext context, double lat, double lng) async {
+  //   print("Fetching address for coordinates: $lat, $lng");
+  //
+  //   String _host = 'https://maps.google.com/maps/api/geocode/json';
+  //   final url =
+  //       '$_host?key=AIzaSyAbcVfeiTr0sdz1M8eCYzNeUKqyU4XDMIc&language=en&latlng=$lat,$lng';
+  //
+  //   if (lat != null && lng != null) {
+  //     try {
+  //       var response = await http.get(Uri.parse(url));
+  //       if (response.statusCode == 200) {
+  //         Map data = jsonDecode(response.body);
+  //         print(
+  //             "dataaddressdatadatadatadatada n tadatadatadatadatadatadatadata: $data");
+  //
+  //         String formattedAddress = data["results"][0]["formatted_address"];
+  //         print("Formatted address: $formattedAddress");
+  //         List<String> addressParts =
+  //             formattedAddress.split(",").map((e) => e.trim()).toList();
+  //
+  //         if (addressParts.length >= 3) {
+  //           String city = addressParts[addressParts.length - 3]; // Extract city
+  //           String state =
+  //               addressParts[addressParts.length - 2]; // Extract state
+  //
+  //           // Remove pin code if present (typically a number at the end)
+  //           state = state.replaceAll(RegExp(r'\d+$'), "").trim();
+  //
+  //           print("City: $city");
+  //           print("State: $state");
+  //
+  //           return "$city, $state";
+  //         }
+  //         // return formattedAddress;
+  //       } else {
+  //         print("Failed to fetch address. Status code: ${response.statusCode}");
+  //         return null;
+  //       }
+  //     } catch (e) {
+  //       print("Error fetching address: $e");
+  //       return null;
+  //     }
+  //   } else {
+  //     print("Invalid coordinates for address fetch");
+  //     return null;
+  //   }
+  // }
 }

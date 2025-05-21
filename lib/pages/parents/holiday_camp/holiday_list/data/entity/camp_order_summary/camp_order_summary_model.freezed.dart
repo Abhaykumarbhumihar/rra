@@ -232,10 +232,10 @@ CampOrderSummaryData _$CampOrderSummaryDataFromJson(Map<String, dynamic> json) {
 mixin _$CampOrderSummaryData {
   List<PlayerDetail> get playerDetail => throw _privateConstructorUsedError;
   String? get promocode => throw _privateConstructorUsedError;
-  int get subtotal => throw _privateConstructorUsedError;
+  dynamic get subtotal => throw _privateConstructorUsedError;
   @JsonKey(name: 'display_subtotal')
   String get displaySubtotal => throw _privateConstructorUsedError;
-  String? get discount => throw _privateConstructorUsedError;
+  dynamic? get discount => throw _privateConstructorUsedError;
   @JsonKey(name: 'display_discount')
   String get displayDiscount => throw _privateConstructorUsedError;
   int get tax => throw _privateConstructorUsedError;
@@ -264,9 +264,9 @@ abstract class $CampOrderSummaryDataCopyWith<$Res> {
   $Res call(
       {List<PlayerDetail> playerDetail,
       String? promocode,
-      int subtotal,
+      dynamic subtotal,
       @JsonKey(name: 'display_subtotal') String displaySubtotal,
-      String? discount,
+      dynamic? discount,
       @JsonKey(name: 'display_discount') String displayDiscount,
       int tax,
       @JsonKey(name: 'display_tax') String displayTax,
@@ -292,7 +292,7 @@ class _$CampOrderSummaryDataCopyWithImpl<$Res,
   $Res call({
     Object? playerDetail = null,
     Object? promocode = freezed,
-    Object? subtotal = null,
+    Object? subtotal = freezed,
     Object? displaySubtotal = null,
     Object? discount = freezed,
     Object? displayDiscount = null,
@@ -310,10 +310,10 @@ class _$CampOrderSummaryDataCopyWithImpl<$Res,
           ? _value.promocode
           : promocode // ignore: cast_nullable_to_non_nullable
               as String?,
-      subtotal: null == subtotal
+      subtotal: freezed == subtotal
           ? _value.subtotal
           : subtotal // ignore: cast_nullable_to_non_nullable
-              as int,
+              as dynamic,
       displaySubtotal: null == displaySubtotal
           ? _value.displaySubtotal
           : displaySubtotal // ignore: cast_nullable_to_non_nullable
@@ -321,7 +321,7 @@ class _$CampOrderSummaryDataCopyWithImpl<$Res,
       discount: freezed == discount
           ? _value.discount
           : discount // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as dynamic?,
       displayDiscount: null == displayDiscount
           ? _value.displayDiscount
           : displayDiscount // ignore: cast_nullable_to_non_nullable
@@ -357,9 +357,9 @@ abstract class _$$CampOrderSummaryDataImplCopyWith<$Res>
   $Res call(
       {List<PlayerDetail> playerDetail,
       String? promocode,
-      int subtotal,
+      dynamic subtotal,
       @JsonKey(name: 'display_subtotal') String displaySubtotal,
-      String? discount,
+      dynamic? discount,
       @JsonKey(name: 'display_discount') String displayDiscount,
       int tax,
       @JsonKey(name: 'display_tax') String displayTax,
@@ -382,7 +382,7 @@ class __$$CampOrderSummaryDataImplCopyWithImpl<$Res>
   $Res call({
     Object? playerDetail = null,
     Object? promocode = freezed,
-    Object? subtotal = null,
+    Object? subtotal = freezed,
     Object? displaySubtotal = null,
     Object? discount = freezed,
     Object? displayDiscount = null,
@@ -400,10 +400,10 @@ class __$$CampOrderSummaryDataImplCopyWithImpl<$Res>
           ? _value.promocode
           : promocode // ignore: cast_nullable_to_non_nullable
               as String?,
-      subtotal: null == subtotal
+      subtotal: freezed == subtotal
           ? _value.subtotal
           : subtotal // ignore: cast_nullable_to_non_nullable
-              as int,
+              as dynamic,
       displaySubtotal: null == displaySubtotal
           ? _value.displaySubtotal
           : displaySubtotal // ignore: cast_nullable_to_non_nullable
@@ -411,7 +411,7 @@ class __$$CampOrderSummaryDataImplCopyWithImpl<$Res>
       discount: freezed == discount
           ? _value.discount
           : discount // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as dynamic?,
       displayDiscount: null == displayDiscount
           ? _value.displayDiscount
           : displayDiscount // ignore: cast_nullable_to_non_nullable
@@ -468,12 +468,12 @@ class _$CampOrderSummaryDataImpl implements _CampOrderSummaryData {
   final String? promocode;
   @override
   @JsonKey()
-  final int subtotal;
+  final dynamic subtotal;
   @override
   @JsonKey(name: 'display_subtotal')
   final String displaySubtotal;
   @override
-  final String? discount;
+  final dynamic? discount;
   @override
   @JsonKey(name: 'display_discount')
   final String displayDiscount;
@@ -504,12 +504,10 @@ class _$CampOrderSummaryDataImpl implements _CampOrderSummaryData {
                 .equals(other._playerDetail, _playerDetail) &&
             (identical(other.promocode, promocode) ||
                 other.promocode == promocode) &&
-            (identical(other.subtotal, subtotal) ||
-                other.subtotal == subtotal) &&
+            const DeepCollectionEquality().equals(other.subtotal, subtotal) &&
             (identical(other.displaySubtotal, displaySubtotal) ||
                 other.displaySubtotal == displaySubtotal) &&
-            (identical(other.discount, discount) ||
-                other.discount == discount) &&
+            const DeepCollectionEquality().equals(other.discount, discount) &&
             (identical(other.displayDiscount, displayDiscount) ||
                 other.displayDiscount == displayDiscount) &&
             (identical(other.tax, tax) || other.tax == tax) &&
@@ -526,9 +524,9 @@ class _$CampOrderSummaryDataImpl implements _CampOrderSummaryData {
       runtimeType,
       const DeepCollectionEquality().hash(_playerDetail),
       promocode,
-      subtotal,
+      const DeepCollectionEquality().hash(subtotal),
       displaySubtotal,
-      discount,
+      const DeepCollectionEquality().hash(discount),
       displayDiscount,
       tax,
       displayTax,
@@ -557,9 +555,9 @@ abstract class _CampOrderSummaryData implements CampOrderSummaryData {
   const factory _CampOrderSummaryData(
           {final List<PlayerDetail> playerDetail,
           final String? promocode,
-          final int subtotal,
+          final dynamic subtotal,
           @JsonKey(name: 'display_subtotal') final String displaySubtotal,
-          final String? discount,
+          final dynamic? discount,
           @JsonKey(name: 'display_discount') final String displayDiscount,
           final int tax,
           @JsonKey(name: 'display_tax') final String displayTax,
@@ -575,12 +573,12 @@ abstract class _CampOrderSummaryData implements CampOrderSummaryData {
   @override
   String? get promocode;
   @override
-  int get subtotal;
+  dynamic get subtotal;
   @override
   @JsonKey(name: 'display_subtotal')
   String get displaySubtotal;
   @override
-  String? get discount;
+  dynamic? get discount;
   @override
   @JsonKey(name: 'display_discount')
   String get displayDiscount;

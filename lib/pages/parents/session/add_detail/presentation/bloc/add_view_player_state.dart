@@ -14,7 +14,7 @@ class AddViewPlayerState with _$AddViewPlayerState {
   const factory AddViewPlayerState({
     @Default(0) int selectedTab,
     @Default(false) bool isLoading,
-    String? error,
+    @Default("") String error,
     dynamic success,
     @Default(false) bool isError,
     @Default(false) bool isLoginApiError,
@@ -43,7 +43,7 @@ class AddViewPlayerState with _$AddViewPlayerState {
   factory AddViewPlayerState.initial() => const AddViewPlayerState(
     selectedTab: 0,
     isLoading: false,
-    error: null,
+    error: "",
     success: null,
     isError: false,
     isCampValidated:false,

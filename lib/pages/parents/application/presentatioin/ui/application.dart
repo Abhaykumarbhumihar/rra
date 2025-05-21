@@ -1,4 +1,4 @@
-import 'dart:ui';
+ import 'dart:ui';
 
 import '../../../../../common/component/confirmation_dialog.dart';
 import '../../../../../common/local/SharedPrefs.dart';
@@ -6,6 +6,7 @@ import '../../../../../common/routes/exports.dart';
 import '../../../../../common/routes/routes.dart';
 import 'package:rra/common/values/values_exports.dart';
 import '../../../../../common/service_locator/setivelocator.dart';
+import '../../../../../common/values/utils.dart';
 import '../../../../academic/presentation/bloc/academic_event.dart';
 import '../../../../coach/coach_attendance/player_attendance_list/presentation/bloc/attendance_bloc.dart';
 import '../../../../coach/coach_attendance/player_attendance_list/presentation/bloc/attendance_event.dart';
@@ -15,6 +16,10 @@ import '../../../../coach/manage_team/presentation/bloc/manage_team_bloc.dart';
 import '../../../../coach/manage_team/presentation/bloc/manage_team_event.dart';
 import '../../../../coach/view_session/presentation/bloc/view_session_bloc.dart';
 import '../../../../coach/view_session/presentation/bloc/view_session_event.dart';
+import '../../../holiday_camp/booked_camp/presentation/bloc/booked_camp_bloc.dart';
+import '../../../holiday_camp/booked_camp/presentation/bloc/booked_camp_event.dart';
+import '../../../holiday_camp/holiday_list/presentation/bloc/camp_bloc.dart';
+import '../../../holiday_camp/holiday_list/presentation/bloc/camp_event.dart';
 import '../bloc/app_bloc.dart';
 import '../bloc/app_state.dart';
 import 'application_widget.dart';
@@ -42,7 +47,7 @@ class ApplicationPage extends StatelessWidget {
       child: BlocBuilder<AppBloc, AppState>(
         builder: (context, state) {
           print(
-              "application.dart application.dart application.dart application.dart");
+              "application.dart application.dart application.dart application.dart ${state.userdata.data.role}");
           context.read<AppBloc>().loadUserData();
           context.read<AppBloc>().add(UserDataUpdate());
           context.read<AppBloc>().add(DashboardEvent());
@@ -126,8 +131,29 @@ class ApplicationPage extends StatelessWidget {
                             } else {
                               _showDialogNotifier.value = false;
                               context.read<AppBloc>().add(TriggerAppEvent(value));
+                            }if(value==0){
+                              print("===============\n\n");
+                              var token = await getIt<SharedPrefs>().getString("token");
+                              print("\n\n===============");
+                              Utils.LogPrint(token);
+                              Navigator.pushNamed(
+                                  context, AppRoutes.BOOKTRAINING);
+                            }
+                            if(value==1){
+                              BlocProvider.of<CampBloc>(context).add(CampListEvent({}));
+                              Navigator.pushNamed(
+                                  context, AppRoutes.HOLIDAYCAMP);
+                              print("Book Facility clicked");
                             }
                           }else {
+                            if(value==0){
+                              var academyId = await getIt<SharedPrefs>().getString("selected_academyid");
+
+                              BlocProvider.of<ViewSessionBloc>(context).add(GetBookedSessionListEvent({"academy_id":academyId}));
+
+                              Navigator.pushNamed(
+                                  context, AppRoutes.COACHVIEWSESSION);
+                            }
                             if (value == 1) { // Settings tab
                               _showLogoutDialog(context);
                             } else {

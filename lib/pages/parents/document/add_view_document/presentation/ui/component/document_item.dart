@@ -48,6 +48,7 @@ class DocumentItem extends StatelessWidget {
             child: Column(
               mainAxisSize: MainAxisSize.min,
               mainAxisAlignment: MainAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
                 InfoRowWithIcon(
                   onDeleteIconPress: onDeleteIconPress,
@@ -58,36 +59,38 @@ class DocumentItem extends StatelessWidget {
                   iconPath: "assets/images/edit_icon.png",
                 ),
 
-                InfoRow(
+                InfoRowRichTextdocument(
                   label: "Title:",
                   value: " ${uploadedDocument.title}",
                 ),
+                SizedBox(height: 4,),
                 InfoRow(
                   label: BlocProvider.of<AppBloc>(context).state.userdata.data.role=="coach"?"Parent/Coach:":"Coach",
                   value: " ${uploadedDocument.name}",
                 ),
-                // InfoRow(
-                //   label: "Comments :",
-                //   value:   uploadedDocument.Comments.substring(0,2),
-                // ),
-
-                Row(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      "Comments:",
-                      style: AppTextStyle.semiBold(
-                          MediaQuery.of(context).size.width * 0.0373),
-                    ),
-                    Flexible(
-                      child: Text(
-                        uploadedDocument?.Comments??"",
-                        style: AppTextStyle.regular(
-                            MediaQuery.of(context).size.width * 0.0373),
-                      ),
-                    ),
-                  ],
+                SizedBox(height: 4,),
+                InfoRowRichTextdocument(
+                  label: "Comments: ",
+                  value:    uploadedDocument?.Comments??"",
                 ),
+                SizedBox(height: 4,),
+                // Row(
+                //   crossAxisAlignment: CrossAxisAlignment.start,
+                //   children: [
+                //     Text(
+                //       "Comments:",
+                //       style: AppTextStyle.semiBold(
+                //           MediaQuery.of(context).size.width * 0.0373),
+                //     ),
+                //     Flexible(
+                //       child: Text(
+                //         uploadedDocument?.Comments??"",
+                //         style: AppTextStyle.regular(
+                //             MediaQuery.of(context).size.width * 0.0373),
+                //       ),
+                //     ),
+                //   ],
+                // ),
 
                 InfoRowWithOnlyIcon(
                   label: "Document",

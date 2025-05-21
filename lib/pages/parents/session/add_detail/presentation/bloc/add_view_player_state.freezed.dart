@@ -18,7 +18,7 @@ final _privateConstructorUsedError = UnsupportedError(
 mixin _$AddViewPlayerState {
   int get selectedTab => throw _privateConstructorUsedError;
   bool get isLoading => throw _privateConstructorUsedError;
-  String? get error => throw _privateConstructorUsedError;
+  String get error => throw _privateConstructorUsedError;
   dynamic get success => throw _privateConstructorUsedError;
   bool get isError => throw _privateConstructorUsedError;
   bool get isLoginApiError => throw _privateConstructorUsedError;
@@ -58,7 +58,7 @@ abstract class $AddViewPlayerStateCopyWith<$Res> {
   $Res call(
       {int selectedTab,
       bool isLoading,
-      String? error,
+      String error,
       dynamic success,
       bool isError,
       bool isLoginApiError,
@@ -102,7 +102,7 @@ class _$AddViewPlayerStateCopyWithImpl<$Res, $Val extends AddViewPlayerState>
   $Res call({
     Object? selectedTab = null,
     Object? isLoading = null,
-    Object? error = freezed,
+    Object? error = null,
     Object? success = freezed,
     Object? isError = null,
     Object? isLoginApiError = null,
@@ -135,10 +135,10 @@ class _$AddViewPlayerStateCopyWithImpl<$Res, $Val extends AddViewPlayerState>
           ? _value.isLoading
           : isLoading // ignore: cast_nullable_to_non_nullable
               as bool,
-      error: freezed == error
+      error: null == error
           ? _value.error
           : error // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as String,
       success: freezed == success
           ? _value.success
           : success // ignore: cast_nullable_to_non_nullable
@@ -252,7 +252,7 @@ abstract class _$$AddViewPlayerStateImplCopyWith<$Res>
   $Res call(
       {int selectedTab,
       bool isLoading,
-      String? error,
+      String error,
       dynamic success,
       bool isError,
       bool isLoginApiError,
@@ -295,7 +295,7 @@ class __$$AddViewPlayerStateImplCopyWithImpl<$Res>
   $Res call({
     Object? selectedTab = null,
     Object? isLoading = null,
-    Object? error = freezed,
+    Object? error = null,
     Object? success = freezed,
     Object? isError = null,
     Object? isLoginApiError = null,
@@ -328,10 +328,10 @@ class __$$AddViewPlayerStateImplCopyWithImpl<$Res>
           ? _value.isLoading
           : isLoading // ignore: cast_nullable_to_non_nullable
               as bool,
-      error: freezed == error
+      error: null == error
           ? _value.error
           : error // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as String,
       success: freezed == success
           ? _value.success
           : success // ignore: cast_nullable_to_non_nullable
@@ -430,7 +430,7 @@ class _$AddViewPlayerStateImpl implements _AddViewPlayerState {
   const _$AddViewPlayerStateImpl(
       {this.selectedTab = 0,
       this.isLoading = false,
-      this.error,
+      this.error = "",
       this.success,
       this.isError = false,
       this.isLoginApiError = false,
@@ -463,7 +463,8 @@ class _$AddViewPlayerStateImpl implements _AddViewPlayerState {
   @JsonKey()
   final bool isLoading;
   @override
-  final String? error;
+  @JsonKey()
+  final String error;
   @override
   final dynamic success;
   @override
@@ -643,7 +644,7 @@ abstract class _AddViewPlayerState implements AddViewPlayerState {
   const factory _AddViewPlayerState(
       {final int selectedTab,
       final bool isLoading,
-      final String? error,
+      final String error,
       final dynamic success,
       final bool isError,
       final bool isLoginApiError,
@@ -672,7 +673,7 @@ abstract class _AddViewPlayerState implements AddViewPlayerState {
   @override
   bool get isLoading;
   @override
-  String? get error;
+  String get error;
   @override
   dynamic get success;
   @override

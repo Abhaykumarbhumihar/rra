@@ -17,6 +17,7 @@ class EditprofileState with _$EditprofileState {
     @Default('') String phoneNo,
     @Default(false) bool isLoading,
     @Default(false) bool isSuccess,
+    @Default(false) bool accountdeleted,
     @Default('') String errorMessage,
     @Default('') String successMessage,
     File? profilePhoto,

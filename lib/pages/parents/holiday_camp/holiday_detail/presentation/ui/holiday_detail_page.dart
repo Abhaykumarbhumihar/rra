@@ -158,7 +158,7 @@ class HolidayDetailPage extends StatelessWidget {
                                               //   value:  "${data.fromTime} - ${data.toTime}",
                                               // ),
                                               InfoRowRichTextTwo(
-                                                label:   "Per Day: ",
+                                                label:   "Price Per Day: ",
                                                 value:  "${data.perdaysCost}",
                                               ),
                                               // Row(
@@ -209,18 +209,42 @@ class HolidayDetailPage extends StatelessWidget {
                                     "${state.campDetailModel.data.camp.description}",
                                     textStyle: TextStyle(
                                       color: Colors.white,
-                                      fontSize: context.screenWidth * 0.0373,
-                                      fontFamily: AppFont.interRegular,
+                                      //fontSize: context.screenWidth * 0.0373,
+                                      //fontFamily: AppFont.interRegular,
                                     ),
-                                    customStylesBuilder: (element) {
-                                      return {
-                                        'display': '-webkit-box',
-                                        '-webkit-line-clamp': '2',
-                                        '-webkit-box-orient': 'vertical',
-                                        'overflow': 'hidden',
-                                        'text-overflow': 'ellipsis',
-                                      };
-                                    },
+                                    // customStylesBuilder: (element) {
+                                    //   return {
+                                    //     'display': '-webkit-box',
+                                    //     '-webkit-line-clamp': '2',
+                                    //     '-webkit-box-orient': 'vertical',
+                                    //     'overflow': 'hidden',
+                                    //     'text-overflow': 'ellipsis',
+                                    //   };
+                                    // },
+                                  ),
+                                ),
+                                Padding(
+                                  padding: const EdgeInsets.all(8.0),
+                                  child: HtmlWidget(
+                                    "${state.campDetailModel.data.camp.additionalDescription}",
+                                    textStyle: TextStyle(
+                                      color: Colors.white,
+                                     // fontSize: context.screenWidth * 0.0373,
+                                      //fontFamily: AppFont.interRegular,
+                                    ),
+
+                                  ),
+                                ),
+                                Padding(
+                                  padding: const EdgeInsets.all(8.0),
+                                  child: HtmlWidget(
+                                    "${state.campDetailModel.data.camp.rules}",
+                                    textStyle: TextStyle(
+                                      color: Colors.white,
+                                     // fontSize: context.screenWidth * 0.0373,
+                                     // fontFamily: AppFont.interRegular,
+                                    ),
+
                                   ),
                                 ),
                                 SizedBox(height: 16),

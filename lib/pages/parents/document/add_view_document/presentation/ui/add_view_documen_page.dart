@@ -79,207 +79,214 @@ class AddViewDocumenPage extends StatelessWidget {
                         padding: EdgeInsets.symmetric(
                             horizontal: context.screenWidth * 0.03,
                             vertical: 0),
-                        child: CustomToggleSwitch(
-                          selectedTabIndex:
-                              context.read<AddDocumentBloc>().state.selectedTab,
-                          tabNames: [
-                            'Upload\nDocument',
-                            'Uploaded\nDocuments',
-                            'Received\nDocuments'
-                          ],
-                          onTabChanged: (index) {
-                            BlocProvider.of<AddDocumentBloc>(context)
-                                .add(GetUploadedParentDocument({}));
-                            BlocProvider.of<AddDocumentBloc>(context)
-                                .add(ResetAfterDocumentUploadEvent());
+                        child: Container(
+                          child: CustomToggleSwitch(
+                            selectedTabIndex:
+                                context.read<AddDocumentBloc>().state.selectedTab,
+                            tabNames: [
+                              'Upload\nDocument',
+                              'Uploaded\nDocuments',
+                              'Received\nDocuments'
+                            ],
+                            onTabChanged: (index) {
+                              BlocProvider.of<AddDocumentBloc>(context)
+                                  .add(GetUploadedParentDocument({}));
+                              BlocProvider.of<AddDocumentBloc>(context)
+                                  .add(ResetAfterDocumentUploadEvent());
 
-                            BlocProvider.of<AddDocumentBloc>(context)
-                                .add(AddDocumentEvent.selectTabEvent(index));
+                              BlocProvider.of<AddDocumentBloc>(context)
+                                  .add(AddDocumentEvent.selectTabEvent(index));
 
-                            print(index);
-                          },
+                              print(index);
+                            },
+                          ),
                         ),
                       ),
+                      SizedBox(height: 10,),
                       Expanded(
-                        child: AnimatedSwitcher(
-                          duration: const Duration(milliseconds: 300),
-                          child: Builder(
-                            builder: (context) {
-                              final selectedTab = context
-                                  .watch<AddDocumentBloc>()
-                                  .state
-                                  .selectedTab;
+                        child: Container(
+                          alignment: Alignment.topCenter,
+                          child: AnimatedSwitcher(
 
-                              if (selectedTab == 0) {
-                                return AddDocumentComponent(
-                                  titleController: titleController,
-                                  coachController: coachController,
-                                  playerController: playerController,
-                                  programController: programController,
-                                  sessionController: sessionController,
-                                  termsController: termsController,
-                                  commentController: commentController,
-                                  selectParentCoach:
-                                      state.parent_coach_radio ?? 2,
-                                  onPickFile: () {
-                                    _handlePickFile(context);
-                                  },
-                                );
-                              } else if (selectedTab == 1) {
-                                return Column(
-                                  children: [
-                                    Expanded(
-                                      child: ListView.builder(
-                                        itemCount: state.parentDocumentListModel
-                                            .data.uploaded.length,
-                                        shrinkWrap: true,
-                                        physics: BouncingScrollPhysics(),
-                                        padding: EdgeInsets.zero,
-                                        itemBuilder: (context, index) {
-                                          return DocumentItem(
-                                            onDeleteIconPress: () {
-                                              ConfirmationDialog.show(
-                                                context: context,
-                                                title: 'Delete Document?',
-                                                description:
-                                                    'Are you sure you want to delete this document?',
-                                                confirmButtonText: 'Delete',
-                                                onCancel: () {
-                                                  print('Cancelled');
-                                                },
-                                                onConfirm: () async {
-                                                  BlocProvider.of<
-                                                              AddDocumentBloc>(
-                                                          context)
-                                                      .add(
-                                                          GetDeleteDocumentEvents({
-                                                    "id": state
-                                                        .parentDocumentListModel
-                                                        .data
-                                                        .uploaded[index]
-                                                        .id
-                                                  }));
-                                                },
-                                              ).then((_) {});
-                                            },
-                                            onIconPress: () {
-                                              print(state
-                                                  .parentDocumentListModel
-                                                  .data
-                                                  .uploaded[index]);
-                                              var data = state
-                                                  .parentDocumentListModel
-                                                  .data
-                                                  .uploaded[index];
+                            duration: const Duration(milliseconds: 300),
+                            child: Builder(
+                              builder: (context) {
+                                final selectedTab = context
+                                    .watch<AddDocumentBloc>()
+                                    .state
+                                    .selectedTab;
 
-                                              titleController.text = data.title;
-                                              commentController.text =
-                                                  data.Comments!;
-                                              print(
-                                                  "==========coach coach coach coach coach coach================");
-                                              if (data.coachId != null) {
-                                                /*set coach*/
+                                if (selectedTab == 0) {
+                                  return AddDocumentComponent(
+                                    titleController: titleController,
+                                    coachController: coachController,
+                                    playerController: playerController,
+                                    programController: programController,
+                                    sessionController: sessionController,
+                                    termsController: termsController,
+                                    commentController: commentController,
+                                    selectParentCoach:
+                                        state.parent_coach_radio ?? 2,
+                                    onPickFile: () {
+                                      _handlePickFile(context);
+                                    },
+                                  );
+                                } else if (selectedTab == 1) {
+                                  return Column(
+                                    children: [
+                                      Expanded(
+                                        child: ListView.builder(
+                                          itemCount: state.parentDocumentListModel
+                                              .data.uploaded.length,
+                                          shrinkWrap: true,
+                                          physics: BouncingScrollPhysics(),
+                                          padding: EdgeInsets.zero,
+                                          itemBuilder: (context, index) {
+                                            return DocumentItem(
+                                              onDeleteIconPress: () {
+                                                ConfirmationDialog.show(
+                                                  context: context,
+                                                  title: 'Delete Document?',
+                                                  description:
+                                                      'Are you sure you want to delete this document?',
+                                                  confirmButtonText: 'Delete',
+                                                  onCancel: () {
+                                                    print('Cancelled');
+                                                  },
+                                                  onConfirm: () async {
+                                                    BlocProvider.of<
+                                                                AddDocumentBloc>(
+                                                            context)
+                                                        .add(
+                                                            GetDeleteDocumentEvents({
+                                                      "id": state
+                                                          .parentDocumentListModel
+                                                          .data
+                                                          .uploaded[index]
+                                                          .id
+                                                    }));
+                                                  },
+                                                ).then((_) {});
+                                              },
+                                              onIconPress: () {
+                                                print(state
+                                                    .parentDocumentListModel
+                                                    .data
+                                                    .uploaded[index]);
+                                                var data = state
+                                                    .parentDocumentListModel
+                                                    .data
+                                                    .uploaded[index];
+
+                                                titleController.text = data.title;
+                                                commentController.text =
+                                                    data.Comments!;
+                                                print(
+                                                    "==========coach coach coach coach coach coach================");
                                                 if (data.coachId != null) {
+                                                  /*set coach*/
+                                                  if (data.coachId != null) {
+                                                    BlocProvider.of<
+                                                                AddDocumentBloc>(
+                                                            context)
+                                                        .add(
+                                                            SetSelectedCoachIdParentDocumentEvent(
+                                                                data!.coachId!));
+                                                  }
+                                                }
+                                                BlocProvider.of<AddDocumentBloc>(
+                                                        context)
+                                                    .add(DocumentIdSetForUpload(
+                                                        data!.id.toString()));
+
+                                                /*set terms*/
+                                                if (data.termId != null) {
                                                   BlocProvider.of<
                                                               AddDocumentBloc>(
                                                           context)
                                                       .add(
-                                                          SetSelectedCoachIdParentDocumentEvent(
-                                                              data!.coachId!));
+                                                          setSelectedTermDocumentEvent(
+                                                              data.termId!));
                                                 }
-                                              }
-                                              BlocProvider.of<AddDocumentBloc>(
-                                                      context)
-                                                  .add(DocumentIdSetForUpload(
-                                                      data!.id.toString()));
+                                                /*set coaching program*/
+                                                if (data.coachingProgramId !=
+                                                    null) {
+                                                  BlocProvider.of<
+                                                              AddDocumentBloc>(
+                                                          context)
+                                                      .add(setSelectedProgramDocumentEvent(
+                                                          data.coachingProgramId!));
+                                                }
 
-                                              /*set terms*/
-                                              if (data.termId != null) {
-                                                BlocProvider.of<
-                                                            AddDocumentBloc>(
-                                                        context)
-                                                    .add(
-                                                        setSelectedTermDocumentEvent(
-                                                            data.termId!));
-                                              }
-                                              /*set coaching program*/
-                                              if (data.coachingProgramId !=
-                                                  null) {
-                                                BlocProvider.of<
-                                                            AddDocumentBloc>(
-                                                        context)
-                                                    .add(setSelectedProgramDocumentEvent(
-                                                        data.coachingProgramId!));
-                                              }
+                                                /*set session*/
+                                                if (data.sessionId != null) {
+                                                  BlocProvider.of<
+                                                              AddDocumentBloc>(
+                                                          context)
+                                                      .add(
+                                                          setSelectedSessionDocumentEvent(
+                                                              data.sessionId!));
+                                                }
+                                                /*set parent id*/
+                                                if (data.parentId != null) {
+                                                  BlocProvider.of<
+                                                              AddDocumentBloc>(
+                                                          context)
+                                                      .add(
+                                                          setSelectedPlayerDocumentEvent(
+                                                              data.parentId!));
+                                                }
 
-                                              /*set session*/
-                                              if (data.sessionId != null) {
-                                                BlocProvider.of<
-                                                            AddDocumentBloc>(
+                                                BlocProvider.of<AddDocumentBloc>(
                                                         context)
-                                                    .add(
-                                                        setSelectedSessionDocumentEvent(
-                                                            data.sessionId!));
-                                              }
-                                              /*set parent id*/
-                                              if (data.parentId != null) {
-                                                BlocProvider.of<
-                                                            AddDocumentBloc>(
-                                                        context)
-                                                    .add(
-                                                        setSelectedPlayerDocumentEvent(
-                                                            data.parentId!));
-                                              }
-
-                                              BlocProvider.of<AddDocumentBloc>(
-                                                      context)
-                                                  .add(AddDocumentEvent
-                                                      .selectTabEvent(0));
-                                            },
-                                            isUploadedDocument: true,
-                                            coaches: state
-                                                .parentDocumentListModel
-                                                .data
-                                                .coaches,
-                                            uploadedDocument: state
-                                                .parentDocumentListModel
-                                                .data
-                                                .uploaded[index],
-                                          );
-                                        },
+                                                    .add(AddDocumentEvent
+                                                        .selectTabEvent(0));
+                                              },
+                                              isUploadedDocument: true,
+                                              coaches: state
+                                                  .parentDocumentListModel
+                                                  .data
+                                                  .coaches,
+                                              uploadedDocument: state
+                                                  .parentDocumentListModel
+                                                  .data
+                                                  .uploaded[index],
+                                            );
+                                          },
+                                        ),
                                       ),
-                                    ),
-                                  ],
-                                );
-                              } else {
-                                return Column(
-                                  children: [
-                                    Expanded(
-                                      child: ListView.builder(
-                                        itemCount: state.parentDocumentListModel
-                                            .data.received.length,
-                                        shrinkWrap: true,
-                                        physics: BouncingScrollPhysics(),
-                                        padding: EdgeInsets.zero,
-                                        itemBuilder: (context, index) {
-                                          return DocumentItem(
-                                            isUploadedDocument: false,
-                                            coaches: state
-                                                .parentDocumentListModel
-                                                .data
-                                                .coaches,
-                                            uploadedDocument: state
-                                                .parentDocumentListModel
-                                                .data
-                                                .received[index],
-                                          );
-                                        },
+                                    ],
+                                  );
+                                } else {
+                                  return Column(
+                                    children: [
+                                      Expanded(
+                                        child: ListView.builder(
+                                          itemCount: state.parentDocumentListModel
+                                              .data.received.length,
+                                          shrinkWrap: true,
+                                          physics: BouncingScrollPhysics(),
+                                          padding: EdgeInsets.zero,
+                                          itemBuilder: (context, index) {
+                                            return DocumentItem(
+                                              isUploadedDocument: false,
+                                              coaches: state
+                                                  .parentDocumentListModel
+                                                  .data
+                                                  .coaches,
+                                              uploadedDocument: state
+                                                  .parentDocumentListModel
+                                                  .data
+                                                  .received[index],
+                                            );
+                                          },
+                                        ),
                                       ),
-                                    ),
-                                  ],
-                                );
-                              }
-                            },
+                                    ],
+                                  );
+                                }
+                              },
+                            ),
                           ),
                         ),
                       ),

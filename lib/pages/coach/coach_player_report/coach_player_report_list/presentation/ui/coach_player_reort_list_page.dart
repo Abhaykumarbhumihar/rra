@@ -42,9 +42,7 @@ class CoachPlayerReortListAge extends StatelessWidget {
           children: [
             Column(
               children: [
-                SizedBox(
-                  height: 24,
-                ),
+
 
                 if(BlocProvider.of<AppBloc>(context).state.userdata.data.role=="coach")
                 DropdownSelectionField(

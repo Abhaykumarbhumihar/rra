@@ -44,47 +44,48 @@ class CalendarView extends StatelessWidget {
                       lastDay: DateTime(2060),
                       calendarStyle: CalendarStyle(
                         todayTextStyle: TextStyle(
-                          fontSize: MediaQuery.of(context).size.width * 0.025,
+                          fontSize: MediaQuery.of(context).size.width * 0.035,
                           color: Colors.white,
                           fontFamily: AppFont.interRegular,
                         ),
                         weekendTextStyle: TextStyle(
-                          fontSize: MediaQuery.of(context).size.width * 0.025,
+                          fontSize: MediaQuery.of(context).size.width * 0.035,
                           color: Colors.white,
                           fontFamily: AppFont.interRegular,
                         ),
                         outsideTextStyle: TextStyle(
-                          fontSize: MediaQuery.of(context).size.width * 0.025,
+                          fontSize: MediaQuery.of(context).size.width * 0.035,
                           color: Colors.white,
                           fontFamily: AppFont.interRegular,
                         ),
                         defaultTextStyle: TextStyle(
-                          fontSize: MediaQuery.of(context).size.width * 0.025,
+                          fontSize: MediaQuery.of(context).size.width * 0.035,
                           color: Colors.white,
                           fontFamily: AppFont.interRegular,
                         ),
                       ),
                       daysOfWeekStyle: DaysOfWeekStyle(
                         weekdayStyle: TextStyle(
-                          fontSize: MediaQuery.of(context).size.width * 0.025,
+                          fontSize: MediaQuery.of(context).size.width * 0.035,
                           color: Colors.white,
                           fontFamily: AppFont.interRegular,
                         ),
                         weekendStyle: TextStyle(
-                          fontSize: MediaQuery.of(context).size.width * 0.025,
+                          fontSize: MediaQuery.of(context).size.width * 0.035,
                           color: Colors.white,
                           fontFamily: AppFont.interRegular,
                         ),
                       ),
 
-                      selectedDayPredicate: (day) => false,
+                      selectedDayPredicate: (day) => isSameDay(state.datetime, day),
+
                       headerStyle: HeaderStyle(
                         titleCentered: true,
                         titleTextFormatter: (date, locale) =>
                             DateFormat.yMMM(locale).format(date),
                         formatButtonVisible: false,
                         titleTextStyle: TextStyle(
-                          fontSize: MediaQuery.of(context).size.width * 0.03,
+                          fontSize: MediaQuery.of(context).size.width * 0.035,
                           color: Colors.white,
                           fontFamily: AppFont.interBold,
                         ),
@@ -99,6 +100,8 @@ class CalendarView extends StatelessWidget {
 
 
                       },
+
+
                       calendarBuilders: CalendarBuilders(
                         defaultBuilder: (ctx, day, focusedDay) {
                           List<DateTime> availableDateTimes = state.sessionCalendarModel.data.availableDates
@@ -146,7 +149,7 @@ class CalendarView extends StatelessWidget {
                                         child: Text(
                                           '${day.day}',
                                           style: TextStyle(
-                                            fontSize: MediaQuery.of(context).size.width * 0.025,
+                                            fontSize: MediaQuery.of(context).size.width * 0.035,
                                             color: Colors.white,
                                             fontFamily: AppFont.interMedium,
                                           ),
@@ -159,23 +162,25 @@ class CalendarView extends StatelessWidget {
                             }
                           }
 
-                          // if (isSameDay(day, focusedDay)) {
-                          //   return Container(
-                          //     alignment: Alignment.center,
-                          //     decoration: BoxDecoration(
-                          //       shape: BoxShape.circle,
-                          //       color: Colors.transparent,
-                          //     ),
-                          //     child: Text(
-                          //       '${day.day}',
-                          //       style: TextStyle(
-                          //         color: Colors.white,
-                          //         fontSize: 18,
-                          //         fontFamily: 'YourCustomFontFamily',
-                          //       ),
-                          //     ),
-                          //   );
-                          // }
+
+
+                          if (isSameDay(day, focusedDay)) {
+                            return Container(
+                              alignment: Alignment.center,
+                              decoration: BoxDecoration(
+                                shape: BoxShape.circle,
+                                color: Colors.transparent,
+                              ),
+                              child: Text(
+                                '${day.day}',
+                                style: TextStyle(
+                                  color: Colors.white,
+                                  fontSize: 18,
+                                  fontFamily: 'YourCustomFontFamily',
+                                ),
+                              ),
+                            );
+                          }
 
                           return null;
                         },

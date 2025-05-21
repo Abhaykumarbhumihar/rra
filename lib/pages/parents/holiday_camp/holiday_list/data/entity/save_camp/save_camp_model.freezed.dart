@@ -447,7 +447,7 @@ mixin _$SaveCampSession {
   @JsonKey(name: 'days_excluded')
   dynamic get daysExcluded => throw _privateConstructorUsedError;
   @JsonKey(name: 'perdays_cost')
-  int get perdaysCost => throw _privateConstructorUsedError;
+  dynamic get perdaysCost => throw _privateConstructorUsedError;
   @JsonKey(name: 'per_week_cost')
   dynamic get perWeekCost => throw _privateConstructorUsedError;
   int get thresold => throw _privateConstructorUsedError;
@@ -472,7 +472,7 @@ mixin _$SaveCampSession {
   @JsonKey(name: 'past_days')
   String get pastDays => throw _privateConstructorUsedError;
   @JsonKey(name: 'session_price')
-  String get sessionPrice => throw _privateConstructorUsedError;
+  dynamic get sessionPrice => throw _privateConstructorUsedError;
   @JsonKey(name: 'session_display_price')
   String get sessionDisplayPrice => throw _privateConstructorUsedError;
 
@@ -498,7 +498,7 @@ abstract class $SaveCampSessionCopyWith<$Res> {
       @JsonKey(name: 'from_date') String fromDate,
       @JsonKey(name: 'to_date') String toDate,
       @JsonKey(name: 'days_excluded') dynamic daysExcluded,
-      @JsonKey(name: 'perdays_cost') int perdaysCost,
+      @JsonKey(name: 'perdays_cost') dynamic perdaysCost,
       @JsonKey(name: 'per_week_cost') dynamic perWeekCost,
       int thresold,
       int seats,
@@ -512,7 +512,7 @@ abstract class $SaveCampSessionCopyWith<$Res> {
       @JsonKey(name: 'discount_price') String discountPrice,
       @JsonKey(name: 'minimum_day_discount') int minimumDayDiscount,
       @JsonKey(name: 'past_days') String pastDays,
-      @JsonKey(name: 'session_price') String sessionPrice,
+      @JsonKey(name: 'session_price') dynamic sessionPrice,
       @JsonKey(name: 'session_display_price') String sessionDisplayPrice});
 }
 
@@ -536,7 +536,7 @@ class _$SaveCampSessionCopyWithImpl<$Res, $Val extends SaveCampSession>
     Object? fromDate = null,
     Object? toDate = null,
     Object? daysExcluded = freezed,
-    Object? perdaysCost = null,
+    Object? perdaysCost = freezed,
     Object? perWeekCost = freezed,
     Object? thresold = null,
     Object? seats = null,
@@ -550,7 +550,7 @@ class _$SaveCampSessionCopyWithImpl<$Res, $Val extends SaveCampSession>
     Object? discountPrice = null,
     Object? minimumDayDiscount = null,
     Object? pastDays = null,
-    Object? sessionPrice = null,
+    Object? sessionPrice = freezed,
     Object? sessionDisplayPrice = null,
   }) {
     return _then(_value.copyWith(
@@ -574,10 +574,10 @@ class _$SaveCampSessionCopyWithImpl<$Res, $Val extends SaveCampSession>
           ? _value.daysExcluded
           : daysExcluded // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      perdaysCost: null == perdaysCost
+      perdaysCost: freezed == perdaysCost
           ? _value.perdaysCost
           : perdaysCost // ignore: cast_nullable_to_non_nullable
-              as int,
+              as dynamic,
       perWeekCost: freezed == perWeekCost
           ? _value.perWeekCost
           : perWeekCost // ignore: cast_nullable_to_non_nullable
@@ -630,10 +630,10 @@ class _$SaveCampSessionCopyWithImpl<$Res, $Val extends SaveCampSession>
           ? _value.pastDays
           : pastDays // ignore: cast_nullable_to_non_nullable
               as String,
-      sessionPrice: null == sessionPrice
+      sessionPrice: freezed == sessionPrice
           ? _value.sessionPrice
           : sessionPrice // ignore: cast_nullable_to_non_nullable
-              as String,
+              as dynamic,
       sessionDisplayPrice: null == sessionDisplayPrice
           ? _value.sessionDisplayPrice
           : sessionDisplayPrice // ignore: cast_nullable_to_non_nullable
@@ -656,7 +656,7 @@ abstract class _$$SaveCampSessionImplCopyWith<$Res>
       @JsonKey(name: 'from_date') String fromDate,
       @JsonKey(name: 'to_date') String toDate,
       @JsonKey(name: 'days_excluded') dynamic daysExcluded,
-      @JsonKey(name: 'perdays_cost') int perdaysCost,
+      @JsonKey(name: 'perdays_cost') dynamic perdaysCost,
       @JsonKey(name: 'per_week_cost') dynamic perWeekCost,
       int thresold,
       int seats,
@@ -670,7 +670,7 @@ abstract class _$$SaveCampSessionImplCopyWith<$Res>
       @JsonKey(name: 'discount_price') String discountPrice,
       @JsonKey(name: 'minimum_day_discount') int minimumDayDiscount,
       @JsonKey(name: 'past_days') String pastDays,
-      @JsonKey(name: 'session_price') String sessionPrice,
+      @JsonKey(name: 'session_price') dynamic sessionPrice,
       @JsonKey(name: 'session_display_price') String sessionDisplayPrice});
 }
 
@@ -692,7 +692,7 @@ class __$$SaveCampSessionImplCopyWithImpl<$Res>
     Object? fromDate = null,
     Object? toDate = null,
     Object? daysExcluded = freezed,
-    Object? perdaysCost = null,
+    Object? perdaysCost = freezed,
     Object? perWeekCost = freezed,
     Object? thresold = null,
     Object? seats = null,
@@ -706,7 +706,7 @@ class __$$SaveCampSessionImplCopyWithImpl<$Res>
     Object? discountPrice = null,
     Object? minimumDayDiscount = null,
     Object? pastDays = null,
-    Object? sessionPrice = null,
+    Object? sessionPrice = freezed,
     Object? sessionDisplayPrice = null,
   }) {
     return _then(_$SaveCampSessionImpl(
@@ -730,10 +730,10 @@ class __$$SaveCampSessionImplCopyWithImpl<$Res>
           ? _value.daysExcluded
           : daysExcluded // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      perdaysCost: null == perdaysCost
+      perdaysCost: freezed == perdaysCost
           ? _value.perdaysCost
           : perdaysCost // ignore: cast_nullable_to_non_nullable
-              as int,
+              as dynamic,
       perWeekCost: freezed == perWeekCost
           ? _value.perWeekCost
           : perWeekCost // ignore: cast_nullable_to_non_nullable
@@ -786,10 +786,10 @@ class __$$SaveCampSessionImplCopyWithImpl<$Res>
           ? _value.pastDays
           : pastDays // ignore: cast_nullable_to_non_nullable
               as String,
-      sessionPrice: null == sessionPrice
+      sessionPrice: freezed == sessionPrice
           ? _value.sessionPrice
           : sessionPrice // ignore: cast_nullable_to_non_nullable
-              as String,
+              as dynamic,
       sessionDisplayPrice: null == sessionDisplayPrice
           ? _value.sessionDisplayPrice
           : sessionDisplayPrice // ignore: cast_nullable_to_non_nullable
@@ -844,7 +844,7 @@ class _$SaveCampSessionImpl implements _SaveCampSession {
   final dynamic daysExcluded;
   @override
   @JsonKey(name: 'perdays_cost')
-  final int perdaysCost;
+  final dynamic perdaysCost;
   @override
   @JsonKey(name: 'per_week_cost')
   final dynamic perWeekCost;
@@ -886,7 +886,7 @@ class _$SaveCampSessionImpl implements _SaveCampSession {
   final String pastDays;
   @override
   @JsonKey(name: 'session_price')
-  final String sessionPrice;
+  final dynamic sessionPrice;
   @override
   @JsonKey(name: 'session_display_price')
   final String sessionDisplayPrice;
@@ -908,8 +908,8 @@ class _$SaveCampSessionImpl implements _SaveCampSession {
             (identical(other.toDate, toDate) || other.toDate == toDate) &&
             const DeepCollectionEquality()
                 .equals(other.daysExcluded, daysExcluded) &&
-            (identical(other.perdaysCost, perdaysCost) ||
-                other.perdaysCost == perdaysCost) &&
+            const DeepCollectionEquality()
+                .equals(other.perdaysCost, perdaysCost) &&
             const DeepCollectionEquality()
                 .equals(other.perWeekCost, perWeekCost) &&
             (identical(other.thresold, thresold) ||
@@ -933,8 +933,8 @@ class _$SaveCampSessionImpl implements _SaveCampSession {
                 other.minimumDayDiscount == minimumDayDiscount) &&
             (identical(other.pastDays, pastDays) ||
                 other.pastDays == pastDays) &&
-            (identical(other.sessionPrice, sessionPrice) ||
-                other.sessionPrice == sessionPrice) &&
+            const DeepCollectionEquality()
+                .equals(other.sessionPrice, sessionPrice) &&
             (identical(other.sessionDisplayPrice, sessionDisplayPrice) ||
                 other.sessionDisplayPrice == sessionDisplayPrice));
   }
@@ -948,7 +948,7 @@ class _$SaveCampSessionImpl implements _SaveCampSession {
         fromDate,
         toDate,
         const DeepCollectionEquality().hash(daysExcluded),
-        perdaysCost,
+        const DeepCollectionEquality().hash(perdaysCost),
         const DeepCollectionEquality().hash(perWeekCost),
         thresold,
         seats,
@@ -962,7 +962,7 @@ class _$SaveCampSessionImpl implements _SaveCampSession {
         discountPrice,
         minimumDayDiscount,
         pastDays,
-        sessionPrice,
+        const DeepCollectionEquality().hash(sessionPrice),
         sessionDisplayPrice
       ]);
 
@@ -990,7 +990,7 @@ abstract class _SaveCampSession implements SaveCampSession {
       @JsonKey(name: 'from_date') final String fromDate,
       @JsonKey(name: 'to_date') final String toDate,
       @JsonKey(name: 'days_excluded') final dynamic daysExcluded,
-      @JsonKey(name: 'perdays_cost') final int perdaysCost,
+      @JsonKey(name: 'perdays_cost') final dynamic perdaysCost,
       @JsonKey(name: 'per_week_cost') final dynamic perWeekCost,
       final int thresold,
       final int seats,
@@ -1004,7 +1004,7 @@ abstract class _SaveCampSession implements SaveCampSession {
       @JsonKey(name: 'discount_price') final String discountPrice,
       @JsonKey(name: 'minimum_day_discount') final int minimumDayDiscount,
       @JsonKey(name: 'past_days') final String pastDays,
-      @JsonKey(name: 'session_price') final String sessionPrice,
+      @JsonKey(name: 'session_price') final dynamic sessionPrice,
       @JsonKey(name: 'session_display_price')
       final String sessionDisplayPrice}) = _$SaveCampSessionImpl;
 
@@ -1026,7 +1026,7 @@ abstract class _SaveCampSession implements SaveCampSession {
   dynamic get daysExcluded;
   @override
   @JsonKey(name: 'perdays_cost')
-  int get perdaysCost;
+  dynamic get perdaysCost;
   @override
   @JsonKey(name: 'per_week_cost')
   dynamic get perWeekCost;
@@ -1065,7 +1065,7 @@ abstract class _SaveCampSession implements SaveCampSession {
   String get pastDays;
   @override
   @JsonKey(name: 'session_price')
-  String get sessionPrice;
+  dynamic get sessionPrice;
   @override
   @JsonKey(name: 'session_display_price')
   String get sessionDisplayPrice;

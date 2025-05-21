@@ -16,14 +16,14 @@ class FacilityInfoRow extends StatelessWidget {
           style: AppTextStyle.bold(
               context.screenWidth*0.048),
         ),
-        Row(
-          children: <Widget>[
-            Text(rating.toString(), textAlign: TextAlign.start,
-              style: AppTextStyle.bold(
-                  context.screenWidth*0.048),),
-            const Icon(Icons.star, color: Colors.amberAccent),
-          ],
-        ),
+        // Row(
+        //   children: <Widget>[
+        //     Text(rating.toString(), textAlign: TextAlign.start,
+        //       style: AppTextStyle.bold(
+        //           context.screenWidth*0.048),),
+        //     const Icon(Icons.star, color: Colors.amberAccent),
+        //   ],
+        // ),
       ],
     );
   }

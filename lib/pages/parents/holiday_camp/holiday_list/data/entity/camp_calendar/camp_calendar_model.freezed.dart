@@ -476,9 +476,9 @@ mixin _$CampSession {
   @JsonKey(name: 'days_excluded')
   String? get daysExcluded => throw _privateConstructorUsedError;
   @JsonKey(name: 'perdays_cost')
-  double get perdaysCost => throw _privateConstructorUsedError;
+  dynamic get perdaysCost => throw _privateConstructorUsedError;
   @JsonKey(name: 'per_week_cost')
-  double? get perWeekCost => throw _privateConstructorUsedError;
+  dynamic get perWeekCost => throw _privateConstructorUsedError;
   @JsonKey(name: 'thresold')
   int get thresold => throw _privateConstructorUsedError;
   @JsonKey(name: 'seats')
@@ -526,8 +526,8 @@ abstract class $CampSessionCopyWith<$Res> {
       @JsonKey(name: 'from_date') String fromDate,
       @JsonKey(name: 'to_date') String toDate,
       @JsonKey(name: 'days_excluded') String? daysExcluded,
-      @JsonKey(name: 'perdays_cost') double perdaysCost,
-      @JsonKey(name: 'per_week_cost') double? perWeekCost,
+      @JsonKey(name: 'perdays_cost') dynamic perdaysCost,
+      @JsonKey(name: 'per_week_cost') dynamic perWeekCost,
       @JsonKey(name: 'thresold') int thresold,
       @JsonKey(name: 'seats') int seats,
       @JsonKey(name: 'is_locked') String isLocked,
@@ -562,7 +562,7 @@ class _$CampSessionCopyWithImpl<$Res, $Val extends CampSession>
     Object? fromDate = null,
     Object? toDate = null,
     Object? daysExcluded = freezed,
-    Object? perdaysCost = null,
+    Object? perdaysCost = freezed,
     Object? perWeekCost = freezed,
     Object? thresold = null,
     Object? seats = null,
@@ -598,14 +598,14 @@ class _$CampSessionCopyWithImpl<$Res, $Val extends CampSession>
           ? _value.daysExcluded
           : daysExcluded // ignore: cast_nullable_to_non_nullable
               as String?,
-      perdaysCost: null == perdaysCost
+      perdaysCost: freezed == perdaysCost
           ? _value.perdaysCost
           : perdaysCost // ignore: cast_nullable_to_non_nullable
-              as double,
+              as dynamic,
       perWeekCost: freezed == perWeekCost
           ? _value.perWeekCost
           : perWeekCost // ignore: cast_nullable_to_non_nullable
-              as double?,
+              as dynamic,
       thresold: null == thresold
           ? _value.thresold
           : thresold // ignore: cast_nullable_to_non_nullable
@@ -672,8 +672,8 @@ abstract class _$$CampSessionImplCopyWith<$Res>
       @JsonKey(name: 'from_date') String fromDate,
       @JsonKey(name: 'to_date') String toDate,
       @JsonKey(name: 'days_excluded') String? daysExcluded,
-      @JsonKey(name: 'perdays_cost') double perdaysCost,
-      @JsonKey(name: 'per_week_cost') double? perWeekCost,
+      @JsonKey(name: 'perdays_cost') dynamic perdaysCost,
+      @JsonKey(name: 'per_week_cost') dynamic perWeekCost,
       @JsonKey(name: 'thresold') int thresold,
       @JsonKey(name: 'seats') int seats,
       @JsonKey(name: 'is_locked') String isLocked,
@@ -706,7 +706,7 @@ class __$$CampSessionImplCopyWithImpl<$Res>
     Object? fromDate = null,
     Object? toDate = null,
     Object? daysExcluded = freezed,
-    Object? perdaysCost = null,
+    Object? perdaysCost = freezed,
     Object? perWeekCost = freezed,
     Object? thresold = null,
     Object? seats = null,
@@ -742,14 +742,14 @@ class __$$CampSessionImplCopyWithImpl<$Res>
           ? _value.daysExcluded
           : daysExcluded // ignore: cast_nullable_to_non_nullable
               as String?,
-      perdaysCost: null == perdaysCost
+      perdaysCost: freezed == perdaysCost
           ? _value.perdaysCost
           : perdaysCost // ignore: cast_nullable_to_non_nullable
-              as double,
+              as dynamic,
       perWeekCost: freezed == perWeekCost
           ? _value.perWeekCost
           : perWeekCost // ignore: cast_nullable_to_non_nullable
-              as double?,
+              as dynamic,
       thresold: null == thresold
           ? _value.thresold
           : thresold // ignore: cast_nullable_to_non_nullable
@@ -811,8 +811,8 @@ class _$CampSessionImpl implements _CampSession {
       @JsonKey(name: 'from_date') this.fromDate = '',
       @JsonKey(name: 'to_date') this.toDate = '',
       @JsonKey(name: 'days_excluded') this.daysExcluded,
-      @JsonKey(name: 'perdays_cost') this.perdaysCost = 0.0,
-      @JsonKey(name: 'per_week_cost') this.perWeekCost,
+      @JsonKey(name: 'perdays_cost') this.perdaysCost = 0,
+      @JsonKey(name: 'per_week_cost') this.perWeekCost = "",
       @JsonKey(name: 'thresold') this.thresold = 0,
       @JsonKey(name: 'seats') this.seats = 0,
       @JsonKey(name: 'is_locked') this.isLocked = '',
@@ -846,10 +846,10 @@ class _$CampSessionImpl implements _CampSession {
   final String? daysExcluded;
   @override
   @JsonKey(name: 'perdays_cost')
-  final double perdaysCost;
+  final dynamic perdaysCost;
   @override
   @JsonKey(name: 'per_week_cost')
-  final double? perWeekCost;
+  final dynamic perWeekCost;
   @override
   @JsonKey(name: 'thresold')
   final int thresold;
@@ -904,10 +904,10 @@ class _$CampSessionImpl implements _CampSession {
             (identical(other.toDate, toDate) || other.toDate == toDate) &&
             (identical(other.daysExcluded, daysExcluded) ||
                 other.daysExcluded == daysExcluded) &&
-            (identical(other.perdaysCost, perdaysCost) ||
-                other.perdaysCost == perdaysCost) &&
-            (identical(other.perWeekCost, perWeekCost) ||
-                other.perWeekCost == perWeekCost) &&
+            const DeepCollectionEquality()
+                .equals(other.perdaysCost, perdaysCost) &&
+            const DeepCollectionEquality()
+                .equals(other.perWeekCost, perWeekCost) &&
             (identical(other.thresold, thresold) ||
                 other.thresold == thresold) &&
             (identical(other.seats, seats) || other.seats == seats) &&
@@ -940,8 +940,8 @@ class _$CampSessionImpl implements _CampSession {
         fromDate,
         toDate,
         daysExcluded,
-        perdaysCost,
-        perWeekCost,
+        const DeepCollectionEquality().hash(perdaysCost),
+        const DeepCollectionEquality().hash(perWeekCost),
         thresold,
         seats,
         isLocked,
@@ -979,8 +979,8 @@ abstract class _CampSession implements CampSession {
       @JsonKey(name: 'from_date') final String fromDate,
       @JsonKey(name: 'to_date') final String toDate,
       @JsonKey(name: 'days_excluded') final String? daysExcluded,
-      @JsonKey(name: 'perdays_cost') final double perdaysCost,
-      @JsonKey(name: 'per_week_cost') final double? perWeekCost,
+      @JsonKey(name: 'perdays_cost') final dynamic perdaysCost,
+      @JsonKey(name: 'per_week_cost') final dynamic perWeekCost,
       @JsonKey(name: 'thresold') final int thresold,
       @JsonKey(name: 'seats') final int seats,
       @JsonKey(name: 'is_locked') final String isLocked,
@@ -1014,10 +1014,10 @@ abstract class _CampSession implements CampSession {
   String? get daysExcluded;
   @override
   @JsonKey(name: 'perdays_cost')
-  double get perdaysCost;
+  dynamic get perdaysCost;
   @override
   @JsonKey(name: 'per_week_cost')
-  double? get perWeekCost;
+  dynamic get perWeekCost;
   @override
   @JsonKey(name: 'thresold')
   int get thresold;

@@ -30,6 +30,7 @@ static const WELCOMEPAGE="/welcom_page";
   //facility
   static const FACILITYLIST="/facility_list";
   static const FACILITYDETAIL="/facility_detial";
+  static const FACILITYCALENDARPAGE="/facility_calendar_page";
   static const FACILITADDTOCARTPAGE="/facility_add_to_cart";
 
   //document
@@ -76,6 +77,10 @@ static const WELCOMEPAGE="/welcom_page";
   static const CAMP_ORDER_SUMMARY="/camp_order_summary";
   static const BOOK_CAMP_ORDER_LIST="/book_camp_order_list";
   static const BOOK_CAMP_ORDER_DETAIL="/book_camp_order_detail";
+  static const FACILITY_BULK_CORPORATE="/facility_bulk_corporate";
+
+  static const FACILITY_BOOKED_LIST="/facility_booked_list";
+  static const FACILITY_BOOKED_DETAIL="/facility_booked_detail";
 
 
 }

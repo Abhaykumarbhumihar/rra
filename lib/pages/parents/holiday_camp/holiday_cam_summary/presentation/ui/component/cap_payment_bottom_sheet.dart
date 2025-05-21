@@ -67,12 +67,13 @@ class CapPaymentBottomSheet extends StatelessWidget {
                             title: "Sub Total",
                             value: "${state.campOrderSummary.data.displaySubtotal}"
                         ),
+                        if (state.campOrderSummary.data.tax != 0 )
                         PaymentSummaryRow(
                             title: "Tax",
                             value: "${state.campOrderSummary.data.displayTax}"
                         ),
 
-                        if (state.campOrderSummary.data.discount != null )
+                        if (state.campOrderSummary.data.discount != 0 )
                           PaymentSummaryRow(
                             title: "Discount",
                             value: "${state.campOrderSummary.data.displayDiscount}",

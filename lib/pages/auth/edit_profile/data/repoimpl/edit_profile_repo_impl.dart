@@ -41,7 +41,32 @@ class EditProfileRepoImpl implements EditProfileRepositery {
     }
   }
 
-  String _extractErrorMessage(String responseBody) {
+
+ @override
+ Future<Either<Failure, dynamic>> deleteUserProfile(Map<String, String> userData) async {
+   try {
+     print("code is running here");
+
+
+     http.Response response =
+     await _apiServices.post(AppConstant.parentAccountDelete, userData,useDefaultHeaders: true);
+     print("CHECK HERE userData == ${userData}");
+     print(response.body);
+     if (response.statusCode == 200) {
+       final Map<String, dynamic> responseData = jsonDecode(response.body);
+       return Right(responseData);
+     } else {
+       final errorMessage = _extractErrorMessage(response.body);
+       return Left(Failure(errorMessage));
+     }
+   } catch (e) {
+     print("error ${AppConstant.updateUserProfile} $e");
+
+     return Left(Failure("$e"));
+   }
+ }
+
+ String _extractErrorMessage(String responseBody) {
     try {
       final Map<String, dynamic> errorData = jsonDecode(responseBody);
       return errorData['message'] ?? 'Unknown error occurred';

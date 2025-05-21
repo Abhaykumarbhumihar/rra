@@ -26,6 +26,7 @@ class EditprofileBloc extends Bloc<EditprofileEvent, EditprofileState> {
     on<EditProfileEmailChangeEvent>(_onEmailChanged);
     on<EditProfilePhoneNoChangeEvent>(_onPhoneNoChanged);
     on<EditProfileSubmitted>(_onEditProfileSubmit);
+    on<DeleteuserProfileEvent>(_deleteUserProfile);
     on<EditProfilePicUpdateEvent>(_handleChangeProfilePic);
     on<LogoutEventEditprofileEvent>(_onLogout);
     on<ResetEditProfileState>(_onResetState);
@@ -57,7 +58,9 @@ class EditprofileBloc extends Bloc<EditprofileEvent, EditprofileState> {
                   userdata?.data.gender == 'Unknown')
               ? ''
               : userdata!.data.gender,
-          userdata: userdata!));
+
+          userdata: userdata!,
+      ));
     } catch (error) {
       emit(state.copyWith(
         isServerError: false,
@@ -117,6 +120,7 @@ class EditprofileBloc extends Bloc<EditprofileEvent, EditprofileState> {
       email: event.email,
       errorMessage: '',
       successMessage: '',
+
       isLoading: false,
       isSuccess: false,
     ));
@@ -140,7 +144,7 @@ class EditprofileBloc extends Bloc<EditprofileEvent, EditprofileState> {
     Utils.LogPrint(dd);
     print("printing csrftoken is ${dd}");
 
-    emit(state.copyWith(errorMessage: '', isSuccess: false));
+    emit(state.copyWith(errorMessage: '',isSuccess: false));
 
     if (state.firstName.toString().trim().isEmpty) {
       emit(state.copyWith(errorMessage: 'Please enter your first name'));
@@ -218,5 +222,58 @@ class EditprofileBloc extends Bloc<EditprofileEvent, EditprofileState> {
     List<int> fileBytes = await file.readAsBytes();
     String base64String = base64Encode(fileBytes);
     return base64String;
+  }
+
+
+
+  Future<void> _deleteUserProfile(
+      DeleteuserProfileEvent event, Emitter<EditprofileState> emit) async {
+    print(state);
+    var dd = await getIt<SharedPrefs>().getString("token");
+    Utils.LogPrint(dd);
+
+
+    try {
+      print("rudddddnning here");
+      String? base64Image;
+
+      Map<String, String> userData = {
+
+      };
+      emit(state.copyWith(
+        errorMessage: '',
+        isLoading: true,
+        isSuccess: false,
+        isServerError: false,
+      ));
+
+      final response = await _editProfileUsecase.deleteUserProfileExecute(userData);
+      response.fold((failure) {
+        emit(state.copyWith(
+          errorMessage: failure.message,
+          isLoading: false,
+          isSuccess: false,
+          isServerError: true,
+        ));
+      }, (userData) async {
+        emit(state.copyWith(
+            errorMessage: '',
+            isLoading: false,
+            isSuccess: true,
+            isServerError: false,
+            ));
+        // Update SharedPreferences
+        await getIt<SharedPrefs>().clear();
+        // Load updated user data into AppBloc
+
+        // Ensure AppBloc is emitting the new user data state
+      });
+    } catch (e) {
+      print("ruddnning eee ee e  here");
+
+      emit(state.copyWith(
+          isLoading: false,
+          errorMessage: 'Failed to create account. Please try again.'));
+    }
   }
 }

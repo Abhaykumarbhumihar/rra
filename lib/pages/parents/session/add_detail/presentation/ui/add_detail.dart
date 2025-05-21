@@ -53,7 +53,8 @@ class AddDetail extends StatelessWidget {
         if (state.isCHildListSucces) {
           print("all child list is ${state.childLisstModel.data.length}");
         }
-        if (state.error != "") {
+        if (state.error != "" ) {
+
           context.showCustomSnackbar(state.error.toString());
         }
         if(state.isCampValidated==true){
@@ -122,6 +123,14 @@ class AddDetail extends StatelessWidget {
                                   if (index == 0) {
                                     BlocProvider.of<AddViewPlayerBloc>(context)
                                         .add(AddViewPlayerGetChildListEvent());
+                                  }
+                                  if(index==1){
+                                  firstNameController.clear();
+                                  dobController.clear();
+                                  ageController.clear();
+                                  schoolNameController.clear();
+                                  clubNameController.clear();
+                                  medicalConditionController.clear();
                                   }
                                 },
                               )

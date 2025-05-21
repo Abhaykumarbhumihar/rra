@@ -173,3 +173,35 @@ class InfoRowBoldRegular extends StatelessWidget {
     );
   }
 }
+
+
+
+class InfoRowRichTextdocument extends StatelessWidget {
+  final String label;
+  final String value;
+
+  const InfoRowRichTextdocument({
+    Key? key,
+    required this.label,
+    required this.value,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return RichText(
+      text: TextSpan(
+        children: [
+          TextSpan(
+            text: label,
+
+            style: AppTextStyle.semiBold(MediaQuery.of(context).size.width * 0.0373)
+          ),
+          TextSpan(
+            text: value,
+            style: AppTextStyle.regular(MediaQuery.of(context).size.width * 0.0373),
+          ),
+        ],
+      ),
+    );
+  }
+}

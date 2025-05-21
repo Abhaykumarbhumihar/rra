@@ -15,5 +15,7 @@ class EditProfileUsecase {
     return _editProfileRepositery.updateProfile( userData);
   }
 
-
+  Future<Either<Failure, dynamic>> deleteUserProfileExecute(Map<String, String> userData) async {
+    return _editProfileRepositery.deleteUserProfile( userData);
+  }
 }

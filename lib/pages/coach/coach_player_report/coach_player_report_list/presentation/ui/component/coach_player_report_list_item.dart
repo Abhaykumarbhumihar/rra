@@ -96,8 +96,8 @@ class CoachPlayerReportListItem extends StatelessWidget {
                         ),
                         Spacer(),
                         CommonSmallElevatedButton(
-                          padding: EdgeInsets.symmetric(horizontal: 16.0,vertical: 6.0),
-                          label: "Add/View",
+                          padding: EdgeInsets.symmetric(horizontal: 10.0,vertical: 6.0),
+                          label:  BlocProvider.of<AppBloc>(context).state.userdata.data.role=="parent"?"View":"Add/View",
                           onPressed: (){
 
                             BlocProvider.of<ReportBloc>(context).add(SetPlayerId(data.childId.toString(),

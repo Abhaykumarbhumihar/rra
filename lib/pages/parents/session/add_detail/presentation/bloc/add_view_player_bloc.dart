@@ -3,6 +3,7 @@ import 'dart:io';
 
 import 'package:bloc/bloc.dart';
 import 'package:connectivity_plus/connectivity_plus.dart';
+import 'package:intl/intl.dart';
 import 'package:rra/common/network/connectivity_extension.dart';
 import 'package:rra/common/values/snack_bar.dart';
 import '../../../../../../common/local/SharedPrefs.dart';
@@ -76,6 +77,7 @@ emit(state.copyWith(isCampValidated: false));
   Future<void> resetEvent(
       ResetAddViewEvent event, Emitter<AddViewPlayerState> emit) async {
     emit(AddViewPlayerState.initial());
+
   }
 
   Future<void> _setChildIdForUpdate(AddViewPlayerChildForChildUpdateEvent event,
@@ -296,7 +298,7 @@ emit(state.copyWith(isCampValidated: false));
 
         "academyId": academyId,
         "child_name": "${state.childName}",
-        "child_dob": "${state.dob}",
+        "child_dob": "${convertDateFormat(state.dob)}",
         "child_age": "",
         "child_school": "${state.schoolName}",
         "child_club": "${state.clubName}",
@@ -334,6 +336,7 @@ emit(state.copyWith(isCampValidated: false));
             isCHildListError: false,
             isCHildListSucces: false,
             isChildError: true,
+
             success: false));
       }, (addChildData) {
         print("======addChildData =====addChildData =====addChildData \n\n");
@@ -349,14 +352,28 @@ emit(state.copyWith(isCampValidated: false));
             isCHildListSucces: false,
             isCHildListError: false,
             childId: "",
+           childProfilePhoto:null,
+
             selectedTab: 0,
             success: true));
+add(ResetAddViewEvent());
         add(AddViewPlayerGetChildListEvent());
       });
     } catch (error) {
       // Handle the error and show error messages
       emit(state.copyWith(isLoading: false, error: error.toString()));
     }
+  }
+
+  String convertDateFormat(String inputDate) {
+    // Parse the original string using the original format
+    DateFormat inputFormat = DateFormat('dd/MM/yyyy');
+    DateFormat outputFormat = DateFormat('yyyy-MM-dd');
+
+    DateTime parsedDate = inputFormat.parse(inputDate);
+    String formattedDate = outputFormat.format(parsedDate);
+
+    return formattedDate;
   }
 
   Future<void> _getChildListEvent(AddViewPlayerGetChildListEvent event,

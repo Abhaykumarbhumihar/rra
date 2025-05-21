@@ -1,6 +1,9 @@
 class AppConstant {
+
   static String get baseUrl => "https://stage.rajasthanroyalsacademy.com/api/v1/";
   static String get fileBaseUrl => "https://demo.rajasthanroyalsacademy.com/storage/";
+  //static String get baseUrl => "https://rajasthanroyalsacademy.com/api/v1/";
+  //static String get fileBaseUrl => "https://rajasthanroyalsacademy.com/storage/";
 
 
   static String get bearer =>"Bearer ";
@@ -96,6 +99,29 @@ static String get getCollateralList=>"collaterals/list";
 
   static String get getBookedCampList=>"camp/orders";
   static String get getBookedCampDetail=>"camp/order";
+
+
+  static String get getFacilityDescription=>"facility/description";
+  static String get getFacilitiesList=>"facilities";
+  static String get getFacilitiesDetail=>"facilities/detail";
+  static String get getFacilitiesAvilableDates=>"avaiable/dates";
+  static String get getFacilitiesSlots=>"get/slots";
+  static String get getFacilitiesCheckDuration=>"check/duration";
+  static String get getFacilitiesAddToCart=>"add/cart";
+  static String get getFacilitiesCartLisst=>"cart/list";
+  static String get getFacilitiesCartDelete=>"cart/delete";
+  static String get getFacilitiesApplyPromoCode=>"apply/promocode";
+  static String get getFacilitiesPlaceOrder=>"place/booking";
+  static String get getFacilitiesPlaceOrderStripePayment=>"facility/booking/payment";
+  static String get getFacilitiesBulkCorporate=>"facility/bulk/corporate";
+  static String get getFacilitiesBookedList=>"facility/myorder";
+  static String get getFacilitiesBookedDetail=>"facility/myorder/detail";
+
+
+
+  static String get parentAccountDelete=>"parent/account/delete";
+
+
 
 
 

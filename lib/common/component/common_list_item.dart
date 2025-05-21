@@ -42,7 +42,7 @@ class CommonListItem extends StatelessWidget {
                   children: [
                     // Left Side - Image
                     FittedBox(child:  NetworkImageWidget(
-                      imageUrl:camp.images[0].imagePath,
+                      imageUrl:camp.images[0].thumbnail,
                       imageWidth:80,
                       fullimage: true,
                       placeHolder: "assets/images/appicon.png",
@@ -72,9 +72,9 @@ class CommonListItem extends StatelessWidget {
 
 
                             HtmlWidget(
-                                camp.description.length > 100
+                                camp.description.length > 80
 
-                                    ? '${camp.description.substring(0, 100)}...'
+                                    ? '${camp.description.substring(0, 80)}...'
                                     : camp.description,
                                 textStyle: TextStyle(
                                   color: Colors.white,
@@ -100,35 +100,7 @@ class CommonListItem extends StatelessWidget {
                   ],
                 ),
               ),
-              // Positioned(
-              //   bottom: 1,
-              //   right: 4.0,
-              //   child: Column(
-              //     mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              //     children: [
-              //       ElevatedButton(
-              //         onPressed: onPressed,
-              //         style: ElevatedButton.styleFrom(
-              //             backgroundColor: Colors.pinkAccent, // Button color
-              //             shape: RoundedRectangleBorder(
-              //               borderRadius:
-              //                   BorderRadius.circular(20), // Rounded Button
-              //             ),
-              //             minimumSize: Size(4, 30)
-              //             //  padding: EdgeInsets.symmetric(horizontal: 12, vertical: 12),
-              //             ),
-              //         child: Text(
-              //           'View',
-              //           style: TextStyle(
-              //             color: Colors.white,
-              //             fontSize: context.screenWidth * 0.032,
-              //             fontFamily: AppFont.interMedium,
-              //           ),
-              //         ),
-              //       ),
-              //     ],
-              //   ),
-              // )
+
             ],
           ),
         ),

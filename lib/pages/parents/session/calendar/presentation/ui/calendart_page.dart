@@ -159,7 +159,7 @@ class CalendarPage extends StatelessWidget {
                         ),
                         Container(
                           width: context.screenWidth,
-                          height: context.screenHeight * 0.3,
+                          height: context.screenHeight * 0.23,
                           child: Availablity(_scrollController),
                         ),
                         SizedBox(height: 4,),

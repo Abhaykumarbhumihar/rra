@@ -39,8 +39,9 @@ class CoachProgramsScreen extends StatelessWidget {
             final showTabs = hasPrivatePrograms;
 
             return Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisAlignment: MainAxisAlignment.start,
               children: [
-                const SizedBox(height: 10),
                 if (showTabs) // Only show toggle if private programs exist
                   Padding(
                     padding: EdgeInsets.symmetric(

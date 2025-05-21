@@ -504,7 +504,7 @@ mixin _$SessionModel {
   @JsonKey(name: 'days_excluded')
   dynamic get daysExcluded => throw _privateConstructorUsedError;
   @JsonKey(name: 'perdays_cost')
-  int get perdaysCost => throw _privateConstructorUsedError;
+  dynamic get perdaysCost => throw _privateConstructorUsedError;
   @JsonKey(name: 'per_week_cost')
   dynamic get perWeekCost => throw _privateConstructorUsedError;
   @JsonKey(name: 'thresold')
@@ -532,7 +532,7 @@ mixin _$SessionModel {
   @JsonKey(name: 'past_days')
   String get pastDays => throw _privateConstructorUsedError;
   @JsonKey(name: 'session_price')
-  String get sessionPrice => throw _privateConstructorUsedError;
+  int get sessionPrice => throw _privateConstructorUsedError;
   @JsonKey(name: 'session_display_price')
   String get sessionDisplayPrice => throw _privateConstructorUsedError;
 
@@ -558,7 +558,7 @@ abstract class $SessionModelCopyWith<$Res> {
       @JsonKey(name: 'from_date') String fromDate,
       @JsonKey(name: 'to_date') String toDate,
       @JsonKey(name: 'days_excluded') dynamic daysExcluded,
-      @JsonKey(name: 'perdays_cost') int perdaysCost,
+      @JsonKey(name: 'perdays_cost') dynamic perdaysCost,
       @JsonKey(name: 'per_week_cost') dynamic perWeekCost,
       @JsonKey(name: 'thresold') int thresold,
       @JsonKey(name: 'seats') int seats,
@@ -572,7 +572,7 @@ abstract class $SessionModelCopyWith<$Res> {
       @JsonKey(name: 'discount_price') String discountPrice,
       @JsonKey(name: 'minimum_day_discount') int minimumDayDiscount,
       @JsonKey(name: 'past_days') String pastDays,
-      @JsonKey(name: 'session_price') String sessionPrice,
+      @JsonKey(name: 'session_price') int sessionPrice,
       @JsonKey(name: 'session_display_price') String sessionDisplayPrice});
 }
 
@@ -596,7 +596,7 @@ class _$SessionModelCopyWithImpl<$Res, $Val extends SessionModel>
     Object? fromDate = null,
     Object? toDate = null,
     Object? daysExcluded = freezed,
-    Object? perdaysCost = null,
+    Object? perdaysCost = freezed,
     Object? perWeekCost = freezed,
     Object? thresold = null,
     Object? seats = null,
@@ -634,10 +634,10 @@ class _$SessionModelCopyWithImpl<$Res, $Val extends SessionModel>
           ? _value.daysExcluded
           : daysExcluded // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      perdaysCost: null == perdaysCost
+      perdaysCost: freezed == perdaysCost
           ? _value.perdaysCost
           : perdaysCost // ignore: cast_nullable_to_non_nullable
-              as int,
+              as dynamic,
       perWeekCost: freezed == perWeekCost
           ? _value.perWeekCost
           : perWeekCost // ignore: cast_nullable_to_non_nullable
@@ -693,7 +693,7 @@ class _$SessionModelCopyWithImpl<$Res, $Val extends SessionModel>
       sessionPrice: null == sessionPrice
           ? _value.sessionPrice
           : sessionPrice // ignore: cast_nullable_to_non_nullable
-              as String,
+              as int,
       sessionDisplayPrice: null == sessionDisplayPrice
           ? _value.sessionDisplayPrice
           : sessionDisplayPrice // ignore: cast_nullable_to_non_nullable
@@ -716,7 +716,7 @@ abstract class _$$SessionModelImplCopyWith<$Res>
       @JsonKey(name: 'from_date') String fromDate,
       @JsonKey(name: 'to_date') String toDate,
       @JsonKey(name: 'days_excluded') dynamic daysExcluded,
-      @JsonKey(name: 'perdays_cost') int perdaysCost,
+      @JsonKey(name: 'perdays_cost') dynamic perdaysCost,
       @JsonKey(name: 'per_week_cost') dynamic perWeekCost,
       @JsonKey(name: 'thresold') int thresold,
       @JsonKey(name: 'seats') int seats,
@@ -730,7 +730,7 @@ abstract class _$$SessionModelImplCopyWith<$Res>
       @JsonKey(name: 'discount_price') String discountPrice,
       @JsonKey(name: 'minimum_day_discount') int minimumDayDiscount,
       @JsonKey(name: 'past_days') String pastDays,
-      @JsonKey(name: 'session_price') String sessionPrice,
+      @JsonKey(name: 'session_price') int sessionPrice,
       @JsonKey(name: 'session_display_price') String sessionDisplayPrice});
 }
 
@@ -752,7 +752,7 @@ class __$$SessionModelImplCopyWithImpl<$Res>
     Object? fromDate = null,
     Object? toDate = null,
     Object? daysExcluded = freezed,
-    Object? perdaysCost = null,
+    Object? perdaysCost = freezed,
     Object? perWeekCost = freezed,
     Object? thresold = null,
     Object? seats = null,
@@ -790,10 +790,10 @@ class __$$SessionModelImplCopyWithImpl<$Res>
           ? _value.daysExcluded
           : daysExcluded // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      perdaysCost: null == perdaysCost
+      perdaysCost: freezed == perdaysCost
           ? _value.perdaysCost
           : perdaysCost // ignore: cast_nullable_to_non_nullable
-              as int,
+              as dynamic,
       perWeekCost: freezed == perWeekCost
           ? _value.perWeekCost
           : perWeekCost // ignore: cast_nullable_to_non_nullable
@@ -849,7 +849,7 @@ class __$$SessionModelImplCopyWithImpl<$Res>
       sessionPrice: null == sessionPrice
           ? _value.sessionPrice
           : sessionPrice // ignore: cast_nullable_to_non_nullable
-              as String,
+              as int,
       sessionDisplayPrice: null == sessionDisplayPrice
           ? _value.sessionDisplayPrice
           : sessionDisplayPrice // ignore: cast_nullable_to_non_nullable
@@ -867,7 +867,7 @@ class _$SessionModelImpl implements _SessionModel {
       @JsonKey(name: 'from_date') this.fromDate = '',
       @JsonKey(name: 'to_date') this.toDate = '',
       @JsonKey(name: 'days_excluded') this.daysExcluded = '',
-      @JsonKey(name: 'perdays_cost') this.perdaysCost = 0,
+      @JsonKey(name: 'perdays_cost') this.perdaysCost = '',
       @JsonKey(name: 'per_week_cost') this.perWeekCost = 0,
       @JsonKey(name: 'thresold') this.thresold = 0,
       @JsonKey(name: 'seats') this.seats = 0,
@@ -881,7 +881,7 @@ class _$SessionModelImpl implements _SessionModel {
       @JsonKey(name: 'discount_price') this.discountPrice = '',
       @JsonKey(name: 'minimum_day_discount') this.minimumDayDiscount = 0,
       @JsonKey(name: 'past_days') this.pastDays = '',
-      @JsonKey(name: 'session_price') this.sessionPrice = '',
+      @JsonKey(name: 'session_price') this.sessionPrice = 0,
       @JsonKey(name: 'session_display_price') this.sessionDisplayPrice = ''});
 
   factory _$SessionModelImpl.fromJson(Map<String, dynamic> json) =>
@@ -904,7 +904,7 @@ class _$SessionModelImpl implements _SessionModel {
   final dynamic daysExcluded;
   @override
   @JsonKey(name: 'perdays_cost')
-  final int perdaysCost;
+  final dynamic perdaysCost;
   @override
   @JsonKey(name: 'per_week_cost')
   final dynamic perWeekCost;
@@ -946,7 +946,7 @@ class _$SessionModelImpl implements _SessionModel {
   final String pastDays;
   @override
   @JsonKey(name: 'session_price')
-  final String sessionPrice;
+  final int sessionPrice;
   @override
   @JsonKey(name: 'session_display_price')
   final String sessionDisplayPrice;
@@ -968,8 +968,8 @@ class _$SessionModelImpl implements _SessionModel {
             (identical(other.toDate, toDate) || other.toDate == toDate) &&
             const DeepCollectionEquality()
                 .equals(other.daysExcluded, daysExcluded) &&
-            (identical(other.perdaysCost, perdaysCost) ||
-                other.perdaysCost == perdaysCost) &&
+            const DeepCollectionEquality()
+                .equals(other.perdaysCost, perdaysCost) &&
             const DeepCollectionEquality()
                 .equals(other.perWeekCost, perWeekCost) &&
             (identical(other.thresold, thresold) ||
@@ -1008,7 +1008,7 @@ class _$SessionModelImpl implements _SessionModel {
         fromDate,
         toDate,
         const DeepCollectionEquality().hash(daysExcluded),
-        perdaysCost,
+        const DeepCollectionEquality().hash(perdaysCost),
         const DeepCollectionEquality().hash(perWeekCost),
         thresold,
         seats,
@@ -1049,7 +1049,7 @@ abstract class _SessionModel implements SessionModel {
       @JsonKey(name: 'from_date') final String fromDate,
       @JsonKey(name: 'to_date') final String toDate,
       @JsonKey(name: 'days_excluded') final dynamic daysExcluded,
-      @JsonKey(name: 'perdays_cost') final int perdaysCost,
+      @JsonKey(name: 'perdays_cost') final dynamic perdaysCost,
       @JsonKey(name: 'per_week_cost') final dynamic perWeekCost,
       @JsonKey(name: 'thresold') final int thresold,
       @JsonKey(name: 'seats') final int seats,
@@ -1063,7 +1063,7 @@ abstract class _SessionModel implements SessionModel {
       @JsonKey(name: 'discount_price') final String discountPrice,
       @JsonKey(name: 'minimum_day_discount') final int minimumDayDiscount,
       @JsonKey(name: 'past_days') final String pastDays,
-      @JsonKey(name: 'session_price') final String sessionPrice,
+      @JsonKey(name: 'session_price') final int sessionPrice,
       @JsonKey(name: 'session_display_price')
       final String sessionDisplayPrice}) = _$SessionModelImpl;
 
@@ -1087,7 +1087,7 @@ abstract class _SessionModel implements SessionModel {
   dynamic get daysExcluded;
   @override
   @JsonKey(name: 'perdays_cost')
-  int get perdaysCost;
+  dynamic get perdaysCost;
   @override
   @JsonKey(name: 'per_week_cost')
   dynamic get perWeekCost;
@@ -1129,7 +1129,7 @@ abstract class _SessionModel implements SessionModel {
   String get pastDays;
   @override
   @JsonKey(name: 'session_price')
-  String get sessionPrice;
+  int get sessionPrice;
   @override
   @JsonKey(name: 'session_display_price')
   String get sessionDisplayPrice;

@@ -20,9 +20,9 @@ class CampOrderSummaryData with _$CampOrderSummaryData {
   const factory CampOrderSummaryData({
     @Default([]) List<PlayerDetail> playerDetail,
     String? promocode,
-    @Default(0) int subtotal,
+    @Default(0) dynamic subtotal,
     @JsonKey(name: 'display_subtotal') @Default('') String displaySubtotal,
-    String? discount,
+    dynamic? discount,
     @JsonKey(name: 'display_discount') @Default('') String displayDiscount,
     @Default(0) int tax,
     @JsonKey(name: 'display_tax') @Default('') String displayTax,

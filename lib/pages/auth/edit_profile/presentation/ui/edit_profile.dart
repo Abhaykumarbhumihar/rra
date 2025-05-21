@@ -5,6 +5,7 @@ import 'package:rra/common/values/values_exports.dart';
 import 'package:rra/common/routes/exports.dart';
 import '../../../../../common/component/auth_text_field.dart';
 import '../../../../../common/component/common_background.dart';
+import '../../../../../common/component/confirmation_dialog.dart';
 import '../../../../../common/component/custom_app_button.dart';
 import '../../../../../common/component/loading_indicator.dart';
 import '../../../../../common/image/camera_file_utility.dart';
@@ -12,6 +13,15 @@ import '../../../../../common/image/camera_gallery_dialog.dart';
 import '../../../../../common/local/SharedPrefs.dart';
 import '../../../../../common/routes/routes.dart';
 import '../../../../../common/service_locator/setivelocator.dart';
+import '../../../../academic/presentation/bloc/academic_event.dart';
+import '../../../../coach/coach_attendance/player_attendance_list/presentation/bloc/attendance_bloc.dart';
+import '../../../../coach/coach_attendance/player_attendance_list/presentation/bloc/attendance_event.dart';
+import '../../../../coach/coach_player_report/coach_player_report_list/presentation/bloc/report_bloc.dart';
+import '../../../../coach/coach_player_report/coach_player_report_list/presentation/bloc/report_event.dart';
+import '../../../../coach/manage_team/presentation/bloc/manage_team_bloc.dart';
+import '../../../../coach/manage_team/presentation/bloc/manage_team_event.dart';
+import '../../../../coach/view_session/presentation/bloc/view_session_bloc.dart';
+import '../../../../coach/view_session/presentation/bloc/view_session_event.dart';
 import '../../../../parents/session/add_detail/presentation/bloc/add_view_player_bloc.dart';
 import '../../../../parents/session/add_detail/presentation/bloc/add_view_player_event.dart';
 import '../../../otpverification/data/entity/otp_verification_model.dart';
@@ -64,9 +74,14 @@ class EditProfile extends StatelessWidget {
             // _appBloc.add(UserDataUpdate());
             // await BlocProvider.of<MyprofileBloc>(context).loadUserData();
         //    Navigator.pop(context);
-          } else if (state.isServerError && state.errorMessage != '') {
+          }
+
+          else if (state.isServerError && state.errorMessage != '') {
             context.showCustomSnackbar(state.errorMessage,
                 backgroundColor: AppColor.appcolor);
+          }
+          if(state.accountdeleted==true){
+
           }
         },
         child: BlocBuilder<EditprofileBloc, EditprofileState>(
@@ -206,6 +221,17 @@ class EditProfile extends StatelessWidget {
                                   print("code is running here");
                                 },
                               ),
+                              SizedBox(height: 10,),
+                              CustomButton(
+                                text: "Delete Profile",
+                                onPressed: () {
+                                  // Navigator.pushNamed(
+                                  //     context, AppRoutes.APPLICATION);
+                                  accountDeleteDialog(context);
+
+                                  print("code is running here");
+                                },
+                              ),
                             ],
                           ),
                         ),
@@ -249,5 +275,44 @@ class EditProfile extends StatelessWidget {
         );
       },
     );
+  }
+
+  void accountDeleteDialog(BuildContext context) {
+    var bloc = BlocProvider.of<EditprofileBloc>(context);
+    ConfirmationDialog.show(
+      context: context,
+      title: 'Delete',
+      description: 'Are you sure you want to delete account?',
+      confirmButtonText: 'Delete',
+      onCancel: () {
+        print('Cancelled');
+      },
+      onConfirm: () async {
+        BlocProvider.of<EditprofileBloc>(context).add(DeleteuserProfileEvent());
+        await getIt<SharedPrefs>().remove("user_model");
+        await getIt<SharedPrefs>().remove("selected_academyid");
+        await getIt<SharedPrefs>().remove("stripe_auth_key");
+        await getIt<SharedPrefs>().remove("stripe_publish_key");
+        await getIt<SharedPrefs>().clear();
+
+        BlocProvider.of<EditprofileBloc>(context)
+            .loadUserData();
+        BlocProvider.of<AppBloc>(context).loadUserData();
+        BlocProvider.of<AcademicBloc>(context).add(AcademicListEvent(""));
+        BlocProvider.of<AttendanceBloc>(context).add(ResetStateEvent());
+        BlocProvider.of<ReportBloc>(context).add(ResetReportStateEvent());
+        BlocProvider.of<ManageTeamBloc>(context).add(ResetManageTeamStateEvent());
+        BlocProvider.of<ViewSessionBloc>(context).add(ResetViewSessionStateEvent());
+
+        Navigator.pushNamedAndRemoveUntil(
+          context,
+          AppRoutes.ACADEMICLISTPAGE,
+              (Route<dynamic> route) => false,
+        );
+        print('Logged out');
+      },
+    ).then((_) {
+      // This ensures the overlay is removed if dialog is dismissed by tapping outside
+    });
   }
 }

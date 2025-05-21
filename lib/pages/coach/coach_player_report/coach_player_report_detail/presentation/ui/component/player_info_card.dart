@@ -48,20 +48,20 @@ class PlayerInfoCard extends StatelessWidget {
                       ),
                     ],
                   ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.end,
-                    children: <Widget>[
-                      reportData.data.isWebviewData
-                          ? CommonSmallElevatedButton(
-                              padding: const EdgeInsets.symmetric(
-                                  horizontal: 16.0, vertical: 6.0),
-                              label: "View Report",
-                              onPressed: onViewReport,
-                              color: Colors.blue,
-                            )
-                          : SizedBox()
-                    ],
-                  )
+                  // Row(
+                  //   mainAxisAlignment: MainAxisAlignment.end,
+                  //   children: <Widget>[
+                  //     reportData.data.isWebviewData
+                  //         ? CommonSmallElevatedButton(
+                  //             padding: const EdgeInsets.symmetric(
+                  //                 horizontal: 16.0, vertical: 6.0),
+                  //             label: "View Report",
+                  //             onPressed: onViewReport,
+                  //             color: Colors.blue,
+                  //           )
+                  //         : SizedBox()
+                  //   ],
+                  // )
                 ],
               ),
               InfoRow(

@@ -29,7 +29,9 @@ Map<String, dynamic> _$$DashboardResponseImplToJson(
 _$DashboardDataImpl _$$DashboardDataImplFromJson(Map<String, dynamic> json) =>
     _$DashboardDataImpl(
       orderCount: (json['ordercount'] as num?)?.toInt() ?? 0,
+      campOrderCount: (json['campOrderCount'] as num?)?.toInt() ?? 0,
       sessionCount: (json['sessioncount'] as num?)?.toInt() ?? 0,
+      facilityOrderCount: (json['facilityOrderCount'] as num?)?.toInt() ?? 0,
       user: json['user'] == null
           ? const DashboardUser()
           : DashboardUser.fromJson(json['user'] as Map<String, dynamic>),
@@ -38,7 +40,9 @@ _$DashboardDataImpl _$$DashboardDataImplFromJson(Map<String, dynamic> json) =>
 Map<String, dynamic> _$$DashboardDataImplToJson(_$DashboardDataImpl instance) =>
     <String, dynamic>{
       'ordercount': instance.orderCount,
+      'campOrderCount': instance.campOrderCount,
       'sessioncount': instance.sessionCount,
+      'facilityOrderCount': instance.facilityOrderCount,
       'user': instance.user,
     };
 

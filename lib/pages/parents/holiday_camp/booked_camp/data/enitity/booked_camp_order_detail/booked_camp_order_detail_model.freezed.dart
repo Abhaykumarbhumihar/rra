@@ -271,7 +271,7 @@ mixin _$BookedCampOrderDetailData {
       throw _privateConstructorUsedError; // Can be null or potentially an object
   @JsonKey(name: 'display_discount')
   String get displayDiscount => throw _privateConstructorUsedError;
-  int get tax => throw _privateConstructorUsedError;
+  String get tax => throw _privateConstructorUsedError;
   @JsonKey(name: 'display_tax')
   String get displayTax => throw _privateConstructorUsedError;
   String get total => throw _privateConstructorUsedError;
@@ -304,7 +304,7 @@ abstract class $BookedCampOrderDetailDataCopyWith<$Res> {
       @JsonKey(name: 'display_subtotal') String displaySubtotal,
       dynamic discount,
       @JsonKey(name: 'display_discount') String displayDiscount,
-      int tax,
+      String tax,
       @JsonKey(name: 'display_tax') String displayTax,
       String total,
       @JsonKey(name: 'display_total') String displayTotal});
@@ -378,7 +378,7 @@ class _$BookedCampOrderDetailDataCopyWithImpl<$Res,
       tax: null == tax
           ? _value.tax
           : tax // ignore: cast_nullable_to_non_nullable
-              as int,
+              as String,
       displayTax: null == displayTax
           ? _value.displayTax
           : displayTax // ignore: cast_nullable_to_non_nullable
@@ -435,7 +435,7 @@ abstract class _$$BookedCampOrderDetailDataImplCopyWith<$Res>
       @JsonKey(name: 'display_subtotal') String displaySubtotal,
       dynamic discount,
       @JsonKey(name: 'display_discount') String displayDiscount,
-      int tax,
+      String tax,
       @JsonKey(name: 'display_tax') String displayTax,
       String total,
       @JsonKey(name: 'display_total') String displayTotal});
@@ -510,7 +510,7 @@ class __$$BookedCampOrderDetailDataImplCopyWithImpl<$Res>
       tax: null == tax
           ? _value.tax
           : tax // ignore: cast_nullable_to_non_nullable
-              as int,
+              as String,
       displayTax: null == displayTax
           ? _value.displayTax
           : displayTax // ignore: cast_nullable_to_non_nullable
@@ -539,9 +539,9 @@ class _$BookedCampOrderDetailDataImpl implements _BookedCampOrderDetailData {
       this.promocode = null,
       this.subtotal = 0,
       @JsonKey(name: 'display_subtotal') this.displaySubtotal = '',
-      this.discount = null,
+      this.discount = '',
       @JsonKey(name: 'display_discount') this.displayDiscount = '',
-      this.tax = 0,
+      this.tax = '',
       @JsonKey(name: 'display_tax') this.displayTax = '',
       this.total = '',
       @JsonKey(name: 'display_total') this.displayTotal = ''})
@@ -584,7 +584,7 @@ class _$BookedCampOrderDetailDataImpl implements _BookedCampOrderDetailData {
   final String displayDiscount;
   @override
   @JsonKey()
-  final int tax;
+  final String tax;
   @override
   @JsonKey(name: 'display_tax')
   final String displayTax;
@@ -671,7 +671,7 @@ abstract class _BookedCampOrderDetailData implements BookedCampOrderDetailData {
           @JsonKey(name: 'display_subtotal') final String displaySubtotal,
           final dynamic discount,
           @JsonKey(name: 'display_discount') final String displayDiscount,
-          final int tax,
+          final String tax,
           @JsonKey(name: 'display_tax') final String displayTax,
           final String total,
           @JsonKey(name: 'display_total') final String displayTotal}) =
@@ -701,7 +701,7 @@ abstract class _BookedCampOrderDetailData implements BookedCampOrderDetailData {
   @JsonKey(name: 'display_discount')
   String get displayDiscount;
   @override
-  int get tax;
+  String get tax;
   @override
   @JsonKey(name: 'display_tax')
   String get displayTax;
