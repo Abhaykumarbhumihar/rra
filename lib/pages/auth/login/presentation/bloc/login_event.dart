@@ -17,6 +17,7 @@ class LoginEvent with _$LoginEvent {
   }) = LoginButtonPressed;
   const factory LoginEvent.forgotPasswordPressed() = ForgotPasswordPressed;
   const factory LoginEvent.signUpPressed() = SignUpPressed;
+  const factory LoginEvent.resetLoginState() = ResetLoginState;
 }
 
 

@@ -1,9 +1,9 @@
 class AppConstant {
 
-  static String get baseUrl => "https://stage.rajasthanroyalsacademy.com/api/v1/";
-  static String get fileBaseUrl => "https://demo.rajasthanroyalsacademy.com/storage/";
-  //static String get baseUrl => "https://rajasthanroyalsacademy.com/api/v1/";
-  //static String get fileBaseUrl => "https://rajasthanroyalsacademy.com/storage/";
+   // static String get baseUrl => "https://stage.rajasthanroyalsacademy.com/api/v1/";
+   // static String get fileBaseUrl => "https://demo.rajasthanroyalsacademy.com/storage/";
+  static String get baseUrl => "https://rajasthanroyalsacademy.com/api/v1/";
+ static String get fileBaseUrl => "https://rajasthanroyalsacademy.com/storage/";
 
 
   static String get bearer =>"Bearer ";

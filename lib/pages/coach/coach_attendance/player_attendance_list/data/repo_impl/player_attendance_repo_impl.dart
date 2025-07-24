@@ -27,7 +27,7 @@ class PlayerAttendanceRepoImpl implements PlayerAttendanceRepositey {
       print(playerData);
       http.Response response =
       await _apiServices.post(AppConstant.getAttendanceList, playerData,useDefaultHeaders: true,isJson: true);
-      print("playerList playerList playerList playerList playerList");
+      print("playerList playerList playerList playerList playerList $playerData");
       print(response.body);
 
       print("S +++++++++ S++++++++++++S+++++++++++++++++++S");

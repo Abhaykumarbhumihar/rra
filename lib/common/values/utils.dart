@@ -13,6 +13,10 @@ class Utils{
   }
 
 
+  static  String formatDateOnly(DateTime dateTime) {
+    return DateFormat('yyyy-MM-dd').format(dateTime);
+  }
+
 
   static String formatDate(DateTime date) {
     // Format the date to "Nov 27th, 2025"

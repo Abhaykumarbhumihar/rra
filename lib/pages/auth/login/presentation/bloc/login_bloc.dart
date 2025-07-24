@@ -23,9 +23,19 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
     on<LoginEmailChanged>(_onEmailChanged);
     on<LoginPasswordChanged>(_onPasswordChanged);
     on<SelectAdademicLogin>(_selectAcademic);
+    on<ResetLoginState>(_resetEvent);
 
 
-
+  }
+  @override
+  void onError(Object error, StackTrace stackTrace) {
+    // Custom error handling logic (e.g., log to Firebase, show a snackbar, etc.)
+    debugPrint('Bloc Error: $error');
+    super.onError(error, stackTrace); // Always call super
+  }
+  
+  Future<void>_resetEvent( ResetLoginState event, Emitter<LoginState> emit)async{
+    emit(LoginState.initial());
   }
 
   Future<void> _onEmailChanged(

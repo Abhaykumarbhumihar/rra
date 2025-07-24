@@ -12,6 +12,7 @@ class CoachSinglePlayerDetailPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+
     var height = context.screenHeight;
     final Map<String, String>? arguments =
         ModalRoute.of(context)?.settings.arguments as Map<String, String>?;

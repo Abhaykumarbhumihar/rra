@@ -17,8 +17,13 @@ class ResetpasswordBloc extends Bloc<ResetpasswordEvent, ResetPasswordState> {
     on<ResetNewpasswordChanged>(_onPasswordChanged);
     on<ResetConfirmPasswordChanged>(_onConfirmPasswordChanged);
     on<ResetPasswordSubmitted>(_onResetpaswrodSubmitted);
+    on<ResetPasswordResetState>(_onResetState);
   }
 
+ Future<void> _onResetState(
+     ResetPasswordResetState event, Emitter<ResetPasswordState> emit) async {
+   emit(ResetPasswordState.initial());
+ }
   Future<void> _onPasswordChanged(
       ResetNewpasswordChanged event, Emitter<ResetPasswordState> emit) async {
     emit(state.copyWith(newPassword: event.password, errorMessage: ''));

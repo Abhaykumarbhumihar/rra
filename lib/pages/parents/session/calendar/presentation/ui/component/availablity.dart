@@ -16,7 +16,8 @@ import 'custom_bottomsheet.dart';
 
 class Availablity extends StatelessWidget {
   ScrollController _scrollController;
-   Availablity( this._scrollController, {super.key});
+
+  Availablity(this._scrollController, {super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -26,17 +27,14 @@ class Availablity extends StatelessWidget {
           if (state.selectBottomSheetType == "Select and continue") {
             BlocProvider.of<SessionCalendarBloc>(context)
                 .add(SessionCalendarEvent.setSeletTypeBottomSheet(""));
-
           } else if (state.selectBottomSheetType ==
-              "Select and make recurring") {
-
-          }
+              "Select and make recurring") {}
         }
       },
       child: BlocBuilder<SessionCalendarBloc, SessionCalendarState>(
         builder: (context, state) {
           return Column(
-           crossAxisAlignment: CrossAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.start,
             mainAxisAlignment: MainAxisAlignment.start,
             children: <Widget>[
               SizedBox(
@@ -47,134 +45,185 @@ class Availablity extends StatelessWidget {
                 child: ScreenTitleForCalendar(
                   title: "Availability",
                   fontSize: context.screenWidth * 0.042,
-                ) .animate()
+                )
+                    .animate()
                     .fade(duration: 900.ms)
                     .slideY(begin: -0.2, end: 0, duration: 800.ms),
               ),
               Padding(
-                padding: const EdgeInsets.only(left: 5.0,top: 4,bottom: 4),
-                child: Text("Select the time slot you want to book.",
+                padding: const EdgeInsets.only(left: 5.0, top: 4, bottom: 4),
+                child: Text(
+                  "Select the time slot you want to book.",
                   style: TextStyle(
                       color: AppColor.appWhiteColor,
                       fontFamily: AppFont.interRegular,
-                      fontSize: 10
-                  ),),
+                      fontSize: 10),
+                ),
               ),
-              state.isAvailablityLoading?Expanded(child: AvailablityShimmer()):SizedBox(
-                width: double.infinity,
-                height: context.screenHeight*0.14,
-                child: ListView.builder(
-                    shrinkWrap: true,
-                    padding: EdgeInsets.zero,
-                    scrollDirection: Axis.horizontal,
-                    itemCount: state.avilableDatesResponse.data.length,
-                    itemBuilder: (context, index) {
-                      var data = state.avilableDatesResponse.data[index];
-                      return InkWell(
-                        onTap: () {
-                          print("CODE IS RUNNING HERE HERE ");
+              state.isAvailablityLoading
+                  ? Expanded(child: AvailablityShimmer())
+                  : SizedBox(
+                      width: double.infinity,
+                      height: context.screenHeight * 0.14,
+                      child: ListView.builder(
+                          shrinkWrap: true,
+                          padding: EdgeInsets.zero,
+                          scrollDirection: Axis.horizontal,
+                          itemCount: state.avilableDatesResponse.data.length,
+                          itemBuilder: (context, index) {
+                            var data = state.avilableDatesResponse.data[index];
+                            var selectedDate =
+                                Utils.formatDateOnly(state.datetime!);
+                            final sessionId = data.sessionDetailId.toString();
 
-                          DateTime parsedDate =
-                              DateTime.parse(state.datetime.toString());
+                            final isAlreadyAddedd = state.timeAddedModel.data
+                                .any((timeSlot) =>
+                                    timeSlot.sessionId == sessionId &&
+                                    timeSlot.date == selectedDate);
 
-                          Map<String, dynamic> body = {
-                            "date": DateFormat('yyyy-MM-dd').format(parsedDate),
-                            "slots": [
-                              {
-                                "session_id": data.sessionDetailId,
-                                "time": data.time,
-                                "from_time": data.fromTime,
-                                "to_time": data.toTime,
-                                "slots_left": data.slotsLeft,
-                                "price": data.price
-                              }
-                            ]
-                          };
+                            return InkWell(
+                              onTap: () {
+                                // Check if sessionId is already in the list
+                                if (isAlreadyAddedd) {
+                                  context.showCustomSnackbar(
+                                      "This slot is already added");
+                                  return;
+                                }
 
-                          print("SELECTED DAY NAME IS ${data.sessionDayName}");
-                          BlocProvider.of<SessionCalendarBloc>(context)
-                              .add(SetSelectedDateDayName(data.sessionDayName,
-                              data.sessionDetailId.toString(),
-                            data.fromTime
-                          ));
+                                print("CODE IS RUNNING HERE HERE ");
 
-                          _showCustomBottomSheet(
-                              context, body, "${data.sessionDayName}");
-                        },
-                        child: Padding(
-                          padding: const EdgeInsets.only(left: 2.0,right: 5),
-                          child: Container(
-                            width: context.screenWidth * 0.3,
-                            padding: EdgeInsets.symmetric(
-                                vertical: context.screenHeight * 0.012,
-                                horizontal: context.screenWidth * 0.02),
-                            decoration: BoxDecoration(
-                                image: DecorationImage(
-                                    image: AssetImage(
-                                        "assets/images/availablity.png"),fit: BoxFit.fill),
-                            ),
-                            child: Column(
-                              mainAxisSize: MainAxisSize.min,
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              crossAxisAlignment: CrossAxisAlignment.center,
-                              children: <Widget>[
-                                AvailablitTime(
-                                  title: '${data.fromTime}-\n${data.toTime}',
-                                ).animate()
-                                    .fade(duration: 700.ms, delay: (index * 200).ms)
-                                    .slideY(begin: 0.3, end: 0, duration: 800.ms),
+                                DateTime parsedDate =
+                                    DateTime.parse(state.datetime.toString());
 
-                                SizedBox(
-                                  height: 4,
-                                ),
-                                Container(
+                                Map<String, dynamic> body = {
+                                  "date": DateFormat('yyyy-MM-dd')
+                                      .format(parsedDate),
+                                  "slots": [
+                                    {
+                                      "session_id": data.sessionDetailId,
+                                      "time": data.time,
+                                      "from_time": data.fromTime,
+                                      "to_time": data.toTime,
+                                      "slots_left": data.slotsLeft,
+                                      "price": data.price
+                                    }
+                                  ]
+                                };
+
+                                print(
+                                    "SELECTED DAY NAME IS ${data.sessionDayName}");
+                                BlocProvider.of<SessionCalendarBloc>(context)
+                                    .add(SetSelectedDateDayName(
+                                        data.sessionDayName,
+                                        data.sessionDetailId.toString(),
+                                        data.fromTime));
+
+                                _showCustomBottomSheet(
+                                    context, body, "${data.sessionDayName}");
+                              },
+                              child: Padding(
+                                padding:
+                                    const EdgeInsets.only(left: 2.0, right: 5),
+                                child: Container(
+                                  width: context.screenWidth * 0.3,
                                   padding: EdgeInsets.symmetric(
-                                      vertical: context.screenHeight * 0.005,
-                                      horizontal:
-                                          context.screenWidth * 0.003),
+                                      vertical: context.screenHeight * 0.012,
+                                      horizontal: context.screenWidth * 0.02),
                                   decoration: BoxDecoration(
                                       image: DecorationImage(
                                           image: AssetImage(
-                                              "assets/images/rounded_pink.png"))),
-                                  child: Center(
-                                      child: AvailablitTime(
-                                    title: '${data.slotsLeft} Slots',
-                                  ).animate()
-                                          .fade(duration: 700.ms, delay: (index * 250).ms)
-                                          .scaleXY(begin: 0.8, end: 1.0, duration: 800.ms, curve: Curves.bounceOut),
+                                              "assets/images/availablity.png"),
+                                          fit: BoxFit.fill),
+                                      color: isAlreadyAddedd == false
+                                          ? Colors.transparent
+                                          : Colors.pink.withOpacity(0.3),
+                                      borderRadius: BorderRadius.circular(6.0)),
+                                  child: Column(
+                                    mainAxisSize: MainAxisSize.min,
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.center,
+                                    children: <Widget>[
+                                      AvailablitTime(
+                                        title:
+                                            '${data.fromTime}-\n${data.toTime}',
+                                      )
+                                          .animate()
+                                          .fade(
+                                              duration: 700.ms,
+                                              delay: (index * 200).ms)
+                                          .slideY(
+                                              begin: 0.3,
+                                              end: 0,
+                                              duration: 800.ms),
+                                      SizedBox(
+                                        height: 4,
+                                      ),
+                                      Container(
+                                        padding: EdgeInsets.symmetric(
+                                            vertical:
+                                                context.screenHeight * 0.005,
+                                            horizontal:
+                                                context.screenWidth * 0.003),
+                                        decoration: BoxDecoration(
+                                            image: isAlreadyAddedd == false
+                                                ? DecorationImage(
+                                                    image: AssetImage(
+                                                        "assets/images/rounded_pink.png"))
+                                                : null),
+                                        child: Center(
+                                          child: AvailablitTime(
+                                            title: '${data.slotsLeft} Slots',
+                                          )
+                                              .animate()
+                                              .fade(
+                                                  duration: 700.ms,
+                                                  delay: (index * 250).ms)
+                                              .scaleXY(
+                                                  begin: 0.8,
+                                                  end: 1.0,
+                                                  duration: 800.ms,
+                                                  curve: Curves.bounceOut),
+                                        ),
+                                      ),
+                                      SizedBox(height: 4),
+                                      Container(
+                                        decoration: BoxDecoration(
+                                          color: Colors.white54,
+                                          borderRadius:
+                                              BorderRadius.circular(4.0),
+                                        ),
+                                        child: Padding(
+                                          padding: EdgeInsets.symmetric(
+                                              horizontal: 16.0, vertical: 2),
+                                          child: Text(
+                                            "${data.price}",
+                                            style: TextStyle(
+                                                fontSize: 9,
+                                                fontWeight: FontWeight.w500),
+                                          ),
+                                        ),
+                                      ),
+                                    ],
                                   ),
-                                ),
-                                SizedBox(height: 4),
-
-                                Container(
-                                  decoration: BoxDecoration(
-                                    color: Colors.white54,
-                                    borderRadius: BorderRadius.circular(4.0),
-                                  ),
-                                  child: Padding(
-                                    padding:  EdgeInsets.symmetric(horizontal: 16.0,vertical: 2),
-                                    child: Text(
-                                      "${data.price}",
-                                      style: TextStyle(fontSize: 9, fontWeight: FontWeight.w500),
-                                    ),
-                                  ),
-                                ),
-
-                              ],
-                            ),
-                          ).animate()
-                          .fade(duration: 900.ms, delay: (index * 200).ms)
-                          .slideX(begin: 0.3, end: 0, duration: 800.ms),
-                        ),
-                      );
-                    }),
-              ),
+                                )
+                                    .animate()
+                                    .fade(
+                                        duration: 900.ms,
+                                        delay: (index * 200).ms)
+                                    .slideX(
+                                        begin: 0.3, end: 0, duration: 800.ms),
+                              ),
+                            );
+                          }),
+                    ),
             ],
           );
         },
       ),
     );
   }
+
   void _scrollToBottom() {
     _scrollController.animateTo(
       _scrollController.position.maxScrollExtent,
@@ -182,6 +231,7 @@ class Availablity extends StatelessWidget {
       curve: Curves.easeOut,
     );
   }
+
   void recurringDialog(BuildContext context, dayCount) async {
     var bloc = BlocProvider.of<SessionCalendarBloc>(context);
     showDialog(
@@ -198,10 +248,14 @@ class Availablity extends StatelessWidget {
           "every-fourth-${name}",
         ];
         print(dayList);
-        return RecurringDialog(dayList, dayCount,sessionId,);
+        return RecurringDialog(
+          dayList,
+          dayCount,
+          sessionId,
+        );
       },
     );
-   // _scrollToBottom();
+    // _scrollToBottom();
   }
 
   void _showCustomBottomSheet(
@@ -220,13 +274,12 @@ class Availablity extends StatelessWidget {
             if (selectedOption == "Select and continue") {
               bloc.add(SetSelectTypeBottomSheetEvent("Select and continue"));
               bloc.add(SetSlotBooking(body));
-             // blocSummary.add(ResetStateEvent());
+              // blocSummary.add(ResetStateEvent());
               Map<String, dynamic> arguments = {
-
-
                 "isFromCreateAccount": "session",
               };
-              Navigator.pushNamed(context, AppRoutes.ADDDETAILS,arguments: arguments);
+              Navigator.pushNamed(context, AppRoutes.ADDDETAILS,
+                  arguments: arguments);
 
               //  Navigator.pushNamed(context, AppRoutes.ADDDETAILS);
             }
@@ -236,7 +289,7 @@ class Availablity extends StatelessWidget {
               bloc.add(SetSlotBooking(body));
               BlocProvider.of<SessionCalendarBloc>(context)
                   .add(SessionCalendarEvent.setSeletTypeBottomSheet(""));
-             // blocSummary.add(ResetStateEvent());
+              // blocSummary.add(ResetStateEvent());
               recurringDialog(context, 52);
             }
             if (selectedOption == "Select and add another time") {
@@ -244,7 +297,7 @@ class Availablity extends StatelessWidget {
                   SetSelectTypeBottomSheetEvent("Select and add another time"));
               //blocSummary.add(ResetStateEvent());
               bloc.add(SetSlotBooking(body));
-           //   _scrollToBottom();
+              //   _scrollToBottom();
             }
             print("User selected: $selectedOption");
           },

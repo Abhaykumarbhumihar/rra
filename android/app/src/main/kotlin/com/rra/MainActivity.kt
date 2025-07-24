@@ -1,4 +1,4 @@
-package com.rra.rra
+package com.rra
 
 import io.flutter.embedding.android.FlutterFragmentActivity
 

@@ -2,6 +2,7 @@ import 'dart:convert';
 import 'dart:io';
 
 import 'package:either_dart/src/either.dart';
+import 'package:flutter/foundation.dart';
 
 import 'package:http/http.dart' as http;
 import '../../../../../common/network/api_services.dart';
@@ -28,6 +29,8 @@ class LoginImpl implements LoginRepositery {
       if (response.statusCode == 200) {
         final Map<String, dynamic> responseData = jsonDecode(response.body);
         if(responseData['success']){
+        //  final OtpVerificationModel user = await compute(parseOtpVerificationModel, responseData);
+
           final OtpVerificationModel user = OtpVerificationModel.fromJson(responseData);
           return Right(user);
         }else{
@@ -53,6 +56,8 @@ class LoginImpl implements LoginRepositery {
     }
   }
 
-
+  OtpVerificationModel parseOtpVerificationModel(Map<String, dynamic> json) {
+    return OtpVerificationModel.fromJson(json);
+  }
 
 }

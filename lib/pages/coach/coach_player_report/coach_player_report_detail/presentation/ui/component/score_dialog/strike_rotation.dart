@@ -8,6 +8,7 @@ import 'package:rra/pages/coach/coach_player_report/coach_player_report_list/dat
 import '../../../../../../../../common/component/custom_app_button.dart';
 import '../../../../../../../../common/local/SharedPrefs.dart';
 import '../../../../../../../../common/service_locator/setivelocator.dart';
+import '../../../../../../../../common/values/utils.dart';
 import '../../../../../coach_player_report_list/data/entity/report_detail/report_detail.dart';
 import '../../../../../coach_player_report_list/presentation/bloc/report_bloc.dart';
 import '../../../../../coach_player_report_list/presentation/bloc/report_event.dart';
@@ -158,14 +159,47 @@ class _StrikeRotationDialogPageState extends State<StrikeRotationDialogPage> {
     );
   }
 
+  // Widget _buildColorIndicator(List<ScoreCriteriaDetail> scoreCriteria) {
+  //   print("==============\n\n=========================\n\n");
+  //   Utils.LogPrint(scoreCriteria);
+  //
+  //   print("==============\n\n=========================\n\n");
+  //   return Column(
+  //     crossAxisAlignment: CrossAxisAlignment.start,
+  //     mainAxisAlignment: MainAxisAlignment.start,
+  //     children: [
+  //       Row(
+  //         mainAxisAlignment: MainAxisAlignment.spaceBetween,
+  //         children: scoreCriteria.map((criteria) {
+  //           return _buildRangeIndicator(
+  //             '${criteria.range} ${criteria.name}',
+  //             _getColorFromString(criteria.color),
+  //           );
+  //         }).toList(),
+  //       ),
+  //     ],
+  //   );
+  // }
   Widget _buildColorIndicator(List<ScoreCriteriaDetail> scoreCriteria) {
+    // Sort the criteria based on the range (assuming the first number in range determines order)
+    final sortedCriteria = List<ScoreCriteriaDetail>.from(scoreCriteria)
+      ..sort((a, b) {
+        // Extract the first number from each range
+        final aStart = int.parse(a.range.split('-').first);
+        final bStart = int.parse(b.range.split('-').first);
+        return aStart.compareTo(bStart);
+      });
+
+    print("Sorted Criteria:");
+    print(sortedCriteria);
+
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       mainAxisAlignment: MainAxisAlignment.start,
       children: [
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: scoreCriteria.map((criteria) {
+          children: sortedCriteria.map((criteria) {
             return _buildRangeIndicator(
               '${criteria.range} ${criteria.name}',
               _getColorFromString(criteria.color),
@@ -175,7 +209,6 @@ class _StrikeRotationDialogPageState extends State<StrikeRotationDialogPage> {
       ],
     );
   }
-
   Color _getColorFromString(String colorName) {
     switch (colorName.toLowerCase()) {
       case 'green':

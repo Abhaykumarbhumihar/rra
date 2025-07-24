@@ -17,3 +17,8 @@ class ForgetPasswordSubmittedEvent extends ForgetPasswordEvent {
   // TODO: implement props
   List<Object?> get props => [];
 }
+
+class ForgetPasswordResetEvent extends ForgetPasswordEvent {
+  @override
+  List<Object?> get props => [];
+}

@@ -39,6 +39,9 @@ class ResetPassword extends StatelessWidget {
               AppRoutes.LOGIN,
               (Route<dynamic> route) => false,
             );
+            context.read<ResetpasswordBloc>().add(ResetPasswordResetState());
+
+
           } else {
             if (state.isServerError && state.errorMessage != '') {
               context.showCustomSnackbar(state.errorMessage,

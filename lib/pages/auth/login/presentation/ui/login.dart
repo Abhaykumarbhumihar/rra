@@ -68,48 +68,56 @@ class LoginScreen extends StatelessWidget {
                 backgroundColor: AppColor.appcolor);
           }
           if (state.success) {
-            await getIt<SharedPrefs>().setModel("user_model", state.otpresponse);
-            await getIt<SharedPrefs>().setString("token", state.otpresponse.token);
+            if(state.otpresponse.data.role.toString().toLowerCase()=="Super Admin Role".toLowerCase()){
+              context.showCustomSnackbar("Unauthorized user role.");
+              emailController.clear();
+              passwordController.clear();
+              BlocProvider.of<LoginBloc>(context).add(ResetLoginState());
+            }else{
+              await getIt<SharedPrefs>().setModel("user_model", state.otpresponse);
+              await getIt<SharedPrefs>().setString("token", state.otpresponse.token);
 
-            if (state.otpresponse.success) {
-              var academyId = await getIt<SharedPrefs>().getString("selected_academyid");
-              BlocProvider.of<AppBloc>(context).add(UserDataUpdate());
-              //BlocProvider.of<AttendanceBloc>(context).add(GetAttendanceListEvent({"academy_id":academyId}));
-              BlocProvider.of<ViewSessionBloc>(context).add(GetBookedSessionListEvent({"academy_id":academyId}));
-              var userdata = await getIt<SharedPrefs>().getModel<OtpVerificationModel>("user_model", (json) => OtpVerificationModel.fromJson(json));
-              BlocProvider.of<AddDocumentBloc>(context).add(GetUploadedParentDocument({}));
-              BlocProvider.of<AppBloc>(context)
-                  .add(TriggerAppEvent(0));
-
-              if(userdata?.data.role=="coach"){
-                BlocProvider.of<AddDocumentBloc>(context).add(GetTermsSessionCoachingPlayerEvents({"academy_id":academyId}));
-                BlocProvider.of<CollateralBloc>(context).add(GetCollateralListEvent({"academy_id":academyId}));
+              if (state.otpresponse.success) {
+                var academyId = await getIt<SharedPrefs>().getString("selected_academyid");
+                BlocProvider.of<AppBloc>(context).add(UserDataUpdate());
+                //BlocProvider.of<AttendanceBloc>(context).add(GetAttendanceListEvent({"academy_id":academyId}));
                 BlocProvider.of<ViewSessionBloc>(context).add(GetBookedSessionListEvent({"academy_id":academyId}));
+                var userdata = await getIt<SharedPrefs>().getModel<OtpVerificationModel>("user_model", (json) => OtpVerificationModel.fromJson(json));
+                BlocProvider.of<AddDocumentBloc>(context).add(GetUploadedParentDocument({}));
+                BlocProvider.of<AppBloc>(context)
+                    .add(TriggerAppEvent(0));
 
-              }else{
-                BlocProvider.of<CoachingProgramsBloc>(context).add(GroupCoachProgramsListEvent());
-                BlocProvider.of<CoachingProgramsBloc>(context).add(PrivateCoachingProgramsList());
-                BlocProvider.of<AddViewPlayerBloc>(context).add(AddViewPlayerGetChildListEvent());
-                BlocProvider.of<ViewSessionBloc>(context).add(GetBookedSessionListEvent({"academy_id":academyId}));
+                if(userdata?.data.role=="coach"){
+                  BlocProvider.of<AddDocumentBloc>(context).add(GetTermsSessionCoachingPlayerEvents({"academy_id":academyId}));
+                  BlocProvider.of<CollateralBloc>(context).add(GetCollateralListEvent({"academy_id":academyId}));
+                  BlocProvider.of<ViewSessionBloc>(context).add(GetBookedSessionListEvent({"academy_id":academyId}));
 
-                BlocProvider.of<ParentOrderBloc>(context).add(ParentMyOrderListEvent({}));
+                }else{
+                  BlocProvider.of<CoachingProgramsBloc>(context).add(GroupCoachProgramsListEvent());
+                  BlocProvider.of<CoachingProgramsBloc>(context).add(PrivateCoachingProgramsList());
+                  BlocProvider.of<AddViewPlayerBloc>(context).add(AddViewPlayerGetChildListEvent());
+                  BlocProvider.of<ViewSessionBloc>(context).add(GetBookedSessionListEvent({"academy_id":academyId}));
+
+                  BlocProvider.of<ParentOrderBloc>(context).add(ParentMyOrderListEvent({}));
+
+                }
+
+                var publishKey = await getIt<SharedPrefs>().getString("stripe_publish_key");
+                Stripe.publishableKey = publishKey;
+                BlocProvider.of<AddViewPlayerBloc>(
+                    context)
+                    .add(
+                    AddViewPlayerGetChildListEvent());
+                Navigator.pushNamedAndRemoveUntil(
+                  context,
+                  AppRoutes.APPLICATION,
+                      (Route<dynamic> route) => false,
+                );
+
 
               }
-
-              var publishKey = await getIt<SharedPrefs>().getString("stripe_publish_key");
-              Stripe.publishableKey = publishKey;
-              BlocProvider.of<AddViewPlayerBloc>(
-                  context)
-                  .add(
-                  AddViewPlayerGetChildListEvent());
-              Navigator.pushNamedAndRemoveUntil(
-                context,
-                AppRoutes.APPLICATION,
-                    (Route<dynamic> route) => false,
-              );
-
-
             }
+           
           }
         },
         child: BlocBuilder<LoginBloc, LoginState>(
@@ -210,6 +218,10 @@ class LoginScreen extends StatelessWidget {
                                 children: [
                                   GestureDetector(
                                     onTap: () {
+
+                                      BlocProvider.of<ResetpasswordBloc>(context).add(ResetPasswordResetState());
+                                      BlocProvider.of<ForgetPasswordBloc>(context).add(ForgetPasswordResetEvent());
+
                                       Navigator.pushNamed(context, AppRoutes.FORGOTPASSWORD);
                                     },
                                     child: ForgotPasswordText(),
@@ -267,24 +279,3 @@ class LoginScreen extends StatelessWidget {
 
 }
 
-PageRouteBuilder customPageRoute(Widget page) {
-  return PageRouteBuilder(
-    transitionDuration: const Duration(milliseconds: 500),
-    // Adjust duration
-    pageBuilder: (context, animation, secondaryAnimation) => page,
-    transitionsBuilder: (context, animation, secondaryAnimation, child) {
-      const begin = Offset(1.0, 0.0); // Slide from right
-      const end = Offset.zero;
-      const curve = Curves.easeInOut;
-
-      var tween = Tween(begin: begin, end: end).chain(
-        CurveTween(curve: curve),
-      );
-
-      return SlideTransition(
-        position: animation.drive(tween),
-        child: child,
-      );
-    },
-  );
-}

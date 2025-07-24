@@ -17,7 +17,7 @@ class TermsCheckbox extends StatelessWidget {
   const TermsCheckbox({
     super.key,
     required this.isChecked,
-    this.termsUrl = 'https://example.com/terms',
+    this.termsUrl = 'https://demo.rajasthanroyalsacademy.com/page/Privacy',
     this.onChanged,
   });
 

@@ -26,6 +26,7 @@ mixin _$LoginEvent {
         loginButtonPressed,
     required TResult Function() forgotPasswordPressed,
     required TResult Function() signUpPressed,
+    required TResult Function() resetLoginState,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -38,6 +39,7 @@ mixin _$LoginEvent {
         loginButtonPressed,
     TResult? Function()? forgotPasswordPressed,
     TResult? Function()? signUpPressed,
+    TResult? Function()? resetLoginState,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -50,6 +52,7 @@ mixin _$LoginEvent {
         loginButtonPressed,
     TResult Function()? forgotPasswordPressed,
     TResult Function()? signUpPressed,
+    TResult Function()? resetLoginState,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -63,6 +66,7 @@ mixin _$LoginEvent {
     required TResult Function(ForgotPasswordPressed value)
         forgotPasswordPressed,
     required TResult Function(SignUpPressed value) signUpPressed,
+    required TResult Function(ResetLoginState value) resetLoginState,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -74,6 +78,7 @@ mixin _$LoginEvent {
     TResult? Function(LoginButtonPressed value)? loginButtonPressed,
     TResult? Function(ForgotPasswordPressed value)? forgotPasswordPressed,
     TResult? Function(SignUpPressed value)? signUpPressed,
+    TResult? Function(ResetLoginState value)? resetLoginState,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -85,6 +90,7 @@ mixin _$LoginEvent {
     TResult Function(LoginButtonPressed value)? loginButtonPressed,
     TResult Function(ForgotPasswordPressed value)? forgotPasswordPressed,
     TResult Function(SignUpPressed value)? signUpPressed,
+    TResult Function(ResetLoginState value)? resetLoginState,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -188,6 +194,7 @@ class _$LoginEmailChangedImpl implements LoginEmailChanged {
         loginButtonPressed,
     required TResult Function() forgotPasswordPressed,
     required TResult Function() signUpPressed,
+    required TResult Function() resetLoginState,
   }) {
     return emailChanged(email);
   }
@@ -203,6 +210,7 @@ class _$LoginEmailChangedImpl implements LoginEmailChanged {
         loginButtonPressed,
     TResult? Function()? forgotPasswordPressed,
     TResult? Function()? signUpPressed,
+    TResult? Function()? resetLoginState,
   }) {
     return emailChanged?.call(email);
   }
@@ -218,6 +226,7 @@ class _$LoginEmailChangedImpl implements LoginEmailChanged {
         loginButtonPressed,
     TResult Function()? forgotPasswordPressed,
     TResult Function()? signUpPressed,
+    TResult Function()? resetLoginState,
     required TResult orElse(),
   }) {
     if (emailChanged != null) {
@@ -237,6 +246,7 @@ class _$LoginEmailChangedImpl implements LoginEmailChanged {
     required TResult Function(ForgotPasswordPressed value)
         forgotPasswordPressed,
     required TResult Function(SignUpPressed value) signUpPressed,
+    required TResult Function(ResetLoginState value) resetLoginState,
   }) {
     return emailChanged(this);
   }
@@ -251,6 +261,7 @@ class _$LoginEmailChangedImpl implements LoginEmailChanged {
     TResult? Function(LoginButtonPressed value)? loginButtonPressed,
     TResult? Function(ForgotPasswordPressed value)? forgotPasswordPressed,
     TResult? Function(SignUpPressed value)? signUpPressed,
+    TResult? Function(ResetLoginState value)? resetLoginState,
   }) {
     return emailChanged?.call(this);
   }
@@ -265,6 +276,7 @@ class _$LoginEmailChangedImpl implements LoginEmailChanged {
     TResult Function(LoginButtonPressed value)? loginButtonPressed,
     TResult Function(ForgotPasswordPressed value)? forgotPasswordPressed,
     TResult Function(SignUpPressed value)? signUpPressed,
+    TResult Function(ResetLoginState value)? resetLoginState,
     required TResult orElse(),
   }) {
     if (emailChanged != null) {
@@ -365,6 +377,7 @@ class _$LoginPasswordChangedImpl implements LoginPasswordChanged {
         loginButtonPressed,
     required TResult Function() forgotPasswordPressed,
     required TResult Function() signUpPressed,
+    required TResult Function() resetLoginState,
   }) {
     return passwordChanged(password);
   }
@@ -380,6 +393,7 @@ class _$LoginPasswordChangedImpl implements LoginPasswordChanged {
         loginButtonPressed,
     TResult? Function()? forgotPasswordPressed,
     TResult? Function()? signUpPressed,
+    TResult? Function()? resetLoginState,
   }) {
     return passwordChanged?.call(password);
   }
@@ -395,6 +409,7 @@ class _$LoginPasswordChangedImpl implements LoginPasswordChanged {
         loginButtonPressed,
     TResult Function()? forgotPasswordPressed,
     TResult Function()? signUpPressed,
+    TResult Function()? resetLoginState,
     required TResult orElse(),
   }) {
     if (passwordChanged != null) {
@@ -414,6 +429,7 @@ class _$LoginPasswordChangedImpl implements LoginPasswordChanged {
     required TResult Function(ForgotPasswordPressed value)
         forgotPasswordPressed,
     required TResult Function(SignUpPressed value) signUpPressed,
+    required TResult Function(ResetLoginState value) resetLoginState,
   }) {
     return passwordChanged(this);
   }
@@ -428,6 +444,7 @@ class _$LoginPasswordChangedImpl implements LoginPasswordChanged {
     TResult? Function(LoginButtonPressed value)? loginButtonPressed,
     TResult? Function(ForgotPasswordPressed value)? forgotPasswordPressed,
     TResult? Function(SignUpPressed value)? signUpPressed,
+    TResult? Function(ResetLoginState value)? resetLoginState,
   }) {
     return passwordChanged?.call(this);
   }
@@ -442,6 +459,7 @@ class _$LoginPasswordChangedImpl implements LoginPasswordChanged {
     TResult Function(LoginButtonPressed value)? loginButtonPressed,
     TResult Function(ForgotPasswordPressed value)? forgotPasswordPressed,
     TResult Function(SignUpPressed value)? signUpPressed,
+    TResult Function(ResetLoginState value)? resetLoginState,
     required TResult orElse(),
   }) {
     if (passwordChanged != null) {
@@ -542,6 +560,7 @@ class _$SelectAdademicLoginImpl implements SelectAdademicLogin {
         loginButtonPressed,
     required TResult Function() forgotPasswordPressed,
     required TResult Function() signUpPressed,
+    required TResult Function() resetLoginState,
   }) {
     return selectAcademicLogin(academicId);
   }
@@ -557,6 +576,7 @@ class _$SelectAdademicLoginImpl implements SelectAdademicLogin {
         loginButtonPressed,
     TResult? Function()? forgotPasswordPressed,
     TResult? Function()? signUpPressed,
+    TResult? Function()? resetLoginState,
   }) {
     return selectAcademicLogin?.call(academicId);
   }
@@ -572,6 +592,7 @@ class _$SelectAdademicLoginImpl implements SelectAdademicLogin {
         loginButtonPressed,
     TResult Function()? forgotPasswordPressed,
     TResult Function()? signUpPressed,
+    TResult Function()? resetLoginState,
     required TResult orElse(),
   }) {
     if (selectAcademicLogin != null) {
@@ -591,6 +612,7 @@ class _$SelectAdademicLoginImpl implements SelectAdademicLogin {
     required TResult Function(ForgotPasswordPressed value)
         forgotPasswordPressed,
     required TResult Function(SignUpPressed value) signUpPressed,
+    required TResult Function(ResetLoginState value) resetLoginState,
   }) {
     return selectAcademicLogin(this);
   }
@@ -605,6 +627,7 @@ class _$SelectAdademicLoginImpl implements SelectAdademicLogin {
     TResult? Function(LoginButtonPressed value)? loginButtonPressed,
     TResult? Function(ForgotPasswordPressed value)? forgotPasswordPressed,
     TResult? Function(SignUpPressed value)? signUpPressed,
+    TResult? Function(ResetLoginState value)? resetLoginState,
   }) {
     return selectAcademicLogin?.call(this);
   }
@@ -619,6 +642,7 @@ class _$SelectAdademicLoginImpl implements SelectAdademicLogin {
     TResult Function(LoginButtonPressed value)? loginButtonPressed,
     TResult Function(ForgotPasswordPressed value)? forgotPasswordPressed,
     TResult Function(SignUpPressed value)? signUpPressed,
+    TResult Function(ResetLoginState value)? resetLoginState,
     required TResult orElse(),
   }) {
     if (selectAcademicLogin != null) {
@@ -718,6 +742,7 @@ class _$AcademicListImpl implements AcademicList {
         loginButtonPressed,
     required TResult Function() forgotPasswordPressed,
     required TResult Function() signUpPressed,
+    required TResult Function() resetLoginState,
   }) {
     return academicList(location);
   }
@@ -733,6 +758,7 @@ class _$AcademicListImpl implements AcademicList {
         loginButtonPressed,
     TResult? Function()? forgotPasswordPressed,
     TResult? Function()? signUpPressed,
+    TResult? Function()? resetLoginState,
   }) {
     return academicList?.call(location);
   }
@@ -748,6 +774,7 @@ class _$AcademicListImpl implements AcademicList {
         loginButtonPressed,
     TResult Function()? forgotPasswordPressed,
     TResult Function()? signUpPressed,
+    TResult Function()? resetLoginState,
     required TResult orElse(),
   }) {
     if (academicList != null) {
@@ -767,6 +794,7 @@ class _$AcademicListImpl implements AcademicList {
     required TResult Function(ForgotPasswordPressed value)
         forgotPasswordPressed,
     required TResult Function(SignUpPressed value) signUpPressed,
+    required TResult Function(ResetLoginState value) resetLoginState,
   }) {
     return academicList(this);
   }
@@ -781,6 +809,7 @@ class _$AcademicListImpl implements AcademicList {
     TResult? Function(LoginButtonPressed value)? loginButtonPressed,
     TResult? Function(ForgotPasswordPressed value)? forgotPasswordPressed,
     TResult? Function(SignUpPressed value)? signUpPressed,
+    TResult? Function(ResetLoginState value)? resetLoginState,
   }) {
     return academicList?.call(this);
   }
@@ -795,6 +824,7 @@ class _$AcademicListImpl implements AcademicList {
     TResult Function(LoginButtonPressed value)? loginButtonPressed,
     TResult Function(ForgotPasswordPressed value)? forgotPasswordPressed,
     TResult Function(SignUpPressed value)? signUpPressed,
+    TResult Function(ResetLoginState value)? resetLoginState,
     required TResult orElse(),
   }) {
     if (academicList != null) {
@@ -912,6 +942,7 @@ class _$LoginButtonPressedImpl implements LoginButtonPressed {
         loginButtonPressed,
     required TResult Function() forgotPasswordPressed,
     required TResult Function() signUpPressed,
+    required TResult Function() resetLoginState,
   }) {
     return loginButtonPressed(email, password, deviceID);
   }
@@ -927,6 +958,7 @@ class _$LoginButtonPressedImpl implements LoginButtonPressed {
         loginButtonPressed,
     TResult? Function()? forgotPasswordPressed,
     TResult? Function()? signUpPressed,
+    TResult? Function()? resetLoginState,
   }) {
     return loginButtonPressed?.call(email, password, deviceID);
   }
@@ -942,6 +974,7 @@ class _$LoginButtonPressedImpl implements LoginButtonPressed {
         loginButtonPressed,
     TResult Function()? forgotPasswordPressed,
     TResult Function()? signUpPressed,
+    TResult Function()? resetLoginState,
     required TResult orElse(),
   }) {
     if (loginButtonPressed != null) {
@@ -961,6 +994,7 @@ class _$LoginButtonPressedImpl implements LoginButtonPressed {
     required TResult Function(ForgotPasswordPressed value)
         forgotPasswordPressed,
     required TResult Function(SignUpPressed value) signUpPressed,
+    required TResult Function(ResetLoginState value) resetLoginState,
   }) {
     return loginButtonPressed(this);
   }
@@ -975,6 +1009,7 @@ class _$LoginButtonPressedImpl implements LoginButtonPressed {
     TResult? Function(LoginButtonPressed value)? loginButtonPressed,
     TResult? Function(ForgotPasswordPressed value)? forgotPasswordPressed,
     TResult? Function(SignUpPressed value)? signUpPressed,
+    TResult? Function(ResetLoginState value)? resetLoginState,
   }) {
     return loginButtonPressed?.call(this);
   }
@@ -989,6 +1024,7 @@ class _$LoginButtonPressedImpl implements LoginButtonPressed {
     TResult Function(LoginButtonPressed value)? loginButtonPressed,
     TResult Function(ForgotPasswordPressed value)? forgotPasswordPressed,
     TResult Function(SignUpPressed value)? signUpPressed,
+    TResult Function(ResetLoginState value)? resetLoginState,
     required TResult orElse(),
   }) {
     if (loginButtonPressed != null) {
@@ -1066,6 +1102,7 @@ class _$ForgotPasswordPressedImpl implements ForgotPasswordPressed {
         loginButtonPressed,
     required TResult Function() forgotPasswordPressed,
     required TResult Function() signUpPressed,
+    required TResult Function() resetLoginState,
   }) {
     return forgotPasswordPressed();
   }
@@ -1081,6 +1118,7 @@ class _$ForgotPasswordPressedImpl implements ForgotPasswordPressed {
         loginButtonPressed,
     TResult? Function()? forgotPasswordPressed,
     TResult? Function()? signUpPressed,
+    TResult? Function()? resetLoginState,
   }) {
     return forgotPasswordPressed?.call();
   }
@@ -1096,6 +1134,7 @@ class _$ForgotPasswordPressedImpl implements ForgotPasswordPressed {
         loginButtonPressed,
     TResult Function()? forgotPasswordPressed,
     TResult Function()? signUpPressed,
+    TResult Function()? resetLoginState,
     required TResult orElse(),
   }) {
     if (forgotPasswordPressed != null) {
@@ -1115,6 +1154,7 @@ class _$ForgotPasswordPressedImpl implements ForgotPasswordPressed {
     required TResult Function(ForgotPasswordPressed value)
         forgotPasswordPressed,
     required TResult Function(SignUpPressed value) signUpPressed,
+    required TResult Function(ResetLoginState value) resetLoginState,
   }) {
     return forgotPasswordPressed(this);
   }
@@ -1129,6 +1169,7 @@ class _$ForgotPasswordPressedImpl implements ForgotPasswordPressed {
     TResult? Function(LoginButtonPressed value)? loginButtonPressed,
     TResult? Function(ForgotPasswordPressed value)? forgotPasswordPressed,
     TResult? Function(SignUpPressed value)? signUpPressed,
+    TResult? Function(ResetLoginState value)? resetLoginState,
   }) {
     return forgotPasswordPressed?.call(this);
   }
@@ -1143,6 +1184,7 @@ class _$ForgotPasswordPressedImpl implements ForgotPasswordPressed {
     TResult Function(LoginButtonPressed value)? loginButtonPressed,
     TResult Function(ForgotPasswordPressed value)? forgotPasswordPressed,
     TResult Function(SignUpPressed value)? signUpPressed,
+    TResult Function(ResetLoginState value)? resetLoginState,
     required TResult orElse(),
   }) {
     if (forgotPasswordPressed != null) {
@@ -1205,6 +1247,7 @@ class _$SignUpPressedImpl implements SignUpPressed {
         loginButtonPressed,
     required TResult Function() forgotPasswordPressed,
     required TResult Function() signUpPressed,
+    required TResult Function() resetLoginState,
   }) {
     return signUpPressed();
   }
@@ -1220,6 +1263,7 @@ class _$SignUpPressedImpl implements SignUpPressed {
         loginButtonPressed,
     TResult? Function()? forgotPasswordPressed,
     TResult? Function()? signUpPressed,
+    TResult? Function()? resetLoginState,
   }) {
     return signUpPressed?.call();
   }
@@ -1235,6 +1279,7 @@ class _$SignUpPressedImpl implements SignUpPressed {
         loginButtonPressed,
     TResult Function()? forgotPasswordPressed,
     TResult Function()? signUpPressed,
+    TResult Function()? resetLoginState,
     required TResult orElse(),
   }) {
     if (signUpPressed != null) {
@@ -1254,6 +1299,7 @@ class _$SignUpPressedImpl implements SignUpPressed {
     required TResult Function(ForgotPasswordPressed value)
         forgotPasswordPressed,
     required TResult Function(SignUpPressed value) signUpPressed,
+    required TResult Function(ResetLoginState value) resetLoginState,
   }) {
     return signUpPressed(this);
   }
@@ -1268,6 +1314,7 @@ class _$SignUpPressedImpl implements SignUpPressed {
     TResult? Function(LoginButtonPressed value)? loginButtonPressed,
     TResult? Function(ForgotPasswordPressed value)? forgotPasswordPressed,
     TResult? Function(SignUpPressed value)? signUpPressed,
+    TResult? Function(ResetLoginState value)? resetLoginState,
   }) {
     return signUpPressed?.call(this);
   }
@@ -1282,6 +1329,7 @@ class _$SignUpPressedImpl implements SignUpPressed {
     TResult Function(LoginButtonPressed value)? loginButtonPressed,
     TResult Function(ForgotPasswordPressed value)? forgotPasswordPressed,
     TResult Function(SignUpPressed value)? signUpPressed,
+    TResult Function(ResetLoginState value)? resetLoginState,
     required TResult orElse(),
   }) {
     if (signUpPressed != null) {
@@ -1293,4 +1341,149 @@ class _$SignUpPressedImpl implements SignUpPressed {
 
 abstract class SignUpPressed implements LoginEvent {
   const factory SignUpPressed() = _$SignUpPressedImpl;
+}
+
+/// @nodoc
+abstract class _$$ResetLoginStateImplCopyWith<$Res> {
+  factory _$$ResetLoginStateImplCopyWith(_$ResetLoginStateImpl value,
+          $Res Function(_$ResetLoginStateImpl) then) =
+      __$$ResetLoginStateImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$ResetLoginStateImplCopyWithImpl<$Res>
+    extends _$LoginEventCopyWithImpl<$Res, _$ResetLoginStateImpl>
+    implements _$$ResetLoginStateImplCopyWith<$Res> {
+  __$$ResetLoginStateImplCopyWithImpl(
+      _$ResetLoginStateImpl _value, $Res Function(_$ResetLoginStateImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of LoginEvent
+  /// with the given fields replaced by the non-null parameter values.
+}
+
+/// @nodoc
+
+class _$ResetLoginStateImpl implements ResetLoginState {
+  const _$ResetLoginStateImpl();
+
+  @override
+  String toString() {
+    return 'LoginEvent.resetLoginState()';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$ResetLoginStateImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(String email) emailChanged,
+    required TResult Function(String password) passwordChanged,
+    required TResult Function(String academicId) selectAcademicLogin,
+    required TResult Function(String location) academicList,
+    required TResult Function(String email, String password, String deviceID)
+        loginButtonPressed,
+    required TResult Function() forgotPasswordPressed,
+    required TResult Function() signUpPressed,
+    required TResult Function() resetLoginState,
+  }) {
+    return resetLoginState();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(String email)? emailChanged,
+    TResult? Function(String password)? passwordChanged,
+    TResult? Function(String academicId)? selectAcademicLogin,
+    TResult? Function(String location)? academicList,
+    TResult? Function(String email, String password, String deviceID)?
+        loginButtonPressed,
+    TResult? Function()? forgotPasswordPressed,
+    TResult? Function()? signUpPressed,
+    TResult? Function()? resetLoginState,
+  }) {
+    return resetLoginState?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String email)? emailChanged,
+    TResult Function(String password)? passwordChanged,
+    TResult Function(String academicId)? selectAcademicLogin,
+    TResult Function(String location)? academicList,
+    TResult Function(String email, String password, String deviceID)?
+        loginButtonPressed,
+    TResult Function()? forgotPasswordPressed,
+    TResult Function()? signUpPressed,
+    TResult Function()? resetLoginState,
+    required TResult orElse(),
+  }) {
+    if (resetLoginState != null) {
+      return resetLoginState();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(LoginEmailChanged value) emailChanged,
+    required TResult Function(LoginPasswordChanged value) passwordChanged,
+    required TResult Function(SelectAdademicLogin value) selectAcademicLogin,
+    required TResult Function(AcademicList value) academicList,
+    required TResult Function(LoginButtonPressed value) loginButtonPressed,
+    required TResult Function(ForgotPasswordPressed value)
+        forgotPasswordPressed,
+    required TResult Function(SignUpPressed value) signUpPressed,
+    required TResult Function(ResetLoginState value) resetLoginState,
+  }) {
+    return resetLoginState(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(LoginEmailChanged value)? emailChanged,
+    TResult? Function(LoginPasswordChanged value)? passwordChanged,
+    TResult? Function(SelectAdademicLogin value)? selectAcademicLogin,
+    TResult? Function(AcademicList value)? academicList,
+    TResult? Function(LoginButtonPressed value)? loginButtonPressed,
+    TResult? Function(ForgotPasswordPressed value)? forgotPasswordPressed,
+    TResult? Function(SignUpPressed value)? signUpPressed,
+    TResult? Function(ResetLoginState value)? resetLoginState,
+  }) {
+    return resetLoginState?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(LoginEmailChanged value)? emailChanged,
+    TResult Function(LoginPasswordChanged value)? passwordChanged,
+    TResult Function(SelectAdademicLogin value)? selectAcademicLogin,
+    TResult Function(AcademicList value)? academicList,
+    TResult Function(LoginButtonPressed value)? loginButtonPressed,
+    TResult Function(ForgotPasswordPressed value)? forgotPasswordPressed,
+    TResult Function(SignUpPressed value)? signUpPressed,
+    TResult Function(ResetLoginState value)? resetLoginState,
+    required TResult orElse(),
+  }) {
+    if (resetLoginState != null) {
+      return resetLoginState(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class ResetLoginState implements LoginEvent {
+  const factory ResetLoginState() = _$ResetLoginStateImpl;
 }

@@ -16,9 +16,17 @@ class ForgetPasswordBloc
       : super(ForgetPasswordState.initial()) {
     on<ForgetPasswordEmailChanged>(_onEmailChanged);
     on<ForgetPasswordSubmittedEvent>(_onForgotPasswordSubmitted);
+    on<ForgetPasswordResetEvent>(_onResetForgetPasswordState);
+
   }
 
-  Future<void> _onEmailChanged(ForgetPasswordEmailChanged event,
+
+ Future<void> _onResetForgetPasswordState(
+     ForgetPasswordResetEvent event, Emitter<ForgetPasswordState> emit) async {
+   emit(ForgetPasswordState.initial());
+ }
+
+ Future<void> _onEmailChanged(ForgetPasswordEmailChanged event,
       Emitter<ForgetPasswordState> emit) async {
     emit(state.copyWith(
         email: event.email,

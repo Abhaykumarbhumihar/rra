@@ -26,6 +26,7 @@ class ResetPasswordImpl implements ResetPasswrodRepositery {
 
       if (response.statusCode == 200) {
         final Map<String, dynamic> responseData = jsonDecode(response.body);
+        print("YAHA PE RESET KRNE KE BAAD KA DATA ----${responseData}");
         final ResetPasswordModel verificationModel =
             ResetPasswordModel.fromJson(responseData);
         return Right(verificationModel);

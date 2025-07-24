@@ -43,59 +43,76 @@ class ManageTeamList extends StatelessWidget {
                 children: [
                   Column(
                     children: [
-
-                      DropdownSelectionField(
-                        controller: _termController,
-                        title: "Select Term",
-                        items: state.termsProgramSessionPlayerModelData?.data?.term ?? [],
-                        itemText: (item) => item.termName ?? '',
-                        onSelected: (item) {
-                          _termController.text = item?.termName ?? '';
-                          _programController.text = "";
-                          _sessionController.text = "";
-                          context.read<ManageTeamBloc>().add(ManageTeamTermSelected(item!));
-                          BlocProvider.of<ManageTeamBloc>(context).add(
-                            ManageTeamReportEventGetTermsSessionCoachingPlayerEvents({}),
-                          );
-                        },
-                      ),
-
-                      const SizedBox(height: 6),
-
-                      DropdownSelectionField(
-                        controller: _programController,
-                        title: "Select Program",
-                        items: state.termsProgramSessionPlayerModelData?.data?.coachingProgram ?? [],
-                        itemText: (item) => item.name ?? '',
-                        onSelected: (item) {
-                          _programController.text = item?.name ?? '';
-                          _sessionController.text = "";
-                          context.read<ManageTeamBloc>().add(ManageTeamProgramSelected(item!));
-                          BlocProvider.of<ManageTeamBloc>(context).add(
-                            ManageTeamReportEventGetTermsSessionCoachingPlayerEvents({}),
-                          );
-                          BlocProvider.of<ManageTeamBloc>(context).add(GetTeamListEvent({}));
-                        },
-                      ),
-
-                      const SizedBox(height: 6),
-
-                      DropdownSelectionField(
-                        controller: _sessionController,
-                        title: "Select Session",
-                        items: state.termsProgramSessionPlayerModelData?.data?.session ?? [],
-                        itemText: (item) => item.title ?? '',
-                        onSelected: (item) {
-                          _sessionController.text = item?.title ?? '';
-                          context.read<ManageTeamBloc>().add(ManageTeamSessionSelected(item!));
-                          BlocProvider.of<ManageTeamBloc>(context).add(
-                            ManageTeamReportEventGetTermsSessionCoachingPlayerEvents({}),
-                          );
-                          BlocProvider.of<ManageTeamBloc>(context).add(GetTeamListEvent({}));
-                        },
-                      ),
-
-                      const SizedBox(height: 10),
+                      if (state.isLoading == false)
+                        Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: <Widget>[
+                            DropdownSelectionField(
+                              controller: _termController,
+                              title: "Select Term",
+                              items: state.termsProgramSessionPlayerModelData
+                                      ?.data?.term ??
+                                  [],
+                              itemText: (item) => item.termName ?? '',
+                              onSelected: (item) {
+                                _termController.text = item?.termName ?? '';
+                                _programController.text = "";
+                                _sessionController.text = "";
+                                context
+                                    .read<ManageTeamBloc>()
+                                    .add(ManageTeamTermSelected(item!));
+                                BlocProvider.of<ManageTeamBloc>(context).add(
+                                  ManageTeamReportEventGetTermsSessionCoachingPlayerEvents(
+                                      {}),
+                                );
+                              },
+                            ),
+                            const SizedBox(height: 6),
+                            DropdownSelectionField(
+                              controller: _programController,
+                              title: "Select Program",
+                              items: state.termsProgramSessionPlayerModelData
+                                      ?.data?.coachingProgram ??
+                                  [],
+                              itemText: (item) => item.name ?? '',
+                              onSelected: (item) {
+                                _programController.text = item?.name ?? '';
+                                _sessionController.text = "";
+                                context
+                                    .read<ManageTeamBloc>()
+                                    .add(ManageTeamProgramSelected(item!));
+                                BlocProvider.of<ManageTeamBloc>(context).add(
+                                  ManageTeamReportEventGetTermsSessionCoachingPlayerEvents(
+                                      {}),
+                                );
+                                BlocProvider.of<ManageTeamBloc>(context)
+                                    .add(GetTeamListEvent({}));
+                              },
+                            ),
+                            const SizedBox(height: 6),
+                            DropdownSelectionField(
+                              controller: _sessionController,
+                              title: "Select Session",
+                              items: state.termsProgramSessionPlayerModelData
+                                      ?.data?.session ??
+                                  [],
+                              itemText: (item) => item.title ?? '',
+                              onSelected: (item) {
+                                _sessionController.text = item?.title ?? '';
+                                context
+                                    .read<ManageTeamBloc>()
+                                    .add(ManageTeamSessionSelected(item!));
+                                BlocProvider.of<ManageTeamBloc>(context).add(
+                                  ManageTeamReportEventGetTermsSessionCoachingPlayerEvents(
+                                      {}),
+                                );
+                                BlocProvider.of<ManageTeamBloc>(context)
+                                    .add(GetTeamListEvent({}));
+                              },
+                            ),
+                            const SizedBox(height: 10),
+                          ],
+                        ),
 
                       // const SizedBox(height: 24),
                       // DropdownSelectionField(
