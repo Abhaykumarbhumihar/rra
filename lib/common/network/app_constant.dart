@@ -6,13 +6,6 @@ class AppConstant {
  static String get fileBaseUrl => "https://rajasthanroyalsacademy.com/storage/";
 
 
-
-
-
-
-
-
-
   static String get bearer =>"Bearer ";
   static String get createAccount =>"register";
   static String get verifyOtp =>"verify-otp";
