@@ -9,6 +9,10 @@ class AppConstant {
 
 
 
+
+
+
+
   static String get bearer =>"Bearer ";
   static String get createAccount =>"register";
   static String get verifyOtp =>"verify-otp";
